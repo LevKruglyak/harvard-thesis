@@ -1,15 +1,16 @@
 \ProvidesClass{lkx_thesis}[Senior Thesis Class]
-\LoadClass[11pt, letterpaper]{article}
+\LoadClass[11pt, letterpaper]{report}
 \usepackage[utf8]{inputenc}
 \RequirePackage{ifthen}
 
+% TODO: configure in thesis.tex
+\usepackage[portrait, margin=1in, includefoot]{geometry}
 
 % -----------------------------------------------
 %               Font
 % -----------------------------------------------
 
 \usepackage[T1]{fontenc}
-\usepackage[finnish]{babel}
 
 % -----------------------------------------------
 %               Configuration
