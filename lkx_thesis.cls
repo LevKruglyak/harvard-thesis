@@ -25,8 +25,10 @@
 \def\@date{}
 \def\@degree{}
 \def\@subject{}
+\def\@titlegraphic{}
 
 \newcommand{\subtitle}[1]{\def\@subtitle{#1}}
+\newcommand{\titlegraphic}[1]{\def\@titlegraphic{#1}}
 \renewcommand{\author}[1]{\def\@author{#1}}
 \renewcommand{\date}[1]{\def\@date{#1}}
 \renewcommand{\title}[1]{\def\@title{#1}}

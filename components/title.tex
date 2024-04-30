@@ -5,19 +5,17 @@
 			\hfill
 			\vfill
 			{\huge\bfseries\scshape\@title}\\[2ex]
-			{\Large\@subtitle}\\[1em]
+			{\Large\@subtitle}\\[0.5in]
 
-			{
-			\scshape
+			\includegraphics[width=3in]{\@titlegraphic}\\[0.5in]
+
+			{\scshape
+
 			{by\\[1em]}
 			{\bfseries\large\textsl{\@author}}\\[1em]
-
 			{advised by\\[1em]}
-			{\bfseries\large\textsl\advisorlist}\\[0.5in]
+			{\bfseries\large\textsl\advisorlist}\\[0.75in]
 
-			\vfill
-			\includegraphics[width=3in]{graphics/empty_diagram.png}\\[0.5in]
-			\vfill
 			{A thesis presented to \\[1em]}
 			{\large\textsl{\@university}\\[1em]}
 			in partial fulfillment of the\\
@@ -29,10 +27,11 @@
 			in the subject of
 				{\textsl\@subject}\\[1em]
 			}
-
-			{\@location}\\
-			{\@date}\\
+			%
+			% {\@location}\\
+			% {\@date}\\
 			}
+			\vfill
 		\end{center}
 	\end{titlepage}
 }
