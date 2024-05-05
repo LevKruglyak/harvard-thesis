@@ -65,3 +65,10 @@
 \usepackage{titling}
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
+
+% -----------------------------------------------
+%               Development
+% -----------------------------------------------
+\newboolean{development}
+\setboolean{development}{false}
+\newcommand{\development}{\setboolean{development}{true}}

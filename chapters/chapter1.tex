@@ -1,32 +1,81 @@
-\chapter{Introduction}
+\chapter{Introduction}\label{chapter:introduction}
 
-% Epigraph
-\begin{flushleft}
-	\emph{Turn it, and turn it, for everything is in it.}\\
-	\emph{Reflect on it and grow old and gray with it.}\\
-	\emph{Don't turn from it, for nothing is better.}\\
-	\emph{According to the labor is the reward.}\\
-	\rule[0pt]{15em}{0.5pt}\\
-	\emph{Pirkei Avot 5:22}
-\end{flushleft}
-\vspace{-8.59em}
+% % Epigraph
+% \begin{flushleft}
+% 	\emph{Turn it, and turn it, for everything is in it.}\\
+% 	\emph{Reflect on it and grow old and gray with it.}\\
+% 	\emph{Don't turn from it, for nothing is better.}\\
+% 	\emph{According to the labor is the reward.}\\
+% 	\rule[0pt]{15em}{0.5pt}\\
+% 	\emph{Pirkei Avot 5:22}
+% \end{flushleft}
+% \vspace{-8.59em}
+%
+% \begin{cjhebrew}
+% 	b*en b*ag b*ag 'Omer;
+% 	hApok: b*Ah* waha:pok: b*Ah*\textnormal{,}\\
+% 	d*:kol*a' bah*\textnormal{,}
+% 	Ubah* t*EhE:zey\textnormal{,}
+% 	w:siyb Ub:leh bAh*\textnormal{,}\\
+% 	Umin*ah* lo' tAzU`a\textnormal{,}
+% 	+sE'eyN l:kA mid*Ah TObAh heymEn*Ah\textnormal{.}\\
+% 	b*en he' he' 'Omer;
+% 	l:pUm .sa`a:rA' 'Ag:rA'\textnormal{.}\\
+% 	\rule[0pt]{15em}{0.5pt}\\
+% 	p*ir:qey 'AbOt h\textnormal{:}kb
+% \end{cjhebrew}
+%
+% \vspace{2em}
 
-\begin{cjhebrew}
-	b*en b*ag b*ag 'Omer;
-	hApok: b*Ah* waha:pok: b*Ah*\textnormal{,}\\
-	d*:kol*a' bah*\textnormal{,}
-	Ubah* t*EhE:zey\textnormal{,}
-	w:siyb Ub:leh bAh*\textnormal{,}\\
-	Umin*ah* lo' tAzU`a\textnormal{,}
-	+sE'eyN l:kA mid*Ah TObAh heymEn*Ah\textnormal{.}\\
-	b*en he' he' 'Omer;
-	l:pUm .sa`a:rA' 'Ag:rA'\textnormal{.}\\
-	\rule[0pt]{15em}{0.5pt}\\
-	p*ir:qey 'AbOt h\textnormal{:}kb
-\end{cjhebrew}
+We wanna talk about \cite{milnor1963groups} and \cite{milnor1956manifolds} in \autoref{chapter:introduction}
 
-\vspace{2em}
+\section{The Section}
 
-We wanna talk about \cite{milnor1963groups}.
+\lipsum[1]
 
-\lipsum[1-10]
+\subsection{The subsection}
+
+\lipsum[2]
+
+\begin{definition}\label{def:first}
+	A \defn{group} is a set equipped with an associative operation which has identity and inverse. The \defn{cohomology group} is defined as
+	\[
+		\H^{2,0}(X; \C) = \{\}
+	\]
+\end{definition}
+
+\begin{definition}\label{def:pontryagin}
+	Given a real vector bundle $E$ over $M$, it's \defn{$k$-th Pontryagin class} $p_k(E)$ is defined as
+	\[
+		p_k(E) = (-1)^k c_{2k}(E\otimes \C) \in \H^{4k}(M; \Z),
+	\]
+	where $c_{2k}(E\otimes \C)$ denotes the $2k$-th Chern class of the complexification $E\otimes \C$.
+\end{definition}
+
+\begin{lemma}\label{lemma:first}
+	This is a lemma.
+\end{lemma}
+
+\subsection{The subsection}
+
+\begin{definition}\label{def:second}
+	This is a definition, following \cref{lemma:first} and \cref{def:first}.
+\end{definition}
+
+\begin{figure}\label{fig:exotic_spheres_table}
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		\textbf{Dimension}
+		 & 1 & 2 & 3  & 4                      & 5  & 6  & 7
+		 & 8 & 9 & 10 & 11                     & 12 & 13 & 14 & 15    \\
+		\hline
+		\textbf{$\#$ of Exotic Spheres}
+		 & 1 & 1 & 1  & \textbf{\color{red} ?} & 1  & 1  & 28
+		 & 2 & 8 & 6  & 992                    & 1  & 3  & 2  & 16256 \\
+		\hline
+	\end{tabular}
+	\caption{Number of exotic spheres in each dimension.}
+\end{figure}
+
+\lipsum[3-6]
