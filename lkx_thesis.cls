@@ -71,4 +71,10 @@
 % -----------------------------------------------
 \newboolean{development}
 \setboolean{development}{false}
-\newcommand{\development}{\setboolean{development}{true}}
+
+\DeclareOption{development}{\setboolean{development}{true}}
+
+% -----------------------------------------------
+%               Post processing
+% -----------------------------------------------
+\ProcessOptions\relax
