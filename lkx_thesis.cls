@@ -65,16 +65,3 @@
 \usepackage{titling}
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
-
-% -----------------------------------------------
-%               Development
-% -----------------------------------------------
-\newboolean{development}
-\setboolean{development}{false}
-
-\DeclareOption{development}{\setboolean{development}{true}}
-
-% -----------------------------------------------
-%               Post processing
-% -----------------------------------------------
-\ProcessOptions\relax

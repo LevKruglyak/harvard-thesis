@@ -1,9 +1,17 @@
 all:
-	# To avoid \include errors
-	mkdir -p build/chapters
-	mkdir -p build/components
+	latexmk -pdf thesis.tex
 
-	pdflatex -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape -recorder -output-directory="build" "thesis.tex"
-
-clean:
-	rm -r build/
+# SRCS = $(shell find . -name '*.tex')
+#
+# all: $(SRCS) thesis.bbl
+# 	@$(MAKE) pdflatex
+#
+# pdflatex:
+# 	pdflatex -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape -recorder "thesis.tex"
+#
+# thesis.bbl: refs.bib
+# 	@$(MAKE) pdflatex
+# 	biber thesis.bcf
+#
+# clean:
+# 	@rm -f *.aux *.bbl *.bcf *.blg *.log *.out *.run.xml *.toc *.synctex.gz *.fls *.idx *.ilg *.ind */*.aux

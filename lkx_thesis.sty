@@ -10,7 +10,7 @@
 
 % Index
 \usepackage{imakeidx}
-\makeindex[intoc, outputdir=build]
+\makeindex[intoc]
 
 % -----------------------------------------------
 %              Basic math stuff
@@ -42,13 +42,8 @@
 % -----------------------------------------------
 %              References
 % -----------------------------------------------
-\ifthenelse{\boolean{development}}
-{
-}
-{
-	\usepackage[style=alphabetic, natbib=true]{biblatex}
-	\bibliography{refs}{}
-}
+\usepackage[style=alphabetic, natbib=true]{biblatex}
+\bibliography{refs}{}
 
 \usepackage{hyperref}
 \usepackage[capitalize,nameinlink,noabbrev]{cleveref}

@@ -1,15 +1,3 @@
 \renewcommand\bibname{References}
-
-\ifthenelse{\boolean{development}}
-{
-	{
-			\color{red}
-			\bibliography{refs}{}
-			\bibliographystyle{alpha}
-		}
-}
-{
-	\printbibliography
-}
-
+\printbibliography
 \addcontentsline{toc}{chapter}{References}
