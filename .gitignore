@@ -17,3 +17,4 @@ build/
 *.blg
 *.synctex(busy)
 *.fdb_latexmk
+thesis.pdf
