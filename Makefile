@@ -7,7 +7,7 @@ all: $(SRCS) thesis.bbl
 pdflatex:
 	pdflatex -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape -recorder "thesis.tex"
 
-thesis.bbl: refs.bib
+thesis.bbl: thesis.bib
 	@$(MAKE) pdflatex
 	biber thesis.bcf
 
