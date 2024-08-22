@@ -1,5 +1,6 @@
 \usepackage{xcolor}
 \usepackage{xstring}
+\usepackage{xparse}
 \usepackage{graphicx}
 
 % For debugging
@@ -8,9 +9,12 @@
 % Epigraphs
 \usepackage{cjhebrew}
 
-% Index
+% -----------------------------------------------
+%              Index 
+% -----------------------------------------------
 \usepackage{imakeidx}
 \makeindex[intoc]
+\newcommand{\lkxindex}{\printindex}
 
 % -----------------------------------------------
 %              Basic math stuff
@@ -42,8 +46,14 @@
 % -----------------------------------------------
 %              References
 % -----------------------------------------------
-\usepackage[style=alphabetic, natbib=true]{biblatex}
+\usepackage[style=alphabetic, natbib=true, backref=true, backrefstyle=three]{biblatex}
 \bibliography{refs}{}
+
+\newcommand{\lkxrefs}{
+	\renewcommand\bibname{References}
+	\printbibliography
+	\addcontentsline{toc}{chapter}{References}
+}
 
 \usepackage{hyperref}
 \usepackage[capitalize,nameinlink,noabbrev]{cleveref}
@@ -59,6 +69,14 @@
 \renewcommand{\chapterautorefname}{Chapter}
 \renewcommand{\sectionautorefname}{Section}
 \renewcommand{\subsectionautorefname}{Section}
+
+% -----------------------------------------------
+%              Table of Contents
+% -----------------------------------------------
+\newcommand{\lkxtoc}{
+	\setcounter{tocdepth}{1}
+	\tableofcontents
+}
 
 % -----------------------------------------------
 %              Environments
@@ -80,8 +98,16 @@
 {\medskip}
 }
 
-\newcommand\keyword[1]{{\emph{#1}}\index{#1}}
-\newcommand\defn[1]{\textbf{\emph{#1}}\index{#1}}
+\NewDocumentCommand{\defn}{m o}{%
+  \textbf{\emph{#1}}%
+  \IfValueTF{#2}{\index{#2}}{\index{#1}}%
+}
+
+\NewDocumentCommand{\keyword}{m o}{%
+  \emph{#1}%
+  \IfValueTF{#2}{\index{#2}}{\index{#1}}%
+}
+
 \newcommand\todo[1]{{\color{red}\textbf{#1}}}
 
 \newtheoremstyle{lkx_theorem}

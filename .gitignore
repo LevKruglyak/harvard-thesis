@@ -4,6 +4,7 @@ build/
 
 *.aux
 *.bcf
+*.bcf*
 *.fls
 *.idx
 *.ilg
@@ -13,7 +14,7 @@ build/
 *.xml
 *.gz
 *.toc
-*.bbl
+*.bbl*
 *.blg
 *.synctex(busy)
 *.fdb_latexmk
