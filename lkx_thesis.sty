@@ -79,8 +79,18 @@
 }
 
 % -----------------------------------------------
+%              				TikZ              
+% -----------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% -----------------------------------------------
 %              Environments
 % -----------------------------------------------
+
+% Figures with word wrapping
+\usepackage{wrapfig}
+\usepackage{adjustbox}
 
 \newenvironment{changemargins}{%
 \begin{list}{}{%
@@ -112,7 +122,7 @@
 
 \newtheoremstyle{lkx_theorem}
 {}{}{\slshape}{}{}{.}{ }
-{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3})}}
+{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3 Theorem})}}
 
 \theoremstyle{lkx_theorem}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -212,3 +222,6 @@
 \providecommand{\op}{\operatorname}
 \providecommand{\geq}{\geqslant}
 \providecommand{\leq}{\leqslant}
+
+
+\providecommand{\Pf}{\operatorname{Pf}}
