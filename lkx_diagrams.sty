@@ -1,0 +1,22 @@
+% -----------------------------------------------
+%              TikZ and Figures             
+% -----------------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% Figures with word wrapping
+\usepackage{wrapfig}
+\usepackage{adjustbox}
+
+% Global figure settings
+\setlength{\belowcaptionskip}{0em}
+\usepackage[font=small,skip=0em]{caption}
+
+\newenvironment{lkx_diagram}[1]{
+	\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] (image) at (0,0) {\adjustbox{max width=\linewidth}{\includegraphics{#1}}};
+		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+			}{
+		\end{scope}
+	\end{tikzpicture}
+}
