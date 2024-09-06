@@ -4,7 +4,7 @@
 		\begin{center}
 			\hfill
 			\vfill
-			{\huge\bfseries\scshape\@title}\\[2ex]
+			{\Huge\bfseries{\@title}}\\[2ex]
 			{\Large\@subtitle}\\[0.5in]
 
 			\includegraphics[width=3in]{\@titlegraphic}\\[0.5in]
@@ -12,20 +12,23 @@
 			{\scshape
 
 			{by\\[1em]}
-			{\bfseries\large\textsl{\@author}}\\[1em]
+			{\bfseries\large\textsc{\@author}}\\[1em]
 			{advised by\\[1em]}
 			{\bfseries\large\textsl\advisorlist}\\[0.5in]
 
 			{A thesis presented to \\[1em]}
-			{\bfseries\large\textsl{\@university}\\[1em]}
+			% {\bfseries\large\textsl{\@university}\\[1em]}
+			{\large\textsl{\@university}\\[1em]}
 			in partial fulfillment of the\\
 			requirements for the degree of\\[1em]
 
 			{
 			\large
-			{\bfseries\textsl\@degree}\\
+			% {\bfseries\textsl\@degree}\\
+			{\textsl\@degree}\\
 			in the subject of
-			{\bfseries\textsl\@subject}\\[1em]
+			% {\bfseries\textsl\@subject}\\[1em]
+			{\textsl\@subject}\\[1em]
 			}
 			%
 			% {\@location}\\

@@ -5,11 +5,11 @@ all: $(SRCS) thesis.bbl
 	@$(MAKE) pdflatex
 
 pdflatex:
-	pdflatex -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape -recorder "thesis.tex"
+	xelatex -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape -recorder "thesis.tex"
 
 thesis.bbl: thesis.bib
 	@$(MAKE) pdflatex
 	biber thesis.bcf
 
 clean:
-	@rm -f *.aux *.bbl *.bcf *.blg *.log *.out *.run.xml *.toc *.synctex.gz *.fls *.idx *.ilg *.ind */*.aux *.fdb_latexmk
+	@rm -f *.aux *.bbl* *.bcf* *.blg *.log *.out *.run.xml *.toc *.synctex.gz *.fls *.idx *.ilg *.ind */*.aux *.fdb_latexmk

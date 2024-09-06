@@ -99,23 +99,23 @@
 }
 
 \NewDocumentCommand{\defn}{m o}{%
-  \textbf{\emph{#1}}%
-  \IfValueTF{#2}{\index{#2}}{\index{#1}}%
+	\textbf{\textsl{#1}}%
+	\IfValueTF{#2}{\index{#2}}{\index{#1}}%
 }
 
 \NewDocumentCommand{\keyword}{m o}{%
-  \emph{#1}%
-  \IfValueTF{#2}{\index{#2}}{\index{#1}}%
+	\emph{#1}%
+	\IfValueTF{#2}{\index{#2}}{\index{#1}}%
 }
 
-\newcommand\todo[1]{{\color{red}\textbf{#1}}}
+\newcommand{\todo}[1]{{\color{red}\textbf{#1}}}
 
 \newtheoremstyle{lkx_theorem}
 {}{}{\slshape}{}{}{.}{ }
-{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3 Theorem})}}
+{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (\textsc{#3}\index{#3 Theorem})}}
 
 \theoremstyle{lkx_theorem}
-\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{theorem}{Theorem}[]
 \renewcommand{\theoremautorefname}{Theorem}
 
 \newtheorem{claim}[theorem]{Claim}
@@ -213,5 +213,20 @@
 \providecommand{\geq}{\geqslant}
 \providecommand{\leq}{\leqslant}
 
-
 \providecommand{\Pf}{\operatorname{Pf}}
+
+% Small diagrams
+\providecommand{\longto}{\;\xrightarrow{\phantom{xxx}}\;}
+\providecommand{\longisom}{\;\xrightarrow{\phantom{xx}\sim\phantom{xx}}\;}
+\providecommand{\longsurj}{\;\xtwoheadrightarrow{\phantom{xxx}}\;}
+
+\providecommand{\definefunction}[5]{
+	\begin{array}{rcl}
+		\ifstrempty{#1}{
+		} {
+			#1 :
+		}
+		#2 & \xrightarrow{\phantom{---}} & #3 \\
+		#4 & \xmapsto{\phantom{---}}     & #5
+	\end{array}
+}
