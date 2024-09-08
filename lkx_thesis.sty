@@ -43,6 +43,8 @@
 \fancyhf[leh,roh]{\thepage}
 \fancyhf[loh,reh]{\slshape\leftmark}
 
+\usepackage[skip=0em, indent=2em]{parskip}
+
 % -----------------------------------------------
 %              References
 % -----------------------------------------------
@@ -130,6 +132,9 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newcommand{\propositionautorefname}{Proposition}
 
+\newtheorem{insight}{Insight}
+\newcommand{\insightautorefname}{Insight}
+
 \newtheoremstyle{lkx_definition}
 {}{}{\slshape}{}{}{.}{ }
 {{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3})}}
@@ -210,6 +215,7 @@
 
 % Misc
 \providecommand{\op}{\operatorname}
+\providecommand{\id}{\op{id}}
 \providecommand{\geq}{\geqslant}
 \providecommand{\leq}{\leqslant}
 

@@ -1,1 +1,32 @@
-\chapter{Characteristic Classes}
+\chapter{Characteristic Classes}\label{chapter:characteristic_classes}
+
+\section{The Cohomology of Fiber Bundles}
+
+\todo{Throughout, let's fix $h^*$ to be the singular cohomology theory with some commutative coefficient ring $\Lambda$.}
+
+To begin to understand the cohomology of fiber bundles -- more specifically, the relationship between the cohomology of the fiber, total, and base spaces in a fiber bundle -- we first turn our attention to the additive structure. Given some fiber bundle $p : E \to B$, there is a natural scalar multiplication action of $h^*(B)$ on $h^*(E)$ given by
+\[
+  \definefunction{}{h^*(B)\times h^*(E)}{h^*(E)}{(\alpha, x)}{p^*(\alpha)\smile x.}
+\]
+This endows $h^*(E)$ with the structure of a $h^*(B)$-module. In a general topological setting, the structure of this $h^*(B)$-module can be quite complicated. To see why this is the case, let's start with the simplest possible case -- a trivial vector bundle, say $E=B\times F$. 
+
+\begin{theorem}[Leray-Hirsch]\label{thm:leray-hirsch} Let $p : E \to B$ be a fiber bundle with fiber $F$. For any point $b\in B$, let $\iota_b : F \to E$ be the fiber inclusion map. Now suppose that for any $k\in \Z$ and point $b\in B$:
+  \begin{enumerate}
+    \item $h^k(F)$ is a free $\Lambda$-module of finite rank,
+    \item the restriction $\iota_b^* : h^k(E) \to h^k(F)$ is surjective.
+  \end{enumerate}
+  Picking some distinguished basepoint $b\in B$, let's also choose a section $s : h^*(F) \to h^*(E)$ of the surjection $\iota_b^*$. Then, the linear map
+  \[
+    \definefunction{}{h^*(F)\otimes_\Lambda h^*(B)}{h^*(E)}{\alpha\otimes \beta}{s(\alpha)\smile p^*(\beta)}
+  \]
+  is an isomorphism of $h^*(B)$-modules.
+\end{theorem}
+
+The first condition should be interpreted as an orientability requirement for the fiber bundle, and the second condition
+
+Under these
+In other words, under suitable orientability and non-degeneracy conditions, we can consider $h^*(E)$ as a free $h^*(B)$-module.
+
+\begin{insight}
+  The twisting of an oriented vector? bundle is entirely encoded in the \textbf{multiplicative} structure of cohomology -- the additive structure is trivial.
+\end{insight}

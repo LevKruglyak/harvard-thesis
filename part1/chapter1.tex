@@ -1,4 +1,4 @@
-\chapter{Introduction}\label{chapter:introduction}
+\chapter{Introduction}%\label{chapter:introduction}
 
 \section{Topology in Antiquity}
 
@@ -7,26 +7,32 @@
 
 \section{Foundational Results}
 
-Today we will discuss \cite{dieck2008algebraic}, there we will define the \defn{$k$-th Pontryagin class}[Pontryagin class].
-
-\begin{theorem}[Whitney Embedding]
+% Today we will discuss \cite{dieck2008algebraic}, there we will define the \defn{$k$-th Pontryagin class}[Pontryagin class].
+%
+\begin{theorem}[Whitney Embedding]\label{theorem:whitney_embedding}
   Any (smooth) $m$-dimensional manifold can be (smoothly) embedded in $2m$-dimensional Euclidean space.
 \end{theorem}
 
-\begin{theorem}[Whitney Immersion]
-  Any smooth $m$-dimensional manifold can be immersed (not necessarily one-to-one) in $(2m-1)$-dimensional Euclidean space.
-\end{theorem}
+\begin{proof}
+  This is a proof of the theorem.
+\end{proof}
 
-\begin{theorem}[Leray-Hirsch Isomorphism]
-  Let $\xi : E \to B$ be a fiber bundle with fiber $F$, and let's fix some commutative ring $\Lambda$ for coefficients. Assume that $H^p(F;\Lambda)$ is finite dimensional in each degree $p$. 
-
-  Then the linear map
-  \[
-    \definefunction{}{h^*(F)\otimes h^*(B)}{h^*(E; \Lambda)}{\alpha\otimes \beta}{s(\alpha)\smile \pi^*(\beta)}
-  \]
-  is an isomorphism of $h^*(B)$-modules.
-\end{theorem}
-
-\begin{center}
-  \emph{The twisted structure of a bundle is encoded in the \textbf{multiplicative} structure of cohomology, not the additive structure.}
-\end{center}
+I want to discuss \cref{theorem:whitney_embedding}.
+%
+% \begin{theorem}[Whitney Immersion]
+%   Any smooth $m$-dimensional manifold can be immersed (not necessarily one-to-one) in $(2m-1)$-dimensional Euclidean space.
+% \end{theorem}
+%
+% \begin{theorem}[Leray-Hirsch Isomorphism]
+%   Let $\xi : E \to B$ be a fiber bundle with fiber $F$, and let's fix some commutative ring $\Lambda$ for coefficients. Assume that $H^p(F;\Lambda)$ is finite dimensional in each degree $p$. 
+%
+%   Then the linear map
+%   \[
+%     \definefunction{}{h^*(F)\otimes h^*(B)}{h^*(E; \Lambda)}{\alpha\otimes \beta}{s(\alpha)\smile \pi^*(\beta)}
+%   \]
+%   is an isomorphism of $h^*(B)$-modules.
+% \end{theorem}
+%
+% \begin{center}
+%   \emph{The twisted structure of a bundle is encoded in the \textbf{multiplicative} structure of cohomology, not the additive structure.}
+% \end{center}
