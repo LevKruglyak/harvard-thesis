@@ -1,32 +1,65 @@
 \chapter{Characteristic Classes}\label{chapter:characteristic_classes}
 
+In this chapter, we'll explore the rich theory of \keyword{characteristic classes} -- a wide bridge of structures which connect the geometric theory of fiber bundles with the algebraic theory of cohomology.
+
 \section{The Cohomology of Fiber Bundles}
 
-\todo{Throughout, let's fix $h^*$ to be the singular cohomology theory with some commutative coefficient ring $\Lambda$.}
+\todo{Throughout, let's fix $h^*$ to be the singular cohomology theory with some finitely generated commutative coefficient ring $\Lambda$. Assume all spaces are CW complexes.}
 
-To begin to understand the cohomology of fiber bundles -- more specifically, the relationship between the cohomology of the fiber, total, and base spaces in a fiber bundle -- we first turn our attention to the additive structure. Given some fiber bundle $p : E \to B$, there is a natural scalar multiplication action of $h^*(B)$ on $h^*(E)$ given by
+Having seen the versatility of fiber bundles in building spaces, constructing topological invariants, and exposing hidden symmetries, we would like to better understand the cohomology of these structures. More specifically, we would like to know:
+
+\begin{center}
+\slshape
+What is the relationship between the cohomology of the fiber, 
+
+total, and base spaces in a fiber bundle? What aspects of 
+
+the bundle structure control this relationship?
+\end{center}
+
+We'll begin our investigation with the simplest possible case of a fiber bundle -- the trivial bundle. Picking some fiber space $F$, set the total space to the product $E=B\times F$. Assuming that the spaces $F, B$ have finitely generated cohomology, we get a short exact sequence\footnote{The ``$+1$'' in the sequence indicates that the homomorphism has degree $1$.}
 \[
-  \definefunction{}{h^*(B)\times h^*(E)}{h^*(E)}{(\alpha, x)}{p^*(\alpha)\smile x.}
+  \begin{tikzcd}
+    0 \arrow[r] & h^*(B)\otimes_\Lambda h^*(F) \arrow[r] & h^*(E) \arrow[r, "+1"] & \Tor_1(h^*(B), h^*(F)) \arrow[r] & 0
+  \end{tikzcd}
 \]
-This endows $h^*(E)$ with the structure of a $h^*(B)$-module. In a general topological setting, the structure of this $h^*(B)$-module can be quite complicated. To see why this is the case, let's start with the simplest possible case -- a trivial vector bundle, say $E=B\times F$. 
+by the K\"unneth formula for cohomology. In many of the cases we are interested in, we can further assume that $h^*(F)$ is a free $\Lambda$-module in each dimension so that the torsion complex $\Tor_1(h^*(B), h^*(F))$ vanishes. We thus get an isomorphism of $\Lambda$-modules:
+\[h^*(B)\otimes_\Lambda h^*(F)\cong h^*(E)\]
+This isomorphism is the \keyword{cohomology cross product}, defined as
+\[
+  \definefunction{}{h^*(B)\otimes_\Lambda h^*(F)}{h^*(E)}{\alpha\otimes \beta}{\alpha\times\beta = \pi_B^*(\alpha)\smile \pi_F^*(\beta)}
+\]
+where $\pi_B : E \to B$ and $\pi_F : E \to F$ are the projection maps. With the aforementioned assumption that $h^*(F)$ is a free $\Lambda$-module, this isomorphism of $\Lambda$-modules is actually an isomorphism of graded rings (or graded $\Lambda$-algebras).\footnote{To see what can go wrong with the multiplicative structure when the cohomology groups $h^*(F)$ are not free, see Example~3E.6 in \cite{hatcher2002}.
+}
+Altogether, this shouldn't be too surprising; if $E$ is built up in the simplest way possible as a product of $B$ and $F$, then $h^*(E)$ is the simplest thing it could be -- a graded tensor product of $h^*(B)$ and $h^*(F)$.
 
-\begin{theorem}[Leray-Hirsch]\label{thm:leray-hirsch} Let $p : E \to B$ be a fiber bundle with fiber $F$. For any point $b\in B$, let $\iota_b : F \to E$ be the fiber inclusion map. Now suppose that for any $k\in \Z$ and point $b\in B$:
+We've seen the trivial case. What will happen when the fiber bundle is more complicated? Let's see what data we have to work with. Unlike in the case of the trivial fiber bundle, for a general fiber bundle $p : E \to B$ with fiber $F$ we don't have a canonical map $s : E\to F$ with which to define the ``cross product'' homomorphism. 
+Not only is there not a canonical choice of such a map, but it might not even exist non-trivially! Consider for instance the \keyword{Hopf fibration} $S^1\to S^3 \to S^2$. Any map $s : S^3\to S^1$ must be null-homotopic since $\pi_3(S^1)=0$, and would thus induce the zero map on cohomology. 
+
+Maybe we don't need a continuous map $s : E \to F$, but only a homomorphism $s : h^*(F) \to h^*(E)$.
+Any such homomorphism should satisfy $\iota_b^*\circ s = \id_{h^*(F)}$, where $\iota_b : F \to E$ is the fiber inclusion map at a particular point $b\in B$. There are some obstructions to finding such homomrphisms. For starters, the restriction map $\iota_b^* : h^*(E) \to h^*(F)$ is not always surjective -- in the Hopf fibration example, the map $\iota_b^* : h^1(S^3) \to h^1(S^1)$ simply can't be surjective since the domain is zero and the target is $\Lambda$. However, if $\iota_b^*$ were surjective then by freeness of $h^*(F)$ there exist splittings of $\iota_b^*$ which is exactly what we're after.
+
+It turns out that the two conditions we've listed -- freeness of $h^*(F)$ and surjectivity of $\iota_b^*$ -- are all that we need to construct a ``cross product'' homomorphism for a general fiber bundle. Some sources call such fiber bundles \defn{totally non-homologous to zero}. The claim that this homomorphism is a module isomorphism is the statement of the Leray-Hirsch Theorem, a generalization of the K\"unneth Formula for fiber bundles.
+
+\begin{theorem}[Leray-Hirsch]\label{thm:leray-hirsch} Let $p : E \to B$ be a fiber bundle with fiber $F$. Suppose that for any $k\in \Z$ and point $b\in B$:
   \begin{enumerate}
     \item $h^k(F)$ is a free $\Lambda$-module of finite rank,
     \item the restriction $\iota_b^* : h^k(E) \to h^k(F)$ is surjective.
   \end{enumerate}
-  Picking some distinguished basepoint $b\in B$, let's also choose a section $s : h^*(F) \to h^*(E)$ of the surjection $\iota_b^*$. Then, the linear map
+  Choose a splitting $s : h^*(F) \to h^*(E)$ of the surjection $\iota_b^*$. Then, the linear map
   \[
     \definefunction{}{h^*(F)\otimes_\Lambda h^*(B)}{h^*(E)}{\alpha\otimes \beta}{s(\alpha)\smile p^*(\beta)}
   \]
-  is an isomorphism of $h^*(B)$-modules.
+  is an isomorphism of $\Lambda$-modules.
 \end{theorem}
 
-The first condition should be interpreted as an orientability requirement for the fiber bundle, and the second condition
+We can do slightly better. The projection $p : E \to B$ gives us a natural scalar multiplication action of $h^*(B)$ on $h^*(E)$ given by
+\[
+  \definefunction{}{h^*(E)\times h^*(B)}{h^*(E)}{(x, \alpha)}{x\smile p^*(\alpha).}
+\]
+With this scalar multiplication map, $h^*(E)$ is endowed with the structure of a $h^*(B)$-module, an often more useful perspective than viewing it as just a $\Lambda$-module. It should be clear that the isomorphism in \cref{thm:leray-hirsch} is in fact an isomorphism of $h^*(B)$-modules.
 
-Under these
-In other words, under suitable orientability and non-degeneracy conditions, we can consider $h^*(E)$ as a free $h^*(B)$-module.
 
 \begin{insight}
-  The twisting of an oriented vector? bundle is entirely encoded in the \textbf{multiplicative} structure of cohomology -- the additive structure is trivial.
+  The twisting of an ``oriented'' fiber bundle is entirely encoded in the \textbf{multiplicative} structure of cohomology -- the additive structure is the same as the trivial bundle.
 \end{insight}

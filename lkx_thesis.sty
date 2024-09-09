@@ -114,7 +114,7 @@
 
 \newtheoremstyle{lkx_theorem}
 {}{}{\slshape}{}{}{.}{ }
-{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (\textsc{#3}\index{#3 Theorem})}}
+{{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3}\index{#3 Theorem})}}
 
 \theoremstyle{lkx_theorem}
 \newtheorem{theorem}{Theorem}[]
@@ -226,6 +226,8 @@
 \providecommand{\longisom}{\;\xrightarrow{\phantom{xx}\sim\phantom{xx}}\;}
 \providecommand{\longsurj}{\;\xtwoheadrightarrow{\phantom{xxx}}\;}
 
+\providecommand{\qtq}[1]{\quad\textrm{#1}\quad}
+
 \providecommand{\definefunction}[5]{
 	\begin{array}{rcl}
 		\ifstrempty{#1}{
@@ -236,3 +238,7 @@
 		#4 & \xmapsto{\phantom{---}}     & #5
 	\end{array}
 }
+
+\usepackage{tikz-cd}
+% TODO: make this like xrightarrow
+\tikzcdset{arrow style=tikz, every arrow/.append style={line width=0.6pt}}
