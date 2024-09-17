@@ -207,7 +207,7 @@
 \providecommand{\Lie}{\operatorname{Lie}}
 
 % Category Theory
-\providecommand{\cat}{\mathbf}
+\providecommand{\cat}[1]{\mathbf{#1}}
 \providecommand{\Set}{\cat{Set}}
 \providecommand{\Top}{\cat{Top}}
 \providecommand{\Vect}{\cat{Vect}}
@@ -224,23 +224,47 @@
 \providecommand{\Bun}{\operatorname{Bun}}
 \providecommand{\Hdr}{\operatorname{H}_{\operatorname{dR}}}
 
-% Small diagrams
-\providecommand{\longto}{\;\xrightarrow{\phantom{xxx}}\;}
-\providecommand{\longisom}{\;\xrightarrow{\phantom{xx}\sim\phantom{xx}}\;}
-\providecommand{\longsurj}{\;\xtwoheadrightarrow{\phantom{xxx}}\;}
 
 \providecommand{\qtq}[1]{\quad\textrm{#1}\quad}
 
-\providecommand{\definefunction}[5]{
+% Small diagrams
+\providecommand{\lkxto}{\;\xrightarrow{\phantom{xx{\sim}xx}}\;}
+\providecommand{\lkxmapsto}{\;\xmapsto{\phantom{xx{\sim}xx}}\;}
+\providecommand{\lkxisom}{\;\xrightarrow{\phantom{xx}\sim\phantom{xx}}\;}
+\providecommand{\lkxsurj}{\;\xtwoheadrightarrow{\phantom{xx{\sim}xx}}\;}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\lkxsfunc}{ O{to} m m m }{
 	\begin{array}{rcl}
-		\ifstrempty{#1}{
-		} {
-			#1 :
+		\tl_if_blank:nTF {#2}{}{#2 \;:\;}
+		#3 & 
+		\str_case:nn {#1}
+		{
+			{to} {\lkxto}
+			{isom} {\lkxisom}
+			{surj} {\lkxsurj}
 		}
-		#2 & \xrightarrow{\phantom{---}} & #3 \\
-		#4 & \xmapsto{\phantom{---}}     & #5
+		& #4
 	\end{array}
 }
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewDocumentCommand{\lkxlfunc}{ O{to} m m m m m }{
+	\begin{array}{rcl}
+		\tl_if_blank:nTF {#2}{}{#2 \;:\;}
+		#3 & 
+		\str_case:nn {#1}
+		{
+			{to} {\lkxto}
+			{isom} {\lkxisom}
+			{surj} {\lkxsurj}
+		}
+		& #4 \\
+		#5 & \lkxmapsto & #6
+	\end{array}
+}
+\ExplSyntaxOff
 
 \usepackage{tikz-cd}
 % TODO: make this like xrightarrow

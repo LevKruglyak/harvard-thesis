@@ -1,34 +1,47 @@
 \chapter{Characteristic Classes}\label{chapter:characteristic_classes}
 
-In this chapter, we'll explore the rich theory of \keyword{characteristic classes} -- a wide bridge of structures which connect the geometric theory of fiber bundles with the algebraic/topological theory of cohomology.
+In this chapter, we'll explore the rich theory of \emph{characteristic classes} -- a wide bridge of structures which connect the geometric theory of fiber bundles with the algebraic/topological theory of cohomology.
 Using characteristic classes, geometric insights about fiber bundles can be translated into algebraic statements in cohomology, which in turn give us topological insights. In the other direction, algebraic computations in cohomology can be used to get geometric insights about fiber bundles.
 
 Although a comprehensive theory of characteristic classes only began to emerge in the first half of the 20th century, the basic principle was discovered almost a century earlier by Gauss and (independently) by Pierre Bonnet. At the time, the study of the geometry of surfaces was done entirely in affine space -- it wasn't until Gauss's \keyword{Theorema Egregium} (Latin for ``Remarkable Theorem'') that it was realized that the geometry of a surface can be studied entirely in terms of its intrinsic structure, independently of any embedding.
 It's not surprising why Gauss called this result remarkable -- the global geometry of a surface can be \emph{entirely} determined by the local data of measuring lengths, angles, and their rates of change.
 
 In the modern mathematical language, this data amounts to an inner product structure\footnote{This inner product structure is often called the \defn{first fundamental form} of the surface.} on the tangent bundle $TM$ of a $2$-dimensional manifold $M$. For an example of geometric structure, we can consider the notion of \keyword{Gaussian curvature}, although its precise definition is outside the scope of this example.
-Taken at every point, the curvature of a surface forms a scalar field, usually denoted $K$ -- a function which is positive on ``spherical'' regions and negative on ``saddle-shaped'' regions. Choosing a surface element $dA$, we can consider the differential form $ K\,dA/2\pi \in \Omega^2(M).$
-Surprisingly, when we integrate this differential form (something which was defined entirely in terms of the geometry of the tangent bundle) we get the Euler characteristic, a purely topological invariant of the base manifold.
+Taken at every point, the curvature of a surface forms a scalar field, usually denoted $K$ -- a function which is positive on ``spherical'' regions and negative on ``saddle-shaped'' regions. Assuming a choice of orientation and letting $dA$ be the surface form, we can consider the differential form $ K\,dA/2\pi \in \Omega^2(M)$.
+Surprisingly, when integrating this differential form (something which was defined entirely in terms of the geometry of the tangent bundle) gives the Euler characteristic, a purely topological invariant of the base manifold.
 
 \begin{theorem}[Gauss-Bonnet]\label{thm:gauss_bonnet} For any closed Riemannian $2$-manifold $M$, we have:\[\chi(M) = \int_M K\, \frac{dA}{2\pi}.\]
 \end{theorem}
 
 Since the map $\Hdr^n(M) \to \R$ which sends a de Rham cohomology class $[\omega]$ to its integral $\int_M \omega$ is an isomorphism, \cref{thm:gauss_bonnet} implies that the cohomology class of $K\,dA/2\pi$ is independent of the choice of inner product on $M$. Rather, it only depends on the structure of $TM$ as an \emph{oriented vector bundle}.
-This invariance might lead one to wonder if it's possible to assign a cohomology class to \emph{any} oriented vector bundle on a manifold -- not just the tangent bundle. The answer turns out to be a resounding yes. Gauss and Bonnet had uncovered a deep fact about manifolds with bundle structure
+This invariance might lead one to wonder if it's possible to assign a cohomology class to \emph{any} oriented vector bundle on a manifold -- not just the tangent bundle. The answer turns out to be a resounding yes. Gauss and Bonnet had uncovered a deep fact about bundle structures:
+\begin{center}
+	\slshape
+The cohomology of a space serves as a natural source 
 
-\begin{insight}
-The cohomology of a space serves as a natural source of invariants for bundle structures on that space. \end{insight}
+of invariants for bundle structures on that space. 
+\end{center}
+Such an assignment of cohomology classes to bundle structures is known as a \keyword{characteristic class}. 
+Here, the vagueness of ``bundle structure'' is intentional -- there are many categories of bundles we can work in. For our purposes, the category of principal $G$-bundles will suffice.
 
-Such an assignment of cohomology classes to bundle structures is known as a \keyword{characteristic class}. Here, the vagueness of ``bundle structure'' is intentional -- there are many categories of bundles we can work in. However, for our purposes, the category of principal $G$-bundles will suffice.
-
+For this to be a useful notion, any such assignment $c$ should respect the common structure between bundles and cohomology classes. Both bundles and cohomology classes \emph{pull back} under continuous maps of the base space, so it would be nice if characteristic classes allowed us to translate this behavior.
+Put into notation, if $\xi$ is a bundle on $Y$ and $f : X \to Y$ is a map, we want:
+\[
+  f^* c(\xi) = c(f^*\xi).
+\]
+Such an assignment inherently classifies bundles -- the naturality condition implies that isomorphic bundles must be assigned the same class. From a category theoretic viewpoint, this assignment amounts to a natural transformation of functors:
 \begin{definition}
-  Let $G$ be a 
-
-  A \defn{characteristic class} $c$ is a natural transformation
+  Let $h^*$ be a cohomology theory. An \defn{$h^k$-valued characteristic class}[characteristic class] is a natural transformation of contravariant functors
   \[
-    c : \Bun_G(-) \to h^*(-)
+  	\lkxsfunc{c}{\Bun_G}{h^k}
   \]
+  where $\Bun_G : \Top \to \Set$ is the contravariant functor sending a space to the set of isomorphism classes of principal $G$-bundles.
 \end{definition}
+
+Although we haven't yet seen any concrete examples of characteristic classes in general, this definition alone has some interesting consequences. Recall from our discussion in \cref{sec:classifying_spaces} that the functor $\Bun_G$ is representable, meaning that there is some classifying space $BG$ and natural isomorphism
+\[
+	\lkxsfunc[isom]{}{\Bun_G}{[-, BG].}
+\]
 
 \section{The Cohomology of Fiber Bundles}
 
@@ -55,7 +68,7 @@ by the K\"unneth formula for cohomology. In many of the cases we are interested 
 \[h^*(B)\otimes_\Lambda h^*(F)\cong h^*(E)\]
 This isomorphism is the \keyword{cohomology cross product}, defined as
 \[
-	\definefunction{}{h^*(B)\otimes_\Lambda h^*(F)}{h^*(E)}{\alpha\otimes \beta}{\alpha\times\beta = \pi_B^*(\alpha)\smile \pi_F^*(\beta)}
+	\lkxlfunc{}{h^*(B)\otimes_\Lambda h^*(F)}{h^*(E)}{\alpha\otimes \beta}{\alpha\times\beta = \pi_B^*(\alpha)\smile \pi_F^*(\beta)}
 \]
 where $\pi_B : E \to B$ and $\pi_F : E \to F$ are the projection maps. With the aforementioned assumption that $h^*(F)$ is a free $\Lambda$-module, this isomorphism of $\Lambda$-modules is actually an isomorphism of graded rings (or graded $\Lambda$-algebras).\footnote{To see what can go wrong with the multiplicative structure when the cohomology groups $h^*(F)$ are not free, see Example~3E.6 in \cite{hatcher2002}.
 }
@@ -78,14 +91,14 @@ It turns out that the two conditions we've listed -- freeness of $h^*(F)$ and su
 	\end{enumerate}
 	Choose a splitting $s : h^*(F) \to h^*(E)$ of the surjection $\iota_b^*$. Then, the linear map
 	\[
-		\definefunction{}{h^*(F)\otimes_\Lambda h^*(B)}{h^*(E)}{\alpha\otimes \beta}{s(\alpha)\smile p^*(\beta)}
+		\lkxlfunc{}{h^*(F)\otimes_\Lambda h^*(B)}{h^*(E)}{\alpha\otimes \beta}{s(\alpha)\smile p^*(\beta)}
 	\]
 	is an isomorphism of $\Lambda$-modules.
 \end{theorem}
 
 We can do slightly better. The projection $p : E \to B$ gives us a natural scalar multiplication action of $h^*(B)$ on $h^*(E)$ given by
 \[
-	\definefunction{}{h^*(E)\times h^*(B)}{h^*(E)}{(x, \alpha)}{x\smile p^*(\alpha).}
+	\lkxlfunc{}{h^*(E)\times h^*(B)}{h^*(E)}{(x, \alpha)}{x\smile p^*(\alpha).}
 \]
 With this scalar multiplication map, $h^*(E)$ is endowed with the structure of a $h^*(B)$-module, an often more useful perspective than viewing it as just a $\Lambda$-module. It should be clear that the isomorphism in \cref{thm:leray-hirsch} is in fact an isomorphism of $h^*(B)$-modules.
 
