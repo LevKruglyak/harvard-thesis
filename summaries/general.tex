@@ -1,0 +1,27 @@
+\chapter{Characteristic Classes}
+
+There are several.
+
+\section{Chern Classes}
+
+\begin{definition}
+  For $n\geq 1$ the universal Chern classes $c_r \in \H^{2r}(\BU_n)$
+  are characterized as follows:
+  \begin{enumerate}
+    \item $c_0 = 1$ and $c_r = 0$ if $r > n$.
+    \item For $n=1$, $c_1$ is the canonical generator of $H^2(\BU_1)\cong \Z$.
+    \item Under pullback along the inclusion $\iota : \BU_n \to \BU_{n+1}$, we have $\iota^* c_r^{(n+1)} = c_i^{(n)}$.
+    \item Under the inclusion $\iota : \BU_n\times \BU_l \to \BU_{k+l}$ we have 
+      \[
+        \iota^* c_r = \sum_{0\leq j \leq r} c_r \smile c_{r-j}.
+      \]
+  \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+  There are isomorphisms
+  \[
+    \H^\bullet(\BU_n) \lkxisom \Z[c_1, \ldots, c_n].
+  \]
+  which behave as expected under the inclusions.
+\end{proposition}
