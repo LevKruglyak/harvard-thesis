@@ -70,16 +70,17 @@ Summary of \cite{milnor1963groups}.
 Let $M$ be a manifold and let $\varepsilon^1$ denote a trivial line bundle over $M$.
 
 \begin{definition}
-	$M$ will be called \defn{$s$-parallelizable} if the Whitney sum $TM \oplus \varepsilon^1$ is  a trivial bundle. The bundle $T^sM = TM\oplus\varepsilon^1$ will be called the \defn{stable tangent bundle} of $M$.
+	$M$ will be called \defn{s-parallelizable} if the Whitney sum $TM \oplus \varepsilon^1$ is  a trivial bundle. The bundle $T^sM = TM\oplus\varepsilon^1$ will be called the \defn{stable tangent bundle} of $M$.
 \end{definition}
 
-This is a stable bundle in the sense \cite{kervaire1959}.
+This is a stable bundle in the sense \cite{kervaire1959}. More explicitly, $T^sM$ is a representative of the stable class of $TM$ (at least for homotopy spheres), i.e. $\{TM\oplus \varepsilon^k\}$. In particular, if $TM\oplus \varepsilon^k$ is trivial, then $T^s M$ is trivial as well. (See Lemma 3.5 in \cite{milnor1963groups}.)
+
 \begin{definition}
 	For a Lie group $G$, a \defn{stable principal $G$-bundle}[stable principal bundle] is a principal $G$-bundle over a finite CW complex $K$ with $\pi_{q-1}(G)$ stable for $q \leq \dim K$.
 \end{definition}
 
 \begin{theorem}
-	Every homotopy sphere is $s$-parallelizable.
+	Every homotopy sphere is \textsc{s}-parallelizable.
 \end{theorem}
 
 \begin{proof}
@@ -99,11 +100,11 @@ This is a stable bundle in the sense \cite{kervaire1959}.
 	\end{center}
 	If $\pi_{n-1}(\SO)$ is zero, we are done. 
 
-	If $\pi_{n-1}(\SO) = \Z$, then $n=4k$. According to \cite{kervairemilnor1960} and \cite{kervaire1959}, some non-zero multiple of the obstruction class $\mathfrak{o}_n(\Sigma)$ can be identified with the Pontryagin class $p_k(T^s M) = p_k(TM)$. \todo{(why?)} But the Hirzebruch signature theorem implies \todo{(why?)} that $p_k(\Sigma)$ is a multiple of the signature $\sigma(\Sigma)$ which is zero since $\H^{2k}(\Sigma)=0$. Thus every homotopy $4k$-sphere is $s$-parallelizable. 
+	If $\pi_{n-1}(\SO) = \Z$, then $n=4k$. According to \cite{kervairemilnor1960} and \cite{kervaire1959}, some non-zero multiple of the obstruction class $\mathfrak{o}_n(\Sigma)$ can be identified with the Pontryagin class $p_k(T^s M) = p_k(TM)$. \todo{(why?)} But the Hirzebruch signature theorem implies \todo{(why?)} that $p_k(\Sigma)$ is a multiple of the signature $\sigma(\Sigma)$ which is zero since $\H^{2k}(\Sigma)=0$. Thus every homotopy $4k$-sphere is \textsc{s}-parallelizable. 
 
 	Finally, suppose $\pi_{n-1}(\SO)= \Z_2$. It follows from an argument of Rohlin \todo{(what?)} that $J_{n-1}(\mathfrak{o}_n(\Sigma))=0$ where $J_{n-1}$ denotes the Hopf-Whitehead homomorphism
 	\[
-		J_{n-1} : \pi_{n-1}(\SO_k) \to \pi_{n+k-1}(S^k)
+		\lkxfunc{J_{n-1}}{\pi_{n-1}(\SO_k)}{\pi_{n+k-1}(S^k)}
 	\]
 	in the stable range $k >n$. But $J_{n-1}$ is injective for $n\equiv 1, 2\mod 8$. This is proven by Adams. \todo{(find)} This means that $\mathfrak{o}_n(\Sigma)=0$.
 \end{proof}
@@ -120,7 +121,7 @@ If the Whitney sum of $\xi$ with a trivial bundle $\varepsilon^r$ is trivial, th
 \end{proof}
 
 \begin{lemma}
-	Let $M$ be an $n$-dimensional submanifold of $S^{n+k}$ with $n<k$. Then $M$ is $s$-parallelizable if and only if its normal bundle is trivial.
+	Let $M$ be an $n$-dimensional submanifold of $S^{n+k}$ with $n<k$. Then $M$ is \textsc{s}-parallelizable if and only if its normal bundle is trivial.
 \end{lemma}
 
 \begin{proof}
@@ -132,3 +133,48 @@ If the Whitney sum of $\xi$ with a trivial bundle $\varepsilon^r$ is trivial, th
 \end{lemma}
 
 \section{Which homotopy spheres bound parallelizable manifolds?}
+
+Define a subgroup $bP_{n+1} \subset \Theta_n$ as follows:
+
+A homotopy $n$-sphere $\Sigma$ is in $bP_{n+1}$ if and only if $\Sigma$ is the boundary of a parallelizable manifold.
+
+\begin{claim}
+	This condition depends only on the $h$-cobordism class of $\Sigma$.
+\end{claim}
+
+\begin{theorem}
+	The quotient group $\Theta_n / bP_{n+1}$ is finite.
+\end{theorem}
+
+\begin{proof}
+	Let $M$ be an \textsc{s}-parallelizable $n$-manifold. 
+
+	Imbed it as $i : M \to S^{n+k}$ for some $k>n+1$ so that it's normal bundle is trivial.
+
+	For each normal $k$-frame $\varphi$, we get an element of $\pi_{n+k}(S^k) = \pi^s(S^n)$ by the Pontryagin-Thom construction. Let's call the set of these elements (as $\varphi$ is allowed to vary) $p(\Sigma)$. \todo{(elaborate)}
+
+	\todo{add lemmas}
+
+	\begin{lemma}
+		There is a homomorphism:
+		\[
+			\lkxfunc{p'}{\Theta_n}{\pi^s(S^n)/p(S^n)}
+		\]
+	\end{lemma}
+
+	Furthermore, the kernel of $p'$ contains $h$-cobordism classes of homotopy $n$-spheres which bound parallelizable manifolds \todo{(provide lemma)}, which is exactly $bP_{n+1}$. By the first isomorphism theorem, it follows that $\Theta_n/bP_{n+1}$ is isomorphic to a subgroup of $\pi^s(S^n)$ which is finite.
+\end{proof}
+
+An alternative way to describe $p(S^n)$ is in terms of the Hopf-Whitehead homomorphism, indeed $p(S^n) = \coker(J_n)$.
+	\begin{center}
+		\begin{tabular}{c|cccccccc}
+			n & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
+			\hline
+			$\pi^s(S^n)$ & $\Z_2$ & $\Z_2$ & $\Z_{24}$ & 0 & $0$ & $\Z_2$ & $\Z_{240}$ & $\Z_2\oplus\Z_2$\\
+			$\pi^s(S^n) / p(S^n)$ & $0$ & $\Z_2$ & $0$ & 0 & $0$ & $\Z_2$ & $0$ & $\Z_2$\\
+			$\Theta_n/bP_{n+1}$ & 0 & 0 & 0 & 0 & 0 & 0 & 0 & $\Z_2$
+		\end{tabular}
+	\end{center}
+
+\subsection{Proof that $bP_{2k+1}$ are trivial}
+\subsection{Proof that $bP_{2k}$ are finite cyclic for $k\neq 2$}

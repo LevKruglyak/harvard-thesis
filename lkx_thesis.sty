@@ -114,7 +114,7 @@
 
 \newtheoremstyle{lkx_theorem}
 {}{}{\slshape}{}{}{.}{ }
-{{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3}\index{#3 Theorem})}}
+{{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3}\index{#3 (Theorem)})}}
 
 \theoremstyle{lkx_theorem}
 \newtheorem{theorem}{Theorem}[]
@@ -158,6 +158,8 @@
 \newtheorem*{example*}{Example}
 \newtheorem*{corollary*}{Corollary}
 
+\renewcommand{\qed}{\hfill$\blacksquare$}
+
 % -----------------------------------------------
 %              Common Math
 % -----------------------------------------------
@@ -188,90 +190,105 @@
 \providecommand{\Proj}{\operatorname{Proj}}
 \renewcommand{\H}{\operatorname{H}}
 
-% Manifolds
-\providecommand{\Gr}{\operatorname{Gr}}
-
 % Lie groups and algebras
-\providecommand{\GL}{\operatorname{GL}}
-\providecommand{\SL}{\operatorname{SL}}
-\providecommand{\SO}{\operatorname{SO}}
-\providecommand{\O}{\operatorname{O}}
-\providecommand{\SU}{\operatorname{SU}}
-\providecommand{\U}{\operatorname{U}}
-\providecommand{\Sp}{\operatorname{Sp}}
-\providecommand{\BGL}{\operatorname{BGL}}
-\providecommand{\BSL}{\operatorname{BSL}}
-\providecommand{\BSO}{\operatorname{BSO}}
-\providecommand{\BO}{\operatorname{BO}}
-\providecommand{\BSU}{\operatorname{BSU}}
-\providecommand{\BU}{\operatorname{BU}}
-\providecommand{\BSp}{\operatorname{BSp}}
-\providecommand{\g}{\mathfrak{g}}
-\providecommand{\gl}{\mathfrak{gl}}
-\providecommand{\sl}{\mathfrak{sl}}
-\providecommand{\h}{\mathfrak{h}}
-\providecommand{\n}{\mathfrak{n}}
+\providecommand{\liegrp}[1]{\operatorname{#1}}
+\providecommand{\liealg}[1]{\mathfrak{#1}}
+
+\providecommand{\Gr}{\liegrp{Gr}}
+\providecommand{\GL}{\liegrp{GL}}
+\providecommand{\SL}{\liegrp{SL}}
+\providecommand{\SO}{\liegrp{SO}}
+\providecommand{\O}{\liegrp{O}}
+\providecommand{\SU}{\liegrp{SU}}
+\providecommand{\U}{\liegrp{U}}
+\providecommand{\Sp}{\liegrp{Sp}}
+\providecommand{\BGL}{\liegrp{BGL}}
+\providecommand{\BSL}{\liegrp{BSL}}
+\providecommand{\BSO}{\liegrp{BSO}}
+\providecommand{\BO}{\liegrp{BO}}
+\providecommand{\BSU}{\liegrp{BSU}}
+\providecommand{\BU}{\liegrp{BU}}
+\providecommand{\BSp}{\liegrp{BSp}}
+\providecommand{\g}{\liealg{g}}
+\providecommand{\gl}{\liealg{gl}}
+\providecommand{\sl}{\liealg{sl}}
+\providecommand{\h}{\liealg{h}}
+\providecommand{\n}{\liealg{n}}
+
 \providecommand{\Lie}{\operatorname{Lie}}
 
 % Category Theory
 \providecommand{\cat}[1]{\mathbf{#1}}
 \providecommand{\Set}{\cat{Set}}
 \providecommand{\Top}{\cat{Top}}
-\providecommand{\Vect}{\cat{Vect}}
 \providecommand{\hTop}{\cat{hTop}}
 
 % Misc
 \providecommand{\op}{\operatorname}
+\providecommand{\coker}{\operatorname{coker}}
 \providecommand{\id}{\op{id}}
 \providecommand{\geq}{\geqslant}
 \providecommand{\leq}{\leqslant}
+\providecommand{\rank}{\operatorname{rank}}
 \providecommand{\Map}{\op{Map}}
 
 \providecommand{\Pf}{\operatorname{Pf}}
 
-\providecommand{\Bun}{\operatorname{Bun}}
-\providecommand{\Hdr}{\operatorname{H}_{\operatorname{dR}}}
+\providecommand{\w}{\operatorname{w}}
 
+\providecommand{\ofr}{\mathfrak{o}}
+\providecommand{\vfr}{\mathfrak{v}}
+\providecommand{\Ufr}{\mathfrak{U}}
+
+\providecommand{\Bun}{\operatorname{Bun}}
+\providecommand{\Vect}{\operatorname{Vect}}
+\providecommand{\Hdr}{\operatorname{H}_{\operatorname{dR}}}
 
 \providecommand{\qtq}[1]{\quad\textrm{#1}\quad}
 
-% Small diagrams
-\providecommand{\lkxto}{\;\xrightarrow{\phantom{xx{\sim}xx}}\;}
-\providecommand{\lkxmapsto}{\;\xmapsto{\phantom{xx{\sim}xx}}\;}
-\providecommand{\lkxisom}{\;\xrightarrow{\phantom{xx}\sim\phantom{xx}}\;}
-\providecommand{\lkxsurj}{\;\xtwoheadrightarrow{\phantom{xx{\sim}xx}}\;}
-
 \ExplSyntaxOn
-\NewDocumentCommand{\lkxsfunc}{ O{to} m m m }{
-	\begin{array}{rcl}
-		\tl_if_blank:nTF {#2}{}{#2 \;:\;}
-		#3 & 
-		\str_case:nn {#1}
-		{
-			{to} {\lkxto}
-			{isom} {\lkxisom}
-			{surj} {\lkxsurj}
-		}
-		& #4
-	\end{array}
+\NewDocumentCommand{\lkxto}{ O{} }{%
+	\mathrel{\;\xrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
 }
-\ExplSyntaxOff
+\NewDocumentCommand{\lkxmapsto}{ O{} }{%
+	\mathrel{\;\xmapsto{\hphantom{xx}#1\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxisom}{ O{} }{%
+	\mathrel{\;\xrightarrow{\hphantom{xx}#1\sim\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxsurj}{ O{} }{%
+	\mathrel{\;\xtwoheadrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
+}
 
-\ExplSyntaxOn
-\NewDocumentCommand{\lkxlfunc}{ O{to} m m m m m }{
+\NewDocumentCommand{\lkxfunc}{ O{->} m m m g g }{
 	\begin{array}{rcl}
-		\tl_if_blank:nTF {#2}{}{#2 \;:\;}
-		#3 & 
-		\str_case:nn {#1}
-		{
-			{to} {\lkxto}
-			{isom} {\lkxisom}
-			{surj} {\lkxsurj}
-		}
-		& #4 \\
+		\IfNoValueTF {#5} {
+			\tl_if_blank:nTF {#2}{}{#2 :}
+			#3
+			\str_case:nn {#1}
+			{
+				{->} {\lkxto}
+					{~>} {\lkxisom}
+					{->>} {\lkxsurj}
+			}
+			#4
+		} {
+			\tl_if_blank:nTF {#2}{}{#2 \;:\;}
+			#3
+		   &
+			\str_case:nn {#1}
+			{
+				{->} {\lkxto}
+					{~>} {\lkxisom}
+					{->>} {\lkxsurj}
+			}
+		   & #4
+		\\
 		#5 & \lkxmapsto & #6
+		}
 	\end{array}
 }
+
 \ExplSyntaxOff
 
 \usepackage{tikz-cd}
