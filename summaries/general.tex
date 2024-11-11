@@ -1,3 +1,43 @@
+\chapter{Pontryagin-Thom Construction}
+
+\begin{theorem}[Pontryagin-Thom Construction]
+	There is a correspondence
+	\[
+	\left\{ \parbox{10em}{framed codimension $r$ submanifolds of $M$.}\right\} 
+	\bigg/
+	\frbord
+	\quad\iff\quad
+	[M, S^r]
+	\]
+	for any compact manifold $M$.
+\end{theorem}
+
+If $M$ and $N$ are $n$-manifolds, an \defn{$h$-cobordism} is an $(n+1)$-manifold $W$ with $\partial W = M\sqcup N$ and such that $M$ and $N$ both deformation retracts of $W$. We use the notation $M \hbord N$ to denote the equivalence relation of $h$-cobordism, and $W : M \hbord N$ to mean that $W$ is an $h$-cobordism of $M$ and $N$.
+We can do the same thing for oriented cobordism, which we denote $M \sobord N$.
+
+Let $\Omega^\SO_\bullet = \SMan / \sobord$ be the ring of oriented cobordism classes of manifolds under disjoint union and product. A \defn{genus} is a ring homomorphism
+\[
+	\lkxfunc{}{\Omega_\bullet^\SO\otimes \Q}{R}.
+\]
+One of the simplest genera which can be defined is the \defn{signature} of a $4k$-dimensional manifold.
+\begin{theorem}[Hirzebruch Signature Theorem]
+	The signature of a compact, oriented $4n$-manifold is
+	\[
+		\sigma(M) = \int_M L_n(p_1,\ldots, p_n)
+	\]
+	where $L_n$ denotes the $L$-genus.
+\end{theorem}
+
+The first few polynomials in the $L$-genus are
+\[
+		\begin{aligned}
+			L_0 &= 1\\
+			L_1 &= \frac{1}{3}p_1\\
+			L_2 &= \frac{1}{45}(7p_2 - p_1^2)\\
+			L_3 &= \frac{1}{945}(62p_3 - 13p_1p_2 + 2p_1^3)
+		\end{aligned}
+\]
+
 \chapter{Characteristic Classes}
 
 There are several perspectives on defining characteristic classes.
@@ -7,26 +47,26 @@ There are several perspectives on defining characteristic classes.
 Here are some popular cohomology rings:
 \[
 	\begin{aligned}
-		\H^\bullet(\RP^n; \Z_2)&\cong \Z_2[\alpha]/(\alpha^{n+1})\qtq{with}|\alpha|=1 \\
-		\H^\bullet(\CP^n; \Z)&\cong \Z[\alpha]/(\alpha^{n+1})\qtq{with}|\alpha|=2 \\
-		\H^\bullet(S^n; \Z)&\cong \Z[\alpha]/(\alpha^2)\qtq{with}|\alpha|=n \\
+		\H^\bullet(\RP^n; \Z_2) & \cong \Z_2[\alpha]/(\alpha^{n+1})\qtq{with}|\alpha|=1 \\
+		\H^\bullet(\CP^n; \Z)   & \cong \Z[\alpha]/(\alpha^{n+1})\qtq{with}|\alpha|=2   \\
+		\H^\bullet(S^n; \Z)     & \cong \Z[\alpha]/(\alpha^2)\qtq{with}|\alpha|=n       \\
 	\end{aligned}
 \]
 
 As classifying spaces, we have $\BO_n \simeq \Gr_n = \Gr_n(\R^\infty)$, and cohomology ring
 \[
-  \H^\bullet(\Gr_n; \Z_2) \cong \Z_2[\w_1, \ldots, \w_n]\qtq{with}|\w_i|=1.
+	\H^\bullet(\Gr_n; \Z_2) \cong \Z_2[\w_1, \ldots, \w_n]\qtq{with}|\w_i|=1.
 \]
 For a rank $n$ vector bundle $\xi : E \to B$, let $B\xi : B \to BO_n$ be the classifying map. Then, we define the \defn{$i$-th Stiefel-Whitney class}[Stiefel-Whitney class] as the pullback:
 \[
-  \w_i(\xi)=(B\xi)^*(\w_i) \in \H^i(B; \Z_2)
+	\w_i(\xi)=(B\xi)^*(\w_i) \in \H^i(B; \Z_2)
 \]
 We can extend this definition to $\w_0(\xi)$ by always setting it to be the unit $1\in \H^0(B; \Z_2)$.
 
 
 Equivalently, the Stiefel-Whitney classes can be defined axiomatically as natural transformations $\w_i^{(k)} : \Vect_k \to \H^i(-; \Z_2)$ satisfying the axioms:
 \[
-  \w_i^{(k)}(\xi)=\begin{cases}1 & i=0,\\ 0 & i > \rank(\xi),\end{cases}\quad \w_n(\xi\oplus \eta) = \sum_{p+q=n}\w_p(\xi)\smile \w_q(\eta), \quad\w_1(\gamma^1(\RP^1)) = \alpha.
+	\w_i^{(k)}(\xi)=\begin{cases}1 & i=0,\\ 0 & i > \rank(\xi),\end{cases}\quad \w_n(\xi\oplus \eta) = \sum_{p+q=n}\w_p(\xi)\smile \w_q(\eta), \quad\w_1(\gamma^1(\RP^1)) = \alpha.
 \]
 Here $\gamma^1(\RP^1)$ is the canonical line bundle over the circle $\RP^1$, also known as the M\"obius bundle.
 
@@ -105,7 +145,7 @@ which can be defined in the following way.
 
 Suppose $f : S^n \to B$ is a map. We get a homotopy $\varphi_t : S^{n-1} \to B$ with $\varphi_0$ the inclusion of the equator of $S^n$ into $B$, and $\varphi_1$ the constant map at $b_0$. By the homotopy lifting property of the fibration, this homotopy can be lifted (using the chosen point $e_0\in E$) to a unique homotopy $\widetilde{\varphi} : S^{n-1} \to E$. Let's define
 \[
-		\partial [f] = [\widetilde{\varphi}_1].
+	\partial [f] = [\widetilde{\varphi}_1].
 \]
 By the construction of the lift, it follows that $\widetilde{\varphi}_1 : S^{n-1} \to F$ so this makes sense as a map.
 
@@ -119,19 +159,19 @@ By the construction of the lift, it follows that $\widetilde{\varphi}_1 : S^{n-1
 \section{Obstruction Theory}
 
 \begin{theorem}[Obstruction to Extending a Function]
-	Let $(X,A)$ be a relative CW complex and $Y$ a path-connected simple space and let $n\geq 1$. Let $f : X_n \to Y$ and let $\ofr_f \in C^{n+1}(X, A; \pi_n(Y))$ be the associated obstruction cocycle. Then $f|_{X_{n-1}}$ extends to $X_{n+1}$ if and only if $\ofr_f\in H^{n+1}(X, A; \pi_n(Y))$ is zero.
+	Let $(X,A)$ be a relative CW complex and $Y$ a path-connected simple space and let $n\geq 1$. Let $f : X_n \to Y$ and let the associated obstruction cocycle be denoted $\ofr_f \in C^{n+1}(X, A; \pi_n(Y))$. Then $f|_{X_{n-1}}$ extends to $X_{n+1}$ if and only if $\ofr_f\in H^{n+1}(X, A; \pi_n(Y))$ is zero.
 \end{theorem}
 
 \begin{theorem}[Obstruction to Extending a Section]
-  Let $\xi : E \to B$ be a fiber bundle of CW complexes with homotopically simple fiber $F$ and simply connected base space $B$. Suppose $s\in \Gamma(\xi; B^{(n)})$ is a section of $\xi$ over the $n$-skeleton $B^{(n)}$, and let $[\ofr_s]\in \H^{n+1}(B;\pi_n(F))$ be the associated obstruction cocycle. Then:
-  \[
-    \left\{ \parbox{9em}{the section $s$ extends from $B^{(n)}$ to $B^{(n+1)}$}\right\} \quad\iff\quad 
-    \left\{\parbox{16em}{the associated obstruction cocycle $[\ofr_s]$ vanishes in $\H^{n+1}(B; \pi_n(F))$}\right\}
-  \]
+	Let $\xi : E \to B$ be a fiber bundle of CW complexes with homotopically simple fiber $F$ and simply connected base space $B$. Suppose $s\in \Gamma(\xi; B^{(n)})$ is a section of $\xi$ over the $n$-skeleton $B^{(n)}$, and let $[\ofr_s]\in \H^{n+1}(B;\pi_n(F))$ be the associated obstruction cocycle. Then:
+	\[
+	\left\{ \parbox{9em}{the section $s$ extends from $B^{(n)}$ to $B^{(n+1)}$}\right\} \quad\iff\quad
+	\left\{\parbox{15em}{the associated obstruction cocycle $[\ofr_s]$ vanishes in $\H^{n+1}(B; \pi_n(F))$}\right\}
+	\]
 \end{theorem}
 
 \begin{proof}
-  See Section~18.5 of \cite{fomenko2009homotopical}.
+	See Section~18.5 of \cite{fomenko2009homotopical}.
 \end{proof}
 
 \section{Genus of a Multiplicative Sequence}
@@ -139,7 +179,7 @@ By the construction of the lift, it follows that $\widetilde{\varphi}_1 : S^{n-1
 \begin{definition}
 	A sequence of polynomials $K_1,K_2,\ldots \in k[p_1,p_2,\ldots]$ is \defn{multiplicative}[multiplicative sequence] if
 	\[
-		1 + p_1z + p_2z^2 + \cdots = 
+		1 + p_1z + p_2z^2 + \cdots =
 		(1+q_1 z + q_2 z^2 + \cdots)
 		(1+r_1 z + r_2 z^2 + \cdots)
 	\]

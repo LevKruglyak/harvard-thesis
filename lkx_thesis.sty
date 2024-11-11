@@ -191,7 +191,7 @@
 \renewcommand{\H}{\operatorname{H}}
 
 % Lie groups and algebras
-\providecommand{\liegrp}[1]{\operatorname{#1}}
+\providecommand{\liegrp}[1]{{\operatorname{#1}}}
 \providecommand{\liealg}[1]{\mathfrak{#1}}
 
 \providecommand{\Gr}{\liegrp{Gr}}
@@ -222,6 +222,9 @@
 \providecommand{\Set}{\cat{Set}}
 \providecommand{\Top}{\cat{Top}}
 \providecommand{\hTop}{\cat{hTop}}
+\providecommand{\Man}{\cat{Man}}
+\providecommand{\SMan}{\cat{SMan}}
+\providecommand{\PLMan}{\cat{PLMan}}
 
 % Misc
 \providecommand{\op}{\operatorname}
@@ -231,6 +234,68 @@
 \providecommand{\leq}{\leqslant}
 \providecommand{\rank}{\operatorname{rank}}
 \providecommand{\Map}{\op{Map}}
+
+% Cobordism
+\newcommand{\cylinderequals}{
+	\begin{tikzpicture}
+		\begin{scope}[line width=0.6pt]
+			\draw (0,-0.2ex) ellipse (0.15ex and 0.4ex);
+			\begin{scope}
+				\clip (1.2ex,-1ex) rectangle (1.7ex,0.6ex);
+				\draw (1.2ex,-0.2ex) ellipse (0.15ex and 0.4ex);
+			\end{scope}
+			\draw (0,-0.6ex) -- (1.2ex, -0.6ex);
+			\draw (0,0.2ex) -- (1.2ex, 0.2ex);
+
+			\draw[line cap=round] (-0.15ex,-1ex) -- (1.35ex, -1ex);
+			% \draw (0,-0.2ex) ellipse (0.3ex and 0.7ex);
+			% \begin{scope}
+			% 	\clip (1.19ex,-1ex) rectangle (1.7ex,0.6ex);
+			% 	\draw (1.2ex,-0.2ex) ellipse (0.3ex and 0.7ex);
+			% \end{scope}
+			% \draw (0,-0.9ex) -- (1.2ex, -0.9ex);
+			% \draw (0,0.5ex) -- (1.2ex, 0.5ex);
+		\end{scope}
+	\end{tikzpicture}%
+}
+
+\newcommand{\cylinder}{
+	\begin{tikzpicture}
+		\begin{scope}[line width=0.6pt]
+			\draw (0,-0.2ex) ellipse (0.3ex and 0.7ex);
+			\begin{scope}
+				\clip (1.19ex,-1ex) rectangle (1.7ex,0.6ex);
+				\draw (1.2ex,-0.2ex) ellipse (0.3ex and 0.7ex);
+			\end{scope}
+			\draw (0,-0.9ex) -- (1.2ex, -0.9ex);
+			\draw (0,0.5ex) -- (1.2ex, 0.5ex);
+		\end{scope}
+	\end{tikzpicture}%
+}
+
+\newcommand{\bord}{\;\cylinderequals\,}
+\newcommand{\hbord}{\;\cylinderequals^h\,}
+\newcommand{\sobord}{\;\cylinderequals^{\mathrm{so}}\,}
+\newcommand{\frbord}{\;\cylinderequals^{\mathrm{fr}}\,}
+
+% \newcommand{\hbord}{
+% 	\;
+% 	\begin{tikzpicture}
+% 		\begin{scope}[line width=0.6pt]
+% 			\draw (0,0) ellipse (0.3ex and 0.7ex);
+% 			\begin{scope}
+% 				\clip (1.19ex,-0.9ex) rectangle (1.6ex,0.8ex);
+% 				\draw (1.2ex,0) ellipse (0.3ex and 0.7ex);
+% 			\end{scope}
+% 			\draw (0,-0.7ex) -- (1.2ex, -0.7ex);
+% 			\draw (0,0.7ex) -- (1.2ex, 0.7ex);
+% 			\node[scale=0.5]  at (0.8ex,0) {$h$};
+% 		\end{scope}
+% 	\end{tikzpicture}%
+% 	\;
+% }
+
+\renewcommand{\emptyset}{\varnothing}
 
 \providecommand{\Pf}{\operatorname{Pf}}
 
