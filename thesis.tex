@@ -3,7 +3,7 @@
 \usepackage{lkx_diagrams}
 
 \title{Exotic Spheres}
-\subtitle{An Unexpected Result at the Heart of Topology}
+\subtitle{Some subtitle}
 \author{Lev Kruglyak}
 
 \department{The Department of Mathematics}
@@ -21,15 +21,21 @@
 
 \begin{document}
 
-% \include{components/title}
+\include{components/title}
 
 \lkxtoc
 
 \include{components/prologue}
+\include{components/introduction}
 
-\include{summaries/discovery}
-\include{summaries/general}
-\include{summaries/groups_of_homotopy_spheres_I}
+% \part{A Menagerie of Manifolds}
+\include{chapters/milnor}
+\include{chapters/brieskorn}
+\include{chapters/E8}
+
+% \include{summaries/discovery}
+% \include{summaries/general}
+% \include{summaries/groups_of_homotopy_spheres_I}
 
 %
 % \part{A Garden of Manifolds}
@@ -46,6 +52,9 @@
 % \include{part2/chapter4}
 %
 % \part{A001676}
+
+% \include{apendices/characteristic_classes}
+% \include{apendices/spectral_sequences}
 
 \lkxrefs
 \lkxindex

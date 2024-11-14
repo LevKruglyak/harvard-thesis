@@ -10,8 +10,9 @@
 %               Font
 % -----------------------------------------------
 
-% \usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 \RequirePackage{mlmodern}
+\usepackage{bold-extra}
 
 % -----------------------------------------------
 %               Configuration
