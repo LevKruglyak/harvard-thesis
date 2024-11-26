@@ -1,0 +1,65 @@
+\providecommand{\HC}{\mathcal{M}}
+
+\chapter{Geometric Topology}
+
+\todo{generalized Poincare conjecture, classification problems, simple class of manifolds}
+
+\begin{definition}
+  A \defn{highly-connected manifold} is a $(n-1)$-connected closed $2n$-manifold.
+\end{definition}
+
+Let $\HC^{2n}$ denote the class of highly-connected manifolds. Note that this condition is purely homotopical.
+
+If $n=1$, let's assume that $R=\Z_2$, otherwise we can choose any commutative coefficient ring.
+\begin{proposition}
+	A highly connected $2n$-manifold $M$ has cohomology
+	\[
+		\H^0(M; R) = R,\quad \H^n(M; R) = R\oplus \cdots \oplus R,\quad \H^{2n}(M; R)=R,
+	\]
+	and zero cohomology in all other dimensions.
+\end{proposition}
+
+\begin{proof}
+\end{proof}
+
+\todo{The homotopy theory of these manifolds}
+
+\section{Intersection Theory}
+
+\todo{The fundamental invariant}
+
+For now, let's assume all manifolds are compact and closed.
+Suppose $X$ is an oriented $n$-manifold, and $Y_1, Y_2$ are oriented $p,q$ submanifolds respectively.
+% Up to oriented cobordism, 
+Without loss of generality, we can assume that $Y_1\pitchfork Y_2$.
+
+\begin{definition}
+  The \defn{oriented intersection number} is $I_X(Y_1, Y_2)$.
+\end{definition}
+
+\begin{definition}
+\end{definition}
+
+\section{Compact Surfaces}
+
+Let's now focus our attention to the case when $n=1$, i.e. $0$-connected closed $2$-manifolds or simply put -- connected closed surfaces. This class of manifolds admits a wonderfully elegant algebraic description, and showcases many common geometric techniques in a way that is easy to visualize.
+
+Recall that 
+
+Let $\Sigma$ be a connected compact surface. Unlike in the previous cases, we can't assume that $\Sigma$ is simply connected and hence orientable, in fact the only simply connected compact surface is the sphere.
+
+
+\begin{theorem}[Classification of Compact Surfaces]
+	The $\Z_2$ intersection form gives an isomorphism of commutative monoids $\HC^2\cong \UBil(\Z_2)$. 
+\end{theorem}
+
+	In particular, there is a presentation of $\HC^2$:
+	\[
+		\HC^2 = \langle A, B \mid A\oplus A\oplus A = A\oplus B\rangle\quad\textrm{where}\quad A = \begin{bmatrix}1\end{bmatrix}, B = \begin{bmatrix}0&1\\1&0\end{bmatrix}
+	\]
+
+\section{Integral Bilinear Forms}
+
+\section{Morse Theory}
+
+\section{Handlebodies}
