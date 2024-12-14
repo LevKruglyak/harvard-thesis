@@ -1,0 +1,98 @@
+\chapter{The Geometry of Exotic 7-Spheres}
+
+In this chapter, we'll begin our foray into the 
+
+\section{Milnor Manifolds}
+
+There are many ways to construct spheres topologically, differentially, or geometrically -- they are after all some of the simplest possible shapes. Geometric constructions are particularly plentiful in low dimensions, where exceptional isomorphisms of Lie groups give us neat ways to express spheres as quotients. Another nice thing which happens in low dimensions is the existence of real normed division algebras -- in fact the only dimensions in which they exist are in dimensions $1,2,4,$ and $8$. These division algebras are the real numbers $\R$ in dimension one, complex numbers $\C$ in dimension two, quaternions $\HH$ in dimension four and octonions $\OO$ in dimension eight. Many spheres in low dimensions can be related and expressed in terms of these division algebras.
+
+For instance, given a normed division algebra $A$ of dimension $n$, we can define projective spaces as the quotient of $A^{k+1}$ under the action of $A$
+\[
+  \P^k(A) = \frac{A^{k+1}}{(\alpha_0,\ldots, \alpha_k)\sim (\lambda\alpha_0,\ldots,\lambda\alpha_k)\quad \lambda\in }
+\]
+\[
+    \RP^1\approx S^1,\quad
+    \CP^1\approx S^2,\quad
+    \HP^1\approx S^4,\quad\textrm{and}\quad
+    \OP^1\approx S^8.
+\]
+Considering the 
+\[
+  S(A^2) = \{(\alpha,\beta)\in A : |\alpha|^2+|\beta|^2=1\} \quad S(A^2)\approx S^{2n+1}
+\]
+
+
+
+For instance, consider the special unitary group $\SU_2$ -- the Lie group of $2\times 2$ complex unitary matrices of determinant $1$:
+\[
+	\SU_2 = \left\{
+	\begin{pmatrix} \alpha & -\overline{\beta}\\ \beta & \overline{\alpha}\end{pmatrix}
+	:
+	\begin{array}{l}\alpha,\beta\in \C\\|\alpha|^2+|\beta|^2=1\end{array}
+	\right\}
+\]
+Any unitary matrix can be smoothly identified with the point $(\alpha,\beta)\in \C^2$, and the 
+condition of the determinant being one gives $|\alpha|^2+|\beta|^2=1$ -- exactly the equation for a $3$-sphere $S^3$ in $\C^2=\R^4$. There is a submersion $\SU_2 \to \CP^1$ which sends a special unitary matrix to $[\alpha:\beta]\in \CP^1$. This submersion is exactly the \defn{Hopf fibration} -- the principal $\U_1$-bundle
+\[
+    \U_1 \lkxto \SU_2 \lkxto \CP^1
+\]
+Since $\U_1\cong S^1$ and $\CP^1$ is the Riemann sphere $S^2$, we have a natural and highly symmetric construction of $S^3$ as an $S^1$-bundle over $S^2$.
+
+If
+
+\todo{link}
+
+More generally, let's say we had a $S^{2n-1}$-bundle $\Sigma^{4k-1} \to S^{2n}$ over $S^{2n}$. We could write the base space $S^{2n}$ as a union of upper and lower hemispheres $D^{2n+1}_+, D^{2n+1}_-\subset S^{2n}$ with intersection the equator $S^{2n-1}\subset S^{2n}$. The bundle restricts to trivial bundles on these hemispheres since they are contractible and so the transition map $f : S^{2n-1} \to \diff(S^{2n-1})$ captures all of the topological data of the bundle structure.
+
+\begin{historicalremark*}
+  In the 1950s at Princeton, Milnor was \cite{milnor2000exotic}. \todo{finish this.}
+\end{historicalremark*}
+
+
+\begin{definition}
+	The \defn{Milnor manifold} $\Sigma_{p,q}$ of type $(p,q)\in \pi_3(\SO_4)$ is the
+\end{definition}
+
+\section{The Gromoll-Meyer Sphere}
+
+There is another geometric way to construct an exotic $7$-sphere as a quotient of a Lie group.
+
+\begin{definition}
+	The \defn{Gromoll-Meyer sphere} $\Sigma_{\mathrm{gm}}^7$ is the 
+	\[
+      \Sigma_{\mathrm{gm}}^7 = \Sp_2/\Delta.
+	\]
+\end{definition}
+
+\begin{theorem}
+  The Gromoll-Meyer sphere has nonnegative sectional curvature.
+\end{theorem}
+
+\section{Spin Geometry and Dirac Operators}
+
+\begin{theorem}
+  Let $X^{4k}$ be a closed oriented spin $4k$-manifold. The $\Ahat$-genus $\Ahat(X)$ is an integer, and if $k$ is odd, an even integer.
+\end{theorem}
+
+\section{The Eells-Kupier Invariant}
+
+How do we discern the diffeomorphism type of manifolds which have the homeomorphism type of a sphere? The standard selection of invariants is currently vastly insufficient for this purpose -- characteristic numbers for instance are defined as integrals of characteristic classes of the tangent bundle.
+
+
+Many manifold invariants defined thus far have required non-trivial cohomology. 
+
+
+
+
+Let $M^{4k-1}$ be a closed oriented $(4k-1)$-manifold. If $M$ is the boundary of a compact oriented $4k$-manifold $W^{4k}$ which bounds $M$, i.e. $\partial W = M$, the cohomology sequence of the pair $(W,M)$ gives us a long exact sequence:
+\[
+  \H^{4i-1}(M;\Q) \lkxto \H^{4i}(W, M; \Q) \lkxto[j] \H^{4i}(W; \Q) \lkxto \H^{4i}(M; \Q)
+\]
+If we require that $\H^{4i-1}(M;\Q)$ and $\H^{4i}(M;\Q)$ are trivial, the map $j$ would be an isomorphism and so we can pull back the Pontryagin classes $p_i(W)\in \H^{4i}(W;\Q)$ to \defn{relative Pontryagin classes}[relative Pontryagin class] $\widetilde{p}_i(W, M)\in\H^{4i}(W, M; \Q)$.
+
+\begin{definition}
+	The \defn{Eels-Kupier invariant} of a manifold $M^{4k-1}$ is
+	\[
+    \mu(M) = 
+	\]
+\end{definition}

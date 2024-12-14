@@ -29,6 +29,12 @@
 \usepackage{mathrsfs}
 \usepackage{cancel}
 
+% \mathscr font
+% \usepackage[mathscr]{euscript}
+
+% Arrows
+\usepackage{extpfeil}
+
 % -----------------------------------------------
 %              Page Style 
 % -----------------------------------------------
@@ -101,7 +107,7 @@
 }
 
 \NewDocumentCommand{\defn}{m o}{%
-	\textbf{\textsl{#1}}%
+	\textnormal{\textbf{#1}}%
 	\IfValueTF{#2}{\index{#2}}{\index{#1}}%
 }
 
@@ -117,40 +123,41 @@
 {{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3}\index{#3 (Theorem)})}}
 
 \theoremstyle{lkx_theorem}
-\newtheorem{theorem}{Theorem}[]
+\newtheorem{theorem}[equation]{Theorem}
 \renewcommand{\theoremautorefname}{Theorem}
+\crefformat{theorem}{\normalfont{#2Theorem~#1#3}}
 
-\newtheorem{claim}[theorem]{Claim}
+\newtheorem{claim}[equation]{Claim}
 \newcommand{\claimautorefname}{Claim}
+\crefformat{claim}{\normalfont{#2Claim~#1#3}}
 
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{lemma}[equation]{Lemma}
 \newcommand{\lemmaautorefname}{Lemma}
+\crefformat{lemma}{\normalfont{#2Lemma~#1#3}}
 
-\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{conjecture}[equation]{Conjecture}
 \newcommand{\conjectureautorefname}{Conjecture}
+\crefformat{conjecture}{\normalfont{#2Conjecture~#1#3}}
 
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{corollary}[equation]{Corollary}
 \newcommand{\corollaryautorefname}{Corollary}
+\crefformat{corollary}{\normalfont{#2Corollary~#1#3}}
 
-\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{proposition}[equation]{Proposition}
 \newcommand{\propositionautorefname}{Proposition}
-
-\newtheorem{insight}{Insight}
-\newcommand{\insightautorefname}{Insight}
+\crefformat{proposition}{\normalfont{#2Proposition~#1#3}}
 
 \newtheoremstyle{lkx_definition}
 {}{}{\slshape}{}{}{.}{ }
 {{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3})}}
 
 \theoremstyle{lkx_definition}
-\newtheorem{definition}[theorem]{Definition}
+\newtheorem{definition}[equation]{Definition}
 \newcommand{\definitionautorefname}{Definition}
+\crefformat{definition}{\normalfont{#2Definition~#1#3}}
 
-\newtheorem{remark}[theorem]{Remark}
-\newcommand{\remarkautorename}{Remark}
-
-\newtheorem{example}[theorem]{Example}
-\newcommand{\exampleautorename}{Example}
+\newtheorem{example}[equation]{Example}
+\crefformat{example}{\normalfont{#2Example~#1#3}}
 
 \newtheorem*{definition*}{Definition}
 \newtheorem*{theorem*}{Theorem}
@@ -163,11 +170,37 @@
 \newtheorem*{corollary*}{Corollary}
 \newtheorem*{conjecture*}{Conjecture}
 
+\newtheoremstyle{lkx_remark}
+{}{}{}{}{}{.}{ }
+{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3})}}
+
+\theoremstyle{lkx_remark}
+\newtheorem*{historicalremark*}{Historical Remark}
+
+\newtheorem{remark}[equation]{Remark}
+\newcommand{\remarkautorename}{Remark}
+\crefformat{remark}{\normalfont{#2Remark~#1#3}}
+
 \renewcommand{\qed}{\hfill$\blacksquare$}
+
+% -----------------------------------------------
+%              Equations
+% -----------------------------------------------
+
+\crefname{equation}{}{}
+\crefformat{equation}{\normalfont{#2(#1)#3}}
 
 % -----------------------------------------------
 %              Common Math
 % -----------------------------------------------
+
+% Common scripts
+\providecommand{\Ocal}{\mathcal{O}}
+\providecommand{\Cscr}{\mathscr{C}}
+
+% Dual space
+\renewcommand{\d}{\vee}
+\renewcommand{\d}{*}
 
 % Common number systems
 \providecommand{\Z}{\mathbb{Z}}
@@ -176,11 +209,14 @@
 \providecommand{\N}{\mathbb{N}}
 \providecommand{\C}{\mathbb{C}}
 \providecommand{\HH}{\mathbb{H}}
+\providecommand{\OO}{\mathbb{O}}
 \providecommand{\F}{\mathbb{F}}
 
 % Projective spaces
 \providecommand{\CP}{\mathbb{CP}}
 \providecommand{\RP}{\mathbb{RP}}
+\providecommand{\HP}{\mathbb{HP}}
+\providecommand{\OP}{\mathbb{OP}}
 \renewcommand{\P}{\mathbb{P}}
 
 % Algebraic structures and operators
@@ -193,20 +229,29 @@
 \providecommand{\Tor}{\operatorname{Tor}}
 \providecommand{\Ext}{\operatorname{Ext}}
 \providecommand{\Spec}{\operatorname{Spec}}
-\providecommand{\Proj}{\operatorname{Proj}}
 \providecommand{\Bil}{\operatorname{Bil}}
 \providecommand{\UBil}{\operatorname{UBil}}
 \renewcommand{\H}{\operatorname{H}}
+\providecommand{\T}{\operatorname{T}\!}
+\providecommand{\B}{\mathscr{B}}
+
+\renewcommand{\span}{{\operatorname{span}}}
 
 % Lie groups and algebras
 \providecommand{\liegrp}[1]{{\operatorname{#1}}}
 \providecommand{\liealg}[1]{\mathfrak{#1}}
 
+\providecommand{\Ad}{{\operatorname{Ad}}}
+\providecommand{\ad}{{\operatorname{ad}}}
+\providecommand{\AD}{{\operatorname{AD}}}
+\providecommand{\MC}{{\operatorname{MC}}}
+
 \providecommand{\Gr}{\liegrp{Gr}}
 \providecommand{\GL}{\liegrp{GL}}
 \providecommand{\SL}{\liegrp{SL}}
 \providecommand{\SO}{\liegrp{SO}}
-\providecommand{\O}{\liegrp{O}}
+\renewcommand{\O}{\liegrp{O}}
+\providecommand{\Spin}{\liegrp{Spin}}
 \providecommand{\SU}{\liegrp{SU}}
 \providecommand{\U}{\liegrp{U}}
 \providecommand{\E}{\liegrp{E}}
@@ -236,15 +281,23 @@
 \providecommand{\TopMan}{\cat{TMan}}
 \providecommand{\SMan}{\cat{SMan}}
 \providecommand{\PLMan}{\cat{PLMan}}
+\providecommand{\Mod}{\cat{Mod}}
+\providecommand{\Proj}{\cat{Proj}}
+\providecommand{\Vect}{\cat{Vect}}
 
 % Misc
-\providecommand{\op}{\operatorname}
+\providecommand{\diff}{\operatorname{Diff}}
+\providecommand{\op}[1]{{\operatorname{#1}}}
 \providecommand{\coker}{\operatorname{coker}}
 \providecommand{\id}{\op{id}}
 \providecommand{\geq}{\geqslant}
 \providecommand{\leq}{\leqslant}
 \providecommand{\rank}{\operatorname{rank}}
 \providecommand{\Map}{\op{Map}}
+
+% Dirac Operator
+\providecommand{\D}{D\!\!\!\!/}
+\providecommand{\Ahat}{\widehat{A}}
 
 % Cobordism
 \newcommand{\cylinderequals}{
@@ -309,6 +362,14 @@
 \renewcommand{\emptyset}{\varnothing}
 \renewcommand{\cong}{\approx}
 
+\usepackage{adjustbox}
+
+% Hack to allow \alt in array environments
+\newdimen\mybaselineskip
+\AtBeginDocument{\setlength{\mybaselineskip}{\baselineskip}}
+
+\newcommand{\alt}{\mathord{\text{\adjustbox{valign=B,totalheight=.6\mybaselineskip}{$\bigwedge$}}}}
+
 \providecommand{\Pf}{\operatorname{Pf}}
 
 \providecommand{\w}{\operatorname{w}}
@@ -318,12 +379,14 @@
 \providecommand{\Ufr}{\mathfrak{U}}
 
 \providecommand{\Bun}{\operatorname{Bun}}
-\providecommand{\Vect}{\operatorname{Vect}}
 \providecommand{\Hdr}{\operatorname{H}_{\operatorname{dR}}}
 
 \providecommand{\qtq}[1]{\quad\textrm{#1}\quad}
 
 \ExplSyntaxOn
+\NewDocumentCommand{\lkxiff}{ O{} }{%
+	\mathrel{\;\xleftrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
+}
 \NewDocumentCommand{\lkxto}{ O{} }{%
 	\mathrel{\;\xrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
 }
@@ -334,7 +397,7 @@
 	\mathrel{\;\xrightarrow{\hphantom{xx}#1\sim\hphantom{xx}}\;}
 }
 \NewDocumentCommand{\lkxsurj}{ O{} }{%
-	\mathrel{\;\xtwoheadrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
+	\mathrel{\;\xrightarrow{\hphantom{xx}#1\hphantom{xx}}\!\!\!\!\!\xrightarrow\;}
 }
 
 \NewDocumentCommand{\lkxfunc}{ O{->} m m m g g }{
