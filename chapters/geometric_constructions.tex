@@ -1,52 +1,86 @@
 \chapter{The Geometry of Exotic 7-Spheres}
 
-In this chapter, we'll begin our foray into the 
+In this chapter, we'll begin our foray into the garden of exotic spheres by starting in the first case (that we know of) where they appear: dimension 7. 
+
+\section{The Hopf Fibration}
+
+There are many ways to construct spheres, either topologically, differentially, or geometrically. They are, after all, some of the simplest possible shapes. In low dimensions, these constructions become even more plentiful and varied due to the presence of \emph{exceptional isomorphisms} -- low dimensional mathematical coincidences which do not fit into a larger pattern. One such coincidence is the \emph{Hopf fibration}, a particularly symmetric way of building up a sphere in dimensions $1$, $3$, $7$, or $15$.
+
+To define the Hopf fibration, let's begin with a real normed division algebra $A$ -- recall that this is an algebra over $\R$, (not necessarily commutative or associative) which admits multiplicative inverses and comes with a multiplicative norm $\|\cdot\| : A \to \R$. Surprisingly, the only such algebras up to isomorphism have dimensions $1$, $2$, $4$, and $8$. These algebras are the real numbers $\R$, the complex numbers $\C$, the quaternions $\HH$, and the octonions $\OO$ -- this is the statement of the Hurwitz theorem.
+
+In general, for a normed real vector space $V$, we can consider the space of unit vectors
+\[
+    \S(V) = \{ x\in V : \|x\| = 1\}.
+\]
+This is the \defn{unit sphere} in $V$, and admits a natural identification with the $(n-1)$-sphere if $V$ has dimension $n$. If a normed division algebra $A$ is also associative, there is further structure imposed on its unit sphere. The multiplication on $A$ gives $\S(A)$ a group structure, turning the sphere into a Lie group. The associative normed division algebras are $\R$, $\C$, and $\HH$, and their unit spheres can be identified with the Lie groups
+\[
+    \S(\R)\approx \O_1\approx S^0,\quad \S(\C)\approx \U_1\approx S^1, \quad \S(\HH)\approx \SU_2\approx S^3.
+\]
+In fact, these are the only spheres which have a Lie group structure.
+
+More generally, the norm on $A$ gives us a norm on $A^k$, since we can combine the component-wise norms using the Euclidean norm:
+\[
+  \|(x_1, \ldots, x_k)\| = \sqrt{\|x_1\|^2+\cdots+\|x_k\|^2}\quad\quad (x_1,\ldots,x_k)\in A^k.
+\]
+Thus, it makes sense to also consider the unit $k$-sphere $\S(A^k)$ in $A^k$, and this can be topologically identified with the $(nk-1)$-sphere $S^{nk-1}$, although we don't get a Lie group structure in this case.
+
+There is another associated construction we can use to construct spheres from the data of a normed division algebra $A$. Let's define the \defn{projective $k$-space} over $A$ by the quotient
+\[
+  \P^k(A) = \frac{A^{k+1} -\{0\}}{(x_1,\ldots, x_{k+1})\sim \lambda \cdot (x_1,\ldots, x_{k+1})\quad \lambda\in A}.
+\]
+This space can be thought of as consisting of lines passing through the origin in $A^{k+1}$. 
+
+There is a surjective submersion
+\[
+  \lkxfunc{}{\S(A^{k+1})}{\P^{k}(A)}{(x_1,\ldots, x_{k+1})}{[x_1 : \cdots : x_{k+1}]}
+\]
+
+% There are many ways to construct spheres topologically, differentially, or geometrically -- they are after all some of the simplest possible shapes. Geometric constructions are particularly plentiful in low dimensions, where exceptional isomorphisms of Lie groups give us neat ways to express spheres as quotients. Another nice thing which happens in low dimensions is the existence of real normed division algebras -- in fact the only dimensions in which they exist are in dimensions $1,2,4,$ and $8$. These division algebras are the real numbers $\R$ in dimension one, complex numbers $\C$ in dimension two, quaternions $\HH$ in dimension four and octonions $\OO$ in dimension eight. Many spheres in low dimensions can be related and expressed in terms of these division algebras.
+%
+% For instance, given a normed division algebra $A$ of dimension $n$, we can define projective spaces as the quotient of $A^{k+1}$ under the action of $A$
+% \[
+%   \P^k(A) = \frac{A^{k+1}}{(\alpha_0,\ldots, \alpha_k)\sim (\lambda\alpha_0,\ldots,\lambda\alpha_k)\quad \lambda\in }
+% \]
+% \[
+%     \RP^1\approx S^1,\quad
+%     \CP^1\approx S^2,\quad
+%     \HP^1\approx S^4,\quad\textrm{and}\quad
+%     \OP^1\approx S^8.
+% \]
+% Considering the 
+% \[
+%   S(A^2) = \{(\alpha,\beta)\in A : |\alpha|^2+|\beta|^2=1\} \quad S(A^2)\approx S^{2n+1}
+% \]
+%
+% For instance, consider the special unitary group $\SU_2$ -- the Lie group of $2\times 2$ complex unitary matrices of determinant $1$:
+% \[
+% 	\SU_2 = \left\{
+% 	\begin{pmatrix} \alpha & -\overline{\beta}\\ \beta & \overline{\alpha}\end{pmatrix}
+% 	:
+% 	\begin{array}{l}\alpha,\beta\in \C\\|\alpha|^2+|\beta|^2=1\end{array}
+% 	\right\}
+% \]
+% Any unitary matrix can be smoothly identified with the point $(\alpha,\beta)\in \C^2$, and the 
+% condition of the determinant being one gives $|\alpha|^2+|\beta|^2=1$ -- exactly the equation for a $3$-sphere $S^3$ in $\C^2=\R^4$. There is a submersion $\SU_2 \to \CP^1$ which sends a special unitary matrix to $[\alpha:\beta]\in \CP^1$. This submersion is exactly the \defn{Hopf fibration} -- the principal $\U_1$-bundle
+% \[
+%     \U_1 \lkxto \SU_2 \lkxto \CP^1
+% \]
+% Since $\U_1\cong S^1$ and $\CP^1$ is the Riemann sphere $S^2$, we have a natural and highly symmetric construction of $S^3$ as an $S^1$-bundle over $S^2$.
+%
+% If
+%
+% \todo{link}
+%
+% More generally, let's say we had a $S^{2n-1}$-bundle $\Sigma^{4k-1} \to S^{2n}$ over $S^{2n}$. We could write the base space $S^{2n}$ as a union of upper and lower hemispheres $D^{2n+1}_+, D^{2n+1}_-\subset S^{2n}$ with intersection the equator $S^{2n-1}\subset S^{2n}$. The bundle restricts to trivial bundles on these hemispheres since they are contractible and so the transition map $f : S^{2n-1} \to \diff(S^{2n-1})$ captures all of the topological data of the bundle structure.
 
 \section{Milnor Manifolds}
-
-There are many ways to construct spheres topologically, differentially, or geometrically -- they are after all some of the simplest possible shapes. Geometric constructions are particularly plentiful in low dimensions, where exceptional isomorphisms of Lie groups give us neat ways to express spheres as quotients. Another nice thing which happens in low dimensions is the existence of real normed division algebras -- in fact the only dimensions in which they exist are in dimensions $1,2,4,$ and $8$. These division algebras are the real numbers $\R$ in dimension one, complex numbers $\C$ in dimension two, quaternions $\HH$ in dimension four and octonions $\OO$ in dimension eight. Many spheres in low dimensions can be related and expressed in terms of these division algebras.
-
-For instance, given a normed division algebra $A$ of dimension $n$, we can define projective spaces as the quotient of $A^{k+1}$ under the action of $A$
-\[
-  \P^k(A) = \frac{A^{k+1}}{(\alpha_0,\ldots, \alpha_k)\sim (\lambda\alpha_0,\ldots,\lambda\alpha_k)\quad \lambda\in }
-\]
-\[
-    \RP^1\approx S^1,\quad
-    \CP^1\approx S^2,\quad
-    \HP^1\approx S^4,\quad\textrm{and}\quad
-    \OP^1\approx S^8.
-\]
-Considering the 
-\[
-  S(A^2) = \{(\alpha,\beta)\in A : |\alpha|^2+|\beta|^2=1\} \quad S(A^2)\approx S^{2n+1}
-\]
-
-
-
-For instance, consider the special unitary group $\SU_2$ -- the Lie group of $2\times 2$ complex unitary matrices of determinant $1$:
-\[
-	\SU_2 = \left\{
-	\begin{pmatrix} \alpha & -\overline{\beta}\\ \beta & \overline{\alpha}\end{pmatrix}
-	:
-	\begin{array}{l}\alpha,\beta\in \C\\|\alpha|^2+|\beta|^2=1\end{array}
-	\right\}
-\]
-Any unitary matrix can be smoothly identified with the point $(\alpha,\beta)\in \C^2$, and the 
-condition of the determinant being one gives $|\alpha|^2+|\beta|^2=1$ -- exactly the equation for a $3$-sphere $S^3$ in $\C^2=\R^4$. There is a submersion $\SU_2 \to \CP^1$ which sends a special unitary matrix to $[\alpha:\beta]\in \CP^1$. This submersion is exactly the \defn{Hopf fibration} -- the principal $\U_1$-bundle
-\[
-    \U_1 \lkxto \SU_2 \lkxto \CP^1
-\]
-Since $\U_1\cong S^1$ and $\CP^1$ is the Riemann sphere $S^2$, we have a natural and highly symmetric construction of $S^3$ as an $S^1$-bundle over $S^2$.
-
-If
-
-\todo{link}
-
-More generally, let's say we had a $S^{2n-1}$-bundle $\Sigma^{4k-1} \to S^{2n}$ over $S^{2n}$. We could write the base space $S^{2n}$ as a union of upper and lower hemispheres $D^{2n+1}_+, D^{2n+1}_-\subset S^{2n}$ with intersection the equator $S^{2n-1}\subset S^{2n}$. The bundle restricts to trivial bundles on these hemispheres since they are contractible and so the transition map $f : S^{2n-1} \to \diff(S^{2n-1})$ captures all of the topological data of the bundle structure.
 
 \begin{historicalremark*}
   In the 1950s at Princeton, Milnor was \cite{milnor2000exotic}. \todo{finish this.}
 \end{historicalremark*}
+
+\subsection{Clutching Construction}
+There is a 
 
 
 \begin{definition}
@@ -81,18 +115,15 @@ How do we discern the diffeomorphism type of manifolds which have the homeomorph
 
 Many manifold invariants defined thus far have required non-trivial cohomology. 
 
-
-
-
 Let $M^{4k-1}$ be a closed oriented $(4k-1)$-manifold. If $M$ is the boundary of a compact oriented $4k$-manifold $W^{4k}$ which bounds $M$, i.e. $\partial W = M$, the cohomology sequence of the pair $(W,M)$ gives us a long exact sequence:
 \[
   \H^{4i-1}(M;\Q) \lkxto \H^{4i}(W, M; \Q) \lkxto[j] \H^{4i}(W; \Q) \lkxto \H^{4i}(M; \Q)
 \]
-If we require that $\H^{4i-1}(M;\Q)$ and $\H^{4i}(M;\Q)$ are trivial, the map $j$ would be an isomorphism and so we can pull back the Pontryagin classes $p_i(W)\in \H^{4i}(W;\Q)$ to \defn{relative Pontryagin classes}[relative Pontryagin class] $\widetilde{p}_i(W, M)\in\H^{4i}(W, M; \Q)$.
+If we require that $\H^{4i-1}(M;\Q)$ and $\H^{4i}(M;\Q)$ are trivial, the map $j$ would be an isomorphism and so we can pull back the Pontryagin classes $p_i(W)\in \H^{4i}(W;\Q)$ to \defn{relative Pontryagin classes}[relative Pontryagin class] $p_i(W, M)\in\H^{4i}(W, M; \Q)$.
 
 \begin{definition}
-	The \defn{Eels-Kupier invariant} of a manifold $M^{4k-1}$ is
+	The \defn{Eells-Kupier invariant} of a manifold $M^{4k-1}$ is
 	\[
-    \mu(M) = 
+    \lambda(M) = \frac{1}{896}\left[p_1^2(B, M) - 4\sigma(B)\right] \mod 1.
 	\]
 \end{definition}
