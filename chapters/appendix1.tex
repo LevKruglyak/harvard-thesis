@@ -368,3 +368,23 @@ This justifies the naming of $\theta$ as the ``soldering form'' -- it solders th
 
 \section{Chern-Weil Theory}
 
+\section{Characteristic Classes}\label{sec:characteristic classes}
+
+A fundamental piece of data given to us by a smooth structure on $M$ is the tangent bundle $\T M \to M$, and by extension the frame bundle $\B M \to M$.
+These bundles allow us to do some differential geometry on $M$. In general, given a vector bundle $E\to M$, picking any linear connection $\Theta\in \Omega^1(\B E; \gl_n)$ with curvature form $F_\Theta \in \Omega^2(\B E; \gl_n)$, gives the Chern-Weil homomorphism
+\[
+  \lkxfunc{}{(\Sym^\bullet \gl_n^*)^{\GL_n}}{\H^\bullet(M; \R)}
+  {h}{h(F_\Theta\wedge\cdots\wedge F_\Theta)}
+\]
+which sends a $\GL_n$-invariant polynomial $h$ on $\gl_n$ to its evaluation on the curvature form $F_\Theta$, considered as a de Rham cohomology class. A basic result of Chern-Weil theory proves that this homomorphism is independent (up to cohomology of course) of the original choice of connection. The image of the Chern-Weil homomorphism forms the ring of characteristic forms -- an essential ingredient to the study of smooth manifolds. 
+
+There are several bases for this ring of characteristic forms. For instance, the \defn{Pontryagin classes} are given by
+\[
+  p_k(E) = \left[f_{2k}\left(\frac{i}{2\pi}F_\Theta\right)\right]\quad\in\H^{4k}(M; \R)
+\]
+where $f_{2k}(\lambda)$ are the coefficients of even degree in the characteristic polynomial $f(\lambda) = \det(\lambda I+F_\Theta)$. Here, the normalization factor of $i/2\pi$ ensures that Pontryagin classes integrate to integers. It is often useful to consider the \defn{total Pontryagin class} as associated to the characteristic polynomial
+\[
+  p(E) = \sum_k p_k(E) = \det\left(I + \frac{i}{2\pi} F_\Theta\right) \quad\in \H^\bullet(M; \R).
+\]
+\begin{proposition}[Whitney Product Formula] If $E_1$ and $E_2$ are vector bundles over $M$, then we have $p(E_1\oplus E_2) = p(E_1)\cdot p(E_2)$.
+\end{proposition}

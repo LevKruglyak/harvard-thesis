@@ -14,6 +14,9 @@
 \RequirePackage{mlmodern}
 \usepackage{bold-extra}
 
+\usepackage{setspace}
+% \doublespace
+
 % -----------------------------------------------
 %               Configuration
 % -----------------------------------------------
@@ -67,3 +70,32 @@
 \usepackage{titling}
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
+
+% -----------------------------------------------
+%               Chapter
+% -----------------------------------------------
+\usepackage{moresize}
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \center \normalfont
+		\bfseries 
+    \ifnum \c@secnumdepth >\m@ne
+      \HUGE --\!-- \thechapter \hskip 8\p@--\!--\ 
+    \fi
+    \interlinepenalty\@M
+    \vskip 5\p@
+    \huge #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\makeatletter
+\def\@makeschapterhead#1{%
+  {\parindent \z@ \centering \normalfont
+		\bfseries 
+    \interlinepenalty\@M
+    \vskip 5\p@
+    \huge #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother

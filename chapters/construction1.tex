@@ -1,0 +1,207 @@
+\chapter{The Geometry of Exotic 7-Spheres}
+
+% \begin{flushleft}
+% 	% \textsl{I admire the elegance of your method of computation;}\\
+% 	% \textsl{it must be nice to ride through these fields upon the}\\
+%   % \textsl{horse of true mathematics while the like of us have}\\
+%   % \textsl{to make our way laboriously on foot.}\\
+% 	\rule[0pt]{24em}{0.5pt}\\
+% 	-- %\textsc{Albert Einstein} to \textsc{Tullio Levi-Civita}\\
+% 	\vspace{2em}
+% \end{flushleft}
+
+In this chapter, we'll begin our foray into the garden of exotic spheres by focusing on the first known case where they appear: dimension 7. Before embarking on this journey, we should answer the following question, without which we will get nowhere:
+\begin{center}
+  \textsl{How do we know if a given homotopy-sphere is exotic?}
+\end{center}
+
+\section{Detecting Exotic Spheres}
+
+This is a tricky problem -- evidenced in part by the fact that it's still open in dimension 4. We need an invariant associated to a differentiable manifold $\Sigma$ which is sensitive enough to discern smooth structure even for manifolds with the same homeomorphism type. Of course, we don't have to work in full generality, but only care about the case when $\Sigma$ is a homotopy-sphere. These requirements immediately exclude invariants such as homotopy groups, the cohomology ring, and other objects depending solely on homeomorphism type. Since we're working with smooth structure, the natural thing to consider would be characteristic forms of the tangent bundle $\T \Sigma \to \Sigma$ such as the Stiefel-Whitney or Pontryagin classes. For a brief introduction, see \cref{sec:characteristic classes}.
+
+Leveraging characteristic forms to directly build up an invariant for exotic spheres runs into an immediate problem: while the tangent bundle of a homotopy-sphere can be far from trivial, it is \emph{stably} trivial. In other words, the sum $\T \Sigma\oplus \underline{\R}^k$ of the tangent bundle with enough trivial line bundles $\underline{\R}$ is trivial. This isn't obvious, and takes some homotopy theory to prove -- we will prove this in \cref{thm:homotopy_spheres_are_s-parallelizable} as part of the full classification of homotopy-spheres. However, since the total Pontryagin classes and Stiefel-Whitney classes satisfy the Whitney product formula $c(E_1\oplus E_2)=c(E_1)\cdot c(E_2)$, the identity $c(E\oplus \underline{\R}^k) = c(E)$ shows that characteristic forms can only detect bundles up to stable isomorphism type. In particular, this means that the Pontryagin and Stiefel-Whitney classes of a homotopy-sphere are all zero.
+
+The triviality of these characteristic forms is not a cause for mourning, but rather a blessing in disguise. Recall that if all Stiefel-Whitney classes of a manifold vanish, then the manifold is null-cobordant -- it is the boundary of an compact oriented manifold $B$ one dimension higher. We'll refer to such a manifold $B$ as a \defn{coboundary} of the original manifold $M$. Although this extra data of a coboundary is far from unique, perhaps we could define some invariant of $B$ which only depends on its boundary $\partial B=\Sigma$. This approach will turn out to be incredibly fruitful in detecting exotic spheres, and contains some beautiful geometry.
+
+\begin{remark} 
+  This is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. \todo{cite}
+\end{remark}
+
+To begin this journey, let's consider smooth invariants of manifolds with boundary. The following notions are subtle, so it's helpful to first work in an explicit geometric context loosely following the exposition of \cite{witten1985global}.
+
+\subsection{Geometric Invariants}
+
+Recall that if an $n$-manifold $X$ is equipped with a Riemannian metric and a linear connection $\Theta \in \H^1(\B X; \gl_n)$ on the frame bundle $\B X \to X$, we have a curvature form given by
+\[
+    F_\Theta = d\Theta + \frac{1}{2}[\Theta, \Theta]\quad\in \H^2(\B X; \gl_n).
+\]
+% This form descends to the base $\H^2(X; \End \T X)$.
+The curvature gives us the Chern-Weil homomorphism
+\[
+  \lkxfunc{}{(\Sym^\bullet \gl_n^\d)^{\GL_n}}{\H^\bullet(X; \R).}
+\]
+This map sends a $\GL_n$-invariant polynomial $h\in \Sym^\bullet \gl^\d_n$ on the Lie algebra $\gl_n$ to its evaluation $h(F_\Theta)$ on the curvature form, and finally descends $h(F_\Theta)\in \H^\bullet(\B X; \R)$ to the Chern-Weil form $\omega_\Theta(h) \in \H^\bullet(X; \R)$.
+
+Any characteristic form can be written in terms of these invariant polynomials via the Chern-Weil homomorphism. A useful basis for the space of $\GL_n$-invariant symmetric polynomials are the even degree trace polynomials $f(x)=\Tr(x^{2k})$. For instance:
+\begin{example}
+  The Pontryagin classs $p_1$ and $p_2$ of an $8$-manifold $X$ can be written as
+\[
+  p_1^2(X) = \frac{1}{(2\pi)^2}\Tr F_\Theta^2
+  \quad\textrm{and}\quad
+  p_2(X) = \frac{1}{(2\pi)^4}\left[ \frac{1}{8}(\Tr F_\Theta^2)^2 - \frac{1}{4}\Tr F_\Theta^4\right].
+\]
+\end{example}
+
+From the perspective of the Chern-Weil homomorphism, it's not clear why
+Pontryagin are diffeomorphism invariants, at least for closed manifolds? After all, there seems to be a dependence on the choice of metric and connection.
+Taking a ``physicists'' approach, it's helpful to see what happens if we perturb the metric and connection -- the resulting variation in a diffeomorphism invariant should be zero.
+
+\begin{remark}
+  For a smooth manifold $X$, a metric or Riemannian structure on $X$ is a section of the bundle
+  \[
+    \Sym^2 \T^\d X \to X
+  \]
+\end{remark}
+
+
+
+Let's return back to our original problem of using an invariant for manifolds with boundary to construct invariants on the boundary itself.
+
+% Considering the basis of $\GL_n$-invariant polynomials by trace polynomials $\Tr F_\Theta^{2k}$, we can write many 
+
+\bigskip
+
+
+Throughout let's assume $M$ is a smooth oriented compact $n$-manifold with coboundary $B$.
+
+
+For any $\ell$, the pair $(B, \partial B) = (B, M)$ gives us a long exact sequence of cohomology groups
+\[
+  \H^{\ell-1}(M;R) \lkxto \H^{\ell}(B, M; R) \lkxto[j] \H^{\ell}(B; R) \lkxto \H^{\ell}(M; R)
+\]
+where $j : \H^{\ell}(B, M; R) \to \H^{\ell}(B; R)$ is the induced map of the inclusion $(B,\emptyset) \to (B, M)$. 
+
+\begin{definition}
+  Suppose that the cohomology groups $\H^{\ell}(B; R)$ and $\H^{\ell-1}(B; R)$ are trivial. If $c_\ell(B) \in \H^{\ell}(B; R)$ is a characteristic form, the \defn{relative characteristic form} is the pullback
+  \[
+    c_\ell(B, M) = j^{-1} c_\ell(B) \quad\in \H^{\ell}(B, M; R).
+  \]
+\end{definition}
+
+\begin{remark}
+\todo{Connection to Green-Schwartz anomaly cancellation} \cite{witten1985global}.
+\end{remark}
+
+% \begin{center}
+% %   \textsl{An integrality theorem for characteristic forms of $n$-manifolds gives rise to an invariant for $(n-1)$-manifolds which bound.}
+% \end{center}
+
+% Maybe the lack of data can be amended by introducing additional degrees of geometric freedom. If we equip $M$ with a Riemannian metric, we get a tangent bundle
+%
+% Perhaps some appropriate formula involving characteristic classes could give us an invariant which only depends on the smooth structure of the manifold and not the geometric structure which, remember, is only there to serve as computational scaffolding. 
+%
+% Yet again, the topological simplicity of the spheres comes back to haunt us -- since characteristic classes live in cohomology, only top dimensional characteristic classes can hope to be non-trivial. 
+%
+% Discuss Stiefel-Whitney classes.
+%
+% \todo{what are the characteristic classes of homeomorphism spheres?}
+%
+% \begin{theorem}[Thom-Pontryagin]
+%   The Stiefel-Whitney numbers of a closed $n$-manifold $M$ are all zero if and only if it $M$ is the boundary of a compact $(n+1)$-manifold $B$.
+% \end{theorem}
+%
+% \todo{link}
+%
+% For a concrete case, let's assume for now that $M$ is a closed, oriented Riemannian $7$-manifold bounded by a $8$-manifold $B$ containing a compatible Riemannian structure.
+% \[
+%     I = \int_B \Tr F_\Theta^2
+% \]
+%
+% Under a change of metric, the curvature changes 
+%
+% How can such an invariant be well-defined?
+%
+% Let's pick some group $G$ and suppose we had an invariant $\lambda(B)\in G$ associated to any compact oriented manifold that bounds $M$, i.e. $\partial B = M$. 
+%
+% At the very least 
+%
+% If $B_1$ and $B_2$ are two such manifolds which share a common boundary $M$, we can form a compact manifold \emph{without} boundary by gluing together $B_1$ and $B_2$ along $M$ in reverse orientation. 
+% Let's call the resulting space $X=B_1\cup_\iota (-B_2)$, where negation denotes a reversed orientation and $\iota : \partial B_1 \to (-\partial B_2)$ is any orientation preserving diffeomorphism. Equivalently, this can be thought of as an orientation \emph{reversing} diffeomorphism $M\to M$.
+%
+% Now, it follows that $\lambda(X) = \lambda(B_1)-\lambda(B_2)$. We want this difference to be zero in order to get a well-defined quantity.
+%
+% \begin{definition}
+% 	The \defn{Milnor invariant} of a $7$-manifold 
+% 	\[
+%     \lambda(M) = \frac{1}{7}\left[2 p_1^2(B, M) - \sigma(B)\right] \mod 1.
+% 	\]
+% \end{definition}
+%
+% \begin{definition}
+%   A \defn{genus} of a cobordism theory $\Omega_*$ is a ring homomorphism
+%   \[
+%     \lkxfunc{\sigma}{\Omega_*}{\Z.}
+%   \]
+% \end{definition}
+%
+
+% Go one dimension higher,
+% what kind of invariants don't depend on the 
+% Relative pontryagin classes
+
+\section{Milnor Manifolds}
+
+What other sorts of manifolds $M$ can be constructed as total spaces of fiber bundles of the form
+\[
+    S^{n-1} \lkxto M^{2n-1} \lkxto S^n.
+\]
+
+\begin{historicalremark*}
+  In the 1950s at Princeton, Milnor was \cite{milnor2000exotic}. \todo{finish this.}
+\end{historicalremark*}
+
+
+\begin{definition}
+	The \defn{Milnor manifold} $\Sigma_{p,q}$ of type $(p,q)\in \pi_3(\SO_4)$ is the
+\end{definition}
+
+\subsection{The Gromoll-Meyer Sphere}
+
+There is another geometric way to construct an exotic $7$-sphere as a quotient of a Lie group.
+
+\begin{definition}
+	The \defn{Gromoll-Meyer sphere} $\Sigma_{\mathrm{gm}}^7$ is the 
+	\[
+      \Sigma_{\mathrm{gm}}^7 = \Sp_2/\Delta.
+	\]
+\end{definition}
+
+\begin{theorem}
+  The Gromoll-Meyer sphere has nonnegative sectional curvature.
+\end{theorem}
+
+\section{Spin Geometry and Dirac Operators}
+
+\begin{theorem}
+  Let $X^{4k}$ be a closed oriented spin $4k$-manifold. The $\Ahat$-genus $\Ahat(X)$ is an integer, and if $k$ is odd, an even integer.
+\end{theorem}
+
+\section{The Eells-Kupier Invariant}
+
+How do we discern the diffeomorphism type of manifolds which have the homeomorphism type of a sphere? The standard selection of invariants is currently vastly insufficient for this purpose -- characteristic numbers for instance are defined as integrals of characteristic classes of the tangent bundle.
+
+
+Many manifold invariants defined thus far have required non-trivial cohomology. 
+
+Let $M^{4k-1}$ be a closed oriented $(4k-1)$-manifold. If $M$ is the boundary of a compact oriented $4k$-manifold $W^{4k}$ which bounds $M$, i.e. $\partial W = M$, the cohomology sequence of the pair $(W,M)$ gives us a long exact sequence:
+\[
+  \H^{4i-1}(M;\Q) \lkxto \H^{4i}(W, M; \Q) \lkxto[j] \H^{4i}(W; \Q) \lkxto \H^{4i}(M; \Q)
+\]
+If we require that $\H^{4i-1}(M;\Q)$ and $\H^{4i}(M;\Q)$ are trivial, the map $j$ would be an isomorphism and so we can pull back the Pontryagin classes $p_i(W)\in \H^{4i}(W;\Q)$ to \defn{relative Pontryagin classes}[relative Pontryagin class] $p_i(W, M)\in\H^{4i}(W, M; \Q)$.
+
+\begin{definition}
+	The \defn{Eells-Kupier invariant} of a manifold $M^{4k-1}$ is
+	\[
+    \lambda(M) = \frac{1}{896}\left[p_1^2(B, M) - 4\sigma(B)\right] \mod 1.
+	\]
+\end{definition}
