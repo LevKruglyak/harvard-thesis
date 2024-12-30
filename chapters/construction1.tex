@@ -51,9 +51,9 @@ Let's try the Pontryagin classes next.
 	This definition gives a rational number because the Pontryagin classes are normalized to have integer integrals. Without additional restrictions on the polynomial $K$ or the manifold $\Sigma$, a general Pontryagin number defined in this way is only a rational number, not necessarily an integer.
 \end{remark}
 
-Just as the Euler characteristic was expressible as the characteristic number of the Euler class, there is a similar theorem expressing a classical topological invariant as a Pontryagin number. If $\Sigma$ is a $4k$-manifold, one of its fundamental invariants is the intersection form. The signature of a $4k$-manifold is the signature of this intersection form, i.e. the difference between the number of its positive and negative eigenvalues. If we let $L(x_1,\ldots, x_k)$ be the genus associated to the formal power series $\sqrt{z}/\tanh(\sqrt{z})$, the Hirzebruch signature theorem states that
+Just as the Euler characteristic was expressible as the characteristic number of the Euler class, there is a similar theorem expressing a classical topological invariant as a Pontryagin number. If $\Sigma$ is a $4k$-manifold, one of its fundamental invariants is the intersection form. The signature of a $4k$-manifold is the signature of this intersection form, i.e. the difference between the number of its positive and negative eigenvalues. If we let $L_k(x_1,\ldots, x_k)$ be the genus associated to the formal power series $\sqrt{z}/\tanh(\sqrt{z})$, the Hirzebruch signature theorem states that
 \[
-	\sigma(\Sigma) = \int_\Sigma L(p_1(\Sigma),\ldots, p_k(\Sigma)).
+	\sigma(\Sigma) = \int_\Sigma L_k(p_1(\Sigma),\ldots, p_k(\Sigma)).
 \]
 For instance, in the case of $4$ and $8$ manifolds, the signature can be written as
 \[
@@ -67,9 +67,9 @@ Leveraging the Pontryagin classes to directly build a useful invariant for homot
 
 The triviality of these characteristic forms is not a cause for mourning, but rather a blessing in disguise. Recall that if all Stiefel-Whitney classes of a manifold vanish, then the manifold is null-cobordant -- it is the boundary of manifold $B$ one dimension higher.\footnote{In specific dimensions, there are much easier ways to prove this. For instance, in Milnor's first paper \cite{milnor1956manifolds} on the topic, the null-cobordism of homotopy-spheres is implied by the triviality of the $7$-dimensional cobordism group $\Omega^\SO_7$.} We'll refer to such a manifold $B$ as a \defn{coboundary} of the original manifold $\Sigma$. Although this extra data of a coboundary is far from unique, perhaps we could define some invariant of $B$ which only depends on its boundary $\partial B=\Sigma$. This approach will turn out to be incredibly fruitful in detecting exotic spheres, and contains some beautiful geometry.
 
-\begin{remark}
-	This is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. This is a central idea in Chern-Simons theory \cite{chernsimons1974geometricinvariants}, and we'll explore it later in this chapter.
-\end{remark}
+\section{Secondary Invariants}
+
+This idea of passing to a coboundary is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. This is a central idea in Chern-Simons theory \cite{chernsimons1974geometricinvariants}, and we'll explore it later in this chapter.
 
 \subsection*{Smooth Invariants of Manifolds with Boundary}
 
@@ -96,8 +96,12 @@ As in the case of ordinary Poincar\'e duality, the isomorphism $\H_0(X)\approx \
 		\lkxfunc{I_{X,\partial X}}{\H^{2k}(X, \partial X)\otimes \H^{2k}(X, \partial X)}
 		{\R}{\alpha\otimes \beta}{\int_X \alpha\smile \beta.}
 	\]
-	The (relative) \defn{signature} $\sigma(X, \partial X)$\footnote{Most of the literature simply uses the notation $\sigma(X)$ even when $X$ has boundary. In this careful section, we'd like to keep the distinction meaningful for now.} of $X$ is the signature of this bilinear form.
+	The (relative) \defn{signature} $\sigma(X, \partial X)$ of $X$ is the signature of this bilinear form.
 \end{definition}
+
+\begin{convention*}
+	Most of the literature simply uses the notation $I_X$ and $\sigma(X)$ even when $X$ has a non-empty boundary, and we will adopt this convention outside of this chapter. However, in this chapter, we'd like to keep the distinction meaningful for better clarity.
+\end{convention*}
 
 While there are no topological constraints on a manifold in order to generalize the signature or Euler characteristic, constraints do appear when generalizing characteristic forms to the relative setting.
 Characteristic forms are not a priori relative cohomology classes, so pulling them back to obtain \emph{relative} characteristic forms in order to integrate requires additional assumptions about the topology of the boundary $\Sigma$.
@@ -108,7 +112,7 @@ For any integer $\ell$, the pair $(B, \partial B) = (B, \Sigma)$ gives us a long
 where $j : \H^{\ell}(B, \Sigma) \to \H^{\ell}(B)$ is the induced map of the inclusion $(B,\emptyset) \to (B, \Sigma)$. This is an isomorphism if the groups on either side of \cref{eq:relative_characteristic_classes_exact_sequence} are trivial. In this case, we can pullback:
 
 \begin{definition}\label{defn:relative_characteristic_form}
-	Suppose that the cohomology groups $\H^{\ell}(\Sigma)$ and $\H^{\ell-1}(\Sigma)$ are trivial. For a characteristic form $c_\ell(B) \in \H^{\ell}(B)$, the \defn{relative characteristic form} is the pullback
+	Suppose that $\H^{\ell}(\Sigma)$ and $\H^{\ell-1}(\Sigma)$ are trivial. For a characteristic form $c_\ell(B) \in \H^{\ell}(B)$, the \defn{relative characteristic form} is the pullback
 	\[
 		c_\ell(B, \Sigma) = j^{-1} c_\ell(B) \quad\in \H^{\ell}(B, \Sigma).
 	\]
@@ -116,7 +120,7 @@ where $j : \H^{\ell}(B, \Sigma) \to \H^{\ell}(B)$ is the induced map of the incl
 \end{definition}
 
 \begin{definition}\label{defn:relative_characteristic_number}
-	Given a polynomial $K\in \Q[x_1,\ldots, x_k]$ satisfying the conditions of \cref{defn:pontryagin_number}, suppose that $\H^{4i}(\Sigma) = \H^{4i-1}(\Sigma)=0$ for all $i$ for which $K$ has a $x_i$ term.
+	Given a polynomial $K\in \Q[x_1,\ldots, x_k]$ satisfying the conditions of \cref{defn:pontryagin_number}, suppose that $\H^{4i}(\Sigma)$ and $\H^{4i-1}(\Sigma)$ are trivial for all $i$ for which $K$ has a $x_i$ term.
 	In this case, we define the \defn{relative Pontryagin number} to be the integral
 	\[
 		\begin{aligned}
@@ -131,61 +135,80 @@ where $j : \H^{\ell}(B, \Sigma) \to \H^{\ell}(B)$ is the induced map of the incl
 	Note that if $\Sigma=\emptyset$, relative characteristic forms and numbers correspond exactly to the non-relative versions since $j$ becomes the identity map.
 \end{remark}
 
-So far we've defined some useful relative invariants -- we have the relative signature and relative Pontryagin numbers, although the latter comes with some topological restrictions. Our original goal was to use relative invariants of the coboundary $B$ to get an invariant for the boundary. Thus, our next question should be:
+We've defined some useful relative invariants -- there is the relative signature and relative Pontryagin numbers, although the latter comes with some topological restrictions. Our original goal was to use relative invariants of the coboundary $B$ to get an invariant for the boundary $\Sigma$. Thus, our next question should be:
 \begin{center}
 	\textsl{How do relative invariants change with the coboundary?}
 \end{center}
-Answering this question for the signature is easy enough. Let's suppose that $\Sigma$ is a $(4k-1)$-manifold so there is a signature for coboundaries of $X$.
 
+There is a elegant trick we can use to help us answer this. If $B_1$ and $B_2$ are coboundaries for $\Sigma$, we can form a closed $(n+1)$-manifold $C$ by glueing $B_1$ and $B_2$ along their boundary $\Sigma$. There is a unique smooth structure on $C$ which agrees with the smooth structures of $B_1$ and $B_2$, and we can give $C$ the orientation which agrees with the orientation of $B_1$ and with the reverse orientation of $B_2$. The cohomology of this closed surface behaves quite nicely if we impose some additional topological restrictions on $\Sigma$. Note that by the Mayer-Vietoris sequence, we have an exact sequence
+\[
+	\H^{\ell-1}(\Sigma)\lkxto \H^{\ell}(C) \lkxto[\rho] \H^{\ell}(B_1)\oplus \H^{\ell}(B_2) \lkxto \H^{2k}(\Sigma)
+\]
+for any $\ell$, where $\rho$ is the map which restricts a form $\omega\in \H^\ell(C)$ to the sum $\omega|_{B_1}\oplus \omega|_{B_2}\in \H^{\ell}(B_1)\oplus \H^{\ell}(B_2)$. Similarly, there is a relative version of the exact sequence
+\[
+	\H^{\ell-1}(\Sigma)\lkxto \H^{\ell}(C; \Sigma) \lkxto[\rho'] \H^{\ell}(B_1;\Sigma)\oplus \H^{\ell}(B_2;\Sigma) \lkxto \H^{\ell}(\Sigma).
+\]
+If we require that $\H^{\ell-1}(\Sigma)$ and $\H^{\ell}(\Sigma)$ are trivial, the restriction maps $\rho$ and $\rho'$ are isomorphisms. They are related neatly by the inclusion isomorphisms in \cref{eq:relative_characteristic_classes_exact_sequence}, and we can use these to form the commutative square:
+\begin{equation}\label{eq:closing_coboundaries_square}
+	\begin{tikzcd}
+		{\H^{\ell}(C,\Sigma)} & {\H^{\ell}(B_1,\Sigma)\oplus\H^{\ell}(B_2,\Sigma)} \\
+		{\H^{\ell}(C)} & {\H^{\ell}(B_1)\oplus\H^{\ell}(B_2)}
+		\arrow["j_1\oplus j_2"', from=1-2, to=2-2]
+		\arrow["\rho"', from=1-1, to=1-2]
+		\arrow["j"', from=1-1, to=2-1]
+		\arrow["\rho'"', from=2-1, to=2-2]
+		\arrow["h", from=1-2, to=2-1, dashed]
+	\end{tikzcd}
+\end{equation}
+Every map in this diagram is an isomorphism. Of particular interest to us is the diagonal isomorphism $h = j\circ \rho^{-1}$. To summarize:
+\begin{proposition}
+	If $\H^{\ell}(\Sigma)$ and $\H^{\ell-1}(\Sigma)$ are trivial, there is a ``glueing'' isomorphism
+	\[
+		\lkxfunc{h}{\H^\ell(B_1, \Sigma)\oplus \H^{\ell}(B_2,\Sigma)}{\H^\ell(C).}
+	\]
+\end{proposition}
+This glueing map satisfies some nice naturality properties.
+
+\todo{what}
+
+When $n=4k-1$, it makes sense to talk about the intersection form of $B_1,B_2,$ and $C$. In this case, we have:
 \begin{proposition}\label{prop:signature_variation}
-	Suppose that we have $\H^{2k}(\Sigma)=\H^{2k-1}(\Sigma)=0$ and
-	let $B_1$ and $B_2$ be coboundaries for $\Sigma$. We have the relation
-	\begin{equation}\label{eq:signature_variation}
-		\sigma(B_1, \Sigma) - \sigma(B_2, \Sigma) = \sigma(C)
-	\end{equation}
-	where $C$ is the closed $(n+1)$-manifold obtained by gluing $B_1$ and $B_2$ along their boundary $\Sigma$, with orientation agreeing with the orientation of $B_1$ and the reverse orientation of $B_2$.
+	If $\H^{2k}(\Sigma)$ and $\H^{2k-1}(\Sigma)$ are trivial, then the intersection form of $C$ is the direct sum of $I_{B_1,\Sigma}$ and $-I_{B_2,\Sigma}$. In matrix notation we have
+	\[
+		I_C = h\circ \begin{pmatrix} I_{B_1, \Sigma} & 0 \\ 0 & -I_{B_2, \Sigma}\end{pmatrix}.
+	\]
 \end{proposition}
 \begin{proof}
-	By the Mayer-Vietoris sequence for cohomology, we have the exact sequence
-	\[
-		\H^{2k-1}(\Sigma)\lkxto \H^{2k}(C) \lkxto[\rho] \H^{2k}(B_1)\oplus \H^{2k}(B_2) \lkxto \H^{2k}(\Sigma).
-	\]
-	By the assumed triviality of $\H^{2k-1}(\Sigma)$ and $\H^{2k}(\Sigma)$, it follows that $\rho$ is an isomorphism. Similarly, by the relative Mayer-Vietoris sequence we get an isomorphism
-	\[
-		\H^{2k}(C, \Sigma) \lkxto[\rho'] \H^{2k}(B_1, \Sigma)\oplus \H^{2k}(B_2, \Sigma).
-	\]
-	We thus have the following commutative diagram of isomorphisms:
-	\begin{equation}\label{eq:signature_variation_square}
-		\begin{tikzcd}
-			{\H^{2k}(C,\Sigma)} & {\H^{2k}(B_1,\Sigma)\oplus\H^{2k}(B_2,\Sigma)} \\
-			{\H^{2k}(C)} & {\H^{2k}(B_1)\oplus\H^{2k}(B_2)}
-			\arrow["j_1\oplus j_2"', from=1-2, to=2-2]
-			\arrow["\rho"', from=1-1, to=1-2]
-			\arrow["j"', from=1-1, to=2-1]
-			\arrow["\rho'"', from=2-1, to=2-2]
-		\end{tikzcd}
-	\end{equation}
-	Here, $j_1, j_2,$ and $j$ are the inclusion isomorphisms. Now if we have $\alpha_1, \beta_1\in \H^{2k}(B_1, \Sigma)$ and $\alpha_2, \beta_2\in \H^{2k}(B_2, \Sigma)$, and set $\alpha = j\circ \rho^{-1}(\alpha_1\oplus\alpha_2)$ and
-	$\beta = j\circ \rho^{-1}(\beta_1\oplus\beta_2)$
-	, we have
-	\[
-		\begin{aligned}
-			I_C(\alpha, \beta) = \alpha\beta\frown [C]
-			= j\circ\rho^{-1}(\alpha_1\beta_1\oplus \alpha_2\beta_2)\frown [C]
-			 & = \alpha_1\beta_1\oplus \alpha_2\beta_2\frown ([B_1, \Sigma]-[B_2, \Sigma]) \\
-			 & = \alpha_1\beta_1 \frown [B_1,\Sigma] -\alpha_2\beta_2\frown [B_2,\Sigma]   \\
-			 & =I_{B_1,\Sigma}(\alpha_1, \beta_1) - I_{B_2,\Sigma}(\alpha_2, \beta_2).
-		\end{aligned}
-	\]
-	This implies that the intersection form of $C$ is the direct sum of the intersection form of $B_1$ and negative of the intersection form of $B_2$. In matrix form:
-	\[
-		I_C = \begin{pmatrix}I_{B_1,\Sigma} & 0 \\ 0 & -I_{B_2,\Sigma}\end{pmatrix}.
-	\]
-	Thus, the signature satisfies \cref{eq:signature_variation}.
+	\todo{
+		Now if we have $\alpha_1, \beta_1\in \H^{2k}(B_1, \Sigma)$ and $\alpha_2, \beta_2\in \H^{2k}(B_2, \Sigma)$, and set $\alpha = j\circ \rho^{-1}(\alpha_1\oplus\alpha_2)$ and
+		$\beta = j\circ \rho^{-1}(\beta_1\oplus\beta_2)$
+		, we have
+		\[
+			\begin{aligned}
+				I_C(\alpha, \beta) = \alpha\beta\frown [C]
+				= h(\alpha_1\beta_1\oplus \alpha_2\beta_2)\frown [C]
+				 & = \alpha_1\beta_1\oplus \alpha_2\beta_2\frown ([B_1, \Sigma]-[B_2, \Sigma]) \\
+				 & = \alpha_1\beta_1 \frown [B_1,\Sigma] -\alpha_2\beta_2\frown [B_2,\Sigma]   \\
+				 & =I_{B_1,\Sigma}(\alpha_1, \beta_1) - I_{B_2,\Sigma}(\alpha_2, \beta_2).
+			\end{aligned}
+		\]
+		This implies that the intersection form of $C$ is the direct sum of the intersection form of $B_1$ and negative of the intersection form of $B_2$. In matrix form:
+		\[
+			I_C = \begin{pmatrix}I_{B_1,\Sigma} & 0 \\ 0 & -I_{B_2,\Sigma}\end{pmatrix}.
+		\]
+		Thus, the signature satisfies \cref{eq:signature_variation}.
+	}
 \end{proof}
 
+\begin{corollary}
+	If $\H^{2k}(\Sigma)$ and $\H^{2k-1}(\Sigma)$ are trivial, then the signature satisfies the relation
+	\begin{equation}\label{eq:signature_variation}
+		\sigma(B_1, \Sigma) - \sigma(B_2, \Sigma) = \sigma(C).
+	\end{equation}
+\end{corollary}
+
 What about the relative characteristic numbers? A similar result follows.
-\begin{proposition}
+\begin{proposition}\label{prop:characteristic_form_variation}
 	Let $c_\ell$ be a characterstic form. Suppose we have $\H^{\ell}(\Sigma)=\H^{\ell-1}(\Sigma)=0$ and
 	let $B_1$ and $B_2$ be coboundaries for $\Sigma$. We have the relation
 	\begin{equation}\label{eq:characteristic_number_variation}
@@ -195,19 +218,6 @@ What about the relative characteristic numbers? A similar result follows.
 \end{proposition}
 
 \begin{proof}
-	In this setting, there is an identical diagram to the one in \cref{eq:signature_variation_square}:
-	% \begin{equation}\label{eq:characteristic_number_variation_square}
-	\[
-		\begin{tikzcd}
-			{\H^{\ell}(C,\Sigma)} & {\H^{\ell}(B_1,\Sigma)\oplus\H^{\ell}(B_2,\Sigma)} \\
-			{\H^{\ell}(C)} & {\H^{\ell}(B_1)\oplus\H^{\ell}(B_2)}
-			\arrow["j_1\oplus j_2"', from=1-2, to=2-2]
-			\arrow["\rho"', from=1-1, to=1-2]
-			\arrow["j"', from=1-1, to=2-1]
-			\arrow["\rho'"', from=2-1, to=2-2]
-		\end{tikzcd}
-	\]
-	% \end{equation}
 	Expanding cap products in a similar way, we get
 	\[
 		\begin{aligned}
@@ -234,7 +244,7 @@ Let's see what types of invariants can be constructed out of relative Pontryagin
 	\end{aligned}
 	\quad\implies\quad
 	\begin{aligned}
-		 & p_1^2\textrm{ has a relative generalization}               \\
+		 & p_1^2\textrm{ does have a relative generalization}         \\
 		 & p_2\textrm{ does not have a relative generalization}       \\
 		 & \sigma\textrm{ satisfies \cref{prop:signature_variation}.}
 	\end{aligned}
@@ -246,11 +256,11 @@ Thus, the two invariants of interest to us are
 	\sigma(B, \Sigma).
 \]
 Now, for a \emph{closed} $8$-manifold $X$, rearranging using the Hirzebruch signature theorem gives us the expression:
-\[
+\begin{equation}\label{eq:7-manifold_rearrangement}
 	\sigma(X) = \frac{7p_2[X] - p_1^2[X]}{45}
 	\quad\implies\quad
 	p_2[X] = \frac{45\sigma(X) + p_1^2[X]}{7}.
-\]
+\end{equation}
 This suggests that there \emph{is} some analogue of the second Pontryagin class for $B$. For manifolds with boundary, we could define the number
 \[
 	\widetilde{p_2}[B, \Sigma] = \frac{45\sigma(B, \Sigma) + p_1^2[B, \Sigma]}{7}.
@@ -265,28 +275,114 @@ which reduces to the second Pontryagin number $p_2[B]$, an integer, when $\Sigma
 	\end{aligned}
 \]
 But this last term is just an ordinary Pontryagin number, and hence an integer. In other words, the coboundary of the rational invariant $\widetilde{p_2}$ does not affect the fractional part. If we only consider the fractional part, we would have an invariant of $\Sigma$ which is \emph{independent of the coboundary}!
-
 \begin{definition}
-  Let $\Sigma$ be a closed $7$-manifold with trivial cohomology groups $\H^3(\Sigma)=\H^4(\Sigma)=0$. The \defn{Milnor invariant}\footnote{In Milnor's original definition \cite{milnor1956manifolds}, his definition is of $2\cdot \lambda_{\textrm{milnor}}$.} of $\Sigma$ is
-  \[
-    \lambda_{\mathrm{milnor}}(\Sigma) = \frac{1}{7}\left[p_1^2[B,\Sigma] + 3\sigma(B,\Sigma)\right]\mod 1,
-  \]
-  where $B$ is any coboundary of $\Sigma$.
+	Let $\Sigma$ be a closed $7$-manifold with trivial cohomology groups $\H^3(\Sigma)=\H^4(\Sigma)=0$. The \defn{Milnor invariant}\footnote{This differs from Milnor's original definition in \cite{milnor1956manifolds} by a factor of $2$ (mod 7) -- there he defined $\lambda=(2p_1^2-\sigma)/7$.} of $\Sigma$ is
+	\[
+		\boxed{\lambda_{\mathrm{milnor}}(\Sigma) = \frac{1}{7}\left(3\sigma(B,\Sigma)+p_1^2[B,\Sigma]\right)\mod 1}
+	\]
+	where $B$ is any coboundary of $\Sigma$.
 \end{definition}
-
-\begin{proposition}
-  If $\Sigma_1$ and $\Sigma_2$ are diffeomorphic $7$-manifolds with trivial $3$rd and $4$th cohomology groups, then $\lambda_{\mathrm{milnor}}(\Sigma_1) = \lambda_{\mathrm{milnor}}(\Sigma_2)$.
-\end{proposition}
-
 For the ordinary sphere $S^7$, we have:
 \[
-    \lambda_{\textrm{milnor}}(S^7)=0.
+	\lambda_{\textrm{milnor}}(S^7)=0.
 \]
-If we can find a homotopy $7$-sphere $\Sigma$ with $\lambda_{\textrm{milnor}}(\Sigma)\neq 0$, we will have found an exotic sphere. Notice that the ``resolution'' of this invariant is $7$ -- since it can take on only $7$ values, this invariant can detect at most $7$ types of homotopy-spheres in $7$ dimensions. There are refinements of this invariant which can detect all $28$ classes of homotopy-spheres in $7$-dimensions, we will see such a refinement in \cref{sec:eells-kupier_invariant}.
+If we can find a homotopy $7$-sphere $\Sigma$ with $\lambda_{\textrm{milnor}}(\Sigma)\neq 0$, we will have found an exotic sphere. 
 
-Let's 
+\begin{remark} The ``resolution'' of this invariant is $7$ -- since it can take on only $7$ values, this invariant can detect at most $7$ types of homotopy-spheres in this dimension. There are refinements of this invariant which can detect all $28$ classes of homotopy-spheres in $7$-dimensions -- we will see such a refinement in \cref{sec:eells-kupier_invariant}.\end{remark}
 
 \subsection*{Milnor's Invariant for $(4k-1)$-Manifolds}
+
+The basic ideas outlined for $7$-manifolds should work for $(4k-1)$-manifolds in general, so let's see what happens in this case. If we require that $\H^{2i}(\Sigma)$ and $\H^{4i}(\Sigma)$ are trivial for all $i<k$, then Poincar\'e duality ensures that $\H^{2i-1}(\Sigma)$ and $\H^{4i}(\Sigma)$ are trivial as well. As in this $7$-dimensional case, all but the top-dimensional Pontryagin classes can be generalized to a coboundary $B$.
+As before, let $X$ be a closed $4k$-manifold and using the Hirzebruch signature theorem, we can do a rearrangement similar to \cref{eq:7-manifold_rearrangement} in order to get the expression
+\begin{equation}\label{eq:4k-1-manifold_rearrangement}
+	\sigma(X) = L_k[p_1(X), \ldots, p_k(X)]\quad\implies\quad 
+	p_k[X] = \frac{\sigma(X) - L_k[p_1(X),\ldots, p_{k-1}(X), 0]}{s_k}
+\end{equation}
+where $s_k=L_k(0,\ldots, 0, 1)$ is the coefficient of $x_k$ in $L(x_1,\ldots, x_k)$.
+We can isolate $p_k$ in this way since it is top-dimensional, or in other words the $L$-polynomial can be written in the form
+\[
+	L_k(x_1,\ldots, x_{k-1}, x_k) = s_k\cdot x_k + 
+	\left\{\parbox{18em}{terms involving lower order Pontryagin classes $p_1,\ldots, p_{k-1}$}\right\}.
+\]
+Now as before, we can use the rearrangement \cref{eq:4k-1-manifold_rearrangement} to get a rational number
+\[
+	\widetilde{p_k}[B, \Sigma] = \frac{\sigma(B, \Sigma) - L_k[p_1(B, \Sigma),\ldots, p_{k-1}(B, \Sigma), 0]}{s_k}
+\]
+which acts as a rational generalization of the $k$-th Pontryagin class. By \cref{prop:signature_variation} and \cref{prop:characteristic_form_variation}, for coboundaries $B_1$ and $B_2$ we get
+\[
+		\widetilde{p_k}[B_1, \Sigma] - \widetilde{p_k}[B_2, \Sigma] = p_k[C],
+\]
+where $C$ is the glueing of $B_1$ with $B_2$. Since the $k$-th Pontryagin number of a closed manifold is an integer, Taking the fractional part of $\widetilde{p_k}[B,\Sigma]$, we arrive at an easy generalization of the Milnor invariant for a $7$-manifold:
+
+\begin{definition}
+	Let $\Sigma$ be a closed $(4k-1)$-manifold with $\H^{4i}(\Sigma)$ and $\H^{2i}(\Sigma)$ trivial for all $i<n$. The \defn{Milnor invariant} of $\Sigma$ is
+	\[
+		\boxed{
+			\lambda_{\mathrm{milnor}}(\Sigma^{4k-1}) = \frac{1}{s_k}\Big(\sigma(B, \Sigma) - L_k[p_1(B, \Sigma), \ldots, p_{k-1}(B,\Sigma),0]\Big)\mod 1
+		}
+	\]
+	where $s_k = L_k(0,\ldots,0,1)$ is the coefficient of the last term in the $L$-polynomial.
+\end{definition}
+
+\begin{example}
+	In abbreviated notation, the first few such invariants are:
+	\[
+		\begin{aligned}
+			\lambda_{\mathrm{milnor}}(\Sigma^7) &= \frac{1}{7}\left(3\sigma + p_1^2\right)\mod 1,\\
+			\lambda_{\mathrm{milnor}}(\Sigma^{11}) &= \frac{1}{62}\left(15\sigma + 13p_1p_2 -2 p_1^3\right)\mod 1,\\
+			\lambda_{\mathrm{milnor}}(\Sigma^{15}) &= \frac{1}{381}\left(78\sigma + 71p_1p_3 + 19p_2^2 - 22p_1^2p_2 + 3p_1^4\right)\mod 1.
+		\end{aligned}
+	\]
+\end{example}
+
+It's useful to take a bird's eye view of what happened here.
+\begin{center}
+\textsl{An integrality theorem for certain characteristic numbers of closed $4k$-manifolds (the top Pontryagin number $p_k[X]$) led to a diffeomorphism invariant on $(4k-1)$-manifolds (Milnor's invariant).}
+\end{center}
+We might wonder 
+
+% \begin{theorem}
+% 	The $s_k$ coefficients are given explicitly by the formula
+% 	\[
+% 		s_k = \frac{2^{2k}(2^{2k-1}-1)B_k}{(2k)!}
+% 	\]
+% 	where $B_k$ is the $k$-th Bernoulli number.
+% \end{theorem}
+
+\section{Constructions using Geometric Topology}
+
+Armed with the Milnor invariant, let's try to construct an exotic sphere.
+
+\subsection*{Milnor Manifolds}
+
+What other sorts of manifolds $M$ can be constructed as total spaces of fiber bundles of the form
+\[
+	S^{n-1} \lkxto M^{2n-1} \lkxto S^n.
+\]
+
+\begin{historicalremark*}
+	In the 1950s at Princeton, Milnor was \cite{milnor2000exotic}. \todo{finish this.}
+\end{historicalremark*}
+
+
+\begin{definition}
+	The \defn{Milnor manifold} $\Sigma_{p,q}$ of type $(p,q)\in \pi_3(\SO_4)$ is the
+\end{definition}
+
+\subsection*{The Gromoll-Meyer Sphere}
+
+There is another geometric way to construct an exotic $7$-sphere as a quotient of a Lie group.
+
+\begin{definition}
+	The \defn{Gromoll-Meyer sphere} $\Sigma_{\mathrm{gm}}^7$ is the
+	\[
+		\Sigma_{\mathrm{gm}}^7 = \Sp_2/\Delta.
+	\]
+\end{definition}
+
+\begin{theorem}
+	The Gromoll-Meyer sphere has nonnegative sectional curvature.
+\end{theorem}
 
 \section{A Geometric Perspective on Smooth Invariants}
 
@@ -408,37 +504,6 @@ Let's return back to our original problem of using an invariant for manifolds wi
 % what kind of invariants don't depend on the 
 % Relative pontryagin classes
 
-\section{Milnor Manifolds}
-
-What other sorts of manifolds $M$ can be constructed as total spaces of fiber bundles of the form
-\[
-	S^{n-1} \lkxto M^{2n-1} \lkxto S^n.
-\]
-
-\begin{historicalremark*}
-	In the 1950s at Princeton, Milnor was \cite{milnor2000exotic}. \todo{finish this.}
-\end{historicalremark*}
-
-
-\begin{definition}
-	The \defn{Milnor manifold} $\Sigma_{p,q}$ of type $(p,q)\in \pi_3(\SO_4)$ is the
-\end{definition}
-
-\subsection*{The Gromoll-Meyer Sphere}
-
-There is another geometric way to construct an exotic $7$-sphere as a quotient of a Lie group.
-
-\begin{definition}
-	The \defn{Gromoll-Meyer sphere} $\Sigma_{\mathrm{gm}}^7$ is the
-	\[
-		\Sigma_{\mathrm{gm}}^7 = \Sp_2/\Delta.
-	\]
-\end{definition}
-
-\begin{theorem}
-	The Gromoll-Meyer sphere has nonnegative sectional curvature.
-\end{theorem}
-
 \section{Spin Geometry and Dirac Operators}
 
 \begin{theorem}
@@ -448,8 +513,9 @@ There is another geometric way to construct an exotic $7$-sphere as a quotient o
 \section{The Eells-Kupier Invariant}\label{sec:eells-kupier_invariant}
 
 \begin{definition}
-	The \defn{Eells-Kupier invariant} of a manifold $M^{4k-1}$ is
+	The \defn{Eells-Kupier invariant} of a manifold $\Sigma^7$ is
 	\[
-		\lambda(M) = \frac{1}{896}\left[p_1^2[B, M] - 4\sigma(B)\right] \mod 1.
+		\boxed{
+		\lambda_{\mathrm{ek}}(\Sigma) = \frac{1}{896}\left[p_1^2[B, \Sigma] - 4\sigma(B,\Sigma)\right] \mod 1}
 	\]
 \end{definition}
