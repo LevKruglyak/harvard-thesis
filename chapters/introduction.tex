@@ -16,5 +16,59 @@
   $\Theta_n$ is isomorphic to the group of $h$-cobordism classes of homotopy $n$-spheres under connected sum.
 \end{theorem}
 
-\begin{definition}\label{defn:intersection_form}
+\section{Characteristic Classes}\label{sec:characteristic_classes}
+
+\subsection*{The Chern-Weil Homomorphism}
+
+\section{Index Theorems}\label{sec:index_theorems}
+
+If $\Sigma$ is a $4k$-manifold, one of its fundamental invariants is the intersection form. 
+\begin{definition}
+	If $X$ is an $4k$-manifold, the \defn{intersection form} is the symmetric bilinear form
+	\[
+		\lkxfunc{I_{X}}{\H^{2k}(X)\otimes \H^{2k}(X)}
+		{\R}{\alpha\otimes \beta}{\int_X \alpha\smile \beta.}
+	\]
 \end{definition}
+By Sylvester's Law of Inertia, a symmetric bilinear form over a finite dimensional vector space is 
+
+The signature of a $4k$-manifold is the signature of this intersection form, i.e. the difference between the number of its positive and negative eigenvalues. If we let $L_k(x_1,\ldots, x_k)$ be the genus associated to the formal power series $\sqrt{z}/\tanh(\sqrt{z})$, the Hirzebruch signature theorem states that
+\[
+	\sigma(\Sigma) = \int_\Sigma L_k(p_1,\ldots, p_k)(\Sigma).
+\]
+For instance, in the case of $4$ and $8$ manifolds, the signature can be written as
+\[
+	\sigma(\Sigma^4) = \left(\frac{p_1}{3}\right)[\Sigma]
+	\quad\textrm{and}\quad
+	\sigma(\Sigma^8) = \left(\frac{7p_2 - p_1^2}{45}\right)[\Sigma].
+\]
+In the case of $4k$-dimensional homotopy-spheres, the signature is zero since spheres have no middle dimensional cohomology. This is emblematic of a deeper issue.
+
+\begin{theorem}[Hirzebruch Signature Theorem]
+	If $X$ is a closed $4k$-manifold, then we have
+	\[
+		\sigma(X) 
+	 = \int_X L_k(p_1,\ldots, p_k)(X).
+	\]
+	where $L_k(x_1,\ldots,x_k)$ is the genus associated to the formal power series $Q(z) = \sqrt{z}/\tanh(\sqrt{z})$.
+\end{theorem}
+
+\begin{example}
+	The first few $L$
+	\[
+		\begin{aligned}
+			\sigma(X^4) &= \frac{p_1}{3}[X]\\
+			\sigma(X^8) &= \frac{7p_2-p_1^2}{45}[X]\\
+			\sigma(X^{12}) &= \frac{62p_3-13p_1p_2+2p_1^3}{945}[X]\\
+			\sigma(X^{16}) &= \frac{381p_4 - 71p_1p_3 - 19p_2^2 + 22p_1^2p_2 - 3p_1^4}{14175}[X]\\
+		\end{aligned}
+	\]
+\end{example}
+
+\todo{finish this}
+
+\subsection*{The Atiyah-Singer Index Theorem}
+
+\begin{theorem}[Atiyah-Singer]\label{thm:atiyah-singer-index}
+  Let $X$ be a closed oriented $n$-manifold, and let $E^\bullet$ be an elliptic complex on $X$.
+\end{theorem}
