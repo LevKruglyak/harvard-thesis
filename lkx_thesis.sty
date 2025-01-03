@@ -89,6 +89,7 @@
 % -----------------------------------------------
 %              Environments
 % -----------------------------------------------
+\usepackage[toc]{appendix}
 
 \newenvironment{changemargins}{%
 \begin{list}{}{%
@@ -195,6 +196,9 @@
 %              Common Math
 % -----------------------------------------------
 
+% Binomial
+\renewcommand{\binom}[2]{\Bigl(\,\begin{array}{@{}c@{}}#1\\#2\end{array}\,\Bigr)}
+
 % Common scripts
 \providecommand{\Ocal}{\mathcal{O}}
 \providecommand{\Cscr}{\mathscr{C}}
@@ -253,6 +257,7 @@
 \DeclareMathOperator{\Tr}{\operatorname{tr}}
 \DeclareMathOperator{\Sym}{\operatorname{Sym}}
 \DeclareMathOperator{\Inv}{\operatorname{Inv}}
+\DeclareMathOperator{\ind}{\operatorname{ind}}
 
 \providecommand{\Gr}{\liegrp{Gr}}
 \providecommand{\GL}{\liegrp{GL}}
@@ -267,6 +272,7 @@
 \providecommand{\BGL}{\liegrp{BGL}}
 \providecommand{\BSL}{\liegrp{BSL}}
 \providecommand{\BSO}{\liegrp{BSO}}
+\providecommand{\MSO}{\liegrp{MSO}}
 \providecommand{\BO}{\liegrp{BO}}
 \providecommand{\BSU}{\liegrp{BSU}}
 \providecommand{\BU}{\liegrp{BU}}
@@ -306,6 +312,8 @@
 % Dirac Operator
 \providecommand{\D}{D\!\!\!\!/}
 \providecommand{\Ahat}{\widehat{A}}
+\DeclareMathOperator{\Td}{\operatorname{Td}}
+\providecommand{\Ahatbf}{\widehat{\mathbf{A}}}
 
 % Important equal
 \renewcommand{\=}{\overset{!}{=}}

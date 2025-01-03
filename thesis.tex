@@ -21,23 +21,40 @@
 
 \begin{document}
 
-\include{components/title}
+\input{components/title}
 
 \lkxtoc
 
-\include{chapters/prologue}
-\include{chapters/introduction}
+\input{chapters/prologue}
 
-% \part{A Menagerie of Manifolds}
-\include{chapters/detection1}
-\include{chapters/construction1}
-\include{chapters/construction2}
+\chapter{Introduction}\label{chap:introduction}
+\input{chapters/introduction}
 
-\include{chapters/homotopy1}
+\chapter{Detecting Exotic Spheres}\label{chap:detection}
+\input{chapters/detection}
 
-\include{chapters/misc}
-% \include{chapters/geometric_topology}
-\include{chapters/appendix1}
+\chapter{Geometric Constructions}\label{chap:construction}
+\input{chapters/construction}
+
+\chapter{Classification of Homotopy Spheres}\label{chap:classification}
+\input{chapters/classification}
+
+\begin{appendices}
+\chapter{Differential Geometry}\label{chap:differential_geometry}
+\input{chapters/differential_geometry}
+
+\chapter{Characteristic Classes}\label{chap:characteristic_classes}
+\input{chapters/characteristic_classes}
+
+\chapter{Cobordism}\label{chap:cobordism}
+\input{chapters/cobordism}
+
+\chapter{Index Theory}\label{chap:index_theory}
+\input{chapters/index_theory}
+
+\chapter{Homotopy Groups of Spheres}\label{chap:homotopy_groups_of_spheres}
+\input{chapters/homotopy_groups_spheres}
+\end{appendices}
 
 \lkxrefs
 \lkxindex

@@ -1,0 +1,37 @@
+% \section{The Chern-Weil Homomorphism}
+
+\section{Chern and Pontryagin Classes}
+
+\begin{proposition}\label{prop:pontryagin_classes_of_CPn}
+  The Pontryagin classes of complex projective space $\CP^n$ are
+  \[
+    p_k(\CP^n) = \binom{n+1}{k}\quad\textrm{for}\quad 1\leq k \leq n/2.
+  \]
+\end{proposition}
+
+\section{Stiefel-Whitney Classes}\label{sec:stiefel-whitney_classes}
+
+\section{Universal Bundles}\label{sec:universal_bundles}
+
+\todo{"the most twisted bundle" from Bott and Tu}
+\cite{milnorstasheff1974characteristic}
+\cite{botttu1982differential}
+
+\begin{theorem}\label{thm:cohomology_of_BO}
+  There is a ring isomorphism
+  \[
+    \H^\bullet(\BO_n; \Z/2) \cong \Z/2[w_1,\ldots, w_n]
+  \]
+  where $w_i$ are Stiefel-Whitney classes of the universal bundle over $\BO_n$. In other words, any characteristic class for unoriented real bundles with $\Z/2$-coefficients can be expressed in terms of the Stiefel-Whitney classes.
+\end{theorem}
+
+\begin{theorem}\label{thm:cohomology_of_BSO}
+  Let $\Lambda$ be an integral domain containing $1/2$. There are ring isomorphisms
+  \[
+      \H^\bullet(\BSO_{2m+1}; \Lambda) \cong \Lambda[p_1(\gamma), \ldots, p_m(\gamma)]
+      \quad\textrm{and}\quad
+      \H^\bullet(\BSO_{2m}; \Lambda) \cong \Lambda[p_1, \ldots, p_m, e]/(e^2-p_m)
+  \]
+  where $p_i$ and $e$ are Pontryagin and Euler classes of the universal bundle over $\BSO_n$.
+  In other words, ignoring $2$-torsion, any characterstic class for oriented real bundles can be expressed in terms of Pontryagin and Euler classes.
+\end{theorem}
