@@ -1,6 +1,5 @@
 \ProvidesClass{lkx_thesis}[Senior Thesis Class]
 \LoadClass[11pt, letterpaper]{report}
-\usepackage[utf8]{inputenc}
 \RequirePackage{ifthen}
 
 % TODO: configure in thesis.tex
@@ -10,10 +9,12 @@
 %               Font
 % -----------------------------------------------
 
+\usepackage[utf8]{inputenc} % Only use for pdflatex
+
 \usepackage[T1]{fontenc}
 \RequirePackage{mlmodern}
-\usepackage{bold-extra}
 
+\usepackage{bold-extra}
 \usepackage{setspace}
 % \doublespace
 

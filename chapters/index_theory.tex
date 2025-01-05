@@ -5,11 +5,24 @@
   \todo{todo}
 \end{theorem}
 
+\begin{proof}
+\end{proof}
+
+\subsection*{Harmonic Forms}
+
+Given a function $\psi : U \to \R$ on an open region of $\R^n$, the Laplace equation\index{Laplace equation} is the second-order partial differential equation
+\begin{equation}\label{eq:laplace}
+    \Delta \psi = 0
+    \quad\implies\quad
+    \frac{\partial^2 \psi}{\partial x_1^2}+\cdots+\frac{\partial^2 \psi}{\partial x_n^2}=0.
+\end{equation}
+Functions satisfying this equation are known as \defn{harmonic functions}[harmonic function] and are ubiquitous across mathematics and physics. The Laplacian operator $\Delta$
+
 \section{The Atiyah-Singer Index Theorem}
 
 \begin{theorem}[Atiyah-Singer Index Theorem]\label{thm:atiyah-singer_index}
   Let $X$ be a closed oriented $n$-manifold and let $(E,D)$ be an elliptic complex on $X$. Then we have
   \[
-    \ind D = (-1)^{n(n+1)/2}\int_X \mathrm{ch}(E,D)\smile \Td(\T X_\C).
+    \ind(E, D) = (-1)^{n(n+1)/2}\int_X \mathrm{ch}(E,D)\smile \Td(\T X_\C).
   \]
 \end{theorem}
