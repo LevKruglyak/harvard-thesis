@@ -90,6 +90,7 @@
 %              Environments
 % -----------------------------------------------
 \usepackage[toc]{appendix}
+\AtBeginEnvironment{appendices}{\crefalias{chapter}{appendix}}
 
 \newenvironment{changemargins}{%
 \begin{list}{}{%
@@ -139,6 +140,10 @@
 \newtheorem{conjecture}[equation]{Conjecture}
 \newcommand{\conjectureautorefname}{Conjecture}
 \crefformat{conjecture}{\normalfont{#2Conjecture~#1#3}}
+
+\newtheorem{open}[equation]{Open Problem}
+\newcommand{\openautorefname}{Open Problem}
+\crefformat{open}{\normalfont{#2Open Problem~#1#3}}
 
 \newtheorem{corollary}[equation]{Corollary}
 \newcommand{\corollaryautorefname}{Corollary}
@@ -196,6 +201,9 @@
 %              Common Math
 % -----------------------------------------------
 
+% Double bracket
+\providecommand{\fps}[1]{[\![#1]\!]}
+
 % Binomial
 \renewcommand{\binom}[2]{\Bigl(\,\begin{array}{@{}c@{}}#1\\#2\end{array}\,\Bigr)}
 
@@ -210,6 +218,9 @@
 % Dual space
 \renewcommand{\d}{\vee}
 \renewcommand{\d}{*}
+
+% Connected Sum
+\providecommand{\+}{\,\#\,}
 
 % Common number systems
 \providecommand{\Z}{\mathbb{Z}}
@@ -288,6 +299,7 @@
 \providecommand{\n}{\liealg{n}}
 
 \providecommand{\Lie}{\operatorname{Lie}}
+\providecommand{\bP}{bP}
 
 % Category Theory
 \providecommand{\cat}[1]{\mathtt{#1}}
@@ -302,6 +314,14 @@
 \providecommand{\Mod}{\cat{Mod}}
 \providecommand{\Proj}{\cat{Proj}}
 \providecommand{\Vect}{\cat{Vect}}
+
+\providecommand{\top}{\operatorname{Top}}
+\providecommand{\pl}{\operatorname{PL}}
+\providecommand{\diff}{\operatorname{Diff}}
+
+\providecommand{\BTop}{\operatorname{BTop}}
+\providecommand{\BPL}{\operatorname{BPL}}
+\providecommand{\BDiff}{\operatorname{BDiff}}
 
 % Misc
 \providecommand{\diff}{\operatorname{Diff}}
