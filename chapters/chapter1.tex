@@ -1,6 +1,3 @@
-\providecommand{\bo}{\Sigma}
-\providecommand{\co}{B}
-
 \begin{flushleft}
 	\textsl{A mathematician is a blind man in }\\
 	\textsl{a dark room looking for a black cat}\\
@@ -9,3 +6,128 @@
 	\textsl{-- Unknown}
 	\vspace{2em}
 \end{flushleft}
+
+This chapter will build up to the Atiyah-Singer index theorem -- a remarkable gem of 20th century mathematics which unifies \todo{todo}
+The index theorem is able to express the ``number'' of solutions to an elliptic system of differential equations on a manifold in terms of the topology of the manifold. This gives subtle integrability (i.e. being integer-valued) conditions for certain combinations of characteristic numbers.
+
+Starting with an introduction to the Hirzebruch signature theorem and $L$-genus, we'll construct (a generalization of) an invariant used by Milnor to detect the first exotic sphere \cite{milnor1956manifolds} in 1956.
+\todo{finish this}
+
+\begin{convention*}
+	All manifolds are assumed to be oriented. Unless otherwise specified, $k\geq 1$.
+\end{convention*}
+
+\section{The Hirzebruch Signature Theorem}\label{sec:hirzebruch-signature-theorem}
+
+Recall that the intersection form of a closed $4k$-manifold $X$ is the symmetric bilinear form on $\H^{2k}(X)$ given by
+\[
+	\lkxfunc{I_X}{\H^{2k}(X)^{\times 2}}{\R}{\alpha,\beta}{\int_X \alpha\smile \beta.}
+\]
+Since $I_X$ is a symmetric bilinear form over a finite dimensional real vector space, it is determined up to isomorphism by its signature, i.e. the difference in dimensions of its maximal positive definite and negative subspaces. 
+
+\begin{definition}
+	The \defn{signature} $\sigma(X)$ of a closed $4k$-manifold $X$ is the signature of the form $I_X$.
+\end{definition}
+
+Given the structure of the cohomology ring, the signature of a manifold is straightforward to calculate. For instance:
+\begin{proposition}
+	The signature of even-dimensional complex projective planes is $\sigma(\CP^{2m})=1$.
+\end{proposition}
+\begin{proof}
+	The cohomology of $\CP^{2m}$ has the ring structure
+	\[
+		\H^\bullet(\CP^{2m}) = \R[\alpha]/(\alpha^{2m+1})\quad\textrm{where}\quad |\alpha|=2.
+	\]
+	Since the middle dimensional cohomology has dimension $\dim \H^{2m}(\CP^{2m}) = 1$ and $\CP^{2m}$ can be oriented so that $\int_{\CP^{2m}} \alpha^{2m} = 1$, it follows that the signature is $1$.
+\end{proof}
+
+\begin{remark}
+	As a convention, if the dimension of a closed manifold $X$ is not divisible by $4$ we define the signature $\sigma(X)=0$ to be trivial.
+\end{remark}
+
+For more topological details on the signature and intersection form, we refer the reader to \cref{sec:signature} for a thorough review.
+
+\subsection*{Harmonic Differential Forms}
+
+There is a analytic interpretation to the 
+
+If $X_1$ and $X_2$
+
+
+\subsection*{The $L$-Genus}
+
+\begin{definition}
+	The \defn{$\bm{L}$-genus} $\{L_k\}$ is the multiplicative sequence of polynomials corresponding to the series $Q(z) = \sqrt{z}/\tanh\sqrt{z}$.
+\end{definition}
+
+\begin{theorem}[Hirzebruch Signature Theorem]\label{thm:hirzebruch_signature}
+	Let $X$ be a closed (oriented) $4k$-manifold. Then we have
+	\[
+		\sigma(X) = \int_X L_k(p_1, \cdots, p_k)(X),
+	\]
+	where $L_k$ is the $L$-genus.
+\end{theorem}
+\begin{proof}
+	It suffices to check this identity for the generators $\CP^{2k}$. The total Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$. Using multiplicativity of $L$ and $L(1+z)=\sqrt{z}/\tanh\sqrt{z}$, we have
+	\[
+		\begin{aligned}
+			L(p)(\CP^{2k})
+			= L\left((1+\alpha^2)^{2k+1}\right)
+			= L(1+\alpha^2)^{2k+1}
+			= \left(\alpha/\tanh \alpha\right)^{2k+1}
+			\quad\in\H^\bullet(\CP^{2k}).
+		\end{aligned}
+	\]
+	Here, we consider $\alpha/\tanh \alpha$ as a formal power series in $\alpha$ truncated by the relation $\alpha^{2k+1}=0$ in the cohomology ring $\H^\bullet(\CP^{2k})$. The characteristic number $L_k(p_1,\ldots,p_k)[\CP^{2k}]$ is then the coefficient of $\alpha^{2k}$ in the expansion of $(\alpha/\tanh \alpha)^{2k+1}$.
+	By elementary complex analysis, this coefficient can be extracted by taking a contour integral around a small $\varepsilon$-circle about the origin in $\C$:
+	\[
+		\begin{aligned}
+			L_k(p_1,\cdots, p_k)[\CP^{2k}]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\varepsilon} \frac{dz}{z^{2k+1}} \left(\frac{z}{\tanh z}\right)^{2k+1}
+			 &                                                                                                       \\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\varepsilon} \frac{dz}{\tanh^{2k+1} z}\quad
+			 & u  =\tanh(z),\quad
+			du =(1-u^2)dz
+			\\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\varepsilon} \frac{1}{u^{2k+1}}\cdot\frac{du}{1-u^2}
+			 &                                                                                                       \\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\varepsilon} \frac{1+u^2+u^4+\cdots}{u^{2k+1}}\,du                       \\[0.5em]
+			 & =1.                                                                                                 &
+		\end{aligned}
+	\]
+	Since $\sigma(\CP^{2k})=1$, this completes the proof.
+\end{proof}
+
+\section{Milnor's Invariant}\label{sec:milnors-invariant}
+
+\section{The Atiyah-Singer Index Theorem}\label{sec:atiyah-singer-index-theorem}
+
+\begin{theorem}[Atiyah-Singer Index Theorem]\label{thm:atiyah-singer}
+	Let $(E,D)$ be an elliptic complex over a closed $n$-manifold $X$. Then the index of $(E,D)$ can be expressed as
+	\[
+		\ind(E,D) = (-1)^{n(n+1)/2}\int_X \Theta^{-1}\ch \sigma(E)\smile \Td(\T X^\C)
+	\]
+	where $\Theta : \H^\bullet(X;\Q) \to \H_c^\bullet(\T^\d X;\Q)$ is the Thom isomorphism.
+\end{theorem}
+
+\begin{theorem}
+	Let $E$ be an oriented vector bundle over $X$. There exists a spin structure on $E$ if and only if the second Stiefel-Whitney class $w_2(E)\in \H^2(X;\Z/2)$ vanishes. In this case, there is a bijective correspondence:
+	\[
+		\left\{
+		\parbox{9em}{
+			spin structures on $E$
+		}
+		\right\}
+		\quad\iff\quad
+		\H^1(X;\Z/2)
+	\]
+\end{theorem}
+
+\begin{definition}
+\end{definition}
+
+\begin{theorem}\label{thm:Ahat-integrality}
+	If $X$ is a closed spin $2k$-manifold, then $\Ahat[X]$ is an integer. Furthermore, if $k$ is odd then $\Ahat[X]$ is an even integer.
+\end{theorem}
+
+\section{Fancier Exotic Sphere Invariants}

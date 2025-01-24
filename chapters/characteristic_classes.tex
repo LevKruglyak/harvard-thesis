@@ -1,5 +1,31 @@
 % \section{The Chern-Weil Homomorphism}
 
+\begin{definition}\label{defn:poincare-pair}
+	Let $X$ be an $n$-dimensional manifold and $Y$ a closed submanifold. The pair $(X,Y)$ is said to be a \defn{Poincar\'e pair} if there is a fundamental class $[X, Y]\in \H_n(X,Y)$ such that the map
+	\[
+		\lkxfunc{}{\H^q(X,Y)}{\H_{n-q}(X)}{\omega}{\omega \frown [X, Y]}
+	\]
+	given by cap product with the fundamental class is an isomorphism.
+\end{definition}
+
+\begin{remark}\label{rmk:duality-integration}
+In the case of de Rham cohomology, since $X$ is connected we have $\H_0(X)\cong \R$. Under this identification, the Poincar\'e duality isomorphism for top-dimensional relative cohomology classes $\omega\in \H^n(X,Y)$ can be interpreted as integration, i.e. $\omega\frown [X,Y]$ corresponds to $\int_X \omega$. 
+\end{remark}
+
+With this notion of a Poincar\'e pair, the classical statement of Poincar\'e duality is given:
+
+\begin{theorem}[Poincar\'e Duality]\label{thm:poincare-duality}
+	If $X$ is a closed manifold, then $(X,\emptyset)$ is a Poincar\'e pair.
+\end{theorem}
+
+\begin{theorem}[Poincar\'e-Lefschetz Duality]\label{thm:poincare-lefschetz-duality}
+	If $X$ is a compact manifold with boundary, then $(X,\partial X)$ is a Poincar\'e pair.
+\end{theorem}
+
+\[
+	\delta I = \int_X \omega + d\mathcal{A} - \int_X \omega =\int_X d\mathcal{A} =\int_{\partial X} \mathcal{A}
+\]
+
 \begin{definition*}
 	A \defn{characteristic class} is a natural transformation 
 	\[
@@ -7,6 +33,18 @@
 	\]
 	from the set of principal $G$-bundles
 \end{definition*}
+
+One of the fundamental topological invariants of a $2m$-manifold is its intersection form, a bilinear form which ``counts'' the number of intersections of submanifolds. We'll see this geometric interpretation in \cref{chap:construction_a}, but for now we'll stick to a more algebraic definition.
+
+\begin{definition}\label{defn:intersection-form}
+	Let $(X,Y)$ be a Poincar\'e pair where $X$ is a $2m$-manifold. The \defn{intersection form} of $(X,Y)$ is the bilinear form on $\H^{m}(X,Y)$ given by
+	\[
+		\lkxfunc{}{\H^{m}(X,Y)^{\times 2}}{\R}{\alpha, \beta}{(\alpha\smile\beta)[X,Y]}
+	\]
+	where $[X,Y]\in \H_{2m}(X,Y)$ is an orientation class.
+\end{definition}
+By the graded-commutativity of the cap product, when $m$ is odd this form is skew-symmetric and when $m$ is even this form is symmetric. For now, let's assume $m$ is even so that the form is symmetric bilinear. Following our conventions, we'll now write $2m=4k$. 
+
 
 \section{Chern and Pontryagin Classes}
 
@@ -43,3 +81,5 @@
   where $p_i$ and $e$ are Pontryagin and Euler classes of the universal bundle over $\BSO_n$.
   In other words, ignoring $2$-torsion, any characterstic class for oriented real bundles can be expressed in terms of Pontryagin and Euler classes.
 \end{theorem}
+
+\section{Intersection Form}
