@@ -6,7 +6,7 @@
 	\vspace{2em}
 \end{flushleft}
 
-The goal of this chapter is to construct 
+The goal of this chapter is to construct
 
 \begin{convention*}
 	In this chapter, $\H$ denotes singular (co)homology.
@@ -16,44 +16,106 @@ The goal of this chapter is to construct
 	For any $t\in \Z$, there is a framed $4k$-manifold $M$ bounding a homotopy sphere and with signature $\sigma(M)=8t$.
 \end{theorem}
 
+Given a commutative coefficient ring $\Lambda$ and a $2m$-dimensional Poincar\'e pair $(X,Y)$, its intersection form is the bilinear form on middle dimensional cohomology
+given by
+\[ 
+	\lkxfunc{Q_{X,Y}}{\H^m(X,Y; \Lambda)^{\times 2}_{\textrm{free}}}{\Lambda}{\omega, \eta}{(\omega\smile \eta)\frown [X,Y]}
+\]
+where $[X,Y]\in \H_m(X,Y; \Lambda)$ is a fundamental class and $\H^m(X,Y; \Lambda)_{\textrm{free}}$ denotes the free component of the $\Lambda$-module $\H^m(X,Y;\Lambda)$. While this algebraic definition is useful for computation, there is a geometric way to interpret the data of the intersection form as actually counting the number of intersections between $m$-dimensional submanifolds in general position.
+
+The simplest example of this is the case of compact surfaces. This class of spaces admits a 
 \begin{theorem}
+	Every closed oriented $2$-manifold is homeomorphic to exactly one of the following 
+	\[
+			S^2,\quad \#^p T^2, \quad \#^q \RP^2,
+	\]
+	where $T^2=S^1\times S^1$ is the torus.
 \end{theorem}
 
-\section{Quadratic Forms}
+\begin{convention*}
+The connected sum of a space $X$ with itself $n$ times will be denoted by $\#^n X$.
+\end{convention*}
 
-For this section, 
-Let $M_n(R)$ be the ring of $n\times n$ matrices taking values in $R$. A matrix $Q\in M_n(R)$ is invertible if it's determinant $\det Q\in R$ is a unit, and we denote the group of invertible $n\times n$ matrices by $\GL_n(R)$. Two matrices $Q$ and $P$ are said to be conjugate if $P = \Lambda^\intercal Q\Lambda$ for some invertible matrix $\Lambda\in \GL_n(R)$. Given a matrix $Q$ acting on a free $R$-module $R^n$, there is a bilinear form defined by
+Standard cohomology computations from 
 \[
-	Q(v,w) = v^\intercal Q w\quad \textrm{for all }v,w\in R^n.
+  Q_{S^2} = [0], \quad Q_{T^2} = \begin{bmatrix}0&1\\ 1&0\end{bmatrix}, \quad Q_{\RP^2} = [1]
+\]
+
+For instance, in the case of surfaces when $\Lambda=\Z/2$, 
+
+\begin{proposition}
+	The intersection form $Q_{(X,Y)}$ of a Poincar\'e pair is unimodular.
+\end{proposition}
+\begin{proof}
+	
+\end{proof}
+
+\section{Integral Bilinear Forms}
+
+\subsection*{Bilinear Forms and Matrices}
+
+Let $M_n(R)$ be the ring of $n\times n$ matrices taking values in $R$. A matrix $Q\in M_n(R)$ is invertible if it's determinant $\det Q\in R$ is a unit, and we denote the group of invertible $n\times n$ matrices by $\GL_n(R)$. Two matrices $Q$ and $P$ are said to be conjugate if $P = \Lambda^\intercal Q\Lambda$ for some invertible matrix $\Lambda\in \GL_n(R)$. If we have a free $R$-module $M$ of rank $n$ with some basis $\{e_1,\ldots, e_n\}$, any matrix $Q\in M_n(R)$ defines a bilinear form on $M$ by
+\[
+	Q(v,w) = v^\intercal Q w\quad \textrm{for all }v,w\in M.
 \]
 We abuse notation by referring to the matrix and the form interchangeably.
-Note that the bilinear form only depends on the matrix conjugacy class, and the form is independent of the basis for $R^n$.
-Similarly, if we have a bilinear form $Q$, we can define the matrix $Q$ in some basis $\{e_1,\ldots, e_n\}\subset R^n$ by setting $Q_{ij}= Q(e_i, e_j)$. 
+Note that the bilinear form only depends on the matrix conjugacy class, and the form is independent of the basis for $M$.
+Similarly, if we have a bilinear form on $M$, we can define the matrix $Q$ in some basis $\{e_1,\ldots, e_n\}\subset R^n$ by setting $Q_{ij}= Q(e_i, e_j)$.
 
-Let $\Sym_n(R)$ be the subring of symmetric matrices. There is a bijective correspondence
+In this way, many notions pertaining to matrices are mapped to notions pertaining to bilinear forms. For instance, symmetric matrices correspond to symmetric bilinear forms and skew-symmetric matrices correspond to skew-symmetric bilinear forms.
+
+\begin{definition}
+	A bilinear form $Q$ is said to be \defn{non-degenerate}[non-degenerate bilinear form] if its matrix has non-zero determinant. Equivalently, the form $Q$ is \defn{degenerate}[degenerate bilinear form] if there is some non-zero $v\in M$ such that
+	\[Q(v,w)=0 \quad\quad \textrm{for all }w\in M.\]
+\end{definition}
+
+When working with rings $R$ which aren't fields, we can get a stronger notion of non-degeneracy if we require the determinant to not only be non-zero but also invertible in $R$.
+
+\begin{definition}
+	A bilinear form $Q$ is said to be \defn{unimodular} if its matrix is $R$-invertible. Sometimes, we also refer to an $R$-invertible matrix as unimodular if it is $R$-invertible.
+\end{definition}
+
+Equivalently, a bilinear form $Q$ is unimodular if the map
 \[
-	\Sym_n(R) / \textrm{conjugation} \quad\iff\quad 
+	\lkxfunc{}{M}{M^\d}{v}{\left\{w\mapsto Q(v,w)\right\}}
 \]
+is an isomorphism. The condition for non-degeneracy only requires that this map be injective.
 
+\begin{example}
+	For instance, when $M=\Z$ as a $\Z$-module, the bilinear form $B(x,y)=2xy$ is non-degenerate but not unimodular.
+\end{example}
+
+\subsection*{Hasse-Minkowski Classification}
+
+\begin{proposition}
+	There is an even positive-definite unimodular form of rank $8$ corresponding to the matrix
+	\[
+		E_8 = \begin{pmatrix}
+			2 & 1 &   &   &   &   &   &   \\
+			1 & 2 & 1 &   &   &   &   &   \\
+			  & 1 & 2 & 1 &   &   &   &   \\
+			  &   & 1 & 2 & 1 &   &   &   \\
+			  &   &   & 1 & 2 & 1 & 0 & 1 \\
+			  &   &   &   & 1 & 2 & 1 & 0 \\
+			  &   &   &   & 0 & 1 & 2 & 0 \\
+			  &   &   &   & 1 & 0 & 0 & 2 \\
+		\end{pmatrix}
+	\]
+\end{proposition}
+
+% Now let $\Sym_n(R)$ be the subring of symmetric matrices. Since the matrix corresponding to a  There is a bijective correspondence
+% \[
+% 	\Sym_n(R) / \textrm{conjugation} \quad\iff\quad \left\{\parbox{10em}{
+% 			symmetric bilinear forms over $M$
+% 	}\right\}
+% \]
+%
 \begin{definition}
 \end{definition}
 
 \begin{theorem}\label{thm:signature_divisible_by_8}
 	Let $M$ be a highly-connected framed $4k$-manifold whose boundary is either empty or a homotopy sphere. Then the signature $\sigma(M)$ is divisible by $8$.
 \end{theorem}
-
-\[
-	\begin{pmatrix}
-		2 & 1 &   &   &   &   &   &   \\
-		1 & 2 & 1 &   &   &   &   &   \\
-		  & 1 & 2 & 1 &   &   &   &   \\
-		  &   & 1 & 2 & 1 &   &   &   \\
-		  &   &   & 1 & 2 & 1 & 0 & 1 \\
-		  &   &   &   & 1 & 2 & 1 & 0 \\
-		  &   &   &   & 0 & 1 & 2 & 0 \\
-		  &   &   &   & 1 & 0 & 0 & 2 \\
-	\end{pmatrix}
-\]
 
 \section{Plumbing Disk Bundles}
 
@@ -118,10 +180,10 @@ Finally, let's see how the dodecahedral space and binary icosahedral group arise
 	There is a diffeomorphism $\mathscr{D}\cong \partial P^4(\E_8)$.
 \end{proposition}
 
-	\todo{citations}
+\todo{citations}
 
 \begin{remark}
-  In the early 2000's, the Wilkinson Microwave Anisotropy Probe (WMAP) was launched to accurately map out the cosmic microwave background, i.e. leftover heat from the Big Bang. The observed lack of temperature correlations above 60$^\circ$ led astrophysicist Jean-Paul Luminet to propose a cosmological model \cite{luminet2003dodecahedral} where the shape of the universe is a dodecahedral space, explaining the lack of large scale correlations by means of the compact topology of space. In such a finite universe, larger temperature correlations simply wouldn't have enough room to form.
-  While this model made some predictions aligning with observed cosmological data
-  \cite{roukema2008dodecahedral}, higher resolution data by the later Planck spacecraft later seemed to suggest that the observable large scale topology is trivial, leading to the modern prevalence of the $\Lambda$CDM model as a standard model for cosmology.
+	In the early 2000's, the Wilkinson Microwave Anisotropy Probe (WMAP) was launched to accurately map out the cosmic microwave background, i.e. leftover heat from the Big Bang. The observed lack of temperature correlations above 60$^\circ$ led astrophysicist Jean-Paul Luminet to propose a cosmological model \cite{luminet2003dodecahedral} where the shape of the universe is a dodecahedral space, explaining the lack of large scale correlations by means of the compact topology of space. In such a finite universe, larger temperature correlations simply wouldn't have enough room to form.
+	While this model made some predictions aligning with observed cosmological data
+	\cite{roukema2008dodecahedral}, higher resolution data by the later Planck spacecraft later seemed to suggest that the observable large scale topology is trivial, leading to the modern prevalence of the $\Lambda$CDM model as a standard model for cosmology.
 \end{remark}
