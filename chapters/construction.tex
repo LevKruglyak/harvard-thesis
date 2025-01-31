@@ -1,0 +1,358 @@
+
+
+\section{Intersection Theory}
+
+Throughout, let's assume $X$ is an ambient $n$-dimensional closed manifold.
+
+\begin{definition}
+	Two submanifolds $M,N\subset X$ are said to \defn{intersect tranversally} or to be \defn{transverse} if for all points $p\in M\cap N$ we have $\T_p M\oplus \T_p N = \T_p X$.
+\end{definition}
+
+In this definition, one of the submanifolds $M$ or $N$ can be replaced by a smooth map. This leads to a useful generalization.
+
+\begin{definition}
+	If $M\subset X$ is a submanifold and $f : N \to X$ is a smooth map, we say that $f$ is \defn{transverse} to $M$ if for all points $p\in f^{-1}(M)$ we have $df_p(\T_p N)\oplus \T_{f(p)}M = \T_{f(p)}X$.
+\end{definition}
+
+\begin{theorem}[Preimage Theorem]
+	\todo{todo}
+\end{theorem}
+
+\begin{corollary}
+	If $M$ and $N$ are transverse, then $M\cap N$ is also a submanifold.
+\end{corollary}
+
+While it's easy to come up with examples of manifolds which aren't transverse, there is a mathematical sense in which ``almost all'' submanifolds intersect transversally.
+
+\begin{definition}
+	Suppose we have a property $\mathcal{P}$ of functions between topological spaces.
+	\begin{enumerate}
+		\item The property $\mathcal{P}$ is said to be \defn{stable} if for every function $f : X \to Y$ satisfying $\mathcal{P}$ and homotopy $H : X\times[0,1]\to Y$ with $H(x,0) = f(x)$, there exists an $\varepsilon>0$ such that for all $s\in [0,\varepsilon)$, the function $H(x,s)$ also satisfies $\mathcal{P}$.
+		\item The property $\mathcal{P}$ is said to be \defn{generic} if for every function $f : X \to Y$ \emph{not} satisfying $\mathcal{P}$ and arbitrary $\varepsilon>0$, there is a homotopy $H : X\times [0,\varepsilon] \to Y$ with $H(x,0)=f(x)$ such that the function $H(x,\varepsilon)$ satisfies $\mathcal{P}$.
+	\end{enumerate}
+	\todo{target manifold same}
+\end{definition}
+
+In other words, stability implies that the property is resilient to small perturbations in any direction and generality implies that any function which doesn't satisfy the property can be perturbed slightly so that it does satisfy the property. Transversality fits both of these descriptions.
+
+\begin{theorem}
+	For smooth maps from a compact manifold $N$ to a manifold $X$, transversality with respect to a fixed submanifold $M\subset X$ is a stable and generic property.
+\end{theorem}
+
+\begin{proof}
+	\todo{todo}
+\end{proof}
+
+When two
+
+\begin{definition}
+
+\end{definition}
+
+Let $f : N\subset X$ be a smooth map from a compact oriented $p$-dimensional manifold $N$ to $X$. The data of an orientation on a closed manifold gives a fundamental class $[N]\in \H_p(N)$ which can be pushed forward along the map $f : N \hookrightarrow X$ to give us a homology class $f_* [N]\in \H_p(X)$. This is the homology class associated to a smooth map $N\to X$.
+This correspondence behaves nicely with respect to perturbations, and thus as we will later see, with transversality.
+Suppose $H : N\times [0,1] \to X$ is a homotopy with $H(x,0)=f(x)$ which perturbs the map $f$. For any $\varepsilon>0$, the map $f_\varepsilon : N \to X$ given by $f_\varepsilon(x)=H(x,\varepsilon)$ is homotopic to $f$ and hence induces the same map on homology $\H_p(N)\to \H_p(X)$. The homology class associated to a map $f : N \to X$ thus solely depends on the homotopy type of $f$ so we get a map
+\[
+	\lkxfunc{}{[N,X]}{\H_p(X).}
+\]
+Letting $N=S^p$, we can see that this is a generalization of the Hurewicz homomorphism which links homotopy groups to homology groups via a map $\pi_p(X) \to \H_p(X)$.
+As with the Hurewicz homomorphism, this correspondence is generally not surjective or injective. If a space is $k$-connected for $k\geq 1$ then we have a Hurewicz isomorphism $\pi_{k+1}(X) \to \H_{k+1}(X)$ which means that every homology cycle in $\H_{k+1}(X)$ can at least be represented by a smooth map of a sphere $S^{k+1}$ into $X$. This smooth map might have ``double-points'', i.e. when multiple points of the sphere map to the same point in the image and prevent the smooth map from being an embedding.
+
+\begin{example}
+  In the punctured plane $X=\R^2\setminus \{0\}$ with homology $\H_1(X)\cong \Z$, the only homology cycles which can be represented by embedded submanifolds are $0,\pm 1$, by a circle not containing the origin and circles of both orientations surrounding the origin respectively. A smooth map representing a cycle of higher degree would necessarily have a double-point.
+\end{example}
+
+\begin{remark}
+	In some special cases, homology classes can always be represented by embedded submanifolds. For instance, if $X$ is a $4$-manifold, there are isomorphisms
+	\[
+		\H^2(X; \Z) \cong [X, K(\Z,2)] \cong [X, \CP^\infty] \cong [X,\CP^2],
+	\]
+	where the first is the representability of singular cohomology by the Eilenberg-Maclane spectrum, the second identifies $\CP^\infty$ as a $K(\Z,2)$ space, and the third uses the cellular approximation theorem. Any cohomology cycle $\omega\in \H^2(X)$ can be represented by a smooth function $f : X \to \CP^2$. If we choose this function to be transverse to $\CP^1\subset \CP^2$, then $f^{-1}(\CP^1)$ is an embedded $2$-dimensional submanifold of $X$ which corresponds to a Poincar\'e dual class to $\omega$. When $X$ is a compact manifold, Poincar\'e duality tells us that all $2$-dimensional homology cycles can be represented by embedded submanifolds in this way.
+\end{remark}
+
+\begin{theorem}\label{thm:euler-characteristic-intersection-number}
+	The Euler characteristic $\chi(\xi)$ of an oriented real vector bundle $\xi : E \to B$ over a compact oriented manifold can be expressed as the intersection number
+	\[
+		z_*[B]\tnsv z_*[B] = \chi(\xi)
+	\]
+	where $z : B \to E$ is the zero section.
+
+	More generally, if $M$ is a closed $n$-dimensional submanifold of a $2n$-dimensional submanifold $X$ then we have
+	\[
+		\iota_*[M]\tnsv \iota_*[M] = \chi(\nu)
+	\]
+	where $\nu$ is a normal bundle of $M$ in $X$.
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+By Poincar\'e-Lefschetz duality for compact manifolds with boundary, there is an isomorphism
+\[
+	\lkxfunc{}{\H^{n-p}(X,\partial X)}{\H_p(X)}{\omega}{\omega\frown [X,\partial X]}
+\]
+given an orientation class $[X,\partial X]\in \H_n(X, \partial X)$. Under this duality, there is an elegant geometric interpretation of the cup product on cohomology cycles as the oriented intersection number for submanifolds representing the dual homology cycles (when such a representation is possible).
+
+\[\begin{tikzcd}
+		{\H_p(X)\otimes \H_q(X)} & {\H_{n-p-q}(X)} \\
+		{\H^{n-p}(X, \partial X)\otimes \H^{n-q}(X,\partial X)} & {\H^{2n-p-q}(X,\partial X)}
+		\arrow["\tnsv", from=1-1, to=1-2]
+		\arrow["{\cong_\textrm{PD}}", tail reversed, from=1-1, to=2-1]
+		\arrow["{\cong_{\textrm{PD}}}", tail reversed, from=1-2, to=2-2]
+		\arrow["\smile", from=2-1, to=2-2]
+	\end{tikzcd}\]
+
+\begin{theorem}
+	Suppose $M,N\subset X$ are transverse oriented submanifolds. Then we have
+	\[\iota_*[M]\tnsv \iota_*[N] = \sum_{p\in M\cap N} \sgn(p).\]
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+	Let $X$ be an oriented $2m$-dimensional manifold, possibly with boundary. The \defn{intersection form} on middle dimensional homology is the bilinear form
+	\[
+		\lkxfunc{Q_X}{\H_m(X)_{\mathrm{free}}\otimes \H_m(X)_{\mathrm{free}}}{\Z}{\alpha\otimes \beta}{\alpha\tnsv \beta}
+	\]
+	where we identify $\H_0(X)\cong \Z$ and $\H_m(X)_{\mathrm{free}}$ denotes the free component of $\H_m(X)$ -- i.e. the quotient by torsion elements.
+\end{definition}
+
+\subsection*{Properties of the Intersection Form}
+
+\begin{proposition}\label{prop:symmetry-of-intersection-form}
+	If $m$ is even, then $Q_X$ is symmetric and if $m$ is odd, then $Q_X$ is skew-symmetric.
+\end{proposition}
+\begin{proof}
+	\todo{todo}
+\end{proof}
+
+\begin{proposition}\label{prop:connected-sum-intersection-form}
+	If $X$ and $Y$ are $2m$-dimensional manifolds, then we have 
+	\[Q_{X\+Y} = Q_X\oplus Q_Y\]
+\end{proposition}
+\begin{proof}
+	\todo{todo}
+\end{proof}
+
+\subsection*{Highly-Connected Manifolds}
+
+The simplest class of manifolds for which the intersection form is an interesting invariant are known as highly-connected manifolds. Highly-connected manifolds contain the minimal amount of (co)homological data for which to define an intersection form, and this makes them an attractive target for classification and construction.
+
+\begin{definition}
+	A compact $2m$-dimensional manifold $X$ is said to be \defn{highly-connected} if it is $(m-1)$-connected. Consequently, $X$ has non-trivial (co)homology only in the middle dimension $\H_m(X)$ and in the usual extremal dimensions $\H_0(X)$ and $\H_{2m}(X)$.
+\end{definition}
+
+\begin{remark}
+	In fact, it was the attempted classification of highly-connected manifolds in dimension $8$ which led to the first discovery of an exotic sphere by Milnor in 1956, see \cite{milnor2000exotic} for a historical account of the discvery by the man himself.
+\end{remark}
+
+\section{Plumbing}
+
+Suppose we wanted to construct a $2m$-dimensional manifold with a given intersection form -- specified by a bilinear form $Q$ on the unit lattice $\Z^\ell$ with basis vectors $e_1,\ldots, e_\ell$. Let's call this hypothetical construction $P(Q)$.
+
+The simplest possible case is when the lattice is $1$-dimensional, with intersection form
+\[
+	Q = \begin{pmatrix} Q_{11}\end{pmatrix}
+\]
+determined by the single integer $Q_{11}=Q(e_1,e_1)\in \Z$.
+The resulting $2m$-manifold $P(Q)$ should have middle dimensional homology $\H_m(P(Q))$ free of rank $1$, generated by a cycle $\alpha$ which has self-intersection number $\alpha\tnsv \alpha = Q_{11}$. To construct such a manifold, let's start with a $m$-dimensional sphere $S^m$. This will be the submanifold representing the generating cycle $\alpha\in \H_m(X)$. To get a $2m$-dimensional manifold, we ``thicken'' the sphere by choosing a disk bundle $\xi : E \to S^m$ with Euler characteristic $Q_{11}$ (if such a bundle exists). Note that this is equivalent to choosing a vector bundle, since and we can move freely between vector and disk bundles by an associated bundle construction. We can now define $P(Q)$ as the total space $E$ of the disk bundle. This will be the base case for plumbing constructions.
+
+\begin{figure}[ht]
+	\centering
+\import{graphics/temp-diagrams/}{thickening-sphere.pdf_tex}
+\caption{Two different ``thickenings'' of $S^1$ by $D^1$ bundles.}\label{fig:thickening-sphere}
+\end{figure}
+
+Although plumbing non-orientable bundles is certainly possible and interesting in its own right, to keep the resulting manifolds orientable we'll require orientable bundles $\xi$ (this rules out the M\"obius bundle thickening in \cref{fig:thickening-sphere}). With this requirement, $P(Q)$ gets a manifold orientation from the orientation of the bundle.
+Since disks are contractible, there is a deformation retraction $P(Q)\simeq S^m$, and this implies that the middle dimensional homology $\H_m(X)$ is generated by $\iota_*[S^m]$. By \cref{thm:euler-characteristic-intersection-number} the self intersection number of $\iota_*[S^m]$ is exactly the Euler characteristic $\chi(\xi)$ which we set to be $Q_{11}$ by our choice of bundle $\xi$.
+
+Vector bundles with a given Euler characteristic don't always exist over an $m$-sphere. For instance, if $m$ is odd, then the Euler characteristic of any bundle over $S^m$ is zero and so $Q_{11}$ must be zero in this case. This isn't a failure of the construction but rather reflects that $Q$ is skew-symmetric when $m$ is odd and so must have zeroes along the diagonal. When $m$ is even however, there are plenty of bundles which have a non-zero Euler characteristic. For instance, the tangent bundle $\T S^m$ has Euler characteristic $2$. This lets us construct a $4k$-manifold with boundary that has intersection form $Q = (2)$.
+
+\subsection*{The Clutching Construction}
+
+In general, vector bundles over a sphere can be classified by the clutching construction. Suppose $\xi : E \to S^m$ is a vector bundle. We can decompose the sphere $S^m$ into hemispheres $S^m=D_+^m\cup D_-^m$, and these disks intersect at the equator $D_+^m\cap D_-^m=S^{m-1}\subset S^m$ -- a sphere one dimension lower. The bundle $\xi$ can be trivialized on the hemispheres since they are contractible. We can call these trivializations $\xi_+ : D_+^m\times \R^m \to D_+^m$ and $\xi_- : D_+^m \times \R^m \to D_-^m$ respectively. The trivializations must come with transition functions on their intersection (there are some minor details to work out since transition functions are usually defined on open subset). The transition function can thus be thought of as a diffeomorphism $t : S^{m-1}\times \R^m \to S^{m-1}\times \R^m$ which is constant on the first factor, and linear in the second factor. For each point $p\in S^{m-1}$, the diffeomorphism gives rise to a linear function $\tau_p : \R^m \to \R^m$ by setting 
+\[
+	\lkxfunc{\tau_p}{\R^m}{\R^m}{v}{\pi_2 t(p,v)}
+\]
+with $\pi_2 : S^{m-1}\times \R^m \to \R^m$ the projection map. These $\tau_p$ serve as ``change of coordinate'' transformations between the fibers on the boundaries of $D_+^m$ and $D_-^m$ (see \cref{fig:clutching-construction}).
+\begin{figure}[ht]
+	\centering
+\import{graphics/temp-diagrams/}{clutching-construction.pdf_tex}
+\caption{Getting a map $\tau : S^{m-1}\to \GL_m$ from a vector bundle over $S^{m}$.}\label{fig:clutching-construction}
+\end{figure}
+
+Altogether, this family of linear transformations gives us a smooth map $\tau : S^{m-1}\to \GL_m$. 
+Since the homotopy type of this map is well defined, we have a map
+\[
+	\lkxfunc{}{\op{Vect}_m(S^m)}{\pi_{m-1}(\GL_m).}
+\]
+The construction works in the opposite direction as well. Whenever we have 
+
+\todo{cite}
+%
+
+\subsection*{Plumbing Multiple Bundles}
+
+Let's now consider the case of a $2$-dimensional lattice, and try to construct a manifold with intersection form $Q$ given by the $2\times 2$ integer matrix:
+\[
+	Q = \begin{pmatrix} Q_{11} & Q_{12} \\ Q_{21} & Q_{22}\end{pmatrix}.
+\]
+This matrix should be symmetric when $m$ is even and skew-symmetric when $m$ is odd. To begin constructing a manifold, we want $\H_m(P(Q))$ to be free of rank $2$, generated by cycles $\alpha$ and $\beta$ with intersection numbers specified by the matrix $Q$. The simplest case is when $|Q_{12}|=|Q_{21}|=0$, i.e. the intersection forms is represented by a diagonal matrix and splits as a direct sum $Q=Q_1\oplus Q_2$. In this case, by 
+
+\[
+		P(Q_1\oplus Q_2) = P(Q_1)\+ P(Q_2)
+\]
+
+The simplest case is when $|Q_{12}|=|Q_{21}|=1$.
+
+
+\begin{definition}
+	Let $\xi_1 : D_1 \to S^m_1$ and $\xi_2 : D_2 \to S^m_2$ be oriented $D^m$-bundles over $m$-spheres $S^m_1$ and $S^m_2$. Let $D^m_i \subset S^m_i$ be embedded $m$-disks in the base spheres and suppose 
+	\[f_i : D_i^m\times D^m \to \xi_i|_{D_i^m}\]
+	is a trivialization for the rest \todo{finish this}
+	The \defn{plumbing} is the quotient space
+\end{definition}
+
+\begin{remark}
+	\todo{straightening the angles}
+\end{remark}
+
+\begin{figure}[ht]\label{fig:plumbing-two-circles}
+\centering
+\import{graphics/temp-diagrams/}{plumbing-two-circles-smoothed.pdf_tex}
+\caption{A plumbing of two trivial circle bundles with smoothed corners.}
+\end{figure}
+
+
+\subsection*{Plumbing Along a Tree}
+
+\begin{definition}
+	A \defn{tree} $T$ is a finite connected contractible $1$-dimensional simplicial complex, i.e. a finite connected graph with no cycles. An \defn{weighted tree}[tree (weighted)] with weights in a set $S$ is a pair $(T,w)$ consisting of a tree $T$ and a map $w : \op{Vert}(T) \to S$ assigning a \defn{weight} $w(v)\in S$ to each vertex $v$ of the tree.
+\end{definition}
+
+\begin{figure}[ht]\label{fig:negative-definite-trees}
+	\centering
+	\begin{tikzpicture}
+		\tikzset{dynode/.style={circle, draw, fill=black,
+					minimum size=4pt, inner sep=0pt}}
+		\tikzset{dyline/.style={line width=1pt}}
+		\tikzset{dydash/.style={line width=1pt, dashed}}
+
+		\begin{scope}[yshift=0, xshift=22em]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a2) at (0.5,0) {};
+			\node[dynode] (a3) at (1,0) {};
+			\node[dynode] (a4) at (1.5,0) {};
+			\node[dynode] (a5) at (2,0) {};
+			\node[dynode] (a6) at (2.5,0) {};
+			\node[dynode] (a7) at (3,0) {};
+			\node[dynode] (a8) at (2,0.5) {};
+
+			\draw[dyline] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- (a7);
+			\draw[dyline] (a5) -- (a8);
+
+			\node[] (l) at (1.75,-0.5) {$\E_8$};
+		\end{scope}
+
+		\begin{scope}[yshift=0, xshift=10em]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a2) at (0.5,0) {};
+			\node[dynode] (a3) at (1,0) {};
+			\node[dynode] (a4) at (1.5,0) {};
+			\node[dynode] (a5) at (2,0) {};
+			\node[dynode] (a6) at (2.5,0) {};
+			\node[dynode] (a8) at (1.5,0.5) {};
+
+			\draw[dyline] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6);
+			\draw[dyline] (a4) -- (a8);
+
+			\node[] (l) at (1.5,-0.5) {$\E_7$};
+		\end{scope}
+
+		\begin{scope}[yshift=0, xshift=0]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a2) at (0.5,0) {};
+			\node[dynode] (a3) at (1,0) {};
+			\node[dynode] (a4) at (1.5,0) {};
+			\node[dynode] (a5) at (2,0) {};
+			\node[dynode] (a8) at (1,0.5) {};
+
+			\draw[dyline] (a1) -- (a2) -- (a3) -- (a4) -- (a5);
+			\draw[dyline] (a3) -- (a8);
+
+			\node[] (l) at (1,-0.5) {$\E_6$};
+		\end{scope}
+
+		\begin{scope}[yshift=5em, xshift=3em]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a3) at (0.5,0) {};
+			\node[dynode] (a4) at (1,0) {};
+			\node[dynode] (a5) at (2.5,0) {};
+			\node[dynode] (a6) at (3.0,0) {};
+
+			\draw[dyline] (a1) -- (a3) -- (a4);
+			\draw[dydash] (a4) -- (a5);
+			\draw[dyline] (a5) -- (a6);
+
+			\node[] (l) at (1.75,-0.5) {$\op{A}_n$};
+		\end{scope}
+
+		\begin{scope}[yshift=5em, xshift=17em]
+			\node[dynode] (a1) at (0,0.4) {};
+			\node[dynode] (a2) at (0,-0.4) {};
+			\node[dynode] (a3) at (0.5,0) {};
+			\node[dynode] (a4) at (1,0) {};
+			\node[dynode] (a5) at (2.5,0) {};
+			\node[dynode] (a6) at (3.0,0) {};
+
+			\draw[dyline] (a1) -- (a3);
+			\draw[dyline] (a2) -- (a3);
+			\draw[dyline] (a3) -- (a4);
+			\draw[dydash] (a4) -- (a5);
+			\draw[dyline] (a5) -- (a6);
+
+			\node[] (l) at (1.75,-0.5) {$\op{D}_n$};
+		\end{scope}
+	\end{tikzpicture}
+	\vspace{1em}
+	\caption{\todo{describe}}
+\end{figure}
+
+Given a tree $T$ with weights $w$ in $\pi_{m-1}(\SO_m)$, we can form a manifold with boundary constructed in the following manner:
+\begin{enumerate}
+	\item For each vertex $v\in \op{Vert}(T)$, choose an $n$-disc bundle $\xi_v\to S^m_v$ classified by $w(v)\in \pi_{m-1}(\SO_m)$.
+	\item For each edge $(v,w)\in \op{Edge}(T)$ connecting vertices $v$ and $w$, plumb together the bundles $\xi_v$ and $\xi_w$. For this to be well-defined, it's important to choose disjoint disc embeddings $\iota_{v,w} : D^m \to S^m_v$ for all $w$ connected to $v$.
+	\item Smooth out the corners of the resulting space to get a manifold with boundary.
+\end{enumerate}
+\begin{definition}
+	The \defn{plumbing} along the weighted tree $(T,w)$, denoted by $P(T,w)$ is the manifold with boundary described above.
+\end{definition}
+
+\begin{theorem}
+	The result of this plumbing construction is independent of the choices of disc bundles $\xi_v$ and disc embeddings $\iota_{v,w} : D^m \to S^m_v$.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{remark}
+	\todo{plumbing has a 1-skeleton homotopic to the tree}
+\end{remark}
+
+\begin{figure}[ht]
+	\centering
+\import{graphics/temp-diagrams/}{spheres-connected-at-3-points.pdf_tex}
+\caption{A wedge of two spheres at $3$ points.}
+\end{figure}
+
+\begin{proposition}
+	For each integer $q\geq 1$, there is a homotopy equivalence
+	\[
+			S^m\vee_q S^m \simeq S^m\vee S^m \vee \bigvee_{q-1} S^1,
+	\]
+	where $S^m\vee_q S^m$ denotes the wedge sum of two $m$-spheres at $q$ points.
+\end{proposition}
+
+\begin{proof}
+\end{proof}
+
+\subsection*{Plumbing Constructions of 3-Manifolds}

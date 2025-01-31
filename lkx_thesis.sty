@@ -1,7 +1,7 @@
 \usepackage{xcolor}
 \usepackage{xstring}
 \usepackage{xparse}
-\usepackage{graphicx}
+\usepackage{graphicx, import}
 
 % For debugging
 \usepackage{lipsum}
@@ -161,9 +161,6 @@
 \newcommand{\definitionautorefname}{Definition}
 \crefformat{definition}{\normalfont{#2Definition~#1#3}}
 
-\newtheorem{example}[equation]{Example}
-\crefformat{example}{\normalfont{#2Example~#1#3}}
-
 \newtheorem*{convention*}{Convention}
 \newtheorem*{definition*}{Definition}
 \newtheorem*{theorem*}{Theorem}
@@ -172,7 +169,6 @@
 \newtheorem*{claim*}{Claim}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem*{note*}{Note}
-\newtheorem*{example*}{Example}
 \newtheorem*{corollary*}{Corollary}
 \newtheorem*{conjecture*}{Conjecture}
 
@@ -186,6 +182,10 @@
 \newtheorem{remark}[equation]{Remark}
 \newcommand{\remarkautorename}{Remark}
 \crefformat{remark}{\normalfont{#2Remark~#1#3}}
+
+\newtheorem*{example*}{Example}
+\newtheorem{example}[equation]{Example}
+\crefformat{example}{\normalfont{#2Example~#1#3}}
 
 \renewcommand{\qed}{\hfill$\blacksquare$}
 
@@ -341,8 +341,10 @@
 \providecommand{\Ahatbf}{\widehat{\mathbf{A}}}
 \providecommand{\dR}{{\operatorname{dR}}}
 
+\providecommand{\sgn}{\operatorname{sgn}}
+\providecommand{\tnsv}{\pitchfork}
 
-\renewcommand{\#}{\raisebox{10\depth}{\#}}
+\providecommand{\hash}{\raisebox{0.7\depth}{\#}}
 
 % Important equal
 \renewcommand{\=}{\overset{!}{=}}
@@ -481,5 +483,9 @@
 \ExplSyntaxOff
 
 \usepackage{tikz-cd}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+
 % TODO: make this like xrightarrow
 \tikzcdset{arrow style=tikz, every arrow/.append style={line width=0.6pt}}

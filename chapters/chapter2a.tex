@@ -8,10 +8,6 @@
 
 The goal of this chapter is to construct
 
-\begin{convention*}
-	In this chapter, $\H$ denotes singular (co)homology.
-\end{convention*}
-
 \begin{theorem}\label{thm:signature_8_existence_theorem}
 	For any $t\in \Z$, there is a framed $4k$-manifold $M$ bounding a homotopy sphere and with signature $\sigma(M)=8t$.
 \end{theorem}
@@ -21,13 +17,21 @@ given by
 \[ 
 	\lkxfunc{Q_{X,Y}}{\H^m(X,Y; \Lambda)^{\times 2}_{\textrm{free}}}{\Lambda}{\omega, \eta}{(\omega\smile \eta)\frown [X,Y]}
 \]
-where $[X,Y]\in \H_m(X,Y; \Lambda)$ is a fundamental class and $\H^m(X,Y; \Lambda)_{\textrm{free}}$ denotes the free component of the $\Lambda$-module $\H^m(X,Y;\Lambda)$. While this algebraic definition is useful for computation, there is a geometric way to interpret the data of the intersection form as actually counting the number of intersections between $m$-dimensional submanifolds in general position.
+where $[X,Y]\in \H_m(X,Y; \Lambda)$ is a fundamental class and $\H^m(X,Y; \Lambda)_{\textrm{free}}$ denotes the free component of the $\Lambda$-module $\H^m(X,Y;\Lambda)$. 
 
-The simplest example of this is the case of compact surfaces. This class of spaces admits a 
-\begin{theorem}
-	Every closed oriented $2$-manifold is homeomorphic to exactly one of the following 
+\section{Intersection Theory}
+
+\pagebreak
+
+While the algebraic definition of the intersection form is useful for computation, there is a geometric way to interpret the data of the intersection form as actually counting the number of intersections between $m$-dimensional submanifolds in general position.
+
+\subsection*{Compact Surfaces}
+
+The simplest examples of the geometric data present in the intersection form occurs in the case of compact surfaces. Compact surfaces admit a succinct classification theorem:
+\begin{theorem}[Classification of Compact Surfaces]
+	Every closed $2$-manifold is homeomorphic to exactly one of the following 
 	\[
-			S^2,\quad \#^p T^2, \quad \#^q \RP^2,
+			S^2,\quad \hash^p T^2, \quad \hash^q \RP^2,
 	\]
 	where $T^2=S^1\times S^1$ is the torus.
 \end{theorem}
@@ -36,19 +40,36 @@ The simplest example of this is the case of compact surfaces. This class of spac
 The connected sum of a space $X$ with itself $n$ times will be denoted by $\#^n X$.
 \end{convention*}
 
-Standard cohomology computations from 
+For the basic surfaces $S^2, T^2,$ and $\RP^2$, we have the cohomology rings
 \[
-  Q_{S^2} = [0], \quad Q_{T^2} = \begin{bmatrix}0&1\\ 1&0\end{bmatrix}, \quad Q_{\RP^2} = [1]
+		\begin{aligned}
+			\H^\bullet(S^2; \Z_2) &= \Z_2[x]/(x^2)\quad &|x|=2,\\
+			\H^\bullet(T^2; \Z_2) &= \Z_2[x,y]/(xy, x^2,y^2)\quad &|x|=|y|=1,\\
+			\H^\bullet(\RP^2; \Z_2) &= \Z_2[x]/(x^3)\quad &|x|=1.\\
+		\end{aligned}
 \]
+Correspondingly, the $\Z_2$-intersection forms can be written in matrix form as
+\[
+	Q_{S^2} = \begin{bmatrix}0\end{bmatrix}, \quad Q_{T^2} = \begin{bmatrix}0&1\\ 1&0\end{bmatrix}, \quad Q_{\RP^2} = \begin{bmatrix}1\end{bmatrix}.
+\]
+This represents 
 
-For instance, in the case of surfaces when $\Lambda=\Z/2$, 
+\begin{theorem}[Classification of Compact Surfaces]
+	The intersection form is an isomorphism between the monoid of homeomorphism classes of compact surfaces under connected sum and the monoid of unimodular bilinear forms over $\Z_2$.
+	\[
+		\mathrm{Surf} \lkxto[Q] \mathrm{Bil}(\Z_2)
+	\]
+	Both monoids have presentation $\langle A,B \mid A+B = 3A\rangle$.
+\end{theorem}
 
-\begin{proposition}
-	The intersection form $Q_{(X,Y)}$ of a Poincar\'e pair is unimodular.
-\end{proposition}
-\begin{proof}
-	
-\end{proof}
+\subsection*{Intersections}
+
+\begin{theorem}
+	Suppose $M$ and $N$ are compact oriented submanifolds of dimensions $p$ and $q$ oof a compact oriented $n$-manifold $X$ with boundary such that $p+q=n$. Suppose they intersect transversally. Letting $\omega,\eta$ be the Poincar\'e duals to the fundamental classes $[M]\in \H_p(X)$ and $[N]\in \H_q(X)$, we have
+	\[
+		 Q_X(\omega, \eta) = \sum_{x\in M\cap N} \sgn(x).
+	\]
+\end{theorem}
 
 \section{Integral Bilinear Forms}
 
