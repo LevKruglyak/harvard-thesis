@@ -55,9 +55,11 @@
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{preimage-orientation.pdf}}%
     \put(0.42180307,0.13983365){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f$\end{tabular}}}}%
-    \put(0.26784984,0.04125714){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$N$\end{tabular}}}}%
+    \put(0.51986789,0.11924123){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$f(N)$\end{tabular}}}}%
+    \put(0.33160473,0.03474049){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$N$\end{tabular}}}}%
+    \put(0.21672478,0.16950814){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S$\end{tabular}}}}%
     \put(0.6228073,0.02173943){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X$\end{tabular}}}}%
-    \put(0.67444984,0.17944787){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
+    \put(0.67444984,0.17944787){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{preimage-orientation.pdf}}%
   \end{picture}%
 \endgroup%
