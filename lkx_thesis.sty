@@ -154,7 +154,7 @@
 
 \newtheoremstyle{lkx_definition}
 {}{}{\slshape}{}{}{.}{ }
-{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3})}}
+{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (\textsc{#3}\index{#3})}}
 
 \theoremstyle{lkx_definition}
 \newtheorem{definition}[equation]{Definition}
@@ -309,7 +309,7 @@
 \providecommand{\bP}{bP}
 
 % Category Theory
-\providecommand{\cat}[1]{\mathtt{#1}}
+\providecommand{\cat}[1]{\mathbf{#1}}
 \providecommand{\Set}{\cat{Set}}
 \providecommand{\Top}{\cat{Top}}
 \providecommand{\PL}{\cat{PL}}
@@ -435,6 +435,8 @@
 \providecommand{\vfr}{\mathfrak{v}}
 \providecommand{\Ufr}{\mathfrak{U}}
 
+\providecommand{\denom}{\operatorname{denom}}
+
 \providecommand{\Bun}{\operatorname{Bun}}
 \providecommand{\Hdr}{\operatorname{H}_{\operatorname{dR}}}
 
@@ -471,7 +473,7 @@
 			#4
 		} {
 			\tl_if_blank:nTF {#2}{}{#2 \;:\;}
-			#3
+			{#3}
 		   &
 			\str_case:nn {#1}
 			{
@@ -479,9 +481,9 @@
 					{~>} {\lkxisom}
 					{->>} {\lkxsurj}
 			}
-		   & #4
+		   & {#4}
 		\\
-		#5 & \lkxmapsto & #6
+{#5} & \lkxmapsto & {#6}
 		}
 	\end{array}
 }
