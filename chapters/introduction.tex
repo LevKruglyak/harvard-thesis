@@ -1,39 +1,428 @@
+% \begin{flushleft}
+% 	\textsl{There is geometry in the humming of the strings,}\\
+% 	\textsl{and there is music in the spacing of the spheres.}\\
+% 	\rule[0pt]{21em}{0.5pt}\\
+% 	-- \textsc{Pythagoras}\\
+% 	\vspace{2em}
+% \end{flushleft}
+
 \begin{flushleft}
-	\textsl{There is geometry in the humming of the strings,}\\
-	\textsl{and there is music in the spacing of the spheres.}\\
-	\rule[0pt]{21em}{0.5pt}\\
-	-- \textsc{Pythagoras}\\
+	\textsl{God created the integers,}\\
+	\textsl{the rest is the work of man.}\\
+	\rule[0pt]{13em}{0.5pt}\\
+	-- \textsc{Leopold Kronecker}\\
 	\vspace{2em}
 \end{flushleft}
 
-The basic objects of study in differential topology are smooth manifolds. Loosely speaking, smooth manifolds are spaces which locally look like Euclidean space of a given dimension and contain additional ``smooth structure'' which makes it possible to do calculus on them.
-
-\begin{definition}
-\end{definition}
-
-\todo{physics and math}
-
-% A smooth structure gives rise to tangent spaces -- at each point of the manifold there is a notion of infinitesimal direction, and the set of all such infinitesimal directions forms a vector space of tangent vectors. \todo{physics}
-
-While the class of smooth manifolds offers a tempting pasture for the exploration of the shape of space, it is far from the only type of manifold one can define. Another equally valid category in which to study topology of manifolds is $\PL$, or the piecewise linear category. A $\PL$ structure on a manifold consists of 
-
-\section{The Generalized Poincar\'e Conjecture}
+\todo{introduce, motivate, provide historical context.}
 
 \begin{conjecture}[Poincar\'e Conjecture]
- Every closed topological $3$-manifold which is simply connected is homeomorphic to the $3$-sphere $S^3$.
+	Every closed topological $3$-manifold which is simply connected is homeomorphic to the $3$-sphere $S^3$.
 \end{conjecture}
+
+\begin{definition}
+	If $U\subset \R^n$ is an open subset, a function $f : U \to \R^m$ is said to be \defn{smooth}[smooth function] if all partial derivatives of $f$ exist to all orders.
+\end{definition}
+
+\begin{definition}
+	A \defn{smooth structure} $\mathscr{S}$ on a topological manifold $M$ (possibly with boundary) is a collection of charts $\mathscr{S}=\{(U_\alpha, \varphi_\alpha)\}_{\alpha\in I}$ such that the transition functions
+	\begin{equation}\label{eq:transition-function}
+		\lkxfunc{\varphi_\alpha\varphi_\beta^{-1}}{\varphi(U_\alpha\cap U_\beta)}{\R^n\textrm{ or } \R^{n-1}\times [0,\infty)}
+	\end{equation}
+	are smooth for all $\alpha,\beta\in I$. We require that $\mathscr{S}$ be maximal with respect to this property, i.e. the addition of any chart $(U,\varphi)$ not in $\mathscr{S}$ breaks the smoothness of \cref{eq:transition-function}.
+\end{definition}
+% A smooth structure gives rise to tangent spaces -- at each point of the3manifold there is a notion of infinitesimal direction, and the set of all such infinitesimal directions forms a vector space of tangent vectors. \todo{physics}
+
+While the class of smooth manifolds offers a tempting for context for the exploration of the shape of space, it is far from the only type of manifold one can define. Another equally valid category in which to study topology of manifolds is $\Pl$, or the piecewise linear category. A $\Pl$ structure on a manifold consists of
 
 \begin{conjecture}[Generalized Poincar\'e Conjecture]
-  Letting $\mathscr{C}$ be either $\Top$, $\PL$, or $\Diff$, any $\mathscr{C}$-manifold which is homotopy equivalent to the $n$-sphere $S^n$ is also $\mathscr{C}$-isomorphic to $S^n$.
+	Letting $\mathscr{C}$ be either $\Top$, $\Pl$, or $\Diff$, any $\mathscr{C}$-manifold which is homotopy equivalent to the $n$-sphere $S^n$ is also $\mathscr{C}$-isomorphic to $S^n$.
 \end{conjecture}
 
-\subsection{Smooth Tricks of the Trade}
+\begin{conjecture}[Hauptvermutung]
+	\todo{this}
+\end{conjecture}
 
-\begin{theorem}[$h$-cobordism]\label{thm:h-cobordism}
-  Let $n\geq 5$ and $\mathscr{C}$ be either $\Top$, $\PL$, or $\Diff$. If $M$ and $N$ are $\mathscr{C}$-manifolds and $W : M \hbord N$ is an $h$-cobordism between them, then $W$ is $\mathscr{C}$-isomorphic to the cylinder $M\times [0,1]$.
+\todo{questions about equivalence of TOP, PL, and DIFF}
+
+\todo{goal of this chapter is provide some fundamental concepts needed to begin working on the problem}
+
+\subsection{Morse Theory}
+
+While a fully comprehensive introduction to Morse theory is outside of the scope of this thesis, we'll include a basic overview for completeness. A great classical introduction to Morse theory can be found in Milnor's book on the subject \cite{milnor1963morse}.
+
+If $f : M \to \R$ is a smooth function on a manifold $M$, the points $p\in M$ where the differential $df_p : \T_p M \to \T_{f(p)} \R = \R$ vanish are known as \defn{critical points}, and their images in $\R$ are called \defn{critical values}. In terms of local coordinates $\{x^1,\ldots, x^n\}$ at $p$, this means that
+\[
+	\frac{\partial f}{\partial x^1}=\cdots=\frac{\partial f}{\partial x^n} = 0.
+\]
+A critical point $p\in M$ is said to be \defn{non-degenerate}[non-degenerate point] if the matrix
+\[
+	\everymath={\displaystyle}
+	\renewcommand*{\arraystretch}{2}
+	H_f(p) = \begin{pmatrix}
+		\frac{\partial^2 f}{\partial x^1\partial x^1} & \cdots &
+		\frac{\partial^2 f}{\partial x^1\partial x^n}                   \\
+		\vdots                                        & \ddots & \vdots \\
+		\frac{\partial^2 f}{\partial x^n\partial x^1} & \cdots &
+		\frac{\partial^2 f}{\partial x^n\partial x^n}                   \\
+	\end{pmatrix}(p)
+\]
+is invertible at $p$. This is called the \defn{Hessian matrix} of $f$ at $p$, and in this formulation depends on our chosen coordinate system.
+There is a coordinate independent way to define the Hessian as a symmetric bilinear form on $\T_p M$ which makes the coordinate invariance of the condition of non-degeneracy manifestly apparent.
+
+\begin{definition}
+	The \defn{index}[index of a function] of $f$ at a point $p$ is the maximal dimension of a subspace on which $H_f(p)$ is negative definite, i.e. it is the dimension of $\{v\in \R^n \mid v^\intercal H_f(p) v < 0\}.$
+\end{definition}
+
+The index of a function at a point essentially describes the ``shape'' of the function out of a list of finitely many possible shapes. Remember, the index of a function on an $n$-dimensional manifold must be an integer between $0$ and $n$. For instance, in the case of a surface there are three possible shapes -- when both coordinates curve up we get a bowl facing up, when one curves up and one curves down we get a saddle, and when both coordinates curve down we get a bowl facing down. These shapes correspond to indices of $0$, $1$, and $2$ respectively.
+\begin{figure}[ht]
+	\centering
+	\todo{draw figure}
+	\medskip
+	\caption{An upward bowl, saddle, and downward bowl.}
+\end{figure}
+
+The fundamental lemma of Morse theory makes rigorous this notion of a manifold having a shape dictated by a real-valued function -- there is always a local coordinate system which puts the function into a standard form depending on the index.
+
+\begin{lemma}[Morse Lemma]\label{lemma:morse}
+	Let $p$ be a non-degenerate critical point of $f$. There is a local coordinate system $(y^1,\ldots, y^n)$ at $p$ such that
+	\[
+		f(y^1,\ldots, y^n)=f(0)-\left[(y^1)^2 + \cdots + (y^{\ell})^2\right] + \left[(y^{\ell + 1})^2 + \cdots + (y^n)^2\right].
+	\]
+	where $\ell$ is the index of $f$ at $p$.
+\end{lemma}
+\begin{proof}
+	Let's assume without loss of generality that $f(p)=0$. Given any local coordinate system $(x^1,\ldots, x^n)$ at $p$, we can write
+	\[
+		f(x^1,\ldots, x^n) = \sum_{1\leq j \leq n} x^j g_j(x^1,\ldots, x^n)
+	\]
+	where $g_j$ are functions satisfying $g_j(0)=(\partial f / \partial x^j)(0)$. 
+	This can be achieved by setting $g_j(x_1,\ldots, x_n) = \int_0^1 (\partial f/\partial x^j)(tx_1, \ldots, tx_n)\,dt$. Since $p$ is a critical point
+
+	\todo{basic idea}
+\end{proof}
+
+Inspired by this lemma, we might call a function $f : M \to \R$ a \defn{Morse function} if all critical points are non-degenerate.
+
+\begin{corollary}
+	Non-degenerate critical points are isolated.
+\end{corollary}
+
+For a brief demonstration of the power of the Morse lemma, we'll prove Reeb's theorem, a Morse theoretic criterion for a compact manifold to be homeomorphic to a sphere. Throughout the thesis, we'll usually defer to the more powerful $h$-cobordism theorem to prove that a manifold is homoemorphic to a sphere. However, it is useful to not always rush for the flamethrower when trying to kill a fly -- a simple swatter might do the trick. We'll see a direct application of this lighter theorem in \cref{sec:first-exotic-sphere}.
+
+\begin{theorem}[Reeb]\label{thm:reeb}
+	If $M$ is a compact manifold and $f$ is a Morse function with exactly $2$ critical points, then $M$ is homeomorphic to a sphere.
+\end{theorem}
+\begin{proof}
+	Firstly, by compactness of $M$ we can find a global minimum $f(x_0)$ and global maximum $f(x_1)$ for some distinct points $x_0$ and $x_1$ (otherwise the function would be constant and not a Morse function with $2$ critical points). We can normalize the function $f$ to have $f(x_0)=0$ and $f(x_1)=1$ without loss of generality. It follows that $x_0$ is a non-degenerate critical point of index 0 and $x_1$ is a non-degenerate critical point of index $n$.
+	By the Morse lemma (\ref{lemma:morse}), there is a neighborhood $x_0\in U_0$ with local coordinates $\{y^1,\ldots, y^n\}$ such that 
+	\[
+			f(y^1,\ldots, y^n) = (y^1)^2 + \cdots + (y^n)^2.
+	\]
+	This gives a Riemannian metric $(dy^1)^2+\cdots+(dy^n)^2$ on $U$ which can be extended to all of $M$ by partitions of unity.
+	% A Riemannian metric on a manifold $M$ determines an isomorphism $\T^\d M \cong \T M$, and hence an isomorphism $\Omega^1(M)=\Gamma(\T^\d M) \cong \Gamma(\T M)=\X(M)$ between the space of $1$-forms and the space of vector fields. Composing this isomorphism with the exterior derivative $d : \Omega^0(M)\to \Omega^1(M)$ gives the gradient operator $\nabla : \Omega^0(M) \to \X(M)$ sending a function to its vector field. 
+
+	Given a Riemmanian structure, there is a gradient operator $\nabla : \Omega^0 \to \X(M)$ sending functions to vector fields.
+	In our case, the vector field $\nabla f$ is non-zero everywhere except for at $x_0$ and $x_1$. We thus have a normalized vector field $\nabla f/\|\nabla f\|^2$
+	defined everywhere except for at $x_0$ and $x_1$. Let $\varphi_t : M \to M$ be the global flow corresponding to this vector field, i.e. the unique solution to the differential equation
+	\[
+	\left.\frac{d\varphi_t(p)}{dt}\right|_{t=0} = \frac{\nabla f(p)}{\|\nabla f(p)\|^2}
+	\]
+	for all $p\in M\setminus \{x_0,x_1\}$. By the chain rule, it follows that
+	\[
+		\frac{d(f\circ \varphi_t(p))}{dt}=\left\langle \frac{d\varphi_t(p)}{dt}, \nabla f\right\rangle = \left\langle \frac{\nabla f}{\|\nabla f\|^2}, \nabla f\right\rangle=1.
+	\]
+	In particular, this implies that $f\circ \varphi_t(p) = f(p)+t$. 
+
+	\todo{finish the proof}
+\end{proof}
+
+The basic ideas used in the proof of Reeb's theorem can be radically generalized.
+
+\begin{definition}
+	For any $a\in \R$, the \defn{level set} of a smooth function $f : M \to \R$ is the set 
+	\[
+		M_a = f^{-1}(-\infty, a] = \{ p\in M \mid f(p)\leq a)\}.
+	\]
+\end{definition}
+
+\begin{figure}
+\end{figure}
+
+\begin{theorem}
+	Let $f : M \to \R$ be a smooth function and suppose $f^{-1}[a,b]$ contains no critical points of $f$ for real numbers $a<b$. Then $M_a$ is diffeomorphic to $M_b$. Furthermore $M_a$ is a deformation retract of $M_b$.
 \end{theorem}
 
-\todo{Reeb theorem, morse theory, conclude with looking for homotopy spheres.}
+\begin{theorem}
+	Let $f : M \to \R$ be a smooth function and let $p$ be a non-degenerate critical point of index $\ell$. Letting $c=f(p)$, suppose that $f^{-1}[c-\epsilon, c+\epsilon]$ is compact and contains no critical points of $f$ aside from $p$. For sufficiently small $\epsilon$, the level set $M^{c+\epsilon}$ has the homotopy type of $M^{c-\epsilon}$ with an $\ell$-cell attached.
+\end{theorem}
+
+\begin{theorem}
+	If $f$ is a Morse function with compact level sets (for instance if $M$ is compact), then $M$ has the homotopy type of a CW-complex with a cell in each dimension $\ell$ for each critical point of index $\ell$.
+\end{theorem}
+
+\todo{finish}
+
+\subsection{Cobordism}\label{sec:cobordism}
+
+The basic principle of cobordism is to declare two manifolds equivalent if there is a manifold a dimension higher which connects the two manifolds. As an equivalence relation, cobordism is generally far looser than the notions of homoemorphism or diffeomorphism. In most dimensions, classifying manifolds up to strict notions of homeomorphism or diffeomorphism is provably impossible -- from a computational complexity standpoint such problems are undecidable. Cobordism on the other hand is loose enough to allow for a full classification.
+
+\begin{remark}
+	Note that the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$. 
+\end{remark}
+
+\begin{definition}
+	An \defn{unoriented cobordism} between closed $n$-manifolds $M_1$ and $M_2$ is an $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup M_2$. We use the notation $W : M_1\bord M_2$ to refer to the cobordism.
+\end{definition}
+
+\begin{definition}
+	An \defn{oriented cobordism} between closed oriented $n$-manifolds $M_1$ and $M_2$ is an oriented $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup (-M_2)$. We use the notation $W : M_1\sobord M_2$ to refer to the cobordism.
+\end{definition}
+
+\begin{example}
+	Within some category of 
+\end{example}
+
+\begin{figure}[ht]
+	\centering
+	\import{graphics/temp-diagrams/}{pair-of-pants.pdf_tex}
+	\caption{A cobordism $W$ between $S^1$ and $(S^1\sqcup S^1)$.}\label{fig:pair-of-pants}
+\end{figure}
+
+For a simple example of a cobordism between a circle and a disjoint union of circles, see \cref{fig:pair-of-pants}. Note that this cobordism could be made much simpler by removing the handle. Simplifying cobordisms in this way is one of the major applications
+
+\begin{definition}
+	The \defn{$\bm{k}$-th oriented cobordism group}[oriented cobordism group] $\Omega^\SO_k$ is the abelian group of oriented cobordism classes of closed $k$-manifolds\footnote{We do not require manifolds to be connected in this definition.}
+	under disjoint union. The identity component is the empty set $\varnothing$, and negation is given by reversing orientation. Similarly, the \defn{$k$-th unoriented cobordism group}[unoriented cobordism group] $\Omega_k$ is the abelian group of cobordism classes of closed $k$-manifolds under disjoint union.
+\end{definition}
+
+Note that the oriented cobordism group can be thought of as a $\Z$-module, with multiplication action on a closed manifold $M$ given by
+\[
+	n \cdot M = \begin{cases} M\sqcup \cdots \sqcup M & n > 0,\\ (-M)\sqcup \cdots \sqcup (-M) & n < 0,\\ \emptyset & n=0,\end{cases}
+\]
+for all $n\in \Z$, where $\sqcup$ is repeated $|n|$ times. Since there is no notion of negation in the unoriented case, the unoriented cobordism group is a $\Z/2$-module.
+
+\begin{example}
+	There is an isomorphism $\Omega_0\cong \Z/2$. An unoriented 0-dimensional manifold is just a set of points. Any pair of points is cobordant to the empty set by a path connecting them. Since adding pairs of points doesn't change the cobordism type, the number of points modulo 2 determines the cobordism class entirely.
+\end{example}
+
+\begin{example}
+	There is an isomorphism $\Omega_0^\SO \cong \Z$. An oriented 0-dimensional manifold is still a set of points, however the orientation now equips each point with a ``charge'', we might label them as $+$ or $-$. Note that points of opposite ``charges'' cancel out by a path between them oriented from $-$ to $+$. Given some set of points of various charges, we can always eliminate pairs of opposite charges and are left with a homogeneous set of charge. Adding up all of the pluses or minuses, we get an integer. This integer determines the cobordism class, and is invariant to adding or removing pairs of opposing charge.
+\end{example}
+
+\begin{example}
+	Both the oriented and unoriented cobordism groups are trivial in dimension 1, since every circle is the boundary of a disk.
+\end{example}
+
+In higher dimensions, the classification becomes much more interesting. 
+
+\begin{figure}[ht]
+	\renewcommand{\arraystretch}{1.2}
+	\centering
+	\begin{tabular}{r||c|c||c|c}
+		$k$ & $\Omega_k$ & generators & $\Omega_k^\SO$ & generators \\
+		\hline
+		$0$ & $\Z/2$ & a point & $\Z$ & a point\\
+		$1$ & $0$ & & $0$ & \\
+		$2$ & $\Z/2$ & $\RP^2$ & $0$ & \\
+		$3$ & $0$ & & $0$ & \\
+		$4$ & $\Z/2\oplus \Z/2$ & $\RP^4$, $\RP^2\times \RP^2$ & $\Z$ & $\CP^2$ \\
+		$5$ & $\Z/2$ & $\SU_3/\SO_3$ & $\Z/2$ & $\SU_3/\SO_3$\\
+		$6$ & $(\Z/2)^{\oplus 3}$ & $\RP^6$, $\RP^2\times \RP^4$, $(\RP^2)^{\times 3}$, & $0$ & \\ 
+		$7$ & $\Z/2$ & $(\SU_3/\SO_3) \times \RP^2$ & $0$ & \\ 
+		$8$ & $(\Z/2)^{\oplus 4}$ & $\RP^8, \RP^6\times \RP^2, \cdots$ & $\Z\oplus \Z$ & $\CP^4, \CP^2\times \CP^2$\\
+	\end{tabular}
+	\medskip
+	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
+\end{figure}
+
+The structure of \cref{fig:cobordism-structure-table} makes a lot more sense in the context of 
+
+\begin{proposition}
+	The product of manifolds is a well-defined operation with respect to cobordism.
+\end{proposition}
+\begin{proof}
+	\todo{proof}
+\end{proof}
+
+\begin{definition}
+	The \defn{oriented cobordism ring} $\Omega^\SO_\bullet$ is the set of oriented cobordism classes of closed manifolds under the operations of disjoint union and product.
+\end{definition}
+
+The oriented cobordism ring has a grading by
+\[
+	\Omega_\bullet^\SO = \bigoplus_{k\geq 0} \Omega^\SO_k.
+\]
+
+\todo{finish this section, cobordism with additional structure}
+
+\todo{Ren\'e thom cobordism ring determination, will be used later in hirzebruch}
+
+\begin{remark}
+	There are several generalizations of the notion of cobordism.\todo{cobordism ring with structure, link to framed cobordism}
+\end{remark}
+
+
+\subsection{The $h$-Cobordism Theorem}
+
+\begin{definition}
+	A cobordism $W : M_1\bord M_2$ is said to be an \defn{$\bm{h}$-cobordism} if $M_1$ and $M_2$ admit deformation retracts from $W$. We denote $h$-cobordisms by $\hbord$ when the category of manifolds is clear.
+\end{definition}
+
+If $M_1$ and $M_2$ are $h$-cobordant, then clearly they have the same homotopy type since they are deformation retracts of the same space.
+
+\begin{theorem}[$h$-cobordism]\label{thm:h-cobordism}
+	Within some category of manifolds $\mathscr{C}$, if $M$ and $N$ are closed, simply-connected manifolds of dimensions $\geq 5$ and $W : M \hbord N$ is a simply-connected $h$-cobordism, then $W$ is $\mathscr{C}$-isomorphic to the cylinder $M\times [0,1]$. Furthermore, the isomorphism can be chosen to be the identity on $M\times \{0\}$.
+\end{theorem}
+\begin{proof}
+	As with Morse theory, a proof of the $h$-cobordism theorem could easily fill up an entire thesis so we'll only briefly summarize the proof here.
+
+	\todo{talk about handlebodies}
+\end{proof}
+
+\begin{theorem}
+	In the manifold categories $\Top$ and $\Pl$, the generalized Poincar\'e conjecture is true in dimensions $\geq 5$.
+\end{theorem}
+\begin{proof}
+	\todo{cone construction, fails for $\Diff$ because you can't take a smooth cone.}
+	\todo{mention method of engulfing?}
+\end{proof}
+
+\todo{why this argument fails for $\Diff$}
+
+\begin{corollary}\label{thm:h-cobordism-diffeomorphism}
+	In the smooth oriented manifold category, two simply-connected closed manifolds of dimensions $\geq 5$ are $h$-cobordant if and only if they are diffeomorphic (by an orientation preserving diffeomorphism).
+\end{corollary}
+\begin{proof}
+	If $f : M_1 \to M_2$ is a diffeomorphism between manifolds $M_1$ and $M_2$, they are $h$-cobordant by the manifold $W=M_1\times [0,1]\cup_f M_2$, where we glue $M_2$ onto $M_1\times \{1\}$ in $M_1\times [0,1]$ by $f$.
+	Conversely, if $W : M_1\sohbord M_2$ is an $h$-cobordism, by the $h$-cobordism theorem (\ref{thm:h-cobordism}) there must be a diffeomorphism $f : W \to M_2$ must map to $M_1\times \{1\}$, this gives a diffeomorphism $M_2 \to M_1$. If we choose $f$ to reverse orientation on $M_1\to M_1\times \{0\}$, then the restriction $f|_{M_2}$ will preserve orientation.
+\end{proof}
+
+We've thus arrived at our first major simplification to the problem of classifying exotic spheres in dimensions $\geq 5$ -- in order to classify smooth structures, it's enough to classify the $h$-cobordism classes of smooth manifolds which are topological spheres, and to find smooth manifolds which are topological spheres it suffices to consider smooth manifolds which have the homotopy type of a sphere.
+
+\begin{definition}
+	A \defn{homotopy $\bm{n}$-sphere}[homotopy sphere] is a smooth manifold which is homotopy equivalent to the sphere $S^n$.
+\end{definition}
+
+\begin{definition}
+	We use the notation $\Theta^n$ to refer to the pointed set of $h$-cobordism classes of homotopy $n$-spheres (the basepoint is the ordinary sphere $S^n$).
+\end{definition}
+
+\subsection{Groups of Homotopy Spheres}
+
+The last ingredient in our setup of the classification of exotic spheres is a group structure on the set of homotopy spheres.
+The simplest additive structure between topological spaces is a disjoint union, and this is the group operation used in cobordism. A problem with the disjoint union is that it results in disconnected spaces. If the spaces involved are manifolds of the same dimension, there is a connected version of a disjoint union -- we can glue the manifolds together by a ``tube''.
+
+\begin{definition}
+	Let $M_1$ and $M_2$ be oriented smooth $n$-dimensional manifolds. Choose embeddings of $n$-dimensional disks $\iota_1 : D^n \to M_1$ and $\iota_2 : D^n \to M_2$ such that $\iota_1$ preserves orientation and $\iota_2$ reverses it. The \defn{connected sum} of $M_1$ and $M_2$, denoted $M_1\+ M_2$, is the space
+	\[
+		M_1\+M_2 = (M_1 \setminus \iota_1(0))\cup_g (M_2 \setminus \iota_2(0))
+	\]
+	where $g$ identifies $\iota_1(tu)$ with $\iota_2((1-t)u)$ for each unit vector $u\in \partial D^n$ and $t\in (0,1)$. We choose an orientation for $M_1\+ M_2$ which is compatible with the orientation of $M_1$ and $M_2$, and this works because $g$ is orientation preserving.
+\end{definition}
+
+\begin{figure}[ht]
+	\centering
+	\import{graphics/temp-diagrams/}{connected-sum.pdf_tex}
+	\caption{Construction of the connected sum.}\label{fig:connected-sum}
+\end{figure}
+
+Proving that the connected sum operation is well-defined in the smooth category takes more work than one might expect. For brevity, we'll defer to a technical result by Palais.
+
+\begin{theorem}[Disk Theorem]
+	If $M$ is an oriented smooth $n$-dimensional manifold and we have orientation preserving disk embeddings $\iota_1,\iota_2 : D^n \to M$, then there is a diffeomorphism $f : M \to M$ such that $\iota_1 = f\circ \iota_2$.
+\end{theorem}
+\begin{proof}
+	See Theorem~B in \cite{palais1960extending}.
+\end{proof}
+
+\begin{corollary}
+		The connected sum is well-defined, associative, and commutative up to orientation preserving diffeomorphism.
+\end{corollary}
+
+\begin{theorem}
+	The connected sum turns $\Theta^n$ into a group with identity element $S^n$.
+\end{theorem}
+\begin{proof}
+	\todo{write the proof}
+
+	\begin{changemargins}
+	\begin{lemma}
+		Let $M_1, M_1'$ and $M_2, M_2'$ be closed simply-connected manifolds. If $M_1\sohbord M_1'$ and $M_2\sohbord M_2'$ are $h$-cobordant, then there is an $h$-cobordism $(M_1\+ M_2) \sohbord (M_1'\+M_2')$.
+	\end{lemma}
+	\begin{proof}
+	\todo{write the proof}
+	\end{proof}
+	\end{changemargins}
+
+	\begin{changemargins}
+	\begin{lemma}
+		A simply-connected manifold $M$ is $h$-cobordant to $S^n$ if and only if $M$ bounds a contractible manifold.
+	\end{lemma}
+	\begin{proof}
+	\todo{write the proof}
+	\end{proof}
+	\end{changemargins}
+
+	\noindent This completes the proof.
+\end{proof}
+
+The terminology of algebra now open up to us. In the time since 
+
+\subsection{Twisted Spheres}
+	The following section should be read as an extended remark on the definition of connected sum, as we will not use any of the following results in the rest of the thesis.
+
+	The definition of connected sum for smooth manifolds is slightly stronger than the definition for topological manifolds. In the topological category, we could simply cut out open disks from both manifolds and identify their boundaries, i.e. we set
+	\begin{equation}\label{eq:connected-sum-in-topological-category}
+		M_1\# M_2 = (M_1\setminus \Int(\iota_1(D^n)))\cup_g (M_2\setminus \Int(\iota_2(D^n)))
+	\end{equation}
+	where $g : \partial \iota_1(D^n) \to \partial \iota_2(D^n)$ is any orientation-reversing homeomorphism. This definition turns out to be well-defined in the topological category, although proving this takes a considerable amount of work. \todo{cite}
+
+	However, the connected sum in the topological category will not give a unique connected sum in the smooth category, in fact far from it. Interestingly enough, the failure for \cref{eq:connected-sum-in-topological-category} to give a unique smooth manifold is related to exotic spheres in the following way. Whenever we have an orientation-preserving diffeomorphism $f: S^{n-1}\to S^{n-1}$, identifying $\partial D^n = S^{n-1}$ allows us to glue together disks to get $T(f)=D^n\cup_f D^n$. This is a smooth manifold which is the (topological) connected sum of two spheres so must be homoemorphic to a sphere. The manifolds $T(f)$ are called \defn{twisted spheres} since they are built by ``twisting together'' two disks by $f$. 
+
+	We can interpret the twisted sphere construction as a map $T: \op{Diff}^+(S^{n-1})\to \Theta^n$ sending an orientation-preserving diffeomorphism $f : S^{n-1} \to S^{n-1}$ to the twisted sphere $T(f)$. For any (smooth) path $\omega : I \to \op{Diff}^+(S^{n-1})$, we can build an $h$-cobordism 
+	\[ (D^n\times I)\cup_\omega (D^n\times I) : T(\omega_0) \sohbord T(\omega_1)\]
+	where we interpret the path $\omega$ as a smooth homotopy $\omega : I\times S^{n-1}\to\S^{n-1}$ between diffeomorphisms $\omega_0, \omega_1 : S^{n-1} \to S^{n-1}$. For $n\geq 5$, \cref{thm:h-cobordism-diffeomorphism} implies that $T(\omega_0)$ is diffeomorphic to $T(\omega_1)$ so the map $T$ only depends on the path component of $f\in \op{Diff}^+(S^{n-1})$.
+	Next, note we can extend $f$ to a diffeomorphism on the interior of the disk, the resulting twisted sphere must be diffeomorphic to a sphere. By a similar argument, we can reduce to path-components. Altogether, we have an exact sequence (of sets)
+	\begin{equation}\label{eq:twisted-sphere-exact-sequence-proto}
+		\pi_0 [\op{Diff}^+(D^n)] \lkxto \pi_0 [\op{Diff}^+(S^{n-1})] \lkxto[T] \Theta^n.
+	\end{equation}
+	Finally, if we take any homotopy sphere $\Sigma\in \Theta^n$, cutting out the interiors of any embedded open disks $D_1, D_2\subset \Sigma$ gives an $h$-cobordism $\Sigma\setminus(D_1\cup D_2) : \partial D_1 \sohbord \partial D_2$. If $n\geq 6$, the $h$-cobordism theorem (\ref{thm:h-cobordism}) implies that $\Sigma \setminus (D_1\cup D_2)$ is diffeomorphic to a cylinder $\partial D_2\times [0,1]$. It follows that $\Sigma$ is a twisted sphere corresponding to the diffeomorphism $\partial D_1 \cong \partial D_2$ coming from the $h$-cobordism.
+	When $n\geq 6$, the exact sequence \cref{eq:twisted-sphere-exact-sequence-proto} therefore extends to 
+	\[
+		\pi_0 [\op{Diff}^+(D^n)] \lkxto \pi_0 [\op{Diff}^+(S^{n-1})] \lkxto[T] \Theta^n \lkxto 0.
+	\]
+	In 1970, Cerf proved the pseudoisotopy theorem \cite{cerf1970pseudoisotopy}, one of the consequences of which implies that $\pi_0[\op{Diff}^+(D^n)]=0$ for $n\geq 6$. From this it follows that:
+
+	\begin{proposition}
+		For $n\geq 6$, we have a bijection $\Theta^n \cong \pi_0[\op{Diff}^+(S^{n-1})]$.
+	\end{proposition}
+
+	In my subjective opinion, this is the most canonical way to observe the phenomenon of exotic smooth structures on the spheres. Rather than work with a set of abstract smooth manifolds and diffeomorphisms between them, it's possible to interpret the set of smooth structures on a sphere as the set of path-components of diffeomorphisms on a specific sphere. This bijection is also a reason as to why some theoretical physicists care about exotic spheres. \todo{change of coordinates, 10-dimensional change of coordinates (with compact support) has 992 components.} 
+	For instance, Witten's 1985 paper \cite{witten1985global} on global anomalies in string theoretic models of gravity contains extensive discussions on exotic spheres, and the use of geometric invariants in detecting them.
+
+\subsection{The Poincar\'e Hypothesis in Low Dimensions}
+
+The reduction of the problem of finding diffeomorphism classes of homotopy spheres to the problem of finding $h$-cobordism classes of spheres is a massive simplification, and allows for a complete general classification.
+The lack of an $h$-cobordism theorem in dimensions $<5$ means that practically none of the techniques developed in this thesis will work for these low dimensions and so they must be analyzed manually. The uniqueness of smooth structure on a circle is a standard exercise in introductory topology. In dimension $2$, we can give the sphere a complex structure making it a Riemann surface, and by the uniformization theorem, the complex structure must be conformally equivalent to the Riemann sphere. This is the unique complex structure and so it has a unique smooth structure.
+
+For the case of dimension $3$, the uniqueness of a smooth structure is a orders of magnitude harder to prove. In the 1950s, Moise proved the equivalence of topological, PL, and smooth structures for compact $3$-manifolds. These results are outlined in the book \cite{moise1977geometric}. For decades, the uniqueness of smooth structures on the 3-dimensional sphere was thus relegated to a proof of the topological Poincar\'e hypothesis in 3-dimensions -- the original conjecture proposed of Poincar\'e in 1904. The topological Poincar\'e hypothesis had already been proved in dimensions $\geq 5$ by Smale, Stallings, and Zeeman in the early 1960s, and in dimension $4$ by Freedman's 1982 classification \cite{freedman1982} of simply-connected topological $4$-manifolds using many of the techniques we'll discuss in this thesis. Yet, the stubborn third dimension remained.
+This proof finally came in 2003 as a consequence of Perelman's proof of Thurston's geometrization conjecture, a general classification for 3-dimensional geometries.
+The battle with $3$-manifolds was a tough one, and it took hundreds of pages of hard analysis and Riemannian geometry by Hamilton and Perelman.
+The basic idea by Hamilton to prove the Poincar\'e conjecture involved giving a
+closed $3$-manifold a Riemannian metric $g_{\mu\nu}$, and then evolving this metric in time $\lambda$ by a differential equation involving the Ricci curvature tensor
+\begin{equation}
+	\frac{\partial g_{\mu\nu}}{\partial \lambda} = -2\mathcal{R}_{\mu\nu}.
+	% \hspace{-3em}\tag{Ricci Flow Equation}
+\end{equation}
+This is known as the Ricci flow equation, and it forces the metric to change in such a way as to make distances decrease in directions of positive curvature.
+Ricci flow can be used to ``smooth out'' the curvature of a nice enough $3$-manifold until it has constant curvature. In particular, simply connected manifolds turn into spheres under this regime, proving the Poincar\'e hypothesis.
+Unfortunately, singularities can form when solving the Ricci flow equations, and it takes a careful application of the ideas of surgery to get around them. Perelman proved that this ``Ricci flow with surgery'' was always possible, turning Hamilton's ambitious program into rigorous mathematical machinery. For a comprehensive introduction to Perelman and Hamilton's proof of the geometrization conjecture, see \cite{morgantian2007ricci}.
+
+The last remaining case of the generalized Poincar\'e conjecture is the classification of smooth (and equivalently PL) structures on spheres in dimension $4$. It remains hopelessly unsolved as of the conclusion of this thesis in March 2025. There are some candidates
+
+\todo{talk a bit more about this, exotic $\R^4$s and why people suspect there might be exotic spheres in dimension 4}
+
 
 % \todo{define PL, Diff, Top etc, show differences for instance cone construction}
 %
@@ -67,14 +456,14 @@ While the class of smooth manifolds offers a tempting pasture for the exploratio
 % See \cite{milnor1963groups} and \cite{levine1985lectures}
 %
 % \begin{definition}
-%   Let $\Theta_n$ denote the group of diffeomorphism classes homotopy $n$-spheres under the operation of connected sum.
+%   Let $\Theta^n$ denote the group of diffeomorphism classes homotopy $n$-spheres under the operation of connected sum.
 % \end{definition}
 %
 % \begin{definition}
 % \end{definition}
 %
 % \begin{definition}
-%   Let $\bP_{n+1}$ denote the subgroup of $\Theta_n$ of (classes of) homotopy $n$-spheres which bound parallelizable manifolds.
+%   Let $\bP_{n+1}$ denote the subgroup of $\Theta^n$ of (classes of) homotopy $n$-spheres which bound parallelizable manifolds.
 % \end{definition}
 %
 % \begin{theorem}[Kervaire-Milnor]
@@ -87,7 +476,7 @@ While the class of smooth manifolds offers a tempting pasture for the exploratio
 % \subsection*{The Kirby-Siebenmann Class}
 %
 % \begin{theorem}
-%   For $n\geq 5$, there is an isomorphism $\pi_n(\pl/\diff)\approx \Theta_n$.
+%   For $n\geq 5$, there is an isomorphism $\pi_n(\pl/\diff)\approx \Theta^n$.
 % \end{theorem}
 %
 % \subsection*{Global Gravitational Anomalies}

@@ -6,7 +6,7 @@
 	\textsl{the mystery; in the midst of contemplation}\\
 	\textsl{the riddle gains new strength.}\\
 	\rule[0pt]{19.5em}{0.5pt}\\
-	-- \textsc{Joseph Soloveitchik}\\
+	-- \textsc{Rav. Joseph Soloveitchik}\\
 	% \phantom{-- }\textsl{``Ish ha'Halakhah''}
 	\vspace{2em}
 \end{flushleft}
@@ -23,7 +23,128 @@
 % 	\vspace{2em}
 % \end{flushleft}
 
-Before talking about exotic spheres, I want to talk about symmetry.
+During my last summer before graduating college, some friends and I set out on a mountaineering trip up Banner peak, a picturesque mountain in the eastern Sierra Nevada range of California. Just before the exhaustion of the multiple day trip set in, the conversation turned towards the upcoming year, where I mentioned that I would be writing a senior thesis on exotic spheres.
+I struggled to find the words to explain intuitively what these exotic spheres were, much less what made them ``exotic'' in the first place. 
+The best I could manage was ``exotic spheres are spaces which are shaped like spheres, but have some twistedness about them which makes them somehow different to spheres''. I mentioned something about how exotic spheres allegedly showed up in some very theoretical physics, so maybe they had applications outside of math?
+Compared to the creeping glaciers and massive walls of imposing granite, exotic spheres seemed like a distant and artificial academic oddity. 
+While much of my initial hesitation was due to my own lack of understanding of these strange objects at the time, the problem of a simple explanation for an exotic sphere remains. 
+
+One of the reasons for this complexity is that exotic spheres are phenomena which are fundamentally high dimensional in nature. As far as we know, the smallest dimensional exotic sphere is 7-dimensional, far beyond the threshold for a complete visual picture. Another difficulty is that by their very definition, exotic spheres are related to subtle differences in the way we define \emph{space} in mathematics. These subtleties, combined with the high dimensions in which they take place make this a hard subject to visualize. The fact that we are even able to detect and classify exotic spheres at all is a testament to the powerful abstraction achieved by modern mathematics. 
+
+\section*{The Shape of Space}
+
+The simplest, oldest, and arguably most intuitive conceptualization of space is that of Euclidean space -- an infinitely extending flat canvas of points in which parallel lines do not intersect. Most of classical geometry occurred in this context, either in $2$ or $3$ dimensions. 
+Less often, mathematicians worked in higher dimensional versions of Euclidean geometry. These were less intuitive and tricker to draw on paper, but the basic geometric rules still applied.
+Throughout the 19th century, mathematicians such as Gauss, Riemann, and Lobachevsky began to uncover models of geometry in which many of the assumptions of Euclidean geometry no longer held. 
+For instance, using the curved surface of a ball as a canvas for geometry gives fundamentally different results than when using a plane. For starters, parallel ``lines'' on the surface of a ball always intersect (think longitudinal lines on a globe).
+More quantitatively, the case of a ball has the sum of angles in a triangle add up to less than $180^\circ$ while in case of a plane the sum of angles in a triangle add up to exactly $180^\circ$. The failure of a triangle's angles to add up to $180^\circ$ or for parallel lines to avoid intersection is an example of \emph{curvature} -- deviation from the flat geometry of Euclidean space.
+
+It's important to note that while geometers had worked with circles, spheres, and other curved surfaces for millenia, they were always embedded in Euclidean space as in the case of a ball in $3$-dimensional space. The novel idea behind non-Euclidean models was that the curved space was \emph{all there was} -- the $2$-dimensional surface of the ball could exist as a geometrical space \emph{independently} of its embedding in $3$-dimensional space. 
+The curvature of geometric spaces was not the curving of something \emph{into} an ambient space but rather an intrinsic geometric feature of the sapce itself. After all, measuring angles and drawing lines can be done entirely without leaving the surface of the ball. Even without an understanding of $3$-dimensions, a flat creature living on the ball could conclude that they existed in a curved non-Euclidean space.
+By dispensing with the Euclidean axiom of flatness, mathematicians opened up a cornucopia of rich geometry to explore, and these explorations have only grown grander in scope over time.
+
+\begin{figure}[ht]
+	\centering
+	\todo{draw the figure}
+	\medskip
+	\caption{Triangles in Euclidean (left) and non-Euclidean geometries.}
+\end{figure}
+
+% At the time, many of these new geometries were seen as abstract mathematical departures from the physically motivated notions of Euclidean geometry. Much to everyone's surprise, this all changed with Einstein's theory of general relativity in 1915. Einstein showed that space and time are much better modelled by a non-Euclidean, $4$-dimensional geometry than by a Euclidean geometry, permanently cementing non-Euclidean geometry into the undoubtedly tangible realm of physics.
+
+Near the end of the 19th century, a sparse set of theorems and loose definitions began to consolidate into a field known as topology. Although there weren't many clear definitions in the early days of the field, the central idea was simple. Rather than just removing the axiom of flatness like in the case of non-Euclidean geometries, topology removes most of the axioms, leaving only the \emph{shape} of space, detached from any quantitative information. Unlike a geometric space, a topological space does not come with any notions of distance, angle, perpendicularity, area or volume -- all that is left is a notion of continuity. 
+In the geometry that most people are familiar with, two shapes are said to be congruent, or geometrically equivalent, if we can transform between them in a way that does not alter distances,angles, and consequently areas. 
+The only requirement for a topological equivalence is that it is continuous, that is, close together points in the first shape should be close together after the transformation. More informally, ripping the shape is not allowed, but any squishy deformation is totally fine. Such a transformation is known as a \emph{homeomorphism} -- coming from Greek roots for ``similar shape''.
+\begin{figure}[ht]
+	\centering
+	\import{graphics/temp-diagrams/}{congruence-vs-homeomorphism.pdf_tex}
+	\caption{Geometric equivalence (congruence) vs topological equivalence (homeomorphism)}
+\end{figure}
+
+In many areas of topology, we require our spaces to be \emph{manifolds}.
+A space is said to be a manifold if it can be built out of patches of coordinate space. For instance, our intuitive model of the surface of the earth is flat, specified by the perpendicular directions -- north/south and east/west. On human scales, this coordinate system is indistinguishable from a flat plane. However, if we keep going north we'd end up at the north pole, at which point the notion of ``further north'' no longer makes sense. At the north pole, we'd have to come up with a different coordinate system but that's fine -- as long as a space has a local coordinate system at each point, the space is a manifold. The number of coordinates needed to describe a manifold is known as its \emph{dimension}. The surface of the earth for example can be represented by a two-dimensional manifold, this is a two-dimensional sphere. Similarly, a circle can be thought of as a one-dimensional manifold since locally it looks like a line, a circle can be thought of as a one-dimensional sphere.
+A three-dimensional sphere is a bit harder to visualize, but is still within the realm of human imagination. Remember, the surface of the Earth is a two-dimensional sphere which is embedded in three-dimensional space. My favorite way to visualize a three-dimensional sphere is by a sort of ``dumpling'' construction. blah blah \todo{not sure if this is needed}
+\begin{figure}[ht]
+	\centering
+	\todo{building spheres by pinching}
+	\medskip
+	\caption{A ``dumpling'' construction.}
+\end{figure}
+
+\todo{I have a written section on Riemann surfaces and Poincar\'e's simplicial complexes but it might be too much of a detour}
+
+While the study of manifolds is a deep and fascinating discipline in itself, many manifolds have some extra geometric structure which makes them more interesting to work with. Many of these structures were originally inspired by physics.
+% In the very early days of topology for instance, 
+% Poincar\'e worked largely with manifolds built up of small triangles, tetrahedra, and their higher dimensional analogues. 
+% By counting the number and intersections of these small pieces, Poincar\'e was able to develop a theory of ``combinatorial topology''. \todo{talk about Euler number}
+\todo{talk about symplectic manifold -> classical mechanics?, Riemannian geometry for Einstein}
+The common feature behind all of these geometric structures was that they required a notion of ``calculus'' on manifolds, i.e. infinitesimals, derivatives, and the like. Mathematicians did what they do best -- remove unnecessary axioms and work primarily in this most general context. For calculus on manifolds, the most general definition was that of a \emph{smooth structure}, the word smooth here meaning ``infinitely differentiable''. In the spirit of topology, while a smooth structure might not allow you to get precise numerical solutions to differential equations, it does allow you to explore the dimensionality of the solutions -- how many \emph{types} of solutions are there rather than what exactly they are. Instead of only requiring two equivalent manifolds to just have the same shape, we now also require equivalences between them to be infinitely differentiable -- so no infinitely sharp kinks or bends. These smooth equivalences are called \emph{diffeomorphisms}.
+
+With just topology, the dressing room of a manifold is dizzyingly vast.
+A circle could be represented by homeomorphism with a square, a squiggly blob, a spiky star, a horrifically jagged fractal snowflake, or literally any other closed loop drawn without lifting your pencil. Any of these outfits ``fit'' the abstract topological circle.
+Adding a smooth structure onto a manifold downsizes its walk-in closet of possible representations to a tiny travel suitcase, eliminating any outfits which are not ``smooth''. 
+
+\section*{So what is an Exotic Sphere?}
+
+As with any construction in mathematics, we can ask if (a) a smooth structure always exists on a manifold, and (b) if a smooth structure is unique (at least up to diffeomorphism). The reasonable guess would be yes to both of these questions. After all, how topologically twisted can a manifold get for it not to have a smooth structure at all? Remember, ordinary manifolds still locally look like ordinary Euclidean space. Surely any jaggedness can be smoothed out? If you're drawing a closed loop on a sheet of paper and it comes out jagged, you can always redraw it and hold your pen tighter, the resulting shape would still be the same. Similarly, if you're building a clay model and the surface is rough, you can always gently brush over it with water to get a nice smooth surface. You certainly wouldn't expect smoothing it one way to result in a fundamentally different smooth structure than if you smoothed it a different way. Remember, we're not changing the shape here, the underlying manifold is still the same!
+
+Our intuition is correct in these low-dimensional cases -- in fact every one, two, and three-dimensional manifold admits a unique smooth structure. However, much to our surprise this completely breaks down in dimension four. There, it's possible to construct a manifold which \emph{admits no smooth structure at all}. Even more surprising things happen when we restrict to the case of spheres. Spheres of any dimension have at least one smooth structure -- we can always draw a sphere in Euclidean space and do calculus there. However, this smooth structure is not unique! 
+Any time we find a smooth structure on a sphere which is not diffeomorphic to the ordinary one, we call such a sphere \emph{exotic}.
+On the seven-dimensional sphere for instance, there are exactly \emph{twenty-eight} distinct smooth structures, no more no less.
+One of these corresponds to the ordinary smooth structure, but the rest are all exotic spheres.\footnote{\todo{orientation double counting}}
+Next up in dimension, an eight-dimensional has only two smooth structures, while a nine-dimensional sphere has eight smooth structures. In fact, the only dimensions in which a unique smooth structure is know to exist are $1,2,3,5,6,12,56,$ and $61$. This seems oddly specific.
+At first glance, the number of smooth structures on the sphere does not appear to follow an obvious pattern.
+\begin{figure}[ht]
+	\renewcommand{\arraystretch}{1.2}
+	\centering
+	\begin{tabular}{r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+		\textrm{dimension:} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15\\
+		\hline
+		\textrm{\# of smooth structures:} & 1 & 1 & 1 & ? & 1 & 1 & 28 & 2 & 8 & 6 & 992 & 1 & 3 & 2 & 16526\\
+	\end{tabular}
+	\medskip
+	\caption{The number of smooth structures on the spheres.}
+\end{figure}
+
+When I first heard about exotic spheres in an introductory class on differential topology, I wondered if these were ``real'' mathematical objects or simply quirky artifacts of our definitions. There is of course, no objective answer to this question, and any answer reflects a level of mathematical bias.
+As the Prussian mathematician Leopold Kronecker once remarked ``God created the integers, all else is the work of man''. My own philosophy didn't go quite as far as Kronecker's.
+I was fairly convinced that non-Euclidean geometries were real -- or at the very least, were more than just a mathematical curiosity.
+After all, Einstein's theory of general relativity showed that the space and time of our universe is far better modelled by a curved, $4$-dimensional, non-Euclidean geometry than by a Euclidean geometry. 
+The predictive success of Einstein's theory cemented non-Euclidean geometry into the undoubtedly tangible realm of physics. 
+Compared to the rigid structures of geometry, the sea of all possible topological spaces is chaotic and vast. Somehow, restricting space to be spherical \todo{something something}
+
+
+\section*{Ramifications of Exoticity}
+
+\todo{mention how exotic spheres can be thought of as knots, talk about torsion phenomena}
+
+
+%
+% \begin{figure}[ht]
+% 	\centering
+% 	\todo{cube, icosahedron, vs donut}
+% 	\medskip
+% 	\caption{The Euler number of polyhedra.}
+% \end{figure}
+%
+% Riemann on the other hand, was interested in functions of a complex variable -- think $f(z)=\sqrt{z}$ where $z$ is allowed to be any complex number. Riemann noticed that some functions such as the square root were ``multivalued''. After all, when $z^2=4$, $z$ could be either equal to $+2$ or $-2$. It would be nice if function had a well-defined value, but a problem arises when you try to choose a ``branch'' of the function -- in this case either positive or negative. As you go around the complex plane, no matter which convention you choose, at some point you will have to switch branches and this causes a discontinuity. Riemann discovered that functions such as the square root are more naturally interpreted as a function on a surface (a two-dimensional manifold) rather than on a flat plane.
+% \begin{figure}[ht]
+% 	\centering
+% 	\todo{riemann surface}
+% 	\medskip
+% 	\caption{The Riemann surface for $f(z)=\sqrt{z}$.}
+% \end{figure}
+% This led to his theory of Riemann surfaces, and to later generalizations of the notion of a \emph{complex structure} on a manifold -- i.e. some extra data which allows one to work with complex variables and functions.
+
+% \medskip
+
+
+% rigor of angels
+%
+% shape of space
+%
+
+% Before talking about exotic spheres, I want to talk about symmetry.
 
 % Projective plane analogy with torsion (Z/2 vs Z/28)
 
@@ -33,66 +154,3 @@ Before talking about exotic spheres, I want to talk about symmetry.
 % To us, physical space at the scales which we inhabit is so intuitively Euclidean, and so baked into the very structures of our mind that it's difficult to imagine where our assumptions might be biased. We tend to think of space as infinite and flat, just as Euclid's axioms describe. At the scale of daily life this is an accurate model, but at the scale of the Earth it completely falls apart. The Earth is neither infinite nor flat, and \emph{any} straight line path will eventually bring you back to your starting point. 
 % And that's only the two-dimensional surface of the spherical Earth. What if the universe itself was finite, curving in on itself rather than extending indefinitely? You might imagine zooming into the depths of the cosmos with a super-powered telescope only to see familiar galaxies, and eventually Earth itself peering back at you.
 % Even worse, what if space was non-orientable? Not only could flying in a straight path bring you right back to where you started, but you would find that upon your arrival the very notions of right and left seem to have swapped places -- as though you've entered a mirror world. All languages become illegible to you since they are now backwards from your perspective, a birthmark which used to be on the left side of your face appears to everyone else to be on your right. Only another trip along the same course you originally took is able to flip everything back.
-%
-% \begin{figure}
-% 	\centering
-% 	\includegraphics[scale=0.3]{graphics/diagrams/torus_non_vanishing_vector_field/result.jpg}
-% 	\vspace{1em}
-% 	\caption{A torus.}
-% \end{figure}
-%
-% By relaxing our assumptions about the shape of space, geometry begins to quickly fill up with many such counter-intuitive non-Euclidean spaces and they find applications in unexpected places. Take for instance 
-%
-% \hspace{1em}
-% % Many such axiomatic foundations exist, and lead 
-%
-% Let's start with the simple case of Euclidean space (think of a plane for instance) by describing some of its essential aspects. First and foremost Euclidean space is comprised of infinitely many points which \emph{extend continuously}, which informally means that Euclidean space is equipped with a qualitative concept of ``closeness''. Among other things, this 
-%
-% Euclidean space also comes with the stronger, quantitative notion of closeness -- this is known as \defn{distance}. A distance metric assigns to each pair of points a non-negative real number.
-
-% \pagebreak
-
-% \todo{The geometries they worked in were mostly flat, i.e. Euclidean and they relied on entirely (analytical?) methods to derive spatial relationships}
-%
-% \todo{Take a step back and see what data we have.}
-%
-% Classical geometry works in affine space, so we have: continuity of space, distance,  translation and homotethy. Translation gives us a global parallelism.
-%
-% Introduction of curvature
-%
-% Intrinstic  geometry via Theorema Egregium
-%
-% Symplectic manifolds, spin manifolds -> corresponding to physics
-%
-% Ehrlangen program
-
-% At the scales they worked at, reality was best modelled by a plane or a (flat) three dimensional space.
-
-% Homotopy classes of spaces
-%
-% PL manifolds
-%
-% During my last summer before graduating college, I went with some friends on a mountaineering trip up Banner peak, a picturesque mountain in the eastern Sierra Nevada range of California. 
-% %
-% % As we descended the glacier towards our base camp, ice axes in hand, I 
-% So how \emph{do} we study objects which we can't touch, see, or possibly hope to visualize in their full complexity?
-%
-% There are two levels to understanding.
-% \begin{enumerate}
-% 	\item First, we
-% \end{enumerate}
-%
-% Understanding an object by how it behaves with respect to other objects.
-% \todo{spectral lines of atoms}
-%
-% One of the earliest methods to ``fingerprint'' topological objects was discovered by Euler.
-
-% \cite{hatcher2002}
-
-\subsection*{Waxing Poetic}
-
-rigor of angels
-
-shape of space
-
-complex numbers thought to be simple algebraic tricks for solving equations -- turned out to be so totally fundamental in physics and math that you'd be hard pressed to find a physics textbook which contains no mention of the complex numbers

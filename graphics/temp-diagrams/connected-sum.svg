@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.0558182"
-     inkscape:cx="86.189084"
-     inkscape:cy="163.38041"
+     inkscape:zoom="0.76844023"
+     inkscape:cx="530.29499"
+     inkscape:cy="191.94726"
      inkscape:window-width="1728"
      inkscape:window-height="1051"
      inkscape:window-x="0"
@@ -39,11 +39,11 @@
      id="defs1">
     <marker
        style="overflow:visible"
-       id="Triangle"
+       id="ArrowWide"
        refX="0"
        refY="0"
        orient="auto-start-reverse"
-       inkscape:stockid="Triangle arrow"
+       inkscape:stockid="Wide arrow"
        markerWidth="1"
        markerHeight="1"
        viewBox="0 0 1 1"
@@ -51,10 +51,11 @@
        inkscape:collect="always"
        preserveAspectRatio="xMidYMid">
       <path
-         transform="scale(0.5)"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         id="path135" />
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path3" />
     </marker>
     <inkscape:path-effect
        effect="bspline"
@@ -209,7 +210,7 @@
        id="path17-2-9-5"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:#000000;fill-opacity:0.25;stroke:none;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
+       style="fill:#000000;fill-opacity:0.15000001;stroke:none;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
        d="m 62.448179,67.020947 c 0.195836,-1.2e-5 0.357493,-1.682171 0.357495,-3.870074 2e-6,-2.187933 -0.195661,-3.171803 -0.391501,-3.17182 l -6.6769,0.02611 c 0.19584,1.8e-5 0.319857,1.551846 0.319855,3.712492 -2e-6,2.160615 -0.159038,3.257949 -0.354874,3.257961 z"
        id="path17-2-9-4"
        sodipodi:nodetypes="ccccccc" />
@@ -282,7 +283,7 @@
        id="path17-2-9-5-7"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:#000000;fill-opacity:0.25;stroke:none;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
+       style="fill:#000000;fill-opacity:0.15000001;stroke:none;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
        d="m 62.464666,17.412538 c 0.195836,-1.2e-5 0.357493,-1.682171 0.357495,-3.870074 2e-6,-2.187933 -0.195661,-3.171803 -0.391501,-3.17182 l -6.6769,0.02611 c 0.19584,1.8e-5 0.319857,1.551846 0.319855,3.712492 -2e-6,2.160615 -0.159038,3.257949 -0.354874,3.257961 z"
        id="path17-2-9-4-6"
        sodipodi:nodetypes="ccccccc" />
@@ -335,7 +336,7 @@
        id="path17-2-9-5-7-3"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:#000000;fill-opacity:0.25;stroke:none;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
+       style="fill:#000000;fill-opacity:0.14;stroke:none;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
        d="m 63.208945,33.465671 c 0.195836,-1.2e-5 0.357493,-1.682171 0.357495,-3.870074 2e-6,-2.187933 -0.195661,-3.171803 -0.391501,-3.17182 l -6.6769,0.02611 c 0.19584,1.8e-5 0.319857,1.551846 0.319855,3.712492 -2e-6,2.160615 -0.159038,3.257949 -0.354874,3.257961 z"
        id="path17-2-9-4-6-9"
        sodipodi:nodetypes="ccccccc" />
@@ -356,23 +357,12 @@
        id="path2-9-9-4"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:#000000;fill-opacity:0.25;fill-rule:nonzero;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0.599722;stroke-opacity:1;marker-end:url(#Triangle);paint-order:stroke markers fill"
+       style="fill:#000000;fill-opacity:0.25;fill-rule:nonzero;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:0.599722;stroke-opacity:1;marker-end:url(#ArrowWide);paint-order:stroke markers fill"
        d="m 59.270451,44.414436 c 0.06194,3.283494 0.123873,6.566986 0.18581,9.850481"
        id="path7"
        inkscape:path-effect="#path-effect7"
        inkscape:original-d="m 59.270451,44.414436 c 0.06194,3.283494 0.123873,6.566986 0.18581,9.850481"
        sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352777;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:2.26667;stroke-opacity:1;paint-order:stroke markers fill"
-       x="25.348185"
-       y="33.042885"
-       id="text7"><tspan
-         sodipodi:role="line"
-         id="tspan7"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.352778"
-         x="25.348185"
-         y="33.042885">$X\setminus D_1^\circ$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352777;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:2.26667;stroke-opacity:1;paint-order:stroke markers fill"
@@ -383,29 +373,18 @@
          id="tspan7-4"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.352778"
          x="54.332806"
-         y="7.8443685">$\partial D_1\times [0,1]$</tspan></text>
+         y="7.8443685">$\iota_1(\partial D^n\times [0,1))$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352777;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:2.26667;stroke-opacity:1;paint-order:stroke markers fill"
-       x="46.427483"
-       y="39.223831"
+       x="36.59623"
+       y="38.600929"
        id="text7-5-3"><tspan
          sodipodi:role="line"
          id="tspan7-4-5"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.352778"
-         x="46.427483"
-         y="39.223831">$\partial D_2\times [0,1]$</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352777;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:2.26667;stroke-opacity:1;paint-order:stroke markers fill"
-       x="100.35375"
-       y="19.765976"
-       id="text7-4"><tspan
-         sodipodi:role="line"
-         id="tspan7-0"
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.352778"
-         x="100.35375"
-         y="19.765976">$Y\setminus D_2^\circ$</tspan></text>
+         x="36.59623"
+         y="38.600929">$\iota_2(\partial D^n\times [0,1))$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352777;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:2.26667;stroke-opacity:1;paint-order:stroke markers fill"

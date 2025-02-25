@@ -7,7 +7,7 @@
 	\vspace{2em}
 \end{flushleft}
 
-In \cref{chap:construction}, surgery theory gave us a surjective map
+In \cref{chap:construction}, the plumbing theorem gave us a surjective map
 \[
 		b_k : \Z \lkxsurj \bP^{4k}
 \]
@@ -34,19 +34,8 @@ Let's understand the signature of a manifold on a deeper level, since it is of s
 \begin{proof}
 \end{proof}
 
-This has an immediate consequence. If $X$ is a disjoint union $X_1\sqcup X_2$ which bounds a manifold $W$, then it follows that $\sigma(X_1\sqcup X_2)=\sigma(X_1)+\sigma(X_2)=0$ so that $\sigma(X_1)=-\sigma(X_2)$ (It should be fairly clear that the intersection form of a disjoint union splits as a direct sum so the signature is additive). We could use this observation to define an equivalence relation on the set of closed manifolds of a fixed dimension.
-
-\begin{definition}
-	Two closed $n$-manifolds $X_1$ and $X_2$ are said to be \defn{(oriented) cobordant}[oriented cobordism] if there is an $(n+1)$-manifold $W$ with $\partial W = X_1\sqcup (-X_2)$. We use the notation $W : X_1\sobord X_2$ to refer to the \defn{cobordism} $W$.
-\end{definition}
-
-Under this definition, if $X_1\sobord X_2$ is a cobordism it follows that $\sigma(X_1)=\sigma(X_2)$. There is thus a sense in which signature is really a function from cobordism classes of manifolds to the integers. We can go a step further. It's clear that the operation of disjoint union is well-defined on cobordism classes since if $W_1 : X_1 \sobord X_1'$ and $W_2 : X_2 \sobord X_2'$ are cobordisms, $W_1\sqcup W_2 : X_1\sqcup X_2 \sobord X_1'\sqcup X_2'$ is a cobordism. Similarly, $\partial (X\times Y) = \partial X\times \partial Y$ implies that $W_1\times W_2 : X_1\times X_2 \sobord X_1'\times X_2'$ is a cobordism.
-
-\begin{definition}
-	The \defn{oriented cobordism ring}, denoted $\Omega_\bullet^\SO$ is the set of oriented cobordism classes with the operations of disjoint union and product.
-\end{definition}
-
-It's clear that $\sigma(X_1\sqcup X_2)=\sigma(X_1)+\sigma(X_2)$. As for the product operation $\times$, we have:
+This has an immediate consequence. If $X$ is a disjoint union $X_1\sqcup (-X_2)$ which bounds a manifold $W$, then it follows that $\sigma(X_1\sqcup (-X_2))=\sigma(X_1)-\sigma(X_2)=0$ so that $\sigma(X_1)=\sigma(X_2)$ (It should be fairly clear that the intersection form of a disjoint union splits as a direct sum so the signature is additive). 
+This is exactly the notion of oriented cobordism!
 
 \begin{proposition}
 	$\sigma(X_1\times X_2) = \sigma(X_1)\times \sigma(X_2)$.
@@ -59,7 +48,7 @@ It's clear that $\sigma(X_1\sqcup X_2)=\sigma(X_1)+\sigma(X_2)$. As for the prod
 	\]
 \end{corollary}
 
-This is a very nice rephrasing of the signature, but how does it help us?
+This is a nice rephrasing of the signature, but how does it help us?
 
 % \begin{theorem}[Thom-Pontryagin]\label{thm:thom-pontryagin_oriented_cobordism}
 %   The following holds:
@@ -171,9 +160,6 @@ Before we can define secondary invariants, we need a good generalization of char
 
 \todo{discussion about why topological invariance fails with boundary absent additional restrictions.}
 
-\todo{This whole section needs to be rewritten starting here, left over from old draft}
-
-
 This requires understanding smooth invariants of manifolds with boundary, and this will be the focus of the section.
 Throughout let's assume $X$ is a closed $n$-manifold with oriented coboundary $B$.
 First of all, we'll note that many \emph{topologically} defined invariants generalize naturally to the case of manifolds with boundary. For instance, the Euler characteristic can be defined as a topological invariant at least for any finite CW complex.
@@ -225,7 +211,7 @@ where $j : \H^{\ell}(B, X) \to \H^{\ell}(B)$ is the induced map of the inclusion
 For instance, we could define relative Pontryagin numbers in this way:
 
 \begin{definition}\label{defn:relative_pontryagin_number}
-	Given a polynomial $K\in \Q[x_1,\ldots, x_k]$ satisfying the conditions of \cref{defn:pontryagin_number}, suppose that $\H^{4i}(X)$ and $\H^{4i-1}(X)$ are trivial for all $i$ for which $K$ has a $x_i$ term.
+	Given a polynomial $K\in \Q[x_1,\ldots, x_k]$ satisfying the conditions of \todo{cite}, suppose that $\H^{4i}(X)$ and $\H^{4i-1}(X)$ are trivial for all $i$ for which $K$ has a $x_i$ term.
 	In this case, we define the \defn{relative Pontryagin number} to be the integral
 	\[
 		\begin{aligned}
@@ -565,6 +551,8 @@ Together with \cref{prop:milnor-lower-bound}, this gives us
 
 \section{The Milnor-Kervaire Theorem}\label{sec:milnor-kervaire-theorem}
 
+\todo{I'm not sure if I want to introduce the $J$-homomorphism / the results of Adams here, I may defer to the next section on stable homotopy theory.}
+
 \begin{theorem}[Milnor-Kervaire]
 	For any $k>1$, $bP^{4k}$ is a cyclic group of order
 	\[
@@ -573,7 +561,7 @@ Together with \cref{prop:milnor-lower-bound}, this gives us
 \end{theorem}
 
 \begin{remark}
-	It's interesting to note that the Eells-Kupier invariant is able to detect exactly
+	It's interesting to note that the Eells-Kupier invariant is able to detect everything except for $\denom(4k/B_{2k})$. \todo{is this interesting? ask some professors}
 \end{remark}
 % This chapter will build up to the Atiyah-Singer index theorem -- a remarkable gem of 20th century mathematics which unifies \todo{todo}
 % The index theorem is able to express the ``number'' of solutions to an elliptic system of differential equations on a manifold in terms of the topology of the manifold. This gives subtle integrability (i.e. being integer-valued) conditions for certain combinations of characteristic numbers.
