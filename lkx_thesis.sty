@@ -2,14 +2,23 @@
 \usepackage{amsfonts}
 \usepackage{mathtools}
 \usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{bm} % Bold math
+% \usepackage{amssymb}
 \usepackage{mathrsfs}
 \usepackage{cancel}
-\usepackage{extpfeil} % Arrows
+% \usepackage{extpfeil} % Arrows
+
+% Math symbol hacks
+\makeatletter
+\newcommand{\raisemath}[1]{\mathpalette{\raisem@th{#1}}}
+\newcommand{\raisem@th}[3]{\raisebox{#1}{$#2#3$}}
+\makeatother
+
+% Global settings for math environments
+\renewcommand{\arraystretch}{1.25}
 
 % TikZ
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usetikzlibrary{positioning}
 
 % Debug
@@ -24,9 +33,10 @@
 	\end{flushleft}}
 
 % Math environments
-\NewDocumentCommand{\defn}{m o}{{%
-			\color{blue}{\textnormal{\emph{#1}}}}%
-	\IfValueTF{#2}{\index{#2}}{\index{#1}}}
+\NewDocumentCommand{\defn}{m o}{%
+	{\color{blue}{\textnormal{\emph{#1}}}}%
+	\IfValueTF{#2}{\index{#2}}{\index{#1}}}%
+
 
 \newtheoremstyle{lkx_theorem}
 {}{}{\slshape}{}{}{.}{ }
@@ -122,6 +132,7 @@
 \DeclareMathOperator{\H}{H} % (co)homology
 \DeclareMathOperator{\T}{T} % tangent space
 \DeclareMathOperator{\span}{span}
+\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\gcd}{gcd}
 \DeclareMathOperator{\End}{End}
@@ -133,6 +144,18 @@
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Diff}{Diff}
 
+\providecommand{\GL}{\mathrm{SO}}
+\providecommand{\Sp}{\mathrm{Sp}}
+\providecommand{\U}{\mathrm{U}}
+\providecommand{\O}{\mathrm{O}}
+\providecommand{\SU}{\mathrm{SU}}
+\providecommand{\SO}{\mathrm{SO}}
+\providecommand{\SL}{\mathrm{SL}}
+\providecommand{\Spin}{\mathrm{Spin}}
+
+\providecommand{\MSO}{\mathrm{MSO}}
+\providecommand{\BSO}{\mathrm{BSO}}
+
 % Categories
 \providecommand{\cat}[1]{\mathsf{#1}}
 
@@ -141,11 +164,6 @@
 \newcommand{\TOP}{\cat{TOP}}
 
 % Cobordism
-\makeatletter
-\newcommand{\raisemath}[1]{\mathpalette{\raisem@th{#1}}}
-\newcommand{\raisem@th}[3]{\raisebox{#1}{$#2#3$}}
-\makeatother
-
 \DeclareRobustCommand{\bord}{\!
 	\mathrel{\vcenter{\hbox{
 				\begin{tikzpicture}[baseline=(b.base)]
@@ -167,7 +185,9 @@
 \newcommand{\sobord}{\bord^{\mkern-2mu\mathrm{so}}}
 \newcommand{\sohbord}{\hbord^{\mkern-2mu\mathrm{so}}}
 \newcommand{\spinbord}{\bord^{\mkern-2mu\mathrm{spin}}}
-\newcommand{\frbord}{\bord^{\mkern-2mu\mathrm{fr}}}
+
+\newcommand{\fr}{\mathrm{fr}}
+\newcommand{\frbord}{\bord^{\mkern-2mu\fr}}
 
 % Arrows 
 \ExplSyntaxOn
@@ -190,28 +210,28 @@
 \NewDocumentCommand{\lkxfunc}{ O{->} m m m g g }{
 	\begin{array}{rcl}
 		\IfNoValueTF {#5} {
-			\tl_if_blank:nTF {#2}{}{#2 :}
-			#3
-			\str_case:nn {#1}
-			{
-				{->} {\lkxto}
-					{~>} {\lkxisom}
-					{->>} {\lkxsurj}
-			}
-			#4
+		\tl_if_blank:nTF {#2}{}{#2 :}
+		#3
+		\str_case:nn {#1}
+		{
+			{->} {\lkxto}
+				{~>} {\lkxisom}
+				{->>} {\lkxsurj}
+		}
+		#4
 		} {
-			\tl_if_blank:nTF {#2}{}{#2 \;:\;}
-			{#3}
-		   &
-			\str_case:nn {#1}
-			{
-				{->} {\lkxto}
-					{~>} {\lkxisom}
-					{->>} {\lkxsurj}
-			}
-		   & {#4}
+		\tl_if_blank:nTF {#2}{}{#2 \;:\;}
+		{#3}
+		     &
+		\str_case:nn {#1}
+		{
+			{->} {\lkxto}
+				{~>} {\lkxisom}
+				{->>} {\lkxsurj}
+		}
+		     & {#4}
 		\\
-{#5} & \lkxmapsto & {#6}
+		{#5} & \lkxmapsto & {#6}
 		}
 	\end{array}
 }

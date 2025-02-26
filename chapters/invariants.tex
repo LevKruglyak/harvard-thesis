@@ -1,3 +1,5 @@
+\newcommand{\milinv}{\lambda_{\mathrm{milnor}}}
+
 \chapter{Geometric Invariants}\label{chap:invariants}
 
 \begin{epigraph}{15em}{Unknown}
@@ -7,3 +9,30 @@
 \end{epigraph}
 
 \section{The Hirzebruch Signature Theorem}
+
+\section{Invariants for Homotopy \texorpdfstring{$(4k-1)$}{(4k-1)}-Spheres}
+
+\subsection{Smooth Invariants of Manifolds with Boundary}
+
+\subsection{Milnor's Invariant}
+
+\begin{example}
+	The first few Milnor invariants are:
+	\[
+		\begin{array}{r@{\;}ll}
+			\milinv(X^7)
+			 &= 4\sigma(W, X) - p_1^2[W, X]
+			 & \mod 7,                                                            \\
+			\milinv(X^{11})
+			 &= 15\sigma(W,X) - (2p_1^3-13p_1p_2)[W,X]
+			 & \mod 62,                                                          \\
+			\milinv(X^{15})
+			 &= 303\sigma(W, X) - (3p_1^4-22p_1^2p_2 + 19p_2^2 + 71p_1p_3)[W,X]
+			 & \mod 381.
+		\end{array}
+	\]
+\end{example}
+
+\section{Index Theory}
+
+\subsection{The Eells-Kupier Invariant}

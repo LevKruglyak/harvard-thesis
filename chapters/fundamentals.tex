@@ -1,19 +1,111 @@
 \chapter{Fundamentals}\label{chap:fundamentals}
 
-\begin{epigraph}{16em}{Henri Poincar\'e}
-Mathematics is the art of giving the \\
-same name to different things.
+\begin{epigraph}{16em}{Frank Herbert}
+  Beginnings are such delicate times.
 \end{epigraph}
 
-\begin{center}
-  \textsl{What is the set of smooth structures on a sphere?}
-\end{center}
+To begin our journey, we will provide some mathematical essentials which will be used ubiquitously throughout the thesis. These prerequisites can loosely be broken up into three sections. First, in \cref{sec:differential-topology} we will discuss operations on smooth manifolds in geometric topology -- how to glue manifolds together, cut off handles, attach handles, and so on. We also are concerned with how such operations affect the homology of the manifold. By carefully choosing submanifolds representing homology classes, we will see how to alter the homology of a manifold in a controlled way by means of these operations. These operations form the basic ideas of surgery theory, a topic we will explore in greater depth in \cref{chap:h-cobordism} and \cref{chap:classification}.
+
+Altering topology by surgery naturally ties into our next topic of cobordism in \cref{sec:cobordism}, a natural notion of equivalence for manifolds. While operations such as cutting off or attaching handles change the diffeomorphism type of a manifold, they do not change its cobordism type. This loose notion of equivalence allows us to fully classify manifolds up to cobordism -- something which is generally impossible for homeomorphism or difeomorphism.\footnote{In high dimensions, classifying manifolds is an \defn{undecidable problem}, meaning there is no finite algorithm that will correctly match a manifold to a list of representatives.}
+The determination of manifolds up to cobordism is also the entrypoint of homotopy theory via the Thom-Pontryagin construction, a massively successful crossover which reduces hard geometric problems to (also admittedly hard) problems of computing homotopy groups. With each flavor of cobordism, a new homotopy problem emerges. Ultimately, it will turn out that most of the computational difficulty in computing the set of smooth structures on a sphere is as a result of these homotopy problems.
+
+The last tool in our arsenal is that of Morse theory, introduced in \cref{sec:morse-theory}. Morse theory is a technique connecting the structure of manifolds to a certain class of well-behaved smooth functions from the manifold to the real numbers. By investigating the discrete set of critical points of these functions, questions of attaching and removing high-dimensional handles is simplified to questions of points on the one-dimensional real line. For this thesis, the main application of Morse theory will be in the proof of the $h$-cobordism theorem of \cref{chap:h-cobordism}, however we make occasional use of Morse theory in historical remarks and for explicit constructions of exotic spheres scattered throughout.
 
 \section{Geometric Topology}\label{sec:differential-topology}
 
-\begin{definition}
-\end{definition}
+A central difference between smooth and topological manifolds is the subtleties involved in glueing two manifolds together. For topological manifolds
+
+\subsection{Connected Sum}
+
+\subsection{Representing Homology Classes by Embedded Submanifolds}
+
+Let $f : N\subset X$ be a smooth map from a compact oriented $p$-dimensional manifold $N$ to $X$. The data of an orientation on a closed manifold gives a fundamental class $[N]\in \H_p(N)$ which can be pushed forward along the map $f : N \hookrightarrow X$ to give a homology class $f_* [N]\in \H_p(X)$. This is the homology class associated to a smooth map $N\to X$.
+This correspondence behaves nicely with respect to perturbations, \todo{finish}
+
+Suppose $H : N\times [0,1] \to X$ is a homotopy with $H(x,0)=f(x)$ which perturbs the map $f$. For any $\varepsilon>0$, the map $f_\varepsilon : N \to X$ given by $f_\varepsilon(x)=H(x,\varepsilon)$ is homotopic to $f$ and hence induces the same map on homology $\H_p(N)\to \H_p(X)$. The homology class associated to a map $f : N \to X$ thus solely depends on the homotopy type of $f$ so there is a map
+\[
+	\lkxfunc{}{[N,X]}{\H_p(X).}
+\]
+Letting $N=S^p$, we can see that this is a generalization of the Hurewicz homomorphism which links homotopy groups to homology groups via a map $\pi_p(X) \to \H_p(X)$.
+As with the Hurewicz homomorphism, this correspondence is generally not surjective or injective. If a space is $k$-connected for $k\geq 1$ the Hurewicz homomorphism is an isomorphism $\pi_{k+1}(X) \to \H_{k+1}(X)$. Consequently, every homology cycle in $\H_{k+1}(X)$ can at least be represented by a smooth map of a sphere $S^{k+1}$ into $X$. This smooth map might have ``double-points'', i.e. when multiple points of the sphere map to the same point in the image and prevent the smooth map from being an embedding.
+
+\begin{example}
+	In the punctured plane $X=\R^2\setminus \{0\}$ with homology $\H_1(X)\cong \Z$, the only homology cycles which can be represented by embedded submanifolds are $0,\pm 1$, by a circle not containing the origin and circles of both orientations surrounding the origin respectively. A smooth map representing a cycle of higher degree would necessarily have a double-point as in \cref{fig:double-point}.
+\end{example}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{double-point.pdf_tex}
+	\caption{A double-point in a smooth map representing $\pm 2\in \H_1(\R^2\setminus\{0\})$.}\label{fig:double-point}
+\end{figure}
+
+That being said, many of the manifolds considered \todo{basis by embedded submanifolds}.
+many specially constructed manifolds we will consider in this chapter will at least have a basis by embedded submanifolds, and every homology class will admit a representation by a smooth map. For a classical account of some issues which can arise when representing homology classes by smooth maps, see Chapter II of Ren\'e Thom's seminal paper \cite{thom1954}.
+
+\begin{remark}
+	In some cases, homology classes can \emph{always} be represented by embedded submanifolds. For instance, if $X$ is a $4$-manifold, there are isomorphisms
+	\[
+		\H^2(X; \Z) \cong [X, K(\Z,2)] \cong [X, \CP^\infty] \cong [X,\CP^2],
+	\]
+	where the first is the representability of singular cohomology by the Eilenberg-Maclane spectrum, the second identifies $\CP^\infty$ as a $K(\Z,2)$ space, and the third uses the cellular approximation theorem to slide maps onto the $4$-skeleton. Any cohomology cycle $\omega\in \H^2(X)$ can be represented by a smooth function $f : X \to \CP^2$. If we choose this function to be transverse to $\CP^1\subset \CP^2$, then $f^{-1}(\CP^1)$ is an embedded $2$-dimensional submanifold of $X$ which corresponds to a Poincar\'e dual class to $\omega$. When $X$ is a compact manifold, Poincar\'e duality tells us that all $2$-dimensional homology cycles arise from $2$-dimensional cohomology cycles and can thus be represented by embedded submanifolds. This is one example of the attractiveness of $4$-manifolds as geometric objects of study.
+\end{remark}
 
 \section{Cobordism}\label{sec:cobordism}
 
+The basic idea of cobordism is to declare two manifolds equivalent, or \defn{cobordant}, if there is a manifold one dimension higher which connects the two manifolds. In particular 
+
+As an equivalence relation, this is clearly looser than the notion 
+
+\begin{remark}
+	Note that the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$. 
+\end{remark}
+
+\begin{figure}[ht]
+	\renewcommand{\arraystretch}{1.2}
+	\centering
+	\begin{tabular}{r||c|c||c|c}
+		$k$ & $\Omega_k$ & generators & $\Omega_k^\SO$ & generators \\
+		\hline
+		$0$ & $\Z/2$ & a point & $\Z$ & a point\\
+		$1$ & $0$ & & $0$ & \\
+		$2$ & $\Z/2$ & $\RP^2$ & $0$ & \\
+		$3$ & $0$ & & $0$ & \\
+		$4$ & $\Z/2\oplus \Z/2$ & $\RP^4$, $\RP^2\times \RP^2$ & $\Z$ & $\CP^2$ \\
+		$5$ & $\Z/2$ & $\SU_3/\SO_3$ & $\Z/2$ & $\SU_3/\SO_3$\\
+		$6$ & $(\Z/2)^{\oplus 3}$ & $\RP^6$, $\RP^2\times \RP^4$, $(\RP^2)^{\times 3}$, & $0$ & \\ 
+		$7$ & $\Z/2$ & $(\SU_3/\SO_3) \times \RP^2$ & $0$ & \\ 
+		$8$ & $(\Z/2)^{\oplus 4}$ & $\RP^8, \RP^6\times \RP^2, \cdots$ & $\Z\oplus \Z$ & $\CP^4, \CP^2\times \CP^2$\\
+	\end{tabular}
+	\medskip
+	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
+\end{figure}
+
+\subsection{The Thom-Pontryagin Construction}
+
+\begin{theorem}[Pontryagin-Thom Isomorphism]
+  Given a closed manifold $M$ of dimension $n>k$, there is a bijective correspondence
+  \[
+    \Omega^\fr_k(M) \lkxto[] [M, S^{n-k}].
+  \]
+\end{theorem}
+
+\begin{corollary}
+  Since every closed framed manifold can be framed embedded in a sphere of sufficiently large dimension, there is an isomorphism
+  \[
+    \Omega^\fr_k \lkxto \pi_k S
+  \]
+  where $\pi_k S = \lim_{n\to\infty} \pi_n S^{n-k}$ is the $k$-stable homotopy group of the spheres.
+\end{corollary}
+
+\begin{theorem}
+  There exists a space $\MSO$ such that there is a 
+\end{theorem}
+
 \section{Morse Theory}\label{sec:morse-theory}
+
+\begin{theorem}[Morse Inequality]
+	Let $M^n$ be a closed manifold with $f : M\to \R$ a Morse function. Let $\beta_i=\rank \H_i(M)$ be the $i$-th Betti number of $M$ and let $c_i$ be the number of critical points of $f$ of index $i$. Then, for every $\ell\in \Z^{\geq 0}$ we have
+	\[
+		\beta_\ell - \beta_{\ell-1} + \beta_{\ell-2} - \cdots +(-1)^\ell \beta_0 \leq c_\ell - c_{\ell-1} + c_{\ell-2} - \cdots + (-1)^\ell c_0.
+	\]
+\end{theorem}

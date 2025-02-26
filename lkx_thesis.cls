@@ -9,8 +9,6 @@
 \usepackage{xstring}
 \usepackage{xparse}
 
-\usepackage{amsmath}
-
 % Diagrams
 \usepackage{graphicx}
 \usepackage{import}
@@ -18,6 +16,15 @@
 % Better font
 \usepackage[T1]{fontenc}
 \usepackage{mlmodern}
+\usepackage{microtype}
+
+% Needs to be loaded early
+\usepackage{amsmath}
+
+% Consistent bold math
+\usepackage{bm} 
+\let\oldbfseries\bfseries
+\renewcommand{\bfseries}{\oldbfseries\everymath{\bm}}
 
 % Page Style
 \usepackage[twoside]{fancyhdr}
@@ -56,7 +63,7 @@
 			{\huge \@author}\\[2.8in]
 
 			{
-			\Large
+			\large
 			{\scshape advised by\\[11pt]}
 			{\@advisor}\\[1em]
 			\noindent\rule{1in}{0.6pt}\\[11pt]
@@ -77,7 +84,7 @@
 \def\@makechapterhead#1{
 	{\parindent \z@ \center \normalfont
 			\ifnum \c@secnumdepth >\m@ne
-				\bfseries \HUGE --\!-- \thechapter \hskip 8\p@--\!--\
+				\bfseries\boldmath \HUGE --\!-- \thechapter \hskip 8\p@--\!--\
 			\fi
 			\interlinepenalty\@M
 			\vskip 5\p@ \LARGE #1\par\nobreak
@@ -86,7 +93,7 @@
 \def\@makeschapterhead#1{
 	{\parindent \z@ \centering \normalfont
 			\interlinepenalty\@M
-			\vskip 5\p@ \bfseries \LARGE #1\par\nobreak
+			\vskip 5\p@ \bfseries\LARGE #1\par\nobreak
 			\addcontentsline{toc}{chapter}{#1} % Add unnumbered chapters to TOC
 			\markboth{#1}{#1} % Add unnumbered chapter names to header
 			\vskip 40\p@}}
@@ -95,9 +102,9 @@
 % Section / Subsection Sizes
 \usepackage{titlesec}
 \titleformat{\section}{
-\normalfont\large\bfseries}{\thesection}{1em}{}
+	\normalfont\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{
-	\normalfont\bfseries}{\thesubsection}{1em}{}
+\normalfont\bfseries}{\thesubsection}{1em}{}
 
 % Index
 \usepackage{imakeidx}
