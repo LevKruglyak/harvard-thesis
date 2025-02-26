@@ -9,6 +9,8 @@
 \usepackage{xstring}
 \usepackage{xparse}
 
+\usepackage{amsmath}
+
 % Diagrams
 \usepackage{graphicx}
 \usepackage{import}
@@ -132,3 +134,7 @@
 \renewcommand{\chapterautorefname}{Chapter}
 \renewcommand{\sectionautorefname}{Section}
 \renewcommand{\subsectionautorefname}{Section}
+
+% Appendices
+\usepackage[toc]{appendix}
+\AtBeginEnvironment{appendices}{\crefalias{chapter}{appendix}}
