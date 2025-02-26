@@ -1,5 +1,5 @@
 \ProvidesClass{lkx_thesis}[Senior Thesis Class]
-\LoadClass[11pt, letterpaper]{report}
+\LoadClass[12pt, letterpaper]{report}
 \usepackage[portrait, margin=1in, includefoot]{geometry}
 
 % General utility packages
@@ -50,20 +50,20 @@
 	\begin{titlepage}
 		\begin{center}
 			\vfill
-			{\HUGE\scshape \@title}\\[4em]
+			{\HUGE\scshape \@title}\\[44pt]
 
-			{\Large \scshape by}\\[2em]
-			{\huge \@author}\\[3in]
+			{\Large \scshape by}\\[22pt]
+			{\huge \@author}\\[2.8in]
 
 			{
 			\Large
-			{\scshape advised by\\[1em]}
+			{\scshape advised by\\[11pt]}
 			{\@advisor}\\[1em]
-			\noindent\rule{1in}{0.6pt}\\[1em]
-			A thesis presented to \\[1em]
-			\textsc{\@university}\\[1em]
+			\noindent\rule{1in}{0.6pt}\\[11pt]
+			A thesis presented to \\[11pt]
+			\textsc{\@university}\\[11pt]
 			in partial fulfillment of the \\
-			requirements for the degree of\\[1em]
+			requirements for the degree of\\[11pt]
 
 			\textsc{\@degree}\\
 			in the subject of \textsc{\@subject}
@@ -80,26 +80,36 @@
 				\bfseries \HUGE --\!-- \thechapter \hskip 8\p@--\!--\
 			\fi
 			\interlinepenalty\@M
-			\vskip 5\p@ \huge #1\par\nobreak
+			\vskip 5\p@ \LARGE #1\par\nobreak
 			\vskip 40\p@}}
 
 \def\@makeschapterhead#1{
 	{\parindent \z@ \centering \normalfont
 			\interlinepenalty\@M
-			\vskip 5\p@ \bfseries \huge #1\par\nobreak
+			\vskip 5\p@ \bfseries \LARGE #1\par\nobreak
 			\addcontentsline{toc}{chapter}{#1} % Add unnumbered chapters to TOC
 			\markboth{#1}{#1} % Add unnumbered chapter names to header
 			\vskip 40\p@}}
 \makeatother
 
+% Section / Subsection Sizes
+\usepackage{titlesec}
+\titleformat{\section}{
+\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{
+	\normalfont\bfseries}{\thesubsection}{1em}{}
+
 % Index
 \usepackage{imakeidx}
-\makeindex[intoc]
+\makeindex
 \newcommand{\lkxindex}[1]{
 	\renewcommand{\indexname}{#1}
 	\printindex}
 
 % Table of Contents
+\usepackage[titles]{tocloft}
+\setlength{\cftbeforechapskip}{4pt}
+
 \newcommand{\lkxtoc}[1]{
 	\renewcommand{\contentsname}{#1}
 	\setcounter{tocdepth}{1}

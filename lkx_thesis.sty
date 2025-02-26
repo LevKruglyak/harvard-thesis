@@ -15,10 +15,18 @@
 % Debug
 \newcommand{\todo}[1]{{\color{red}{#1}}}
 
+% Epigraph
+\NewDocumentEnvironment{epigraph}{m m}
+{\begin{flushleft}\slshape}{
+		\normalfont\par\rule[0pt]{#1}{0.5pt}\\
+		-- \textsc{#2}
+		\vspace{2em}
+	\end{flushleft}}
+
 % Math environments
 \NewDocumentCommand{\defn}{m o}{{%
-  \color{blue}{\textnormal{\emph{#1}}}}%
-  \IfValueTF{#2}{\index{#2}}{\index{#1}}}
+			\color{blue}{\textnormal{\emph{#1}}}}%
+	\IfValueTF{#2}{\index{#2}}{\index{#1}}}
 
 \newtheoremstyle{lkx_theorem}
 {}{}{\slshape}{}{}{.}{ }
@@ -90,6 +98,8 @@
 % Math commands
 \renewcommand{\binom}[2]{
 	\Bigl(\,\begin{array}{@{}c@{}}#1\\#2\end{array}\,\Bigr)}
+\renewcommand{\cong}{\approx}
+
 \providecommand{\+}{\,\#\,} % Connected sum
 
 \providecommand{\Z}{\mathbb{Z}}
@@ -121,9 +131,14 @@
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Diff}{Diff}
 
 % Categories
 \providecommand{\cat}[1]{\mathsf{#1}}
+
+\newcommand{\DIFF}{\cat{DIFF}}
+\newcommand{\PL}{\cat{PL}}
+\newcommand{\TOP}{\cat{TOP}}
 
 % Cobordism
 \makeatletter
@@ -153,3 +168,52 @@
 \newcommand{\sohbord}{\hbord^{\mkern-2mu\mathrm{so}}}
 \newcommand{\spinbord}{\bord^{\mkern-2mu\mathrm{spin}}}
 \newcommand{\frbord}{\bord^{\mkern-2mu\mathrm{fr}}}
+
+% Arrows 
+\ExplSyntaxOn
+\NewDocumentCommand{\lkxiff}{ O{} }{
+	\mathrel{\;\xleftrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxto}{ O{} }{
+	\mathrel{\;\xrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxmapsto}{ O{} }{
+	\mathrel{\;\xmapsto{\hphantom{xx}#1\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxisom}{ O{} }{
+	\mathrel{\;\xrightarrow{\hphantom{xx}#1\sim\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxsurj}{ O{} }{
+	\mathrel{\;\xrightarrow{\hphantom{xx}#1\hphantom{xx}}\!\!\!\!\!\xrightarrow\;}
+}
+
+\NewDocumentCommand{\lkxfunc}{ O{->} m m m g g }{
+	\begin{array}{rcl}
+		\IfNoValueTF {#5} {
+			\tl_if_blank:nTF {#2}{}{#2 :}
+			#3
+			\str_case:nn {#1}
+			{
+				{->} {\lkxto}
+					{~>} {\lkxisom}
+					{->>} {\lkxsurj}
+			}
+			#4
+		} {
+			\tl_if_blank:nTF {#2}{}{#2 \;:\;}
+			{#3}
+		   &
+			\str_case:nn {#1}
+			{
+				{->} {\lkxto}
+					{~>} {\lkxisom}
+					{->>} {\lkxsurj}
+			}
+		   & {#4}
+		\\
+{#5} & \lkxmapsto & {#6}
+		}
+	\end{array}
+}
+
+\ExplSyntaxOff
