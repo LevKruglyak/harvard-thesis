@@ -6,16 +6,72 @@
 
 To begin our journey, we will provide some mathematical essentials which will be used ubiquitously throughout the thesis. These prerequisites can loosely be broken up into three sections. First, in \cref{sec:differential-topology} we will discuss operations on smooth manifolds in geometric topology -- how to glue manifolds together, cut off handles, attach handles, and so on. We also are concerned with how such operations affect the homology of the manifold. By carefully choosing submanifolds representing homology classes, we will see how to alter the homology of a manifold in a controlled way by means of these operations. These operations form the basic ideas of surgery theory, a topic we will explore in greater depth in \cref{chap:h-cobordism} and \cref{chap:classification}.
 
-Altering topology by surgery naturally ties into our next topic of cobordism in \cref{sec:cobordism}, a natural notion of equivalence for manifolds. While operations such as cutting off or attaching handles change the diffeomorphism type of a manifold, they do not change its cobordism type. This loose notion of equivalence allows us to fully classify manifolds up to cobordism -- something which is generally impossible for homeomorphism or difeomorphism.\footnote{In high dimensions, classifying manifolds is an \defn{undecidable problem}, meaning there is no finite algorithm that will correctly match a manifold to a list of representatives.}
-The determination of manifolds up to cobordism is also the entrypoint of homotopy theory via the Thom-Pontryagin construction, a massively successful crossover which reduces hard geometric problems to (also admittedly hard) problems of computing homotopy groups. With each flavor of cobordism, a new homotopy problem emerges. Ultimately, it will turn out that most of the computational difficulty in computing the set of smooth structures on a sphere is as a result of these homotopy problems.
+Altering topology by surgery naturally ties into our next topic of cobordism in \cref{sec:cobordism}, a natural notion of equivalence for manifolds. While cutting off or attaching handles changes the diffeomorphism type of a manifold, such operations do not change its cobordism type. This loose notion of equivalence allows us to fully classify manifolds up to cobordism -- something which is generally impossible for homeomorphism or difeomorphism.\footnote{In high dimensions, classifying manifolds is an \defn{undecidable problem}, meaning there is no finite algorithm that will correctly match a manifold to a list of representatives.}
+The determination of manifolds up to cobordism is also one of the entrypoints of homotopy theory into differential topology via the Thom-Pontryagin construction, a massively successful crossover which reduces hard geometric problems to (also admittedly hard) problems of computing homotopy groups. With each flavor of cobordism, a new homotopy problem emerges. Ultimately, it will turn out that most of the computational difficulty in computing the set of smooth structures on a sphere is as a result of these problems in homotopy theory.
 
-The last tool in our arsenal is that of Morse theory, introduced in \cref{sec:morse-theory}. Morse theory is a technique connecting the structure of manifolds to a certain class of well-behaved smooth functions from the manifold to the real numbers. By investigating the discrete set of critical points of these functions, questions of attaching and removing high-dimensional handles is simplified to questions of points on the one-dimensional real line. For this thesis, the main application of Morse theory will be in the proof of the $h$-cobordism theorem of \cref{chap:h-cobordism}, however we make occasional use of Morse theory in historical remarks and for explicit constructions of exotic spheres scattered throughout.
+The last tool in our arsenal is that of Morse theory, introduced in \cref{sec:morse-theory}. Morse theory is a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. By investigating the discrete set of critical points of such a function, questions of attaching and removing high-dimensional handles is simplified to questions of points on the one-dimensional real line. For this thesis, the main application of Morse theory will be in the proof of the $h$-cobordism theorem of \cref{chap:h-cobordism}, however we make occasional use of Morse theory in historical remarks and for explicit constructions of exotic spheres scattered throughout.
 
 \section{Geometric Topology}\label{sec:differential-topology}
 
-A central difference between smooth and topological manifolds is the subtleties involved in glueing two manifolds together. For topological manifolds
+Whenever a manifold $N^k$ is embedded a larger ambient manifold $M^n$, there is a short exact sequence of tangent bundles
+\[
+		0 \lkxto \T N\lkxto \T M|_N \lkxto \T M/N \lkxto 0
+\]
+where $\T M/N=\T M|_N / \T N$ denotes the \defn{normal bundle} of $N$ in $M$. A \defn{tubular neighborhood} of $N$ is a neighborhood $V\supset N$ in $M$ which is the diffeomorphic image of the set
+\[
+	D(\T M/N) = \{\xi \in \T M/N \mid \|\xi\| <1 \}\subset \T M/N,
+\]
+for some given inner product structure on $\T M/N$. Note that $D(\T M/N)$ is the total space of the $(n-k)$-dimensional disk bundle over $N$ arising from the inner product. The restriction of the diffeomorphism to the image of the zero section in $D(\T M/N)$ should be the identity map to $N$. 
+
+A tubular neighborhood is then a way of ``thickening'' the submanifold $N$.
+The diffeomorphism mapping $D(\T M/N) \to V$ can interpreted as a chart of a tube surrounding $N$ in $M$. Namely, the for each point $p\in N$, local trivializations of the bundle $D(\T M/N)$ are maps $\R^k \times D^{n-k}\to U\subset V$
+
+
+\begin{theorem}[Tubular Neighborhood Theorem]
+	Every properly embedded submanifold has a tubular neighborhood.
+\end{theorem}
+
+\begin{theorem}[Collar Neighborhood Theorem]
+\end{theorem}
+
+\todo{check boundary}
+
+\subsection{Joining Two Manifolds Along a Submanifolds}
+
+In the case that we have two manifolds $M_1^n$ and $M_2^n$ with interior embeddings $\iota_1 : N \to M_1$ and $\iota_2 : N\to M_2$ of some closed manifold $N^k$, we can join $M_1$ and $M_2$ along $N$ to get a single manifold which we might denote $M_1\cup_N M_2$.
+To construct this manifold, let's start by picking tubular neighborhoods $V_1$ and $V_2$ for $\iota_1(N)\subset M_1$ and $\iota_2(N)\subset M_2$ respectively. We then set the joined manifold to be the quotient
+\begin{equation}\label{eq:join-definition}
+	M_1\cup_N M_2 = \frac{(M_1\setminus \iota_1(N))\sqcup (M_2\setminus \iota_2(N))}{(t\xi_1, \iota_1(p)) \sim ((1-t)\xi_2, \iota_2(p))}
+\end{equation}
+for all $p\in N$, $t\in(0,1)$, and unit normal vectors $\xi_1\in \T_p M/\iota_1(N)$, $\xi_2\in \T_p M/\iota_2(N)$ with $\|\xi_1\|=\|\xi_2\|=1$. The resulting smooth manifold is called a \defn{join along a submanifold}\footnote{Some authors refer to this operation as ``\defn{pasting}'' or as the ``\defn{generalized connected sum}'', see for instance Section VI.4 in \cite{kosinski1993differential}.} and is one of the fundamental operations of geometric topology.
+
+\begin{remark}
+	The tubular neighborhood ``sewing'' procedure in \cref{eq:join-definition} is extremely important in the category of smooth manifolds. If we were in the category of topological manifolds (assuming there were a notion of tubular neighorhood), we could define the join in a simpler way by removing the tubular neighborhoods from both manifolds and identifying the boundaries of the resulting manifolds by some homeomorphism. At each point of the shared boundary, the join would be locally Euclidean since it has a neighborhood which the glueing of two half-disks to get a full disk.
+
+	However, the lack of a globally consistent ``collar'' by which these manifolds were glued leads to many possible smooth structures on the resulting manifold -- even if we require the boundary glueing map to be an orientation-preserving diffeomorphism. We will actually exploit this lack of unique smooth structure in \cref{sec:twisted-spheres} by constructing exotic spheres as the identification of two disks by an orientation-preserving diffeomorphism of their boundaries.
+\end{remark}
 
 \subsection{Connected Sum}
+
+The simplest way to join two manifolds $M_1$ and $M_2$ along a submanifold is by embedding a point in both. The resulting join is an operation known as a \defn{connected sum} of $M_1$ and $M_2$. If the manifolds are connected,
+
+and denoted by $M_1\# M_2$.
+
+\begin{theorem}[Disk Theorem]
+\end{theorem}
+\begin{proof}
+	See Theorem B in \cite{palais1960diffeomorphism}.
+\end{proof}
+
+
+\subsection{Spherical Modifications}
+
+\begin{figure}[ht]
+	\import{diagrams}{surgery-on-two-holed-torus.pdf_tex}
+	\caption{Removing a }
+\end{figure}
+
+\subsection{Joining Manifolds Along Submanifolds of the Boundary}
 
 \subsection{Representing Homology Classes by Embedded Submanifolds}
 

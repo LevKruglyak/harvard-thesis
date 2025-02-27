@@ -18,8 +18,9 @@
 \usepackage{mlmodern}
 \usepackage{microtype}
 
-% Needs to be loaded early
-\usepackage{amsmath}
+% Math packages
+\usepackage{amsmath} % Needs to be loaded before hyperref
+\usepackage{amssymb}
 
 % Consistent bold math
 \usepackage{bm} 
@@ -155,3 +156,73 @@
 % Appendices
 \usepackage[toc]{appendix}
 \AtBeginEnvironment{appendices}{\crefalias{chapter}{appendix}}
+
+% Math Environments
+\usepackage{amsthm}
+
+\newtheoremstyle{lkx_theorem}
+{}{}{\slshape}{}{}{.}{ }
+{{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3}\index{#3 (Theorem)})}}
+
+\theoremstyle{lkx_theorem}
+\newtheorem{theorem}[equation]{Theorem}
+\renewcommand{\theoremautorefname}{Theorem}
+\crefformat{theorem}{\normalfont{#2Theorem~#1#3}}
+
+\newtheorem{lemma}[equation]{Lemma}
+\newcommand{\lemmaautorefname}{Lemma}
+\crefformat{lemma}{\normalfont{#2Lemma~#1#3}}
+
+\newtheorem{conjecture}[equation]{Conjecture}
+\newcommand{\conjectureautorefname}{Conjecture}
+\crefformat{conjecture}{\normalfont{#2Conjecture~#1#3}}
+
+\newtheorem{open}[equation]{Open Problem}
+\newcommand{\openautorefname}{Open Problem}
+\crefformat{open}{\normalfont{#2Open Problem~#1#3}}
+
+\newtheorem{corollary}[equation]{Corollary}
+\newcommand{\corollaryautorefname}{Corollary}
+\crefformat{corollary}{\normalfont{#2Corollary~#1#3}}
+
+\newtheorem{proposition}[equation]{Proposition}
+\newcommand{\propositionautorefname}{Proposition}
+\crefformat{proposition}{\normalfont{#2Proposition~#1#3}}
+
+\newtheoremstyle{lkx_definition}
+{}{}{\slshape}{}{}{.}{ }
+{{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3})}}
+
+\theoremstyle{lkx_definition}
+\newtheorem{definition}[equation]{Definition}
+\newcommand{\definitionautorefname}{Definition}
+\crefformat{definition}{\normalfont{#2Definition~#1#3}}
+
+\newtheorem*{convention*}{Convention}
+\newtheorem*{definition*}{Definition}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{note*}{Note}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{conjecture*}{Conjecture}
+
+\newtheoremstyle{lkx_remark}
+{}{}{}{}{}{.}{ }
+{{\bfseries\thmname{#1}\thmnumber{ #2}}\thmnote{ (#3\index{#3})}}
+
+\theoremstyle{lkx_remark}
+\newtheorem{remark}[equation]{Remark}
+\newcommand{\remarkautorename}{Remark}
+\crefformat{remark}{\normalfont{#2Remark~#1#3}}
+
+\newtheorem*{example*}{Example}
+\newtheorem{example}[equation]{Example}
+\crefformat{example}{\normalfont{#2Example~#1#3}}
+
+\crefname{equation}{}{}
+\crefformat{equation}{\normalfont{#2(#1)#3}}
+
+\renewcommand{\qed}{\hfill$\blacksquare$}
