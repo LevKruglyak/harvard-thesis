@@ -12,12 +12,29 @@
 \makeatother
 
 % Global settings for math environments
-\renewcommand{\arraystretch}{1.25}
+\AtBeginEnvironment{tabular}{\renewcommand{\arraystretch}{1.25}} 
 
 % TikZ
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations.pathmorphing}
+
+\tikzset{curve/.style={settings={#1},to path={(\tikztostart)
+    .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
+    .. (\tikztotarget)\tikztonodes}},
+    settings/.code={\tikzset{quiver/.cd,#1}
+        \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
+    quiver/.cd,pos/.initial=0.35,height/.initial=0}
+
+\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
+\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
+\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
+\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
+\tikzcdset{every arrow/.append style={}}
+% TODO: fix this to look consistent with the rest of the thesis
 
 % Debug
 \newcommand{\todo}[1]{{\color{red}{#1}}}
@@ -43,11 +60,14 @@
 
 \newcommand{\+}{\,\#\,} % Connected sum
 
+\undef\P
+
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\P}{\mathbb{P}}
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\OO}{\mathbb{O}}
 \newcommand{\CP}{\mathbb{CP}}
@@ -61,6 +81,7 @@
 \undef\gcd
 \undef\ker
 \undef\O
+\undef\Vert
 
 \DeclareMathOperator{\X}{\mathfrak{X}} % vector field
 \DeclareMathOperator{\H}{H} % (co)homology
@@ -80,10 +101,13 @@
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Vert}{Vert}
+\DeclareMathOperator{\Edge}{Edge}
 
 \newcommand{\GL}{\mathrm{SO}}
 \newcommand{\Sp}{\mathrm{Sp}}
 \newcommand{\U}{\mathrm{U}}
+\newcommand{\E}{\mathrm{E}}
 \newcommand{\O}{\mathrm{O}}
 \newcommand{\SU}{\mathrm{SU}}
 \newcommand{\SO}{\mathrm{SO}}
@@ -95,9 +119,12 @@
 
 % Special Symbols
 \newcommand{\Ahat}{\widehat{A}}
+\newcommand{\tnsv}{\cdot}
 
 % Exotic Sphere Symbols
 \newcommand{\bP}{bP}
+\newcommand{\milinv}{\lambda_{\mathrm{milnor}}}
+\newcommand{\ekinv}{\lambda_{\mathrm{e,k}}}
 
 % Categories
 \newcommand{\cat}[1]{\mathsf{#1}}

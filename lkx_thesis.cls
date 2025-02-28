@@ -23,7 +23,7 @@
 \usepackage{amssymb}
 
 % Consistent bold math
-\usepackage{bm} 
+\usepackage{bm}
 \let\oldbfseries\bfseries
 \renewcommand{\bfseries}{\oldbfseries\boldmath
 }
@@ -107,7 +107,8 @@
 \titleformat{\section}{
 	\normalfont\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{
-\normalfont\bfseries}{\thesubsection}{1em}{}
+	\normalfont\bfseries}{\thesubsection}{1em}{}
+% \newcommand{\sectionbreak}{\clearpage} % TODO: section pagebreaks
 
 % Index
 \usepackage{imakeidx}
@@ -227,4 +228,39 @@
 \crefname{equation}{}{}
 \crefformat{equation}{\normalfont{#2(#1)#3}}
 
+% Proofs
+\newcounter{stackproof}
+\AtBeginDocument{\setcounter{stackproof}{0}}
+
+% Indent theorem environments inside of proofs
+\newenvironment{subproof}{%
+	\ifnumcomp{\value{stackproof}}{>}{0}{%
+		\begin{list}{}{
+				\setlength{\itemsep}{0em}
+				\setlength{\topsep}{0em}
+				\setlength{\leftmargin}{1em}
+				\setlength{\rightmargin}{0em}
+				\setlength{\listparindent}{\parindent}
+				\setlength{\itemindent}{\parindent}
+				\setlength{\parsep}{\parskip}
+			}
+			\item\leavevmode\vspace{-1.5em}}{}}{%
+			      \ifnumcomp{\value{stackproof}}{>}{0}{%
+		\end{list}%
+	}{}}
+
+\newcommand{\lkxregisteramsthm}[1]{%
+	\BeforeBeginEnvironment{#1}{\begin{subproof}}
+			\AfterEndEnvironment{#1}{\end{subproof}}}
+
+\lkxregisteramsthm{lemma}
+\lkxregisteramsthm{proposition}
+\lkxregisteramsthm{theorem}
+
+\BeforeBeginEnvironment{proof}{%
+	\begin{subproof}%
+		\defcounter{stackproof}{\value{stackproof} + 1}}
+		\AfterEndEnvironment{proof}{%
+		\defcounter{stackproof}{\value{stackproof} - 1}
+	\end{subproof}}
 \renewcommand{\qed}{\hfill$\blacksquare$}

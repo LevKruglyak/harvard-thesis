@@ -1,27 +1,27 @@
 \chapter{Fundamentals}\label{chap:fundamentals}
 
 \begin{epigraph}{16em}{Frank Herbert}
-  Beginnings are such delicate times.
+	Beginnings are such delicate times.
 \end{epigraph}
 
-To begin our journey, we will provide some mathematical essentials which will be used ubiquitously throughout the thesis. These prerequisites can loosely be broken up into three sections. First, in \cref{sec:differential-topology} we will discuss operations on smooth manifolds in geometric topology -- how to glue manifolds together, cut off handles, attach handles, and so on. We also are concerned with how such operations affect the homology of the manifold. By carefully choosing submanifolds representing homology classes, we will see how to alter the homology of a manifold in a controlled way by means of these operations. These operations form the basic ideas of surgery theory, a topic we will explore in greater depth in \cref{chap:h-cobordism} and \cref{chap:classification}.
+To begin our journey, we will provide some mathematical essentials which will be used ubiquitously throughout the thesis. These prerequisites can loosely be broken up into three sections. First, in \cref{sec:geometric-topology} we will discuss operations on smooth manifolds in geometric topology -- how to glue manifolds together, cut off handles, attach handles, and so on. We also are concerned with how such operations affect the homology of the manifold. By carefully choosing submanifolds representing homology classes, we will see how to alter the homology of a manifold in a controlled way by means of these operations. These operations form the basic ideas of surgery theory, a topic we will explore in greater depth in \cref{chap:h-cobordism} and \cref{chap:classification}. \todo{mention intersection form}
 
 Altering topology by surgery naturally ties into our next topic of cobordism in \cref{sec:cobordism}, a natural notion of equivalence for manifolds. While cutting off or attaching handles changes the diffeomorphism type of a manifold, such operations do not change its cobordism type. This loose notion of equivalence allows us to fully classify manifolds up to cobordism -- something which is generally impossible for homeomorphism or difeomorphism.\footnote{In high dimensions, classifying manifolds is an \defn{undecidable problem}, meaning there is no finite algorithm that will correctly match a manifold to a list of representatives.}
 The determination of manifolds up to cobordism is also one of the entrypoints of homotopy theory into differential topology via the Thom-Pontryagin construction, a massively successful crossover which reduces hard geometric problems to (also admittedly hard) problems of computing homotopy groups. With each flavor of cobordism, a new homotopy problem emerges. Ultimately, it will turn out that most of the computational difficulty in computing the set of smooth structures on a sphere is as a result of these problems in homotopy theory.
 
-The last tool in our arsenal is that of Morse theory, introduced in \cref{sec:morse-theory}. Morse theory is a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. By investigating the discrete set of critical points of such a function, questions of attaching and removing high-dimensional handles is simplified to questions of points on the one-dimensional real line. For this thesis, the main application of Morse theory will be in the proof of the $h$-cobordism theorem of \cref{chap:h-cobordism}, however we make occasional use of Morse theory in historical remarks and for explicit constructions of exotic spheres scattered throughout.
+\todo{what other sections we need}
 
-\section{Geometric Topology}\label{sec:differential-topology}
+\section{Basics of Geometric Topology}\label{sec:differential-topology}
 
 Whenever a manifold $N^k$ is embedded a larger ambient manifold $M^n$, there is a short exact sequence of tangent bundles
-\[
-		0 \lkxto \T N\lkxto \T M|_N \lkxto \T M/N \lkxto 0
-\]
+\begin{equation}
+	0 \lkxto \T N\lkxto \T M|_N \lkxto \T M/N \lkxto 0
+\end{equation}
 where $\T M/N=\T M|_N / \T N$ denotes the \defn{normal bundle} of $N$ in $M$. A \defn{tubular neighborhood} of $N$ is a neighborhood $V\supset N$ in $M$ which is the diffeomorphic image of the set
-\[
+\begin{equation}
 	D(\T M/N) = \{\xi \in \T M/N \mid \|\xi\| <1 \}\subset \T M/N,
-\]
-for some given inner product structure on $\T M/N$. Note that $D(\T M/N)$ is the total space of the $(n-k)$-dimensional disk bundle over $N$ arising from the inner product. The restriction of the diffeomorphism to the image of the zero section in $D(\T M/N)$ should be the identity map to $N$. 
+\end{equation}
+for some given inner product structure on $\T M/N$. Note that $D(\T M/N)$ is the total space of the $(n-k)$-dimensional disk bundle over $N$ arising from the inner product. The restriction of the diffeomorphism to the image of the zero section in $D(\T M/N)$ should be the identity map to $N$.
 
 A tubular neighborhood is then a way of ``thickening'' the submanifold $N$.
 The diffeomorphism mapping $D(\T M/N) \to V$ can interpreted as a chart of a tube surrounding $N$ in $M$. Namely, the for each point $p\in N$, local trivializations of the bundle $D(\T M/N)$ are maps $\R^k \times D^{n-k}\to U\subset V$
@@ -32,6 +32,7 @@ The diffeomorphism mapping $D(\T M/N) \to V$ can interpreted as a chart of a tub
 \end{theorem}
 
 \begin{theorem}[Collar Neighborhood Theorem]
+	Hello world
 \end{theorem}
 
 \todo{check boundary}
@@ -58,10 +59,15 @@ The simplest way to join two manifolds $M_1$ and $M_2$ along a submanifold is by
 and denoted by $M_1\# M_2$.
 
 \begin{theorem}[Disk Theorem]
+	test
 \end{theorem}
 \begin{proof}
 	See Theorem B in \cite{palais1960diffeomorphism}.
 \end{proof}
+
+\begin{proposition}\label{prop:connected-sum-operation}
+	The connected sum
+\end{proposition}
 
 \subsection{Spherical Modifications}
 
@@ -72,15 +78,15 @@ and denoted by $M_1\# M_2$.
 
 \subsection{Joining Manifolds Along Submanifolds of the Boundary}
 
-\subsection{Representing Homology Classes by Embedded Submanifolds}
+\subsection{Representing Homology Classes by Embedded Submanifolds}\label{sec:representing-homology-classes}
 
 Let $f : N\subset X$ be a smooth map from a compact oriented $p$-dimensional manifold $N$ to $X$. The data of an orientation on a closed manifold gives a fundamental class $[N]\in \H_p(N)$ which can be pushed forward along the map $f : N \hookrightarrow X$ to give a homology class $f_* [N]\in \H_p(X)$. This is the homology class associated to a smooth map $N\to X$.
 This correspondence behaves nicely with respect to perturbations, \todo{finish}
 
 Suppose $H : N\times [0,1] \to X$ is a homotopy with $H(x,0)=f(x)$ which perturbs the map $f$. For any $\epsilon>0$, the map $f_\epsilon : N \to X$ given by $f_\epsilon(x)=H(x,\epsilon)$ is homotopic to $f$ and hence induces the same map on homology $\H_p(N)\to \H_p(X)$. The homology class associated to a map $f : N \to X$ thus solely depends on the homotopy type of $f$ so there is a map
-\[
+\begin{equation}
 	\lkxfunc{}{[N,X]}{\H_p(X).}
-\]
+\end{equation}
 Letting $N=S^p$, we can see that this is a generalization of the Hurewicz homomorphism which links homotopy groups to homology groups via a map $\pi_p(X) \to \H_p(X)$.
 As with the Hurewicz homomorphism, this correspondence is generally not surjective or injective. If a space is $k$-connected for $k\geq 1$ the Hurewicz homomorphism is an isomorphism $\pi_{k+1}(X) \to \H_{k+1}(X)$. Consequently, every homology cycle in $\H_{k+1}(X)$ can at least be represented by a smooth map of a sphere $S^{k+1}$ into $X$. This smooth map might have ``double-points'', i.e. when multiple points of the sphere map to the same point in the image and prevent the smooth map from being an embedding.
 
@@ -98,38 +104,261 @@ That being said, many of the manifolds considered \todo{basis by embedded subman
 many specially constructed manifolds we will consider in this chapter will at least have a basis by embedded submanifolds, and every homology class will admit a representation by a smooth map. For a classical account of some issues which can arise when representing homology classes by smooth maps, see Chapter II of Ren\'e Thom's seminal paper \cite{thom1954}.
 
 \begin{remark}
-	In some cases, homology classes can \emph{always} be represented by embedded submanifolds. For instance, if $X$ is a $4$-manifold, there are isomorphisms
-	\[
-		\H^2(X; \Z) \cong [X, K(\Z,2)] \cong [X, \CP^\infty] \cong [X,\CP^2],
-	\]
-	where the first is the representability of singular cohomology by the Eilenberg-Maclane spectrum, the second identifies $\CP^\infty$ as a $K(\Z,2)$ space, and the third uses the cellular approximation theorem to slide maps onto the $4$-skeleton. Any cohomology cycle $\omega\in \H^2(X)$ can be represented by a smooth function $f : X \to \CP^2$. If we choose this function to be transverse to $\CP^1\subset \CP^2$, then $f^{-1}(\CP^1)$ is an embedded $2$-dimensional submanifold of $X$ which corresponds to a Poincar\'e dual class to $\omega$. When $X$ is a compact manifold, Poincar\'e duality tells us that all $2$-dimensional homology cycles arise from $2$-dimensional cohomology cycles and can thus be represented by embedded submanifolds. This is one example of the attractiveness of $4$-manifolds as geometric objects of study.
+	In some cases, homology classes can \emph{always} be represented by embedded submanifolds. For instance, if $M$ is a $4$-manifold, there are isomorphisms
+	\begin{equation}
+		\H^2(M; \Z) \cong [M, K(\Z,2)] \cong [M, \CP^\infty] \cong [M,\CP^2],
+	\end{equation}
+	where the first is the representability of singular cohomology by the Eilenberg-Maclane spectrum, the second identifies $\CP^\infty$ as a $K(\Z,2)$ space, and the third uses the cellular approximation theorem to slide maps onto the $4$-skeleton. Any cohomology cycle $\omega\in \H^2(M)$ can be represented by a smooth function $f : M \to \CP^2$. If we choose this function to be transverse to $\CP^1\subset \CP^2$, then $f^{-1}(\CP^1)$ is an embedded $2$-dimensional submanifold of $M$ which corresponds to a Poincar\'e dual class to $\omega$. When $X$ is a compact manifold, Poincar\'e duality tells us that all $2$-dimensional homology cycles arise from $2$-dimensional cohomology cycles and can thus be represented by embedded submanifolds. This is one example of the attractiveness of $4$-manifolds as geometric objects of study.
 \end{remark}
+
+\todo{give general conditions for representability}
+
+\section{The Intersection Form}\label{sec:intersection-form}
+
+One of the fundamental invariants for even-dimensional manifolds is the intersection form, a bilinear form on a lattice which captures the geometric data of submanifold intersections. The lattice in question is the free component of the middle-dimensional singular homology, and the pairing of two homology cycles by the form counts their number of ``intersections''. When the homology cycles of complementary dimension (as in the case of middle-dimensional homology cycles) are represented by smooth immersions, we can perturb them to make them transverse without changing the homology class. If the manifolds are compact, the preimage of their intersection is some finte set of points with orientation -- adding up the orientations of the points gives the orientation number.
+
+This is the geometric interpretation of intersection, and we will explore it in more depth when we construct manifolds with given intersection theory in \cref{sec:plumbing}. For now, we will stick to understanding the algebraic properties of intersections as the adage ``think in terms of intersections, prove in terms of homology'' advises. To start, let us suppose that $M$ is a compact oriented $n$-manifold.
+The Poincar\'e-Lefschetz duality gives an isomorphism
+\begin{equation}
+	\lkxfunc{}{\H^{n-p}(X,\partial X)}{\H_p(X)}{\omega}{\omega\frown [X,\partial X]}
+\end{equation}
+assuming we have an orientation class $[X,\partial X]\in \H_n(X, \partial X)$ corresponding to the orientation of $M$. Under this duality, the intersection of homology classes is defined as the dual operation to the operation of cup product on cohomology classes. This operation is denoted $\alpha\cdot \beta$ for homology cycles $\alpha\in \H_p(M)$ and $\beta\in \H_q(M)$, and is the top map in \cref{eq:homology-intersection}
+\begin{equation}\label{eq:homology-intersection}
+	\begin{tikzcd}
+		{\H_p(M)\otimes \H_q(M)} & {\H_{n-p-q}(M)} \\
+		{\H^{n-p}(M, \partial M)\otimes \H^{n-q}(M,\partial M)} & {\H^{2n-p-q}(M,\partial M)}
+		\arrow["\tnsv", from=1-1, to=1-2]
+		\arrow[tail reversed, from=1-1, to=2-1]
+		\arrow[tail reversed, from=1-2, to=2-2]
+		\arrow["\smile", from=2-1, to=2-2]
+	\end{tikzcd}
+\end{equation}
+where the vertical maps are the Poincar\'e-Lefschetz isomorphism. Again, the intuition here should be that $\alpha\cdot \beta$ is the homology class representing the intersection of $\alpha$ and $\beta$ when they are arranged in general ``transverse'' position. Done over homology classes of complementary dimension, the resulting homology intersection class is 0-dimensional and hence pairs with an integer multiple $\ell\cdot [M, \partial M]\in \H^n(M,\partial M)$ of the top-dimensional orientation class. The integer multiple $\ell\in \Z$ is the \defn{intersection number}[intersection number of homology classes] of the cycles $\alpha$ and $\beta$. Removing torsion elements and working in middle dimensional homology so that $\alpha$ and $\beta$ live in the same group, we get an integral bilinear form.
+
+\begin{definition}
+	Let $M^{2m}$ be a compact oriented even-dimensional manifold, possibly with boundary. The \defn{intersection form} on middle dimensional homology is the bilinear form
+	\begin{equation}
+		\lkxfunc{Q_M}{\H_m(M)_{\mathrm{free}}\otimes \H_m(M)_{\mathrm{free}}}{\Z}{\alpha\otimes \beta}{\alpha\tnsv \beta}
+	\end{equation}
+	where we identify $\H_0(M)\cong \Z$ and $\H_m(M)_{\mathrm{free}}$ denotes the free component of $\H_m(M)$ -- i.e. the quotient by the subgroup of torsion elements.
+\end{definition}
+
+\begin{remark}
+	If $m$ is even then $Q_X$ is a symmetric bilinear form and if $m$ is odd then $Q_X$ is a skew-symmetric bilinear form. This follows from the graded commutativity of the cup product, and hence the intersection pairing. For brevity, we say that $Q_X$ is \defn{$m$-symmetric} in such cases.
+\end{remark}
+
+It's also often helpful to work with the dual intersection pairing on cohomology -- since it is defined explicitly in terms of the cup product, it can be immediately deduced from the multiplicative structure of the cohomology ring.
+\begin{definition}
+	The intersection form on cohomology is the bilinear form
+	\begin{equation}
+		\lkxfunc{Q^M}{\H^m(M,\partial M)_{\mathrm{free}}\otimes \H^m(M,\partial M)_{\mathrm{free}}}{\Z}{\alpha\otimes \beta}{\alpha\smile \beta}
+	\end{equation}
+	where we identify $\H^n(M,\partial M)\cong \Z$.
+\end{definition}
+
+\todo{dual lattice perspective using UCT}
+
+\begin{remark}
+For manifolds which do not come with an orientation, the intersection form can be extended in homology/cohomology with $\Z/2$ coefficients. We call this form the \defn{unoriented intersection form}, and denote it by $\widetilde{Q}_M$ or $\widetilde{Q}^M$ depending on if we are working with homology or cohomology. In the context of embedded submanifolds, this form captures the number of transverse intersection points modulo 2, otherwise known as the unoriented intersection number. 
+\end{remark}
+
+\subsection{Basic Examples of the Intersection Form}
+
+We will see many examples of manifolds and their intersection forms throughout this thesis, so for now let's just consider the most basic examples -- complex projective spaces and tori.
+
+\begin{proposition}\label{prop:intersection-form-complex-projective-plane}
+	The intersection form for any complex projective plane $\CP^{2m}$ of even complex dimension is given by $Q=(1)$, and the intersection form for complex projective plane $\CP^{2m+1}$ of odd complex dimension is trivial.
+\end{proposition}
+\begin{proof}
+ Recall that the cohomology ring of complex projective space is given by
+ \begin{equation}
+	 \H^\bullet(\CP^{n}) \approx \C[\alpha]/(\alpha^{n+1})\quad\textrm{with}\quad |\alpha|=2.
+ \end{equation}
+ A proof of this can be found in any standard algebraic topology book, for instance Theorem~3.19 in \cite{hatcher2002topology}. We can assume without loss of generality that $\alpha^n\in \H^{2n}(\CP^n)$ is the fundamental class corresponding to the canonical orientation on $\CP^n$.
+ Note that since the generating element has degree $2$, the middle-dimensional homology $\H^{2m+1}(\CP^{2m+1})$ is trivial and hence so is the intersection form of $\CP^{2m+1}$. 
+
+ When the complex dimension is even, the middle-dimension homology $\H^{2m}(\CP^{2m})$ is generated by $\alpha^m$. Since $\alpha^m\smile \alpha^m=\alpha^{2m}$ is a unit multiple of the fundamental class, we have $Q(\alpha^m, \alpha^m)=1$, completing the proof.
+\end{proof}
+
+It is illuminating to interpret this result geometrically. Let's begin with the complex vector space $\C^{2m+1}$ equipped with a basis $\{e_0, e_1,\ldots, e_{2m}\}$. Consider the linear subspaces
+\begin{equation}
+	W = \langle e_0, e_1,\ldots, e_m\rangle \quad\textrm{and}\quad U = \langle e_0, e_{m+1},\ldots, e_{2m}\rangle
+\end{equation}
+in $\C^{2m+1}$. These complex hyperplanes intersect at a complex line $\langle e_0 \rangle = W\cap U$.
+
+Now, we can pass to the projectivization $\P(\C^{2m+1})=\CP^{2m}$ and realize $W$ and $U$ as embedded submanifolds $\P(W)\approx \CP^m\subset \CP^{2m}$ and $\P(U)\approx \CP^m\subset \CP^{2m}$. Since $W$ and $U$ intersect at a line, their projectivizations $\P(W)$ and $\P(U)$ intersect at a point in $\CP^{2m}$. Furthermore, the intersection is transverse, and descending the orientation on $\C^{2m+1}$ to the embedded submanifolds gives an intersection number of $1$. Both of these embedded submanifolds represent the homology class $a^{2m}\in \H_{2m}(\CP^{2m})$ which is the Poincar\'e dual of the cohomology class $\alpha^{2m}(\CP^{2m})$. We again arrive at $Q(a^{2m}, a^{2m})=1$, although this time through homology intersections.
+
+\begin{figure}[ht]
+	\centering
+	\caption{\todo{geometric picture of this in complex projective space}}
+\end{figure}
+
+\begin{proposition}\label{prop:intersection-form-torus}
+	The intersection form for a torus $T^{2m}=S^m\times S^m$ is given by matrices
+	\begin{equation}\label{eq:hyperbolic-form-torus}
+		Q = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+		\textrm{ when }m\textrm{ is even, and } 
+		Q = \begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}
+		\textrm{ when }m\textrm{ is odd.} 
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	Let us again begin with a cohomology computation. The cohomology of a sphere is 
+	\begin{equation}
+		\H^\bullet(S^n) = \C[\alpha]/(\alpha^2)\quad\textrm{with}\quad |\alpha| = n,
+	\end{equation}
+	and by the K\"unneth formula (see Theorem~3.15 in \cite{hatcher2002topology}), we have
+	\begin{equation}
+		\begin{aligned}
+			\H^\bullet(T^{2m})=\H^\bullet(S^m\times S^m)\cong \H^\bullet(S^m)\otimes \H^\bullet(S^m) 
+			&\cong \Z[\alpha]/(\alpha^2)\otimes \Z[\beta]/(\beta^2)\\
+			&\cong \Z[\alpha,\beta]/(\alpha^2,\beta^2).
+		\end{aligned}
+	\end{equation}
+	Assuming $\alpha$ and $\beta$ are fundamental classes for the spheres, the fundamental class of the torus is $\alpha\smile \beta$. From this multiplicative structure and fundamental class, we clearly have
+	\begin{equation}
+			Q(\alpha, \alpha)=0, \quad Q(\beta,\beta)=0, \quad Q(\alpha,\beta)=1,\quad Q(\beta,\alpha)=(-1)^m Q(\alpha,\beta)=(-1)^m.
+	\end{equation}
+	These give exactly the matrices described in \cref{eq:hyperbolic-form-torus}.
+\end{proof}
+
+The geometric proof of this claim is analogous. The Poincar\'e duals of $\alpha$ and $\beta$, denoted $a$ and $b$ in $\H_{m}(T^{2m})$, are represented 
+by the embedded submanifolds $S^m\times \{p\}$ and $\{p\}\times S^m$ for some basepoint $p\in S^m$. Shifting an individual embedded sphere to a disjoint embedding by a path taking $p\mapsto p'$ disjoint shows that the self-intersection numbers of $a$ and $b$ are zero. These are the zeroes along the diagonal of the matrices in \cref{eq:hyperbolic-form-torus}. However, the embedded spheres representing $a$ and $b$ intersect transversally at the point $(p,p)\in T^{2m}$. We choose orientations on $S^m\times \{p\}$ and $\{p\}\times S^m$ so that $a\cdot b=1$, then by graded-commutativity we get $b\cdot a=(-1)^m$.
+
+\begin{figure}[ht]
+	\centering
+	\caption{\todo{geometric picture intersections on a torus}}
+\end{figure}
+
+\begin{remark}
+	The symmetric form in \cref{eq:hyperbolic-form-torus} is known as the \defn{hyperbolic form}, denoted by
+	\[
+		H=\begin{pmatrix} 0 & 1\\ 1 & 0 \end{pmatrix}.
+	\]
+	The hyperbolic form is a fundamental building block for symmetric bilinear forms over the integers and $\Z/2$.
+\end{remark}
+
+\subsection{Properties of the Intersection Form}
+
+\begin{proposition}\label{prop:connected-sum-intersection-form}
+	For compact manifolds $M_1^{2m}$ and $M_2^{2m}$, we have
+$Q_{M_1\+M_2} \cong Q_{M_1}\oplus Q_{M_2}.$
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+An immediate corollary of \cref{prop:connected-sum-operation} and \cref{prop:connected-sum-intersection-form} is
+that the intersection form is a homomorphism of commutative monoids, i.e. sets with a commutative associative binary operation and identity elements. On one side, we have the monoid $\mathcal{M}^{2m}$ of oriented compact $2m$-manifolds connected sum, and on the other side we have $\mathcal{Q}(\Z)$ of bilinear forms valued in $\Z$ under the operation of direct sum. Similarly, the unoriented intersection form maps the monoid of unoriented compact $2m$-manifolds $\widetilde{\mathcal{M}}^{2m}$ to $\mathcal{Q}(\Z)$.
+\begin{equation}\label{eq:monoid-homomorphism-intersection-form}
+	\lkxfunc{}{\mathcal{M}^{2m}}{\mathcal{Q}(\Z),}{X}{Q_X,}
+	\quad\textrm{and}\quad
+	\lkxfunc{}{\widetilde{\mathcal{M}}^{2m}}{\mathcal{Q}(\Z/2),}{X}{\widetilde{Q}_X.}
+\end{equation}
+The monoidal structure of the intersection form is quite useful throughout geometric topology, especially in classification problem. 
+
+\subsection{Classification of Manifolds by Intersection Form}
+An illustrative case in low dimensions is the classification of compact (unoriented) surfaces up to homeomorphism. Recall that every compact surface is homeomorphic to exactly one of the following surfaces
+\[
+	S^2,\quad T^2\#\cdots\# T^2,\quad\textrm{or}\quad \RP^2\#\cdots\# \RP^2,
+\]
+i.e. it is either a sphere, a torus with some number of holes, or an unorientable surface formed by gluing together M\"obius strips. For instance, a Klein bottle is the connected sum $\RP^2\#\RP^2$. 
+A standard cominatorial proof of this classification by polygonal presentations can be found in Chapter 6 of \cite{lee2011topological}.
+
+By similar arguments to \cref{prop:intersection-form-complex-projective-plane} and \cref{prop:intersection-form-torus}, the unoriented intersection forms of these generating surfaces are given by
+\[
+	\widetilde{Q}_{S^2}=(0),\quad \widetilde{Q}_{T^2}=\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix},\quad \textrm{and}\quad\widetilde{Q}_{\RP^2} = (1).
+\]
+For instance, the intersection form of $T^2\+ \RP^2$ is given by
+\[
+	\widetilde{Q}_{T^2\+ \RP^2} = H\oplus (1)=
+	\begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 0 & 1\\
+		0 & 1 & 0
+	\end{pmatrix}.
+\]
+This matrix represents a bilinear form, and so the transformation $Q\mapsto P^\intercal Q P$ does not affect the form. In this case, $Q^\intercal =Q$ and $Q^2=I$, the transformation $Q\mapsto Q^\intercal Q Q$ gives the form
+\[
+	\widetilde{Q}_{T^2\+ \RP^2}
+	\lkxto \begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1
+	\end{pmatrix} =\oplus^3(1)= \widetilde{Q}_{\RP^2\+\RP^2\+\RP^2}.
+\]
+As it turns out, the underlying surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homoemorphic. This has an easy geometric interpretation. The operation $T^2\+$ can be thought of as adding a handle, and $\RP^2\+\RP^2\+$ being connected sum with a Klein bottle can be thought of as adding a handle in a twisted manner, i.e. one spout on one side of the surface and the other spout on the other side.
+
+However, if we add a handle to a projective plane $\RP^2$ (a M\"obius band with boundary collapsed), we can move one spout around the twist of $\RP^2$ to get a twisted handle (as depicted in \cref{fig:twisted-handle-to-handle}). Thus, the surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homeomorphic, a geometric fact which was detected in part by the algebraic identity of forms $H\oplus (1)=\oplus^3(1)$ in $\mathcal{Q}(\Z/2)$.
+
+\begin{figure}
+	\centering
+	\todo{figure}
+	\medskip
+	\caption{Turning $T^2\+\RP^2$ into $\RP^2\+\RP^2\+\RP^2$.}\label{fig:twisted-handle-to-handle}
+\end{figure}
+
+\begin{proposition}
+	There is a presentation
+	\[\mathcal{Q}_{\mathrm{skew}}(\Z/2) = \langle H, (1) \mid H\oplus (1) = \oplus^3 (1)\rangle\]
+	where $\mathcal{Q}_{\mathrm{skew}}(\Z/2)$ is the monoid of skew-symmetric bilinear forms over $\Z/2$.
+\end{proposition}
+\begin{proof}
+	See Chapter III of \cite{milnorhuse1973forms} for more general results.
+\end{proof}
+
+Just like $H\oplus (1)= \oplus^3 (1)$ is the defining relation for skew-symmetric bilinear forms over $\Z/2$, so too is $T^2\+ \RP^2 = \RP^2\+\RP^2\+\RP^2$ the defining relation for closed surfaces. This leads to an elegant restatement of the classification theorem for closed surfaces.
+
+\begin{theorem}[Classification of Compact Surfaces]
+	Let $\mathcal{S}^2\subset \widetilde{\mathcal{M}}^2$ be the monoid of \textit{closed} unoriented surfaces under connected sum. The unoriented intersection form is an isomorphism of monoids
+	\[
+		\lkxfunc{\widetilde{Q}}{\mathcal{S}^2}{\mathcal{Q}_{\mathrm{skew}}(\Z/2).}
+	\]
+\end{theorem}
+
+The classification of compact surfaces by the intersection form is a perfect model result in algebraic topology -- a complete algebraic classification of a class of manifolds. Better yet, simple algebraic manipulations correspond to non-trivial topological equivalences. This is part of why intersection forms are so useful -- algebraic intuition scales far better with dimension than does geometric intuition and so bilinear forms are a much more comfortable setting in which to study higher-dimensional topology. For instance, the classification theorem of Michael Freedman in his 1982 paper \cite{freedman1982manifold} is formulated entirely in terms of the intersection form and an additional $\Z/2$-valued invariant detecting the existence of a smooth structure.
+
+\begin{theorem}[Freedman, 1982] Let $\mathcal{S}^4\subset \mathcal{M}^4$ be the monoid of simply-connected closed topological $4$-manifolds. The intersection form
+	\[
+		\lkxfunc{Q}{\mathcal{S}^4}{\mathcal{Q}_{\mathrm{sym}}(\Z)}
+	\]
+	is at most two-to-one, i.e. a symmetric intersection form corresponds to at most two topological $4$-manifolds, one which admits a smooth structure and one which does not.
+\end{theorem}
+An accessible exposition to this remarkable theorem can be found in \cite{behrens2021discembedding}. We will explore this theorem in a bit more depth in \cref{sec:smoothing-obstructions}.
+
+\subsection{Intersection Form Invariants}\label{sec:intersection-form-invarians}
+
+While the complete algebraic data of a 
+
+
+\medskip
+\todo{geometric interpretation of lattices,
+	\href{https://math.stackexchange.com/questions/2944104/obtaining-two-holed-torus-as-a-quotient-of-bbb-c}{maybe this article?}}
 
 \section{Cobordism}\label{sec:cobordism}
 
-The basic idea of cobordism is to declare two manifolds equivalent, or \defn{cobordant}, if there is a manifold one dimension higher which connects the two manifolds. In particular 
+The basic idea of cobordism is to declare two manifolds equivalent, or \defn{cobordant}, if there is a manifold one dimension higher which connects the two manifolds. In particular
 
-As an equivalence relation, this is clearly looser than the notion 
+As an equivalence relation, this is clearly looser than the notion
 
 \begin{remark}
-	Note that the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$. 
+	Note that the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$.
 \end{remark}
 
 \begin{figure}[ht]
 	\renewcommand{\arraystretch}{1.2}
 	\centering
 	\begin{tabular}{r||c|c||c|c}
-		$k$ & $\Omega_k$ & generators & $\Omega_k^\SO$ & generators \\
+		$k$ & $\Omega_k$          & generators                                          & $\Omega_k^\SO$ & generators                 \\
 		\hline
-		$0$ & $\Z/2$ & a point & $\Z$ & a point\\
-		$1$ & $0$ & & $0$ & \\
-		$2$ & $\Z/2$ & $\RP^2$ & $0$ & \\
-		$3$ & $0$ & & $0$ & \\
-		$4$ & $\Z/2\oplus \Z/2$ & $\RP^4$, $\RP^2\times \RP^2$ & $\Z$ & $\CP^2$ \\
-		$5$ & $\Z/2$ & $\SU_3/\SO_3$ & $\Z/2$ & $\SU_3/\SO_3$\\
-		$6$ & $(\Z/2)^{\oplus 3}$ & $\RP^6$, $\RP^2\times \RP^4$, $(\RP^2)^{\times 3}$, & $0$ & \\ 
-		$7$ & $\Z/2$ & $(\SU_3/\SO_3) \times \RP^2$ & $0$ & \\ 
-		$8$ & $(\Z/2)^{\oplus 4}$ & $\RP^8, \RP^6\times \RP^2, \cdots$ & $\Z\oplus \Z$ & $\CP^4, \CP^2\times \CP^2$\\
+		$0$ & $\Z/2$              & a point                                             & $\Z$           & a point                    \\
+		$1$ & $0$                 &                                                     & $0$            &                            \\
+		$2$ & $\Z/2$              & $\RP^2$                                             & $0$            &                            \\
+		$3$ & $0$                 &                                                     & $0$            &                            \\
+		$4$ & $\Z/2\oplus \Z/2$   & $\RP^4$, $\RP^2\times \RP^2$                        & $\Z$           & $\CP^2$                    \\
+		$5$ & $\Z/2$              & $\SU_3/\SO_3$                                       & $\Z/2$         & $\SU_3/\SO_3$              \\
+		$6$ & $(\Z/2)^{\oplus 3}$ & $\RP^6$, $\RP^2\times \RP^4$, $(\RP^2)^{\times 3}$, & $0$            &                            \\
+		$7$ & $\Z/2$              & $(\SU_3/\SO_3) \times \RP^2$                        & $0$            &                            \\
+		$8$ & $(\Z/2)^{\oplus 4}$ & $\RP^8, \RP^6\times \RP^2, \cdots$                  & $\Z\oplus \Z$  & $\CP^4, \CP^2\times \CP^2$ \\
 	\end{tabular}
 	\medskip
 	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
@@ -138,144 +367,26 @@ As an equivalence relation, this is clearly looser than the notion
 \subsection{The Thom-Pontryagin Construction}
 
 \begin{theorem}[Pontryagin-Thom Isomorphism]
-  Given a closed manifold $M$ of dimension $n>k$, there is a bijective correspondence
-  \[
-    \Omega^\fr_k(M) \lkxto[] [M, S^{n-k}].
-  \]
+	Given a closed manifold $M$ of dimension $n>k$, there is a bijective correspondence
+	\begin{equation}
+		\Omega^\fr_k(M) \lkxto[] [M, S^{n-k}].
+	\end{equation}
 \end{theorem}
 
 \begin{corollary}
-  Since every closed framed manifold can be framed embedded in a sphere of sufficiently large dimension, there is an isomorphism
-  \[
-    \Omega^\fr_k \lkxto \pi_k S
-  \]
-  where $\pi_k S = \lim_{n\to\infty} \pi_n S^{n-k}$ is the $k$-stable homotopy group of the spheres.
+	Since every closed framed manifold can be framed embedded in a sphere of sufficiently large dimension, there is an isomorphism
+	\begin{equation}
+		\Omega^\fr_k \lkxto \pi_k S
+	\end{equation}
+	where $\pi_k S = \lim_{n\to\infty} \pi_n S^{n-k}$ is the $k$-stable homotopy group of the spheres.
 \end{corollary}
 
 \begin{theorem}
-  There exists a space $\MSO$ such that there is a 
+	There exists a space $\MSO$ such that there is a
 \end{theorem}
 
-\section{Morse Theory}\label{sec:morse-theory}
+\section{Characteristic Classes}
 
-While a fully comprehensive introduction to Morse theory is outside of the scope of this thesis, we'll include a basic overview for completeness. A great classical introduction to Morse theory can be found in Milnor's book on the subject \cite{milnor1963morse}.
+\subsection{Chern-Weil Theory}
 
-If $f : M \to \R$ is a smooth function on a manifold $M$, the points $p\in M$ where the differential $df_p : \T_p M \to \T_{f(p)} \R = \R$ vanish are known as \defn{critical points}, and their images in $\R$ are called \defn{critical values}. In terms of local coordinates $\{x^1,\ldots, x^n\}$ at $p$, this means that
-\[
-	\frac{\partial f}{\partial x^1}=\cdots=\frac{\partial f}{\partial x^n} = 0.
-\]
-A critical point $p\in M$ is said to be \defn{non-degenerate}[non-degenerate point] if the matrix
-\[
-	\everymath={\displaystyle}
-	\renewcommand*{\arraystretch}{2}
-	H_f(p) = \begin{pmatrix}
-		\frac{\partial^2 f}{\partial x^1\partial x^1} & \cdots &
-		\frac{\partial^2 f}{\partial x^1\partial x^n}                   \\
-		\vdots                                        & \ddots & \vdots \\
-		\frac{\partial^2 f}{\partial x^n\partial x^1} & \cdots &
-		\frac{\partial^2 f}{\partial x^n\partial x^n}                   \\
-	\end{pmatrix}(p)
-\]
-is invertible at $p$. This is called the \defn{Hessian matrix} of $f$ at $p$, and in this formulation depends on our chosen coordinate system.
-There is a coordinate independent way to define the Hessian as a symmetric bilinear form on $\T_p M$ which makes the coordinate invariance of the condition of non-degeneracy manifestly apparent.
-
-\begin{definition}
-	The \defn{index}[index of a function] of $f$ at a point $p$ is the maximal dimension of a subspace on which $H_f(p)$ is negative definite, i.e. it is the dimension of $\{v\in \R^n \mid v^\intercal H_f(p) v < 0\}.$
-\end{definition}
-
-The index of a function at a point essentially describes the ``shape'' of the function out of a list of finitely many possible shapes. Remember, the index of a function on an $n$-dimensional manifold must be an integer between $0$ and $n$. For instance, in the case of a surface there are three possible shapes -- when both coordinates curve up we get a bowl facing up, when one curves up and one curves down we get a saddle, and when both coordinates curve down we get a bowl facing down. These shapes correspond to indices of $0$, $1$, and $2$ respectively.
-\begin{figure}[ht]
-	\centering
-	\todo{draw figure}
-	\medskip
-	\caption{An upward bowl, saddle, and downward bowl.}
-\end{figure}
-
-The fundamental lemma of Morse theory makes rigorous this notion of a manifold having a shape dictated by a real-valued function -- there is always a local coordinate system which puts the function into a standard form depending on the index.
-
-\begin{lemma}[Morse Lemma]\label{lemma:morse}
-	Let $p$ be a non-degenerate critical point of $f$. There is a local coordinate system $(y^1,\ldots, y^n)$ at $p$ such that
-	\[
-		f(y^1,\ldots, y^n)=f(0)-\left[(y^1)^2 + \cdots + (y^{\ell})^2\right] + \left[(y^{\ell + 1})^2 + \cdots + (y^n)^2\right].
-	\]
-	where $\ell$ is the index of $f$ at $p$.
-\end{lemma}
-\begin{proof}
-	Let's assume without loss of generality that $f(p)=0$. Given any local coordinate system $(x^1,\ldots, x^n)$ at $p$, we can write
-	\[
-		f(x^1,\ldots, x^n) = \sum_{1\leq j \leq n} x^j g_j(x^1,\ldots, x^n)
-	\]
-	where $g_j$ are functions satisfying $g_j(0)=(\partial f / \partial x^j)(0)$. 
-	This can be achieved by setting $g_j(x_1,\ldots, x_n) = \int_0^1 (\partial f/\partial x^j)(tx_1, \ldots, tx_n)\,dt$. Since $p$ is a critical point
-
-	\todo{basic idea}
-\end{proof}
-
-Inspired by this lemma, we might call a function $f : M \to \R$ a \defn{Morse function} if all critical points are non-degenerate.
-
-\begin{corollary}
-	Non-degenerate critical points are isolated.
-\end{corollary}
-
-For a brief demonstration of the power of the Morse lemma, we'll prove Reeb's theorem, a Morse theoretic criterion for a compact manifold to be homeomorphic to a sphere. Throughout the thesis, we'll usually defer to the more powerful $h$-cobordism theorem to prove that a manifold is homoemorphic to a sphere. 
-However, it is useful to not always rush for the flamethrower when trying to kill a fly -- a simple swatter might do the trick. We'll see a direct application of this lighter theorem in \cref{sec:milnor-spheres}.
-
-\begin{theorem}[Reeb]\label{thm:reeb}
-	If $M$ is a compact manifold and $f$ is a Morse function with exactly $2$ critical points, then $M$ is homeomorphic to a sphere.
-\end{theorem}
-\begin{proof}
-	Firstly, by compactness of $M$ we can find a global minimum $f(x_0)$ and global maximum $f(x_1)$ for some distinct points $x_0$ and $x_1$ (otherwise the function would be constant and not a Morse function with $2$ critical points). We can normalize the function $f$ to have $f(x_0)=0$ and $f(x_1)=1$ without loss of generality. It follows that $x_0$ is a non-degenerate critical point of index 0 and $x_1$ is a non-degenerate critical point of index $n$.
-	By the Morse lemma (\ref{lemma:morse}), there is a neighborhood $x_0\in U_0$ with local coordinates $\{y^1,\ldots, y^n\}$ such that 
-	\[
-			f(y^1,\ldots, y^n) = (y^1)^2 + \cdots + (y^n)^2.
-	\]
-	This gives a Riemannian metric $(dy^1)^2+\cdots+(dy^n)^2$ on $U$ which can be extended to all of $M$ by partitions of unity.
-	% A Riemannian metric on a manifold $M$ determines an isomorphism $\T^\d M \cong \T M$, and hence an isomorphism $\Omega^1(M)=\Gamma(\T^\d M) \cong \Gamma(\T M)=\X(M)$ between the space of $1$-forms and the space of vector fields. Composing this isomorphism with the exterior derivative $d : \Omega^0(M)\to \Omega^1(M)$ gives the gradient operator $\nabla : \Omega^0(M) \to \X(M)$ sending a function to its vector field. 
-
-	Given a Riemmanian structure, there is a gradient operator $\nabla : \Omega^0 \to \X(M)$ sending functions to vector fields.
-	In our case, the vector field $\nabla f$ is non-zero everywhere except for at $x_0$ and $x_1$. We thus have a normalized vector field $\nabla f/\|\nabla f\|^2$
-	defined everywhere except for at $x_0$ and $x_1$. Let $\varphi_t : M \to M$ be the global flow corresponding to this vector field, i.e. the unique solution to the differential equation
-	\[
-	\left.\frac{d\varphi_t(p)}{dt}\right|_{t=0} = \frac{\nabla f(p)}{\|\nabla f(p)\|^2}
-	\]
-	for all $p\in M\setminus \{x_0,x_1\}$. By the chain rule, it follows that
-	\[
-		\frac{d(f\circ \varphi_t(p))}{dt}=\left\langle \frac{d\varphi_t(p)}{dt}, \nabla f\right\rangle = \left\langle \frac{\nabla f}{\|\nabla f\|^2}, \nabla f\right\rangle=1.
-	\]
-	In particular, this implies that $f\circ \varphi_t(p) = f(p)+t$. 
-
-	\todo{finish the proof}
-\end{proof}
-
-The basic ideas used in the proof of Reeb's theorem can be radically generalized.
-
-\begin{definition}
-	For any $a\in \R$, the \defn{level set} of a smooth function $f : M \to \R$ is the set 
-	\[
-		M_a = f^{-1}(-\infty, a] = \{ p\in M \mid f(p)\leq a)\}.
-	\]
-\end{definition}
-
-\begin{figure}
-\end{figure}
-
-\begin{theorem}
-	Let $f : M \to \R$ be a smooth function and suppose $f^{-1}[a,b]$ contains no critical points of $f$ for real numbers $a<b$. Then $M_a$ is diffeomorphic to $M_b$. Furthermore $M_a$ is a deformation retract of $M_b$.
-\end{theorem}
-
-\begin{theorem}
-	Let $f : M \to \R$ be a smooth function and let $p$ be a non-degenerate critical point of index $\ell$. Letting $c=f(p)$, suppose that $f^{-1}[c-\epsilon, c+\epsilon]$ is compact and contains no critical points of $f$ aside from $p$. For sufficiently small $\epsilon$, the level set $M^{c+\epsilon}$ has the homotopy type of $M^{c-\epsilon}$ with an $\ell$-cell attached.
-\end{theorem}
-
-\begin{theorem}
-	If $f$ is a Morse function with compact level sets (for instance if $M$ is compact), then $M$ has the homotopy type of a CW-complex with a cell in each dimension $\ell$ for each critical point of index $\ell$.
-\end{theorem}
-
-\todo{finish}
-
-\begin{theorem}[Morse Inequality]
-	Let $M^n$ be a closed manifold with $f : M\to \R$ a Morse function. Let $\beta_i=\rank \H_i(M)$ be the $i$-th Betti number of $M$ and let $c_i$ be the number of critical points of $f$ of index $i$. Then, for every $\ell\in \Z^{\geq 0}$ we have
-	\[
-		\beta_\ell - \beta_{\ell-1} + \beta_{\ell-2} - \cdots +(-1)^\ell \beta_0 \leq c_\ell - c_{\ell-1} + c_{\ell-2} - \cdots + (-1)^\ell c_0.
-	\]
-\end{theorem}
+While the axiomatic and universal definitions of characteristic classes are simple 

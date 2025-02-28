@@ -1,5 +1,3 @@
-\newcommand{\milinv}{\lambda_{\mathrm{milnor}}}
-
 \chapter{Geometric Invariants}\label{chap:invariants}
 
 \begin{epigraph}{15em}{Unknown}
@@ -8,12 +6,21 @@
 	which isn’t there.
 \end{epigraph}
 
+
+
 \section{The Hirzebruch Signature Theorem}
 
+\begin{proposition}
+	If $M$ is the boundary of a manifold $W$, then $\sigma(W)=0$.
+\end{proposition}
+\begin{proof}
+	test
+\end{proof}
+
 \begin{theorem}[Hirzebruch]\label{thm:hirzebruch-signature-theorem}
-	Let $X$ be a closed $4k$-manifold. Then we have
+	Let $M$ be a closed $4k$-manifold. Then we have
 	\[
-		\sigma(X) = \int_X L_k(p_1, \cdots, p_k)(X),
+		\sigma(M) = \int_X L_k(p_1, \cdots, p_k)(M),
 	\]
 	where $L_k$ is the $L$-genus.
 \end{theorem}
@@ -58,9 +65,9 @@ The Hirzebruch signature theorem is a shining example of a truly remarkable theo
 \end{equation}
 Having done this, the expression for the leading coefficient of $L_3$ in \cref{eq:L-genus} immediately implies:
 \begin{corollary}
-	If $X$ is a closed $12$-manifold with trivial $\H^4(X)$, then $\sigma(X)$ is divisible by $62$.
+	If $M$ is a closed $12$-manifold with trivial $\H^4(M)$, then $\sigma(M)$ is divisible by $62$.
 \end{corollary}
-The observation that for such manifolds $X$, the quantity $\sigma(X)/62$ is an integer, let alone equal to $945p_3[X]$, is far from obvious, and yet it pops out immediately from the signature theorem. These subtle relationships are immensely useful in defining invariants capable of detecting exotic spheres as we will see in the following \cref{sec:invariants-for-homotopy-4k-1-spheres}.
+The observation that for such manifolds $M$, the quantity $\sigma(M)/62$ is an integer, let alone equal to $945p_3[M]$, is far from obvious, and yet it pops out immediately from the signature theorem. These subtle relationships are immensely useful in defining invariants capable of detecting exotic spheres as we will see in the following \cref{sec:invariants-for-homotopy-4k-1-spheres}.
 
 While we're on the topic of the $L$-genus, let's compute its leading coefficient. Often times, the manifolds which we'll apply the signature theorem to will be connected enough that the lower order Pontryagin classes vanish -- leaving just the leading term.
 Luckily for us, the coefficient of this leading term admits a simple description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion of $\tanh z$:
@@ -101,18 +108,20 @@ This is exactly what we will do for exotic spheres in this section.
 	The first few Milnor invariants are:
 	\[
 		\begin{array}{r@{\;}ll}
-			\milinv(X^7)
-			 &= 4\sigma(W, X) - p_1^2[W, X]
+			\milinv(M^7)
+			 &= 4\sigma(W) - p_1^2[W, M]
 			 & \mod 7,                                                            \\
-			\milinv(X^{11})
-			 &= 15\sigma(W,X) - (2p_1^3-13p_1p_2)[W,X]
+			\milinv(M^{11})
+			 &= 15\sigma(W) - (2p_1^3-13p_1p_2)[W,M]
 			 & \mod 62,                                                          \\
-			\milinv(X^{15})
-			 &= 303\sigma(W, X) - (3p_1^4-22p_1^2p_2 + 19p_2^2 + 71p_1p_3)[W,X]
+			\milinv(M^{15})
+			 &= 303\sigma(W) - (3p_1^4-22p_1^2p_2 + 19p_2^2 + 71p_1p_3)[W,M]
 			 & \mod 381.
 		\end{array}
 	\]
+	For a 
 \end{example}
+
 
 \section{Index Theory}
 
