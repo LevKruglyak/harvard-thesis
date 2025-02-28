@@ -39,30 +39,37 @@
 \renewcommand{\binom}[2]{
 	\Bigl(\,\begin{array}{@{}c@{}}#1\\#2\end{array}\,\Bigr)}
 \renewcommand{\cong}{\approx}
+\renewcommand{\epsilon}{\varepsilon}
 
-\providecommand{\+}{\,\#\,} % Connected sum
+\newcommand{\+}{\,\#\,} % Connected sum
 
-\providecommand{\Z}{\mathbb{Z}}
-\providecommand{\Q}{\mathbb{Q}}
-\providecommand{\R}{\mathbb{R}}
-\providecommand{\N}{\mathbb{N}}
-\providecommand{\C}{\mathbb{C}}
-\providecommand{\HH}{\mathbb{H}}
-\providecommand{\OO}{\mathbb{O}}
-\providecommand{\CP}{\mathbb{CP}}
-\providecommand{\RP}{\mathbb{RP}}
-\providecommand{\HP}{\mathbb{HP}}
-\providecommand{\OP}{\mathbb{OP}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\RP}{\mathbb{RP}}
+\newcommand{\HP}{\mathbb{HP}}
+\newcommand{\OP}{\mathbb{OP}}
 
 \undef\H
 \undef\T
 \undef\span
 \undef\gcd
+\undef\ker
+\undef\O
 
+\DeclareMathOperator{\X}{\mathfrak{X}} % vector field
 \DeclareMathOperator{\H}{H} % (co)homology
 \DeclareMathOperator{\T}{T\!} % tangent space
 \DeclareMathOperator{\span}{span}
 \DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\ker}{ker}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\denom}{denom}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\gcd}{gcd}
 \DeclareMathOperator{\End}{End}
@@ -74,20 +81,26 @@
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Diff}{Diff}
 
-\providecommand{\GL}{\mathrm{SO}}
-\providecommand{\Sp}{\mathrm{Sp}}
-\providecommand{\U}{\mathrm{U}}
-\providecommand{\O}{\mathrm{O}}
-\providecommand{\SU}{\mathrm{SU}}
-\providecommand{\SO}{\mathrm{SO}}
-\providecommand{\SL}{\mathrm{SL}}
-\providecommand{\Spin}{\mathrm{Spin}}
+\newcommand{\GL}{\mathrm{SO}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\O}{\mathrm{O}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\Spin}{\mathrm{Spin}}
 
-\providecommand{\MSO}{\mathrm{MSO}}
-\providecommand{\BSO}{\mathrm{BSO}}
+\newcommand{\MSO}{\mathrm{MSO}}
+\newcommand{\BSO}{\mathrm{BSO}}
+
+% Special Symbols
+\newcommand{\Ahat}{\widehat{A}}
+
+% Exotic Sphere Symbols
+\newcommand{\bP}{bP}
 
 % Categories
-\providecommand{\cat}[1]{\mathsf{#1}}
+\newcommand{\cat}[1]{\mathsf{#1}}
 
 \newcommand{\DIFF}{\cat{DIFF}}
 \newcommand{\PL}{\cat{PL}}

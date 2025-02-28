@@ -10,7 +10,88 @@
 
 \section{The Hirzebruch Signature Theorem}
 
-\section{Invariants for Homotopy \texorpdfstring{$(4k-1)$}{(4k-1)}-Spheres}
+\begin{theorem}[Hirzebruch]\label{thm:hirzebruch-signature-theorem}
+	Let $X$ be a closed $4k$-manifold. Then we have
+	\[
+		\sigma(X) = \int_X L_k(p_1, \cdots, p_k)(X),
+	\]
+	where $L_k$ is the $L$-genus.
+\end{theorem}
+\begin{proof}
+	It suffices to check this identity for the generators $\CP^{2k}$. The total Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$. Using multiplicativity of $L$ and $L(1+z)=\sqrt{z}/\tanh\sqrt{z}$, we have
+	\[
+		\begin{aligned}
+			L(p)(\CP^{2k})
+			= L\left((1+\alpha^2)^{2k+1}\right)
+			= L(1+\alpha^2)^{2k+1}
+			= \left(\alpha/\tanh \alpha\right)^{2k+1}
+			\quad\in\H^\bullet(\CP^{2k}).
+		\end{aligned}
+	\]
+	Here, we consider $\alpha/\tanh \alpha$ as a formal power series in $\alpha$ truncated by the relation $\alpha^{2k+1}=0$ in the cohomology ring $\H^\bullet(\CP^{2k})$. The characteristic number $L_k(p_1,\ldots,p_k)[\CP^{2k}]$ is then the coefficient of $\alpha^{2k}$ in the expansion of $(\alpha/\tanh \alpha)^{2k+1}$.
+	By elementary complex analysis, this coefficient can be extracted by taking a contour integral around a small $\epsilon$-circle about the origin in $\C$:
+	\[
+		\begin{aligned}
+			L_k(p_1,\cdots, p_k)[\CP^{2k}]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{dz}{z^{2k+1}} \left(\frac{z}{\tanh z}\right)^{2k+1}
+			 &                                                                                                       \\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{dz}{\tanh^{2k+1} z}\quad
+			 & u  =\tanh(z),\quad
+			du =(1-u^2)dz
+			\\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{1}{u^{2k+1}}\cdot\frac{du}{1-u^2}
+			 &                                                                                                       \\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{1+u^2+u^4+\cdots}{u^{2k+1}}\,du                       \\[0.5em]
+			 & =1.                                                                                                 &
+		\end{aligned}
+	\]
+	Since $\sigma(\CP^{2k})=1$, this completes the proof.
+\end{proof}
+
+The Hirzebruch signature theorem is a shining example of a truly remarkable theorem in mathematics -- it gives us easy computational means to uncover highly non-trivial relationships between complicated objects. For us, the most useful consequence of the Hirzebruch signature theorem is that it gives us subtle integrability and divisibility theorems. For instance, with relatively little effort we can calculate a few $L$-genus polynomials to get:
+\begin{equation}\label{eq:L-genus}
+	\begin{aligned}
+		 & L_1 = \frac{p_1}{3},\quad
+		 & L_2 = \frac{7p_2 - p_1^2}{45},\quad
+		 & L_3 = \frac{62p_3 - 13p_1p_2 + 2p_1^3}{945},\quad\cdots
+	\end{aligned}
+\end{equation}
+Having done this, the expression for the leading coefficient of $L_3$ in \cref{eq:L-genus} immediately implies:
+\begin{corollary}
+	If $X$ is a closed $12$-manifold with trivial $\H^4(X)$, then $\sigma(X)$ is divisible by $62$.
+\end{corollary}
+The observation that for such manifolds $X$, the quantity $\sigma(X)/62$ is an integer, let alone equal to $945p_3[X]$, is far from obvious, and yet it pops out immediately from the signature theorem. These subtle relationships are immensely useful in defining invariants capable of detecting exotic spheres as we will see in the following \cref{sec:invariants-for-homotopy-4k-1-spheres}.
+
+While we're on the topic of the $L$-genus, let's compute its leading coefficient. Often times, the manifolds which we'll apply the signature theorem to will be connected enough that the lower order Pontryagin classes vanish -- leaving just the leading term.
+Luckily for us, the coefficient of this leading term admits a simple description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion of $\tanh z$:
+\begin{equation}\label{eq:tanh_series}
+	\tanh z = z - \frac{z^3}{3} + \frac{2z^5}{15} - \frac{17z^7}{315}+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, z^{2k-1}.
+\end{equation}
+With this definition, the first few Bernoulli numbers are given by:
+\begin{equation}\label{eq:bernoulli_numbers}
+	B_0 = 1,\quad B_2 = \frac{1}{6},\quad B_4 = \frac{1}{30},\quad B_6=\frac{1}{42},\quad B_{8}=\frac{1}{30},\quad B_{10} = \frac{5}{66},\quad\cdots
+\end{equation}
+
+\todo{complexity of the sequence indicates how complicated the geometry can get}
+
+\begin{proposition}\label{prop:leading_coefficient_L_genus}
+	The leading coefficient of the $L$-genus is $s_k=2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!$
+\end{proposition}
+\begin{proof}
+	\todo{this proof}
+\end{proof}
+
+\section{Invariants for Homotopy \texorpdfstring{${(4k-1)}$}{(4k-1)}-Spheres}\label{sec:invariants-for-homotopy-4k-1-spheres}
+
+Armed with the power of the signature theorem, let's now try to build some invariants for homotopy spheres. 
+Due to the topological simplicity of homotopy spheres, it's difficult to imagine how we could construct such an invariant which can distinguish smooth structure. One of the great ideas of 20th century topology is to pass to a coboundary in situations like this. Namely, if the usual invariants on a manifold $M$ vanish, find a manifold $W$ a dimension higher which has $M$ as a boundary (this isn't always possible since not all manifolds are null-cobordant). 
+In the case such a manifold exists, it is referred to as a \defn{coboundary} of $M$. If we are careful, we can use the topology of the coboundary $W$ to construct an invariant which does not depend on the choice of coboundary $W$ -- in some sense extracting
+
+This is exactly what we will do for exotic spheres in this section. 
+
+\begin{remark}
+	This idea of passing to a coboundary is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. This is a central idea of Chern-Simons theory \cite{chernsimons1974geometric}, a topic which has found widespread application in constructing quantum field theories. \todo{(?) write more about this?}
+\end{remark}
 
 \subsection{Smooth Invariants of Manifolds with Boundary}
 

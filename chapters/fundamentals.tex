@@ -63,7 +63,6 @@ and denoted by $M_1\# M_2$.
 	See Theorem B in \cite{palais1960diffeomorphism}.
 \end{proof}
 
-
 \subsection{Spherical Modifications}
 
 \begin{figure}[ht]
@@ -78,7 +77,7 @@ and denoted by $M_1\# M_2$.
 Let $f : N\subset X$ be a smooth map from a compact oriented $p$-dimensional manifold $N$ to $X$. The data of an orientation on a closed manifold gives a fundamental class $[N]\in \H_p(N)$ which can be pushed forward along the map $f : N \hookrightarrow X$ to give a homology class $f_* [N]\in \H_p(X)$. This is the homology class associated to a smooth map $N\to X$.
 This correspondence behaves nicely with respect to perturbations, \todo{finish}
 
-Suppose $H : N\times [0,1] \to X$ is a homotopy with $H(x,0)=f(x)$ which perturbs the map $f$. For any $\varepsilon>0$, the map $f_\varepsilon : N \to X$ given by $f_\varepsilon(x)=H(x,\varepsilon)$ is homotopic to $f$ and hence induces the same map on homology $\H_p(N)\to \H_p(X)$. The homology class associated to a map $f : N \to X$ thus solely depends on the homotopy type of $f$ so there is a map
+Suppose $H : N\times [0,1] \to X$ is a homotopy with $H(x,0)=f(x)$ which perturbs the map $f$. For any $\epsilon>0$, the map $f_\epsilon : N \to X$ given by $f_\epsilon(x)=H(x,\epsilon)$ is homotopic to $f$ and hence induces the same map on homology $\H_p(N)\to \H_p(X)$. The homology class associated to a map $f : N \to X$ thus solely depends on the homotopy type of $f$ so there is a map
 \[
 	\lkxfunc{}{[N,X]}{\H_p(X).}
 \]
@@ -158,6 +157,121 @@ As an equivalence relation, this is clearly looser than the notion
 \end{theorem}
 
 \section{Morse Theory}\label{sec:morse-theory}
+
+While a fully comprehensive introduction to Morse theory is outside of the scope of this thesis, we'll include a basic overview for completeness. A great classical introduction to Morse theory can be found in Milnor's book on the subject \cite{milnor1963morse}.
+
+If $f : M \to \R$ is a smooth function on a manifold $M$, the points $p\in M$ where the differential $df_p : \T_p M \to \T_{f(p)} \R = \R$ vanish are known as \defn{critical points}, and their images in $\R$ are called \defn{critical values}. In terms of local coordinates $\{x^1,\ldots, x^n\}$ at $p$, this means that
+\[
+	\frac{\partial f}{\partial x^1}=\cdots=\frac{\partial f}{\partial x^n} = 0.
+\]
+A critical point $p\in M$ is said to be \defn{non-degenerate}[non-degenerate point] if the matrix
+\[
+	\everymath={\displaystyle}
+	\renewcommand*{\arraystretch}{2}
+	H_f(p) = \begin{pmatrix}
+		\frac{\partial^2 f}{\partial x^1\partial x^1} & \cdots &
+		\frac{\partial^2 f}{\partial x^1\partial x^n}                   \\
+		\vdots                                        & \ddots & \vdots \\
+		\frac{\partial^2 f}{\partial x^n\partial x^1} & \cdots &
+		\frac{\partial^2 f}{\partial x^n\partial x^n}                   \\
+	\end{pmatrix}(p)
+\]
+is invertible at $p$. This is called the \defn{Hessian matrix} of $f$ at $p$, and in this formulation depends on our chosen coordinate system.
+There is a coordinate independent way to define the Hessian as a symmetric bilinear form on $\T_p M$ which makes the coordinate invariance of the condition of non-degeneracy manifestly apparent.
+
+\begin{definition}
+	The \defn{index}[index of a function] of $f$ at a point $p$ is the maximal dimension of a subspace on which $H_f(p)$ is negative definite, i.e. it is the dimension of $\{v\in \R^n \mid v^\intercal H_f(p) v < 0\}.$
+\end{definition}
+
+The index of a function at a point essentially describes the ``shape'' of the function out of a list of finitely many possible shapes. Remember, the index of a function on an $n$-dimensional manifold must be an integer between $0$ and $n$. For instance, in the case of a surface there are three possible shapes -- when both coordinates curve up we get a bowl facing up, when one curves up and one curves down we get a saddle, and when both coordinates curve down we get a bowl facing down. These shapes correspond to indices of $0$, $1$, and $2$ respectively.
+\begin{figure}[ht]
+	\centering
+	\todo{draw figure}
+	\medskip
+	\caption{An upward bowl, saddle, and downward bowl.}
+\end{figure}
+
+The fundamental lemma of Morse theory makes rigorous this notion of a manifold having a shape dictated by a real-valued function -- there is always a local coordinate system which puts the function into a standard form depending on the index.
+
+\begin{lemma}[Morse Lemma]\label{lemma:morse}
+	Let $p$ be a non-degenerate critical point of $f$. There is a local coordinate system $(y^1,\ldots, y^n)$ at $p$ such that
+	\[
+		f(y^1,\ldots, y^n)=f(0)-\left[(y^1)^2 + \cdots + (y^{\ell})^2\right] + \left[(y^{\ell + 1})^2 + \cdots + (y^n)^2\right].
+	\]
+	where $\ell$ is the index of $f$ at $p$.
+\end{lemma}
+\begin{proof}
+	Let's assume without loss of generality that $f(p)=0$. Given any local coordinate system $(x^1,\ldots, x^n)$ at $p$, we can write
+	\[
+		f(x^1,\ldots, x^n) = \sum_{1\leq j \leq n} x^j g_j(x^1,\ldots, x^n)
+	\]
+	where $g_j$ are functions satisfying $g_j(0)=(\partial f / \partial x^j)(0)$. 
+	This can be achieved by setting $g_j(x_1,\ldots, x_n) = \int_0^1 (\partial f/\partial x^j)(tx_1, \ldots, tx_n)\,dt$. Since $p$ is a critical point
+
+	\todo{basic idea}
+\end{proof}
+
+Inspired by this lemma, we might call a function $f : M \to \R$ a \defn{Morse function} if all critical points are non-degenerate.
+
+\begin{corollary}
+	Non-degenerate critical points are isolated.
+\end{corollary}
+
+For a brief demonstration of the power of the Morse lemma, we'll prove Reeb's theorem, a Morse theoretic criterion for a compact manifold to be homeomorphic to a sphere. Throughout the thesis, we'll usually defer to the more powerful $h$-cobordism theorem to prove that a manifold is homoemorphic to a sphere. 
+However, it is useful to not always rush for the flamethrower when trying to kill a fly -- a simple swatter might do the trick. We'll see a direct application of this lighter theorem in \cref{sec:milnor-spheres}.
+
+\begin{theorem}[Reeb]\label{thm:reeb}
+	If $M$ is a compact manifold and $f$ is a Morse function with exactly $2$ critical points, then $M$ is homeomorphic to a sphere.
+\end{theorem}
+\begin{proof}
+	Firstly, by compactness of $M$ we can find a global minimum $f(x_0)$ and global maximum $f(x_1)$ for some distinct points $x_0$ and $x_1$ (otherwise the function would be constant and not a Morse function with $2$ critical points). We can normalize the function $f$ to have $f(x_0)=0$ and $f(x_1)=1$ without loss of generality. It follows that $x_0$ is a non-degenerate critical point of index 0 and $x_1$ is a non-degenerate critical point of index $n$.
+	By the Morse lemma (\ref{lemma:morse}), there is a neighborhood $x_0\in U_0$ with local coordinates $\{y^1,\ldots, y^n\}$ such that 
+	\[
+			f(y^1,\ldots, y^n) = (y^1)^2 + \cdots + (y^n)^2.
+	\]
+	This gives a Riemannian metric $(dy^1)^2+\cdots+(dy^n)^2$ on $U$ which can be extended to all of $M$ by partitions of unity.
+	% A Riemannian metric on a manifold $M$ determines an isomorphism $\T^\d M \cong \T M$, and hence an isomorphism $\Omega^1(M)=\Gamma(\T^\d M) \cong \Gamma(\T M)=\X(M)$ between the space of $1$-forms and the space of vector fields. Composing this isomorphism with the exterior derivative $d : \Omega^0(M)\to \Omega^1(M)$ gives the gradient operator $\nabla : \Omega^0(M) \to \X(M)$ sending a function to its vector field. 
+
+	Given a Riemmanian structure, there is a gradient operator $\nabla : \Omega^0 \to \X(M)$ sending functions to vector fields.
+	In our case, the vector field $\nabla f$ is non-zero everywhere except for at $x_0$ and $x_1$. We thus have a normalized vector field $\nabla f/\|\nabla f\|^2$
+	defined everywhere except for at $x_0$ and $x_1$. Let $\varphi_t : M \to M$ be the global flow corresponding to this vector field, i.e. the unique solution to the differential equation
+	\[
+	\left.\frac{d\varphi_t(p)}{dt}\right|_{t=0} = \frac{\nabla f(p)}{\|\nabla f(p)\|^2}
+	\]
+	for all $p\in M\setminus \{x_0,x_1\}$. By the chain rule, it follows that
+	\[
+		\frac{d(f\circ \varphi_t(p))}{dt}=\left\langle \frac{d\varphi_t(p)}{dt}, \nabla f\right\rangle = \left\langle \frac{\nabla f}{\|\nabla f\|^2}, \nabla f\right\rangle=1.
+	\]
+	In particular, this implies that $f\circ \varphi_t(p) = f(p)+t$. 
+
+	\todo{finish the proof}
+\end{proof}
+
+The basic ideas used in the proof of Reeb's theorem can be radically generalized.
+
+\begin{definition}
+	For any $a\in \R$, the \defn{level set} of a smooth function $f : M \to \R$ is the set 
+	\[
+		M_a = f^{-1}(-\infty, a] = \{ p\in M \mid f(p)\leq a)\}.
+	\]
+\end{definition}
+
+\begin{figure}
+\end{figure}
+
+\begin{theorem}
+	Let $f : M \to \R$ be a smooth function and suppose $f^{-1}[a,b]$ contains no critical points of $f$ for real numbers $a<b$. Then $M_a$ is diffeomorphic to $M_b$. Furthermore $M_a$ is a deformation retract of $M_b$.
+\end{theorem}
+
+\begin{theorem}
+	Let $f : M \to \R$ be a smooth function and let $p$ be a non-degenerate critical point of index $\ell$. Letting $c=f(p)$, suppose that $f^{-1}[c-\epsilon, c+\epsilon]$ is compact and contains no critical points of $f$ aside from $p$. For sufficiently small $\epsilon$, the level set $M^{c+\epsilon}$ has the homotopy type of $M^{c-\epsilon}$ with an $\ell$-cell attached.
+\end{theorem}
+
+\begin{theorem}
+	If $f$ is a Morse function with compact level sets (for instance if $M$ is compact), then $M$ has the homotopy type of a CW-complex with a cell in each dimension $\ell$ for each critical point of index $\ell$.
+\end{theorem}
+
+\todo{finish}
 
 \begin{theorem}[Morse Inequality]
 	Let $M^n$ be a closed manifold with $f : M\to \R$ a Morse function. Let $\beta_i=\rank \H_i(M)$ be the $i$-th Betti number of $M$ and let $c_i$ be the number of critical points of $f$ of index $i$. Then, for every $\ell\in \Z^{\geq 0}$ we have

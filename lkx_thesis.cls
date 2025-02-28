@@ -25,7 +25,9 @@
 % Consistent bold math
 \usepackage{bm} 
 \let\oldbfseries\bfseries
-\renewcommand{\bfseries}{\oldbfseries\everymath{\bm}}
+\renewcommand{\bfseries}{\oldbfseries\boldmath
+}
+% \everymath{\bm}}
 
 % Page Style
 \usepackage[twoside]{fancyhdr}
@@ -154,7 +156,7 @@
 \renewcommand{\subsectionautorefname}{Section}
 
 % Appendices
-\usepackage[toc]{appendix}
+\usepackage{appendix}
 \AtBeginEnvironment{appendices}{\crefalias{chapter}{appendix}}
 
 % Math Environments
