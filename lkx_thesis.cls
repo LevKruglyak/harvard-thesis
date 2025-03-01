@@ -22,6 +22,11 @@
 \usepackage{amsmath} % Needs to be loaded before hyperref
 \usepackage{amssymb}
 
+% Enumerate spacing
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0em}
+\setlist[itemize]{itemsep=0em}
+
 % Consistent bold math
 \usepackage{bm}
 \let\oldbfseries\bfseries
@@ -32,7 +37,7 @@
 % Page Style
 \usepackage[twoside]{fancyhdr}
 \pagestyle{fancy}
-\setlength{\headheight}{0.5in}
+\setlength{\headheight}{15pt}
 \fancyhf{}
 \fancyhf[rh]{\thepage}
 \fancyhf[lh]{\textsc{\nouppercase\leftmark}}
@@ -102,12 +107,16 @@
 			\vskip 40\p@}}
 \makeatother
 
+
 % Section / Subsection Sizes
+\newcommand{\lkxsectionstyle}{\bfseries\large}
+\newcommand{\lkxsubsectionstyle}{\bfseries}
+
 \usepackage{titlesec}
 \titleformat{\section}{
-	\normalfont\large\bfseries}{\thesection}{1em}{}
+	\normalfont\lkxsectionstyle}{\thesection}{1em}{}
 \titleformat{\subsection}{
-	\normalfont\bfseries}{\thesubsection}{1em}{}
+	\normalfont\lkxsubsectionstyle}{\thesubsection}{1em}{}
 % \newcommand{\sectionbreak}{\clearpage} % TODO: section pagebreaks
 
 % Index
@@ -158,14 +167,19 @@
 
 % Appendices
 \usepackage{appendix}
-\AtBeginEnvironment{appendices}{\crefalias{chapter}{appendix}}
+\BeforeBeginEnvironment{appendices}{
+\setcounter{tocdepth}{0}
+\crefalias{chapter}{appendix}}
 
 % Math Environments
 \usepackage{amsthm}
 
+\newcommand{\lkxtheoremstyle}{\bfseries}
+\newcommand{\lkxtheoremnotestyle}{\scshape}
+
 \newtheoremstyle{lkx_theorem}
 {}{}{\slshape}{}{}{.}{ }
-{{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3}\index{#3 (Theorem)})}}
+{{{\lkxtheoremstyle\thmname{#1}\thmnumber{ #2}}}\thmnote{ \lkxtheoremnotestyle  ({#3}\index{#3 (Theorem)})}}
 
 \theoremstyle{lkx_theorem}
 \newtheorem{theorem}[equation]{Theorem}
@@ -194,7 +208,7 @@
 
 \newtheoremstyle{lkx_definition}
 {}{}{\slshape}{}{}{.}{ }
-{{\textbf{\thmname{#1}\thmnumber{ #2}}}\thmnote{ (\textsc{#3})}}
+{{{\lkxtheoremstyle\thmname{#1}\thmnumber{ #2}}}\thmnote{ \lkxtheoremnotestyle({#3})}}
 
 \theoremstyle{lkx_definition}
 \newtheorem{definition}[equation]{Definition}
