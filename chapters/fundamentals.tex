@@ -117,7 +117,7 @@ many specially constructed manifolds we will consider in this chapter will at le
 \pagebreak
 \section{The Intersection Form}\label{sec:intersection-form}
 
-One of the fundamental invariants for even-dimensional manifolds is the intersection form, a bilinear form on a lattice which captures the geometric data of submanifold intersections. The lattice in question is the free component of the middle-dimensional singular homology, and the pairing of two homology cycles by the form counts their number of ``intersections''. When the homology cycles of complementary dimension (as in the case of middle-dimensional homology cycles) are represented by smooth immersions, we can perturb them to make them transverse without changing the homology class. If the manifolds are compact, the preimage of their intersection is some finte set of points with orientation -- adding up the orientations of the points gives the orientation number.
+One of the fundamental invariants for even-dimensional manifolds is the intersection form, a bilinear form on a lattice which captures the geometric data of submanifold intersections. The lattice in question is the free component of the middle-dimensional singular homology, and the pairing of two homology cycles by the form counts their number of ``intersections''. When the homology cycles of complementary dimension (as in the case of middle-dimensional homology cycles) are represented by smooth immersions, we can perturb them to make them transverse without changing the homology class. If the manifolds are compact, the preimage of their intersection is some finte set of points with orientation -- adding up the orientations of the points gives the oriented intersection number.
 
 This is the geometric interpretation of intersection, and we will explore it in more depth when we construct manifolds with given intersection theory in \cref{sec:plumbing}. For now, we will stick to understanding the algebraic properties of intersections as the adage ``think in terms of intersections, prove in terms of homology'' advises. To start, let us suppose that $M$ is a compact oriented $n$-manifold.
 The Poincar\'e-Lefschetz duality gives an isomorphism
@@ -140,7 +140,7 @@ where the vertical maps are the Poincar\'e-Lefschetz isomorphism. Again, the int
 \begin{definition}
 	Let $M^{2m}$ be a compact oriented even-dimensional manifold, possibly with boundary. The \defn{intersection form} on middle dimensional homology is the bilinear form
 	\begin{equation}
-		\lkxfunc{Q_M}{\H_m(M)_{\mathrm{free}}\otimes \H_m(M)_{\mathrm{free}}}{\Z}{\alpha\otimes \beta}{\alpha\tnsv \beta}
+		\lkxfunc{Q_M}{\H_m(M)_{\mathrm{free}}\otimes \H_m(M)_{\mathrm{free}}}{\Z}{a\otimes b}{a \tnsv b}
 	\end{equation}
 	where we identify $\H_0(M)\cong \Z$ and $\H_m(M)_{\mathrm{free}}$ denotes the free component of $\H_m(M)$ -- i.e. the quotient by the subgroup of torsion elements.
 \end{definition}
@@ -149,19 +149,41 @@ where the vertical maps are the Poincar\'e-Lefschetz isomorphism. Again, the int
 	If $m$ is even then $Q_X$ is a symmetric bilinear form and if $m$ is odd then $Q_X$ is a skew-symmetric bilinear form. This follows from the graded commutativity of the cup product, and hence the intersection pairing. For brevity, we say that $Q_X$ is \defn{$m$-symmetric} in such cases.
 \end{remark}
 
-It's also often helpful to work with the dual intersection pairing on cohomology -- since it is defined explicitly in terms of the cup product, it can be immediately deduced from the multiplicative structure of the cohomology ring.
+\begin{remark}
+	Note that the intersection form is defined entirely topologically, without a requirement of smooth structure. That being said, the existence of a smooth structure on a manifold can lead to noticeable effects on the smooth structure.
+\end{remark}
+
+It is often helpful to work with the dual pairing, i.e. the cup product pairing on cohomology, since it can be immediately deduced from the multiplicative structure of the cohomology ring.
 \begin{definition}
 	The intersection form on cohomology is the bilinear form
 	\begin{equation}
 		\lkxfunc{Q^M}{\H^m(M,\partial M)_{\mathrm{free}}\otimes \H^m(M,\partial M)_{\mathrm{free}}}{\Z}{\alpha\otimes \beta}{\alpha\smile \beta}
 	\end{equation}
-	where we identify $\H^n(M,\partial M)\cong \Z$.
+	where we identify $\H^n(M,\partial M)\cong \H_0(M)\cong \Z$.
 \end{definition}
-
-\todo{dual lattice perspective using UCT}
 
 \begin{remark}
 	For manifolds which do not come with an orientation, the intersection form can be extended in homology/cohomology with $\Z/2$ coefficients. We call this form the \defn{unoriented intersection form}, and denote it by $\widetilde{Q}_M$ or $\widetilde{Q}^M$ depending on if we are working with homology or cohomology. In the context of embedded submanifolds, this form captures the number of transverse intersection points modulo 2, otherwise known as the unoriented intersection number.
+\end{remark}
+
+\begin{remark} \label{rmk:dual-lattice-intersection-form}
+	To see the connection between the intersection form on homology and cohomology, let us recall the universal coefficients theorem for cohomology, which gives us an exact sequence
+	\[
+		0 \lkxto \Ext^1_\Z(\H_{m-1}(M,\partial M)) \lkxto \H^m(M, \partial M) \lkxto \Hom(\H_m(M, \partial M), \Z) \lkxto 0.
+	\]
+	This is Theorem 3.2 of \cite{hatcher2002topology}. When working with the intersection form, we only care about the torsion free component of homology and cohomology. Note that the $\Ext$ term maps entirely into the torsion part of cohomology $\H^m(M,\partial M)$ since $\Ext^1(F\oplus T; \Z)\cong T$ whenever $F$ is free and $T$ is torsion. We thus get a canonical isomorphism
+	\[
+		\H^m(M, \partial M) \lkxisom \Hom(\H_m(M,\partial M), \Z).
+	\]
+	When $\H_{m}(\partial M)$ and $\H_{m-1}(\partial M)$ are trivial, the middle map in
+	\[
+		\H_m(\partial M) \lkxto \H_m(M) \lkxto \H_m(M,\partial M) \lkxto \H_{m-1}(\partial M)
+	\]
+	is an isomorphism, and so we get a canonical isomorphism
+	\[
+		\H^m(M, \partial M) \lkxisom \Hom(\H_m(M), \Z).
+	\]
+	In other words, (under suitable topological restrictions of $\partial M$) there is a canonical way to identify the lattice for the cohomology intersection form as the dual of the lattice for the homology intersection form. In particular, the matrix representations of the bilinear forms are inverses of each other.
 \end{remark}
 
 \subsection{Basic Examples of the Intersection Form}
@@ -172,15 +194,23 @@ We will see many examples of manifolds and their intersection forms throughout t
 	The intersection form for any complex projective plane $\CP^{2m}$ of even complex dimension is given by $Q=(1)$, and the intersection form for complex projective plane $\CP^{2m+1}$ of odd complex dimension is trivial.
 \end{proposition}
 \begin{proof}
+	We will compute the intersection form in cohomology, by \cref{rmk:dual-lattice-intersection-form} we can invert the resulting matrix to get an intersection form on homology.
+
 	Recall that the cohomology ring of complex projective space is given by
 	\begin{equation}
-		\H^\bullet(\CP^{n}) \approx \C[\alpha]/(\alpha^{n+1})\quad\textrm{with}\quad |\alpha|=2.
+		\H^\bullet(\CP^{n}) \approx \Z[\alpha]/(\alpha^{n+1})\quad\textrm{with}\quad |\alpha|=2.
 	\end{equation}
 	A proof of this can be found in any standard algebraic topology book, for instance Theorem~3.19 in \cite{hatcher2002topology}. We can assume without loss of generality that $\alpha^n\in \H^{2n}(\CP^n)$ is the fundamental class corresponding to the canonical orientation on $\CP^n$.
 	Note that since the generating element has degree $2$, the middle-dimensional homology $\H^{2m+1}(\CP^{2m+1})$ is trivial and hence so is the intersection form of $\CP^{2m+1}$.
 
 	When the complex dimension is even, the middle-dimension homology $\H^{2m}(\CP^{2m})$ is generated by $\alpha^m$. Since $\alpha^m\smile \alpha^m=\alpha^{2m}$ is a unit multiple of the fundamental class, we have $Q(\alpha^m, \alpha^m)=1$, completing the proof.
 \end{proof}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{Intersections of homology classes in a complex projective plane.}\label{fig:geometric-intersection-complex-projective}
+\end{figure}
 
 It is illuminating to interpret this result geometrically. Let's begin with the complex vector space $\C^{2m+1}$ equipped with a basis $\{e_0, e_1,\ldots, e_{2m}\}$. Consider the linear subspaces
 \begin{equation}
@@ -189,11 +219,6 @@ It is illuminating to interpret this result geometrically. Let's begin with the 
 in $\C^{2m+1}$. These complex hyperplanes intersect at a complex line $\langle e_0 \rangle = W\cap U$.
 
 Now, we can pass to the projectivization $\P(\C^{2m+1})=\CP^{2m}$ and realize $W$ and $U$ as embedded submanifolds $\P(W)\approx \CP^m\subset \CP^{2m}$ and $\P(U)\approx \CP^m\subset \CP^{2m}$. Since $W$ and $U$ intersect at a line, their projectivizations $\P(W)$ and $\P(U)$ intersect at a point in $\CP^{2m}$. Furthermore, the intersection is transverse, and descending the orientation on $\C^{2m+1}$ to the embedded submanifolds gives an intersection number of $1$. Both of these embedded submanifolds represent the homology class $a^{2m}\in \H_{2m}(\CP^{2m})$ which is the Poincar\'e dual of the cohomology class $\alpha^{2m}(\CP^{2m})$. We again arrive at $Q(a^{2m}, a^{2m})=1$, although this time through homology intersections.
-
-\begin{figure}[ht]
-	\centering
-	\caption{\todo{geometric picture of this in complex projective space}}
-\end{figure}
 
 \begin{proposition}\label{prop:intersection-form-torus}
 	The intersection form for a torus $T^{2m}=S^m\times S^m$ is given by matrices
@@ -207,7 +232,7 @@ Now, we can pass to the projectivization $\P(\C^{2m+1})=\CP^{2m}$ and realize $W
 \begin{proof}
 	Let us again begin with a cohomology computation. The cohomology of a sphere is
 	\begin{equation}
-		\H^\bullet(S^n) = \C[\alpha]/(\alpha^2)\quad\textrm{with}\quad |\alpha| = n,
+		\H^\bullet(S^n) = \Z[\alpha]/(\alpha^2)\quad\textrm{with}\quad |\alpha| = n,
 	\end{equation}
 	and by the K\"unneth formula (see Theorem~3.15 in \cite{hatcher2002topology}), we have
 	\begin{equation}
@@ -224,13 +249,14 @@ Now, we can pass to the projectivization $\P(\C^{2m+1})=\CP^{2m}$ and realize $W
 	These give exactly the matrices described in \cref{eq:hyperbolic-form-torus}.
 \end{proof}
 
-The geometric proof of this claim is analogous. The Poincar\'e duals of $\alpha$ and $\beta$, denoted $a$ and $b$ in $\H_{m}(T^{2m})$, are represented
-by the embedded submanifolds $S^m\times \{p\}$ and $\{p\}\times S^m$ for some basepoint $p\in S^m$. Shifting an individual embedded sphere to a disjoint embedding by a path taking $p\mapsto p'$ disjoint shows that the self-intersection numbers of $a$ and $b$ are zero. These are the zeroes along the diagonal of the matrices in \cref{eq:hyperbolic-form-torus}. However, the embedded spheres representing $a$ and $b$ intersect transversally at the point $(p,p)\in T^{2m}$. We choose orientations on $S^m\times \{p\}$ and $\{p\}\times S^m$ so that $a\cdot b=1$, then by graded-commutativity we get $b\cdot a=(-1)^m$.
-
 \begin{figure}[ht]
 	\centering
-	\caption{\todo{geometric picture intersections on a torus}}
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{Intersections of homology classes in a torus.}\label{fig:geometric-intersection-torus} 
 \end{figure}
+
+The geometric proof of this claim is analogous. The Poincar\'e duals of $\alpha$ and $\beta$, denoted $a$ and $b$ in $\H_{m}(T^{2m})$, are represented
+by the embedded submanifolds $S^m\times \{p\}$ and $\{p\}\times S^m$ for some basepoint $p\in S^m$. Shifting an individual embedded sphere to a disjoint embedding by a path taking $p\mapsto p'$ disjoint shows that the self-intersection numbers of $a$ and $b$ are zero. These are the zeroes along the diagonal of the matrices in \cref{eq:hyperbolic-form-torus}. However, the embedded spheres representing $a$ and $b$ intersect transversally at the point $(p,p)\in T^{2m}$. We choose orientations on $S^m\times \{p\}$ and $\{p\}\times S^m$ so that $a\cdot b=1$, then by graded-commutativity we get $b\cdot a=(-1)^m$.
 
 \begin{remark}
 	The symmetric form in \cref{eq:hyperbolic-form-torus} is known as the \defn{hyperbolic form}, denoted by
@@ -249,12 +275,20 @@ by the embedded submanifolds $S^m\times \{p\}$ and $\{p\}\times S^m$ for some ba
 \begin{proof}
 \end{proof}
 
+\begin{proposition}\label{prop:orientation-intersection-form}
+	For a compact manifold $M^{2m}$, we have
+	$Q_{-M} \cong -Q_{M}$.
+\end{proposition}
+\begin{proof}
+	This is immediate, since the fundamental class changes sign as orientation flips.
+\end{proof}
+
 An immediate corollary of \cref{prop:connected-sum-operation} and \cref{prop:connected-sum-intersection-form} is
-that the intersection form is a homomorphism of commutative monoids, i.e. sets with a commutative associative binary operation and identity elements. On one side, we have the monoid $\mathcal{M}^{2m}$ of oriented compact $2m$-manifolds connected sum, and on the other side we have $\mathcal{Q}(\Z)$ of bilinear forms valued in $\Z$ under the operation of direct sum. Similarly, the unoriented intersection form maps the monoid of unoriented compact $2m$-manifolds $\widetilde{\mathcal{M}}^{2m}$ to $\mathcal{Q}(\Z)$.
+that the intersection form is a homomorphism of commutative monoids, i.e. sets with a commutative associative binary operation and identity elements. On one side, we have the monoid $\mathcal{M}^{2m}$ of oriented compact $2m$-manifolds under connected sum, and on the other side we have $\mathcal{Q}(\Z)$ of bilinear forms valued in $\Z$ under the operation of direct sum. Similarly, the unoriented intersection form maps the monoid of unoriented compact $2m$-manifolds $\widetilde{\mathcal{M}}^{2m}$ to $\mathcal{Q}(\Z)$.
 \begin{equation}\label{eq:monoid-homomorphism-intersection-form}
-	\lkxfunc{}{\mathcal{M}^{2m}}{\mathcal{Q}(\Z),}{X}{Q_X,}
+	\lkxfunc{}{\mathcal{M}^{2m}}{\mathcal{Q}(\Z),}{M}{Q_M,}
 	\quad\textrm{and}\quad
-	\lkxfunc{}{\widetilde{\mathcal{M}}^{2m}}{\mathcal{Q}(\Z/2),}{X}{\widetilde{Q}_X.}
+	\lkxfunc{}{\widetilde{\mathcal{M}}^{2m}}{\mathcal{Q}(\Z/2),}{M}{\widetilde{Q}_M.}
 \end{equation}
 The monoidal structure of the intersection form is quite useful throughout geometric topology, especially in classification problem.
 
@@ -325,11 +359,80 @@ The classification of compact surfaces by the intersection form is a model resul
 	\]
 	is at most two-to-one, i.e. a symmetric intersection form corresponds to at most two topological $4$-manifolds, one which admits a smooth structure and one which does not.
 \end{theorem}
-An accessible exposition to this remarkable theorem can be found in \cite{behrens2021discembedding}. We will explore this theorem in a bit more depth in \cref{sec:smoothing-obstructions}.
+An accessible exposition to this remarkable theorem can be found in \cite{behrens2021discembedding}. We will explore this theorem and its consequences with more depth in \cref{sec:smoothing-obstructions}.
 
 \subsection{Intersection Form Invariants}\label{sec:intersection-form-invarians}
 
-While the complete algebraic data of a
+While the complete algebraic data of an intersection form captures a lot of the topological structure of a manifold, it is useful to extract further simpler invariants from the intersection form.
+
+We will work with a general integer lattice $\Lambda$ and $Q$ an integral bilinear form over $\Lambda$, not necessarily the intersection form of some manifold. Recall that under a change of basis matrix $P$, the matrix of the bilinear form transforms as $Q\mapsto P^\intercal QP$. We are therefore looking for quantities which are invariant under such transformations, helping us understand the structure of the monoid $\mathcal{Q}(\Z)$.
+
+\begin{definition}
+	The \defn{rank} of $Q$ is simply the dimension of the lattice $\Lambda$.
+\end{definition}
+
+When $Q$ is the intersection form of a manifold, its rank is the middle Betti number $\beta_m = \dim \H_m(X)_{\textrm{free}}$ of the manifold. This is the simplest invariant of a bilinear form.
+
+\begin{definition}
+	A form is said to be \defn{degenerate}[degenerate bilinear form] if $\det Q=0$ and \defn{non-degenerate}[non-degenerate bilinear form] otherwise.
+\end{definition}
+
+An equivalent dual way to view a bilinear form is by the homomorphism
+\[
+	\lkxfunc{Q^\d}{\Lambda}{\Hom(\Lambda, \Z)}{\alpha}{(\beta\mapsto Q(\alpha,\beta)).}
+\]
+In this context, a bilinear form non-degenerate if and only if $Q^\d$ is injective. We can refine this notion further.
+\begin{definition}
+	A bilinear form is said to be \defn{unimodular} if $\det Q=\pm 1$. 
+\end{definition}
+A bilinear form is unimodular if and only if $Q^\d$ is an isomorphism. The notion of unimodularity for integral bilinear forms is a special case of the notion of a \defn{perfect pairing}. A perfect pairing $V\otimes W \to R$ is a bilinear map such that the dual homomorphism $V \to \Hom(W, R)$ is an isomorphism. These notions of degeneracy and unimodularity are not a terribly useful source of invariants by the following proposition.
+
+\begin{proposition}\label{prop:unimodular-intersection-form}
+	 If $M$ is a compact manifold with $\H_m(\partial M)$ and $\H_{m-1}(\partial M)$ trivial, then the intersection form $Q_M$ is unimodular.
+\end{proposition}
+\begin{proof}
+	By the universal theorem argument in \cref{rmk:dual-lattice-intersection-form}, we have an isomorphism
+	\begin{equation}\label{eq:dual-lattice-isomorphism}
+		\H^m(M,\partial M) \lkxisom \Hom(\H_m(M), \Z).
+	\end{equation}
+	The resulting pairing $\langle -, -\rangle : \H^m(M,\partial M)\otimes \H_m(M) \to \Z$, known as the Kronecker pairing, is therefore a \defn{perfect}[perfect bilinear form] pairing. Since the intersection form is given by
+	\[
+		Q_M(a,b) = \langle \mathrm{PD}(a), b\rangle,\quad a,b\in \H_m(M)
+	\]
+	where $\mathrm{PD} : \H^{m}(M,\partial M) \to \H_m(M)$ is the Poincar\'e-Lefschetz duality isomorphism, it follows that $Q_M^\d$ is the composition of $\mathrm{PD}$ with \cref{eq:dual-lattice-isomorphism} and so is an isomorphism itself.
+\end{proof}
+
+\todo{examples}
+\begin{example}
+\end{example}
+
+\begin{definition}
+	Write $Q=P^\intercal D P$ for a diagonal real matrix $D$ ($P$ can be a real matrix), then count the number $n^+$ of positive eigenvalues, $n^0$ the number of zero eigenvalues, and number $n^-$ of negative eigenvalues. The \defn{signature}[signature of a bilinear form] of the bilinear form is the difference between the number of positive and negative eigenvalues $n^+-n^-$.
+	The triple $(n^+, n^-, n^0)$ is referred to as the \defn{inertia}[inertia of a bilinear form] of $Q$.
+\end{definition}
+
+In the context of intersection forms, the signature is only a useful invariant for $4k$-manifolds, since the intersection form of a $(4k+2)$-manifold is skew-symmetric and thus has signature $0$.
+
+\begin{remark}
+	By Sylvester's Law of Inertia, the rank and inertia completely classify symmetric bilinear forms on a vector space over $\R$ or $\Q$. Over the integers $\Z$, the classification of symmetric bilinear forms is significantly more complex.
+
+	classifies bilinear forms on a vector space over $\R$ or $\Q$. The case of bilinear forms over $\Z$ is significantly more complex.
+\end{remark}
+
+\begin{definition}
+	The \defn{signature}[signature of a manifold] of a $4k$-dimensional manifold $M$ is the signature of its intersection form, and is denoted $\sigma(M)$.
+\end{definition}
+
+When $Q$ is the intersection form of a manifold $X$, especially a $4k$-manifold so that the form can have non-zero eigenvalues, the signature of the intersection form is referred to as the \defn{signature}[signature of a manifold] of the manifold, and denoted $\sigma(X)$. This is a topological invariant of fundamental importance, and we will see many of its generalizations and equivalent definitions in \cref{sec:hirzebruch-signature-theorem} and \cref{sec:surgery-invariant}.
+
+\begin{definition}
+	If for all non-zero elements $\alpha\in \Lambda$ we have $Q(\alpha,\alpha)>0$, then we say that $Q$ is \defn{positive-definite}[positive-definite bilinear form]. On the contrary, if we have $Q(\alpha,\alpha)<0$ for all non-zero elements $\alpha\in \Lambda$, we say that $Q$ is \defn{negative-definite}[negative-definite bilinear form]. Otherwise, $Q$ is said to be \defn{indefinite}[indefinite bilinear form].
+\end{definition}
+
+\begin{definition}
+	If for all elements $a$, $Q(a,a)$ even, then $Q$ is said to be \defn{even}[even bilinear form]. Otherwise, we say that $Q$ is \defn{odd}[odd bilinear form].\footnote{Some sources refer to this property as ``type''. Odd forms are said to be \defn{type I}[type I bilinear form] and even forms are to be \defn{type II}[type II bilinear form].}
+\end{definition}
+
 
 
 \medskip
@@ -388,7 +491,7 @@ For a simple example of a cobordism between a circle and a disjoint union of cir
 	Both the oriented and unoriented cobordism groups are trivial in dimension 1, since every circle is the boundary of a disk.
 \end{example}
 
-In higher dimensions, the classification becomes much more interesting. 
+In higher dimensions, the classification becomes much more interesting.
 
 \begin{figure}[ht]
 	\renewcommand{\arraystretch}{1.2}
@@ -410,7 +513,7 @@ In higher dimensions, the classification becomes much more interesting.
 	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
 \end{figure}
 
-The structure of \cref{fig:cobordism-structure-table} makes a lot more sense in the context of 
+The structure of \cref{fig:cobordism-structure-table} makes a lot more sense in the context of
 
 \begin{proposition}
 	The product of manifolds is a well-defined operation with respect to cobordism.
@@ -460,10 +563,10 @@ The oriented cobordism ring has a grading by
 \pagebreak
 \section{Characteristic Classes}
 The study of characteristic classes began with the work of Hassler Whitney and Eduard Stiefel in the mid 1930s. Since then, the fundamental idea has remained unchanged -- a vector bundle on a manifold determines certain ``characteristic'' classes in the homology or cohomology of the base manifold.
-By the mid 1940s, these ideas were extended by Lev Pontryagin and Shing-Shen Chern to better capture the geometric data of oriented real and complex vector bundles respectively. In the following decades, characteristic classes quickly joined the toolboxes of mathematicians from a wide range of disciplines, finding connections to prior notions in these fields. 
-Applications ranged from algebraic topology, differential topology of exotic spheres, complex geometry, index theory, and may others. 
+By the mid 1940s, these ideas were extended by Lev Pontryagin and Shing-Shen Chern to better capture the geometric data of oriented real and complex vector bundles respectively. In the following decades, characteristic classes quickly joined the toolboxes of mathematicians from a wide range of disciplines, finding connections to prior notions in these fields.
+Applications ranged from algebraic topology, differential topology of exotic spheres, complex geometry, index theory, and may others.
 
-We will present a few equivalent formulations of characteristic classes in this thesis, each useful in its own context. These formulations are, 
+We will present a few equivalent formulations of characteristic classes in this thesis, each useful in its own context. These formulations are,
 \begin{itemize}
 	\item as natural transformations satisfying certain axioms in \cref{sec:axiomatic-characteristic-classes},
 	\item as generators of the cohomology ring of a classifying space in \cref{sec:universal-characteristic-classes},
@@ -475,28 +578,28 @@ At this stage, we assume a basic knowledge of vector bundles, structure groups, 
 \subsection{Axiomatic Perspective on Characteristic Classes}\label{sec:axiomatic-characteristic-classes}
 
 \begin{definition}\label{defn:characteristic-class}
-A \defn{characteristic class} $c$, valued in a cohmology theory $h$, is a natural transformation of contravariant functors
-\[
-	\lkxfunc{c}{\Vect_G}{h^\bullet,}
-\]
-given a structure group $G$. 
+	A \defn{characteristic class} $c$, valued in a cohmology theory $h$, is a natural transformation of contravariant functors
+	\[
+		\lkxfunc{c}{\Vect_G}{h^\bullet,}
+	\]
+	given a structure group $G$.
 \end{definition}
 
 Here, $h^\bullet : \Top \to \Rng$ sends a space to its  cohomology ring, and $\Vect_G : \Top \to \Set$ sends a space to the set of isomorphism classes of vector bundles over the space with structure group $G$.
 
 Given a manifold $M$, a characteristic class assigns a vector bundle $\xi$ over $M$ to a cohomology class $c(\xi)\in h^\bullet(M)$.
-This assignment is done in a natural way, i.e. given bundles $\xi_1$ and $\xi_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\xi_1 \to \xi_2$, we have $f^* c(\xi_2) = c(\xi_1)$. 
+This assignment is done in a natural way, i.e. given bundles $\xi_1$ and $\xi_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\xi_1 \to \xi_2$, we have $f^* c(\xi_2) = c(\xi_1)$.
 
 \begin{convention*}
 	Since every smooth manifold $M$ comes with a canonical vector bundle -- the tangent bundle -- it's common to use the notation $c(M)$ to refer to $c(\T M)$.
 \end{convention*}
 
-\begin{remark} 
+\begin{remark}
 	The cohomology ring $h^\bullet(M)$ has a $\Z$-grading
-\[
+	\[
 		h^\bullet(M) = \bigoplus_{k\in \Z} h^k(M).
-\]
-Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\xi)$. It then makes sense to consider the \defn{total characteristic class} $c(\xi)=\sum_i c_i(\xi)\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$.
+	\]
+	Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\xi)$. It then makes sense to consider the \defn{total characteristic class} $c(\xi)=\sum_i c_i(\xi)\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$.
 \end{remark}
 
 When bundles over the same base space are isomorphic, the naturality of a characteristic class implies that the corresponding characteristic classes are the same. This is useful for classifying vector bundles over a space but doesn't help when we need to compare vector bundles over distinct spaces.
@@ -511,7 +614,7 @@ When a cohomology theory admits a Poincar\'e duality isomorphism $h^{n-k}(M) \co
 \end{convention*}
 
 \begin{remark}\label{rmk:characteristic-number-monomial-polynomial}
-	Whenever we have some family $\{c_i\}$ of homogeneous characteristic classes and an $n$-dimensional manifold $M$, it is common to associate characteristic numbers of the tangent bundle to partitions $k_0|c_0|+k_1|c_1|+\cdots+k_\ell|c_\ell| = n$. We then get a characteristic class $c_0^{k_0}\cdots c_\ell^{k_\ell}$, homogeneous of degree $n$. For each closed $n$-dimensional manifold $M$, the monomial $c_0^{k_0}\cdots c_\ell^{k_\ell}$ thus has an associated characteristic number $c_0^{k_0}\cdots c_\ell^{k_\ell}[M]$. 
+	Whenever we have some family $\{c_i\}$ of homogeneous characteristic classes and an $n$-dimensional manifold $M$, it is common to associate characteristic numbers of the tangent bundle to partitions $k_0|c_0|+k_1|c_1|+\cdots+k_\ell|c_\ell| = n$. We then get a characteristic class $c_0^{k_0}\cdots c_\ell^{k_\ell}$, homogeneous of degree $n$. For each closed $n$-dimensional manifold $M$, the monomial $c_0^{k_0}\cdots c_\ell^{k_\ell}$ thus has an associated characteristic number $c_0^{k_0}\cdots c_\ell^{k_\ell}[M]$.
 
 	More generally, given a polynomial in $\ell$ variables $K\in R[x_1,\ldots, x_\ell]$ with $K(z^{|c_0|}, \ldots, z^{|c_\ell|})$ homogeneous of degree $n$, the class $K(c_0,\ldots, c_\ell)$ is a homogeneous characteristic class of dimension $n$ and so has
 	an associated characteristic number $K(c_0, \ldots, c_\ell)[M] \in R$.
@@ -526,7 +629,7 @@ Stiefel-Whitney classes are some of the simplest characteristic classes, defined
 	\begin{enumerate}[(a)]
 		\item The degree $0$ component of $w$ is always $1\in H^0(-; \Z/2)$.
 		\item The total degree of $w$ is never greater than the dimension of the base space.
-		\item For bundles $\xi_1$ and $\xi_2$ over a common base, we have $w(\xi_1\oplus \xi_2)=w(\xi_1)\smile w(\xi_2)$. 
+		\item For bundles $\xi_1$ and $\xi_2$ over a common base, we have $w(\xi_1\oplus \xi_2)=w(\xi_1)\smile w(\xi_2)$.
 		\item If $\gamma$ is the canonical line bundle over the circle $\RP^1$, we have $w(\gamma)=1+\alpha$ in the ring $\H^\bullet(\RP^1; \Z/2)\cong \Z/2[\alpha]/(\alpha^2)$.
 	\end{enumerate}
 	Here, we set $w_i$ to be the homogeneous component of $w$ in $\H^i(-;\Z/2)$.
@@ -552,19 +655,19 @@ Of course, this definition is not constructive, and it is not at all clear that 
 	By the Whitney product formula, $c(\xi\oplus \underline{\R}^k)=c(\xi)\smile c(\underline{\R}^k)= c(\xi)$.
 \end{corollary}
 
-In other words, adding on trivial bundles to a vector bundle does not affect the Stiefel-Whitney class. This equivalence relation on vector bundles is known as stable isomorphism, namely two vector bundles $\xi_1$ and $\xi_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\xi_1\oplus \underline{\R}^{k_1} \cong \xi_2\oplus \underline{\R}^{k_2}$. \todo{stable structure group}. 
+In other words, adding on trivial bundles to a vector bundle does not affect the Stiefel-Whitney class. This equivalence relation on vector bundles is known as stable isomorphism, namely two vector bundles $\xi_1$ and $\xi_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\xi_1\oplus \underline{\R}^{k_1} \cong \xi_2\oplus \underline{\R}^{k_2}$. \todo{stable structure group}.
 
 \begin{definition}
 	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\xi\oplus \underline{\R}^k) = c(\xi)$ for any $k$.
 \end{definition}
 
 The sensitivity of Stiefel-Whitney classes to stable isomorphism types has a nice geometric corollary. If a manifold $M$ can be embedded \todo{finish}
-This notion is known as \defn{stable parallelizability},\todo{finish} 
-we will prove in \cref{thm:homotopy-sphere-stably-parallelizable} that any manifold homeomorphic sphere in dimension $n\geq 5$ has a tangent bundle which is stably isomorphic to the trivial bundle, and hence all characteristic classes of exotic spheres are trivial. This triviality is one reason for the subtleties in detecting exotic spheres, since they cannot be distinguished by stable characteristic classes. 
+This notion is known as \defn{stable parallelizability},\todo{finish}
+we will prove in \cref{thm:homotopy-sphere-stably-parallelizable} that any manifold homeomorphic sphere in dimension $n\geq 5$ has a tangent bundle which is stably isomorphic to the trivial bundle, and hence all characteristic classes of exotic spheres are trivial. This triviality is one reason for the subtleties in detecting exotic spheres, since they cannot be distinguished by stable characteristic classes.
 
 \subsection{Wu Classes}
 
-A refinement 
+A refinement
 
 \subsection{Chern Classes}
 
@@ -574,9 +677,9 @@ A refinement
 \end{theorem}
 
 
-Note that since 
+Note that since
 
-\subsection{A Universal Perspective on Characteristic Classes}\label{sec:universal-characteristic-classes} 
+\subsection{A Universal Perspective on Characteristic Classes}\label{sec:universal-characteristic-classes}
 
 \begin{definition}
 	The \defn{infinite-dimensional Grassmannian}, denoted $\Gr_k$ or $\Gr_k(\R^\infty)$ is defined as the direct limit

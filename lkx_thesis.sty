@@ -33,7 +33,12 @@
 \tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
 \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
 \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
-\tikzcdset{every arrow/.append style={}}
+
+% \tikzset{>={Straight Barb[scale=0.8]}}
+% \tikzcdset{arrow style=tikz,diagrams={>={Straight Barb[scale=0.8]}}}
+% \tikzcdset{every arrow/.append style={thick, rounded corners=5pt, line join=round, line width = 1pt, {>[scale=2.5]}}
+% \tikzset{>={cmto}}
+% \tikzset{>={Stealth[length=3mm, width=1mm]}}
 % TODO: fix this to look consistent with the rest of the thesis
 
 % Debug
@@ -109,6 +114,9 @@
 \DeclareMathOperator{\Vert}{Vert}
 \DeclareMathOperator{\Edge}{Edge}
 \DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\Int}{Int}
+
+\renewcommand{\d}{*} % dual space
 
 \newcommand{\T}{\mathrm{T}} % tangent space
 \newcommand{\B}{\mathscr{B}} % frame bundle

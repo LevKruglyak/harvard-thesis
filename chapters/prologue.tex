@@ -10,8 +10,7 @@
 
 During my last summer before graduating college, some friends and I set out on a mountaineering trip up Banner peak, a picturesque mountain in the eastern Sierra Nevada range of California. Just before the exhaustion of the multiple day trip set in, the conversation turned towards the upcoming year, where I mentioned that I would be writing a senior thesis on exotic spheres.
 I struggled to find the words to explain intuitively what these exotic spheres were, much less what made them ``exotic'' in the first place.
-The best I could manage was ``exotic spheres are spaces which are shaped like spheres, but have some twistedness about them which makes them somehow different to spheres''. I mentioned something about how exotic spheres allegedly showed up in some very theoretical physics, so maybe they had applications outside of math?
-Compared to the creeping glaciers and massive walls of imposing granite, exotic spheres seemed like a distant and artificial academic oddity.
+The best I could manage was ``exotic spheres are spaces which are shaped like spheres, but have some twistedness about them which makes them somehow different to spheres''. 
 While much of my initial hesitation was due to my own lack of understanding of these strange objects at the time, the problem of a simple explanation for an exotic sphere remains.
 
 One of the reasons for this complexity is that exotic spheres are phenomena which are fundamentally high dimensional in nature. As far as we know, the smallest dimensional exotic sphere is 7-dimensional, far beyond the threshold for a complete visual picture. Another difficulty is that by their very definition, exotic spheres are related to subtle differences in the way we define \emph{space} in mathematics. These subtleties, combined with the high dimensions in which they take place make this a hard subject to visualize. The fact that we are even able to detect and classify exotic spheres at all is a testament to the powerful abstraction achieved by modern mathematics.
@@ -30,12 +29,9 @@ By dispensing with the Euclidean axiom of flatness, mathematicians opened up a c
 
 \begin{figure}[ht]
 	\centering
-	\todo{draw the figure}
-	\medskip
-	\caption{Triangles in Euclidean (left) and non-Euclidean geometries.}
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{Triangles in Euclidean (left) and non-Euclidean geometries (right).}
 \end{figure}
-
-% At the time, many of these new geometries were seen as abstract mathematical departures from the physically motivated notions of Euclidean geometry. Much to everyone's surprise, this all changed with Einstein's theory of general relativity in 1915. Einstein showed that space and time are much better modelled by a non-Euclidean, $4$-dimensional geometry than by a Euclidean geometry, permanently cementing non-Euclidean geometry into the undoubtedly tangible realm of physics.
 
 Near the end of the 19th century, a sparse set of theorems and loose definitions began to consolidate into a field known as topology. Although there weren't many clear definitions in the early days of the field, the central idea was simple. Rather than just removing the axiom of flatness like in the case of non-Euclidean geometries, topology removes most of the axioms, leaving only the \emph{shape} of space, detached from any quantitative information. Unlike a geometric space, a topological space does not come with any notions of distance, angle, perpendicularity, area or volume -- all that is left is a notion of continuity.
 In the geometry that most people are familiar with, two shapes are said to be congruent, or geometrically equivalent, if we can transform between them in a way that does not alter distances,angles, and consequently areas.
@@ -48,22 +44,9 @@ The only requirement for a topological equivalence is that it is continuous, tha
 
 In many areas of topology, we require our spaces to be \emph{manifolds}.
 A space is said to be a manifold if it can be built out of patches of coordinate space. For instance, our intuitive model of the surface of the earth is flat, specified by the perpendicular directions -- north/south and east/west. On human scales, this coordinate system is indistinguishable from a flat plane. However, if we keep going north we'd end up at the north pole, at which point the notion of ``further north'' no longer makes sense. At the north pole, we'd have to come up with a different coordinate system but that's fine -- as long as a space has a local coordinate system at each point, the space is a manifold. The number of coordinates needed to describe a manifold is known as its \emph{dimension}. The surface of the earth for example can be represented by a two-dimensional manifold, this is a two-dimensional sphere. Similarly, a circle can be thought of as a one-dimensional manifold since locally it looks like a line, a circle can be thought of as a one-dimensional sphere.
-A three-dimensional sphere is a bit harder to visualize, but is still within the realm of human imagination. Remember, the surface of the Earth is a two-dimensional sphere which is embedded in three-dimensional space. My favorite way to visualize a three-dimensional sphere is by a sort of ``dumpling'' construction. blah blah \todo{not sure if this is needed}
-\begin{figure}[ht]
-	\centering
-	\todo{building spheres by pinching}
-	\medskip
-	\caption{A ``dumpling'' construction.}
-\end{figure}
 
-\todo{I have a written section on Riemann surfaces and Poincar\'e's simplicial complexes but it might be too much of a detour}
-
-While the study of manifolds is a deep and fascinating discipline in itself, many manifolds have some extra geometric structure which makes them more interesting to work with. Many of these structures were originally inspired by physics.
-% In the very early days of topology for instance, 
-% Poincar\'e worked largely with manifolds built up of small triangles, tetrahedra, and their higher dimensional analogues. 
-% By counting the number and intersections of these small pieces, Poincar\'e was able to develop a theory of ``combinatorial topology''. \todo{talk about Euler number}
-\todo{talk about symplectic manifold -> classical mechanics?, Riemannian geometry for Einstein}
-The common feature behind all of these geometric structures was that they required a notion of ``calculus'' on manifolds, i.e. infinitesimals, derivatives, and the like. Mathematicians did what they do best -- remove unnecessary axioms and work primarily in this most general context. For calculus on manifolds, the most general definition was that of a \emph{smooth structure}, the word smooth here meaning ``infinitely differentiable''. In the spirit of topology, while a smooth structure might not allow you to get precise numerical solutions to differential equations, it does allow you to explore the dimensionality of the solutions -- how many \emph{types} of solutions are there rather than what exactly they are. Instead of only requiring two equivalent manifolds to just have the same shape, we now also require equivalences between them to be infinitely differentiable -- so no infinitely sharp kinks or bends. These smooth equivalences are called \emph{diffeomorphisms}.
+While the study of manifolds is a deep and fascinating discipline in itself, many manifolds have some extra geometric structure which makes them more interesting to work with. Many of these structures were originally inspired by physics -- for instance Einstein's manifolds modelling the fabric of space and time came with a way to measure the curvature caused by the presence of a heavy mass or large energy density.
+The common feature behind many of these geometric structures was that they required a notion of ``calculus'' on manifolds, i.e. infinitesimals, derivatives, and the like. Mathematicians did what they do best -- remove unnecessary axioms and work primarily in this most general context. For calculus on manifolds, the most general definition was that of a \emph{smooth structure}, the word smooth here meaning ``infinitely differentiable''. In the spirit of topology, while a smooth structure might not allow you to get the precise numerical solutions to differential equations, it does allow you to explore the dimensionality of the solutions -- how many \emph{types} of solutions are there rather than what exactly they are. Instead of only requiring two equivalent manifolds to just have the same shape, we now also require equivalences between them to be infinitely differentiable, excluding infinitely sharp kinks or bends. These smooth equivalences are called \emph{diffeomorphisms}.
 
 With just topology, the dressing room of a manifold is dizzyingly vast.
 A circle could be represented by homeomorphism with a square, a squiggly blob, a spiky star, a horrifically jagged fractal snowflake, or literally any other closed loop drawn without lifting your pencil. Any of these outfits ``fit'' the abstract topological circle.
@@ -90,13 +73,6 @@ At first glance, the number of smooth structures on the sphere does not appear t
 	\medskip
 	\caption{The number of smooth structures on the spheres.}
 \end{figure}
-
-When I first heard about exotic spheres in an introductory class on differential topology, I wondered if these were ``real'' mathematical objects or simply quirky artifacts of our definitions. There is of course, no objective answer to this question, and any answer reflects a level of mathematical bias.
-As the Prussian mathematician Leopold Kronecker once remarked ``God created the integers, all else is the work of man''. My own philosophy didn't go quite as far as Kronecker's.
-I was fairly convinced that non-Euclidean geometries were real -- or at the very least, were more than just a mathematical curiosity.
-After all, Einstein's theory of general relativity showed that the space and time of our universe is far better modelled by a curved, $4$-dimensional, non-Euclidean geometry than by a Euclidean geometry.
-The predictive success of Einstein's theory cemented non-Euclidean geometry into the undoubtedly tangible realm of physics.
-Compared to the rigid structures of geometry, the sea of all possible topological spaces is chaotic and vast. Somehow, restricting space to be spherical \todo{something something}
 
 
 \section*{Ramifications of Exoticity}
