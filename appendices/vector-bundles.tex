@@ -1,4 +1,7 @@
-\chapter{Vector Bundles}
+\chapter{Vector Bundles}\label{chap:vector-bundles}
+
+\begin{epigraph}{10em}{}
+\end{epigraph}
 
 \section{Structure Groups}
 
@@ -15,16 +18,13 @@ Whenever we have a Lie group $G$ and homomorphism $\rho : G \to \GL_k\F$, there 
 \end{equation}
 is said to be a \defn{$(G,\rho)$-structure}[structure on a vector bundle] on $E$. When $\rho$ is injective, a $(G,\rho)$-structure is said to be a \defn{reduction}[reduction of the structure group] of the structure group to $G$.
 Note that every vector bundle comes with a canonical $(\GL_k \F, \id)$-structure.
-For real vector bundles, the most common structure groups are:
+For real vector bundles, some common structure groups are:
 \begin{itemize}
 	\item A reduction to $\GL^+_k\R$ corresponds to an orientation of the bundle.
 	\item A reduction to $\O_k$ corresponds to a Riemannian structure, i.e. an inner product on the bundle. Every real vector bundle admits such a structure, although not canonically.
-	\item A reduction to $\SO_k$ corresponds to an orientation and a Riemannian structure.
-	\item A reduction to $\GL_{k}\C\subset \GL_{2k}\R$ corresponds to a complex structure on the real vector bundles, i.e. an endomorphism $J$ with $J^2=-\id$.
-\end{itemize}
-For complex vector bundles, the most common structure group is:
-\begin{itemize}
-	\item A reduction to $\U_k\subset \GL_k\C$ corresponds to a Hermitian structure, i.e. a Hermitian inner product on the bundle.
+	\item A further reduction to $\SO_k$ corresponds to an orientation and a Riemannian structure.
+	\item A reduction to $\GL_{k}\C\subset \GL_{2k}\R$ corresponds to a complex structure on a rank $2k$ real vector bundle, i.e. an endomorphism $J$ with $J^2=-\id$. This is equivalent to the data of a complex vector bundle.
+	\item A further reduction to $\U_k\subset \GL_k\C$ corresponds to a Hermitian structure on the complex vector bundle, i.e. a Hermitian inner product on the bundle.
 \end{itemize}
 
 \begin{remark}
@@ -41,44 +41,62 @@ For complex vector bundles, the most common structure group is:
 	\todo{Ehrlagen program}
 \end{remark}
 
+\section{Universal Bundles}
+
+\begin{proposition}\label{prop:homotopy-invariance-vector-bundle}
+	There is a natural
+\end{proposition}
+
+\begin{theorem}\label{thm:classifying-space}
+\end{theorem}
+	Generally, if $G$ is a Lie group there is a natural isomorphism of contravariant functors
+	\[
+		[-, \BB G] \lkxto \Bun_G(-)
+	\]
+	where $[-, \BB G]$ is the set of homotopy classes of maps to a space $\BB G$ and $\Bun_G(-)$ is the set of isomorphism classes of principal $G$-bundles over a given space.
+	The space $\BB G$ is known as the \defn{classifying space}\footnote{The classifying space is rarely a manifold, and is usually an infinite dimensional CW complex.} of $G$ and this space comes equipped with a \defn{universal bundle} $\zeta : \EE G \to \BB G$. With this universal bundle, the natural isomorphism is easy to describe. Under the appropriate topological restrictions, a map $\tau : X \to \BB G$ gives us a pullback bundle $\tau^*\zeta$ over $X$. This is a principal $G$-bundle over $X$ which is entirely determined by the homotopy type of the \defn{classifying map} $\tau$.
+
+	In some sense, the universal bundle $\zeta$ is the ``most twisted $G$-bundle''. Pullbacks of bundles generally ``dilute'' the twistedness of a bundle -- for instance, the splitting principle allows any complex vector bundle to be pulled back to a direct sum of complex line bundles. It would stand to reason that every bundle is the pullback of a more twisted bundle, and the limit of this process is the universal bundle $\zeta$ over the classifying space. See Chapter IV of \cite{botttu1982differential} for a wonderful exposition on the topic.
+
+
 \section{Vector Bundles on Spheres}
 
-This is a good time for a brief interlude on vector bundles over spheres.
-Vector bundles over a sphere can be classified by the clutching construction. Suppose $\xi : E \to S^m$ is a vector bundle. We can decompose the sphere $S^m$ into hemispheres $S^m=D_+^m\cup D_-^m$, and these disks intersect at the equator $D_+^m\cap D_-^m=S^{m-1}\subset S^m$ -- a sphere one dimension lower. The bundle $\xi$ can be trivialized on the hemispheres since they are contractible, and we denote these trivializations
+When the base manifold is a sphere, there is a useful construction which allows for a completely homotopy theoretic classification of vector bundles.
+
+Suppose $\xi : E \to S^m$ is a vector bundle. We can decompose the sphere $S^m$ into hemispheres $S^m=D_+^m\cup D_-^m$, and these disks intersect at an equator $D_+^m\cap D_-^m=S^{m-1}\subset S^m$ -- a sphere one dimension lower. The bundle $\xi$ can then be trivialized on the hemispheres since they are contractible. Let's denote these trivializations
 \[
-	\lkxfunc{\varphi_+}{E|_{D^m_+}}{D^m_+\times \R^m}
+	\lkxfunc{\varphi_+}{E|_{D^m_+}}{D^m_+\times \F^m}
 	\quad\textrm{and}\quad
-	\lkxfunc{\varphi_-}{E|_{D^m_-}}{D_-^m \times \R^m.}\]
-The trivializations must come with transition functions on their intersection (we might have to expand the intersection a bit so that it is open). The transition function is a diffeomorphism $\psi$ in the commutative diagram
+	\lkxfunc{\varphi_-}{E|_{D^m_-}}{D_-^m \times \F^m.}\]
+Expanding their equatorial intersection by a tubular neighborhood and choosing transition functions, we get a diffeomorphism 
+	$\psi$ in the commutative diagram
 \[\begin{tikzcd}
-		{S^{m-1}\times \R^m} && {S^{m-1}\times \R^m} \\
+		{S^{m-1}\times \R^m} && {S^{m-1}\times \F^m} \\
 		& {E|_{S^{m-1}}}
 		\arrow["\psi", from=1-1, to=1-3]
 		\arrow["{\varphi_+|_{S^{m-1}}}", from=2-2, to=1-1]
 		\arrow["{\varphi_-|_{S^{m-1}}}"', from=2-2, to=1-3]
 	\end{tikzcd}\]
-which is constant on the first factor, and linear in the second factor. For each point $p\in S^{m-1}$, the diffeomorphism $\psi$ thus gives a linear function $\tau_p : \R^m \to \R^m$. These linear maps are the ``change of coordinate'' transformations between the fibers on the boundaries of $D_+^m$ and $D_-^m$ (see \cref{fig:clutching-construction}).
+which is constant on the first factor, and linear in the second factor. For each point $p\in S^{m-1}$, the diffeomorphism $\psi$ gives a linear function $\tau_p : \R^m \to \F^m$. These linear maps are the ``change of coordinate'' transformations between the fibers on the boundaries of $D_+^m$ and $D_-^m$ as depicted in \cref{fig:clutching-construction}.
 \begin{figure}[ht]
 	\centering
 	\import{diagrams}{clutching-construction.pdf_tex}
 	\caption{Getting a map $\tau : S^{m-1}\to \GL_m$ from a vector bundle over $S^{m}$.}\label{fig:clutching-construction}
 \end{figure}
 
-Altogether, this family of linear transformations is indexed by the equator $S^{m-1}$, and this gives us a smooth map $\tau : S^{m-1}\to \GL_m$. It follows that the homotopy type of $\tau$ is only dependent on the isomorphism type of the bundle $\xi$ since any vector bundle isomorphism can be shown to induce a homotopy of smooth maps. In order words, we have a map
+Altogether, this family of linear transformations is indexed by the equator $S^{m-1}$, and this gives us a smooth map $\tau : S^{m-1}\to \GL_m \F$. It follows that the homotopy type of $\tau$ is only dependent on the isomorphism type of the bundle $\xi$ since any vector bundle isomorphism induces a homotopy by \cref{prop:homotopy-invariance-vector-bundle}. In other words, we have a map
 \[
-	\lkxfunc{}{\Vect_m(S^m)}{\pi_{m-1}(\GL_m).}
+	\lkxfunc{}{\Vect_m(S^m)}{\pi_{m-1}(\GL_m \F).}
 \]
-sending a vector bundle $\xi$ to the its associated homotopy class $\tau\in \pi_{m-1}(\GL_m)$.
-
-The construction works in the opposite direction as well. Whenever we have a homotopy class $\tau\in \pi_{m-1}(\GL_m)$, we can form a bundle $\xi_\tau : E_\tau \to S^{m}$ by letting
+sending a vector bundle $\xi$ to the its associated homotopy class $\tau\in \pi_{m-1}(\GL_m \F)$.
+The construction works in the opposite direction as well. Whenever we have a homotopy class $\tau\in \pi_{m-1}(\GL_m \F)$, we can form a bundle $\xi_\tau : E_\tau \to S^{m}$ by letting
 \[
-	E_\tau = (D_+^m\times D^m)\cup_T (D_-^{m}\times D^m),
+	E_\tau = (D_+^m\times \F^m)\cup_h (D_-^{m}\times \F^m),
 \]
-where $T(x,y)=(x,\tau(x)y)$ is the glueing map.
+where $h(x,y)=(x,\tau(x)y)$ is the glueing map.
 
-\todo{write this}
-
-A similar argument holds when we restrict to oriented bundles, i.e. vector bundles with structure group $\SO_m$.
+\begin{theorem}
+\end{theorem}
 
 \begin{theorem}
 	The clutching construction gives bijections
@@ -93,6 +111,10 @@ A similar argument holds when we restrict to oriented bundles, i.e. vector bundl
 \begin{proof}
 	\todo{prove}
 \end{proof}
+
+\subsection{Euler Number of Vector Bundles On Spheres}
+
+A similar argument holds when we restrict to oriented bundles, i.e. vector bundles with structure group $\SO_m$.
 
 Under this correspondence the Euler number of a vector bundle can be considered as a group homomorphism
 \[
@@ -121,16 +143,8 @@ Under this correspondence the Euler number of a vector bundle can be considered 
 \end{proof}
 
 \begin{remark}
-	The clutching construction is a special case of a more general classification of principal $G$-bundles. Generally, if $G$ is a Lie group there is a natural isomorphism of contravariant functors
-	\[
-		[-, \BB G] \lkxto \Bun_G(-)
-	\]
-	where $[-, \BB G]$ is the set of homotopy classes of maps to a space $\BB G$ and $\Bun_G(-)$ is the set of isomorphism classes of principal $G$-bundles over a given space.
-	The space $\BB G$ is known as the \defn{classifying space}\footnote{The classifying space is rarely a manifold, and is usually an infinite dimensional CW complex.} of $G$ and this space comes equipped with a \defn{universal bundle} $\zeta : \EE G \to \BB G$. With this universal bundle, the natural isomorphism is easy to describe. Under the appropriate topological restrictions, a map $\tau : X \to \BB G$ gives us a pullback bundle $\tau^*\zeta$ over $X$. This is a principal $G$-bundle over $X$ which is entirely determined by the homotopy type of the \defn{classifying map} $\tau$.
-
-	In some sense, the universal bundle $\zeta$ is the ``most twisted $G$-bundle''. Pullbacks of bundles generally ``dilute'' the twistedness of a bundle -- for instance, the splitting principle allows any complex vector bundle to be pulled back to a direct sum of complex line bundles. It would stand to reason that every bundle is the pullback of a more twisted bundle, and the limit of this process is the universal bundle $\zeta$ over the classifying space. See Chapter IV of \cite{botttu1982differential} for a wonderful exposition on the topic.
-
-	It can be shown that (under suitable topological restrictions) there is a homotopy equivalence $\Omega \BB G \simeq G$ where $\Omega$ denotes the loop space operator in homotopy theory. Indeed from a homotopy theory perspective, the classifying space is a ``delooping'' of the group $G$. For spheres, the loop space suspension adjunction gives us natural isomorphisms
+	The clutching construction can be viewed as a special case of \cref{thm:classifying-space}.
+	\todo{It can be shown that (under suitable topological restrictions)} there is a homotopy equivalence $\Omega \BB G \simeq G$ where $\Omega$ denotes the loop space operator in homotopy theory. Indeed from a homotopy theory perspective, the classifying space is a ``delooping'' of the group $G$. For spheres, the loop space suspension adjunction gives us natural isomorphisms
 	\[
 		\begin{aligned}
 			\Bun_{G}(S^m) & \cong [S^m, \BB G]            \\

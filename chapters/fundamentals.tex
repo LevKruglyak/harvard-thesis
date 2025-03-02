@@ -11,6 +11,7 @@ The determination of manifolds up to cobordism is also one of the entrypoints of
 
 \todo{what other sections we need}
 
+\pagebreak
 \section{Basics of Geometric Topology}\label{sec:geometric-topology}
 
 Whenever a manifold $N^k$ is embedded a larger ambient manifold $M^n$, there is a short exact sequence of tangent bundles
@@ -113,6 +114,7 @@ many specially constructed manifolds we will consider in this chapter will at le
 
 \todo{give general conditions for representability}
 
+\pagebreak
 \section{The Intersection Form}\label{sec:intersection-form}
 
 One of the fundamental invariants for even-dimensional manifolds is the intersection form, a bilinear form on a lattice which captures the geometric data of submanifold intersections. The lattice in question is the free component of the middle-dimensional singular homology, and the pairing of two homology cycles by the form counts their number of ``intersections''. When the homology cycles of complementary dimension (as in the case of middle-dimensional homology cycles) are represented by smooth immersions, we can perturb them to make them transverse without changing the homology class. If the manifolds are compact, the preimage of their intersection is some finte set of points with orientation -- adding up the orientations of the points gives the orientation number.
@@ -120,9 +122,9 @@ One of the fundamental invariants for even-dimensional manifolds is the intersec
 This is the geometric interpretation of intersection, and we will explore it in more depth when we construct manifolds with given intersection theory in \cref{sec:plumbing}. For now, we will stick to understanding the algebraic properties of intersections as the adage ``think in terms of intersections, prove in terms of homology'' advises. To start, let us suppose that $M$ is a compact oriented $n$-manifold.
 The Poincar\'e-Lefschetz duality gives an isomorphism
 \begin{equation}
-	\lkxfunc{}{\H^{n-p}(X,\partial X)}{\H_p(X)}{\omega}{\omega\frown [X,\partial X]}
+	\lkxfunc{}{\H^{n-p}(M,\partial M)}{\H_p(M)}{\omega}{\omega\frown [M,\partial M]}
 \end{equation}
-assuming we have an orientation class $[X,\partial X]\in \H_n(X, \partial X)$ corresponding to the orientation of $M$. Under this duality, the intersection of homology classes is defined as the dual operation to the operation of cup product on cohomology classes. This operation is denoted $\alpha\cdot \beta$ for homology cycles $\alpha\in \H_p(M)$ and $\beta\in \H_q(M)$, and is the top map in \cref{eq:homology-intersection}
+assuming we have an orientation class $[M,\partial M]\in \H_n(M, \partial M)$ corresponding to the orientation of $M$. Under this duality, the intersection of homology classes is defined as the dual operation to the operation of cup product on cohomology classes. This operation is denoted $\alpha\cdot \beta$ for homology cycles $\alpha\in \H_p(M)$ and $\beta\in \H_q(M)$, and is the top map in \cref{eq:homology-intersection}
 \begin{equation}\label{eq:homology-intersection}
 	\begin{tikzcd}
 		{\H_p(M)\otimes \H_q(M)} & {\H_{n-p-q}(M)} \\
@@ -133,7 +135,7 @@ assuming we have an orientation class $[X,\partial X]\in \H_n(X, \partial X)$ co
 		\arrow["\smile", from=2-1, to=2-2]
 	\end{tikzcd}
 \end{equation}
-where the vertical maps are the Poincar\'e-Lefschetz isomorphism. Again, the intuition here should be that $\alpha\cdot \beta$ is the homology class representing the intersection of $\alpha$ and $\beta$ when they are arranged in general ``transverse'' position. Done over homology classes of complementary dimension, the resulting homology intersection class is 0-dimensional and hence pairs with an integer multiple $\ell\cdot [M, \partial M]\in \H^n(M,\partial M)$ of the top-dimensional orientation class. The integer multiple $\ell\in \Z$ is the \defn{intersection number}[intersection number of homology classes] of the cycles $\alpha$ and $\beta$. Removing torsion elements and working in middle dimensional homology so that $\alpha$ and $\beta$ live in the same group, we get an integral bilinear form.
+where the vertical maps are the Poincar\'e-Lefschetz isomorphism. Again, the intuition here should be that $\alpha\cdot \beta$ is the homology class representing the intersection of $\alpha$ and $\beta$ when they are arranged in general ``transverse'' position. Done over homology classes of complementary dimension, the resulting homology intersection class is 0-dimensional and hence pairs with an integer multiple $\ell\cdot [M, \partial M]\in \H_n(M,\partial M)$ of the top-dimensional orientation class. The integer multiple $\ell\in \Z$ is the \defn{intersection number}[intersection number of homology classes] of the cycles $\alpha$ and $\beta$. Removing torsion elements and working in middle dimensional homology so that $\alpha$ and $\beta$ live in the same group, we get an integral bilinear form.
 
 \begin{definition}
 	Let $M^{2m}$ be a compact oriented even-dimensional manifold, possibly with boundary. The \defn{intersection form} on middle dimensional homology is the bilinear form
@@ -277,7 +279,7 @@ For instance, the intersection form of $T^2\+ \RP^2$ is given by
 		0 & 1 & 0
 	\end{pmatrix}.
 \]
-This matrix represents a bilinear form, and so the transformation $Q\mapsto P^\intercal Q P$ does not affect the form. In this case, $Q^\intercal =Q$ and $Q^2=I$, the transformation $Q\mapsto Q^\intercal Q Q$ gives the form
+This matrix represents a bilinear form, and so the transformation $Q\mapsto P^\intercal Q P$ does not affect the form. In this case, $Q^\intercal =Q$ and $Q^2=I\mod 2$, the transformation $Q\mapsto Q^\intercal Q Q$ gives the form
 \[
 	\widetilde{Q}_{T^2\+ \RP^2}
 	\lkxto \begin{pmatrix}
@@ -303,7 +305,7 @@ However, if we add a handle to a projective plane $\RP^2$ (a M\"obius band with 
 	where $\mathcal{Q}_{\mathrm{skew}}(\Z/2)$ is the monoid of skew-symmetric bilinear forms over $\Z/2$.
 \end{proposition}
 \begin{proof}
-	See Chapter III of \cite{milnorhuse1973forms} for more general results.
+	See Chapter III of \cite{milnorhuse1973forms} for a generalized statement and proof.
 \end{proof}
 
 Just like $H\oplus (1)= \oplus^3 (1)$ is the defining relation for skew-symmetric bilinear forms over $\Z/2$, so too is $T^2\+ \RP^2 = \RP^2\+\RP^2\+\RP^2$ the defining relation for closed surfaces. This leads to an elegant restatement of the classification theorem for closed surfaces.
@@ -315,7 +317,7 @@ Just like $H\oplus (1)= \oplus^3 (1)$ is the defining relation for skew-symmetri
 	\]
 \end{theorem}
 
-The classification of compact surfaces by the intersection form is a perfect model result in algebraic topology -- a complete algebraic classification of a class of manifolds. Better yet, simple algebraic manipulations correspond to non-trivial topological equivalences. This is part of why intersection forms are so useful -- algebraic intuition scales far better with dimension than does geometric intuition and so bilinear forms are a much more comfortable setting in which to study higher-dimensional topology. For instance, the classification theorem of Michael Freedman in his 1982 paper \cite{freedman1982manifold} is formulated entirely in terms of the intersection form and an additional $\Z/2$-valued invariant detecting the existence of a smooth structure.
+The classification of compact surfaces by the intersection form is a model result of algebraic topology -- a complete algebraic classification of a class of manifolds. Better yet, simple algebraic manipulations correspond to non-trivial topological equivalences. This is part of why intersection forms are so useful -- algebraic intuition scales far better with dimension than does geometric intuition and so bilinear forms are a much more comfortable setting in which to study higher-dimensional topology. For instance, the classification theorem of Michael Freedman in his 1982 paper \cite{freedman1982manifold} is formulated entirely in terms of the intersection form and an additional $\Z/2$-valued invariant detecting the existence of a smooth structure.
 
 \begin{theorem}[Freedman, 1982] Let $\mathcal{S}^4\subset \mathcal{M}^4$ be the monoid of simply-connected closed topological $4$-manifolds. The intersection form
 	\[
@@ -337,13 +339,56 @@ While the complete algebraic data of a
 \pagebreak
 \section{Cobordism}\label{sec:cobordism}
 
-The basic idea of cobordism is to declare two manifolds equivalent, or \defn{cobordant}, if there is a manifold one dimension higher which connects the two manifolds. In particular
-
-As an equivalence relation, this is clearly looser than the notion
+The basic principle of cobordism is to declare two manifolds equivalent if there is a manifold a dimension higher which connects the two manifolds. As an equivalence relation, cobordism is far looser than the notions of homoemorphism or diffeomorphism and so allows for a full classification of manifolds. Many notions in geometry and topology -- for instance characteristic classes -- depend solely on the cobordism type of a manifold, so understanding the structure of cobordism is immensely helpful.
 
 \begin{remark}
 	Note that the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$.
 \end{remark}
+
+\begin{definition}
+	An \defn{unoriented cobordism} between closed $n$-manifolds $M_1$ and $M_2$ is an $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup M_2$. We use the notation $W : M_1\bord M_2$ to refer to the cobordism.
+\end{definition}
+
+\begin{definition}
+	An \defn{oriented cobordism} between closed oriented $n$-manifolds $M_1$ and $M_2$ is an oriented $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup (-M_2)$. We use the notation $W : M_1\sobord M_2$ to refer to the cobordism.
+\end{definition}
+
+\begin{remark}
+	\todo{General structure on a cobordism}
+\end{remark}
+
+Note that the oriented cobordism group can be thought of as a $\Z$-module, with multiplication action on a closed manifold $M$ given by
+\[
+	n \cdot M = \begin{cases} M\sqcup \cdots \sqcup M & n > 0,\\ (-M)\sqcup \cdots \sqcup (-M) & n < 0,\\ \emptyset & n=0,\end{cases}
+\]
+for all $n\in \Z$, where $\sqcup$ is repeated $|n|$ times. Since there is no notion of negation in the unoriented case, the unoriented cobordism group is a $\Z/2$-module.
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{pair-of-pants.pdf_tex}
+	\caption{A cobordism $W$ between $S^1$ and $(S^1\sqcup S^1)$.}\label{fig:pair-of-pants}
+\end{figure}
+
+For a simple example of a cobordism between a circle and a disjoint union of circles, see \cref{fig:pair-of-pants}. Note that this cobordism could be made much simpler by removing the handle. Simplifying cobordisms in this way is one of the major applications of surgery theory.
+
+\begin{definition}
+	The \defn{$k$-th oriented cobordism group}[oriented cobordism group] $\Omega^\SO_k$ is the abelian group of oriented cobordism classes of closed $k$-manifolds\footnote{We do not require manifolds to be connected in this definition.}
+	under disjoint union. The identity component is the empty set $\varnothing$, and negation is given by reversing orientation. Similarly, the \defn{$k$-th unoriented cobordism group}[unoriented cobordism group] $\Omega_k$ is the abelian group of cobordism classes of closed $k$-manifolds under disjoint union.
+\end{definition}
+
+\begin{example}
+	There is an isomorphism $\Omega_0\cong \Z/2$. An unoriented 0-dimensional manifold is just a set of points. Any pair of points is cobordant to the empty set by a path connecting them. Since adding pairs of points doesn't change the cobordism type, the number of points modulo 2 determines the cobordism class entirely.
+\end{example}
+
+\begin{example}
+	There is an isomorphism $\Omega_0^\SO \cong \Z$. An oriented 0-dimensional manifold is still a set of points, however the orientation now equips each point with a ``charge'', we might label them as $+$ or $-$. Note that points of opposite ``charges'' cancel out by a path between them oriented from $-$ to $+$. Given some set of points of various charges, we can always eliminate pairs of opposite charges and are left with a homogeneous set of charge. Adding up all of the pluses or minuses, we get an integer. This integer determines the cobordism class, and is invariant to adding or removing pairs of opposing charge.
+\end{example}
+
+\begin{example}
+	Both the oriented and unoriented cobordism groups are trivial in dimension 1, since every circle is the boundary of a disk.
+\end{example}
+
+In higher dimensions, the classification becomes much more interesting. 
 
 \begin{figure}[ht]
 	\renewcommand{\arraystretch}{1.2}
@@ -364,6 +409,32 @@ As an equivalence relation, this is clearly looser than the notion
 	\medskip
 	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
 \end{figure}
+
+The structure of \cref{fig:cobordism-structure-table} makes a lot more sense in the context of 
+
+\begin{proposition}
+	The product of manifolds is a well-defined operation with respect to cobordism.
+\end{proposition}
+\begin{proof}
+	\todo{proof}
+\end{proof}
+
+\begin{definition}
+	The \defn{oriented cobordism ring} $\Omega^\SO_\bullet$ is the set of oriented cobordism classes of closed manifolds under the operations of disjoint union and product.
+\end{definition}
+
+The oriented cobordism ring has a grading by
+\[
+	\Omega_\bullet^\SO = \bigoplus_{k\geq 0} \Omega^\SO_k.
+\]
+
+\begin{theorem}[Thom-Pontryagin]\label{thm:oriented-cobordism-structure}
+	There is a ring isomorphism
+	\[
+		\Omega_\bullet^\SO \otimes \Q \lkxto \Q[x_4, x_8, x_{12}, \ldots]
+	\]
+	where $x_{4k}$ are cobordism classes representing $\CP^{2k}$.
+\end{theorem}
 
 \subsection{The Thom-Pontryagin Construction}
 
@@ -389,40 +460,123 @@ As an equivalence relation, this is clearly looser than the notion
 \pagebreak
 \section{Characteristic Classes}
 The study of characteristic classes began with the work of Hassler Whitney and Eduard Stiefel in the mid 1930s. Since then, the fundamental idea has remained unchanged -- a vector bundle on a manifold determines certain ``characteristic'' classes in the homology or cohomology of the base manifold.
-By the mid 1940s, these ideas were expanded by Lev Pontryagin and Shing-Shen Chern to better capture the geometric data of oriented real and complex vector bundles respectively. The theory of characteristic classes is incredibly rich, with applications ranging from algebraic topology, to the differential topology of exotic spheres, to the study of elliptic differential operators in differential geometry. As such, there are many equivalent ways to construct and characterize the various notions of characteristic class which arise in mathematics. 
+By the mid 1940s, these ideas were extended by Lev Pontryagin and Shing-Shen Chern to better capture the geometric data of oriented real and complex vector bundles respectively. In the following decades, characteristic classes quickly joined the toolboxes of mathematicians from a wide range of disciplines, finding connections to prior notions in these fields. 
+Applications ranged from algebraic topology, differential topology of exotic spheres, complex geometry, index theory, and may others. 
 
-\subsection{Axiomatic Definitions of Characteristic Classes}
+We will present a few equivalent formulations of characteristic classes in this thesis, each useful in its own context. These formulations are, 
+\begin{itemize}
+	\item as natural transformations satisfying certain axioms in \cref{sec:axiomatic-characteristic-classes},
+	\item as generators of the cohomology ring of a classifying space in \cref{sec:universal-characteristic-classes},
+	\item by the Chern-Weil homomorphism as images of invariant polynomials in \cref{sec:chern-weil-theory},
+	\item as obstructions to problems in homotopy theory in \cref{sec:obstruction-theory}.
+\end{itemize}
+At this stage, we assume a basic knowledge of vector bundles, structure groups, and classifying spaces. For a brief introduction to these topics, see \cref{chap:vector-bundles}.
 
-At an abstract level a \defn{characteristic class} $c$, valued in a cohmology theory $h$, is a natural transformation of contravariant functors
-\begin{equation}
-	\lkxfunc{c}{\Vect_G}{h^k,}
-\end{equation}
-given a structure group $G$. Here, $h^k$ sends a space\footnote{The choice of category for topological spaces here is flexible -- we might consider the category of paracompact Hausdorff spaces for instance.} to its $k$-th cohomology group in the theory $h$, and $\Vect_G$ sends a space to the set of isomorphism classes of vector bundles over the space with structure group $G$.
+\subsection{Axiomatic Perspective on Characteristic Classes}\label{sec:axiomatic-characteristic-classes}
 
-In other words, given a manifold $M$, a characteristic class assigns a vector bundle $\xi$ over $M$ to a cohomology class $c(\xi)\in h^k(M)$.
-This assignment should be natural, i.e. given bundles $\xi_1$ and $\xi_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\xi_1 \to \xi_2$, we have $f^* c(\xi_2) = c(\xi_1)$.
+\begin{definition}\label{defn:characteristic-class}
+A \defn{characteristic class} $c$, valued in a cohmology theory $h$, is a natural transformation of contravariant functors
+\[
+	\lkxfunc{c}{\Vect_G}{h^\bullet,}
+\]
+given a structure group $G$. 
+\end{definition}
 
-\begin{remark}
-	Since every smooth manifold
+Here, $h^\bullet : \Top \to \Rng$ sends a space to its  cohomology ring, and $\Vect_G : \Top \to \Set$ sends a space to the set of isomorphism classes of vector bundles over the space with structure group $G$.
+
+Given a manifold $M$, a characteristic class assigns a vector bundle $\xi$ over $M$ to a cohomology class $c(\xi)\in h^\bullet(M)$.
+This assignment is done in a natural way, i.e. given bundles $\xi_1$ and $\xi_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\xi_1 \to \xi_2$, we have $f^* c(\xi_2) = c(\xi_1)$. 
+
+\begin{convention*}
+	Since every smooth manifold $M$ comes with a canonical vector bundle -- the tangent bundle -- it's common to use the notation $c(M)$ to refer to $c(\T M)$.
+\end{convention*}
+
+\begin{remark} 
+	The cohomology ring $h^\bullet(M)$ has a $\Z$-grading
+\[
+		h^\bullet(M) = \bigoplus_{k\in \Z} h^k(M).
+\]
+Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\xi)$. It then makes sense to consider the \defn{total characteristic class} $c(\xi)=\sum_i c_i(\xi)\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$.
+\end{remark}
+
+When bundles over the same base space are isomorphic, the naturality of a characteristic class implies that the corresponding characteristic classes are the same. This is useful for classifying vector bundles over a space but doesn't help when we need to compare vector bundles over distinct spaces.
+When a cohomology theory admits a Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ for some class of closed $n$-dimensional manifolds, we can ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong h_0(*)$ in the coefficient ring of a corresponding homology theory. The coefficient ring $h_0(*)$ is a common context in which to compare characteristic classes.
+
+\begin{definition}\label{defn:characteristic-numbers}
+	Given a homogeneous characteristic class $c$ of degree $n$ and a closed $n$-dimensional manifold $M$, the \defn{characteristic number} of a vector bundle $\xi$ over $M$ is the $c(\xi)[M] \in h_0(*)$.
+\end{definition}
+
+\begin{convention*}
+	When referring to a characteristic number of a tangent bundle of a closed manifold, we use the notation $c[M]$.
+\end{convention*}
+
+\begin{remark}\label{rmk:characteristic-number-monomial-polynomial}
+	Whenever we have some family $\{c_i\}$ of homogeneous characteristic classes and an $n$-dimensional manifold $M$, it is common to associate characteristic numbers of the tangent bundle to partitions $k_0|c_0|+k_1|c_1|+\cdots+k_\ell|c_\ell| = n$. We then get a characteristic class $c_0^{k_0}\cdots c_\ell^{k_\ell}$, homogeneous of degree $n$. For each closed $n$-dimensional manifold $M$, the monomial $c_0^{k_0}\cdots c_\ell^{k_\ell}$ thus has an associated characteristic number $c_0^{k_0}\cdots c_\ell^{k_\ell}[M]$. 
+
+	More generally, given a polynomial in $\ell$ variables $K\in R[x_1,\ldots, x_\ell]$ with $K(z^{|c_0|}, \ldots, z^{|c_\ell|})$ homogeneous of degree $n$, the class $K(c_0,\ldots, c_\ell)$ is a homogeneous characteristic class of dimension $n$ and so has
+	an associated characteristic number $K(c_0, \ldots, c_\ell)[M] \in R$.
 \end{remark}
 
 \subsection{Stiefel-Whitney Classes}
-The simplest characteristic classes are the Stiefel-Whitney classes. We will define them axiomatically, however a construction will still be required.
+
+Stiefel-Whitney classes are some of the simplest characteristic classes, defined for vector bundles with structure group $\GL_n\R$ and taking values in singular cohomology with $\Z/2$ coefficients. Characterisic numbers of Stiefel-Whitney classes thus take values in $\Z/2$ -- these are called \defn{Stiefel-Whitney numbers} and are an important topological invariant when computed from the tangent bundle of a manifold.
+
 \begin{definition}
-	The \defn{Stiefel-Whitney classes} $w_i$ are the unique sequence of characteristic classes for unoriented vector bundles $(G=\O)$ satisfying the following axioms:
-	\begin{enumerate}
-		\item For a bundle $\xi$ over an $n$-dimensional manifold, $w_0(\xi)=1$ and $w_i(M)=0$ for $i>n$.
-		\item  For bundles $\xi_1$ and $\xi_2$ over a common base, we have the \defn{Whitney product formula}
-		      \[
-			      w_i(\xi_1\oplus \xi_2) = \sum_{p+q=i} w_p(\xi_1)\smile w_q(\xi_2).
-		      \]
-		\item The first Stiefel-Whitney
+	The \defn{(total) Stiefel-Whitney class}[total Stiefel-Whitney class] $w$ is the unique characteristic class for unoriented vector bundles in $\Z/2$ singular cohomology satisfying the following axioms:
+	\begin{enumerate}[(a)]
+		\item The degree $0$ component of $w$ is always $1\in H^0(-; \Z/2)$.
+		\item The total degree of $w$ is never greater than the dimension of the base space.
+		\item For bundles $\xi_1$ and $\xi_2$ over a common base, we have $w(\xi_1\oplus \xi_2)=w(\xi_1)\smile w(\xi_2)$. 
+		\item If $\gamma$ is the canonical line bundle over the circle $\RP^1$, we have $w(\gamma)=1+\alpha$ in the ring $\H^\bullet(\RP^1; \Z/2)\cong \Z/2[\alpha]/(\alpha^2)$.
 	\end{enumerate}
+	Here, we set $w_i$ to be the homogeneous component of $w$ in $\H^i(-;\Z/2)$.
 \end{definition}
 
+\begin{remark}
+	Axiom (c) is known as the \defn{Whitney product formula}. The classical form of the Whitney product formula in homogeneous components is given by
+	\[
+		w_i(\xi_1\oplus \xi_2) = \sum_{p+q=i} w_p(\xi_1)\smile w_q(\xi_2).
+	\]
+\end{remark}
+
+Of course, this definition is not constructive, and it is not at all clear that a characteristic class satisfying these definitions even exists. That being said, it is instructive to explore the immediate consequences of these axioms before considering explicit constructions.
+
+\begin{corollary}
+	For any trivial bundle $\underline{\R}^k$, we have $w(\underline{\R}^k)=1$.
+\end{corollary}
+\begin{proof}
+	A trivial bundle $\underline{\R}^k$ is the pullback of the constant bundle $\R^k\to *$ over a point. This bundle has trivial Stiefel-Whitney class by (a) and (b) since the point is zero-dimensional.
+\end{proof}
+
+\begin{corollary}
+	By the Whitney product formula, $c(\xi\oplus \underline{\R}^k)=c(\xi)\smile c(\underline{\R}^k)= c(\xi)$.
+\end{corollary}
+
+In other words, adding on trivial bundles to a vector bundle does not affect the Stiefel-Whitney class. This equivalence relation on vector bundles is known as stable isomorphism, namely two vector bundles $\xi_1$ and $\xi_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\xi_1\oplus \underline{\R}^{k_1} \cong \xi_2\oplus \underline{\R}^{k_2}$. \todo{stable structure group}. 
+
+\begin{definition}
+	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\xi\oplus \underline{\R}^k) = c(\xi)$ for any $k$.
+\end{definition}
+
+The sensitivity of Stiefel-Whitney classes to stable isomorphism types has a nice geometric corollary. If a manifold $M$ can be embedded \todo{finish}
+This notion is known as \defn{stable parallelizability},\todo{finish} 
+we will prove in \cref{thm:homotopy-sphere-stably-parallelizable} that any manifold homeomorphic sphere in dimension $n\geq 5$ has a tangent bundle which is stably isomorphic to the trivial bundle, and hence all characteristic classes of exotic spheres are trivial. This triviality is one reason for the subtleties in detecting exotic spheres, since they cannot be distinguished by stable characteristic classes. 
+
+\subsection{Wu Classes}
+
+A refinement 
+
+\subsection{Chern Classes}
+
+\subsection{Pontryagin Classes}\label{sec:pontryagin-classes}
+\begin{theorem}[Whitney Duality]
+
+\end{theorem}
 
 
-\subsection{A Universal Perspective}
+Note that since 
+
+\subsection{A Universal Perspective on Characteristic Classes}\label{sec:universal-characteristic-classes} 
 
 \begin{definition}
 	The \defn{infinite-dimensional Grassmannian}, denoted $\Gr_k$ or $\Gr_k(\R^\infty)$ is defined as the direct limit
@@ -437,6 +591,6 @@ The simplest characteristic classes are the Stiefel-Whitney classes. We will def
 	\]
 \end{theorem}
 
-\subsection{Chern-Weil Theory}
+\subsection{Chern-Weil Theory}\label{sec:chern-weil-theory}
 
 While the axiomatic and universal definitions of characteristic classes are simple and abstract, it is often useful to

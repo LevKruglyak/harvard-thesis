@@ -23,9 +23,9 @@
 \usepackage{amssymb}
 
 % Enumerate spacing
-\usepackage{enumitem}
-\setlist[enumerate]{itemsep=0em}
-\setlist[itemize]{itemsep=0em}
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{itemsep=0em, topsep=0.5em}
+\setlist[itemize]{itemsep=0em, topsep=0.5em}
 
 % Consistent bold math
 \usepackage{bm}
@@ -127,6 +127,7 @@
 	\printindex}
 
 % Table of Contents
+\usepackage{titletoc}
 \usepackage[titles]{tocloft}
 \setlength{\cftbeforechapskip}{4pt}
 
@@ -168,7 +169,9 @@
 % Appendices
 \usepackage{appendix}
 \BeforeBeginEnvironment{appendices}{
-\setcounter{tocdepth}{0}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+% \startcontents[section] % TODO: figure this shit out
+% \printcontents[section]{}{2}{\setcounter{tocdepth}{0}}
 \crefalias{chapter}{appendix}}
 
 % Math Environments

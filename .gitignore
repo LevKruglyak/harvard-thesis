@@ -16,6 +16,7 @@ build/
 *.toc
 *.bbl*
 *.blg
+*.ptc
 *.synctex(busy)
 *.fdb_latexmk
 thesis.pdf

@@ -88,21 +88,218 @@ With this definition, the first few Bernoulli numbers are given by:
 	\todo{this proof}
 \end{proof}
 
+\pagebreak
 \section{Invariants for Homotopy \texorpdfstring{${(4k-1)}$}{(4k-1)}-Spheres}\label{sec:invariants-for-homotopy-4k-1-spheres}
 
 Armed with the power of the signature theorem, let's now try to build some invariants for homotopy spheres. 
 Due to the topological simplicity of homotopy spheres, it's difficult to imagine how we could construct such an invariant which can distinguish smooth structure. One of the great ideas of 20th century topology is to pass to a coboundary in situations like this. Namely, if the usual invariants on a manifold $M$ vanish, find a manifold $W$ a dimension higher which has $M$ as a boundary (this isn't always possible since not all manifolds are null-cobordant). 
-In the case such a manifold exists, it is referred to as a \defn{coboundary} of $M$. If we are careful, we can use the topology of the coboundary $W$ to construct an invariant which does not depend on the choice of coboundary $W$ -- in some sense extracting
-
-This is exactly what we will do for exotic spheres in this section. 
+In the case such a manifold exists, it is referred to as a \defn{coboundary} of $M$. If we are careful, we can use the topology of the coboundary $W$ to construct an invariant which does not depend on the choice of coboundary $W$ -- in some sense extracting the \todo{this}
 
 \begin{remark}
 	This idea of passing to a coboundary is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. This is a central idea of Chern-Simons theory \cite{chernsimons1974geometric}, a topic which has found widespread application in constructing quantum field theories. \todo{(?) write more about this?}
 \end{remark}
 
-\subsection{Smooth Invariants of Manifolds with Boundary}
+\subsection{Invariants of Manifolds with Boundary}\label{sec:relative-invariants}
 
-\subsection{Milnor's Invariant}
+While there are no topological constraints needed to define invariants such as the signature or Euler characteristic on a manifold, constraints do appear when generalizing characteristic numbers to the manifolds with boundary. We will explore these subtleties in this section in preparation for the construction of exotic sphere invariants in \cref{sec:invariants-for-homotopy-4k-1-spheres}.
+
+Let's say that we have some cohomology and homology theory $h$ with coefficient ring $h_0(*)=R$.
+Characteristic classes on an $n$-dimensional manifold $W$ are defined as cohomology classes in $c\in h^k(W)$. When the manifold is closed and the characteristic class is homogeneous of degree $n$, Poincar\'e duality allows us to associate a characteristic number $c[W]\in h_0(W)$ to $c$ given a fundamental class $[W]\in h_n(W)$. If $W$ has non-empty boundary, Poincar\'e-Lefschetz duality $h^k(W)\to h_{n-k}(W,\partial W)$ gives us an element $c[W]\in h_0(W,\partial W)$. However, this group is trivial for connected manifolds with non-empty boundary and so is a useless context in which to define relative characteristic numbers. 
+
+Instead, we try to pull back characteristic classes to the relative cohomology group $h^n(W,\partial W)$ so that Poincar\'e-Lefschetz duality gives us characteristic numbers in $h_0(W)\cong \Z$ for a fundamental class $[W,\partial W]\in \H_n(W,\partial W)$.
+For any integer $\ell$, the pair $(W, \partial W)$ gives a long exact sequence of cohomology groups
+\begin{equation}\label{eq:relative-characteristic-classes-exact-sequence}
+	h^{\ell-1}(\partial W) \lkxto h^{\ell}(W, \partial W) \lkxto[j] h^{\ell}(W) \lkxto h^{\ell}(\partial W)
+\end{equation}
+where $j : h^{\ell}(W, \partial W) \to h^{\ell}(W)$ is the induced map of the inclusion $(W,\emptyset) \to (W, \partial W)$. This is an isomorphism if the groups on either side of \cref{eq:relative-characteristic-classes-exact-sequence} are trivial, which will allow us to pull back.
+
+\begin{definition}\label{defn:relative-characteristic_form}
+	Suppose that $h^{\ell}(\partial W)$ and $h^{\ell-1}(\partial W)$ are trivial. For a homogeneous characteristic class $c_\ell(W) \in h^{\ell}(W)$ of degree $\ell$, the \defn{relative characteristic form} is the pullback
+	\[
+		c_\ell(W, \partial W) = j^{-1} c_\ell(W) \quad\in h^{\ell}(W, \partial W).
+	\]
+	When the class is top-dimensional, i.e. when $\ell=n$, the \defn{relative characteristic number} is the Poincar\'e-Lefschetz dual number $c_\ell[W,\partial W] \in h_0(W)\approx R$.
+\end{definition}
+
+\begin{remark}
+	There is an intuitive reason for why the topological invariance of characteristic numbers can break down if the manifold has boundary, and this perspective might be illuminating to physics-minded readers. Let's assume we are working with de Rham cohomology. Characteristic classes are cohomology classes, and so any invariant built from them should be invariant under exact gauge transformations $c\mapsto c+d\Lambda$. For example, a change of Riemannian metric in Chern-Weil theory gives such a transformation with $\Lambda$ the relative Chern-Simons form. The corresponding variation in a characteristic number is then
+	\[
+		c[M] = \int_M c \quad\lkxto\quad \delta c[M] = \int_M c+d\Lambda-\int_M c = \int_{\partial M} \Lambda.
+	\]
+	The variation $\delta c[M]$ should vanish if $c[M]$ is to be a topological invariant. If the differential equation $\Lambda=dH$ has a solution on $\partial M$, the variation does vanishes and topological invariance is preserved. This is implied by the condition that $\HdR^{\ell-1}(\partial M)$ is trivial, but such a strong condition is not always needed. If there is some extra structure on $M$ restricting the choice of $\Lambda$ to be exact, it is possible to construct invariants even when $\HdR^{\ell-1}(\partial M)$ is non-trivial. See Section V of \cite{witten1985anomalies} for example of such a construction in the context of physics.
+\end{remark}
+
+It is commonly the case that we have a family $\{c_i\}$ of characteristic classes.
+
+\begin{definition}\label{defn:relative-characteristic-number-polynomial}
+	Given a polynomial $K\in R[x_0,x_1,\ldots, x_\ell]$ such that $K(z^{|c_0|}, z^{|c_1|}, \ldots, z^{|c_\ell|})$ is homogeneous of degree $n$, the relative characteristic number associated to $K$ is given by
+	\[
+		K(c_1, \ldots, c_\ell)[W,\partial W] = K(j^{-1}c_1(W), \ldots, j^{-1}c_\ell(W))[W,\partial W]
+	\]
+	whenever $h^{|c_i|-1}(\partial W)$ and $h^{|c_i|}(\partial W)$ are trivial for all $i$ such that $K$ contains an $x_i$ term.
+\end{definition}
+
+\begin{remark}
+	Note that we pull back \emph{before} applying the polynomial $K$. This is because pulling back a top-dimensional form on $W$ is not generally possible since $h^{n-1}(W)$ is non-trivial and generated by the fundamental class.
+\end{remark}
+
+\begin{remark}
+	Note that if $\partial W=\emptyset$, relative characteristic forms and numbers correspond exactly to the non-relative versions since $j$ becomes the identity map.
+\end{remark}
+
+Turning back to our goal of defining an invariant for a manifold $M$ by constructing an invariant of a coboundary $W$ of $M$, we next would like to understand how relative invariants such as the relative characteristic numbers change with respect to a change of coboundary.
+There is a elegant trick we can use to help us answer this. If $W_1$ and $W_2$ are coboundaries for an $n$-dimensional manifold $M$, we can form a closed $(n+1)$-manifold $C$ by glueing $W_1$ and $W_2$ along their boundary $M$. 
+
+\begin{proposition} 
+	There is a unique smooth structure on $C$ which agrees with the smooth structures of $W_1$ and $W_2$. Furthermore, we can give $C$ an orientation which agrees with the orientation of $W_1$ and with the reverse orientation of $W_2$.
+\end{proposition}
+\begin{proof}
+	\todo{collar neighborhoods.}
+\end{proof}
+
+For any $\ell$, the Mayer-Vietoris sequence gives an exact sequence
+\[
+	h^{\ell-1}(M)\lkxto h^{\ell}(C) \lkxto[\mu] h^{\ell}(W_1)\oplus h^{\ell}(W_2) \lkxto h^{\ell}(M)
+\]
+for any $\ell$, where $\mu$ is the ``restriction'' map. This is an isomorphism if $h^{\ell-1}(M)$ and $h^\ell(M)$ are trivial.
+The relative version of the Mayer-Vietoris sequence is of the form
+\[
+	0 \lkxto h^{\ell}(C, M) \lkxto[\rho] h^{\ell}(W_1,M)\oplus h^{\ell}(B_2,M) \lkxto 0,
+\]
+since the boundary terms $\H^\ell(M,M)$ vanish, so we have an isomorphism $\rho$.
+By the inclusion isomorphisms in \cref{eq:relative-characteristic-classes-exact-sequence}, and we have a commutative diagram
+\begin{equation}\label{eq:closing_coboundaries_square}
+	\begin{tikzcd}
+		{h^{\ell}(C,M)} & {h^{\ell}(B_1,M)\oplus h^{\ell}(B_2,M)} \\
+		{h^{\ell}(C)} & {h^{\ell}(B_1)\oplus h^{\ell}(B_2)}
+		\arrow["j_1\oplus j_2"', from=1-2, to=2-2]
+		\arrow["\rho"', from=1-1, to=1-2]
+		\arrow["j"', from=1-1, to=2-1]
+		\arrow["\mu"', from=2-1, to=2-2]
+		\arrow["h", from=1-2, to=2-1, dashed]
+	\end{tikzcd}
+\end{equation}
+In the case that $h^{\ell-1}(M)$ and $h^\ell(M)$ are trivial, every map in this diagram is an isomorphism. Otherwise, we can only assume that the top map $\rho$ is an isomorphism.
+Of particular interest to us is the diagonal map $h = j\circ \rho^{-1}$, which ``glues'' together relative forms on $B_1$ and $B_2$ to a form on $C$.
+
+\begin{proposition}\label{prop:invariant-variation-naturality}
+This gluing map satisfies the following conditions:
+\begin{enumerate}[(a)]
+	\item If $\alpha\in h^{n+1}(W_1, M)$ and $\beta\in h^{n+1}(W_2,M)$, then 
+		$h(\alpha\oplus \beta)[C] = \alpha[W_1, M] - \beta[W_2, M]$.
+	\item If $\alpha_i\in h^{\ell_i}(W_1,M)$ and $\beta_i \in h^{\ell_i}(W_2,M)$ for $i=1,2$, then 
+		\[h(\alpha_1\oplus\beta_1) \smile h(\alpha_2\oplus \beta_2) = h(\alpha_1\smile \alpha_2 \oplus \beta_1\smile \beta_2).\]
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+	\todo{do this proof}
+\end{proof}
+
+\begin{corollary}\label{prop:relative-characteristic-number-variation}
+	Given a polynomial $K\in R[x_0,x_1,\ldots, x_\ell]$ satisfying the conditions of \cref{defn:relative-characteristic-number-polynomial}, 
+	\[
+		K(c_1,\ldots, c_\ell)[C] = K(c_1,\ldots, c_\ell)[W_1, M] - K(c_1,\ldots, c_\ell)[W_2, M].
+	\]
+\end{corollary}
+
+\begin{proposition}\label{prop:signature-variation}
+\end{proposition}
+
+We now have all of the tools needed to construct some basic invariants of homotopy spheres.
+
+\todo{Stiefel-Whitney classes kind of useless because variation always zero}
+
+\subsection{Milnor's Method for Constructing Invariants}
+
+Let us now use the theory developed in \cref{sec:relative-invariants} to construct an invariant for exotic spheres in 7-dimensions. For our cohomology theory, let's use singular cohomology with rational coefficients and consider the Pontryagin numbers due to their connection with the signature. 
+Given a 7-dimensional homotopy sphere $M$ with 8-dimensional coboundary $W$, there are three invariants which we might consider -- the signature $\sigma$, and the Pontryagin classes $p_1^2$ and $p_2$.
+Based on the cohomology of $M$, we have
+\[
+	\begin{aligned}
+		\H^3(M; \Q)=0,  & \quad \H^4(M; \Q)=0 \\
+		\H^7(M; \Q)=\Q, & \quad \H^8(M; \Q)=0 \\
+		\H^3(M; \Q)=0,  & \quad \H^4(M; \Q)=0
+	\end{aligned}
+	\quad\implies\quad
+	\begin{aligned}
+		 & p_1^2\textrm{ does have a relative generalization.}         \\
+		 & p_2\textrm{ does not have a relative generalization.}       \\
+		 & \sigma\textrm{ satisfies \cref{prop:signature-variation}.}
+	\end{aligned}
+\]
+Therefore, the two invariants of interest to us are
+\[
+	p_1^2[W,M]
+	\quad\textrm{and}\quad
+	\sigma(W).
+\]
+Now, for a \emph{closed} $8$-dimensional manifold $X$, rearranging the Hirzebruch signature theorem gives us the expression
+\begin{equation}\label{eq:7-manifold_rearrangement}
+	\sigma(X) = \frac{7p_2[X] - p_1^2[X]}{45}
+	\quad\implies\quad
+	p_2[X] = \frac{45\sigma(X) + p_1^2[X]}{7}.
+\end{equation}
+This suggests that there \emph{is} some analogue of the second Pontryagin number for $W$, even though the usual pull back strategy fails. For manifolds with boundary, we might consider the number
+\[
+	\widetilde{p_2}[W, M] = \frac{45\sigma(W) + p_1^2[W, M]}{7} \quad\in\Q.
+\]
+We use the notation $\widetilde{p_2}$ to emphasize that this is \emph{not} the relative Pontryagin number arising from a pullback of $p_2(W)$, but rather a formal expression which reduces to the Pontryagin number $p_2[W]$ when $W$ is closed by the Hirzebruch signature theorem.
+How does the quantity change under a change in coboundary, say if $W_1$ and $W_2$ were coboundaries? Letting $C$ be the $8$-manifold obtained by glueing them together, we see that
+\[
+	\begin{aligned}
+		\widetilde{p_2}[W_1,M] - \widetilde{p_2}[W_2,M]
+		 & = \frac{45\sigma(W_1,M) + p_1^2[W_1,M]}{7} - \frac{45\sigma(W_2, M) + p_1^2[W_2,M]}{7} \\
+		 & =\frac{45\sigma(C) + p_1^2[C]}{7} = p_2[C].
+	\end{aligned}
+\]
+But this last term is just an ordinary Pontryagin number, and hence an integer. While $\widetilde{p_2}$ is a priori a rational number for a given coboundary, it changes by an integer -- namely by the Pontryagin number $p_2[C]$ of a closed manifold.
+Taking the fractional part of $\widetilde{p_2}$ thus gives us an invariant of $M$ which is \emph{independent of the coboundary}! 
+
+\begin{remark} 
+	Given a homotopy sphere $M$, the quantity $\widetilde{p_2}[W,M]$ is a well-defined element of $\Q/\Z$ for any coboundary $W$. It is common to multiply both sides by $7$ so that $7\cdot \widetilde{p_2}[W,M]$ is a well-defined element of $\Z/7$, although this is purely a convention and has no mathematical difference. 
+\end{remark}
+
+\begin{definition}
+	Let $M$ be a null-cobordant\footnote{This is a redundant condition since all oriented $7$-manifolds are null-cobordant.}
+	closed oriented $7$-manifold with $\H^3(M; \Q)$ and $\H^4(M; \Q)$ trivial. The \defn{Milnor invariant}\footnote{This differs from Milnor's original definition in \cite{milnor1956manifolds} by a factor of $2$ (mod 7) -- there he defined $\lambda=2p_1^2-\sigma \mod 7$.} of $M$ is
+	\[
+		\milinv(M) = 3\sigma(W)+p_1^2[W,M]\mod 7.
+	\]
+	for $W$ any coboundary of $M$. 
+\end{definition}
+
+Note that this expression is exactly $7\cdot \widetilde{p_2}[W,M]\mod 7$.
+
+\begin{remark}
+	Since it takes values in $\Z/7$, the ``resolution'' of the Milnor invariant is at most $7$, meaning that it can detect at most $7$ distinct smooth structures on a $7$-dimensional sphere. We will see a refinement of this invariant in \cref{sec:eells-kupier-invariant} which is able to detect all $28$ smooth structures.
+\end{remark}
+
+The basic ideas outlined for $7$-manifolds should work for $(4k-1)$-manifolds in general, so let us work through this case. If we require that $\H^{2i}(M)$ and $\H^{4i}(M)$ are trivial for all $i<k$, then Poincar\'e duality ensures that $\H^{2i-1}(M)$ and $\H^{4i}(M)$ are trivial as well. For full generality, we should also assume that $M$ is null-cobordant (which all homotopy-spheres are) so that a coboundary exists, although results in \cref{sec:cobordism} imply that all $(4k-1)$-manifolds are oriented null-cobordant.
+
+As in the $7$-dimensional case, all but the top-dimensional Pontryagin classes can be generalized to a coboundary $W$.
+If we let $X$ be a closed $4k$-manifold and use the Hirzebruch signature theorem, we can do a rearrangement similar to \cref{eq:7-manifold_rearrangement} in order to get the expression
+\begin{equation}\label{eq:4k-1-manifold_rearrangement}
+	\sigma(X) = L_k(p_1, \ldots, p_k)[X]\quad\implies\quad
+	p_k[X] = \frac{\sigma(X) - L_k(p_1,\ldots, p_{k-1}, 0)[X]}{s_k}.
+\end{equation}
+Here $s_k=L_k(0,\ldots, 0, 1)$ is the coefficient of $x_k$ in the $L$-genus $L(x_1,\ldots, x_k)$.
+As before, we use the rearrangement \cref{eq:4k-1-manifold_rearrangement} to get a rational number
+\[
+	\widetilde{p_k}[W, M] = \frac{\sigma(W) - L_k(p_1,\ldots, p_{k-1}, 0)[W,M]}{s_k}
+\]
+which acts as a rational generalization of the $k$-th Pontryagin class. By \cref{prop:relative-characteristic-number-variation} and \cref{prop:signature-variation}, given any coboundaries $W_1$ and $W_2$ we get
+\[
+	\widetilde{p_k}[W_1, M] - \widetilde{p_k}[W_2, M] = p_k[C],
+\]
+where $C$ is the glueing of $B_1$ and $B_2$. Since the $k$-th Pontryagin number of a closed manifold is an integer, we take the fractional part of $\widetilde{p_k}[W,M]$ and multiplying by the common denominator, we arrive at an generalization of the Milnor invariant for a $7$-manifold.
+
+\begin{definition}
+	Let $M$ be a null-cobordant closed $(4k-1)$-manifold with $\H^{4i}(M)$ and $\H^{2i}(M)$ trivial for all $i<n$. The \defn{Milnor invariant} of $M$ is
+	\[
+		\milinv(M) = \denom(s_k)\cdot \left(\sigma(W) - L_k(p_1, \ldots, p_{k-1},0)[W,M]\right)\mod \numer(s_k),
+	\]
+	where $s_k = L_k(0,\ldots,0,1)$ is the coefficient of the last term in the $L$-polynomial and $\numer$ and $\denom$ take the numerator and denominator of a rational number respectively.
+\end{definition}
 
 \begin{example}
 	The first few Milnor invariants are:
@@ -119,10 +316,16 @@ This is exactly what we will do for exotic spheres in this section.
 			 & \mod 381.
 		\end{array}
 	\]
-	For a 
+	These invariants were generated with Wolfram, see \cref{chap:wolfram} for details.
 \end{example}
 
+If we would like to generalize these invariants further, it is helpful to take a bird's eye view of what happened here. We started with the idea that lifting to a coboundary could shed geometric insights to the boundary. Once on this coboundary, we pick a characateristic number which takes on a restricted set of values for closed manifolds representing a ``change of coboundary''. Moding out by the image of such changes, we get an invariant purely of the boundary. To summarize, we have a loose procedure
+\[
+	\left\{\parbox{12.5em}{An integrality theorem for a characteristic number of a closed $(n+1)$-manifold}\right\}
+	\quad\implies \quad
+	\left\{\parbox{9.5em}{A smooth invariant for certain $n$-dimensional manifolds}\right\}
+\]
+In the case of the Milnor invariant, the integrality of the $p_k$ Pontryagin number of a closed $4k$-manifold led us to Milnor's invariant for $(4k-1)$-manifolds with certain vanishing cohomology groups. 
+If we use a different integrality theorem, this procedure gives a different invariant.
 
-\section{Index Theory}
-
-\subsection{The Eells-Kupier Invariant}
+\subsection{The Eells-Kupier Invariant}\label{sec:eells-kupier-invariant}
