@@ -89,8 +89,13 @@
 \undef\ker
 \undef\O
 \undef\Vert
+\undef\Re
+\undef\Im
 
 \newcommand{\HdR}{\H_{\mathrm{dR}}} % re Rham homology
+
+\DeclareMathOperator{\Re}{Re}
+\DeclareMathOperator{\Im}{Im}
 
 \DeclareMathOperator{\X}{\mathfrak{X}} % vector field
 \DeclareMathOperator{\H}{H} % (co)homology
@@ -115,6 +120,7 @@
 \DeclareMathOperator{\Edge}{Edge}
 \DeclareMathOperator{\Bun}{Bun}
 \DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Nat}{Nat}
 
 \renewcommand{\d}{*} % dual space
 
@@ -146,8 +152,9 @@
 
 % Exotic Sphere Symbols
 \newcommand{\bP}{bP}
-\newcommand{\milinv}{\lambda_{\mathrm{milnor}}}
+\newcommand{\milinv}{\lambda_{\mathrm{mil}}}
 \newcommand{\ekinv}{\lambda_{\mathrm{e,k}}}
+\newcommand{\gmsp}{\Sigma^7_{\mathrm{gm}}}
 
 % Categories
 \newcommand{\cat}[1]{\mathsf{#1}}
@@ -195,6 +202,9 @@
 }
 \NewDocumentCommand{\lkxto}{ O{} }{
 	\mathrel{\;\xrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxhookto}{ O{} }{
+	\mathrel{\;\xhookrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
 }
 \NewDocumentCommand{\lkxmapsto}{ O{} }{
 	\mathrel{\;\xmapsto{\hphantom{xx}#1\hphantom{xx}}\;}

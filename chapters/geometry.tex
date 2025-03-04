@@ -1,0 +1,349 @@
+\chapter{Geometry of Vector Bundles}
+
+\begin{epigraph}{17em}{Felix Klein}
+	Given a manifold and a transformation\\
+	group acting on it, study its invariants.
+\end{epigraph}
+
+\section{Vector Bundles}
+
+\subsection{Structure Groups}\label{sec:structure-groups}
+
+Given a rank $k$ vector bundle $\xi : E \to B$ over $\F$, there is an associated \defn{frame bundle} $\pi : \B E \to B$ with fibers $\B_p E = \{ b : \F^k \to E_p \mid b\textrm{ is an isomorphism}\}$ consisting of bases of the vector bundle $E_p$ at each point $p\in B$. Note that frame bundle is a principal $\GL_k\F$-bundle, since there is a right change of basis action given by precomposition on $\F^k$.
+In the reverse direction, the action of $\GL_k\F$ on $\F^k$, the associated bundle $\B E\times_{\GL_k\F} \F^k$ is isomorphic to the original vector bundle $E$. In other words, there is a bijective correspondence
+\begin{equation}\label{eq:principal-GL-bundle-vector-bundle}
+	\left\{\parbox{7.5em}{$\F$-vector bundles of rank $k$ over $X$}\right\}
+	\quad\iff\quad
+	\left\{\parbox{7em}{principal $\GL_k\F$ bundles over $X$}\right\}
+\end{equation}
+Whenever we have a Lie group $G$ and homomorphism $\rho : G \to \GL_k\F$, there is a group action of $G$ on $\F^k$ by letting $\rho(g)$ act on $\F^k$ for each $g\in G$. As in the case of $\GL_k \F$, the associated bundle $\B E\times_G \F^k$ is a vector bundle. An isomorphism
+\begin{equation}\label{eq:structure-on-a-vector-bundle}
+	\lkxfunc{\varphi}{E}{\B E\times_G \F^k}
+\end{equation}
+is said to be a \defn{$(G,\rho)$-structure}[structure on a vector bundle] on $E$. When $\rho$ is injective, a $(G,\rho)$-structure is said to be a \defn{reduction}[reduction of the structure group] of the structure group to $G$.
+Note that every vector bundle comes with a canonical $(\GL_k \F, \id)$-structure.
+For real vector bundles, some common structure groups are:
+\begin{itemize}
+	\item A reduction to $\GL^+_k\R$ corresponds to an orientation of the bundle.
+	\item A reduction to $\O_k$ corresponds to a Riemannian structure, i.e. an inner product on the bundle. Every real vector bundle admits such a structure, although not canonically.
+	\item A further reduction to $\SO_k$ corresponds to an orientation and a Riemannian structure.
+	\item A reduction to $\GL_{k}\C\subset \GL_{2k}\R$ corresponds to a complex structure on a rank $2k$ real vector bundle, i.e. an endomorphism $J$ with $J^2=-\id$. This is equivalent to the data of a complex vector bundle.
+	\item A further reduction to $\U_k\subset \GL_k\C$ corresponds to a Hermitian structure on the complex vector bundle, i.e. a Hermitian inner product on the bundle.
+\end{itemize}
+
+\begin{remark}
+	For those who prefer working with charts, there is a definition of reducing the structure group in these terms.
+
+	Given an $\F$-vector bundle $\pi : E \to B$, and local trivializations $\varphi_\alpha : E|_{U_\alpha} \to U_{\alpha}\times \F^k$ for some open cover $\{U_\alpha\}$, we have a family of transition functions
+	\[
+		\lkxfunc{g_{\alpha\beta}}{U_\alpha\cap U_\beta}{\GL_k \F}{x}{\varphi_\alpha\circ \varphi_{\beta}^{-1}|_{\{x\}\times \R^k}}
+	\]
+	For some subgroup $G\subset \GL_k\F$, if we can choose local trivializations such that the resulting transition functions $g_{\alpha\beta}$ take values entirely in $G$, we say that the structure group of $E$ can be reduced to $G$. 
+\end{remark}
+
+\begin{remark}
+	\todo{Ehrlagen program}
+\end{remark}
+
+\subsection{Clutching Construction}\label{sec:clutching-construction}
+
+When the base manifold of a vector bundle is a sphere, there is a useful construction known as the clutching construction which allows for a completely homotopy theoretic classification of vector bundles.
+
+\begin{remark} The clutching construction is a very special case of a far more general notion of a classifying space, discussed in \cref{sec:classifying-spaces}.
+\end{remark}
+
+Suppose $\xi : E \to S^m$ is a rank $k$ $\F$-vector bundle. We can decompose the sphere $S^m$ into hemispheral disks $S^m=D_+^m\cup D_-^m$, and these disks intersect at an equatorial sphere $D_+^m\cap D_-^m=S^{m-1}\subset S^m$ one dimension lower. The bundle $\xi$ can then be trivialized on the hemispheres since they are contractible. Let us denote these trivializations
+\[
+	\lkxfunc{\varphi_+}{E|_{D^m_+}}{D^m_+\times \F^k}
+	\quad\textrm{and}\quad
+	\lkxfunc{\varphi_-}{E|_{D^m_-}}{D_-^m \times \F^k.}\]
+Expanding their equatorial intersection by a tubular neighborhood, we get a transition function $\psi$, which fits into the following commutative diagram
+$\psi$ in the commutative diagram
+\[\begin{tikzcd}
+		{S^{m-1}\times \F^k} && {S^{m-1}\times \F^k} \\
+		& {E|_{S^{m-1}}}
+		\arrow["\psi", from=1-1, to=1-3]
+		\arrow["{\varphi_+|_{S^{m-1}}}", from=2-2, to=1-1]
+		\arrow["{\varphi_-|_{S^{m-1}}}"', from=2-2, to=1-3]
+	\end{tikzcd}\]
+By definition, $\psi$ is constant on the first factor, and linear in the second factor. For each point $p\in S^{m-1}$, the diffeomorphism $\psi$ gives a linear function $\tau_p : \F^k \to \F^k$. These linear maps are the ``change of coordinate'' transformations between the fibers on the boundaries of $D_+^m$ and $D_-^m$ as depicted in \cref{fig:clutching-construction}.
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{clutching-construction.pdf_tex}
+	\caption{Getting a map $\tau : S^{m-1}\to \GL_k\F$ from a vector bundle over $S^{m}$.}\label{fig:clutching-construction}
+\end{figure}
+
+Altogether, this family of linear transformations is indexed by the equator $S^{m-1}$, and this gives us a smooth map $\tau : S^{m-1}\to \GL_k \F$. It follows that the homotopy type of $\tau$ is only dependent on the isomorphism type of the bundle $\xi$ since any vector bundle isomorphism induces a homotopy by \cref{prop:homotopy-invariance-vector-bundle}. In other words, we have a map
+\[
+	\lkxfunc{}{\Vect^k_\F(S^m)}{{}[S^{m-1}, \GL_k\F]}
+\]
+sending an $\F$-vector bundle $\xi$ to the its associated homotopy class $\tau\in [S^{m-1}, \GL_k\F]$. This associated map $\tau$ is called the \defn{clutching function} of the bundle $\xi$.
+
+\begin{remark}
+	If the bundle $\xi$ has additional structure, we can choose the clutching function to lie in some Lie subgroup $G\subset \GL_k \F$. For instance, in the real case $\F=\R$, an oriented bundle has a clutching function $\tau \in [S^{m-1},\GL_k^+\R]$ in the homotopy group of orientation preserving linear transformations. Similarly, if a bundle has an inner product structure, its clutching function can be chosen to lie in $\pi_{m-1}(\O_k)$. This is elaborated upon in \cref{sec:structure-groups}.
+\end{remark}
+
+The construction works in the opposite direction as well.
+
+\begin{definition}
+	Given a matrix Lie group $G\subset \GL_k\F$ and a clutching function $\tau\in \pi_{m-1}(G)$, the bundle associated to the function is the bundle $\xi_\tau : E_\tau \to S^{m}$, with total space
+	\[
+		E_\tau = (D_+^m\times \F^k)\cup_h (D_-^{m}\times \F^k),
+	\]
+	where $h(x,y)=(x,\tau(x)y)$ is the glueing map.
+\end{definition}
+
+Rather than work with the homotopy groups of spaces like $\GL_k\R$, it is common to deformation retract them to compact subspaces.
+
+\begin{proposition}
+	There are deformation retracts
+	\[
+		\GL_k\R \cong \O_k,\quad \GL_k^+\R \cong \SO_k\quad\textrm{and}\quad \GL_k\C \cong \U_k.
+	\]
+\end{proposition}
+\begin{proof}
+	The retract is given by Gram-Schmidt orthonormalization.
+\end{proof}
+
+When the Lie group $G$ is path-connected, as in the case of $\SO_k$ and $\U_k$, we can identify the set of free homotopy classes of maps $[S^{m-1}, G]$ with the homotopy group $\pi_{m-1}(G)$.
+
+\begin{theorem}
+	The clutching construction gives bijections
+	\[
+			\Vect_{\R,+}^k(S^m) \cong \pi_{m-1}(\SO_k)\quad\textrm{and}\quad
+			\Vect_{\C}^k(S^m) \cong \pi_{m-1}(\U_k).
+	\]
+\end{theorem}
+\begin{proof}
+	This is Proposition 1.11 and Proposition 1.14 in \cite{hatcher2003ktheory}.
+\end{proof}
+
+\begin{remark} 
+	The case of unoriented bundles, we do not have a bijection with the homotopy group, since $\O_m$ is generally disconnected.
+\end{remark}
+
+Let us see some examples of this in low dimensions.
+
+\begin{example}
+	Since $\SO_1 = \{e\}$, there are no non-trivial orientable real line bundles over spheres of any dimensions.
+\end{example}
+
+\begin{example}
+	Since $\U_1\cong S^1$, we have
+	\[
+		\Vect_{\C}^1(S^m) \cong \pi_{m-1}(S^1) \cong \begin{cases} \Z & m=2,\\ 0 & \textrm{otherwise},\end{cases}
+		\quad\textrm{for }m >1.
+	\]
+	In other words, the only sphere for which there are non-trivial complex line bundles is the $2$-dimensional sphere. The association of a complex line bundle over $S^2$ with an integer is a special case of a characteristic class. This will be explored in greater depth in \cref{sec:axiomatic-characteristic-classes}.
+
+	It is natural to wonder what number corresponds to, say the tangent bundle, of a sphere. Recall that the $2$-dimensional sphere admits a complex structure as the complex projective plane $\CP^1$ or Riemann sphere $S^2 = \C\cup\{\infty\}$. We can cover $\CP^1$ by the two coordinate charts
+	\[
+		U_0 = \{[z: 1] \mid z\in \C\}
+		\quad\textrm{and}\quad
+		U_\infty = \{[1: w] \mid w\in \C\}.
+	\]
+	The coordinate change function on the overlap is then $w=1/z$, and so the transition function on the tangent bundle is the differential $dw=-1/z^2 \,dz$. When restricted to the equator $z=e^{i\theta}$, it is clear that the transition function has degree $-2\in \Z$ since $e^{i\theta}\mapsto -e^{-2i\theta}$. Note that $-2$ is, up to a sign, the Euler number of the sphere.
+\end{example}
+
+
+\subsection{Classifying Spaces}\label{sec:classifying-spaces}
+
+\begin{proposition}\label{prop:homotopy-invariance-vector-bundle}
+	There is a natural
+\end{proposition}
+
+\begin{theorem}\label{thm:classifying-space}
+\end{theorem}
+	Generally, if $G$ is a Lie group there is a natural isomorphism of contravariant functors
+	\[
+		[-, \BB G] \lkxto \Bun_G(-)
+	\]
+	where $[-, \BB G]$ is the set of homotopy classes of maps to a space $\BB G$ and $\Bun_G(-)$ is the set of isomorphism classes of principal $G$-bundles over a given space.
+	The space $\BB G$ is known as the \defn{classifying space}\footnote{The classifying space is rarely a manifold, and is usually an infinite dimensional CW complex.} of $G$ and this space comes equipped with a \defn{universal bundle} $\zeta : \EE G \to \BB G$. With this universal bundle, the natural isomorphism is easy to describe. Under the appropriate topological restrictions, a map $\tau : X \to \BB G$ gives us a pullback bundle $\tau^*\zeta$ over $X$. This is a principal $G$-bundle over $X$ which is entirely determined by the homotopy type of the \defn{classifying map} $\tau$.
+
+	In some sense, the universal bundle $\zeta$ is the ``most twisted $G$-bundle''. Pullbacks of bundles generally ``dilute'' the twistedness of a bundle -- for instance, the splitting principle allows any complex vector bundle to be pulled back to a direct sum of complex line bundles. It would stand to reason that every bundle is the pullback of a more twisted bundle, and the limit of this process is the universal bundle $\zeta$ over the classifying space. See Chapter IV of \cite{botttu1982differential} for a wonderful exposition on the topic.
+
+
+	\begin{remark}\label{rmk:clutching-construction-generalization}
+	The clutching construction can be viewed as a special case of \cref{thm:classifying-space}.
+	\todo{It can be shown that (under suitable topological restrictions)} there is a homotopy equivalence $\Omega \BB G \simeq G$ where $\Omega$ denotes the loop space operator in homotopy theory. Indeed from a homotopy theory perspective, the classifying space is a ``delooping'' of the group $G$. For spheres, the loop space suspension adjunction gives us natural isomorphisms
+	\[
+		\begin{aligned}
+			\Bun_{G}(S^m) & \cong [S^m, \BB G]            \\
+			              & \cong [\Sigma S^{m-1}, \BB G] \\
+			              & \cong [S^{m-1}, \Omega\BB G]  \\
+			              & \cong [S^{m-1}, G]
+			\cong \pi_{m-1}(G).
+		\end{aligned}
+	\]
+	This is a generalized way of understanding the clutching construction.
+\end{remark}
+
+\pagebreak
+\section{Characteristic Classes}
+The study of characteristic classes began with the work of Hassler Whitney and Eduard Stiefel in the mid 1930s. Since then, the fundamental idea has remained unchanged -- a vector bundle on a manifold determines certain ``characteristic'' classes in the homology or cohomology of the base manifold.
+By the mid 1940s, these ideas were extended by Lev Pontryagin and Shing-Shen Chern to better capture the geometric data of oriented real and complex vector bundles respectively. In the following decades, characteristic classes quickly joined the toolboxes of mathematicians from a wide range of disciplines, finding connections to prior notions in these fields.
+Applications ranged from algebraic topology, differential topology of exotic spheres, complex geometry, index theory, and may others.
+
+We will present a few equivalent formulations of characteristic classes in this thesis, each useful in its own context. These formulations are,
+\begin{itemize}
+	\item as natural transformations satisfying certain axioms in \cref{sec:axiomatic-characteristic-classes},
+	\item as generators of the cohomology ring of a classifying space in \cref{sec:universal-characteristic-classes},
+	\item by the Chern-Weil homomorphism as images of invariant polynomials in \cref{sec:chern-weil-theory},
+	\item as obstructions to problems in homotopy theory in \cref{sec:obstruction-theory}.
+\end{itemize}
+At this stage, we assume a basic knowledge of vector bundles, structure groups, and classifying spaces. For a brief introduction to these topics, see \cref{chap:vector-bundles}.
+
+\subsection{Axiomatic Perspective on Characteristic Classes}\label{sec:axiomatic-characteristic-classes}
+
+Throughout this section, a cohomology theory will refer either to singular cohomology with some PID coefficient ring such as $\Z$, $\Q$, $\Z/2$, or $\Z[1/2]$, or to de Rham cohomology. The Poincar\'e dual homology theories are then either singular homology with coefficients or compactly supported de Rham cohomology. We use $R$ to denote the coefficient ring.
+
+\begin{definition}\label{defn:characteristic-class}
+	A \defn{characteristic class} $c$, valued in a cohomology theory $h$, is a natural transformation of contravariant functors
+	\[
+		\lkxfunc{c}{\Vect_G}{h^\bullet,}
+	\]
+	given a structure group $G$.
+\end{definition}
+
+Here, $h^\bullet : \Top \to \Rng$ sends a space to its  cohomology ring, and $\Vect_G : \Top \to \Set$ sends a space to the set of isomorphism classes of vector bundles over the space with structure group $G$. We assume that the natural transformation $c$ forgets the ring structure of cohomology when mapping from the set of isomorphism classes of vector bundles.
+
+Given a manifold $M$, a characteristic class assigns a vector bundle $\xi$ over $M$ to a cohomology class $c(\xi)\in h^\bullet(M)$.
+This assignment is done in a natural way, i.e. given bundles $\xi_1$ and $\xi_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\xi_1 \to \xi_2$, we have $f^* c(\xi_2) = c(\xi_1)$.
+
+\begin{convention*}
+	Since every smooth manifold $M$ comes with a canonical vector bundle -- the tangent bundle -- it's common to use the notation $c(M)$ to refer to $c(\T M)$.
+\end{convention*}
+
+\begin{remark}
+	The cohomology ring $h^\bullet(M)$ has a $\Z$-grading
+	\[
+		h^\bullet(M) = \bigoplus_{k\in \Z} h^k(M).
+	\]
+	Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\xi)$. It then makes sense to consider the \defn{total characteristic class} $c(\xi)=\sum_i c_i(\xi)\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$.
+\end{remark}
+
+\begin{remark}
+	Given two characteristic classes $c_1$ and $c_2$, there is a clear notion of their sum $c_1+c_2$, product $c_1\smile c_2$, and scalar product $r\cdot c_1$ for any $r\in R$. This gives the set of characteristic classes $\Nat(\Vect_G, h^\bullet)$ the structure of a graded-commutative $R$-algebra.
+\end{remark}
+
+When bundles over the same base space are isomorphic, the naturality of a characteristic class implies that the corresponding characteristic classes are the same. This is useful for classifying vector bundles over a space but doesn't help when we need to compare vector bundles over distinct spaces.
+When a cohomology theory admits a Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ for some class of closed $n$-dimensional manifolds, we can ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong R$ in the coefficient ring of a corresponding homology theory. The coefficient ring $R$ is then a common context in which to compare characteristic classes.
+
+\begin{definition}\label{defn:characteristic-numbers}
+	Given a homogeneous characteristic class $c$ of degree $n$ and a closed $n$-dimensional manifold $M$, the \defn{characteristic number} of a vector bundle $\xi$ over $M$ is the $c(\xi)[M] \in R$.
+\end{definition}
+
+\begin{convention*}
+	When referring to a characteristic number of a tangent bundle of a closed manifold, we use the notation $c[M]$.
+\end{convention*}
+
+\begin{remark}\label{rmk:characteristic-number-monomial-polynomial}
+	Whenever we have some family $\{c_i\}$ of homogeneous characteristic classes and an $n$-dimensional manifold $M$, it is common to associate characteristic numbers of the tangent bundle to partitions $k_0|c_0|+k_1|c_1|+\cdots+k_\ell|c_\ell| = n$. We then get a characteristic class $c_0^{k_0}\cdots c_\ell^{k_\ell}$, homogeneous of degree $n$. For each closed $n$-dimensional manifold $M$, the monomial $c_0^{k_0}\cdots c_\ell^{k_\ell}$ thus has an associated characteristic number $c_0^{k_0}\cdots c_\ell^{k_\ell}[M]$.
+
+	More generally, given a polynomial in $\ell$ variables $K\in R[x_1,\ldots, x_\ell]$ with $K(z^{|c_0|}, \ldots, z^{|c_\ell|})$ homogeneous of degree $n$, the class $K(c_0,\ldots, c_\ell)$ is a homogeneous characteristic class of dimension $n$ and so has an associated characteristic number $K(c_0, \ldots, c_\ell)[M] \in R$.
+\end{remark}
+
+The set of characteristic numbers of a manifold forms a topological fingerprint of the manifold, and the subtle interplay of their number theoretic properties is one of the main way to study smooth structure on manifolds.
+
+\subsection{Stiefel-Whitney Classes}
+
+Stiefel-Whitney classes are some of the simplest characteristic classes, defined for unoriented vector bundles (i.e. with structure group $\GL_n\R$) and taking values in singular cohomology with $\Z/2$ coefficients. Characterisic numbers of Stiefel-Whitney classes thus take values in $\Z/2$ -- these are called \defn{Stiefel-Whitney numbers}.
+
+\begin{definition}
+	The (total) \defn{Stiefel-Whitney class}[total Stiefel-Whitney class] $w$ is the unique characteristic class for unoriented vector bundles in $\Z/2$ singular cohomology satisfying the following axioms:
+	\begin{enumerate}[(a)]
+		\item The degree $0$ component of $w$ is always $1\in H^0(-; \Z/2)$.
+		\item The total degree of $w$ is never greater than the dimension of the base space.
+		\item For bundles $\xi_1$ and $\xi_2$ over a common base, we have $w(\xi_1\oplus \xi_2)=w(\xi_1)\smile w(\xi_2)$.
+		\item If $\gamma$ is the canonical line bundle over the circle $\RP^1$, we have $w(\gamma)=1+\alpha$ in the ring $\H^\bullet(\RP^1; \Z/2)\cong (\Z/2)[\alpha]/(\alpha^2)$.
+	\end{enumerate}
+	Here, we set $w_i$ to be the degree $i$ homogeneous component of $w$ in $\H^i(-;\Z/2)$.
+\end{definition}
+
+\begin{remark}
+	Axiom (c) is known as the \defn{Whitney product formula}. The classical form of the Whitney product formula in homogeneous components is given by
+	\[
+		w_i(\xi_1\oplus \xi_2) = \sum_{p+q=i} w_p(\xi_1)\smile w_q(\xi_2).
+	\]
+\end{remark}
+
+Of course, this definition is not constructive, and it is not at all clear that a characteristic class satisfying these definitions even exists. That being said, it is instructive to explore the immediate consequences of these axioms before considering explicit constructions.
+
+\begin{corollary}
+	For any trivial bundle $\underline{\R}^k$, we have $w(\underline{\R}^k)=1$.
+\end{corollary}
+\begin{proof}
+	A trivial bundle $\underline{\R}^k$ is the pullback of the constant bundle $\R^k\to *$ over a point. This bundle has trivial Stiefel-Whitney class by (a) and (b) since the point is zero-dimensional.
+\end{proof}
+
+\begin{corollary}
+	By the Whitney product formula, $c(\xi\oplus \underline{\R}^k)=c(\xi)\smile c(\underline{\R}^k)= c(\xi)$.
+\end{corollary}
+
+In other words, adding on trivial bundles to a vector bundle does not affect the Stiefel-Whitney class. This equivalence relation on vector bundles is known as stable isomorphism, namely two vector bundles $\xi_1$ and $\xi_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\xi_1\oplus \underline{\R}^{k_1} \cong \xi_2\oplus \underline{\R}^{k_2}$. \todo{stable structure group}.
+
+\begin{definition}
+	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\xi\oplus \underline{\R}^k) = c(\xi)$ for any $k$.
+\end{definition}
+
+The sensitivity of Stiefel-Whitney classes to stable isomorphism types has a nice geometric corollary. If a manifold $M$ can be embedded \todo{finish}
+This notion is known as \defn{stable parallelizability},\todo{finish}
+we will prove in \cref{thm:homotopy-sphere-stably-parallelizable} that any manifold homeomorphic sphere in dimension $n\geq 5$ has a tangent bundle which is stably isomorphic to the trivial bundle, and hence all characteristic classes of exotic spheres are trivial. This triviality is one reason for the subtleties in detecting exotic spheres, since they cannot be distinguished by stable characteristic classes.
+
+Let's conclude with some examples of 
+\begin{theorem}[Whitney Duality]
+
+\end{theorem}
+
+\subsection{Wu Classes}
+
+A refinement
+
+\subsection{Chern Classes}
+
+For complex vector bundles, i.e. 
+
+\subsection{Pontryagin Classes}\label{sec:pontryagin-classes}
+
+\subsection{The Euler Class}\label{sec:euler-class}
+
+\begin{definition}\label{sec:euler-class}
+	The \defn{Euler class}
+\end{definition}
+
+\begin{proposition}
+	On a closed $n$-manifold manifold $M$, $e[\T M]=\sum_k (-1)^k \rank \H^k(M)$.
+\end{proposition}
+
+\begin{corollary}
+	The Euler number of a sphere is $e[\T S^n] = (1+(-1)^n)[S^n]$.
+\end{corollary}
+% \begin{definition}
+% 	The \defn{Euler class} $e$ is a characteristic class for oriented real vector bundles in $\Z$ singular cohomology satisfying the following axioms:
+% 	\begin{enumerate}[(a)]
+% 		\item For bundles $\xi_1$ and $\xi_2$ over a common base, we have $e(\xi_1\oplus \xi_2)=e(\xi_1)\oplus e(\xi_2)$.
+% 		\item If a bundle $\xi$ has a non-zero section, then $e(\xi)=0$. 
+% 		\item If $-\xi$ has opposite orientation to $\xi$, then $e(-\xi)=-e(\xi)$.
+% 	\end{enumerate}
+% 	Note that by 
+% \end{definition}
+
+\subsection{A Universal Perspective on Characteristic Classes}\label{sec:universal-characteristic-classes}
+
+\begin{definition}
+	The \defn{infinite-dimensional Grassmannian}, denoted $\Gr_k$ or $\Gr_k(\R^\infty)$ is defined as the direct limit
+	\[
+		\Gr_k(\R^\infty) = \varinjlim_n \Gr_k(\R^n)
+	\]
+\end{definition}
+
+\begin{theorem}
+	\[
+		\H^\bullet(\Gr_k; \Z/2) \cong \Z/2[w_1(\gamma), \ldots, w_n(\gamma)]
+	\]
+\end{theorem}
+
+\subsection{Chern-Weil Theory}\label{sec:chern-weil-theory}
+
+While the axiomatic and universal definitions of characteristic classes are simple and abstract, it is often useful to
