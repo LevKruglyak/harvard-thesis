@@ -4,7 +4,7 @@
 
 \section{Morse Theory}\label{sec:morse-theory}
 
-The last tool in our arsenal is that of Morse theory, introduced in \cref{sec:morse-theory}. 
+The last tool in our arsenal is that of Morse theory, introduced in \cref{sec:morse-theory}.
 
 \todo{Morse theory is a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. By investigating the discrete set of critical points of such a function, questions of attaching and removing high-dimensional handles is simplified to questions of points on the one-dimensional real line. For this thesis, the main application of Morse theory will be in the proof of the $h$-cobordism theorem of \cref{chap:h-cobordism}, however we make occasional use of Morse theory in historical remarks and for explicit constructions of exotic spheres scattered throughout.}
 
@@ -36,8 +36,7 @@ There is a coordinate independent way to define the Hessian as a symmetric bilin
 The index of a function at a point essentially describes the ``shape'' of the function out of a list of finitely many possible shapes. Remember, the index of a function on an $n$-dimensional manifold must be an integer between $0$ and $n$. For instance, in the case of a surface there are three possible shapes -- when both coordinates curve up we get a bowl facing up, when one curves up and one curves down we get a saddle, and when both coordinates curve down we get a bowl facing down. These shapes correspond to indices of $0$, $1$, and $2$ respectively.
 \begin{figure}[ht]
 	\centering
-	\todo{draw figure}
-	\medskip
+	\import{diagrams}{placeholder.pdf_tex}
 	\caption{An upward bowl, saddle, and downward bowl.}
 \end{figure}
 
@@ -132,16 +131,140 @@ The basic ideas used in the proof of Reeb's theorem can be radically generalized
 
 \section{Handlebodies}
 
-\begin{theorem}[$h$-cobordism]
+\begin{theorem}[$h$-cobordism]\label{thm:h-cobordism}
 	Within some category of manifolds $\mathscr{C}$, if $M$ and $N$ are closed, simply-connected manifolds of dimensions $\geq 5$ and $W : M \hbord N$ is a simply-connected $h$-cobordism, then $W$ is $\mathscr{C}$-isomorphic to the cylinder $M\times [0,1]$. Furthermore, the isomorphism can be chosen to be the identity on $M\times \{0\}$.
 \end{theorem}
 
 \begin{example}
-  The simple-connectedness assumption of the $h$-cobordism theorem is required, since the spaces $L(7,1)\times S^4$ and $L(7,2)\times S^4$ are $h$-cobordant but not diffeomorphic.
+	The simple-connectedness assumption of the $h$-cobordism theorem is required, since the spaces $L(7,1)\times S^4$ and $L(7,2)\times S^4$ are $h$-cobordant but not diffeomorphic.
 \end{example}
+
+\begin{theorem}
+	In the manifold categories $\TOP$ and $\PL$, the generalized Poincar\'e conjecture is true in dimensions $\geq 5$.
+\end{theorem}
+\begin{proof}
+	\todo{cone construction, fails for $\DIFF$ because you can't take a smooth cone.}
+	\todo{mention method of engulfing?}
+\end{proof}
 
 \begin{corollary}\label{thm:h-cobordism-diffeomorphism}
 	In the smooth oriented manifold category, two simply-connected closed manifolds of dimensions $\geq 5$ are $h$-cobordant if and only if they are diffeomorphic (by an orientation preserving diffeomorphism).
 \end{corollary}
+\begin{proof}
+	If $f : M_1 \to M_2$ is a diffeomorphism between manifolds $M_1$ and $M_2$, they are $h$-cobordant by the manifold $W=M_1\times [0,1]\cup_f M_2$, where we glue $M_2$ onto $M_1\times \{1\}$ in $M_1\times [0,1]$ by $f$.
+	Conversely, if $W : M_1\sohbord M_2$ is an $h$-cobordism, by the $h$-cobordism theorem (\ref{thm:h-cobordism}) there must be a diffeomorphism $f : W \to M_2$ must map to $M_1\times \{1\}$, this gives a diffeomorphism $M_2 \to M_1$. If we choose $f$ to reverse orientation on $M_1\to M_1\times \{0\}$, then the restriction $f|_{M_2}$ will preserve orientation.
+\end{proof}
 
+\pagebreak
 \section{Groups of Homotopy Spheres}\label{sec:groups-of-homotopy-spheres}
+
+With the $h$-cobordism theorem and \cref{thm:h-cobordism-diffeomorphism}, we have arrived at our first major simplification to the problem of classifying smooth structures in dimensions $\geq 5$ -- to classify smooth structures on $S^n$, it is enough to classify the $h$-cobordism classes of smooth manifolds which are homeomorphic to $S^n$, and to find smooth manifolds which are homeomorphic to $S^n$,. it suffices to consider smooth manifolds which have the homotopy type of $S^n$.
+
+\begin{definition}
+	A \defn{homotopy $n$-sphere}[homotopy sphere] is a smooth manifold which is homotopy equivalent to the sphere $S^n$. By the generalized Poincar\'e conjecture, all homotopy spheres are homeomorphic to spheres.
+\end{definition}
+
+\begin{definition}
+	Let $\Theta^n$ be the pointed set of $h$-cobordism classes of homotopy $n$-spheres (the basepoint is the ordinary sphere $S^n$).
+\end{definition}
+
+So far, this is a fairly general setup. Instead of spheres, we could use any simply-connected base manifold and consider the set of $h$-cobordism classes of manifolds homotopy equivalent to it. This is known as the \defn{surgery structure set}, and we will expand on this briefly in \cref{sec:surgery-theory-in-general}. However, in the case of spheres, there is a special bit of extra data which does not usually generalize -- a group structure under the connected sum operation defined in \cref{sec:connected-sum}.
+
+\begin{theorem}\label{thm:group-of-homotopy-spheres}
+	The connected sum turns $\Theta^n$ into a group with identity element $S^n$.
+\end{theorem}
+\begin{proof}
+	We have already proved that the connected sum is well-defined up to diffeomorphism, associative, and commutative up to orientation preserving diffeomorphism.  
+	The remaining proof splits as three lemmas -- these are Lemmas 2.2, 2.3, and 2.4 in \cite{milnorkervaire1963groups}.
+
+	\begin{lemma}
+		The connected sum is a well-defined operation on $\Theta^n$.
+	\end{lemma}
+	\begin{proof}
+		We will prove something slightly more general. Let $M_1, M_1'$ and $M_2, M_2'$ be closed, simply-connected, and oriented manifolds, and suppose $W_1 : M_1\sohbord M_1'$ and $W_2 : M_2\sohbord M_2'$ are $h$-cobordisms. The goal is to construct an $h$-cobordism $W : (M_1\+M_2)\sohbord (M_1'\+M_2')$.
+
+		\begin{figure}[ht]
+			\centering
+			\import{diagrams}{placeholder.pdf_tex}
+			\caption{A join of two $h$-cobordisms along embedded arcs.}\label{fig:connected-sum-of-h-cobordisms}
+		\end{figure}
+
+		Recall that the connected sum $M_1\+M_2$ was defined as the join of $M_1$ and $M_2$ along points $p_1\in M_1$ and $p_2\in M_2$. Let us assume these were the points along which the connected sum $M_1\+M_2$ was taken, and $p_1'\in M_1'$ and $p_2'\in M_2'$ the points along which the connected sum $M_1'\+M_2'$ was taken. Choose smooth paths $\gamma_i : [0,1] \to W_i$ which send $p_i\mapsto p_i'$, and assume without loss of generality that $\gamma_i$ are embeddings which are transverse to the boundary of $\partial W_i$, making it possible to get tubular neighborhoods
+		\[
+			\lkxfunc{\iota_i}{\R^n\times [0,1]}{W_i.}
+		\]
+		Let $W$ be the join of $W_1$ and $W_2$ along the image of the arcs $\gamma_i$, as depicted in \cref{fig:connected-sum-of-h-cobordisms}. This is an oriented smooth manifold with boundary
+		\[
+			\partial W = (M_1\#M_2)\sqcup -(M_1'\+M_2')
+		\]
+		so $W$ is a cobordism $W : (M_1\+M_2)\sobord (M_1'\+M_2')$. We just need to prove that $W$ is an $h$-cobordism to complete the proof.
+
+		\begin{lemma}\label{lemma:removing-point-homotopy-equivalence-h-cobordism}
+			If $W : M \sohbord M'$ is an $h$-cobordism with $M,M'$ compact oriented and simply connected, $p\in M$ is a point, and $T$ is a tubular neighborhood of an arc from $p$ to $p'\in M'$, then the inclusion $M\setminus\{p\} \to W\setminus T$ is a homotopy equivalence.
+		\end{lemma}
+		\begin{proof}
+			The long exact sequence of the inclusion $j : (M,M\setminus\{p\}) \to (W, W\setminus T)$ gives
+			\[
+				\H_{i+1}(W\setminus T, M\setminus\{p\})\lkxto
+				\H_i(M\setminus\{p\}) \lkxto[j_*] \H_i(W\setminus T) \lkxto \H_i(W\setminus T, M\setminus\{p\})
+			\]
+			Note that by excision, $\H_i(W\setminus T, M\setminus\{p\})\cong \H_i(W,M)$, and since $W$ is an $h$-cobordism, $\H_i(W,M)\cong 0$. Consequently, $j$ induces isomorphisms on homology and since $M,M'$, and $W$ are simply connected, Whitehead's theorem and the Hurewicz isomorphism imply that $j$ is a homotopy equivalence.
+		\end{proof}
+
+		With \cref{lemma:removing-point-homotopy-equivalence-h-cobordism} in mind, we use the Mayer-Vietoris sequence
+		\[\begin{tikzcd}
+				{\H_i(S^{n-1})} & {\H_i(M_1\setminus\{p_1\})\oplus\H_i(M_2\setminus\{p_2\})} & {\H_{i}(M_1\+M_2)} & {\H_{i-1}(S^{n-1})} \\
+				{\H_i(S^n)} & {\H_i(W_1\setminus T_1)\oplus\H_i(W_2\setminus T_2)} & {\H_{i}(W)} & {\H_{i-1}(S^n)}
+				\arrow[from=1-1, to=1-2]
+				\arrow[from=1-1, to=2-1]
+				\arrow["f"', from=1-2, to=1-3]
+				\arrow["{(j_1)_*\oplus (j_2)_*}", from=1-2, to=2-2]
+				\arrow[from=1-3, to=1-4]
+				\arrow["j_*", from=1-3, to=2-3]
+				\arrow[from=1-4, to=2-4]
+				\arrow[from=2-1, to=2-2]
+				\arrow["g"', from=2-2, to=2-3]
+				\arrow[from=2-3, to=2-4]
+			\end{tikzcd}\]
+			where $j_i : M_i\setminus \{p_i\} \to W_i\setminus T_i$ and $j : M_1\+ M_2\to W$ are inclusions. Note that $(j_1)_*\oplus (j_2)_*$ is an isomorphism by \cref{lemma:removing-point-homotopy-equivalence-h-cobordism}. When $i$ is not $1,n-1,$ or $n$, it follows immediately that $f$ and $g$ are isomorphisms and so $j$ is an isomorphism. In the remaining cases, a simple application of the  snake lemma does the trick.
+			By simple connectedness, Whitehead's theorem, and the Hurewicz isomorphism, it follows that the inclusion of $M_1\+M_2 \to W$ is a homotopy equivalence, completing the proof.
+	\end{proof}
+
+	\begin{remark}
+		In the previous lemma, the simple-connectedness assumption was not strictly required -- only used to reduce the problem of homotopy equivalence to a homology problem by Whitehead's theorem. It is possible to directly construct an explicit homotopy equivalence with a more careful argument.
+	\end{remark}
+
+	Next, we will prove a simple characterization of when a homotopy sphere is equal to the identity element in $\Theta^n$.
+
+	\begin{lemma}\label{lemma:null-h-cobordant-iff-bounds-contractible}
+		A simply-connected manifold $M$ is $h$-cobordant to $S^n$ if and only if $M$ bounds a contractible manifold.
+	\end{lemma}
+	\begin{proof}
+		The forward direction is fairly straightforward. If $W : M\sohbord S^n$ is an $h$-cobordism, we can glue a tubular neighborhood of $D^{n+1}$ in $\R^{n+1}$ to $(-S^n)\subset \partial W$ along a collar neighborhood of $-S^n$ in $\partial W$. Any homotopy equivalence of $W$ to $S^n$ can then be extended to a contraction along $D^{n+1}$.
+
+		In the reverse direction, let us assume that $M$ bounds a contractible manifold $W$. Pick any point in the interior of $M$ and remove the interior of an embedded disk $D^{n+1}\subset W$. This gives a simply-connected cobordism $W'=W\setminus \Int(D^{n+1}) : M\sobord (-S^n)$. By the long exact sequence of the inclusion $j : (D^{n+1}, S^n) \to (W,W')$, we have
+		\[
+			\H_i(W', S^n) \lkxto H_i(S^n)\lkxto[j_*] \H_i(W')\lkxto \H_{i-1}(W',S^n),
+		\]
+		and by contractability of $W$ the boundary terms vanish and so $S^n \to W'$ is a homotopy equivalence. Then, by the relative Poincar\'e duality isomorphism $\H_k(W',M)\cong \H^{n+1-k}(W', S^n)$ and the long exact sequence of the pair $(W',M)$, it follows that $M\to W'$ is a homotopy equivalence and so $W'$ is in fact an $h$-cobordism. 
+	\end{proof}
+
+	\begin{lemma}
+		If $M$ is a homotopy sphere, then $M\+(-M)$ bounds a contractible manifold.
+	\end{lemma}
+	\begin{proof}
+		\begin{figure}[ht]
+			\centering
+			\import{diagrams}{placeholder.pdf_tex}
+			\caption{A contractible boundary of $M\+(-M)$.}
+		\end{figure}
+	\end{proof}
+
+
+	\noindent This completes the proof.
+\end{proof}
+
+\subsection{Framed Manifolds}
+
+\begin{definition}
+\end{definition}

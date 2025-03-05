@@ -151,6 +151,17 @@
 	\printbibliography[title=#1]
 }
 
+% Appendices
+\usepackage{appendix}
+\BeforeBeginEnvironment{appendices}{
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+	% \startcontents[section] % TODO: figure this shit out
+	% \printcontents[section]{}{2}{\setcounter{tocdepth}{0}}
+	\crefalias{chapter}{appendix}}
+
+% Math Environments
+\usepackage{amsthm}
+
 % References
 \usepackage{hyperref}
 \hypersetup{
@@ -166,23 +177,12 @@
 \renewcommand{\sectionautorefname}{Section}
 \renewcommand{\subsectionautorefname}{Section}
 
-% Appendices
-\usepackage{appendix}
-\BeforeBeginEnvironment{appendices}{
-\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
-% \startcontents[section] % TODO: figure this shit out
-% \printcontents[section]{}{2}{\setcounter{tocdepth}{0}}
-\crefalias{chapter}{appendix}}
-
-% Math Environments
-\usepackage{amsthm}
-
 \newcommand{\lkxtheoremstyle}{\bfseries}
 \newcommand{\lkxtheoremnotestyle}{\scshape}
 
 \newtheoremstyle{lkx_theorem}
-{}{}{\slshape}{}{}{.}{ }
-{{{\lkxtheoremstyle\thmname{#1}\thmnumber{ #2}}}\thmnote{ \lkxtheoremnotestyle  ({#3}\index{#3 (Theorem)})}}
+{1em}{}{\slshape}{}{}{.}{ }
+{{{\lkxtheoremstyle\thmname{#1}\thmnumber{ #2}}}\thmnote{ {\lkxtheoremnotestyle  ({#3}\index{#3 (Theorem)})}}}
 
 \theoremstyle{lkx_theorem}
 \newtheorem{theorem}[equation]{Theorem}
@@ -210,7 +210,7 @@
 \crefformat{proposition}{\normalfont{#2Proposition~#1#3}}
 
 \newtheoremstyle{lkx_definition}
-{}{}{\slshape}{}{}{.}{ }
+{1em}{}{\slshape}{}{}{.}{ }
 {{{\lkxtheoremstyle\thmname{#1}\thmnumber{ #2}}}\thmnote{ \lkxtheoremnotestyle({#3})}}
 
 \theoremstyle{lkx_definition}
@@ -252,15 +252,15 @@
 % Indent theorem environments inside of proofs
 \newenvironment{subproof}{%
 	\ifnumcomp{\value{stackproof}}{>}{0}{%
-		\begin{list}{}{
-				\setlength{\itemsep}{0em}
-				\setlength{\topsep}{0em}
-				\setlength{\leftmargin}{1em}
-				\setlength{\rightmargin}{0em}
-				\setlength{\listparindent}{\parindent}
-				\setlength{\itemindent}{\parindent}
-				\setlength{\parsep}{\parskip}
-			}
+		\begin{list}{}{%
+				\setlength{\itemsep}{0em}%
+				\setlength{\topsep}{0em}%
+				\setlength{\leftmargin}{1em}%
+				\setlength{\rightmargin}{0em}%
+				\setlength{\listparindent}{\parindent}%
+				\setlength{\itemindent}{\parindent}%
+				\setlength{\parsep}{0em}%
+			}%
 			\item\leavevmode\vspace{-1.5em}}{}}{%
 			      \ifnumcomp{\value{stackproof}}{>}{0}{%
 		\end{list}%
@@ -274,10 +274,9 @@
 \lkxregisteramsthm{proposition}
 \lkxregisteramsthm{theorem}
 
-\BeforeBeginEnvironment{proof}{%
-	\begin{subproof}%
+\BeforeBeginEnvironment{proof}{
+	\leavevmode\vspace{-2.0em}\begin{subproof}
 		\defcounter{stackproof}{\value{stackproof} + 1}}
-		\AfterEndEnvironment{proof}{%
-		\defcounter{stackproof}{\value{stackproof} - 1}
+		\AfterEndEnvironment{proof}{\defcounter{stackproof}{\value{stackproof} - 1}
 	\end{subproof}}
 \renewcommand{\qed}{\hfill$\blacksquare$}

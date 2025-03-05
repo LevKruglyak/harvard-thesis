@@ -5,23 +5,48 @@
 	Wir werden wissen.
 \end{epigraph}
 
-In this penultimate chapter, we will prove some general theorems about the  group $\Theta^n$ of smooth structures on the sphere. As we have discussed in \cref{sec:groups-of-homotopy-spheres}, there are generally two classes of exotic spheres -- those that bound parallelizable manifolds, i.e. $\bP^{n+1}\subset \Theta^n$, and those that do not, i.e. $\Theta^n/\bP^{n+1}$. So far, we have seen how to construct the exotic spheres in $\bP^{n+1}$,
+In this penultimate chapter, we will prove general theorems about the group $\Theta^n$ of smooth structures on the sphere, in some respects, a full classification depending on the solutions of problems in homotopy theory. As we have discussed in \cref{sec:groups-of-homotopy-spheres}, there are generally two classes of exotic spheres -- those that bound parallelizable manifolds, i.e. $\bP^{n+1}\subset \Theta^n$, and those that do not, i.e. $\Theta^n/\bP^{n+1}$.
+Exotic spheres represented by the latter set are known as \defn{very exotic spheres}, and are far harder to construct or visualize since they can only really be detected by homotopy theoretic means.
+We have seen how to construct exotic spheres in $\bP^{n+1}$ in \cref{chap:constructions}, and have even computed divisibility lower bounds on the size of $\bP^{4k}$ using geometric invariants in \cref{chap:invariants}. We will now
+\begin{itemize}
+	\item prove that $\bP^{4k}$ is a cyclic group and derive a formula for its order (\cref{thm:kervaire-milnor}), generalizing the results of \cref{chap:invariants},
+	\item prove that the groups $\bP^{4k+2}$ are either trivial or $\Z/2$ depending on the Kervaire invariant problem (\cref{thm:kervaire-invariant-problem}),
+	\item prove that the groups $\bP^{2k+1}$ are trivial (\cref{cor:odd-dimensional-bP-trivial}),
+	\item prove that $\Theta^n$ are finite groups,
+	\item relate the quotient $\Theta^n/\bP^{n+1}$ of very exotic spheres to the $J$-homomorphism and the stable homotopy groups of spheres.
+\end{itemize}
+Altogether, these results
 
-\section{Surgery Theory}
+Many of these results fit into an 
 
-\begin{theorem}
+\pagebreak
+\section{Framed Surgery Theory}
+
+In \cref{sec:plumbing} and \cref{sec:brieskorn}, we constructed highly-connected manifolds
+
+\begin{theorem}\label{thm:framed-surgery-highly-connected}
   Every compact framed manifold of dimension $n\geq 4$ with boundary $\partial M$ a homology sphere can be made highly-connected by a finite sequence of framed surgeries.
 \end{theorem}
+
+This is a bulky theorem, and so we will tackle it in parts. First, let us understand the effect of 
+
 \begin{proof}
 \end{proof}
 
+\begin{corollary}\label{cor:odd-dimensional-bP-trivial}
+	The groups $|\bP^{2k+1}|$ are trivial.
+\end{corollary}
+
 \subsection{The Surgery Invariant}\label{sec:surgery-invariant}
 
-\begin{theorem}[Milnor-Kervaire]
+\begin{theorem}[Milnor-Kervaire]\label{thm:kervaire-milnor}
 	For every $k>1$, $bP^{4k}$ is a cyclic group of order
 	\[
 	  |\bP^{4k}| =2^{2k-2}(2^{2k-1}-1)\epsilon(k)\denom(4k/B_{2k}).
 	\]
+\end{theorem}
+
+\begin{theorem}[Kervaire Invariant Problem]\label{thm:kervaire-invariant-problem}
 \end{theorem}
 
 \begin{theorem}\label{thm:homotopy-sphere-stably-parallelizable}
