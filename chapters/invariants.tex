@@ -94,7 +94,7 @@ Due to the topological simplicity of homotopy spheres, it's difficult to imagine
 In the case such a manifold exists, it is referred to as a \defn{coboundary} of $M$. If we are careful, we can use the topology of the coboundary $W$ to construct an invariant which does not depend on the choice of coboundary $W$ -- in some sense extracting the \todo{this}
 
 \begin{remark}
-	This idea of passing to a coboundary is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. This is a central idea of Chern-Simons theory \cite{chernsimons1974geometric}, a topic which has found widespread application in constructing quantum field theories. \todo{(?) write more about this?}
+	This idea of passing to a coboundary is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. This is a central idea of Chern-Simons theory \cite{chernsimons1974geometric}, a topic which has found widespread application in constructing quantum field theories.
 \end{remark}
 
 \subsection{Invariants of Manifolds with Boundary}\label{sec:relative-invariants}
@@ -302,6 +302,7 @@ where $C$ is the glueing of $B_1$ and $B_2$. Since the $k$-th Pontryagin number 
 \begin{example}
 	The first few Milnor invariants are:
 	\[
+		\renewcommand{\arraystretch}{1.2}
 		\begin{array}{r@{\;}ll}
 			\milinv(M^7)
 			 &= 4\sigma(W) - p_1^2[W, M]
@@ -320,10 +321,36 @@ where $C$ is the glueing of $B_1$ and $B_2$. Since the $k$-th Pontryagin number 
 If we would like to generalize these invariants further, it is helpful to take a bird's eye view of what happened here. We started with the idea that lifting to a coboundary could shed geometric insights to the boundary. Once on this coboundary, we pick a characateristic number which takes on a restricted set of values for closed manifolds representing a ``change of coboundary''. Moding out by the image of such changes, we get an invariant purely of the boundary. To summarize, we have a loose procedure
 \[
 	\left\{\parbox{12.5em}{An integrality theorem for a characteristic number of a closed $(n+1)$-manifold}\right\}
-	\quad\implies \quad
+	\quad\lkxto\quad
 	\left\{\parbox{9.5em}{A smooth invariant for certain $n$-dimensional manifolds}\right\}
 \]
-In the case of the Milnor invariant, the integrality of the $p_k$ Pontryagin number of a closed $4k$-manifold led us to Milnor's invariant for $(4k-1)$-manifolds with certain vanishing cohomology groups. 
+In the case of the Milnor invariant, the integrality of the top-dimensional Pontryagin number of a closed $4k$-manifold led us to Milnor's invariant for $(4k-1)$-manifolds with certain vanishing cohomology groups. 
 If we use a different integrality theorem, this procedure gives a different invariant.
 
 \subsection{The Eells-Kupier Invariant}\label{sec:eells-kupier-invariant}
+
+Consider the characteristic 
+
+\subsection{Index Theory}
+
+\subsection{A ``Twisted'' Eells-Kupier Invariant}
+\begin{definition}
+	We have
+	\[
+		\Ahat(M,\T M_\C) = \frac{1}{158505984000}\left(-25167p_2^3 - 18832p_3^2 + 38828p_2p_4 - 4976p_6\right)[M]
+	\]
+\end{definition}
+	See page 98 of \cite{hopkinsmahowald2002bo8}.
+
+
+\begin{theorem}[Mahowald-Hopkins]
+	A closed String manifold $M$ has $24\mid \Ahat(M,T)$.
+\end{theorem}
+
+\begin{corollary}
+	Let $M$ be a closed $23$-manifold with $\H^{4i}(M)$ and $\H^{4i+3}(M)$ trivial. For any $11$-connected String coboundary $W$, the \defn{twisted Eells-Kupier invariant} 
+	\[
+		\lambda_{\mathrm{m,h}}(M) = 153945\sigma(W) + 2591p_2^3[W,M]\mod 521432801280
+	\]
+	depends only on the smooth structure of $M$.
+\end{corollary}

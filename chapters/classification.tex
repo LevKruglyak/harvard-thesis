@@ -1,6 +1,6 @@
 \chapter{Classification}\label{chap:classification}
 
-\begin{epigraph}{9em}{David Hilbert}
+\begin{epigraph}{8.6em}{David Hilbert}
 	Wir w\"ussen wissen.\\
 	Wir werden wissen.
 \end{epigraph}
@@ -9,15 +9,108 @@ In this penultimate chapter, we will prove general theorems about the group $\Th
 Exotic spheres represented by the latter set are known as \defn{very exotic spheres}, and are far harder to construct or visualize since they can only really be detected by homotopy theoretic means.
 We have seen how to construct exotic spheres in $\bP^{n+1}$ in \cref{chap:constructions}, and have even computed divisibility lower bounds on the size of $\bP^{4k}$ using geometric invariants in \cref{chap:invariants}. We will now
 \begin{itemize}
-	\item prove that $\bP^{4k}$ is a cyclic group and derive a formula for its order (\cref{thm:kervaire-milnor}), generalizing the results of \cref{chap:invariants},
+	\item prove that $\bP^{4k}$ is a cyclic group and derive a formula for its order (\cref{thm:kervaire-milnor}), making exact the lower bounds of \cref{chap:invariants},
 	\item prove that the groups $\bP^{4k+2}$ are either trivial or $\Z/2$ depending on the Kervaire invariant problem (\cref{thm:kervaire-invariant-problem}),
 	\item prove that the groups $\bP^{2k+1}$ are trivial (\cref{cor:odd-dimensional-bP-trivial}),
-	\item prove that $\Theta^n$ are finite groups,
+	\item prove that $\Theta^n/\bP^{n+1}$ are finite groups (\cref{thm:finite-very-exotic-spheres}) and consequently $\Theta^n$ are finite,
 	\item relate the quotient $\Theta^n/\bP^{n+1}$ of very exotic spheres to the $J$-homomorphism and the stable homotopy groups of spheres.
 \end{itemize}
 Altogether, these results
 
 Many of these results fit into an 
+
+\pagebreak
+\section{Homotopy Theory and Geometry}
+
+homotopy theory can act as a ``moduli space'' for geometric problems. The familiar example of this is the case of vector bundles, where we caught a glimpse of the geometric insights which can be provided by homotopy theory in the construction of the universal bundle and universal characteristic classes. There, we saw that up to isomorphism, vector bundles were completely classified by a set of homotopy classes of map.
+In this section, we will apply a similar principle to manifolds themselves, relating various notions of cobordism to homotopy groups of spectra.
+
+\subsection{The Thom-Pontryagin Construction}
+
+Let us begin with the classical theory for framed cobordism, originally due Pontryagin in 1950 (see \cite{pontryagin1959homotopy} for a translation of a thorough exposition by Pontryagin). 
+
+The basic idea is simple and geometric. Suppose we have closed ambient manifold $M^n$ with submanifold $N^k$ possessing a tubular neighborhood $T_N\supset N$. Recall that a framing on $N$ is a diffeomorphism $\varphi : T_N \to N\times \R^{n-k}$. If we project onto the second factor, we get a map $\varphi'=\pi_2\circ \varphi : T_N \to \R^{n-k}$. We can then include $\R^{n-k}$ into its one-point compactification $\R^{n-k}\cup \{\infty\}=S^{n-k}$ by stereographic projection, and extend the map $\varphi'$ to $S^{n-k}$ by sending $N\setminus T_N$ to $\infty$. We can associate this map $f : M \to S^{n-k}$ to the framed embedding $N\subset M$.
+\[\begin{tikzcd}
+	N & {T_N} & M \\
+	{\{0\}} & {\R^{n-k}} & {S^{n-k}}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[hook, from=1-2, to=1-3]
+	\arrow["{\varphi'}", from=1-2, to=2-2]
+	\arrow["f", from=1-3, to=2-3]
+	\arrow[hook, from=2-1, to=2-2]
+	\arrow[hook, from=2-2, to=2-3]
+\end{tikzcd}\]
+
+This construction is not too surprising, $N$ is sent to the point $0\in S^{n-k}$, and $M\setminus T_N$ is sent to the $\infty \in S^{n-k}$ (although any distinct pair of points would suffice). The tubular neighborhood fills in the gaps, encoding the ``twistedness'' of the framing of $N\subset M$ in the homotopy type of the map $f$.
+
+\begin{figure}[ht]
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{Turning a framed submanifold of $M$ into a map $M\to S^{n-k}$.}
+\end{figure}
+
+\begin{definition}
+	If $N_1$ and $N_2$ are embedded submanifolds of $M$, a \defn{framed cobordism in $M$}[framed cobordism] $W : N_1 \frbord{M} N_2$ of $N_1$ and $N_2$ is a framed submanifold $W\subset M\times [0,1]$ such 
+\end{definition}
+
+\begin{definition}
+	The group of framed cobordism classes of framed $k$-dimensional submanifolds of $M$ is denoted $\Omega^\fr_k(M)$.
+\end{definition}
+
+A good example and source of intuition for this construction comes from framed knots. In knot theory, a \defn{framed knot} is an embedding $\iota$ of $S^1$ into $S^3$ along with a section $s$ of its normal bundle $\T S^3/S^1$. A framed knot should be thought of as an embedded ``ribbon'' in three dimensional space, the underlying knot determining the knottedness of the ribbon and the framing section determining the twistedness of the ribbon. For some examples of framed knots, see \cref{fig:framed-knot-examples}.
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{A framed unknot and trefoil knot.}\label{fig:framed-knot-examples}
+\end{figure}
+
+\begin{remark}
+With a Riemannian structure on $S^3$, we can assume without loss of generality that $s$ has unit norm, and get an orthonormal section $s^\perp$ to $s$. This recovers our notion of a framed submanifold, since $s\oplus s^\perp$ defines trivializations for a tubular neighborhood of the (unframed) knot $\iota(S^1)$ in $S^3$.
+\end{remark}
+
+Under the construction described above, a framed knot corresponds to a map $f : S^3\to S^{2}$.
+
+\begin{proposition}
+\end{proposition}
+
+\begin{theorem}[Pontryagin Isomorphism]\label{thm:thom-pontryagin-isomorphism}
+	Given a closed manifold $M^n$ of dimension $n>k$, there is a bijective correspondence
+	\begin{equation}
+		\Omega^\fr_k(M) \lkxto[] [M, S^{n-k}].
+	\end{equation}
+\end{theorem}
+
+\subsection{Stable Homotopy Theory}
+
+\begin{definition}
+	The \defn{stable homotopy groups} of a pointed space $X$ are the colimits
+	\[
+		\pi_n^{s}(X) = \varinjlim_k \pi_{n+k}(\Sigma^k X).
+	\]
+\end{definition}
+
+\begin{definition}
+	The susepsnion 
+\end{definition}
+
+\begin{definition}
+	The \defn{sphere spectrum} is the suspension spectrum of the point.
+\end{definition}
+
+\begin{corollary}
+	Since every closed framed manifold can be framed embedded in a sphere of sufficiently large dimension, there is an isomorphism
+	\begin{equation}
+		\Omega^\fr_k \lkxto \pi_k (\mathcal{S})
+	\end{equation}
+	where $\pi_k (\mathcal{S})$ are the stable homotopy groups of the spheres (or sphere spectrum).
+\end{corollary}
+
+\begin{theorem}
+	There exists a space $\MSO$ such that there is a
+\end{theorem}
+
+\subsection{Obstruction Theory}
 
 \pagebreak
 \section{Framed Surgery Theory}
@@ -69,7 +162,7 @@ This is a bulky theorem, and so we will tackle it in parts. First, let us unders
 	\end{center}
 	If $\pi_{n-1}(\SO)$ is zero, we are done. 
 
-	If $\pi_{n-1}(\SO) = \Z$, then $n=4k$. According to \cite{kervairemilnor1960} and \cite{kervaire1959}, some non-zero multiple of the obstruction class $\mathfrak{o}_n(\Sigma)$ can be identified with the Pontryagin class $p_k(T^s M) = p_k(TM)$. \todo{(why?)} But the Hirzebruch signature theorem implies \todo{(why?)} that $p_k(\Sigma)$ is a multiple of the signature $\sigma(\Sigma)$ which is zero since $\H^{2k}(\Sigma)=0$. Thus every homotopy $4k$-sphere is \textsc{s}-parallelizable. 
+	If $\pi_{n-1}(\SO) = \Z$, then $n=4k$. According to cite{kervairemilnor1960} and cite{kervaire1959}, some non-zero multiple of the obstruction class $\mathfrak{o}_n(\Sigma)$ can be identified with the Pontryagin class $p_k(T^s M) = p_k(TM)$. \todo{(why?)} But the Hirzebruch signature theorem implies \todo{(why?)} that $p_k(\Sigma)$ is a multiple of the signature $\sigma(\Sigma)$ which is zero since $\H^{2k}(\Sigma)=0$. Thus every homotopy $4k$-sphere is \textsc{s}-parallelizable. 
 
 	Finally, suppose $\pi_{n-1}(\SO)= \Z_2$. It follows from an argument of Rohlin \todo{(what?)} that $J_{n-1}(\mathfrak{o}_n(\Sigma))=0$ where $J_{n-1}$ denotes the Hopf-Whitehead homomorphism
 	\[
@@ -78,7 +171,9 @@ This is a bulky theorem, and so we will tackle it in parts. First, let us unders
 	in the stable range $k >n$. But $J_{n-1}$ is injective for $n\equiv 1, 2\mod 8$. This is proven by Adams. \todo{(find)} This means that $\mathfrak{o}_n(\Sigma)=0$.
 \end{proof}
 
-\begin{theorem}
+\section{Very Exotic Spheres}
+
+\begin{theorem}\label{thm:finite-very-exotic-spheres}
 	The quotient group $\Theta^n / \bP^{n+1}$ is finite.
 \end{theorem}
 \begin{proof}
@@ -99,8 +194,6 @@ This is a bulky theorem, and so we will tackle it in parts. First, let us unders
 
 	Furthermore, the kernel of $p'$ contains $h$-cobordism classes of homotopy $n$-spheres which bound parallelizable manifolds \todo{(provide lemma)}, which is exactly $bP_{n+1}$. By the first isomorphism theorem, it follows that $\Theta_n/bP_{n+1}$ is isomorphic to a subgroup of $\pi^s(S^n)$ which is finite.
 \end{proof}
-
-\section{Very Exotic Spheres}
 
 \subsection{Obstruction Theory}\label{sec:obstruction-theory}
 

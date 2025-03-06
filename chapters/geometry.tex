@@ -222,14 +222,14 @@ This assignment is done in a natural way, i.e. given bundles $\xi_1$ and $\xi_2$
 	\[
 		h^\bullet(M) = \bigoplus_{k\in \Z} h^k(M).
 	\]
-	Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\xi)$. It then makes sense to consider the \defn{total characteristic class} $c(\xi)=\sum_i c_i(\xi)\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$.
+	Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\xi)$. It then makes sense to consider the \defn{total characteristic class} $c(\xi)=\sum_i c_i(\xi)\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$. When the base space $B$ has finite type (as in the case of manifolds), we say that the \defn{degree} of a characteristic class $c$ evaluated at a vector bundle $\xi : E \to B$ is the maximal degree of $c(\xi)\in h^\bullet(B)$, and denoted $\dim(c(\xi))$.
 \end{remark}
 
 \begin{remark}
 	Given two characteristic classes $c_1$ and $c_2$, there is a clear notion of their sum $c_1+c_2$, product $c_1\smile c_2$, and scalar product $r\cdot c_1$ for any $r\in R$. This gives the set of characteristic classes $\Nat(\Vect_G, h^\bullet)$ the structure of a graded-commutative $R$-algebra.
 \end{remark}
 
-When bundles over the same base space are isomorphic, the naturality of a characteristic class implies that the corresponding characteristic classes are the same. This is useful for classifying vector bundles over a space but doesn't help when we need to compare vector bundles over distinct spaces.
+When bundles over the same base space are isomorphic, the naturality of a characteristic class implies that the corresponding characteristic classes are the same. This is useful for classifying vector bundles over a single. However, it is less clear how to compare characteristic classes in distinct base spaces.
 When a cohomology theory admits a Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ for some class of closed $n$-dimensional manifolds, we can ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong R$ in the coefficient ring of a corresponding homology theory. The coefficient ring $R$ is then a common context in which to compare characteristic classes.
 
 \begin{definition}\label{defn:characteristic-numbers}
@@ -253,14 +253,15 @@ The set of characteristic numbers of a manifold forms a topological fingerprint 
 Stiefel-Whitney classes are some of the simplest characteristic classes, defined for unoriented vector bundles (i.e. with structure group $\GL_n\R$) and taking values in singular cohomology with $\Z/2$ coefficients. Characterisic numbers of Stiefel-Whitney classes thus take values in $\Z/2$ -- these are called \defn{Stiefel-Whitney numbers}.
 
 \begin{definition}
-	The (total) \defn{Stiefel-Whitney class}[total Stiefel-Whitney class] $w$ is the unique characteristic class for unoriented vector bundles in $\Z/2$ singular cohomology satisfying the following axioms:
+	The \defn{Stiefel-Whitney class}[total Stiefel-Whitney class] $w$ is the unique characteristic class for unoriented vector bundles in $\Z/2$ singular cohomology satisfying the following axioms:
 	\begin{enumerate}[(a)]
-		\item The degree $0$ component of $w$ is always $1\in H^0(-; \Z/2)$.
-		\item The total degree of $w$ is never greater than the dimension of the base space.
-		\item For bundles $\xi_1$ and $\xi_2$ over a common base, we have $w(\xi_1\oplus \xi_2)=w(\xi_1)\smile w(\xi_2)$.
-		\item If $\gamma$ is the canonical line bundle over the circle $\RP^1$, we have $w(\gamma)=1+\alpha$ in the ring $\H^\bullet(\RP^1; \Z/2)\cong (\Z/2)[\alpha]/(\alpha^2)$.
+		\item $w_0=1$,
+		\item $\deg(w(\xi))\leq \rank(\xi)$,
+		\item $w(\xi_1\oplus \xi_2)=w(\xi_1)\smile w(\xi_2)$,\hfill ($\xi_1, \xi_2$ have the same base)
+		\item $w(\gamma^1_1)=1+\alpha$ \hfill in $\H^\bullet(\RP^1;\Z/2)\cong \Z/2[\alpha]/(\alpha^2)$
+			% If $\gamma$ is the canonical line bundle over the circle $\RP^1$, we have $w(\gamma)=1+\alpha$ in the ring $\H^\bullet(\RP^1; \Z/2)\cong (\Z/2)[\alpha]/(\alpha^2)$.
 	\end{enumerate}
-	Here, we set $w_i$ to be the degree $i$ homogeneous component of $w$ in $\H^i(-;\Z/2)$.
+	Let $w_i$ be the degree $i$ homogeneous component of $w$ in $\H^i(-;\Z/2)$.
 \end{definition}
 
 \begin{remark}
@@ -303,6 +304,20 @@ Let's conclude with some examples of
 A refinement
 
 \subsection{Chern Classes}
+
+\begin{definition}
+	The \defn{Chern class}[total Chern class] $c$ is the unique characteristic class for complex vector bundles in $\Z$ singular cohomology satisfying the following axioms:
+	\begin{enumerate}[(a)]
+		\item $c_0=1$,
+		\item $c(\xi_1\oplus \xi_2)=c(\xi_1)\smile c(\xi_2)$,\hfill ($\xi_1, \xi_2$ have the same base)
+		\item $c(\gamma^1_k)=1-\alpha$\hfill in $\H^\bullet(\CP^n;\Z)\cong \Z[\alpha]/(\alpha^{n+1})$
+	\end{enumerate}
+	Let $c_i$ be the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
+\end{definition}
+
+\begin{remark}
+
+\end{remark}
 
 For complex vector bundles, i.e. 
 

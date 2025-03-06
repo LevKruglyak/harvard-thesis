@@ -139,7 +139,7 @@
 
 % Bibliography
 \usepackage[
-	style=alphabetic,
+	style=numeric,
 	natbib=true,
 	backref=true,
 	backrefstyle=three
@@ -150,6 +150,10 @@
 	\renewcommand\bibname{#1}
 	\printbibliography[title=#1]
 }
+
+% Global figure counter
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
 
 % Appendices
 \usepackage{appendix}
@@ -163,7 +167,8 @@
 \usepackage{amsthm}
 
 % References
-\usepackage{hyperref}
+% \usepackage{hyperref}
+\usepackage{bookmark}
 \hypersetup{
 	colorlinks=true,
 	linkcolor=blue,
@@ -275,7 +280,7 @@
 \lkxregisteramsthm{theorem}
 
 \BeforeBeginEnvironment{proof}{
-	\leavevmode\vspace{-2.0em}\begin{subproof}
+	\begin{subproof}
 		\defcounter{stackproof}{\value{stackproof} + 1}}
 		\AfterEndEnvironment{proof}{\defcounter{stackproof}{\value{stackproof} - 1}
 	\end{subproof}}

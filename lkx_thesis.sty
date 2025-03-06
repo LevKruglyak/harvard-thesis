@@ -20,6 +20,8 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
 
 \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
     .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
@@ -34,12 +36,8 @@
 \tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
 \tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
 
-% \tikzset{>={Straight Barb[scale=0.8]}}
-% \tikzcdset{arrow style=tikz,diagrams={>={Straight Barb[scale=0.8]}}}
-% \tikzcdset{every arrow/.append style={thick, rounded corners=5pt, line join=round, line width = 1pt, {>[scale=2.5]}}
-% \tikzset{>={cmto}}
-% \tikzset{>={Stealth[length=3mm, width=1mm]}}
-% TODO: fix this to look consistent with the rest of the thesis
+\tikzcdset{every arrow/.append style={line width=0.8pt}}
+\tikzcdset{every arrow/.append style = -{Computer Modern Rightarrow[width=6.7pt,length=3pt]}}
 
 % Debug
 \newcommand{\todo}[1]{{\color{red}{#1}}}

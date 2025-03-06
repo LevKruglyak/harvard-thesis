@@ -1,9 +1,13 @@
 \chapter{Geometric Topology}\label{chap:fundamentals}
 
+% \begin{epigraph}{21em}{Pythagoras}
+% 	There is geometry in the humming of the strings,\\
+% 	and there is music in the spacing of the spheres
+% \end{epigraph}
+%
 
-\begin{epigraph}{16em}{Henri Poincar\'e}
-Mathematics is the art of giving the \\
-same name to different things.
+\begin{epigraph}{15em}{Frank Herbert}
+	Beginnings are such delicate times.
 \end{epigraph}
 
 To begin our journey, we will provide some mathematical essentials which will be used ubiquitously throughout the thesis. These prerequisites can loosely be broken up into three sections. First, in \cref{sec:geometric-topology} we will discuss operations on smooth manifolds in geometric topology -- how to glue manifolds together, cut off handles, attach handles, and so on. We also are concerned with how such operations affect the homology of the manifold. By carefully choosing submanifolds representing homology classes, we will see how to alter the homology of a manifold in a controlled way by means of these operations. These operations form the basic ideas of surgery theory, a topic we will explore in greater depth in \cref{chap:h-cobordism} and \cref{chap:classification}. \todo{mention intersection form}
@@ -131,6 +135,138 @@ many specially constructed manifolds we will consider in this chapter will at le
 \end{remark}
 
 \todo{give general conditions for representability}
+
+\subsection{Intersections in Differential Topology}\label{sec:differential-topology-intersections}
+
+\begin{theorem}[Preimage Theorem]\label{thm:preimage}
+	If $f : N \to X$ is a smooth map transverse to a submanifold $M\subset X$ then $S=f^{-1}(M)\subset N$ is a submanifold with the same codimension in $N$ as $M$ in $X$.
+\end{theorem}
+\begin{proof}
+	See the proof of Theorem~6.30 in \cite{lee2013smooth}.
+\end{proof}
+
+\begin{remark}\label{rmk:symmetric-preimage-theorem}
+	We can get a symmetric version of this theorem as a straightforward corollary. If we have two transverse maps $f : N\to X$ and $g : M\to X$, then the map $f\times g : N\times M \to X\times X$ is transverse to the diagonal submanifold $\Delta\subset X\times X$. \cref{thm:preimage} will then imply that
+	\[
+		(f\times g)^{-1}(\Delta) \subset M\times N
+	\]
+	is a submanifold. When $g$ is an embedding, $(f\times g)^{-1}(\Delta)$ can be projected down onto $M$ to get the preimage $f^{-1}(M)$.
+\end{remark}
+
+If the manifolds involved in \cref{thm:preimage} are orientable, this preimage $S$ admits a canonical orientation by the following procedure. First of all, recall that for any embedded manifold $M\subset X$ there is an exact sequence of vector bundles by quotienting
+\begin{equation}\label{eq:oriented-intersection-number-1}
+	\begin{tikzcd}
+		0 & {\T M} & {\T X} & {\T X/M} & 0
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-2, to=1-3]
+		\arrow[from=1-3, to=1-4]
+		\arrow[from=1-4, to=1-5]
+	\end{tikzcd}
+\end{equation}
+where $\T X/M$ is the normal bundle of $M\subset X$. Using the orientations of $X$ and $M$, we can use this exact sequence to get an orientation of the normal bundle $\T X/M$. At every point $p\in S$ of the preimage, the differential map $df$ connects the sequence \cref{eq:oriented-intersection-number-1} to the normal bundle sequence for the embedding $S\subset N$.
+\begin{equation}\label{eq:oriented-intersection-number-2}
+	\begin{tikzcd}
+		0 & {\T_pS} & {\T_p N} & {\T_p N/S} & 0 \\
+		0 & {\T_{f(p)}M} & {\T_{f(p)}X} & {\T_{f(p)}X/M} & 0
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=1-2, to=1-3]
+		\arrow["{df_p}", from=1-2, to=2-2]
+		\arrow[from=1-3, to=1-4]
+		\arrow["{df_p}", from=1-3, to=2-3]
+		\arrow[from=1-4, to=1-5]
+		\arrow["{df_p}", from=1-4, to=2-4]
+		\arrow[from=2-1, to=2-2]
+		\arrow[from=2-2, to=2-3]
+		\arrow[from=2-3, to=2-4]
+		\arrow[from=2-4, to=2-5]
+	\end{tikzcd}
+\end{equation}
+In this diagram \cref{eq:oriented-intersection-number-2}, the rightmost vertical map is an isomorphism by the transversality of $f$ and $M$. This means that we can pullback the orientation on $\T_{f(p)} X/M$ to $\T_p N/S$. Since $\T_p N$ is oriented, the usual ``2-out-of-3'' rule applied to the top row of \cref{eq:oriented-intersection-number-2} gives an orientation of $\T_p S$. See \cref{fig:preimage-orientation} for an example of this orienting procedure.
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{preimage-orientation.pdf_tex}
+	\medskip
+	\caption{Orienting a preimage (assuming a clockwise orientation on $X$ and $N$).}\label{fig:preimage-orientation}
+\end{figure}
+
+When $M$ and $N$ have complementary dimensions, the preimage $S=f^{-1}(N)\subset M$ is a compact oriented $0$-dimensional manifold. For each point $p\in S$, we have $\T_p S=0$ so the map $\T_p N\to \T_p N/S$ in \cref{eq:oriented-intersection-number-2} is an isomorphism. The orientation of $N$ gives an orientation of $\T_p N$, and the preimage orientation procedure gives us an orientation of $\T_p N/S$. Now we can define:
+
+\begin{definition}
+	The \defn{local (oriented) intersection number}[oriented intersection number (local)] of $f$ and $M$ at $p\in S$ is
+	\[
+		\#_p^X(f, M) = \begin{cases}
+			+1 & \T_p N/S \textrm{ has the same orientation as } \T_p N,     \\
+			-1 & \T_p N/S \textrm{ has the opposite orientation to } \T_p N.
+		\end{cases}
+	\]
+\end{definition}
+Summing over all of the local intersection numbers gives a global quantity.
+\begin{definition}
+	The \defn{(oriented) intersection number}[oriented intersection number] of a smooth map $f : N \to X$ intersecting a submanifold $M\subset X$ transversally is
+	\[
+		\#^X(f, M) = \sum_{p\in S} \#_p^X(f, M) \in \Z.
+	\]
+\end{definition}
+
+\begin{remark}\label{rmk:symmetric-intersection-number}
+	For a more symmetric version of this definition when two smooth maps $f : N \to X$ and $g : M \to X$ intersect transversally, we could take inspiration from \cref{rmk:symmetric-preimage-theorem} and define the oriented intersection number of the smooth maps $f$ and $g$ as
+	\[
+		\#^X(f,g) = \#^{X\times X}(f\times g, \Delta).
+	\]
+	This symmetric intersection number is graded commutative in the dimensions of $M$ and $N$, i.e.
+	\begin{equation}\label{eq:intersection-number-graded-commutative}
+		\#^X(f,g) = (-1)^{\dim M\cdot \dim N} \#^X(g,f)
+	\end{equation}
+\end{remark}
+
+Just as the property of transversality is stable -- resilient to homotopic perturbations -- so too is the oriented intersection number. This follows as a corollary to a more general theorem.
+
+\begin{theorem}
+	If $W$ is a compact oriented manifold with boundary, and $H : W \to X$ is a smooth map, then $\#^X(\partial H, M)=0$. Here, we use the notation $\partial H : \partial W \to X$ to refer to the restriction of $H$ to the boundary of $W$.
+\end{theorem}
+
+\begin{corollary}
+	If $H : [0,1]\times N \to X$ is a smooth homotopy, then $\#^X(H_0, M) = \#^X(H_1, M)$.
+\end{corollary}
+
+Applying the construction of the symmetric oriented intersection number gives a map
+\begin{equation}\label{eq:oriented-intersection-number-homotopy}
+	\lkxfunc{\#^X}{[N,X]\times [M,X]}{\Z}{f,g}{\#^X(f,g)}
+\end{equation}
+This is a geometric precursor to the intersection form of a manifold, a central object of study in geometric topology.
+
+\begin{remark}
+	If we don't assume orientations, we can still get a homotopy invariant intersection number, however we must reduce mod $2$. In this case, we could simply define
+	\[
+		\#_2^X(f,M) = |S|\mod 2.
+	\]
+	This is called the \defn{unoriented intersection number}.
+	\todo{elaborate}
+\end{remark}
+
+Finally, we'll state a useful result in computer self-intersection numbers -- a way to compute the intersection number of a submanifold with itself.
+
+\begin{theorem}\label{thm:euler-number-self-intersection}
+	If $M$ is a closed $m$-dimensional submanifold of a $2m$-dimensional submanifold $X$ then we have
+	\[
+		\#^X(M, M) = \chi(\T X/M)
+	\]
+	where $\chi(\T X/M)$ is the Euler number of the normal bundle of $M$.
+\end{theorem}
+\begin{proof}
+	\todo{todo}
+\end{proof}
+
+\begin{corollary}\label{thm:euler-number-self-intersection-corollary}
+	The Euler number $\chi(\xi)$ of an oriented real vector bundle $\xi : E \to B$ over a compact oriented manifold can be expressed as the intersection number
+	\[
+		\#^E(z,z) = \chi(\xi)
+	\]
+	where $z : B \to E$ is the zero section.
+\end{corollary}
+
+\todo{add 1.C from \cite{levine1985lectures}}
 
 \pagebreak
 \section{The Intersection Form}\label{sec:intersection-form}
@@ -344,10 +480,9 @@ As it turns out, the underlying surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ 
 
 However, if we add a handle to a projective plane $\RP^2$ (a M\"obius band with boundary collapsed), we can move one spout around the twist of $\RP^2$ to get a twisted handle (as depicted in \cref{fig:twisted-handle-to-handle}). Thus, the surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homeomorphic, a geometric fact which was detected in part by the algebraic identity of forms $H\oplus (1)=\oplus^3(1)$ in $\mathcal{Q}(\Z/2)$.
 
-\begin{figure}
+\begin{figure}[ht]
 	\centering
-	\todo{figure}
-	\medskip
+	\import{diagrams}{placeholder.pdf_tex}
 	\caption{Turning $T^2\+\RP^2$ into $\RP^2\+\RP^2\+\RP^2$.}\label{fig:twisted-handle-to-handle}
 \end{figure}
 
@@ -541,124 +676,3 @@ We are now equipped to list all of the unimodular indefinite forms.
 \medskip
 \todo{geometric interpretation of lattices,
 	\href{https://math.stackexchange.com/questions/2944104/obtaining-two-holed-torus-as-a-quotient-of-bbb-c}{maybe this article?}}
-
-\pagebreak
-\section{Cobordism}\label{sec:cobordism}
-
-The basic principle of cobordism is to declare two manifolds equivalent if there is a manifold a dimension higher which connects the two manifolds. As an equivalence relation, cobordism is far looser than the notions of homoemorphism or diffeomorphism and so allows for a full classification of manifolds. Many notions in geometry and topology -- for instance characteristic classes -- depend solely on the cobordism type of a manifold, so understanding the structure of cobordism is immensely helpful.
-
-\begin{remark}
-	Note that the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$.
-\end{remark}
-
-\begin{definition}
-	An \defn{unoriented cobordism} between closed $n$-manifolds $M_1$ and $M_2$ is an $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup M_2$. We use the notation $W : M_1\bord M_2$ to refer to the cobordism.
-\end{definition}
-
-\begin{definition}
-	An \defn{oriented cobordism} between closed oriented $n$-manifolds $M_1$ and $M_2$ is an oriented $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup (-M_2)$. We use the notation $W : M_1\sobord M_2$ to refer to the cobordism.
-\end{definition}
-
-\begin{remark}
-	\todo{General structure on a cobordism}
-\end{remark}
-
-Note that the oriented cobordism group can be thought of as a $\Z$-module, with multiplication action on a closed manifold $M$ given by
-\[
-	n \cdot M = \begin{cases} M\sqcup \cdots \sqcup M & n > 0,\\ (-M)\sqcup \cdots \sqcup (-M) & n < 0,\\ \emptyset & n=0,\end{cases}
-\]
-for all $n\in \Z$, where $\sqcup$ is repeated $|n|$ times. Since there is no notion of negation in the unoriented case, the unoriented cobordism group is a $\Z/2$-module.
-
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{pair-of-pants.pdf_tex}
-	\caption{A cobordism $W$ between $S^1$ and $(S^1\sqcup S^1)$.}\label{fig:pair-of-pants}
-\end{figure}
-
-For a simple example of a cobordism between a circle and a disjoint union of circles, see \cref{fig:pair-of-pants}. Note that this cobordism could be made much simpler by removing the handle. Simplifying cobordisms in this way is one of the major applications of surgery theory.
-
-\begin{definition}
-	The \defn{$k$-th oriented cobordism group}[oriented cobordism group] $\Omega^\SO_k$ is the abelian group of oriented cobordism classes of closed $k$-manifolds\footnote{We do not require manifolds to be connected in this definition.}
-	under disjoint union. The identity component is the empty set $\varnothing$, and negation is given by reversing orientation. Similarly, the \defn{$k$-th unoriented cobordism group}[unoriented cobordism group] $\Omega_k$ is the abelian group of cobordism classes of closed $k$-manifolds under disjoint union.
-\end{definition}
-
-\begin{example}
-	There is an isomorphism $\Omega_0\cong \Z/2$. An unoriented 0-dimensional manifold is just a set of points. Any pair of points is cobordant to the empty set by a path connecting them. Since adding pairs of points doesn't change the cobordism type, the number of points modulo 2 determines the cobordism class entirely.
-\end{example}
-
-\begin{example}
-	There is an isomorphism $\Omega_0^\SO \cong \Z$. An oriented 0-dimensional manifold is still a set of points, however the orientation now equips each point with a ``charge'', we might label them as $+$ or $-$. Note that points of opposite ``charges'' cancel out by a path between them oriented from $-$ to $+$. Given some set of points of various charges, we can always eliminate pairs of opposite charges and are left with a homogeneous set of charge. Adding up all of the pluses or minuses, we get an integer. This integer determines the cobordism class, and is invariant to adding or removing pairs of opposing charge.
-\end{example}
-
-\begin{example}
-	Both the oriented and unoriented cobordism groups are trivial in dimension 1, since every circle is the boundary of a disk.
-\end{example}
-
-In higher dimensions, the classification becomes much more interesting.
-
-\begin{figure}[ht]
-	\renewcommand{\arraystretch}{1.2}
-	\centering
-	\begin{tabular}{r||c|c||c|c}
-		$k$ & $\Omega_k$          & generators                                          & $\Omega_k^\SO$ & generators                 \\
-		\hline
-		$0$ & $\Z/2$              & a point                                             & $\Z$           & a point                    \\
-		$1$ & $0$                 &                                                     & $0$            &                            \\
-		$2$ & $\Z/2$              & $\RP^2$                                             & $0$            &                            \\
-		$3$ & $0$                 &                                                     & $0$            &                            \\
-		$4$ & $\Z/2\oplus \Z/2$   & $\RP^4$, $\RP^2\times \RP^2$                        & $\Z$           & $\CP^2$                    \\
-		$5$ & $\Z/2$              & $\SU_3/\SO_3$                                       & $\Z/2$         & $\SU_3/\SO_3$              \\
-		$6$ & $(\Z/2)^{\oplus 3}$ & $\RP^6$, $\RP^2\times \RP^4$, $(\RP^2)^{\times 3}$, & $0$            &                            \\
-		$7$ & $\Z/2$              & $(\SU_3/\SO_3) \times \RP^2$                        & $0$            &                            \\
-		$8$ & $(\Z/2)^{\oplus 4}$ & $\RP^8, \RP^6\times \RP^2, \cdots$                  & $\Z\oplus \Z$  & $\CP^4, \CP^2\times \CP^2$ \\
-	\end{tabular}
-	\medskip
-	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
-\end{figure}
-
-The structure of \cref{fig:cobordism-structure-table} makes a lot more sense in the context of
-
-\begin{proposition}
-	The product of manifolds is a well-defined operation with respect to cobordism.
-\end{proposition}
-\begin{proof}
-	\todo{proof}
-\end{proof}
-
-\begin{definition}
-	The \defn{oriented cobordism ring} $\Omega^\SO_\bullet$ is the set of oriented cobordism classes of closed manifolds under the operations of disjoint union and product.
-\end{definition}
-
-The oriented cobordism ring has a grading by
-\[
-	\Omega_\bullet^\SO = \bigoplus_{k\geq 0} \Omega^\SO_k.
-\]
-
-\begin{theorem}[Thom-Pontryagin]\label{thm:oriented-cobordism-structure}
-	There is a ring isomorphism
-	\[
-		\Omega_\bullet^\SO \otimes \Q \lkxto \Q[x_4, x_8, x_{12}, \ldots]
-	\]
-	where $x_{4k}$ are cobordism classes representing $\CP^{2k}$.
-\end{theorem}
-
-\subsection{The Thom-Pontryagin Construction}
-
-\begin{theorem}[Pontryagin-Thom Isomorphism]
-	Given a closed manifold $M$ of dimension $n>k$, there is a bijective correspondence
-	\begin{equation}
-		\Omega^\fr_k(M) \lkxto[] [M, S^{n-k}].
-	\end{equation}
-\end{theorem}
-
-\begin{corollary}
-	Since every closed framed manifold can be framed embedded in a sphere of sufficiently large dimension, there is an isomorphism
-	\begin{equation}
-		\Omega^\fr_k \lkxto \pi_k S
-	\end{equation}
-	where $\pi_k S = \lim_{n\to\infty} \pi_n S^{n-k}$ is the $k$-stable homotopy group of the spheres.
-\end{corollary}
-
-\begin{theorem}
-	There exists a space $\MSO$ such that there is a
-\end{theorem}
