@@ -325,6 +325,29 @@ For complex vector bundles, i.e.
 
 \subsection{The Euler Class}\label{sec:euler-class}
 
+\begin{theorem}\label{thm:euler-number-of-vector-bundle-over-sphere}
+	Let $p : \SO_{2m} \to \SO_{2m}/\SO_{2m-1}= S^{2m-1}$ be the projection map of the special orthogonal group to the sphere. Then the following diagram commutes,
+	\[\begin{tikzcd}
+			{\pi_{2m-1}(\SO_{2m})} & \Z \\
+			{\pi_{2m-1}(S^{2m-1})}
+			\arrow["e", from=1-1, to=1-2]
+			\arrow["{p_*}"', from=1-1, to=2-1]
+			\arrow[from=2-1, to=1-2]
+		\end{tikzcd}\]
+	where $\pi_{2m-1}(S^{2m-1})\to \Z$ is the degree isomorphism.
+\end{theorem}
+\begin{proof}
+	\todo{prove}
+\end{proof}
+
+\begin{corollary}\label{cor:expressible-euler-numbers-spheres}
+	The image of $e : \pi_{2m-1}(\SO_{2m})\to\Z$ is $2\Z$.
+\end{corollary}
+\begin{proof}
+	\todo{prove}
+\end{proof}
+
+
 \begin{definition}\label{def:euler-class}
 	The \defn{Euler class}
 \end{definition}

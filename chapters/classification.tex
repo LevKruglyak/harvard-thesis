@@ -49,6 +49,8 @@ This construction is not too surprising, $N$ is sent to the point $0\in S^{n-k}$
 	\caption{Turning a framed submanifold of $M$ into a map $M\to S^{n-k}$.}
 \end{figure}
 
+In the reverse direction, suppose 
+
 \begin{definition}
 	If $N_1$ and $N_2$ are embedded submanifolds of $M$, a \defn{framed cobordism in $M$}[framed cobordism] $W : N_1 \frbord{M} N_2$ of $N_1$ and $N_2$ is a framed submanifold $W\subset M\times [0,1]$ such 
 \end{definition}
@@ -70,14 +72,12 @@ With a Riemannian structure on $S^3$, we can assume without loss of generality t
 \end{remark}
 
 Under the construction described above, a framed knot corresponds to a map $f : S^3\to S^{2}$.
-
-\begin{proposition}
-\end{proposition}
+\todo{self-linking}
 
 \begin{theorem}[Pontryagin Isomorphism]\label{thm:thom-pontryagin-isomorphism}
 	Given a closed manifold $M^n$ of dimension $n>k$, there is a bijective correspondence
 	\begin{equation}
-		\Omega^\fr_k(M) \lkxto[] [M, S^{n-k}].
+		\lkxfunc{p^\fr_k(M)}{\Omega^\fr_k(M)}{{}[M, S^{n-k}].}
 	\end{equation}
 \end{theorem}
 
@@ -98,16 +98,11 @@ Under the construction described above, a framed knot corresponds to a map $f : 
 	The \defn{sphere spectrum} is the suspension spectrum of the point.
 \end{definition}
 
-\begin{corollary}
-	Since every closed framed manifold can be framed embedded in a sphere of sufficiently large dimension, there is an isomorphism
-	\begin{equation}
-		\Omega^\fr_k \lkxto \pi_k (\mathcal{S})
-	\end{equation}
-	where $\pi_k (\mathcal{S})$ are the stable homotopy groups of the spheres (or sphere spectrum).
-\end{corollary}
-
-\begin{theorem}
-	There exists a space $\MSO$ such that there is a
+\begin{theorem}[Stable Pontryagin Isomorphism]
+	There is a group isomorphism
+	\[
+		\lkxfunc{p^\fr_k}{\Omega_k^\fr}{\pi_k(\mathcal{S})}
+	\]
 \end{theorem}
 
 \subsection{Obstruction Theory}

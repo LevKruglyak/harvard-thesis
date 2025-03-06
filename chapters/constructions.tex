@@ -119,34 +119,14 @@ Here $H^0(S^n)$ and $H^n(S^n)$ are both isomorphic to $\Z$, with the Euler class
 	\end{tikzcd}
 \]
 While $p$ certainly does not have a section, $\overline{p}$ does -- since the $0\in D^2$ is a fixed point of the $\U_1$ action we have a zero section. The removal of the open $4$-disk from $\CP^2$ does not affect lower dimensional homology groups of $\CP^2\setminus \Int(D^4)$. 
-Furthermore, the embedding by the zero-section of $\overline{p}$ of $S^2\subset W$ generates the middle-dimensional homology $\H^2(W)$. The plane bundle associated to the Hopf bundle $p$ is then a tubular neighborhood of $S^2\subset W$ and so by \cref{thm:euler-number-self-intersection}, the Euler number of the Hopf bundle is the self-intersection of $S^2$ in $W$. However, the intersection form 
+Furthermore, the embedding by the zero-section of $\overline{p}$ of $S^2\subset W$ generates the middle-dimensional homology $\H^2(W)$. The plane bundle associated to the Hopf bundle $p$ is then a tubular neighborhood of $S^2\subset W$ and so by \cref{thm:euler-number-self-intersection}, the Euler number of the Hopf bundle is the self-intersection of $S^2$ in $W$. However, the intersection form of $\CP^2$ is the same as the intersection form of $W$, it is $(1)$ by \cref{prop:intersection-form-complex-projective-plane}. This means that the Euler class of the Hopf bundle is $\pm 1$ which agrees with \cref{prop:homotopy-type-spherical-bundle}.
 \end{remark}
 
-\begin{theorem}\label{thm:euler-number-of-vector-bundle-over-sphere}
-	Let $p : \SO_{2m} \to \SO_{2m}/\SO_{2m-1}= S^{2m-1}$ be the projection map of the special orthogonal group to the sphere. Then the following diagram commutes,
-	\[\begin{tikzcd}
-			{\pi_{2m-1}(\SO_{2m})} & \Z \\
-			{\pi_{2m-1}(S^{2m-1})}
-			\arrow["e", from=1-1, to=1-2]
-			\arrow["{p_*}"', from=1-1, to=2-1]
-			\arrow[from=2-1, to=1-2]
-		\end{tikzcd}\]
-	where $\pi_{2m-1}(S^{2m-1})\to \Z$ is the degree isomorphism.
-\end{theorem}
-\begin{proof}
-	\todo{prove}
-\end{proof}
+\begin{remark}
+	When building manifolds as total spaces of sphere bundles, it is usually easier to work with first with a vector bundle. This allows for a natural construction of both a sphere bundle and a bounding disk bundle given a Riemannian structure. Working with vector bundles, especially when the base manifold is a sphere as well is generally easier because we can classify vector bundles by the clutching construction as a homotopy group of the structure group. 
 
-\begin{corollary}\label{cor:expressible-euler-numbers-spheres}
-	The image of $e : \pi_{2m-1}(\SO_{2m})\to\Z$ is $2\Z$.
-\end{corollary}
-\begin{proof}
-	\todo{prove}
-\end{proof}
-
-\begin{theorem}
-	The dimensions $3, 7,$ and $15$ are the only dimensions in which a topological sphere can 
-\end{theorem}
+	In the case that the fiber $S^{n-1}$ is $S^0, S^1, S^3,$ there is a Lie group structure on $S^{n-1}$ which acts on $\R^{n}$ so we can always associate a rank $n$ vector bundle to an $S^{n-1}$ bundle. When the fiber does not have a Lie group structure, we can still form sphere bundles out of vector bundles, but it is not necessarily true that all sphere bundles arise in this way.
+\end{remark}
 
 \subsection{Milnor's Exotic Spheres in 7-Dimensions}
 
@@ -158,7 +138,7 @@ Furthermore, the embedding by the zero-section of $\overline{p}$ of $S^2\subset 
 \end{proof}
 
 \begin{definition}
-	For each $(i,j)\in \pi_3(\SO_4)$, the \defn{Milnor sphere} $\Sigma_{i,j}$ is the total space of the bundle associated to the clutching function $(i,j)$.
+	For each $(i,j)\in \pi_3(\SO_4)$, the \defn{Milnor sphere}[Milnor sphere (7-dimensional)] $\Sigma_{i,j}^7$ is the total space of the bundle associated to the clutching function $(i,j)$. Let $p_{i,j} : \Sigma_{i,j}^7 \to S^4$ be the bundle map.
 \end{definition}
 
 \begin{proposition}\label{prop:milnor-spheres-homeomorphic-to-spheres}
@@ -199,6 +179,30 @@ Of course, by \cref{prop:homotopy-type-spherical-bundle}, this follows by the $h
 	\]
 	It follows after elementary differentiation that the only critical points are $(u_0, v_0)= (0,\pm 1)$, and that $f$ is non-degenerate at these points. Therefore, $f$ is a Morse function with exactly two critical points so by Reeb's theorem (\ref{thm:reeb}), $\Sigma_{i,j}^\infty$ is homeomorphic to a sphere.
 \end{proof}
+
+Now, let us compute the invariants of \cref{sec:invariants-for-homotopy-4k-1-spheres} for Milnor's exotic spheres -- this will tell us if we were successful in our task. First, let $\overline{p}_{i,j} : W_{i,j}^8 \to S^4$ be the associated $D^4$ bundle which bounds $p_{i,j}$. This coboundary $W_{i,j}^8$ of $\Sigma^7_{i,j}$ is essential for computing invariants.
+
+\begin{proposition}
+	For any $(i,j)\in \Z\oplus \Z$ with $i+j=1$, we have
+	\[
+		\sigma(W_{i,j}^8) = 1\quad\textrm{and}\quad p_1^2[W_{i,j}^8, \Sigma_{i,j}]=\pm 2(i-j).
+	\]
+\end{proposition}
+\begin{proof}
+	We will begin by computing the signature. Firstly, note that \todo{finish}
+\end{proof}
+
+Using the Milnor invariant (\cref{def:milnor-invariant-7}), we get:
+\begin{corollary}
+	$\milinv(\Sigma^7_{i,j})=3+4(i-j)^2\mod 7$.
+\end{corollary}
+Since every $i-j\in \Z$ is achievable while keeping $i+j=1$, it follows that 
+
+Next
+
+\begin{corollary}
+	$\ekinv(\Sigma^7_{i,j})=1-4(i-j)^2\mod 224$.
+\end{corollary}
 
 \subsection{The Gromoll-Meyer Sphere}\label{sec:gromoll-meyer}
 
@@ -256,6 +260,16 @@ This is an example of a general construction known as a biquotient. Whenever $H_
 
 \subsection{Milnor's Spheres in Higher Dimensions}
 
+\cite{shimada1957differentiable}.
+
+\todo{which elements of $\pi_7(S^4)$ or $\pi_{15}(S^8)$ do they correspond to?}
+
+\todo{Hopf invariant problem}
+
+\begin{theorem}[Hopf]
+	The dimensions $3, 7,$ and $15$ are the only dimensions in which a topological sphere can be constructed as a fiber bundle over a sphere.
+\end{theorem}
+
 \pagebreak
 \section{Plumbing}\label{sec:plumbing}
 
@@ -282,7 +296,7 @@ The resulting $2m$-manifold $W$ should have middle dimensional homology $\H_m(W)
 Although plumbing non-orientable bundles is certainly possible and interesting in its own right, to keep the resulting manifolds orientable we'll require orientable bundles $\xi$ (this rules out the M\"obius bundle thickening in \cref{fig:thickening-sphere}). With this requirement, $W$ gets a manifold orientation from the orientation of the bundle.
 Since disks are contractible, there is a deformation retraction $W\simeq S^m$, and this implies that the middle dimensional homology $\H_m(X)$ is generated by $\iota_*[S^m]$. By \cref{thm:euler-number-self-intersection-corollary}, the self intersection number of $\iota_*[S^m]$ is exactly the Euler number $\chi(\xi)$ which we set to be $Q_{11}$ by our choice of bundle $\xi$.
 
-Vector bundles with a given Euler number don't always exist over an $m$-sphere. For instance, if $m$ is odd, then the Euler number of any bundle over $S^m$ is zero and so $Q_{11}$ must be zero in this case. This isn't a failure of the construction but rather reflects that the intersectio form $Q$ is skew-symmetric when $m$ is odd and so must have zeroes along the diagonal. 
+Vector bundles with a given Euler number don't always exist over an $m$-sphere. For instance, if $m$ is odd, then the Euler number of any bundle over $S^m$ is zero and so $Q_{11}$ must be zero in this case. This isn't a failure of the construction but rather reflects that the intersection form $Q$ is skew-symmetric when $m$ is odd and so must have zeroes along the diagonal. 
 When $m$ is even however, there are plenty of bundles which have a non-zero Euler number. For instance, the tangent bundle $\T S^m$ has Euler number $2$. This lets us construct a $4k$-manifold with boundary that has intersection form $Q = (2)$. More generally, only even numbers can be achieved as Euler numbers of vector bundles over even-dimensional spheres. This is proved in \cref{cor:expressible-euler-numbers-spheres}.
 
 \subsection{Plumbing Multiple Bundles}

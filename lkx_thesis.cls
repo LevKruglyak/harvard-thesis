@@ -32,7 +32,6 @@
 \let\oldbfseries\bfseries
 \renewcommand{\bfseries}{\oldbfseries\boldmath
 }
-% \everymath{\bm}}
 
 % Page Style
 \usepackage[twoside]{fancyhdr}
