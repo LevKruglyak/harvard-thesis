@@ -11,7 +11,7 @@
 
 \subsection{Structure Groups}\label{sec:structure-groups}
 
-Given a rank $k$ vector bundle $\xi : E \to B$ over $\F$, there is an associated \defn{frame bundle} $\pi : \B E \to B$ with fibers $\B_p E = \{ b : \F^k \to E_p \mid b\textrm{ is an isomorphism}\}$ consisting of bases of the vector bundle $E_p$ at each point $p\in B$. Note that frame bundle is a principal $\GL_k\F$-bundle, since there is a right change of basis action given by precomposition on $\F^k$.
+Given a rank $k$ vector bundle $\mathcal{E} : E \to B$ over $\F$, there is an associated \defn{frame bundle} $\pi : \B E \to B$ with fibers $\B_p E = \{ b : \F^k \to E_p \mid b\textrm{ is an isomorphism}\}$ consisting of bases of the vector bundle $E_p$ at each point $p\in B$. Note that frame bundle is a principal $\GL_k\F$-bundle, since there is a right change of basis action given by precomposition on $\F^k$.
 In the reverse direction, the action of $\GL_k\F$ on $\F^k$, the associated bundle $\B E\times_{\GL_k\F} \F^k$ is isomorphic to the original vector bundle $E$. In other words, there is a bijective correspondence
 \begin{equation}\label{eq:principal-GL-bundle-vector-bundle}
 	\left\{\parbox{7.5em}{$\F$-vector bundles of rank $k$ over $X$}\right\}
@@ -54,7 +54,7 @@ When the base manifold of a vector bundle is a sphere, there is a useful constru
 \begin{remark} The clutching construction is a very special case of a far more general notion of a classifying space, discussed in \cref{sec:classifying-spaces}.
 \end{remark}
 
-Suppose $\xi : E \to S^m$ is a rank $k$ $\F$-vector bundle. We can decompose the sphere $S^m$ into hemispheral disks $S^m=D_+^m\cup D_-^m$, and these disks intersect at an equatorial sphere $D_+^m\cap D_-^m=S^{m-1}\subset S^m$ one dimension lower. The bundle $\xi$ can then be trivialized on the hemispheres since they are contractible. Let us denote these trivializations
+Suppose $\mathcal{E} : E \to S^m$ is a rank $k$ $\F$-vector bundle. We can decompose the sphere $S^m$ into hemispheral disks $S^m=D_+^m\cup D_-^m$, and these disks intersect at an equatorial sphere $D_+^m\cap D_-^m=S^{m-1}\subset S^m$ one dimension lower. The bundle $\mathcal{E}$ can then be trivialized on the hemispheres since they are contractible. Let us denote these trivializations
 \[
 	\lkxfunc{\varphi_+}{E|_{D^m_+}}{D^m_+\times \F^k}
 	\quad\textrm{and}\quad
@@ -75,20 +75,20 @@ By definition, $\psi$ is constant on the first factor, and linear in the second 
 	\caption{Getting a map $\tau : S^{m-1}\to \GL_k\F$ from a vector bundle over $S^{m}$.}\label{fig:clutching-construction}
 \end{figure}
 
-Altogether, this family of linear transformations is indexed by the equator $S^{m-1}$, and this gives us a smooth map $\tau : S^{m-1}\to \GL_k \F$. It follows that the homotopy type of $\tau$ is only dependent on the isomorphism type of the bundle $\xi$ since any vector bundle isomorphism induces a homotopy by \cref{prop:homotopy-invariance-vector-bundle}. In other words, we have a map
+Altogether, this family of linear transformations is indexed by the equator $S^{m-1}$, and this gives us a smooth map $\tau : S^{m-1}\to \GL_k \F$. It follows that the homotopy type of $\tau$ is only dependent on the isomorphism type of the bundle $\mathcal{E}$ since any vector bundle isomorphism induces a homotopy by \cref{prop:homotopy-invariance-vector-bundle}. In other words, we have a map
 \[
 	\lkxfunc{}{\Vect^k_\F(S^m)}{{}[S^{m-1}, \GL_k\F]}
 \]
-sending an $\F$-vector bundle $\xi$ to the its associated homotopy class $\tau\in [S^{m-1}, \GL_k\F]$. This associated map $\tau$ is called the \defn{clutching function} of the bundle $\xi$.
+sending an $\F$-vector bundle $\mathcal{E}$ to the its associated homotopy class $\tau\in [S^{m-1}, \GL_k\F]$. This associated map $\tau$ is called the \defn{clutching function} of the bundle $\mathcal{E}$.
 
 \begin{remark}
-	If the bundle $\xi$ has additional structure, we can choose the clutching function to lie in some Lie subgroup $G\subset \GL_k \F$. For instance, in the real case $\F=\R$, an oriented bundle has a clutching function $\tau \in [S^{m-1},\GL_k^+\R]$ in the homotopy group of orientation preserving linear transformations. Similarly, if a bundle has an inner product structure, its clutching function can be chosen to lie in $\pi_{m-1}(\O_k)$. This is elaborated upon in \cref{sec:structure-groups}.
+	If the bundle $\mathcal{E}$ has additional structure, we can choose the clutching function to lie in some Lie subgroup $G\subset \GL_k \F$. For instance, in the real case $\F=\R$, an oriented bundle has a clutching function $\tau \in [S^{m-1},\GL_k^+\R]$ in the homotopy group of orientation preserving linear transformations. Similarly, if a bundle has an inner product structure, its clutching function can be chosen to lie in $\pi_{m-1}(\O_k)$. This is elaborated upon in \cref{sec:structure-groups}.
 \end{remark}
 
 The construction works in the opposite direction as well.
 
 \begin{definition}
-	Given a matrix Lie group $G\subset \GL_k\F$ and a clutching function $\tau\in \pi_{m-1}(G)$, the bundle associated to the function is the bundle $\xi_\tau : E_\tau \to S^{m}$, with total space
+	Given a matrix Lie group $G\subset \GL_k\F$ and a clutching function $\tau\in \pi_{m-1}(G)$, the bundle associated to the function is the bundle $\mathcal{E}_\tau : E_\tau \to S^{m}$, with total space
 	\[
 		E_\tau = (D_+^m\times \F^k)\cup_h (D_-^{m}\times \F^k),
 	\]
@@ -210,8 +210,8 @@ Throughout this section, a cohomology theory will refer either to singular cohom
 
 Here, $h^\bullet : \Top \to \Rng$ sends a space to its  cohomology ring, and $\Vect_G : \Top \to \Set$ sends a space to the set of isomorphism classes of vector bundles over the space with structure group $G$. We assume that the natural transformation $c$ forgets the ring structure of cohomology when mapping from the set of isomorphism classes of vector bundles.
 
-Given a manifold $M$, a characteristic class assigns a vector bundle $\xi$ over $M$ to a cohomology class $c(\xi)\in h^\bullet(M)$.
-This assignment is done in a natural way, i.e. given bundles $\xi_1$ and $\xi_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\xi_1 \to \xi_2$, we have $f^* c(\xi_2) = c(\xi_1)$.
+Given a manifold $M$, a characteristic class assigns a vector bundle $\mathcal{E}$ over $M$ to a cohomology class $c(\mathcal{E})\in h^\bullet(M)$.
+This assignment is done in a natural way, i.e. given bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\mathcal{E}_1 \to \mathcal{E}_2$, we have $f^* c(\mathcal{E}_2) = c(\mathcal{E}_1)$.
 
 \begin{convention*}
 	Since every smooth manifold $M$ comes with a canonical vector bundle -- the tangent bundle -- it's common to use the notation $c(M)$ to refer to $c(\T M)$.
@@ -222,7 +222,7 @@ This assignment is done in a natural way, i.e. given bundles $\xi_1$ and $\xi_2$
 	\[
 		h^\bullet(M) = \bigoplus_{k\in \Z} h^k(M).
 	\]
-	Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\xi)$. It then makes sense to consider the \defn{total characteristic class} $c(\xi)=\sum_i c_i(\xi)\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$. When the base space $B$ has finite type (as in the case of manifolds), we say that the \defn{degree} of a characteristic class $c$ evaluated at a vector bundle $\xi : E \to B$ is the maximal degree of $c(\xi)\in h^\bullet(B)$, and denoted $\dim(c(\xi))$.
+	Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\mathcal{E})$. It then makes sense to consider the \defn{total characteristic class} $c(\mathcal{E})=\sum_i c_i(\mathcal{E})\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$. When the base space $B$ has finite type (as in the case of manifolds), we say that the \defn{degree} of a characteristic class $c$ evaluated at a vector bundle $\mathcal{E} : E \to B$ is the maximal degree of $c(\mathcal{E})\in h^\bullet(B)$, and denoted $\dim(c(\mathcal{E}))$.
 \end{remark}
 
 \begin{remark}
@@ -233,7 +233,7 @@ When bundles over the same base space are isomorphic, the naturality of a charac
 When a cohomology theory admits a Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ for some class of closed $n$-dimensional manifolds, we can ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong R$ in the coefficient ring of a corresponding homology theory. The coefficient ring $R$ is then a common context in which to compare characteristic classes.
 
 \begin{definition}\label{defn:characteristic-numbers}
-	Given a homogeneous characteristic class $c$ of degree $n$ and a closed $n$-dimensional manifold $M$, the \defn{characteristic number} of a vector bundle $\xi$ over $M$ is the $c(\xi)[M] \in R$.
+	Given a homogeneous characteristic class $c$ of degree $n$ and a closed $n$-dimensional manifold $M$, the \defn{characteristic number} of a vector bundle $\mathcal{E}$ over $M$ is the $c(\mathcal{E})[M] \in R$.
 \end{definition}
 
 \begin{convention*}
@@ -256,8 +256,8 @@ Stiefel-Whitney classes are some of the simplest characteristic classes, defined
 	The \defn{Stiefel-Whitney class}[total Stiefel-Whitney class] $w$ is the unique characteristic class for unoriented vector bundles in $\Z/2$ singular cohomology satisfying the following axioms:
 	\begin{enumerate}[(a)]
 		\item $w_0=1$,
-		\item $\deg(w(\xi))\leq \rank(\xi)$,
-		\item $w(\xi_1\oplus \xi_2)=w(\xi_1)\smile w(\xi_2)$,\hfill ($\xi_1, \xi_2$ have the same base)
+		\item $\deg(w(\mathcal{E}))\leq \rank(\mathcal{E})$,
+		\item $w(\mathcal{E}_1\oplus \mathcal{E}_2)=w(\mathcal{E}_1)\smile w(\mathcal{E}_2)$,\hfill ($\mathcal{E}_1, \mathcal{E}_2$ have the same base)
 		\item $w(\gamma^1_1)=1+\alpha$ \hfill in $\H^\bullet(\RP^1;\Z/2)\cong \Z/2[\alpha]/(\alpha^2)$
 			% If $\gamma$ is the canonical line bundle over the circle $\RP^1$, we have $w(\gamma)=1+\alpha$ in the ring $\H^\bullet(\RP^1; \Z/2)\cong (\Z/2)[\alpha]/(\alpha^2)$.
 	\end{enumerate}
@@ -267,7 +267,7 @@ Stiefel-Whitney classes are some of the simplest characteristic classes, defined
 \begin{remark}
 	Axiom (c) is known as the \defn{Whitney product formula}. The classical form of the Whitney product formula in homogeneous components is given by
 	\[
-		w_i(\xi_1\oplus \xi_2) = \sum_{p+q=i} w_p(\xi_1)\smile w_q(\xi_2).
+		w_i(\mathcal{E}_1\oplus \mathcal{E}_2) = \sum_{p+q=i} w_p(\mathcal{E}_1)\smile w_q(\mathcal{E}_2).
 	\]
 \end{remark}
 
@@ -281,13 +281,13 @@ Of course, this definition is not constructive, and it is not at all clear that 
 \end{proof}
 
 \begin{corollary}
-	By the Whitney product formula, $c(\xi\oplus \underline{\R}^k)=c(\xi)\smile c(\underline{\R}^k)= c(\xi)$.
+	By the Whitney product formula, $c(\mathcal{E}\oplus \underline{\R}^k)=c(\mathcal{E})\smile c(\underline{\R}^k)= c(\mathcal{E})$.
 \end{corollary}
 
-In other words, adding on trivial bundles to a vector bundle does not affect the Stiefel-Whitney class. This equivalence relation on vector bundles is known as stable isomorphism, namely two vector bundles $\xi_1$ and $\xi_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\xi_1\oplus \underline{\R}^{k_1} \cong \xi_2\oplus \underline{\R}^{k_2}$. \todo{stable structure group}.
+In other words, adding on trivial bundles to a vector bundle does not affect the Stiefel-Whitney class. This equivalence relation on vector bundles is known as stable isomorphism, namely two vector bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\mathcal{E}_1\oplus \underline{\R}^{k_1} \cong \mathcal{E}_2\oplus \underline{\R}^{k_2}$. \todo{stable structure group}.
 
 \begin{definition}
-	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\xi\oplus \underline{\R}^k) = c(\xi)$ for any $k$.
+	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\mathcal{E}\oplus \underline{\R}^k) = c(\mathcal{E})$ for any $k$.
 \end{definition}
 
 The sensitivity of Stiefel-Whitney classes to stable isomorphism types has a nice geometric corollary. If a manifold $M$ can be embedded \todo{finish}
@@ -309,7 +309,7 @@ A refinement
 	The \defn{Chern class}[total Chern class] $c$ is the unique characteristic class for complex vector bundles in $\Z$ singular cohomology satisfying the following axioms:
 	\begin{enumerate}[(a)]
 		\item $c_0=1$,
-		\item $c(\xi_1\oplus \xi_2)=c(\xi_1)\smile c(\xi_2)$,\hfill ($\xi_1, \xi_2$ have the same base)
+		\item $c(\mathcal{E}_1\oplus \mathcal{E}_2)=c(\mathcal{E}_1)\smile c(\mathcal{E}_2)$,\hfill ($\mathcal{E}_1, \mathcal{E}_2$ have the same base)
 		\item $c(\gamma^1_k)=1-\alpha$\hfill in $\H^\bullet(\CP^n;\Z)\cong \Z[\alpha]/(\alpha^{n+1})$
 	\end{enumerate}
 	Let $c_i$ be the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
@@ -362,9 +362,9 @@ For complex vector bundles, i.e.
 % \begin{definition}
 % 	The \defn{Euler class} $e$ is a characteristic class for oriented real vector bundles in $\Z$ singular cohomology satisfying the following axioms:
 % 	\begin{enumerate}[(a)]
-% 		\item For bundles $\xi_1$ and $\xi_2$ over a common base, we have $e(\xi_1\oplus \xi_2)=e(\xi_1)\oplus e(\xi_2)$.
-% 		\item If a bundle $\xi$ has a non-zero section, then $e(\xi)=0$. 
-% 		\item If $-\xi$ has opposite orientation to $\xi$, then $e(-\xi)=-e(\xi)$.
+% 		\item For bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over a common base, we have $e(\mathcal{E}_1\oplus \mathcal{E}_2)=e(\mathcal{E}_1)\oplus e(\mathcal{E}_2)$.
+% 		\item If a bundle $\mathcal{E}$ has a non-zero section, then $e(\mathcal{E})=0$. 
+% 		\item If $-\mathcal{E}$ has opposite orientation to $\mathcal{E}$, then $e(-\mathcal{E})=-e(\mathcal{E})$.
 % 	\end{enumerate}
 % 	Note that by 
 % \end{definition}

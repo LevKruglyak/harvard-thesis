@@ -67,12 +67,12 @@
 			{\HUGE\scshape \@title}\\[44pt]
 
 			{\Large \scshape by}\\[22pt]
-			{\huge \@author}\\[2.8in]
+			{\huge \@author}\\[3.4in]
 
 			{
 			\large
 			{\scshape advised by\\[11pt]}
-			{\@advisor}\\[1em]
+			{\Large\@advisor}\\[1em]
 			\noindent\rule{1in}{0.6pt}\\[11pt]
 			A thesis presented to \\[11pt]
 			\textsc{\@university}\\[11pt]
@@ -241,6 +241,10 @@
 \newtheorem{remark}[equation]{Remark}
 \newcommand{\remarkautorename}{Remark}
 \crefformat{remark}{\normalfont{#2Remark~#1#3}}
+
+\newtheorem{warning}[equation]{Warning}
+\newcommand{\warningautorename}{Warning}
+\crefformat{warning}{\normalfont{#2Warning~#1#3}}
 
 \newtheorem*{example*}{Example}
 \newtheorem{example}[equation]{Example}

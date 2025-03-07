@@ -1,6 +1,60 @@
 \chapter*{Conventions}
 
+
+\subsection*{Mathematical Prerequisites}
+
 \begin{itemize}
   \item Throughout this thesis, we will assume the reader has studied differential and algebraic topology at the level of an introductory graduate class, as well as an undergraduate level understanding of abstract and linear algebra, category theory, etc. Generally, we will remind the reader of relevant results as needed.
   Some sections will further assume knowledge of differential geometry and homotopy theory, but this will also be specified. Finally, there will sprinkles of more advanced topics in some short sections or remarks, but these will be tangential and may be skipped without consequence by a reader lacking sufficient background.
+\end{itemize}
+
+\subsection*{Differential Topology}
+\begin{itemize}
+  \item A \defn{topological manifold} $M$ is a locally Euclidean second-countable Hausdorff space. \todo{boundary}
+  \item A \defn{smooth structure} $\mathscr{S}$ on a topological manifold $M$ is a collection of open charts $\mathscr{S}=\{(U_\alpha, \varphi_\alpha)\}_{\alpha\in I}$ such that the transition functions 
+	\begin{equation}\label{eq:transition-function}
+		\lkxfunc{g_{\alpha\beta}}{\varphi(U_\alpha\cap U_\beta)}{\R^n\textrm{ or } \R^{n-1}\times [0,\infty)}
+	\end{equation}
+	are smooth for all $\alpha,\beta\in I$. We require that $\mathscr{S}$ be maximal with respect to this property, i.e. the addition of any chart $(U,\varphi)$ not in $\mathscr{S}$ breaks the smoothness of \cref{eq:transition-function}.
+  \item Unless otherwise specified, all manifolds are assumed to be smooth, connected, and possibly with boundary. A \defn{closed}[closed manifold] manifold is a compact manifold with empty boundary.
+  \item When introducing a manifold, we often put its dimension as a superscript. For example, ``let $M^n$ be a manifold'' should be read as ``let $M$ be an $n$-dimensional manifold''.
+
+  \item We assume that all submanifolds $N\subset M$ are properly embedded and neat, i.e.
+    \vspace{-0.5em}
+    \begin{itemize}
+      \item the inclusion $\iota : N \to M$ is a proper map,
+      \item $\partial N\subset \partial M$,
+      \item the boundary $\partial N$ intersects $\partial M$ transversally.
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Algebraic Topology}
+\begin{itemize}
+  \item Given a coefficient ring $R$, $\H^i(-; R)$ denotes the singular cohomology with coefficients in $R$, and $\H_i(-;R)$ denotes singular homology with coefficients in $R$. $\H^\bullet(-;R)$ is the singular cohomology ring.
+  \item $\HdR$ denotes de-Rham cohomology, and $\Hc$ denotes compactly-supported de-Rham cohomology.
+  \item Whenever we refer to a general (co)homology theory $h$, we mean one of the pairs:
+    \begin{itemize}
+      \item Singular (co)homology with coefficients in $R=\Z, \Z/2, \Z[1/2],$ or $\Q$.
+      \item Compactly supported de-Rham cohomology and de-Rham cohomology.
+    \end{itemize}
+    The homology groups are denoted $h_i(-)$ and the cohomology groups are denoted $h_i(-)$. Note that all pairs 
+\end{itemize}
+
+\subsection*{Differential Geometry}
+\begin{itemize}
+  \item Vector bundles are over a field $\F=\R$ or $\C$, by default assumed to be $\R$.
+
+  \item By default, we denote the total space of a vector bundle with normal math font, i.e. $E \to X$, and denote the bundle itself with calligraphic font, i.e. $\mathcal{E} : E \to X$. 
+
+  \item The tangent bundle of a manifold $M$ is dented $\TT M$, with total space $\T M$.
+
+  \item As with manifolds, a superscript $\mathcal{E}^k$ on a vector bundle denotes its rank. 
+
+  \item Given a Riemannian inner product structure $\langle-,-\rangle$ on a vector bundle $\mathcal{E}^k$, we let $\S(\mathcal{E})$ be the associated sphere bundle (with fibers $S^{k-1}$) and $\D(\mathcal{E})$ the associated disk bundle (with fibers $D^k$). The total spaces of these bundles are
+  \[
+    \S(E) = \{ \xi\in E \mid \langle \xi, \xi\rangle =1 \}
+    \quad\textrm{and}\quad
+    \D(E) = \{ \xi\in E \mid \langle \xi, \xi\rangle\leq 1 \}
+  \]
+  respectively. Note that $\partial \D(E) = \S(E)$ as manifolds.
 \end{itemize}

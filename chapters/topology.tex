@@ -10,12 +10,12 @@
 % 	Beginnings are such delicate times.
 % \end{epigraph}
 
-\begin{epigraph}{27em}{Sir Michael Atiyah}
-	Algebra is the offer made by the devil to the mathematician.\\
-	The devil says: ``I will give you this powerful machine, it will\\
-	answer any question you like. All you need to do is give me\\
-	me your soul: give up geometry and you will have this \\
-	marvellous machine.''
+\begin{epigraph}{20em}{Sir Michael Atiyah}
+	Algebra is the offer made by the devil to the \\
+	mathematician. The devil says: ``I will give \\
+	you this powerful machine, it will answer any \\
+	question you like. All you need to do is give\\
+	me your soul: give up geometry.
 \end{epigraph}
 
 \noindent
@@ -24,7 +24,7 @@ To begin our journey, we will provide some geometric topology essentials which w
 First, in \cref{sec:geometric-topology} we will discuss operations on smooth manifolds -- how to glue manifolds together, cut off handles, attach handles, stitch together manifolds at multiple points, and so on. The two operations most of interest to us are the \defn{connected sum}, which glues together two manifolds of the same dimension, and \defn{surgery}, which adds or removes handles. 
 Armed with powerful set of topological cutlery, we next investigate how smooth manifold operations change the topology of the manifold.
 
-Altering topology by surgery naturally ties into the next topic of cobordism in \cref{sec:cobordism}, a natural notion of equivalence for manifolds. While surgery might change the diffeomorphism type of a manifold, it does not change its cobordism type. This loose notion of equivalence allows us to fully classify manifolds up to cobordism -- something which is generally impossible for homeomorphism or difeomorphism.\footnote{In high dimensions, classifying manifolds is an \defn{undecidable problem}, meaning there is no finite algorithm that will correctly match a manifold to a list of representatives.} We only briefly discuss surgery here, leaving elaboration to \cref{chap:h-cobordism} and \cref{chap:classification}.
+Altering topology by surgery naturally ties into the next topic of cobordism in \cref{sec:cobordism}, a natural notion of equivalence for manifolds. While surgery might change the diffeomorphism type of a manifold, it does not change its cobordism type. This loose notion of equivalence allows us to fully classify manifolds up to cobordism -- something which is generally impossible for homeomorphism or diffeomorphism.\footnote{In high dimensions, classifying manifolds is an \defn{undecidable problem}, meaning there is no finite algorithm that will correctly match a manifold to a list of representatives.} We only briefly discuss surgery here, leaving elaboration to \cref{chap:h-cobordism} and \cref{chap:classification}.
 
 We then discuss how to translate between the algebra of homology and cohomology and the geometry of manifolds and embeddings.
 
@@ -35,85 +35,140 @@ We then discuss how to translate between the algebra of homology and cohomology 
 \pagebreak
 \section{Operations on Smooth Manifolds}\label{sec:geometric-topology}
 
-Cutting and pasting is a subtle craft in the category of smooth manifolds. 
-Unlike in the topological manifold category, glueing together two surfaces must be done with some ``wiggle room'' to ensure that the resulting manifold has a unique smooth structure. This is one of the deep differences between the category of smooth manifolds and that of topological manifolds. If glueing smooth manifolds along boundaries always resulted in a unique smooth structure, there would be no exotic spheres.
+Cutting and pasting is the category of smooth manifolds is a subtle craft. 
+Unlike in the topological manifold category, combining manifolds resembles ``sewing'' more than ``glueing''. In order to ensure that the resulting manifold will have a unique smooth structure, we must identify the spaces in a small region surrounding the submanifold. The extra space provided by the region allows one manifold to ``smoothly curve into'' the other.
 
-\begin{convention*}
-	We assume all manifolds are smooth and with boundary. A manifold is said to be \defn{closed}[closed manifold] if it is compact and with empty boundary.
-\end{convention*}
+\begin{remark} 
+	We will see in \cref{sec:twisted-spheres} that exotic spheres can be formed by identifying two disks along \emph{just} their boundary by an orientation preserving diffeomorphism. This always gives an ordinary sphere in the topological category but not in the smooth category.
+\end{remark}
 
-Whenever a closed manifold $N^k$ is embedded into the interior of a larger ambient manifold $M^n$, there is a short exact sequence of tangent bundles
+We begin with some technical lemmas from differential topology. Whenever a manifold $N^k$ is embedded into an ambient manifold $M^n$, there is a short exact sequence of vector bundles on $N$
 \begin{equation}
-	0 \lkxto \T N\lkxto \T M|_N \lkxto \T M/N \lkxto 0
+	0 \lkxto \TT N\lkxto \TT M|_N \lkxto \TT M/N \lkxto 0.
 \end{equation}
-where $\T M/N=\T M|_N / \T N$ denotes the \defn{normal bundle} of $N$ in $M$. A \defn{tubular neighborhood} of $N$ is a neighborhood $V\supset N$ in $M$ which is the diffeomorphic image of the set
-\begin{equation}
-	D(\T M/N) = \{\xi \in \T M/N \mid \|\xi\| <1 \}\subset \T M/N,
-\end{equation}
-for some inner product structure on $\T M/N$. Here $D(\T M/N)$ is the total space of the $(n-k)$-dimensional disk bundle over $N$ arising from the inner product. We also require the restriction of the diffeomorphism to the image of the zero section in $D(\T M/N)$ to be the identity map to $N$.
+Here $\TT M/N=\TT M|_N / \TT N$ denotes the \defn{normal bundle} of $N$ in $M$, which has rank $(n-k)$.
 
-A tubular neighborhood is then a way of ``thickening'' the submanifold $N$ as in \cref{fig:tubular-neighborhood}.
-The diffeomorphism mapping $D(\T M/N) \to V$ can interpreted as a chart of a tube surrounding $N$ in $M$. Namely, for each point $p\in N$, local trivializations of the bundle $D(\T M/N)$ are maps $\R^k \times D^{n-k}\to U\subset V$ which consist of coordinates $(x^1,\ldots,x^k)$ on $N$ and coordinate $(v^{k+1},\ldots, v^{n})$ on an orthogonal disk to $N$.
+A \defn{tubular neighborhood} of $N$ is a neighborhood $\widetilde{N}\supset N$ in $M$ which is the diffeomorphic image of the total space of the normal bundle $\T M/N$ with the diffeomorphism $\tau : \T M/N \to \widetilde{N}$ satisfying:
+\begin{enumerate}[(a)]
+	\item $\tau$ is the identity on the image of the zero section $s_0 : N \to \T M/N$,
+	\item For any point $p\in \partial N$ on the boundary, $\tau(\T_p M/N)\subset \partial M$.
+\end{enumerate}
+
+
+A tubular neighborhood should be thought of as a way of ``thickening'' the submanifold $N$ to have the same dimension as $M$, as depicted in \cref{fig:tubular-neighborhood}. 
 
 \begin{figure}[ht]
 	\centering
 	\import{diagrams}{placeholder.pdf_tex}
-	\caption{A tubular neighborhood of a submanifold.}\label{fig:tubular-neighborhood}
+	\caption{Tubular neighborhoods of some submanifolds.}\label{fig:tubular-neighborhood}
 \end{figure}
 
+The diffeomorphism $\tau : \T M/N \to \widetilde{N}$ can interpreted as a chart of a ``tube'' surrounding $N$ in $M$. Namely, for each point $p\in N$, local trivializations of the normal bundle $\T M/N$ are maps $\R^k \times \R^{n-k}\to U\subset \widetilde{N}$ which consist of coordinates $(x^1,\ldots,x^k)$ on $N$ and coordinates $(v^{k+1},\ldots, v^{n})$ on an orthogonal plane to $N$.
+
 \begin{remark}
-	Note that 
+	A common convention is to define a tubular neighborhood as the diffeomorphic image of the associated disk bundle $\D(\T M/N)$. This convention makes explicit the ``tube'' of a  ``tubular neighborhood''. We will refer to such neighborhoods as \defn{closed tubular neighborhoods}[closed tubular neighborhood], since they are the closure of a tubular neighborhood.
 \end{remark}
 
-
+This leads to a basic technical lemma of differential topology.
 
 \begin{theorem}[Tubular Neighborhood Theorem]\label{thm:tubular-neighborhood}
-	Every properly embedded submanifold has a tubular neighborhood.
+	Every embedded submanifold has a tubular neighborhood.\footnote{This result does not require $M$ to be compact.}
 \end{theorem}
+\begin{proof}
+	See Chapter II of \cite{kosinski1993differential} or Theorem 6.24 of \cite{lee2013smooth} for the case $M=\R^n$.
+\end{proof}
+
+\begin{warning}
+	In Conventions, we assumed all smooth manifolds to be compact and all submanifolds to be properly embedded and neat. Absent these assumptions, the tubular neighborhood theorem as stated is not true.
+\end{warning}
+
+In a similar vein, when we just have a manifold $M^n$, a \defn{collar neighborhood} of its boundary is a neighborhood $\widetilde{\partial M}\supset \partial M$ which is the diffeomorphic image of a trivial ``ray-bundle'' $\partial M\times [0,\infty)$. As for tubular neighborhoods, we require that the diffeomorphism is the identity on $\partial M\times\{0\}$.
 
 \begin{theorem}[Collar Neighborhood Theorem]\label{thm:collar-neighborhood}
-	Hello world
+	Every manifold with non-empty boundary has a collar neighborhood.
 \end{theorem}
+\begin{proof}
+	See Theorem 9.25 of \cite{lee2013smooth}.
+\end{proof}
 
-\todo{check boundary}
+\begin{proposition}
+	If $N\subset M$ is a submanifold, there is a collar neighborhood of $\partial M$ which restricts to a collar neighborhood of $\partial N$ in $N$.
+\end{proposition}
+\begin{proof}
+	See Proposition~2.8.2 in Chapter II of \cite{kosinski1993differential}.
+\end{proof}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{Collar neighborhoods.}\label{fig:collar-neighborhoods}
+\end{figure}
 
 \subsection{Joining Two Manifolds Along a Submanifolds}
 
-In the case that we have two manifolds $M_1^n$ and $M_2^n$ with interior embeddings $\iota_1 : N \to M_1$ and $\iota_2 : N\to M_2$ of some closed manifold $N^k$, we can join $M_1$ and $M_2$ along $N$ to get a single manifold which we might denote $M_1\cup_N M_2$.
-To construct this manifold, let's start by picking tubular neighborhoods $V_1$ and $V_2$ for $\iota_1(N)\subset M_1$ and $\iota_2(N)\subset M_2$ respectively. We then set the joined manifold to be the quotient
+We can now address one of the fundamental operations in geometric topology -- the joining of two manifolds by submanifolds.
+
+Let us suppose we have manifolds $M_1^n$ and $M_2^n$, with embeddings $\iota_1 : N\to M_1$ and $\iota_2 : N\to M_2$ of a manifold $N^k$. Our goal is to construct a joined manifold $M$ which we might denote $M_1\cup_N M_2$.
+We start by picking tubular neighborhoods $\widetilde{\iota_i N}$ for $\iota_i(N)\subset M_i$ and let $\tau_i: N\times \R^{n-k} \to \widetilde{\iota_i N}$ be the diffeomorphism.
+We define $M$ to be the quotient
 \begin{equation}\label{eq:join-definition}
-	M_1\cup_N M_2 = \frac{(M_1\setminus \iota_1(N))\sqcup (M_2\setminus \iota_2(N))}{(t\xi_1, \iota_1(p)) \sim ((1-t)\xi_2, \iota_2(p))}
+	M_1\cup_N M_2 = \frac{M_1\setminus \iota_1(N)\sqcup M_2\setminus \iota_2(N)}{\tau_1(p, t\xi) \sim \tau_2(p, t^{-1}\xi)}
 \end{equation}
-for all $p\in N$, $t\in(0,1)$, and unit normal vectors $\xi_1\in \T_p M/\iota_1(N)$, $\xi_2\in \T_p M/\iota_2(N)$ with $\|\xi_1\|=\|\xi_2\|=1$. The resulting smooth manifold is called a \defn{join along a submanifold}\footnote{Some authors refer to this operation as ``\defn{pasting}'' or as the ``\defn{generalized connected sum}'', see for instance Section VI.4 in \cite{kosinski1993differential}.} and is one of the fundamental operations of geometric topology.
+for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in S^{n-k-1}\subset \R^{n-k}$. The resulting smooth manifold $M=M_1\cup_N M_2$ is called a \defn{join along a submanifold}\footnote{Some authors refer to this operation as ``\defn{pasting}'' or as the ``\defn{generalized connected sum}'', see for instance Section VI.4 in \cite{kosinski1993differential}.} and is one of the fundamental operations of geometric topology.
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{A join of two manifolds along a submanifold.}\label{fig:join-along-submanifold}
+\end{figure}
 
 \begin{remark}
-	The tubular neighborhood ``sewing'' procedure in \cref{eq:join-definition} is extremely important in the category of smooth manifolds. If we were in the category of topological manifolds (assuming there were a notion of tubular neighorhood), we could define the join in a simpler way by removing the tubular neighborhoods from both manifolds and identifying the boundaries of the resulting manifolds by some homeomorphism. At each point of the shared boundary, the join would be locally Euclidean since it has a neighborhood which the glueing of two half-disks to get a full disk.
-
-	However, the lack of a globally consistent ``collar'' by which these manifolds were glued leads to many possible smooth structures on the resulting manifold -- even if we require the boundary glueing map to be an orientation-preserving diffeomorphism. We will actually exploit this lack of unique smooth structure in \cref{sec:twisted-spheres} by constructing exotic spheres as the identification of two disks by an orientation-preserving diffeomorphism of their boundaries.
+	As we have remarked, the tubular neighborhood ``sewing'' procedure in \cref{eq:join-definition} is vital in the category of smooth manifolds. If we were in the category of topological manifolds\footnote{Assuming, of course, that there is a topological notion of  tubular neighborhoods.}, we could define the join by removing the tubular neighborhoods entirely (rather the just the zero sections) and identifying the resulting boundaries.
+	At each point of the shared boundary, the join would be locally Euclidean since it has a neighborhood which the glueing of two half-disks to get a full disk.
 \end{remark}
+
+\begin{proposition}\label{prop:join-along-submanifolds-well-defined}
+	The join $M$ of two manifolds along a submanifold has a smooth structure that agrees with the smooth structures of $M_1\setminus \iota_1(N)$ and $M_2\setminus \iota_2(N)$ in $M$. 
+\end{proposition}
+\begin{proof}
+	There is a technical but simple proof which involves writing out the transition functions for charts on $M$ arising from charts on $M_1$ and $M_2$ which did not intersect $\iota_1(N)$ or $\iota_2(N)$. The result then follows from the smoothness of $t \mapsto t^{-1}$ on $t\in (0,\infty)$.
+\end{proof}
+
+\begin{proposition}\label{prop:join-along-submanifolds-orientation}
+	If $M_1$, $M_2$, and $N$ are oriented, with $\iota_1$ orientation-preserving and $\iota_2$ orientation-reversing, then $M$ has an orientation compatible with $M_1\setminus \iota_1(N)$ and $M_2\setminus \iota_2(N)$.
+\end{proposition}
+\begin{proof}
+	
+\end{proof}
 
 \subsection{Connected Sum}\label{sec:connected-sum}
 
-The simplest way to join two manifolds $M_1$ and $M_2$ along a submanifold is by embedding a point in both. The resulting join is an operation known as a \defn{connected sum} of $M_1$ and $M_2$. If the manifolds are connected,
-
-and denoted by $M_1\# M_2$.
+The simplest submanifold by which to join two manifolds is a point.
+The resulting join is an operation known as a \defn{connected sum} of two manifolds $M_1$ and $M_2$. If the manifolds are connected, this operation is (up to orientation-preserving orientation) independent of the choice of embedding. This latter statement is non-trivial, and follows from a technical result by Richard Palais.
 
 \begin{theorem}[Disk Theorem]
-	test
+	If $M^n$ is an oriented manifold with orientation preserving embeddings $\iota_1, \iota_2 : \Int(D^n) \to M$ of an open disk, then there is a diffeomorphism $f : M \to M$ such that $\iota_1 = f\circ \iota_2$.
 \end{theorem}
 \begin{proof}
 	See Theorem B in \cite{palais1960diffeomorphism}.
 \end{proof}
 
+\begin{corollary}
+		The connected sum is well-defined, associative, and commutative up to orientation preserving diffeomorphism.
+\end{corollary}
+
 \begin{proposition}\label{prop:connected-sum-operation}
 	The connected sum
+\end{proposition}
+
+\begin{proposition}
 \end{proposition}
 
 \subsection{Spherical Modifications}
 
 \begin{figure}[ht]
 	\import{diagrams}{surgery-on-two-holed-torus.pdf_tex}
-	\caption{Removing a }
+	\caption{Reducing the genus of a surface by spherical modification}
 \end{figure}
 
 \subsection{Joining Manifolds Along Submanifolds of the Boundary}
