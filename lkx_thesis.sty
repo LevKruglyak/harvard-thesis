@@ -31,13 +31,9 @@
         \def\pv##1{\pgfkeysvalueof{/tikz/quiver/##1}}},
     quiver/.cd,pos/.initial=0.35,height/.initial=0}
 
-\tikzset{tail reversed/.code={\pgfsetarrowsstart{tikzcd to}}}
-\tikzset{2tail/.code={\pgfsetarrowsstart{Implies[reversed]}}}
-\tikzset{2tail reversed/.code={\pgfsetarrowsstart{Implies}}}
-\tikzset{no body/.style={/tikz/dash pattern=on 0 off 1mm}}
-
 \tikzcdset{every arrow/.append style={line width=0.8pt}}
 \tikzcdset{every arrow/.append style = -{Computer Modern Rightarrow[width=6.7pt,length=3pt]}}
+\tikzcdset{leftrightarrow/.append style= {Computer Modern Rightarrow[width=6.7pt, length=3pt]}-{Computer Modern Rightarrow[width=6.7pt, length=3pt]}}
 
 % Debug
 \newcommand{\todo}[1]{{\color{red}{#1}}}
@@ -60,7 +56,9 @@
 	\Bigl(\,\begin{array}{@{}c@{}}#1\\#2\end{array}\,\Bigr)}
 \renewcommand{\cong}{\approx}
 \renewcommand{\epsilon}{\varepsilon}
-\newcommand{\+}{\,\#\,} % Connected sum
+\NewDocumentCommand{\+}{o}{
+	\IfValueTF{#1}{\raisemath{1pt}{\#^{#1}}}{\,\#\,}
+}
 
 \undef\P
 
@@ -77,8 +75,15 @@
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\HP}{\mathbb{HP}}
 \newcommand{\OP}{\mathbb{OP}}
-\newcommand{\BB}{\mathrm{B}}
 \newcommand{\EE}{\mathrm{E}}
+
+\newcommand{\BB}{\mathrm{B}}
+\newcommand{\BBB}{\mathcal{B}}
+
+\newcommand{\Class}{\mathsf{CC}}
+\newcommand{\fps}[1]{[\![#1]\!]}
+
+\newcommand{\cl}{\mathrm{c}}
 
 \undef\H
 \undef\T
@@ -207,6 +212,9 @@
 }
 \NewDocumentCommand{\lkxto}{ O{} }{
 	\mathrel{\;\xrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
+}
+\NewDocumentCommand{\lkxleftrightto}{ O{} }{
+	\mathrel{\;\xleftrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}
 }
 \NewDocumentCommand{\lkxhookto}{ O{} }{
 	\mathrel{\;\xhookrightarrow{\hphantom{xx}#1\hphantom{xx}}\;}

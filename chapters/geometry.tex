@@ -1,13 +1,15 @@
-\chapter{Geometry of Vector Bundles}\label{chap:vector-bundles}
+\chapter{Vector Bundles and Characteristic Classes}\label{chap:vector-bundles}
 
 \begin{epigraph}{24em}{Albert Einstein {\normalfont to} Tullio Levi-Civita}
 	I admire the elegance of your method of computation;\\
 	it must be nice to ride through these fields upon the\\
-  horse of true mathematics while the like of us have to\\
-  make our way laboriously on foot.\\
+	horse of true mathematics while the like of us have to\\
+	make our way laboriously on foot.\\
 \end{epigraph}
 
-\section{Vector Bundles}
+In this chapter, we will review some aspects of the construction and classification of vector bundles and the powerful computational methods of characteristic classes. As established in Conventions, all vector spaces will be over $\F=\R$ or $\C$, with the former assumed as default.
+
+\section{Classifying Vector Bundles}
 
 \subsection{Structure Groups}\label{sec:structure-groups}
 
@@ -15,7 +17,7 @@ Given a rank $k$ vector bundle $\mathcal{E} : E \to B$ over $\F$, there is an as
 In the reverse direction, the action of $\GL_k\F$ on $\F^k$, the associated bundle $\B E\times_{\GL_k\F} \F^k$ is isomorphic to the original vector bundle $E$. In other words, there is a bijective correspondence
 \begin{equation}\label{eq:principal-GL-bundle-vector-bundle}
 	\left\{\parbox{7.5em}{$\F$-vector bundles of rank $k$ over $X$}\right\}
-	\quad\iff\quad
+	\quad\lkxleftrightto \quad
 	\left\{\parbox{7em}{principal $\GL_k\F$ bundles over $X$}\right\}
 \end{equation}
 Whenever we have a Lie group $G$ and homomorphism $\rho : G \to \GL_k\F$, there is a group action of $G$ on $\F^k$ by letting $\rho(g)$ act on $\F^k$ for each $g\in G$. As in the case of $\GL_k \F$, the associated bundle $\B E\times_G \F^k$ is a vector bundle. An isomorphism
@@ -40,7 +42,7 @@ For real vector bundles, some common structure groups are:
 	\[
 		\lkxfunc{g_{\alpha\beta}}{U_\alpha\cap U_\beta}{\GL_k \F}{x}{\varphi_\alpha\circ \varphi_{\beta}^{-1}|_{\{x\}\times \R^k}}
 	\]
-	For some subgroup $G\subset \GL_k\F$, if we can choose local trivializations such that the resulting transition functions $g_{\alpha\beta}$ take values entirely in $G$, we say that the structure group of $E$ can be reduced to $G$. 
+	For some subgroup $G\subset \GL_k\F$, if we can choose local trivializations such that the resulting transition functions $g_{\alpha\beta}$ take values entirely in $G$, we say that the structure group of $E$ can be reduced to $G$.
 \end{remark}
 
 \begin{remark}
@@ -112,15 +114,15 @@ When the Lie group $G$ is path-connected, as in the case of $\SO_k$ and $\U_k$, 
 \begin{theorem}
 	The clutching construction gives bijections
 	\[
-			\Vect_{\R,+}^k(S^m) \cong \pi_{m-1}(\SO_k)\quad\textrm{and}\quad
-			\Vect_{\C}^k(S^m) \cong \pi_{m-1}(\U_k).
+		\Vect_{\R,+}^k(S^m) \cong \pi_{m-1}(\SO_k)\quad\textrm{and}\quad
+		\Vect_{\C}^k(S^m) \cong \pi_{m-1}(\U_k).
 	\]
 \end{theorem}
 \begin{proof}
 	This is Proposition 1.11 and Proposition 1.14 in \cite{hatcher2003ktheory}.
 \end{proof}
 
-\begin{remark} 
+\begin{remark}
 	The case of unoriented bundles, we do not have a bijection with the homotopy group, since $\O_m$ is generally disconnected.
 \end{remark}
 
@@ -156,17 +158,17 @@ Let us see some examples of this in low dimensions.
 
 \begin{theorem}\label{thm:classifying-space}
 \end{theorem}
-	Generally, if $G$ is a Lie group there is a natural isomorphism of contravariant functors
-	\[
-		[-, \BB G] \lkxto \Bun_G(-)
-	\]
-	where $[-, \BB G]$ is the set of homotopy classes of maps to a space $\BB G$ and $\Bun_G(-)$ is the set of isomorphism classes of principal $G$-bundles over a given space.
-	The space $\BB G$ is known as the \defn{classifying space}\footnote{The classifying space is rarely a manifold, and is usually an infinite dimensional CW complex.} of $G$ and this space comes equipped with a \defn{universal bundle} $\zeta : \EE G \to \BB G$. With this universal bundle, the natural isomorphism is easy to describe. Under the appropriate topological restrictions, a map $\tau : X \to \BB G$ gives us a pullback bundle $\tau^*\zeta$ over $X$. This is a principal $G$-bundle over $X$ which is entirely determined by the homotopy type of the \defn{classifying map} $\tau$.
+Generally, if $G$ is a Lie group there is a natural isomorphism of contravariant functors
+\[
+	[-, \BB G] \lkxto \Bun_G(-)
+\]
+where $[-, \BB G]$ is the set of homotopy classes of maps to a space $\BB G$ and $\Bun_G(-)$ is the set of isomorphism classes of principal $G$-bundles over a given space.
+The space $\BB G$ is known as the \defn{classifying space}\footnote{The classifying space is rarely a manifold, and is usually an infinite dimensional CW complex.} of $G$ and this space comes equipped with a \defn{universal bundle} $\zeta : \EE G \to \BB G$. With this universal bundle, the natural isomorphism is easy to describe. Under the appropriate topological restrictions, a map $\tau : X \to \BB G$ gives us a pullback bundle $\tau^*\zeta$ over $X$. This is a principal $G$-bundle over $X$ which is entirely determined by the homotopy type of the \defn{classifying map} $\tau$.
 
-	In some sense, the universal bundle $\zeta$ is the ``most twisted $G$-bundle''. Pullbacks of bundles generally ``dilute'' the twistedness of a bundle -- for instance, the splitting principle allows any complex vector bundle to be pulled back to a direct sum of complex line bundles. It would stand to reason that every bundle is the pullback of a more twisted bundle, and the limit of this process is the universal bundle $\zeta$ over the classifying space. See Chapter IV of \cite{botttu1982differential} for a wonderful exposition on the topic.
+In some sense, the universal bundle $\zeta$ is the ``most twisted $G$-bundle''. Pullbacks of bundles generally ``dilute'' the twistedness of a bundle -- for instance, the splitting principle allows any complex vector bundle to be pulled back to a direct sum of complex line bundles. It would stand to reason that every bundle is the pullback of a more twisted bundle, and the limit of this process is the universal bundle $\zeta$ over the classifying space. See Chapter IV of \cite{botttu1982differential} for a wonderful exposition on the topic.
 
 
-	\begin{remark}\label{rmk:clutching-construction-generalization}
+\begin{remark}\label{rmk:clutching-construction-generalization}
 	The clutching construction can be viewed as a special case of \cref{thm:classifying-space}.
 	\todo{It can be shown that (under suitable topological restrictions)} there is a homotopy equivalence $\Omega \BB G \simeq G$ where $\Omega$ denotes the loop space operator in homotopy theory. Indeed from a homotopy theory perspective, the classifying space is a ``delooping'' of the group $G$. For spheres, the loop space suspension adjunction gives us natural isomorphisms
 	\[
@@ -205,123 +207,243 @@ Throughout this section, a cohomology theory will refer either to singular cohom
 	\[
 		\lkxfunc{c}{\Vect_G}{h^\bullet,}
 	\]
-	given a structure group $G$.
+	given a structure group $G$. We denote the set of characteristic classes as $\Class_G^h = [\Vect_G , h^\bullet]$.
 \end{definition}
 
 Here, $h^\bullet : \Top \to \Rng$ sends a space to its  cohomology ring, and $\Vect_G : \Top \to \Set$ sends a space to the set of isomorphism classes of vector bundles over the space with structure group $G$. We assume that the natural transformation $c$ forgets the ring structure of cohomology when mapping from the set of isomorphism classes of vector bundles.
 
-Given a manifold $M$, a characteristic class assigns a vector bundle $\mathcal{E}$ over $M$ to a cohomology class $c(\mathcal{E})\in h^\bullet(M)$.
-This assignment is done in a natural way, i.e. given bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over manifolds $M_1$ and $M_2$, whenever a map $f : M_1 \to M_2$ is covered by a bundle map $\mathcal{E}_1 \to \mathcal{E}_2$, we have $f^* c(\mathcal{E}_2) = c(\mathcal{E}_1)$.
+For any vector bundle $\mathcal{E} : E \to B$, a cohomology class assigns some cohomology class $c(\mathcal{E})\in h^\bullet(B)$ which is ``characteristic'' of the bundle $\mathcal{E}$.
+This assignment must be done in a natural way. Given bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over bases $B_1$ and $B_2$, whenever a map $f : B_1 \to B_2$ is covered by a bundle map $\mathcal{E}_1 \to \mathcal{E}_2$, we have $f^* c(\mathcal{E}_2) = c(\mathcal{E}_1)$. In particular, isomorphic vector bundles over the same base space $B$ are sent to the same cohomology class.
 
 \begin{convention*}
-	Since every smooth manifold $M$ comes with a canonical vector bundle -- the tangent bundle -- it's common to use the notation $c(M)$ to refer to $c(\T M)$.
+	Since every smooth manifold $M$ comes with a canonical vector bundle -- the tangent bundle -- it is common to use the notation $c(M)$ to refer to $c(\TT M)$.
 \end{convention*}
 
 \begin{remark}
-	The cohomology ring $h^\bullet(M)$ has a $\Z$-grading
+	In practice, many sources define characteristic classes first as a set of homogeneous classes $c_i\in h^i(\mathcal{E})$ and then refer to the \defn{total characteristic class} $c(\mathcal{E})=\sum_i c_i(\mathcal{E})$. In this thesis, we take a somewhat unorthodox convention and assume that all characteristic classes are inhomogeneous unless otherwise stated.
+\end{remark}
+
+For any two characteristic classes $c_1$ and $c_2$ there is a natural notion of their sum $c_1+c_2$, product $c_1\smile c_2$, and scalar product $r\cdot c_1$ for any $r\in R$, simply by applying these operations in $h^\bullet(-)$. This gives the set $\Class_G^h$ of characteristic classes a ring structure.
+
+For any base $B$, the cohomology ring $h^\bullet(B)$ is a graded ring
+\[
+	h^\bullet(M) = \bigoplus_{k\geq 0} h^k(B),
+\]
+with the cup product turning $h^\bullet(B)$ into a graded-commutative ring.
+This gives the set of characteristic classes $\Class_G^h$ a grading
+\[
+	\Class_G^h[k] = [\Vect_G, h^k]
+\]
+where $h^k: \Top \to \Grp$ denotes the functor sending a space to its $k$-th cohomology group.
+
+\begin{definition}
+	A characteristic class $c$ is said to be \defn{homogeneous of degree $k$}[homogeneous characteristic class] if it lies in the graded component $[\Vect_G, h^k]$. We denote this degree by $|c|$.
+\end{definition}
+
+By naturality, characteristic classes must preserve cohomological degree since pull-backs preserve degree. We can thus write any characteristic class $c$ as an infinite sum $c=c_0+c_1+c_2+\cdots$ where each $c_k$ is a natural transformation from $\Vect_G$ to $h^k$.
+In other words, the ring of characteristic classes $\Class_G^h$ admits the structure of a completion of a graded-commutative algebra (we require infinite sequences):
+\[
+	\Class_G^h \cong \prod_{k \geq 0} [\Vect_G, h^k].
+\]
+\begin{remark}
+	Recall that the \defn{completion}[completion of a graded algebra] of a graded algebra $A=\bigoplus_{i\in I} A_k$ is the direct product $\overline{A}=\prod_{i\in I} A_i$. In particular, infinite sequences are allowed. If a ring is the completion of a graded algebra, we refer to it as a \defn{completed algebra}.
+\end{remark}
+
+Next, let us look at some common axioms for characteristic classes and investigate their implications. This simplifies many of the following constructions of the various species of characteristic class.
+
+\begin{definition}
+	A characteristic class $c$ is said to be \defn{multiplicative}[multiplicative characteristic class] if \begin{equation}\label{eq:whitney-product}
+		c(\mathcal{E}_1\oplus \mathcal{E}_2)=c(\mathcal{E}_1)\smile c(\mathcal{E}_2)
+	\end{equation}
+	whenever the bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ have the same base space.
+\end{definition}
+
+Equations of the form \cref{eq:whitney-product} are known as a \defn{Whitney product formula}. The homogeneous version of this equation which commonly appears is
+\[
+	c_n(\mathcal{E}_1\oplus \mathcal{E}_2) = \sum_{p+q=n}c_p(\mathcal{E}_1)\smile c_q(\mathcal{E}_2).
+\]
+
+\begin{remark}
+	A multiplicative cohomology class is also multiplicative with respect to manifolds. Given manifolds $M_1$ and $M_2$ and a multiplicative characteristic class $c$, we have
 	\[
-		h^\bullet(M) = \bigoplus_{k\in \Z} h^k(M).
+		\begin{aligned}
+			c(M_1\times M_2) & = c(\T(M_1\times M_2))      \\
+			                 & = c(\T M_1\oplus \T M_2)    \\
+			                 & = c(\T M_1)\smile c(\T M_2) \\
+			                 & = c(M_1)\smile c(M_2).
+		\end{aligned}
 	\]
-	Often times, characteristic classes are defined as a sequence of homogeneous classes $c_i\in h^{i}(\mathcal{E})$. It then makes sense to consider the \defn{total characteristic class} $c(\mathcal{E})=\sum_i c_i(\mathcal{E})\in h^\bullet(M)$. Many formulas are simpler when working with total characteristic classes rather than their homogeneous components. In this thesis, all arbitrary characteristic classes are assumed to be inhomogeneous in $h^\bullet(M)$. When the base space $B$ has finite type (as in the case of manifolds), we say that the \defn{degree} of a characteristic class $c$ evaluated at a vector bundle $\mathcal{E} : E \to B$ is the maximal degree of $c(\mathcal{E})\in h^\bullet(B)$, and denoted $\dim(c(\mathcal{E}))$.
 \end{remark}
 
 \begin{remark}
-	Given two characteristic classes $c_1$ and $c_2$, there is a clear notion of their sum $c_1+c_2$, product $c_1\smile c_2$, and scalar product $r\cdot c_1$ for any $r\in R$. This gives the set of characteristic classes $\Nat(\Vect_G, h^\bullet)$ the structure of a graded-commutative $R$-algebra.
+	When the base space $B$ has finite type (as in the case of manifolds), the \defn{degree}[degree of a cohomology class] of a characteristic class $c(\mathcal{E})$ evaluated at a vector bundle $\mathcal{E} : E \to B$ is the maximal degree of $c(\mathcal{E})\in h^\bullet(B)$, and denoted $|c(\mathcal{E})|$.
 \end{remark}
 
-When bundles over the same base space are isomorphic, the naturality of a characteristic class implies that the corresponding characteristic classes are the same. This is useful for classifying vector bundles over a single. However, it is less clear how to compare characteristic classes in distinct base spaces.
-When a cohomology theory admits a Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ for some class of closed $n$-dimensional manifolds, we can ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong R$ in the coefficient ring of a corresponding homology theory. The coefficient ring $R$ is then a common context in which to compare characteristic classes.
+\begin{definition}
+	A characteristic class $c$ is said to be \defn{rank-normalized} if $c_0=1$ and for any bundle $\mathcal{E}$ we have $|c(\mathcal{E})|\leq \rank(\mathcal{E})$. Note that the degree $|c(\mathcal{E})|$ is the maximal degree of a homogeneous component of $c(\mathcal{E})$.
+\end{definition}
+
+\begin{corollary}
+	For any rank-normalized characteristic class $c$ and trivial bundle $\underline{\R}^k$, we have $c(\underline{\R}^k)=1$.
+\end{corollary}
+\begin{proof}
+	A trivial bundle $\underline{\R}^k$ is the pullback of the constant bundle $\R^k\to *$ over a point. This bundle has characteristic class $1$ by the rank normalization condition, and so by naturality pulls back to $1$.
+\end{proof}
+
+\begin{corollary}\label{cor:mobius-characteristic-2-torsion}
+	If $c$ is a rank-normalized multiplicative characteristic class and $\gamma_1^1$ is the canonical M\"obius bundle over $\RP^1\cong S^1$, then $c(\gamma_1^1)$ is $2$-torsion.
+\end{corollary}
+\begin{proof}
+	Since $\gamma_1^1\oplus \gamma^1_1$ is a trivial bundle (see \cref{fig:trivial-mobius-bundle-sum}), it follows that
+	\[
+		(1+c_1(\gamma_1^1))(1+c_1(\gamma_1^1)) = 1+2c_1(\gamma_1^1)+c_1^2(\gamma_1^1)=1.
+	\]
+	However, $H^2(S^1)\cong 0$, so we have $2c_1(\gamma_1^1)=0$.
+\end{proof}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder-small.pdf_tex}
+	\caption{A Whitney sum of orthogonal M\"obius bundles.}\label{fig:trivial-mobius-bundle-sum}
+\end{figure}
+
+\begin{corollary}
+	For any multiplicative and rank-normalized characteristic class, we have $c(\mathcal{E}\oplus \underline{\R}^k)=c(\mathcal{E})\smile c(\underline{\R}^k)= c(\mathcal{E})$.
+\end{corollary}
+
+For such a characteristic class, adding on trivial bundles does not affect the class. This equivalence relation on vector bundles is known as stable isomorphism.
+
+\begin{definition}\label{def:stable-isomorphism}
+	Two vector bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\mathcal{E}_1\oplus \underline{\R}^{k_1} \cong \mathcal{E}_2\oplus \underline{\R}^{k_2}$.
+\end{definition}
+
+\begin{definition}
+	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\mathcal{E}\oplus \underline{\R}^k) = c(\mathcal{E})$ for any $k$. A stable characteristic class only depends on the stable isomorphism type of the vector bundle. Every multiplicative and rank-normalized characteristic class is stable.
+\end{definition}
+
+In a general completed algebra $\overline{A}=\prod_{k\geq 0}A_k$, the multiplication of two elements
+\[
+	(x_0+x_1+x_2+\cdots)\cdot (y_0+y_1+y_2+\cdots) = (z_0 + z_1 + z_2+\cdots)
+\]
+can be expanded in homogeneous components as $z_k=\sum_{p+q=k} x_py_q$, i.e.
+\begin{equation}\label{eq:formal-product}
+	\begin{aligned}
+		z_0 & = x_0y_0,                 \\
+		z_1 & = x_0y_1 + x_1y_0,        \\
+		z_2 & = x_0y_2 + x_1y_1+x_2y_0, \\
+		    & \;\;\vdots
+	\end{aligned}
+\end{equation}
+To invert the series $(x_0+ x_1+\ldots)\in \overline{A}$, we would like to find some $(y_0+y_1+\cdots)$ such that the resulting product $(z_0+z_1+\cdots)=1$. Setting $z_0=1$, $z_k=1$ for $k>0$ and solving \cref{eq:formal-product} for $y_k$, we get the recursive formula
+\begin{equation}\label{eq:formal-inversion}
+	y_k = \begin{cases}x_0^{-1}                                        & k=0,   \\
+             -x_0^{-1}(x_1y_{k-1}+x_2y_{k-2}+\cdots +x_ky_0) & k > 0.
+	\end{cases}
+\end{equation}
+A crucial corollary of \cref{eq:formal-inversion} is that a series $(x_0+x_1+\cdots)$ can be inverted if and only if $x_0\in A_0^\times$ is a unit. This is generally not true in the non-completed case. Take for instance in the ring of formal power series $R\fps{t}$, the completion of the polynomial ring $R[t]$.a There, we have the identity
+\[
+	(1-t)\cdot (1+t+t^2+t^3+\cdots) = 1,
+\]
+which is a rearranged form of the classic equation for the infinite series of a geometric series. Even though $(1-t)$ has monic leading coefficient, it has no inverse in $R[t]$.
+
+\begin{proposition}\label{prop:formal-inverse}
+	If $A$ is a complete graded algebra, then $A^\times = A \cap A_0^\times$.
+\end{proposition}
+
+This observation has a useful consequence in the context of characteristic classes. Suppose $c$ is a characteristic class with $c_0\in R^\times$. By \cref{prop:formal-inverse}, there is a characteristic class $c^{-1}$ which is the multiplicative inverse of $c$, so that $c\smile c^{-1}=1$ is the trivial characteristic class. If the characteristic class $c$ is multiplicative, then the Whitney product formula gives
+\[
+	c(\mathcal{E}_1\oplus\mathcal{E}_2)	 = c(\mathcal{E}_1)\smile c(\mathcal{E}_2)
+	\quad\implies\quad
+	c(\mathcal{E}_1) = c(\mathcal{E}_1\oplus \mathcal{E}_2) \smile c^{-1}(\mathcal{E}_2).
+\]
+If $\mathcal{E}_1=\TT M$ is the tangent bundle of a manifold $M^k$ and $\mathcal{E}_2=\TT\R^{n}/M$ is the normal bundle of an embedding $M^k\to \R^{n}$, then $\mathcal{E}_1\oplus \mathcal{E}_2$ is trivial since it is the restriction of the trivial tangent bundle of $\R^n$. In the case that $c$ is rank-normalized, we get:
+\begin{theorem}[Whitney Duality]\label{thm:whitney-duality}
+	If $M^k$ is a submanifold of $\R^n$, and $c$ is a rank-normalized multiplicative characteristic class, we have
+	\[
+		c(\TT M) = c^{-1}(\TT \R^n/M).
+	\]
+\end{theorem}
+
+\begin{corollary}
+	If $c$ is a rank-normalized multiplicative characteristic class, then $c(S^n)=1$.
+\end{corollary}
+\begin{proof}
+	This follows since $S^n$ embeds into $\R^{n+1}$ with a trivial normal line bundle.
+\end{proof}
+
+\begin{remark}
+	As it turns out, \emph{any} homotopy sphere $M$ has $c(M)=1$ for a rank-normalized multiplicative characteristic class because the tangent bundle of a homotopy sphere is stably isomorphic to the trivial bundle. We will prove this in \cref{thm:homotopy-sphere-stably-parallelizable} using some hard theorems in homotopy theory.
+\end{remark}
+
+\subsection{Characteristic Numbers}
+
+If we want to compare vector bundles on different spaces, we need a common context in which to compare their characteristic classes since the cohomology rings of the underlying spaces might not be canonically isomorphism. When the base space is a manifold, the Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ allows us to ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong R$ in the coefficient ring of a corresponding homology theory. The coefficient ring $R$ is this context in which we can compare characteristic classes over different bases.
 
 \begin{definition}\label{defn:characteristic-numbers}
-	Given a homogeneous characteristic class $c$ of degree $n$ and a closed $n$-dimensional manifold $M$, the \defn{characteristic number} of a vector bundle $\mathcal{E}$ over $M$ is the $c(\mathcal{E})[M] \in R$.
+	For a degree $n$ homogeneous characteristic class $c$ and a closed $n$-dimensional manifold $M$, the \defn{characteristic number} of a vector bundle $\mathcal{E}$ over $M$ is the $c(\mathcal{E})[M] \in R$.
 \end{definition}
 
 \begin{convention*}
-	When referring to a characteristic number of a tangent bundle of a closed manifold, we use the notation $c[M]$.
+	When referring to a characteristic number of a tangent bundle of a closed manifold, we use the abbreviated notation $c[M] = c(\TT M)[M]$.
 \end{convention*}
 
 \begin{remark}\label{rmk:characteristic-number-monomial-polynomial}
-	Whenever we have some family $\{c_i\}$ of homogeneous characteristic classes and an $n$-dimensional manifold $M$, it is common to associate characteristic numbers of the tangent bundle to partitions $k_0|c_0|+k_1|c_1|+\cdots+k_\ell|c_\ell| = n$. We then get a characteristic class $c_0^{k_0}\cdots c_\ell^{k_\ell}$, homogeneous of degree $n$. For each closed $n$-dimensional manifold $M$, the monomial $c_0^{k_0}\cdots c_\ell^{k_\ell}$ thus has an associated characteristic number $c_0^{k_0}\cdots c_\ell^{k_\ell}[M]$.
+	Whenever we have some homogeneous decomposition $c=\sum_i c_i$ of a characteristic class and an $n$-dimensional manifold $M$, it is common to associate characteristic numbers of the tangent bundle to partitions $k_0|c_0|+k_1|c_1|+\cdots+k_\ell|c_\ell| = n$. Each such partition gives a degree $n$ homogeneous characteristic class $c_0^{k_0}\cdots c_\ell^{k_\ell}$. For each closed $n$-dimensional manifold $M$, the monomial $c_0^{k_0}\cdots c_\ell^{k_\ell}$ thus has an associated characteristic number $c_0^{k_0}\cdots c_\ell^{k_\ell}[M]$.
 
 	More generally, given a polynomial in $\ell$ variables $K\in R[x_1,\ldots, x_\ell]$ with $K(z^{|c_0|}, \ldots, z^{|c_\ell|})$ homogeneous of degree $n$, the class $K(c_0,\ldots, c_\ell)$ is a homogeneous characteristic class of dimension $n$ and so has an associated characteristic number $K(c_0, \ldots, c_\ell)[M] \in R$.
 \end{remark}
 
-The set of characteristic numbers of a manifold forms a topological fingerprint of the manifold, and the subtle interplay of their number theoretic properties is one of the main way to study smooth structure on manifolds.
+The set of characteristic numbers of (the tangent bundle of) a manifold form a topological fingerprint of the manifold. As we will see in \cref{chap:invariants}, the subtle interplay of their number theoretic properties is one of the main ways to study smooth structure on a manifold. We will now begin with some examples of characteristic classes.
 
-\subsection{Stiefel-Whitney Classes}
+\subsection{Examples of Characteristic Classes}
 
-Stiefel-Whitney classes are some of the simplest characteristic classes, defined for unoriented vector bundles (i.e. with structure group $\GL_n\R$) and taking values in singular cohomology with $\Z/2$ coefficients. Characterisic numbers of Stiefel-Whitney classes thus take values in $\Z/2$ -- these are called \defn{Stiefel-Whitney numbers}.
+We will now give the axioms for some common characteristic classes. We take the convention that $\alpha$ is the generator for the cohomology ring of projective space, either in $\Z/2$ coefficients for $\RP^n$ or in $\Z$ coefficients for $\CP^n$. In other words, we let
+\[
+	\begin{aligned}
+		\H^\bullet(\RP^n; \Z/2) & \cong \Z/2[\alpha]/(\alpha^{n+1})\quad &|\alpha|=1, \\
+		\H^\bullet(\CP^n; \Z) & \cong \Z[\alpha]/(\alpha^{n+1})\quad &|\alpha|=2.   \\
+	\end{aligned}
+\]
 
 \begin{definition}
-	The \defn{Stiefel-Whitney class}[total Stiefel-Whitney class] $w$ is the unique characteristic class for unoriented vector bundles in $\Z/2$ singular cohomology satisfying the following axioms:
+	The \defn{Stiefel-Whitney class $w$}[Stiefel-Whitney class] is the unique characteristic class for unoriented vector bundles ($G=
+		\O$) in singular cohomology with $\Z/2$ coefficients satisfying:
 	\begin{enumerate}[(a)]
-		\item $w_0=1$,
-		\item $\deg(w(\mathcal{E}))\leq \rank(\mathcal{E})$,
-		\item $w(\mathcal{E}_1\oplus \mathcal{E}_2)=w(\mathcal{E}_1)\smile w(\mathcal{E}_2)$,\hfill ($\mathcal{E}_1, \mathcal{E}_2$ have the same base)
-		\item $w(\gamma^1_1)=1+\alpha$ \hfill in $\H^\bullet(\RP^1;\Z/2)\cong \Z/2[\alpha]/(\alpha^2)$
-			% If $\gamma$ is the canonical line bundle over the circle $\RP^1$, we have $w(\gamma)=1+\alpha$ in the ring $\H^\bullet(\RP^1; \Z/2)\cong (\Z/2)[\alpha]/(\alpha^2)$.
+		\item $w$ is rank-normalized and multiplicative,
+		\item $w(\gamma^1_1)=1+\alpha$.
 	\end{enumerate}
-	Let $w_i$ be the degree $i$ homogeneous component of $w$ in $\H^i(-;\Z/2)$.
+	We denote by $w_i$ the degree $i$ homogeneous component of $w$ in $\H^i(-;\Z/2)$.
 \end{definition}
 
 \begin{remark}
-	Axiom (c) is known as the \defn{Whitney product formula}. The classical form of the Whitney product formula in homogeneous components is given by
-	\[
-		w_i(\mathcal{E}_1\oplus \mathcal{E}_2) = \sum_{p+q=i} w_p(\mathcal{E}_1)\smile w_q(\mathcal{E}_2).
-	\]
+	Note that axiom (c) does not violate \cref{cor:mobius-characteristic-2-torsion}, since we are working in $\Z/2$ and so every cohomology class has $2$-torsion.
 \end{remark}
 
-Of course, this definition is not constructive, and it is not at all clear that a characteristic class satisfying these definitions even exists. That being said, it is instructive to explore the immediate consequences of these axioms before considering explicit constructions.
-
-\begin{corollary}
-	For any trivial bundle $\underline{\R}^k$, we have $w(\underline{\R}^k)=1$.
-\end{corollary}
-\begin{proof}
-	A trivial bundle $\underline{\R}^k$ is the pullback of the constant bundle $\R^k\to *$ over a point. This bundle has trivial Stiefel-Whitney class by (a) and (b) since the point is zero-dimensional.
-\end{proof}
-
-\begin{corollary}
-	By the Whitney product formula, $c(\mathcal{E}\oplus \underline{\R}^k)=c(\mathcal{E})\smile c(\underline{\R}^k)= c(\mathcal{E})$.
-\end{corollary}
-
-In other words, adding on trivial bundles to a vector bundle does not affect the Stiefel-Whitney class. This equivalence relation on vector bundles is known as stable isomorphism, namely two vector bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ are said to be \defn{stably isomorphic}[stable isomorphism of vector bundles] if there is an isomorphism of vector bundles $\mathcal{E}_1\oplus \underline{\R}^{k_1} \cong \mathcal{E}_2\oplus \underline{\R}^{k_2}$. \todo{stable structure group}.
-
 \begin{definition}
-	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\mathcal{E}\oplus \underline{\R}^k) = c(\mathcal{E})$ for any $k$.
+	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
+	\begin{enumerate}[(a)]
+		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
+		\item $\cl(\Gamma^1_n)=1-\alpha$.
+	\end{enumerate}
+	We denote by $\cl_i$ the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
 \end{definition}
 
-The sensitivity of Stiefel-Whitney classes to stable isomorphism types has a nice geometric corollary. If a manifold $M$ can be embedded \todo{finish}
-This notion is known as \defn{stable parallelizability},\todo{finish}
-we will prove in \cref{thm:homotopy-sphere-stably-parallelizable} that any manifold homeomorphic sphere in dimension $n\geq 5$ has a tangent bundle which is stably isomorphic to the trivial bundle, and hence all characteristic classes of exotic spheres are trivial. This triviality is one reason for the subtleties in detecting exotic spheres, since they cannot be distinguished by stable characteristic classes.
+Of course, this is not a constructive definition, and it is not at all clear that a characteristic class satisfying these definitions even exists. That being said, it is instructive to explore the immediate consequences of these axioms before considering explicit constructions.
 
-Let's conclude with some examples of 
-\begin{theorem}[Whitney Duality]
+\subsection{Pontryagin Classes}
 
-\end{theorem}
+\begin{definition}
+	The \defn{Pontryagin class $p$} is the unique characteristic class for oriented real vector bundles ($G=\SO$) in singular cohomology with $\Z[1/2]$ coefficients satisfying:
+	\begin{enumerate}[(a)]
+		\item $p$ is rank-normalized and multiplicative,
+		\item 
+	\end{enumerate}
+\end{definition}
 
 \subsection{Wu Classes}
 
 A refinement
-
-\subsection{Chern Classes}
-
-\begin{definition}
-	The \defn{Chern class}[total Chern class] $c$ is the unique characteristic class for complex vector bundles in $\Z$ singular cohomology satisfying the following axioms:
-	\begin{enumerate}[(a)]
-		\item $c_0=1$,
-		\item $c(\mathcal{E}_1\oplus \mathcal{E}_2)=c(\mathcal{E}_1)\smile c(\mathcal{E}_2)$,\hfill ($\mathcal{E}_1, \mathcal{E}_2$ have the same base)
-		\item $c(\gamma^1_k)=1-\alpha$\hfill in $\H^\bullet(\CP^n;\Z)\cong \Z[\alpha]/(\alpha^{n+1})$
-	\end{enumerate}
-	Let $c_i$ be the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
-\end{definition}
-
-\begin{remark}
-
-\end{remark}
-
-For complex vector bundles, i.e. 
-
-\subsection{Pontryagin Classes}\label{sec:pontryagin-classes}
+For complex vector bundles, i.e.
 
 \subsection{The Euler Class}\label{sec:euler-class}
 
@@ -369,7 +491,33 @@ For complex vector bundles, i.e.
 % 	Note that by 
 % \end{definition}
 
+\subsection{Multiplicative Sequences}
+
+
+
+\begin{definition}
+\end{definition}
+
 \subsection{A Universal Perspective on Characteristic Classes}\label{sec:universal-characteristic-classes}
+
+By the work of \cref{sec:classifying-spaces}, every vector bundle $\mathcal{E} : E \to B$ with structure group $G$ is the pullback of a bundle over the classifying space $\BB G$ by a classifying map $f_{\mathcal{E}} : B \to \BB G$.
+This means that homogeneous characteristic class $c$ of degree $k$ determines a universal cohomology class $u\in h^k(\BB G)$ by applying $c$ to the universal bundle over $\BB G$. Conversely, any cohomology class in $h^k(\BB G)$ gives a homogeneous characteristic class mapping
+\[
+	\lkxfunc{c}{\Vect_G(B)}{h^k(B)}{\mathcal{E}}{f_{\mathcal{E}}^*u}
+\]
+
+\begin{proposition}
+	There is a ring isomorphism
+	\[
+		\Class_G^h \cong \overline{h^\bullet(\BB G)}
+	\]
+	where $\overline{h^\bullet(\BB G)}=\prod_{k\geq 0} h^k(\BB G)$ denotes the completion of the cohomology ring.
+\end{proposition}
+\begin{proof}
+	\todo{Yoneda lemma}
+\end{proof}
+
+The right hand side of the  is the universal approach to characteristic classes -- und
 
 \begin{definition}
 	The \defn{infinite-dimensional Grassmannian}, denoted $\Gr_k$ or $\Gr_k(\R^\infty)$ is defined as the direct limit
@@ -387,3 +535,4 @@ For complex vector bundles, i.e.
 \subsection{Chern-Weil Theory}\label{sec:chern-weil-theory}
 
 While the axiomatic and universal definitions of characteristic classes are simple and abstract, it is often useful to
+

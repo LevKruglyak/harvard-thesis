@@ -22,13 +22,9 @@
 To begin our journey, we will provide some geometric topology essentials which will be used ubiquitously throughout the thesis.
 
 First, in \cref{sec:geometric-topology} we will discuss operations on smooth manifolds -- how to glue manifolds together, cut off handles, attach handles, stitch together manifolds at multiple points, and so on. The two operations most of interest to us are the \defn{connected sum}, which glues together two manifolds of the same dimension, and \defn{surgery}, which adds or removes handles. 
-Armed with powerful set of topological cutlery, we next investigate how smooth manifold operations change the topology of the manifold.
-
-Altering topology by surgery naturally ties into the next topic of cobordism in \cref{sec:cobordism}, a natural notion of equivalence for manifolds. While surgery might change the diffeomorphism type of a manifold, it does not change its cobordism type. This loose notion of equivalence allows us to fully classify manifolds up to cobordism -- something which is generally impossible for homeomorphism or diffeomorphism.\footnote{In high dimensions, classifying manifolds is an \defn{undecidable problem}, meaning there is no finite algorithm that will correctly match a manifold to a list of representatives.} We only briefly discuss surgery here, leaving elaboration to \cref{chap:h-cobordism} and \cref{chap:classification}.
+Armed with a powerful set of topological cutlery, we begin to investigate how smooth manifold operations change the topology of the manifold. 
 
 We then discuss how to translate between the algebra of homology and cohomology and the geometry of manifolds and embeddings.
-
-% The determination of manifolds up to cobordism is also one of the entrypoints of homotopy theory into differential topology via the Thom-Pontryagin construction, a massively successful crossover which reduces hard geometric problems to (also admittedly hard) problems of computing homotopy groups. With each flavor of cobordism, a new homotopy problem emerges. Ultimately, it will turn out that most of the computational difficulty in computing the set of smooth structures on a sphere is as a result of these problems in homotopy theory.
 
 \todo{what other sections we need}
 
@@ -82,7 +78,7 @@ This leads to a basic technical lemma of differential topology.
 	In Conventions, we assumed all smooth manifolds to be compact and all submanifolds to be properly embedded and neat. Absent these assumptions, the tubular neighborhood theorem as stated is not true.
 \end{warning}
 
-In a similar vein, when we just have a manifold $M^n$, a \defn{collar neighborhood} of its boundary is a neighborhood $\widetilde{\partial M}\supset \partial M$ which is the diffeomorphic image of a trivial ``ray-bundle'' $\partial M\times [0,\infty)$. As for tubular neighborhoods, we require that the diffeomorphism is the identity on $\partial M\times\{0\}$.
+In a similar vein, when we have just a manifold $M^n$, a \defn{collar neighborhood} of its boundary is a neighborhood $\widetilde{\partial M}\supset \partial M$ which is the diffeomorphic image of a trivial ``ray bundle'' $\partial M\times [0,\infty)$. Just as for tubular neighborhoods, we require that the diffeomorphism is the identity on the zero-section $\partial M\times\{0\}$.
 
 \begin{theorem}[Collar Neighborhood Theorem]\label{thm:collar-neighborhood}
 	Every manifold with non-empty boundary has a collar neighborhood.
@@ -108,8 +104,8 @@ In a similar vein, when we just have a manifold $M^n$, a \defn{collar neighborho
 
 We can now address one of the fundamental operations in geometric topology -- the joining of two manifolds by submanifolds.
 
-Let us suppose we have manifolds $M_1^n$ and $M_2^n$, with embeddings $\iota_1 : N\to M_1$ and $\iota_2 : N\to M_2$ of a manifold $N^k$. Our goal is to construct a joined manifold $M$ which we might denote $M_1\cup_N M_2$.
-We start by picking tubular neighborhoods $\widetilde{\iota_i N}$ for $\iota_i(N)\subset M_i$ and let $\tau_i: N\times \R^{n-k} \to \widetilde{\iota_i N}$ be the diffeomorphism.
+Let us suppose we have manifolds $M_1^n$ and $M_2^n$ of the same dimension, with embeddings $\iota_1 : N\to M_1$ and $\iota_2 : N\to M_2$ of a manifold $N^k$. Our goal is to construct a joined manifold $M$ which we might denote $M_1\cup_N M_2$.
+We start by picking tubular neighborhoods $\widetilde{N_i}$ for $\iota_i(N)\subset M_i$ and let $\tau_i: N\times \R^{n-k} \to \widetilde{N_i}$ be the diffeomorphism.
 We define $M$ to be the quotient
 \begin{equation}\label{eq:join-definition}
 	M_1\cup_N M_2 = \frac{M_1\setminus \iota_1(N)\sqcup M_2\setminus \iota_2(N)}{\tau_1(p, t\xi) \sim \tau_2(p, t^{-1}\xi)}
@@ -123,7 +119,7 @@ for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in S^{n-k-1}\subset \R
 \end{figure}
 
 \begin{remark}
-	As we have remarked, the tubular neighborhood ``sewing'' procedure in \cref{eq:join-definition} is vital in the category of smooth manifolds. If we were in the category of topological manifolds\footnote{Assuming, of course, that there is a topological notion of  tubular neighborhoods.}, we could define the join by removing the tubular neighborhoods entirely (rather the just the zero sections) and identifying the resulting boundaries.
+	As we have remarked, the ``sewing'' procedure in \cref{eq:join-definition} by tubular neighborhoods is vital in the category of smooth manifolds. In the category of topological manifolds\footnote{Assuming, of course, that there is a topological notion of  tubular neighborhoods.}, we could define the join by removing the tubular neighborhoods entirely (rather the just the zero sections) and identifying the resulting boundaries.
 	At each point of the shared boundary, the join would be locally Euclidean since it has a neighborhood which the glueing of two half-disks to get a full disk.
 \end{remark}
 
@@ -138,33 +134,104 @@ for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in S^{n-k-1}\subset \R
 	If $M_1$, $M_2$, and $N$ are oriented, with $\iota_1$ orientation-preserving and $\iota_2$ orientation-reversing, then $M$ has an orientation compatible with $M_1\setminus \iota_1(N)$ and $M_2\setminus \iota_2(N)$.
 \end{proposition}
 \begin{proof}
-	
+	This follows since $t\mapsto t^{-1}$ and $\iota_2$ both reverse orientations. We omit the technical details for brevity.
+\end{proof}
+
+\begin{theorem}
+	Up to orientation-preserving diffeomorphism, the join of manifolds along a submanifold is independent of the choices of tubular neighborhood.
+\end{theorem}
+\begin{proof}
+	\todo{cite}
 \end{proof}
 
 \subsection{Connected Sum}\label{sec:connected-sum}
 
 The simplest submanifold by which to join two manifolds is a point.
-The resulting join is an operation known as a \defn{connected sum} of two manifolds $M_1$ and $M_2$. If the manifolds are connected, this operation is (up to orientation-preserving orientation) independent of the choice of embedding. This latter statement is non-trivial, and follows from a technical result by Richard Palais.
 
-\begin{theorem}[Disk Theorem]
-	If $M^n$ is an oriented manifold with orientation preserving embeddings $\iota_1, \iota_2 : \Int(D^n) \to M$ of an open disk, then there is a diffeomorphism $f : M \to M$ such that $\iota_1 = f\circ \iota_2$.
+\begin{definition}
+	The \defn{connected sum} $M_1\+M_2$ of two manifolds $M_1$ and $M_2$ is their join along an embedded point.
+\end{definition}
+
+Visually, this operation can be thought of as cutting disks out of both manifolds and connecting them with a tube, as depicted in \cref{fig:connected-sum}.
+
+\begin{remark}
+	Note that by our assumption of submanifolds preserving boundary, the point along which the manifolds are joined cannot lie on the boundary of either manifold.
+\end{remark}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{A connected sum of two surfaces.}\label{fig:connected-sum}
+\end{figure}
+
+This operation is (up to orientation-preserving orientation) independent of the choice of embedding, justifying the basepoint-free notation of $M_1\+ M_2$.\footnote{As stated in Conventions, we assume that all manifolds are connected. Otherwise the connected sum would only be well-defined assuming a choice of connected component of $M_1$ and $M_2$.}
+Proving the independence of connected sum from the choice of basepoint is non-trivial, and follows from a technical result by Richard Palais.
+
+\begin{theorem}[Disk Theorem]\label{thm:disk}
+	If $M^n$ is an oriented manifold and $\iota_1, \iota_2 : D^n \to M$ are orientation-preserving disk embeddings, then there is a diffeomorphism $f : M \to M$ such that $\iota_1 = f\circ \iota_2$.
 \end{theorem}
 \begin{proof}
 	See Theorem B in \cite{palais1960diffeomorphism}.
 \end{proof}
 
-\begin{corollary}
-		The connected sum is well-defined, associative, and commutative up to orientation preserving diffeomorphism.
+\begin{corollary}\label{cor:connected-sum-operation}
+		The connected sum is well-defined, associative, and commutative up to orientation-preserving diffeomorphism.
 \end{corollary}
 
-\begin{proposition}\label{prop:connected-sum-operation}
-	The connected sum
+\begin{corollary}
+	For any manifold $M^n$, there is a diffeomorphism $M\+ S^n\cong M$.
+\end{corollary}
+
+\begin{corollary}
+	$\partial(M_1\+M_2) = \partial M_1\sqcup \partial M_2$.
+\end{corollary}
+
+Let us now briefly discuss the effect of connected sum on homology. If we have two oriented manifolds $M_1$ and $M_2$ of dimension $n>1$, their connected sum $M_1\# M_2$ can be decomposed as a union of open sets diffeomorphic to $M_1\setminus\{p\}$ and $M_2\setminus\{p\}$. We denote these open sets $M_1^\circ$ and $M_2^\circ$ respectively. Their intersection is diffeomorphic to a tubular neighborhood of $S^{n-1}$, so by the Mayer-Vietoris sequence, we have an exact sequence
+\[
+	\H_k(S^{n-1})\lkxto \H_k(M_1^\circ)\oplus \H_k(M_2^\circ)\lkxto[p_k] \H_k(M_1\+M_2)\lkxto \H_{k-1}(S^{n-1})
+\]
+In lowest dimension $k=0$, we know that $\H_0(M_1\+ M_2)\cong \Z$ since the connected sum is connected. Next, when $k=1$, the edge term $\H_{k-1}(S^{n-1})$ is non-trivial, but the kernel is trivial by a rank argument in the $k=0$ segment and so $p_1$ is also an isomorphism.
+When $k$ is not $n-1$, the boundary terms vanish completely and so $p_k$ is also an isomorphism. In the remaining cases, we get the exact sequence
+\begin{equation}\label{eq:connected-sum-cohomology}
+	\begin{tikzcd}
+	0 & {\H_n(M_1^\circ)\oplus \H_n(M_2^\circ)} & {\H_n(M_1\+M_2)} & {\H_{n-1}(S^{n-1})} \\
+	0 & {\H_{n-1}(M_1\+M_2)} & {\H_{n-1}(M_1^\circ)\oplus \H_{n-1}(M_2^\circ)}
+	\arrow[from=1-1, to=1-2]
+	\arrow["p_n", from=1-2, to=1-3]
+	\arrow["q", from=1-3, to=1-4]
+	\arrow[from=1-4, to=2-3]
+	\arrow[from=2-2, to=2-1]
+	\arrow["p_{n-1}"',from=2-3, to=2-2]
+\end{tikzcd}
+\end{equation}
+If $M_1$ and $M_2$ are both closed, so is $M_1\+M_2$, and hence $q$ is an isomorphism by a fundamental class argument. This implies that $p_{n-1}$ is an isomorphism, so we conclude:
+
+\begin{proposition}\label{prop:homology-connected-sum-closed}
+	If $n>1$ and $M_1$ and $M_2$ are closed oriented manifolds, we have
+	\[
+		\H_k(M_1\+M_2) \cong \begin{cases}
+			\H_k(M_1^\circ)\oplus \H_k(M_2^\circ) & 0 < k < n,\\
+			\Z & k=0\textrm{ or }n,\\
+			0 & \textrm{otherwise.}
+		\end{cases}
+	\]
 \end{proposition}
 
-\begin{proposition}
-\end{proposition}
+\begin{example}
+	The compact surface $X_g$ of genus $g$ can be broken down as a $g$-repeated connected sum of the torus $T^2=S^1\times S^1$, i.e. $X_g \cong \+[g] T^2$. It follows that by \cref{prop:homology-connected-sum-closed} that the Betti numbers are $\beta_0=1$, $\beta_1=2g$, and $\beta_2=1$.
+\end{example}
 
-\subsection{Spherical Modifications}
+The preceding is an example of the trivial case of a join of two manifolds. In general, the situation is not as nice. First of all, the submanifold $N$ might not have a trivial normal sphere bundle so computing the homology of the intersection of $M_1^\circ$ and $M_2^\circ$ becomes more complex. Additionally, in many applications the manifolds involved will not be closed, the homology in dimensions $n-1$ and $n$ behaves differently than in \cref{prop:homology-connected-sum-closed}.
+
+\subsection{Attaching a Handle}
+
+The next important special case of the join operation is the attaching of a handle.
+
+\begin{definition}
+
+\end{definition}
+
+\subsection{Removing a Handle}
 
 \begin{figure}[ht]
 	\import{diagrams}{surgery-on-two-holed-torus.pdf_tex}
@@ -174,127 +241,28 @@ The resulting join is an operation known as a \defn{connected sum} of two manifo
 \subsection{Joining Manifolds Along Submanifolds of the Boundary}
 
 \pagebreak
-\section{Cobordism}\label{sec:cobordism}
-
-The basic principle of cobordism is to declare two manifolds equivalent if there is a manifold a dimension higher which connects the two manifolds. As an equivalence relation, cobordism is far looser than the notions of homoemorphism or diffeomorphism and so allows for a full classification of manifolds. Many notions in geometry and topology -- for instance characteristic classes -- depend solely on the cobordism type of a manifold, so understanding the structure of cobordism is immensely helpful.
-
-\begin{remark}
-	Note that the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$.
-\end{remark}
-
-\begin{definition}
-	An \defn{unoriented cobordism} between closed $n$-manifolds $M_1$ and $M_2$ is an $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup M_2$. We use the notation $W : M_1\bord M_2$ to refer to the cobordism.
-\end{definition}
-
-\begin{definition}
-	An \defn{oriented cobordism} between closed oriented $n$-manifolds $M_1$ and $M_2$ is an oriented $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup (-M_2)$. We use the notation $W : M_1\sobord M_2$ to refer to the cobordism.
-\end{definition}
-
-\begin{remark}
-	\todo{General structure on a cobordism}
-\end{remark}
-
-Note that the oriented cobordism group can be thought of as a $\Z$-module, with multiplication action on a closed manifold $M$ given by
-\[
-	n \cdot M = \begin{cases} M\sqcup \cdots \sqcup M & n > 0,\\ (-M)\sqcup \cdots \sqcup (-M) & n < 0,\\ \emptyset & n=0,\end{cases}
-\]
-for all $n\in \Z$, where $\sqcup$ is repeated $|n|$ times. Since there is no notion of negation in the unoriented case, the unoriented cobordism group is a $\Z/2$-module.
-
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{pair-of-pants.pdf_tex}
-	\caption{A cobordism $W$ between $S^1$ and $(S^1\sqcup S^1)$.}\label{fig:pair-of-pants}
-\end{figure}
-
-For a simple example of a cobordism between a circle and a disjoint union of circles, see \cref{fig:pair-of-pants}. Note that this cobordism could be made much simpler by removing the handle. Simplifying cobordisms in this way is one of the major applications of surgery theory.
-
-\begin{definition}
-	The \defn{$k$-th oriented cobordism group}[oriented cobordism group] $\Omega^\SO_k$ is the abelian group of oriented cobordism classes of closed $k$-manifolds\footnote{We do not require manifolds to be connected in this definition.}
-	under disjoint union. The identity component is the empty set $\varnothing$, and negation is given by reversing orientation. Similarly, the \defn{$k$-th unoriented cobordism group}[unoriented cobordism group] $\Omega_k$ is the abelian group of cobordism classes of closed $k$-manifolds under disjoint union.
-\end{definition}
-
-\begin{example}
-	There is an isomorphism $\Omega_0\cong \Z/2$. An unoriented 0-dimensional manifold is just a set of points. Any pair of points is cobordant to the empty set by a path connecting them. Since adding pairs of points doesn't change the cobordism type, the number of points modulo 2 determines the cobordism class entirely.
-\end{example}
-
-\begin{example}
-	There is an isomorphism $\Omega_0^\SO \cong \Z$. An oriented 0-dimensional manifold is still a set of points, however the orientation now equips each point with a ``charge'', we might label them as $+$ or $-$. Note that points of opposite ``charges'' cancel out by a path between them oriented from $-$ to $+$. Given some set of points of various charges, we can always eliminate pairs of opposite charges and are left with a homogeneous set of charge. Adding up all of the pluses or minuses, we get an integer. This integer determines the cobordism class, and is invariant to adding or removing pairs of opposing charge.
-\end{example}
-
-\begin{example}
-	Both the oriented and unoriented cobordism groups are trivial in dimension 1, since every circle is the boundary of a disk.
-\end{example}
-
-In higher dimensions, the classification becomes much more interesting.
-
-\begin{figure}[ht]
-	\renewcommand{\arraystretch}{1.2}
-	\centering
-	\begin{tabular}{r||c|c||c|c}
-		$k$ & $\Omega_k$          & generators                                          & $\Omega_k^\SO$ & generators                 \\
-		\hline
-		$0$ & $\Z/2$              & a point                                             & $\Z$           & a point                    \\
-		$1$ & $0$                 &                                                     & $0$            &                            \\
-		$2$ & $\Z/2$              & $\RP^2$                                             & $0$            &                            \\
-		$3$ & $0$                 &                                                     & $0$            &                            \\
-		$4$ & $\Z/2\oplus \Z/2$   & $\RP^4$, $\RP^2\times \RP^2$                        & $\Z$           & $\CP^2$                    \\
-		$5$ & $\Z/2$              & $\SU_3/\SO_3$                                       & $\Z/2$         & $\SU_3/\SO_3$              \\
-		$6$ & $(\Z/2)^{\oplus 3}$ & $\RP^6$, $\RP^2\times \RP^4$, $(\RP^2)^{\times 3}$, & $0$            &                            \\
-		$7$ & $\Z/2$              & $(\SU_3/\SO_3) \times \RP^2$                        & $0$            &                            \\
-		$8$ & $(\Z/2)^{\oplus 4}$ & $\RP^8, \RP^6\times \RP^2, \cdots$                  & $\Z\oplus \Z$  & $\CP^4, \CP^2\times \CP^2$ \\
-	\end{tabular}
-	\medskip
-	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
-\end{figure}
-
-The structure of \cref{fig:cobordism-structure-table} makes a lot more sense in the context of
-
-\begin{proposition}
-	The product of manifolds is a well-defined operation with respect to cobordism.
-\end{proposition}
-\begin{proof}
-	\todo{proof}
-\end{proof}
-
-\begin{definition}
-	The \defn{oriented cobordism ring} $\Omega^\SO_\bullet$ is the set of oriented cobordism classes of closed manifolds under the operations of disjoint union and product.
-\end{definition}
-
-The oriented cobordism ring has a grading by
-\[
-	\Omega_\bullet^\SO = \bigoplus_{k\geq 0} \Omega^\SO_k.
-\]
-
-\begin{theorem}[Thom-Pontryagin]\label{thm:oriented-cobordism-structure}
-	There is a ring isomorphism
-	\[
-		\Omega_\bullet^\SO \otimes \Q \lkxto \Q[x_4, x_8, x_{12}, \ldots]
-	\]
-	where $x_{4k}$ are cobordism classes representing $\CP^{2k}$.
-\end{theorem}
-
-\pagebreak
 \section{Homology Classes and Submanifolds}\label{sec:representing-homology-classes}
 
-Let $f : N\subset X$ be a smooth map from a compact oriented $p$-dimensional manifold $N$ to $X$. The data of an orientation on a closed manifold gives a fundamental class $[N]\in \H_p(N)$ which can be pushed forward along the map $f : N \hookrightarrow X$ to give a homology class $f_* [N]\in \H_p(X)$. This is the homology class associated to a smooth map $N\to X$.
-This correspondence behaves nicely with respect to perturbations, \todo{finish}
+Let $f : N^k\to M^n$ be a smooth map from a closed oriented manifold $N^k$ into some manifold $M^k$. An orientation on $N$ determines a fundamental homology class $[N]\in \H_k(N)$ which can be pushed forward along the map $f : w \to M$ to give a homology class $f_* [N]\in \H_k(M)$. 
 
-Suppose $H : N\times [0,1] \to X$ is a homotopy with $H(x,0)=f(x)$ which perturbs the map $f$. For any $\epsilon>0$, the map $f_\epsilon : N \to X$ given by $f_\epsilon(x)=H(x,\epsilon)$ is homotopic to $f$ and hence induces the same map on homology $\H_p(N)\to \H_p(X)$. The homology class associated to a map $f : N \to X$ thus solely depends on the homotopy type of $f$ so there is a map
-\begin{equation}
-	\lkxfunc{}{[N,X]}{\H_p(X).}
+The correspondence behaves nicely with respect to homotopic perturbations.
+Suppose $H : N\times [0,1] \to M$ is a homotopy with $H(x,0)=f(x)$ which perturbs the map $f$. For any $\epsilon>0$, the map $f_\epsilon : N \to M$ given by $f_\epsilon(x)=H(x,\epsilon)$ is homotopic to $f$ and hence induces the same map on homology $\H_k(N)\to \H_k(M)$. The homology class associated to a map $f : N \to M$ thus solely depends on the homotopy type of $f$ so there is a map
+\begin{equation}\label{eq:homotopy-class-to-homology-class}
+	\lkxfunc{}{[N,M]}{\H_k(M).}
 \end{equation}
-Letting $N=S^p$, we can see that this is a generalization of the Hurewicz homomorphism which links homotopy groups to homology groups via a map $\pi_p(X) \to \H_p(X)$.
-As with the Hurewicz homomorphism, this correspondence is generally not surjective or injective. If a space is $k$-connected for $k\geq 1$ the Hurewicz homomorphism is an isomorphism $\pi_{k+1}(X) \to \H_{k+1}(X)$. Consequently, every homology cycle in $\H_{k+1}(X)$ can at least be represented by a smooth map of a sphere $S^{k+1}$ into $X$. This smooth map might have ``double-points'', i.e. when multiple points of the sphere map to the same point in the image and prevent the smooth map from being an embedding.
+Letting $N=S^k$, we see that this is a generalization of the Hurewicz homomorphism which links homotopy groups to homology groups via a map $\pi_k(M) \to \H_k(M)$.
+As with the Hurewicz homomorphism, the correspondence in \cref{eq:homotopy-class-to-homology-class} is generally not surjective or injective. 
+
+In the case of the Hurewicz homomorphism, if $M$ is $(k-1)$-connected for $k > 1$ the Hurewicz homomorphism is in fact an isomorphism $\pi_{k}(M) \cong \H_{k}(M)$. Consequently, every homology cycle in $\H_{k}(M)$ can at least be represented by an smooth map of a sphere $S^{k}$ into $X$. However, this smooth map need not be an immersion, and even still might have unavoidable ``double-points'' -- multiple points of the sphere mapping to the same point in the image and preventing the smooth map from being an embedding.
 
 \begin{example}
-	In the punctured plane $X=\R^2\setminus \{0\}$ with homology $\H_1(X)\cong \Z$, the only homology cycles which can be represented by embedded submanifolds are $0,\pm 1$, by a circle not containing the origin and circles of both orientations surrounding the origin respectively. A smooth map representing a cycle of higher degree would necessarily have a double-point as in \cref{fig:double-point}.
-\end{example}
-
+	In the punctured plane $M=\R^2\setminus \{0\}$ with homology $\H_1(M)\cong \Z$, the only homology cycles which can be represented by embedded submanifolds are $0,\pm 1$, by a circle not containing the origin and circles of both orientations surrounding the origin respectively. A smooth map representing a cycle of higher degree would necessarily have a double-point as in \cref{fig:double-point}.
 \begin{figure}[ht]
 	\centering
 	\import{diagrams}{double-point.pdf_tex}
-	\caption{A double-point in a smooth map representing $\pm 2\in \H_1(\R^2\setminus\{0\})$.}\label{fig:double-point}
+	\caption{A double-point in a smooth map representing $-2\in \H_1(\R^2\setminus\{0\})$.}\label{fig:double-point}
 \end{figure}
+\end{example}
 
 That being said, many of the manifolds considered \todo{basis by embedded submanifolds}.
 many specially constructed manifolds we will consider in this chapter will at least have a basis by embedded submanifolds, and every homology class will admit a representation by a smooth map. For a classical account of some issues which can arise when representing homology classes by smooth maps, see Chapter II of Ren\'e Thom's seminal paper \cite{thom1954}.
@@ -457,8 +425,8 @@ assuming we have an orientation class $[M,\partial M]\in \H_n(M, \partial M)$ co
 		{\H_p(M)\otimes \H_q(M)} & {\H_{n-p-q}(M)} \\
 		{\H^{n-p}(M, \partial M)\otimes \H^{n-q}(M,\partial M)} & {\H^{2n-p-q}(M,\partial M)}
 		\arrow["\tnsv", from=1-1, to=1-2]
-		\arrow[tail reversed, from=1-1, to=2-1]
-		\arrow[tail reversed, from=1-2, to=2-2]
+		\arrow[leftrightarrow, from=1-1, to=2-1]
+		\arrow[leftrightarrow, from=1-2, to=2-2]
 		\arrow["\smile", from=2-1, to=2-2]
 	\end{tikzcd}
 \end{equation}
@@ -844,7 +812,6 @@ We are now equipped to list all of the unimodular indefinite forms.
 \end{proof}
 
 \todo{finish}
-
 
 \medskip
 \todo{geometric interpretation of lattices,

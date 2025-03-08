@@ -9,6 +9,8 @@ cobordisms
 cobordant
 homeomorphism
 homeomorphisms
+cohomological
+naturality
 adjoint
 Betti
 Bott
@@ -36,3 +38,6 @@ Riemannian
 Smale
 transversality
 Yau
+basepoint
+Vietoris
+Palais
