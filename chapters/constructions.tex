@@ -21,41 +21,39 @@ bounding manifold of a homotopy sphere can't be contractible
 \pagebreak
 \section{Milnor Spheres}\label{sec:milnor-spheres}
 
-We will begin with the classical construction of exotic spheres as total spaces of sphere bundles over a sphere, starting with Milnor's original construction of an exotic 7-sphere in \cite{milnor1956manifolds}. To see how spheres can arise as total spaces of sphere bundles over a sphere, we will review the Hopf bundles -- these construct ordinary spheres. By ``twisting'' Hopf bundles in sufficiently high dimension, we will be able to get exotic spheres.
+We will begin with the classical construction of exotic spheres as total spaces of bundles over a sphere, starting with Milnor's original construction of an exotic 7-sphere in \cite{milnor1956manifolds}.
+To see how spheres can arise as total spaces of bundles over a sphere, we will review the Hopf bundles -- these construct ordinary spheres of dimensions $1$, $3$, $7$ (and $15$). By ``twisting'' Hopf bundles in sufficiently high dimension, we will be able to get exotic spheres, although such a construction only works in these dimensions. We will see in the following section how to generalize the construction by means of ``plumbing'' a string of bundles to get exotic spheres in arbitrary dimensions.
 
-The simplest Hopf bundle is the real Hopf bundle, which constructs the circle $S^1$ as the total space of an $S^0$ bundle over $S^1$. Topologically, this is just the double cover of $S^!$, but it is instructive to consider this simple case in the same manner as the complex and quaternionic Hopf bundles which be considered next.
+The simplest Hopf bundle is the real Hopf bundle, which constructs the circle $S^1$ as the total space of an $S^0$ bundle over $S^1$. Topologically, this is just the double cover of $S^1$, but it is instructive to consider this simple case in the same manner as the complex and quaternionic Hopf bundles which be considered next.
 Consider the projection map
 \[
 	\lkxfunc{\pi_\R^n}{S^n}{\RP^n}{(x_1,\ldots, x_{n+1})}{[x_1:\cdots: x_{n+1}]}
 \]
-which sends a point on a sphere $S^n\subset \R^{n+1}$ to the line passing through the point and the origin. This is a double cover since antipodal points are sent to the same line -- in fact it is the universal covering space of $\RP^n$. The fibers of this map are then $S^0$.
+sending a point $p$ on a sphere $S^n\subset \R^{n+1}$ to the line passing through $p$ and the origin. This is a double cover since antipodal points on a sphere lie on the same line -- and in fact $S^n$ is the universal covering space of $\RP^n$ when $n>1$. The fibers of this map are thus the zero-dimensional sphere $S^0$. It is useful to interpret these fibers as the Lie group $\O_1\cong \Z/2$ consisting of linear transformations of a 
+
 When $n=1$, there is an isomorphism $\RP^1\approx S^1$ by stereographic projection, and so $\pi_\R^1$ is the $S^0$-bundle
 \[
 	S^0 \lkxto S^1\lkxto S^1.
 \]
-This is the \defn{real Hopf bundle}[Hopf bundle (real)]. Note that real Hopf bundle $\pi_\R^1$ can be interpreted as the boundary of the compact M\"obius bundle $M$, which is a $D^1$-bundle over $S^1$.
-We can directly construct $M$ from $\pi_\R^1$ by taking the $M = S^1\times_{\Z/2} D^1$ to be the bundle associated to the action of $\Z/2$ by reflection on $D^1\subset \R$. There is also an embedding of $M$ into a surface we are familiar with -- in fact $M$ is homeomorphic to the complement of an open disk $\Int(D^2)$ in the real projective plane $\RP^2$.
+This is the \defn{real Hopf bundle}[Hopf bundle (real)]. 
+Note that real Hopf bundle $\pi_\R^1$ can be interpreted as the boundary of the compact M\"obius bundle $M$, which is a $D^1$-bundle over $S^1$.
 
-Advancing from $\R$ to $\C$, we consider the projection map
+Advancing from $\R$ to $\C$, we next consider the projection map
 \[
 	\lkxfunc{\pi_\C^n}{S^{2n+1}}{\CP^n}{(z_1,\ldots, z_{n+1})}{[z_1:\cdots: z_n]}
 \]
-where we interpret $S^{2n+1}\subset \R^{2n+2}$ as a subset of $\C^{n+1}$.
-In this case, the fibers consist of unit norm complex numbers, i.e. the set of phase changes $S^1=\{e^{i\theta} : \theta\in \R\}$ which is diffeomorphic to $S^1$.
+where we interpret $S^{2n+1}\subset \R^{2n+2}$ as a subset of $\C^{n+1}$. Rather than send a point to a real line, the map $\pi_\C^n$ sends a point $p\in \C^{n+1}$ on the complex unit sphere to the complex plane passing through the origin and $p$. Note that changing the ``phase'' of the point $p$ along the plane keeps the point in the plane. The fibers thus consist of phase changes, i.e. the Lie group $\U_1=\{e^{i\theta} : \theta\in \R\}$ which is diffeomorphic to $S^1$.
+
 When $n=1$, there is an isomorphism of the Riemann sphere $\CP^1\cong S^2$ by stereographic projection. This gives the us the infamous \defn{complex Hopf bundle} $\pi_\C^1$
 \[
 	S^1 \lkxto S^3 \lkxto S^2.
 \]
-By letting $S^1\cong \U_1$ act as rotations on the complex unit disk $D^2\subset \C$, we get an associated $D^2$-bundle $E = S^3\times_{\U_1} D^2$.
-
-Similarly to the real case, the total space of this associated bundle turns out to be a complex projective plane $\CP^2$ with an open disk $\Int(D^4)$ removed. Recall that $\CP^n$ can be formed inductively by glueing a $2n$-cell $D^{2n}$ to $\CP^{n-1}$ by the map $\pi_\C^{n-1} : \partial D^{2n} \to \CP^{n-1}$, this gives the usual cell structure on $\CP^n$ with a single cell in each even dimension.
-We can arrange the open disk $\Int(D^4)$ being removed from $\CP^4 = S^2\cup_{\pi_\C^1} D^4$ to lie strictly in $D^4$. Removing this disk then gives a $D^2$-bundle over the boundary $S^2$.
 
 \begin{remark}
-	Unlike the real and complex numbers, the quaternions $\HH$ are not a field since they are not commutative. In this thesis, we define quaternionic projective space $\HP^{n}$ as the quotient of $\HH^{n+1}$ by \emph{right} multiplication by $\HH$.
+	Unlike the real and complex numbers, the ring of quaternions $\HH$ is not a field since it is not commutative. We define the quaternionic projective space $\HP^{n}$ as the quotient of $\HH^{n+1}$ by \emph{right} multiplication by $\HH$.
 \end{remark}
 
-Now in the final case of the quaternionic plane $\HH$, we have a projection map
+In the final case of the quaternionic plane $\HH$, we have a projection map
 \[
 	\lkxfunc{\pi_\HH^n}{S^{4n+3}}{\HP^n}
 \]
@@ -64,18 +62,45 @@ In the case $n=1$, the difeomorphism $\HP^1\cong S^3$ gives the \defn{quaternion
 \[
 	S^3 \lkxto S^7 \lkxto S^4.
 \]
-Since the fiber $S^3$ has a Lie group structure $\SU_2$, we can do the same associated bundle construction to get a $D^4$-bundle which bounds the total space of the quaternionic Hopf bundle $\pi_\HH^1$. The total space of this bundle is diffeomorphic to the complement of an open disk $\Int(D^8)$ in quaternionic projective plane $\HP^2$ by a similar argument to what was done in the complex case.
+As before, the fiber $S^3$ should be interpreted as the Lie group $\Sp_1$ of unit quaternions. These act as quaternionic phase shifts.
+
+Now let $\F\in\{\R, \C, \HH\}$, and $d=\dim_\R \F$ be the dimension, so that the Hopf bundles can be denoted $\pi_\F^1 : S^{2d-1} \to S^d$ with fibers $S^{d-1}$.
+
+\begin{proposition}\label{prop:boundary-of-hopf-bundle}
+	The space $\FP^2\setminus \Int(D^{2d})$, a projective plane with an open disk removed, is a $D^d$-bundle over $S^d$ which bounds the Hopf bundle $\pi_\F^1$.
+\end{proposition}
+\begin{proof}
+	First, note that $\FP^2$ can be obtained by identifying $\partial D^{2d}$ with $S^d$ by the Hopf bundle. This follows from a more general CW structure decomposition of $\FP^n$, found in any introductory topology text.
+	\begin{lemma}
+		 There is a CW structure on $\FP^n$ in which the $(kd)$-skeleta are $\FP^k$ and the attaching maps are $\pi_\F^k$.
+	\end{lemma}
+
+	To see why $\FP^2\setminus \Int(D^{2d})$ is a disk bundle, note that we can consider $D^{2d}$ as the subset of points $(x,y)\in \F^2$ with $\|x\|^2+\|y\|^2\leq 1$. We can assume that $\Int(D^{2d})$ is embedded into this disk $D^{2d}$ as a disk of radius $1/2$. Under this embedding, $\FP^2\setminus \Int(D^{2d})$ is the quotient of an annulus $A_{1,1/2}$ in $\F^2$ along its outside boundary by the Hopf bundle map.
+	If we parametrize a line $L$ by $(\alpha t, \beta t)$ for fixed $\alpha,\beta\in S^d\subset \F$ and $t\in \F$, then the intersection of the line with the annulus $L\cap A_{1,1/2}$ is diffeomorphic to an annulus in $\F$. Since the entire outer boundary of this annulus is collapsed to a point by the Hopf map, this annulus is diffeomorphic to the disk $D^d$ in $\F$. 
+
+	See \cref{fig:mobius-bundle-and-hopf-bundle} for a visual demonstration of this when $d=1$.
+\end{proof}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder-small.pdf_tex}
+	\caption{$\RP^2\setminus \Int(D^2)$ as a $D^1$-bundle over $S^1$.}\label{fig:mobius-bundle-and-hopf-bundle}
+\end{figure}
+
+\begin{remark}\label{rmk:lie-group-structure-Sd}
+	When $d\in \{0,1,3\}$ any bundle with fibers $S^d$ can be interpreted as the boundary of a $D^{d+1}$ bundle. Since each of these spheres carries a Lie group structure\footnote{In fact, these are the only spheres which admit a Lie group structure.} which admits an effective action on $\F$, given an $S^d$ bundle $\pi : E \to B$ we can associate an $\F$-vector bundle $\mathcal{E} : E\times_{S^d} \F \to B$ which has $\pi$ as an associated sphere bundle. If we act on $D^d\subset \F$ instead, we get a disk bundle bounding $\pi$.
+\end{remark}
 
 In the coming section, we will try to generalize the Hopf bundles, twisting the bundle just enough so that the total space has a non-standard smooth structure but not so much that it ceases to be homeomorphic to a sphere.
 Of course, this will lose some of the elegant and canonical geometric structure of the Hopf bundles, but it is still useful to keep the Hopf bundles in mind throughout.
 
 \subsection{Sphere Bundles and the Euler Class}
 
-Let us suppose we had a general oriented sphere bundle of the form
+Now let us depart from the geometric comfort of the Hopf bundles and suppose we had a general oriented sphere bundle of the form
 \begin{equation}\label{eq:general-spherical-fibration}
 		S^{n-1}\lkxto M \lkxto S^n.
 \end{equation}
-When will $M$ be homotopy equivalent to a sphere? There are a few ways to proceed here -- for instance we could use the homology Serre spectral sequence and the Hurewicz map in order to compute the homology of $M$ from the data of the attaching map $\delta : \pi_n(S^n) \to \pi_{n-1}(S^{n-1})$. A simpler approach, more in line with the theme of this thesis, involves the Euler class constructed in \cref{sec:euler-class}.
+When will $M$ be homotopy equivalent to a sphere? There are a few ways to proceed here -- for instance we could use the homology Serre spectral sequence and the Hurewicz map in order to compute the homology of $M$ from the data of the attaching map $\delta : \pi_d(S^d) \to \pi_{n-1}(S^{n-1})$. A simpler approach more in line with the theme of this thesis involves the Euler class, constructed in \cref{sec:euler-class}.
 
 \begin{theorem}[Gysin Sequence]
 	Whenever we have a bundle $S^{n-1} \to E\to B$ over a simply-connected base $B$, there is an exact sequence known as the \defn{Gysin sequence} 
@@ -105,8 +130,8 @@ Here $H^0(S^n)$ and $H^n(S^n)$ are both isomorphic to $\Z$, with the Euler class
 \begin{remark}
 	There is a nice geometric example of the condition $e=\pm 1$ for the Hopf bundle.
 
-	The crux of the interpretation is \cref{thm:euler-number-self-intersection}, which tells us that the self-intersection number of a submanifold $N\subset M$ is the Euler number of a tubular neighborhood.
-	In the case of the complex Hopf bundle, recall that $\CP^2\setminus \Int(D^4)$ is a $D^2$-bundle over $S^3$ which bounds the complex Hopf bundle. This is exactly the bundle associated to the action of $S^1\cong \U_1$ on $D^2$. Let us call the total space $W$, and denote the Hopf bundle $p : S^3 \to S^2$ and $\overline{p} : W \to S^2$ for the $D^2$ bundle.
+	The crux of this is \cref{thm:euler-number-self-intersection}, which tells us that the self-intersection number of a submanifold $N\subset M$ is the Euler number of a tubular neighborhood.
+	In the case of the complex Hopf bundle, \cref{prop:boundary-of-hopf-bundle} tells us that $\CP^2\setminus \Int(D^4)$ is a $D^2$-bundle over $S^3$ which bounds the complex Hopf bundle. Let us call the total space $W=\CP^2\setminus \Int(D^4)$, and denote the Hopf bundle $p : S^3 \to S^2$, with $\overline{p} : W \to S^2$ the bounding bundle.
 	\[
 	\begin{tikzcd}
 		D^2 & W & \\
@@ -118,34 +143,64 @@ Here $H^0(S^n)$ and $H^n(S^n)$ are both isomorphic to $\Z$, with the Euler class
 		\arrow["\overline{p}", from=1-2, to=2-3]
 	\end{tikzcd}
 \]
-While $p$ certainly does not have a section, $\overline{p}$ does -- since the $0\in D^2$ is a fixed point of the $\U_1$ action we have a zero section. The removal of the open $4$-disk from $\CP^2$ does not affect lower dimensional homology groups of $\CP^2\setminus \Int(D^4)$. 
-Furthermore, the embedding by the zero-section of $\overline{p}$ of $S^2\subset W$ generates the middle-dimensional homology $\H^2(W)$. The plane bundle associated to the Hopf bundle $p$ is then a tubular neighborhood of $S^2\subset W$ and so by \cref{thm:euler-number-self-intersection}, the Euler number of the Hopf bundle is the self-intersection of $S^2$ in $W$. However, the intersection form of $\CP^2$ is the same as the intersection form of $W$, it is $(1)$ by \cref{prop:intersection-form-complex-projective-plane}. This means that the Euler class of the Hopf bundle is $\pm 1$ which agrees with \cref{prop:homotopy-type-spherical-bundle}.
-\end{remark}
+While $p$ certainly does not have a section, $\overline{p}$ does -- for one thing, $0\in D^2$ is a fixed point of the $\U_1$ action on $D^2$ so the zero-section is perfectly valid.
 
-\begin{remark}
-	When building manifolds as total spaces of sphere bundles, it is usually easier to work with first with a vector bundle. This allows for a natural construction of both a sphere bundle and a bounding disk bundle given a Riemannian structure. Working with vector bundles, especially when the base manifold is a sphere as well is generally easier because we can classify vector bundles by the clutching construction as a homotopy group of the structure group. 
-
-	In the case that the fiber $S^{n-1}$ is $S^0, S^1, S^3,$ there is a Lie group structure on $S^{n-1}$ which acts on $\R^{n}$ so we can always associate a rank $n$ vector bundle to an $S^{n-1}$ bundle. When the fiber does not have a Lie group structure, we can still form sphere bundles out of vector bundles, but it is not necessarily true that all sphere bundles arise in this way.
+Next, note that removal of the open $4$-disk from $\CP^2$ does not affect the lower dimensional homology groups of $\CP^2\setminus \Int(D^4)$. In particular, the intersection form remains unchanged.
+Furthermore, the embedding by the zero-section of $\overline{p}$ of $S^2\subset W$ generates the middle-dimensional homology $\H^2(W)$. The complex line bundle associated to the Hopf bundle $p$ is then a tubular neighborhood of $S^2\subset W$ and so by \cref{thm:euler-number-self-intersection}, the Euler number of the Hopf bundle is exactly the self-intersection of $S^2$ in $W$. However, the intersection form of $\CP^2$ is the same as the intersection form of $W$, namely $(1)$ by \cref{prop:intersection-form-complex-projective-plane}. This means that the Euler class of the Hopf bundle is $\pm 1$ which agrees with \cref{prop:homotopy-type-spherical-bundle}.
 \end{remark}
 
 \subsection{Milnor's Exotic Spheres in 7-Dimensions}
+
+Using \cref{prop:homotopy-type-spherical-bundle}, we will now attempt to twist the Hopf bundle while ensuring that the homotopy type of total space remains $S^7$. As established in \cref{rmk:lie-group-structure-Sd}, the Lie group structure of $S^3$ means that oriented $S^3$ bundles are in bijection with oriented rank $4$ vector bundles. By the clutching construction of \cref{sec:clutching-construction}, oriented rank $4$ vector bundles over $S^4$ are completely classified by the homotopy group $\pi_3(\SO_4)$ so we begin with its computation.
 
 \begin{proposition}\label{prop:3rd-homotopy-SO4}
 	There is an isomorphism $\pi_3(\SO_4)\cong \Z\oplus \Z$.
 \end{proposition}
 \begin{proof}
-	\todo{finish this up}
+	Consider action of $\Sp_1\times \Sp_1$ on the quaternionic plane $\HH$ by conjugation\footnote{This action is important for the construction of Milnor spheres, so choosing $x\mapsto q_1xq_2$ or $x\mapsto q_1xq_2^{-1}$ for the action has downstream effects in the formulas. This is purely a convention, and we use the former one to agree with the original exposition of Milnor in \cite{milnor1956manifolds}.}
+	\begin{equation}\label{eq:sp1xsp1-conjugation}
+		\lkxfunc{p}{\Sp_1\times \Sp_1}{\Aut(\HH)}{(q_1,q_2)}{(x\mapsto q_1xq_2).}
+	\end{equation}
+	Since conjugation by quaternions of unit norm preserves the quaternionic norm, this action defines a map $p' : \Sp_1\times \Sp_1\to\SO_4$. 
+	Note that the kernel of $p'$ is clearly $\{(1,1),(-1,1)\}\cong \Z/2$. Both Lie groups are connected, with $\Sp_1\times \Sp_1$ of dimension $3+3=6$ and $\SO_4$ of dimension $4(4-1)/2=6$ so it follows that $p'$ must be surjective. Therefore, $p'$ is a covering map and so induces an isomorphism on homotopy groups $\pi_n$ for $n>1$. We thus have a sequence of isomorphisms.
+	\[
+		\pi_3(\SO_4)\cong \pi_3(\Sp_1\times \Sp_1)\cong \pi_3(\Sp_1)\times \pi_3(\Sp_1) \cong \Z\oplus \Z.
+	\]
+	This completes the proof.
 \end{proof}
 
+Note that the isomorphism $\Z\cong \pi_3(\Sp_1)$ sends an integer $k\in \Z$ to the map $\Sp_1\to \Sp_1$ sending $q\mapsto q^k$. Here we identify the usual domain of $S^3$ with $\Sp_1$. By the action \cref{eq:sp1xsp1-conjugation}, this means that any $(i,j)\in \Z\oplus\Z$ can be identified with the map
+\begin{equation}\label{eq:ij-associated-map}
+	\lkxfunc{}{\Sp_1}{\SO_4}{q}{(x\mapsto q^ixq^{j})}\in \pi_3(\SO_4).
+\end{equation}
 \begin{definition}
-	For each $(i,j)\in \pi_3(\SO_4)$, the \defn{Milnor sphere}[Milnor sphere (7-dimensional)] $\Sigma_{i,j}^7$ is the total space of the bundle associated to the clutching function $(i,j)$. Let $p_{i,j} : \Sigma_{i,j}^7 \to S^4$ be the bundle map.
+	For each $(i,j)\in \pi_3(\SO_4)$, the \defn{Milnor manifold $\Sigma_{i,j}^7$}[Milnor manifold (7-dimensional)] is the total space of the bundle associated to the clutching function $(i,j)$. Let $p_{i,j} : \Sigma_{i,j}^7 \to S^4$ be the bundle map.
 \end{definition}
 
+To determine when $\Sigma_{i,j}^7$ is homeomorphic to a sphere, we calculate the Euler number of the bundle corresponding to a pair $(i,j)\in \Z\oplus\Z$.
+
+\begin{proposition}\label{prop:euler-number-of-milnor-manifold}
+	The Euler number of the bundle associated to $(i,j)\in \Z\oplus \Z$ is $i+j$.
+\end{proposition}
+\begin{proof}
+	By \cref{thm:euler-number-clutching-construction}, the Euler number of a bundle associated to a clutching function in $\pi_3(\SO_4)$ is a group homomorphism
+	\[
+			\lkxfunc{e}{\pi_3(\SO_4)}{\pi_3(S^3)\cong \Z.}
+	\]
+	Furthermore, this is the map induced by the projection $\SO_4\to S^3$ which sends an isometry $T$ to the point $T(x)\in S^3$ for a fixed basepoint $x\in S^3$. If we identify 
+	\[
+		\begin{array}{r@{\;}c@{\;}c@{\;}c@{\;}c@{\;}r@{\;}r@{\;}r}
+		\Sp_1 &\lkxto &\Sp_1\times\Sp_1 &\lkxsurj &\SO_4 &\lkxto &\Sp^1\\
+		q &\lkxmapsto &(q^i,q^j) &\lkxmapsto &(x\mapsto q^ixq^j) &\lkxmapsto &q^{i+j}
+	\end{array}
+	\]
+\end{proof}
+
 \begin{proposition}\label{prop:milnor-spheres-homeomorphic-to-spheres}
-	When $i+j=1$, the Milnor sphere $\Sigma_{i,j}^7$ is homeomorphic to $S^7$.
+	When $i+j=\pm 1$, the Milnor manifold $\Sigma_{i,j}^7$ is homeomorphic to $S^7$.
 \end{proposition}
 
-Of course, by \cref{prop:homotopy-type-spherical-bundle}, this follows by the $h$-cobordism theorem since $\Sigma_{i,j}^7$ has the homotopy type of $S^7$. However, at the time of Milnor's construction the $h$-cobordism had not been proved so he directly proved homeomorphism using Reeb's theorem \cref{thm:reeb}.
+Of course this follows immediately from the $h$-cobordism theorem since $\Sigma_{i,j}^7$ has the homotopy type of $S^7$ by \cref{prop:homotopy-type-spherical-bundle}. However, at the time of Milnor's construction the $h$-cobordism had not been proved so he used a Morse theoretic argument. To avoid over-reliance on powerful results, we will also directly prove homeomorphism using Reeb's theorem (\cref{thm:reeb}).
 
 \begin{proof}[Proof of \cref{prop:milnor-spheres-homeomorphic-to-spheres}]
 	Identifying $S^3\subset \HH$ with the set of unit norm quaternions, the clutching function $S^3 \to \Aut(\HH)$ corresponding to $(i,j)$ is $v\mapsto u^ivu^j$. Consider the charts
@@ -160,7 +215,7 @@ Of course, by \cref{prop:homotopy-type-spherical-bundle}, this follows by the $h
 	\[
 		h(u_0,v_0)= \left(u_0^{-1}, \frac{u_0^iv_0u_0^j}{\|u_0\|^{i+j}}\right) = \left(u_0^{-1}, \frac{u_0^i (v_0u_0) u_0^{-i}}{\|u_0\|}\right) = (u_\infty, v_\infty),
 	\]
-	where the second equality follows from $i+j=1$.
+	where the second equality follows from $i+j=1$. Note that the remainder of the proof does not change if $i+j=-1$ absent some sign changes, so we omit this case for brevity.
 	Note that $h$ acts as a change of coordinate function between the two ``hemispheres'' $U_0\times S^3$ and $U_\infty\times S^3$.
 	Now, consider the real function $f : U_\infty\times S^3\to \R$ defined by
 	\[
@@ -177,7 +232,7 @@ Of course, by \cref{prop:homotopy-type-spherical-bundle}, this follows by the $h
 		f(u_0, v_0) = \frac{x_0y_0 - x_1y_1 - x_2y_2 - x_3y_3}{\sqrt{1+x_0^2+x_1^2+x_2^2+x_3^2}},\quad
 		f(u_\infty, v_\infty) = \frac{x_0'}{\sqrt{1+x_0'^2+x_1'^2+x_2'^2+x_3'^2}}
 	\]
-	It follows after elementary differentiation that the only critical points are $(u_0, v_0)= (0,\pm 1)$, and that $f$ is non-degenerate at these points. Therefore, $f$ is a Morse function with exactly two critical points so by Reeb's theorem (\ref{thm:reeb}), $\Sigma_{i,j}^\infty$ is homeomorphic to a sphere.
+	It follows after elementary differentiation that the only critical points are $(u_0, v_0)= (0,\pm 1)$, and that $f$ is non-degenerate at these points. Therefore, $f$ is a Morse function with exactly two critical points so by Reeb's theorem (\ref{thm:reeb}), $\Sigma_{i,j}^7$ is homeomorphic to a sphere.
 \end{proof}
 
 Now, let us compute the invariants of \cref{sec:invariants-for-homotopy-4k-1-spheres} for Milnor's exotic spheres -- this will tell us if we were successful in our task. First, let $\overline{p}_{i,j} : W_{i,j}^8 \to S^4$ be the associated $D^4$ bundle which bounds $p_{i,j}$. This coboundary $W_{i,j}^8$ of $\Sigma^7_{i,j}$ is essential for computing invariants.

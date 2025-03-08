@@ -375,33 +375,67 @@ If $\mathcal{E}_1=\TT M$ is the tangent bundle of a manifold $M^k$ and $\mathcal
 	As it turns out, \emph{any} homotopy sphere $M$ has $c(M)=1$ for a rank-normalized multiplicative characteristic class because the tangent bundle of a homotopy sphere is stably isomorphic to the trivial bundle. We will prove this in \cref{thm:homotopy-sphere-stably-parallelizable} using some hard theorems in homotopy theory.
 \end{remark}
 
-\subsection{Characteristic Numbers}
+\subsection{Creating New Characteristic Classes out of Old}
 
-If we want to compare vector bundles on different spaces, we need a common context in which to compare their characteristic classes since the cohomology rings of the underlying spaces might not be canonically isomorphism. When the base space is a manifold, the Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ allows us to ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong R$ in the coefficient ring of a corresponding homology theory. The coefficient ring $R$ is this context in which we can compare characteristic classes over different bases.
+Suppose $c$ is a characteristic class. Let $R\fps{x}$ be shorthand for the completion of the graded-commutative algebra $R[x_0,x_1,\ldots]$. Note that
+\[
+		R\fps{x} = \prod_{k\geq 0} R[x_0,\ldots, x_k]
+\]
 
-\begin{definition}\label{defn:characteristic-numbers}
-	For a degree $n$ homogeneous characteristic class $c$ and a closed $n$-dimensional manifold $M$, the \defn{characteristic number} of a vector bundle $\mathcal{E}$ over $M$ is the $c(\mathcal{E})[M] \in R$.
+There is a map
+\[
+	\lkxfunc{}{R\fps{x}}{\Class_G^h}
+\]
+which sends $x_i\mapsto c_i$. Let $U_1(R\fps{x})$ denote the subset of $\R\fps{x}$ consisting of infinite sequences with 
+
+\begin{definition}
 \end{definition}
 
-\begin{convention*}
-	When referring to a characteristic number of a tangent bundle of a closed manifold, we use the abbreviated notation $c[M] = c(\TT M)[M]$.
-\end{convention*}
+\subsection{Characteristic Numbers}
 
-\begin{remark}\label{rmk:characteristic-number-monomial-polynomial}
-	Whenever we have some homogeneous decomposition $c=\sum_i c_i$ of a characteristic class and an $n$-dimensional manifold $M$, it is common to associate characteristic numbers of the tangent bundle to partitions $k_0|c_0|+k_1|c_1|+\cdots+k_\ell|c_\ell| = n$. Each such partition gives a degree $n$ homogeneous characteristic class $c_0^{k_0}\cdots c_\ell^{k_\ell}$. For each closed $n$-dimensional manifold $M$, the monomial $c_0^{k_0}\cdots c_\ell^{k_\ell}$ thus has an associated characteristic number $c_0^{k_0}\cdots c_\ell^{k_\ell}[M]$.
+If we want to compare vector bundles on different spaces, we need a common context in which to compare their characteristic classes since the cohomology rings of the underlying spaces might not be canonically isomorphism. When the base space is a compact $R$-oriented manifold, the Poincar\'e duality isomorphism $h^{n-k}(M) \cong h_k(M)$ allows us to ``integrate'' homogeneous top-dimensional cohomology classes $\alpha\in h^{n}(M)$ along a fundamental class $[M]\in h_n(M)$ to get an element $\alpha[M]\in h_0(M)\cong R$ in the coefficient ring of a corresponding homology theory. The coefficient ring $R$ is this context in which we can compare characteristic classes over different bases.
 
-	More generally, given a polynomial in $\ell$ variables $K\in R[x_1,\ldots, x_\ell]$ with $K(z^{|c_0|}, \ldots, z^{|c_\ell|})$ homogeneous of degree $n$, the class $K(c_0,\ldots, c_\ell)$ is a homogeneous characteristic class of dimension $n$ and so has an associated characteristic number $K(c_0, \ldots, c_\ell)[M] \in R$.
+\begin{definition}\label{def:characteristic-number}
+	Given any characteristic class $c$ and closed $n$-dimensional manifold $M$ the \defn{characteristic number} of $M$ is $c[M] = c_n(\TT M)[M]$.
+\end{definition}
+
+Note that we must take the homogeneous component of $c$ to apply Poincar\'e duality. Generally, if $\Man_R$ denotes the set of closed $R$-oriented manifolds, any characteristic class $c$ can be interpreted as a map
+\begin{equation}\label{eq:characteristic-number}
+	\lkxfunc{c}{\Man_R}{R}{M}{c[M].}
+\end{equation}
+Under some extensions of \cref{def:characteristic-number} to allow for disconnected manifolds, \cref{eq:characteristic-number} is additive with respect to disjoint unions.
+\begin{proposition}
+	If $c$ is a multiplicative characteristic class, then $c[M_1\times M_2]=c[M_1]\cdot c[M_2]$.
+\end{proposition}
+\begin{proof}
+	By the multiplicative property and the K\"unneth formula, we have.
+	\[
+		\begin{aligned}
+			c[M_1\times M_2]
+			 & = c(\TT (M_1\times M_2))[M_1\times M_2]                      \\
+			 & = c(\TT M_1\oplus \TT M_2)[M_1\times M_2]                    \\
+			 & = (c(\TT M_1)\smile c(\TT M_2))[M_1]\times [M_2]             \\
+			 & = c(\TT M_1)[M_1]\cdot c(\TT M_2)[M_2] = c[M_1]\cdot c[M_2].
+		\end{aligned}
+	\]
+	This completes the proof.
+\end{proof}
+
+\begin{remark} 
+	While $\Man_R$ doesn't have a ring structure due to lack of an identity element, with the inclusion of a cobordism relation on $\Man_R$ it is possible to interpret multiplicative characteristic classes as ring homomorphisms from a cobordism ring to $R$.
 \end{remark}
 
-The set of characteristic numbers of (the tangent bundle of) a manifold form a topological fingerprint of the manifold. As we will see in \cref{chap:invariants}, the subtle interplay of their number theoretic properties is one of the main ways to study smooth structure on a manifold. We will now begin with some examples of characteristic classes.
+The set of characteristic numbers of a manifold form a topological fingerprint of the manifold. As we will see in \cref{chap:invariants}, the subtle interplay of their number theoretic properties is one of the main ways to study smooth structure on a manifold.
 
 \subsection{Examples of Characteristic Classes}
+
+We will now begin with some examples of characteristic classes.
 
 We will now give the axioms for some common characteristic classes. We take the convention that $\alpha$ is the generator for the cohomology ring of projective space, either in $\Z/2$ coefficients for $\RP^n$ or in $\Z$ coefficients for $\CP^n$. In other words, we let
 \[
 	\begin{aligned}
-		\H^\bullet(\RP^n; \Z/2) & \cong \Z/2[\alpha]/(\alpha^{n+1})\quad &|\alpha|=1, \\
-		\H^\bullet(\CP^n; \Z) & \cong \Z[\alpha]/(\alpha^{n+1})\quad &|\alpha|=2.   \\
+		\H^\bullet(\RP^n; \Z/2) & \cong \Z/2[\alpha]/(\alpha^{n+1})\quad & |\alpha|=1, \\
+		\H^\bullet(\CP^n; \Z)   & \cong \Z[\alpha]/(\alpha^{n+1})\quad   & |\alpha|=2. \\
 	\end{aligned}
 \]
 
@@ -436,9 +470,46 @@ Of course, this is not a constructive definition, and it is not at all clear tha
 	The \defn{Pontryagin class $p$} is the unique characteristic class for oriented real vector bundles ($G=\SO$) in singular cohomology with $\Z[1/2]$ coefficients satisfying:
 	\begin{enumerate}[(a)]
 		\item $p$ is rank-normalized and multiplicative,
-		\item 
+		\item
 	\end{enumerate}
 \end{definition}
+
+\begin{proposition}\label{prop:pontryagin-class-complex-projective-space}
+	\[
+		p(\CP^n) = (1+\alpha^2)^{2n+1}
+	\]
+\end{proposition}
+
+\begin{example}
+	The Pontryagin classes of the first few dimensions of complex projective space are given by:
+	\[
+		\begin{aligned}
+			p(\CP^1) & = 1,                                    \\
+			p(\CP^2) & = 1+3\alpha^2,                          \\
+			p(\CP^3) & = 1+4\alpha^2,                          \\
+			p(\CP^3) & = 1+5\alpha^2 + 10\alpha^4,             \\
+			p(\CP^4) & = 1+6\alpha^2 + 15\alpha^4,             \\
+			p(\CP^4) & = 1+7\alpha^2 + 21\alpha^4+ 35\alpha^6, \\
+		\end{aligned}
+	\]
+	Note that $p_k[\CP^{2k}]$.
+\end{example}
+
+\begin{proposition}\label{prop:pontryagin-}
+	Let $K(p)$ be a Pontryagin class. If $M^{4k}$ is an oriented manifold which is the boundary of a smooth compact oriented manifold $W^{4k+1}$, then $K(p)[M]=0$.
+\end{proposition}
+
+\begin{corollary}
+	A degree $k$ Pontryagin number $K(p)$ is a well-defined group homomorphism
+	\[
+		\lkxfunc{}{\Omega^\SO_k}{\Z}{[M]}{K(p)[M]}
+	\]
+\end{corollary}
+
+\begin{corollary}
+	If $K(p)$ is a multiplicative Pontryagin number, then
+\end{corollary}
+
 
 \subsection{Wu Classes}
 
@@ -447,7 +518,7 @@ For complex vector bundles, i.e.
 
 \subsection{The Euler Class}\label{sec:euler-class}
 
-\begin{theorem}\label{thm:euler-number-of-vector-bundle-over-sphere}
+\begin{theorem}\label{thm:euler-number-clutching-construction}
 	Let $p : \SO_{2m} \to \SO_{2m}/\SO_{2m-1}= S^{2m-1}$ be the projection map of the special orthogonal group to the sphere. Then the following diagram commutes,
 	\[\begin{tikzcd}
 			{\pi_{2m-1}(\SO_{2m})} & \Z \\

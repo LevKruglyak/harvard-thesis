@@ -27,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.6339048"
-     inkscape:cx="196.15586"
-     inkscape:cy="58.448937"
+     inkscape:cx="317.33794"
+     inkscape:cy="30.295522"
      inkscape:window-width="1728"
      inkscape:window-height="1051"
      inkscape:window-x="0"
@@ -74,35 +74,35 @@
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.352999;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.705998, 0.705998;stroke-dashoffset:0;stroke-opacity:1"
-       x="63.930218"
+       x="70.978699"
        y="3.6365998"
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.353"
-         x="63.930218"
+         x="70.978699"
          y="3.6365998">$M\times[0,1]$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.352999;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.705998, 0.705998;stroke-dashoffset:0;stroke-opacity:1"
-       x="33.554333"
-       y="33.247128"
+       x="35.01173"
+       y="33.599907"
        id="text1-9"><tspan
          sodipodi:role="line"
          id="tspan1-1"
          style="fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.353"
-         x="33.554333"
-         y="33.247128">$M$</tspan></text>
+         x="35.01173"
+         y="33.599907">$M$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.352999;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.705998, 0.705998;stroke-dashoffset:0;stroke-opacity:1"
-       x="117.89865"
-       y="34.327885"
+       x="119.35605"
+       y="33.247128"
        id="text1-9-5"><tspan
          sodipodi:role="line"
          id="tspan1-1-9"
          style="fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.353"
-         x="117.89865"
-         y="34.327885">$M$</tspan></text>
+         x="119.35605"
+         y="33.247128">$M$</tspan></text>
   </g>
 </svg>
