@@ -366,6 +366,25 @@ If we use a different integrality theorem, this procedure gives a different inva
 
 Consider the characteristic 
 
+\begin{theorem}\label{thm:Ahat-integrality}
+	If $M$ is an oriented closed $2m$-dimensional manifold with a spin structure, then $\Ahat[M]$ is an integer. If $m\equiv 2\mod 4$, then $\Ahat[M]$ is an even integer.
+\end{theorem}
+
+\begin{theorem}[Rochlin]\label{thm:rochlin}
+	The signature of an oriented closed $4$-manifold is divisible by $16$.
+\end{theorem}
+\begin{proof}
+	If $M$ is a oriented closed $4$-manifold, we have
+	\[
+		\sigma(M) = \frac{p_1[M]}{3}\quad\textrm{and}\quad p_1[M] = -24\cdot\Ahat[M].
+	\]
+	If follows that $\sigma(M)=-8\cdot\Ahat[M]$, and by \cref{thm:Ahat-integrality} we know that $\Ahat[M]$ is even. Therefore, the signature is divisible by $8$.
+\end{proof}
+
+\begin{remark}
+	Rochlin's theorem implies that there is a topological manifold which admits no smooth structure, see \cref{rmk:E8-manifold}.
+\end{remark}
+
 \subsection{Index Theory}
 
 \subsection{A ``Twisted'' Eells-Kupier Invariant}

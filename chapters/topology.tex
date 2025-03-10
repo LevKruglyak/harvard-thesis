@@ -578,7 +578,7 @@ by the embedded submanifolds $S^m\times \{p\}$ and $\{p\}\times S^m$ for some ba
 	This is immediate, since the fundamental class changes sign as orientation flips.
 \end{proof}
 
-An immediate corollary of \cref{prop:connected-sum-operation} and \cref{prop:connected-sum-intersection-form} is
+An immediate corollary of \cref{cor:connected-sum-operation} and \cref{prop:connected-sum-intersection-form} is
 that the intersection form is a homomorphism of commutative monoids, i.e. sets with a commutative associative binary operation and identity elements. On one side, we have the monoid $\mathcal{M}^{2m}$ of oriented compact $2m$-manifolds under connected sum, and on the other side we have $\mathcal{Q}(\Z)$ of bilinear forms valued in $\Z$ under the operation of direct sum. Similarly, the unoriented intersection form maps the monoid of unoriented compact $2m$-manifolds $\widetilde{\mathcal{M}}^{2m}$ to $\mathcal{Q}(\Z)$.
 \begin{equation}\label{eq:monoid-homomorphism-intersection-form}
 	\lkxfunc{}{\mathcal{M}^{2m}}{\mathcal{Q}(\Z),}{M}{Q_M,}
@@ -727,91 +727,6 @@ When $Q$ is the intersection form of a manifold $X$, especially a $4k$-manifold 
 \begin{definition}
 	If for all elements $a$, $Q(a,a)$ even, then $Q$ is said to be \defn{even}[even bilinear form]. Otherwise, we say that $Q$ is \defn{odd}[odd bilinear form].\footnote{Some sources refer to this property as ``type''. Odd forms are said to be \defn{type I}[type I bilinear form] and even forms are to be \defn{type II}[type II bilinear form].}
 \end{definition}
-
-\subsection{Bilinear forms from lattices}
-
-A common source of symmetric bilinear forms over the integers arise from lattices in an inner product space such as Euclidean or Lorentzian space. If $(V,\langle -,-\rangle)$ is an inner product space, a lattice $\Lambda\subset V$ inherits the bilinear form $\langle -,-\rangle$. However, this form is generally not integer valued and so isn't of interest to us. Some very specially constructed lattices however do inherit an integer valued bilinear form.
-
-For instance, in Euclidean space $\R^\ell$ with basis $\{e_1,\ldots, e_\ell\}$ consider the lattice
-\[
-	\Gamma^\ell = \span\left\{\frac{1}{2}(e_1+\cdots + e_\ell), e_i+e_j \mid i<j\right\}.
-\]
-When $4\mid \ell$, the Euclidean inner product restricts to an integral bilinear form on this lattice since
-\[
-	\begin{aligned}
-		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), \frac{1}{2}(e_1+\cdots+e_\ell)\right\rangle & = \frac{\ell}{4},                                      \\
-		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), e_i+e_j\right\rangle                        & = 1,                                                   \\
-		\langle e_i+e_j, e_p +e_q\rangle                                                         & = \delta_{i,p}+\delta_{i,q}+\delta_{j,p}+\delta_{j,q},
-	\end{aligned}
-\]
-where $\delta$ denotes the Kronecker delta. Since the Euclidean inner product is positive-definite, so is the bilinear form of this lattice. When $8\mid\ell$, the bilinear form of this lattice is even, otherwise it is odd. A special thing happens when $\ell=8$; in this case the lattice becomes unimodular. Geometrically, this means that the fundamental parallelipiped of $\Gamma^8$ has volume $1$. This is rare among lattices, and $\Gamma^8$ is usually called the ${E_8}$ lattice due to its connection to the root system of the exceptional Lie group $\E_8$.
-
-\begin{definition}\label{def:E8-lattice}
-	The \defn{${E_8}$ lattice} or \defn{${E_8}$ form} is given by the matrix
-	\todo{matrix form}
-	% \[/
-	% 	E_8=
-	% 	\begin{pmatrix}
-	% 		2 & 1 &   &   &   &   &   &   \\
-	% 		1 & 2 & 1 &   &   &   &   &   \\
-	% 		  & 1 & 2 & 1 &   &   &   &   \\
-	% 		  &   & 1 & 2 & 1 &   &   &   \\
-	% 		  &   &   & 1 & 2 & 1 & 0 & 1 \\
-	% 		  &   &   &   & 1 & 2 & 1 & 0 \\
-	% 		  &   &   &   & 0 & 1 & 2 & 0 \\
-	% 		  &   &   &   & 1 & 0 & 0 & 2 \\
-	% 	\end{pmatrix}.
-	% \]
-\end{definition}
-
-\begin{theorem}[Mordell]
-	The lattice $E_8=\Gamma^8$ is the only even unimodular positive-definite lattice of rank $8$.
-\end{theorem}
-\begin{proof}
-	\todo{cite}
-\end{proof}
-
-In fact, $E_8$ is the smallest even unimodular positive-definite lattice.
-\begin{theorem}
-	The signature of an even unimodular bilinear form is divisible by $8$.
-\end{theorem}
-\begin{proof}
-	\todo{introduce characteristic elements}
-\end{proof}
-
-The attractive properties of the $E_8$ lattice make it a great source of inspiration for topological constructions, however we'd like to emphasize that it does show up naturally in ``the wild''. For instance:
-
-\begin{example}
-	In algebraic geometry, the \defn{Kummer K3 surface} defined by the homogeneous polynomial
-	\[
-		\textrm{K3} = \left\{ [z_0 : z_1 : z_2 : z_3]\in \CP^3 \mid z_0^4 + z_1^4+z_2^4 + z_3^4=0\right\}
-	\]
-	has the intersection form $Q_{\textrm{K3}} = E_8\oplus E_8 \oplus^3 H$ of signature 16 and rank 22.
-\end{example}
-
-While the classification of definite forms is far more complicated, we already have all of the tools to form a complete list of indefinite forms. First, we can prove that:
-
-\begin{theorem}\label{thm:indefinite-bilinear-forms-isomorphic}
-	Two unimodular indefinite bilinear forms are isomorphic if they have the same rank, parity, and signature.
-\end{theorem}
-\begin{proof}
-\end{proof}
-
-We are now equipped to list all of the unimodular indefinite forms.
-\begin{proposition}
-	Every unimodular indefinite form is isomorphic to either
-	\[
-		\oplus^p (1)\oplus^q (-1)
-		\quad\textrm{or}\quad
-		\pm \oplus^r E_8 \oplus^{s>0} H.
-	\]
-	for some integers $p,q,r,s$. The left side represents all possible odd unimodualr indefinite forms and the right side represents all possible even unimodular indefinite forms.
-\end{proposition}
-\begin{proof}
-	The form $\oplus^p (1)\oplus^q(-1)$ has rank $p+q$ and signature $p-q$, so any rank and signature can be achieved which by \cref{thm:indefinite-bilinear-forms-isomorphic} implies that every odd unimodular \todo{finish}
-\end{proof}
-
-\todo{finish}
 
 \medskip
 \todo{geometric interpretation of lattices,
