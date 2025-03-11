@@ -54,6 +54,7 @@
 % Math commands
 \renewcommand{\binom}[2]{
 	\Bigl(\,\begin{array}{@{}c@{}}#1\\#2\end{array}\,\Bigr)}
+	\let\oldcong\cong
 \renewcommand{\cong}{\approx}
 \renewcommand{\epsilon}{\varepsilon}
 \NewDocumentCommand{\+}{o}{
@@ -158,6 +159,7 @@
 
 \newcommand{\BO}{\mathrm{BO}}
 \newcommand{\BSO}{\mathrm{BSO}}
+\newcommand{\BU}{\mathrm{BU}}
 
 % Special Symbols
 \newcommand{\Ahat}{\widehat{A}}

@@ -4,6 +4,18 @@
 
 \begin{itemize}
   \item Definitions of terms will be formatted {\color{blue}\emph{blue and emphasized}}, and hyperlinks will be formatted just blue (e.g. \cref{fig:triangles}).
+  \item We use $\cong$ instead of $\oldcong$ to denote isomorphisms, diffeomorphisms, etc.
+\end{itemize}
+
+\subsection*{Algebra}
+
+\begin{itemize}
+  \item A \defn{graded ring} is a ring $A$ equipped with a decomposition of its underlying group as $A=\bigoplus_{k\in \Z_{\geq 0}} A[k]$ such that the ring multiplication sends $A[k_1]\times R[k_2] \to A[k_1+k_2]$. Elements belonging to $A[k]$ are said to be \defn{homogeneous of degree $k$}[homogeneous element of a graded ring]. 
+  \item A graded ring is said to be \defn{graded-commutative} if for any homogeneous elements $x\in A[k_1]$ and $y\in A[k_2]$, we have
+    \[
+      x\cdot y = (-1)^{k_1k_2} y\cdot x
+    \]
+  \item The \defn{completion}[completion of a graded ring] of a graded ring $A$ is the direct product $\widehat{A} = \prod_{k\geq 0} A[k]$.
 \end{itemize}
 
 \subsection*{Differential Topology}
