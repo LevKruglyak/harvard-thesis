@@ -17,47 +17,68 @@ We have seen how to construct exotic spheres in $\bP^{n+1}$ in \cref{chap:constr
 \end{itemize}
 Altogether, these results
 
-Many of these results fit into an 
+Many of these results fit into an
 
 \pagebreak
 \section{Homotopy Theory and Geometry}
 
-homotopy theory can act as a ``moduli space'' for geometric problems. The familiar example of this is the case of vector bundles, where we caught a glimpse of the geometric insights which can be provided by homotopy theory in the construction of the universal bundle and universal characteristic classes. There, we saw that up to isomorphism, vector bundles were completely classified by a set of homotopy classes of map.
-In this section, we will apply a similar principle to manifolds themselves, relating various notions of cobordism to homotopy groups of spectra.
+One of the most elegant correspondences in mathematics is that of homotopy theory with geometry and topology. Due to the wide array of computational tools available in homotopy theory, any time a geometric problem can be converted to a statement in homotopy theory, it is automatically reduced to computation. Admittedly, these computations are often extremely difficult, but they are doable, which is an improvement from the often hopeless landscape of high-dimensional topology done by hand.
 
-\subsection{The Thom-Pontryagin Construction}
+A familiar example of this the problem of classifying principal bundles over a space. Given the data of the geometric structure of bundle, i.e. the structure group, we can construct a universal bundle over a classifying space for that group. Every principal bundle is then a pullback of this universal bundle, unique modulo homotopy of the function along which to pull back.
+In this section we apply a similar principle to manifolds up a notion of cobordism, representing a manifolds by homotopy classes of maps to a classifying space.
 
-Let us begin with the classical theory for framed cobordism, originally due Pontryagin in 1950 (see \cite{pontryagin1959homotopy} for a translation of a thorough exposition by Pontryagin). 
+\subsection{The Pontryagin-Thom Construction}
 
-The basic idea is simple and geometric. Suppose we have closed ambient manifold $M^n$ with submanifold $N^k$ possessing a tubular neighborhood $T_N\supset N$. Recall that a framing on $N$ is a diffeomorphism $\varphi : T_N \to N\times \R^{n-k}$. If we project onto the second factor, we get a map $\varphi'=\pi_2\circ \varphi : T_N \to \R^{n-k}$. We can then include $\R^{n-k}$ into its one-point compactification $\R^{n-k}\cup \{\infty\}=S^{n-k}$ by stereographic projection, and extend the map $\varphi'$ to $S^{n-k}$ by sending $N\setminus T_N$ to $\infty$. We can associate this map $f : M \to S^{n-k}$ to the framed embedding $N\subset M$.
+Let us begin with the classical theory for framed cobordism, originally due Pontryagin in 1950. We defer the reader to Pontryagin's short book on the topc \cite{pontryagin1959homotopy} for the technical details of various constructions in this section.
+
+The basic idea is simple and geometric. Suppose we have closed ambient manifold $M^n$ with submanifold $N^k$ possessing a tubular neighborhood $T_N\supset N$. Recall that a framing on $N$ is a diffeomorphism $\varphi : T_N \to N\times \R^{n-k}$. If we project onto the second factor, we get a map $\varphi'=\pi_2\circ \varphi : T_N \to \R^{n-k}$. We can then include $\R^{n-k}$ into its one-point compactification $\R^{n-k}\cup \{\infty\}=S^{n-k}$ by stereographic projection, and extend the map $\varphi'$ to $S^{n-k}$ by sending $N\setminus T_N$ to $\infty$. We can associate this map $f : M \to S^{n-k}$ to the framed embedding $N\subset M$. For a geometric picture of this construction, see \cref{fig:pontryagin-thom-forward}.
 \[\begin{tikzcd}
-	N & {T_N} & M \\
-	{\{0\}} & {\R^{n-k}} & {S^{n-k}}
-	\arrow[hook, from=1-1, to=1-2]
-	\arrow[from=1-1, to=2-1]
-	\arrow[hook, from=1-2, to=1-3]
-	\arrow["{\varphi'}", from=1-2, to=2-2]
-	\arrow["f", from=1-3, to=2-3]
-	\arrow[hook, from=2-1, to=2-2]
-	\arrow[hook, from=2-2, to=2-3]
-\end{tikzcd}\]
+		N & {T_N} & M \\
+		{\{0\}} & {\R^{n-k}} & {S^{n-k}}
+		\arrow[hook, from=1-1, to=1-2]
+		\arrow[from=1-1, to=2-1]
+		\arrow[hook, from=1-2, to=1-3]
+		\arrow["{\varphi'}", from=1-2, to=2-2]
+		\arrow["f", from=1-3, to=2-3]
+		\arrow[hook, from=2-1, to=2-2]
+		\arrow[hook, from=2-2, to=2-3]
+	\end{tikzcd}\]
 
 This construction is not too surprising, $N$ is sent to the point $0\in S^{n-k}$, and $M\setminus T_N$ is sent to the $\infty \in S^{n-k}$ (although any distinct pair of points would suffice). The tubular neighborhood fills in the gaps, encoding the ``twistedness'' of the framing of $N\subset M$ in the homotopy type of the map $f$.
+
+\begin{figure}[ht]
+	\import{diagrams}{placeholder-small.pdf_tex}
+	\caption{Turning a framed submanifold of $M$ into a map $M\to S^{n-k}$.}\label{fig:pontryagin-thom-forward}
+\end{figure}
 
 \begin{proposition}
 	The map $f$ is smooth, and $0\in S^{n-k}$ is a regular value.
 \end{proposition}
 
-\begin{figure}[ht]
-	\import{diagrams}{placeholder.pdf_tex}
-	\caption{Turning a framed submanifold of $M$ into a map $M\to S^{n-k}$.}
-\end{figure}
-
-In the reverse direction, suppose we had a smooth map $f : M \to S^{n-k}$ with 
+In the reverse direction, suppose we had a smooth map $f : M \to S^{n-k}$ with a regular value at some point $p\in S^{n-k}$. By the preimage theorem, the preimage $N=f^{-1}(p)$ is a $k$-dimensional submanifold of $M$. Furthermore, since the tangent bundle of $S^{n-k}$ restricted to $p$ is trivial, we can pull it back to get a trivial normal bundle on $N\subset M$. We thus have a correspondence
+\[
+	\left\{\parbox{9.5em}{framed $k$-dimensional submanifolds of $M$}\right\}
+	\quad\lkxleftrightto\quad
+	\left\{
+		\parbox{10em}{maps $f : M \to S^{n-k}$ with $0$ a regular value}
+	\right\}.
+\]
+There are natural equivalences on both sides, although it is not at all obvious that the correspondence will be well-defined with respect to either.
+On the right side of the correspondence, we introduce the relation of homotopy. On the left side, we introduce a notion of framed cobordism restricted to lie within $M$. More precisely:
 
 \begin{definition}
-	If $N_1$ and $N_2$ are embedded submanifolds of $M$, a \defn{framed cobordism in $M$}[framed cobordism] $W : N_1 \frbord{M} N_2$ of $N_1$ and $N_2$ is a framed submanifold $W\subset M\times [0,1]$ such 
+	If $N_1$ and $N_2$ are embedded submanifolds of $M$, a \defn{framed cobordism in $M$}[framed cobordism] $W : N_1 \frbord_{M} N_2$ of $N_1$ and $N_2$ is a framed submanifold\,\footnote{Recall the assumption held throughout the thesis that submanifolds preserve boundaries.} $W\subset M\times [0,1]$ such that $\partial W$ is $N_1\sqcup N_2$
 \end{definition}
+
+\begin{example}
+	A good intuitive example of framed cobordism is in the simplest case of a circle $M=S^1$.
+
+\begin{figure}[ht]
+	\import{diagrams}{placeholder-small.pdf_tex}
+	\caption{Framed cobordisms in $S^1$.}
+\end{figure}
+\end{example}
+
 
 \begin{definition}
 	The group of framed cobordism classes of framed $k$-dimensional submanifolds of $M$ is denoted $\Omega^\fr_k(M)$.
@@ -72,7 +93,7 @@ A good example and source of intuition for this construction comes from framed k
 \end{figure}
 
 \begin{remark}
-With a Riemannian structure on $S^3$, we can assume without loss of generality that $s$ has unit norm, and get an orthonormal section $s^\perp$ to $s$. This recovers our notion of a framed submanifold, since $s\oplus s^\perp$ defines trivializations for a tubular neighborhood of the (unframed) knot $\iota(S^1)$ in $S^3$.
+	With a Riemannian structure on $S^3$, we can assume without loss of generality that $s$ has unit norm, and get an orthonormal section $s^\perp$ to $s$. This recovers our notion of a framed submanifold, since $s\oplus s^\perp$ defines trivializations for a tubular neighborhood of the (unframed) knot $\iota(S^1)$ in $S^3$.
 \end{remark}
 
 Under the construction described above, a framed knot corresponds to a map $f : S^3\to S^{2}$.
@@ -95,7 +116,7 @@ Under the construction described above, a framed knot corresponds to a map $f : 
 \end{definition}
 
 \begin{definition}
-	The susepsnion 
+	The susepsnion
 \end{definition}
 
 \begin{definition}
@@ -117,10 +138,10 @@ Under the construction described above, a framed knot corresponds to a map $f : 
 In \cref{sec:plumbing} and \cref{sec:brieskorn}, we constructed highly-connected manifolds
 
 \begin{theorem}\label{thm:framed-surgery-highly-connected}
-  Every compact framed manifold of dimension $n\geq 4$ with boundary $\partial M$ a homology sphere can be made highly-connected by a finite sequence of framed surgeries.
+	Every compact framed manifold of dimension $n\geq 4$ with boundary $\partial M$ a homology sphere can be made highly-connected by a finite sequence of framed surgeries.
 \end{theorem}
 
-This is a bulky theorem, and so we will tackle it in parts. First, let us understand the effect of 
+This is a bulky theorem, and so we will tackle it in parts. First, let us understand the effect of
 
 \begin{proof}
 \end{proof}
@@ -134,7 +155,7 @@ This is a bulky theorem, and so we will tackle it in parts. First, let us unders
 \begin{theorem}[Milnor-Kervaire]\label{thm:kervaire-milnor}
 	For every $k>1$, $bP^{4k}$ is a cyclic group of order
 	\[
-	  |\bP^{4k}| =2^{2k-2}(2^{2k-1}-1)\epsilon(k)\denom(4k/B_{2k}).
+		|\bP^{4k}| =2^{2k-2}(2^{2k-1}-1)\epsilon(k)\denom(4k/B_{2k}).
 	\]
 \end{theorem}
 
@@ -154,14 +175,14 @@ This is a bulky theorem, and so we will tackle it in parts. First, let us unders
 	The coefficient group may be identified with the stable group $\pi_{n-1}(\SO)$, but these stable groups have been computed by Bott in \cite{bott1959stable}, for $n\geq 2$ we have:
 	\begin{center}
 		\begin{tabular}{c|cccccccc}
-			\textrm{$n\mod 8$} & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7\\
+			\textrm{$n\mod 8$} & 0    & 1      & 2      & 3 & 4    & 5 & 6 & 7  \\
 			\hline
-			$\pi_{n-1}(\SO)$ & $\Z$ & $\Z/2$ & $\Z/2$ & 0 & $\Z$ & 0 & 0 & 0.
+			$\pi_{n-1}(\SO)$   & $\Z$ & $\Z/2$ & $\Z/2$ & 0 & $\Z$ & 0 & 0 & 0.
 		\end{tabular}
 	\end{center}
-	If $\pi_{n-1}(\SO)$ is zero, we are done. 
+	If $\pi_{n-1}(\SO)$ is zero, we are done.
 
-	If $\pi_{n-1}(\SO) = \Z$, then $n=4k$. According to cite{kervairemilnor1960} and cite{kervaire1959}, some non-zero multiple of the obstruction class $\mathfrak{o}_n(\Sigma)$ can be identified with the Pontryagin class $p_k(T^s M) = p_k(TM)$. \todo{(why?)} But the Hirzebruch signature theorem implies \todo{(why?)} that $p_k(\Sigma)$ is a multiple of the signature $\sigma(\Sigma)$ which is zero since $\H^{2k}(\Sigma)=0$. Thus every homotopy $4k$-sphere is \textsc{s}-parallelizable. 
+	If $\pi_{n-1}(\SO) = \Z$, then $n=4k$. According to cite{kervairemilnor1960} and cite{kervaire1959}, some non-zero multiple of the obstruction class $\mathfrak{o}_n(\Sigma)$ can be identified with the Pontryagin class $p_k(T^s M) = p_k(TM)$. \todo{(why?)} But the Hirzebruch signature theorem implies \todo{(why?)} that $p_k(\Sigma)$ is a multiple of the signature $\sigma(\Sigma)$ which is zero since $\H^{2k}(\Sigma)=0$. Thus every homotopy $4k$-sphere is \textsc{s}-parallelizable.
 
 	Finally, suppose $\pi_{n-1}(\SO)= \Z_2$. It follows from an argument of Rohlin \todo{(what?)} that $J_{n-1}(\mathfrak{o}_n(\Sigma))=0$ where $J_{n-1}$ denotes the Hopf-Whitehead homomorphism
 	\[
@@ -176,7 +197,7 @@ This is a bulky theorem, and so we will tackle it in parts. First, let us unders
 	The quotient group $\Theta^n / \bP^{n+1}$ is finite.
 \end{theorem}
 \begin{proof}
-	Let $M$ be an \textsc{s}-parallelizable $n$-manifold. 
+	Let $M$ be an \textsc{s}-parallelizable $n$-manifold.
 
 	Imbed it as $i : M \to S^{n+k}$ for some $k>n+1$ so that it's normal bundle is trivial.
 
