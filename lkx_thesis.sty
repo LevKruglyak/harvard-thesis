@@ -41,7 +41,7 @@
 % Epigraph
 \NewDocumentEnvironment{epigraph}{m m}
 {\begin{flushleft}\slshape}{
-		\normalfont\par\rule[0pt]{#1}{0.5pt}\\
+		\par\normalfont\rule[0pt]{#1}{0.5pt}\\
 		-- \textsc{#2}
 		\vspace{2em}
 	\end{flushleft}}
@@ -72,7 +72,6 @@
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\FP}{\mathbb{FP}}
 \newcommand{\HH}{\mathbb{H}}
-\newcommand{\OO}{\mathbb{O}}
 \newcommand{\CP}{\mathbb{CP}}
 \newcommand{\RP}{\mathbb{RP}}
 \newcommand{\HP}{\mathbb{HP}}
@@ -105,6 +104,7 @@
 
 \DeclareMathOperator{\X}{\mathfrak{X}} % vector field
 \DeclareMathOperator{\H}{H} % (co)homology
+\newcommand{\Hr}{\widetilde{\H}} % reduced homology
 \DeclareMathOperator{\span}{span}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\ker}{ker}
@@ -128,6 +128,10 @@
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\Nat}{Nat}
 \DeclareMathOperator{\Sq}{Sq}
+\DeclareMathOperator{\Fl}{Fl}
+\DeclareMathOperator{\Fr}{Fr}
+
+\newcommand{\EU}{\mathcal{E}\mathrm{U}}
 
 \renewcommand{\d}{*} % dual space
 \newcommand{\plumb}{\boxplus}
@@ -137,6 +141,7 @@
 \newcommand{\NM}{\mathrm{N}} % normal bundle 
 \newcommand{\TT}{{\mathcal{T}\hspace{-0.1em}}} % tangent space total bundle
 \newcommand{\B}{\mathscr{B}} % frame bundle
+\newcommand{\OO}{\mathcal{O}} % frame bundle
 
 \renewcommand{\S}{{S}} % sphere bundle
 \newcommand{\D}{{D}} % disk bundle

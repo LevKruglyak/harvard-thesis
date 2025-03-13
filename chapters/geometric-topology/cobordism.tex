@@ -1,0 +1,217 @@
+\pagebreak
+\section{Cobordism}\label{sec:cobordism}
+
+The basic principle of cobordism is to declare two manifolds equivalent if there is a manifold one dimension higher which connects the two manifolds. As an equivalence relation, cobordism is far looser than the notions of homoemorphism or diffeomorphism and so allows for a full classification of manifolds. Many notions in geometry and topology -- for instance characteristic classes -- depend solely on the cobordism type of a manifold, so understanding the structure of cobordism is immensely helpful. 
+
+In this section we only begin to scratch the surface of this rich theory, leaving many details for \cref{chap:classification} where we discuss the Pontryagin-Thom construction.
+
+\begin{remark}
+	That the implied compactness assumption throughout the thesis is important here, otherwise any manifold $M$ is trivially the boundary of $M\times [0,\infty)$.
+\end{remark}
+
+For now, let us begin with the two simplest types of cobordism. Let us temporarily disband with the assumption made throughout the rest of the thesis that all manifolds need to be connected.
+
+\begin{definition}
+	An \defn{unoriented cobordism} between closed $n$-manifolds $M_1$ and $M_2$ is an $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup M_2$. We use $W : M_1\bord M_2$ to refer to the cobordism.
+\end{definition}
+
+\begin{definition}
+	An \defn{oriented cobordism} between closed oriented $n$-manifolds $M_1$ and $M_2$ is an oriented $(n+1)$-manifold $W$ with $\partial W = M_1\sqcup (-M_2)$. We use the notation to $W : M_1\sobord M_2$ refer to the cobordism.
+\end{definition}
+
+If we have two unoriented cobordisms $W : M_1 \bord M_2$ and $W' : M_1'\bord M_2'$, their disjoint union $W\sqcup W'$ is an unoriented cobordism from $M_1\sqcup M_1'$ to $M_2\sqcup M_2'$. Disjoint union is thus a well-defined commutative operation on cobordism classes of manifolds.
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{unoriented-cobordism-Z2.pdf_tex}
+	\caption{An unoriented cobordism $M\times [0,1] : M\sqcup M \bord \varnothing$.}\label{fig:unoriented-cobordism-Z2}
+\end{figure}
+
+The identity element is the empty set, and the inverse of a manifold $M$ is the manifold itself, since $M\times [0,1]$ is a cobordism from $M\sqcup M$ to the identity element $\varnothing$ (see \cref{fig:unoriented-cobordism-Z2}). This observation motivates the following definition.
+
+\begin{definition}
+The \defn{$k$-th unoriented cobordism group}[unoriented cobordism group] $\Omega^\O_k$ is the abelian group of cobordism classes of closed $k$-manifolds under the disjoint union. 
+\end{definition}
+
+Since the additive inverse of manifold $M$ in $\Omega^\O_k$ is $M$ itself, it follows that $\Omega_k^\O$ is a $\Z/2$-module. We can compute some basic examples of the group $\Omega_k^\O$ by hand. For example,
+
+\begin{example}
+	There is an isomorphism $\Omega_0\cong \Z/2$. An unoriented 0-dimensional manifold is just a set of points. Any pair of points is cobordant to the empty set by a path connecting them. Since adding pairs of points doesn't change the cobordism type, the number of points modulo 2 determines the cobordism class entirely.
+\end{example}
+
+\begin{definition}
+	The \defn{$k$-th oriented cobordism group}[oriented cobordism group] $\Omega^\SO_k$ is the abelian group of oriented cobordism classes of closed $k$-manifolds
+	under disjoint union. The identity component is the empty set $\varnothing$, and negation is given by reversing orientation. 
+\end{definition}
+
+Note that the oriented cobordism group can be thought of as a $\Z$-module, with multiplication action on a closed manifold $M$ given by
+\[
+	n \cdot M = \begin{cases} M\sqcup \cdots \sqcup M & n > 0,\\ (-M)\sqcup \cdots \sqcup (-M) & n < 0,\\ \emptyset & n=0,\end{cases}
+\]
+for all $n\in \Z$, where $\sqcup$ is repeated $|n|$ times. Since there is no notion of negation in the unoriented case, the unoriented cobordism group is a $\Z/2$-module.
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{pair-of-pants.pdf_tex}
+	\caption{A cobordism $W$ between $S^1$ and $(S^1\sqcup S^1)$.}\label{fig:pair-of-pants}
+\end{figure}
+
+For a simple example of a cobordism between a circle and a disjoint union of circles, see \cref{fig:pair-of-pants}. Note that this cobordism could be made much simpler by removing the handle. Simplifying cobordisms in this way is one of the major applications of surgery theory.
+
+\begin{example}
+	There is an isomorphism $\Omega_0^\SO \cong \Z$. An oriented 0-dimensional manifold is still a set of points, however the orientation now equips each point with a ``charge'', we might label them as $+$ or $-$. Note that points of opposite ``charges'' cancel out by a path between them oriented from $-$ to $+$. Given some set of points of various charges, we can always eliminate pairs of opposite charges and are left with a homogeneous set of charge. Adding up all of the pluses or minuses, we get an integer. This integer determines the cobordism class, and is invariant to adding or removing pairs of opposing charge.
+\end{example}
+
+\begin{example}
+	Both the oriented and unoriented cobordism groups are trivial in dimension 1, since every circle is the boundary of a disk.
+\end{example}
+
+In higher dimensions, the classification becomes much more interesting.
+
+\begin{figure}[ht]
+	\renewcommand{\arraystretch}{1.2}
+	\centering
+	\begin{tabular}{r||c|c||c|c}
+		$k$ & $\Omega_k$          & generators                                          & $\Omega_k^\SO$ & generators                 \\
+		\hline
+		$0$ & $\Z/2$              & a point                                             & $\Z$           & a point                    \\
+		$1$ & $0$                 &                                                     & $0$            &                            \\
+		$2$ & $\Z/2$              & $\RP^2$                                             & $0$            &                            \\
+		$3$ & $0$                 &                                                     & $0$            &                            \\
+		$4$ & $\Z/2\oplus \Z/2$   & $\RP^4$, $\RP^2\times \RP^2$                        & $\Z$           & $\CP^2$                    \\
+		$5$ & $\Z/2$              & $\SU_3/\SO_3$                                       & $\Z/2$         & $\SU_3/\SO_3$              \\
+		$6$ & $(\Z/2)^{\oplus 3}$ & $\RP^6$, $\RP^2\times \RP^4$, $(\RP^2)^{\times 3}$, & $0$            &                            \\
+		$7$ & $\Z/2$              & $(\SU_3/\SO_3) \times \RP^2$                        & $0$            &                            \\
+		$8$ & $(\Z/2)^{\oplus 4}$ & $\RP^8, \RP^6\times \RP^2, \cdots$                  & $\Z\oplus \Z$  & $\CP^4, \CP^2\times \CP^2$ \\
+	\end{tabular}
+	\medskip
+	\caption{Structure of unoriented and oriented cobordism groups.}\label{fig:cobordism-structure-table}
+\end{figure}
+
+The structure of \cref{fig:cobordism-structure-table} makes a lot more sense in the context of
+
+\begin{proposition}
+	The product of manifolds is a well-defined operation with respect to cobordism.
+\end{proposition}
+\begin{proof}
+	\todo{proof}
+\end{proof}
+
+\begin{definition}
+	The \defn{oriented cobordism ring} $\Omega^\SO_\bullet$ is the set of oriented cobordism classes of closed manifolds under the operations of disjoint union and product.
+\end{definition}
+
+The oriented cobordism ring has a grading by
+\[
+	\Omega_\bullet^\SO = \bigoplus_{k\geq 0} \Omega^\SO_k.
+\]
+
+\begin{theorem}[Thom-Pontryagin]\label{thm:oriented-cobordism-structure}
+	There is a ring isomorphism
+	\[
+		\Omega_\bullet^\SO \otimes \Q \lkxto \Q[x_4, x_8, x_{12}, \ldots]
+	\]
+	where $x_{4k}$ are cobordism classes representing $\CP^{2k}$.
+\end{theorem}
+
+\subsection{The Signature and Cobordism}\label{sec:signature-and-cobordism}
+
+\begin{proposition}
+	If $M$ is the boundary of a manifold $W$, then $\sigma(W)=0$.
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+	The signature is an oriented cobordism invariant. In other words, whenever $M_1\sobord M_2$ we have $\sigma(M_1)=\sigma(M_2)$.
+\end{corollary}
+\begin{proof}
+	If $W : M_1\sobord M_2$ is an oriented cobordism,
+\end{proof}
+
+\begin{proposition}
+	If $M_1$ and $M_2$ are oriented manifolds, then $\sigma(M_1\times M_2)=\sigma(M_1)\cdot \sigma(M_2)$.
+\end{proposition}
+
+\begin{proof}
+	See Theorem 8.2.1 of \cite{hirzebruch1966methods} or \cite{chernhirzserre1957index}.
+\end{proof}
+
+\begin{remark}
+	In the paper \cite{chernhirzserre1957index}, Chern, Hirzebruch, and Serre prove the more general result that if $F \to E \to B$ is a bundle with trivial monodromy action by $\pi_1(B)$ on $\H^\bullet(F)$, we have
+	\begin{equation}\label{eq:multiplicativity-of-genera}
+		\sigma(E) = \sigma(F)\cdot \sigma(B).
+	\end{equation}
+	This is a general pattern for many numerical invariants in topology. For instance, \cref{eq:multiplicativity-of-genera} holds if we replace signature with the Euler number of a manifold.
+\end{remark}
+
+\begin{corollary}
+	The signature is a well-defined ring homomorphism
+	\[
+		\lkxfunc{\sigma}{\Omega^\SO_\bullet}{\Z}
+	\]
+	where $\Omega^\SO_\bullet$ is the oriented cobordism ring.
+\end{corollary}
+
+Since torsion elements of $\Omega^\SO_\bullet$ are sent to zero in $\Z$, the signature factors through the rational cobordism ring $\Omega^\SO_\bullet\otimes \Q$, so we actually have a ring homomorphism
+\[
+	\lkxfunc{\sigma}{\Omega^\SO_\bullet\otimes \Q}{\Z.}
+\]
+However, by \cref{thm:oriented-cobordism-structure} we know the ring structure on $\Omega^\SO_\bullet\otimes \Q$, it is polynomial in the even complex-dimensional complex projective planes. By \cref{prop:intersection-form-complex-projective-plane}, the signature of these generators is $1$. The signature thus gives a simple way to help identify the rational oriented cobordism class of a manifold. It is not a perfect invariant however, even when the dimension is taken into account since
+\[
+		\sigma(\CP^2\times\CP^2) = \sigma(\CP^2)\cdot \sigma(\CP^2)= 1\quad\textrm{and}\quad \sigma(\CP^4)=1,
+\]
+yet these are non cobordant by \cref{thm:oriented-cobordism-structure}.
+
+\begin{example}
+	Since $\Omega^\SO_4$ has no torsion and one generator, there is an oriented cobordism
+	\[
+		\mathcal{K} \sobord \sqcup^{16}\,\overline{\CP}^2.
+	\]
+	where $\mathcal{K}$ is the Fermat quintic $4$-manifold with signature $-16$ (see \cref{example:k3}). These sixteen projective planes correspond to the sixteen singularities of the Kummer construction (see \cref{rmk:kummer-construction}).
+\end{example}
+
+\subsection{The $h$-Cobordism Theorem}
+
+There is a the notion of cobordism 
+
+\begin{definition}
+	A cobordism $W : M_1\bord M_2$ is said to be an \defn{$h$-cobordism} if $M_1$ and $M_2$ admit deformation retracts from $W$. We denote $h$-cobordisms by $\hbord$ when the category of manifolds is clear.
+\end{definition}
+
+If $M_1$ and $M_2$ are $h$-cobordant, then clearly they have the same homotopy type since they are deformation retracts of the same space.
+We now apply the tools of Morse theory 
+
+\begin{theorem}[$h$-cobordism]\label{thm:h-cobordism}
+	Within some category of manifolds $\mathscr{C}$, if $M$ and $N$ are closed, simply-connected manifolds of dimensions $\geq 5$ and $W : M \hbord N$ is a simply-connected $h$-cobordism, then $W$ is $\mathscr{C}$-isomorphic to the cylinder $M\times [0,1]$. Furthermore, the isomorphism can be chosen to be the identity on $M\times \{0\}$.
+\end{theorem}
+\begin{proof}
+	\todo{basic idea}
+\end{proof}
+
+\begin{remark}
+	Note that the simple-connectedness assumption of the $h$-cobordism theorem is required, since the spaces $L(7,1)\times S^4$ and $L(7,2)\times S^4$ are $h$-cobordant but not diffeomorphic. \todo{elaborate}
+\end{remark}
+
+\begin{corollary}
+	In the manifold categories $\TOP$ and $\PL$, the generalized Poincar\'e conjecture is true in dimensions $\geq 5$.
+\end{corollary}
+\begin{proof}
+		
+
+	\begin{figure}[ht]
+		\centering
+		\import{diagrams}{placeholder-small.pdf_tex}
+		\caption{Turning a cone into an $h$-cobordism.}
+	\end{figure}
+	\todo{cone construction, fails for $\DIFF$ because you can't take a smooth cone.}
+	\todo{mention method of engulfing?}
+\end{proof}
+
+\begin{corollary}\label{thm:h-cobordism-diffeomorphism}
+	In the smooth oriented manifold category, two simply-connected closed manifolds of dimensions $\geq 5$ are $h$-cobordant if and only if they are diffeomorphic (by an orientation preserving diffeomorphism).
+\end{corollary}
+\begin{proof}
+	If $f : M_1 \to M_2$ is a diffeomorphism between manifolds $M_1$ and $M_2$, they are $h$-cobordant by the manifold $W=M_1\times [0,1]\cup_f M_2$, where we glue $M_2$ onto $M_1\times \{1\}$ in $M_1\times [0,1]$ by $f$.
+	Conversely, if $W : M_1\sohbord M_2$ is an $h$-cobordism, by the $h$-cobordism theorem (\ref{thm:h-cobordism}) there must be a diffeomorphism $f : W \to M_2$ must map to $M_1\times \{1\}$, this gives a diffeomorphism $M_2 \to M_1$. If we choose $f$ to reverse orientation on $M_1\to M_1\times \{0\}$, then the restriction $f|_{M_2}$ will preserve orientation.
+\end{proof}
+

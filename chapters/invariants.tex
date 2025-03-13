@@ -6,7 +6,7 @@
 	which isn’t there.
 \end{epigraph}
 
-In this chapter, we explore a rich theory of invariants for homotopy spheres arising from a class of theorems known as index theorems.
+In this chapter, we explore a rich theory of invariants for homotopy spheres arising from a class of theorems known as index theorems. 
 
 \pagebreak
 \section{Characteristic Classes}
@@ -267,37 +267,141 @@ The set of characteristic numbers of a manifold form a topological fingerprint o
 
 \subsection{Construction of Characteristic Classes}
 
-We will now
+We will now begin construction of most fundamental characteristic classes, the Chern class for complex vector bundles. Recall that for complex projective spaces we have the cohomology ring
+\[
+	\H^\bullet(\CP^n;\Z)\cong \Z[\alpha]/(\alpha^{n+1}
+\]
+where $\alpha$ is the degree $2$ class corresponding to the Poincar\'e dual $\CP^{n-1}\subset \CP^n$.
+In the infinite dimensional limit, we get the purely polynomial rings
+\[
+		\H^\bullet(\CP^\infty;\Z)\cong \Z[\alpha].
+\]
+However since $\BU_1=\CP^\infty$, by \cref{thm:universal-characteristic-classes} we have
+\begin{equation}\label{eq:cczu1-a}
+	\Class_{\U_1}^{\Z}\cong \Z\fps{\alpha}
+\end{equation}
+The generator $\alpha$ thus corresponds to a homogeneous characteristic classes of degree $2$. We can use this as the inductive base or a general definition.
 
-\begin{theorem}
-	Let $\mathcal{E} : E \to X$ be a complex vector bundle.
+\begin{definition}
+	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
+	\begin{enumerate}[(a)]
+		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
+		\item $\cl(\OO_{\CP^1}(1))=1+\alpha$.
+	\end{enumerate}
+	We denote by $\cl_i$ the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
+\end{definition}
+
+Of course, this is not a constructive definition, and it is not at all clear that a characteristic class satisfying these definitions even exists.
+However, being a multiplicative rank-normalized characteristic class with coefficients in a field of characteristic zero, the general results of the previous section hold for the Chern class. The more interesting results follow from axiom (b). By a beautiful theorem known as the splitting principle, it turns out that knowing the Chern classes of line bundles is enough to compute the Chern classes of any complex vector bundle.
+
+\begin{theorem}[Splitting Principle]
+	Let $\F$ be $\R$ or $\C$ and suppose $\mathcal{E}^k$ is an $\F$-vector bundle over a space $X$. There exists a space $Y$ with map $f : Y \to X$ such that 
+	\begin{enumerate}[(a)]
+		\item $f^* : h^\bullet(Y) \to h^\bullet(X)$ is injective, 
+		\item there is a bundle isomorphism $f^*\mathcal{E} \cong \mathcal{L}_1\oplus\cdots \oplus \mathcal{L}_k$ for line bundles $\mathcal{L}_i$ over $Y$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	The general idea is as follows. Recall that the frame bundle $\Fr(\mathcal{E})$ is a principal $\GL_n\F$ bundle consisting of all local trivializations of $\mathcal{E}$. Letting $B\subset \GL_n \F$ be the Borel subgroup of upper triangular matrices. By letting $\GL_n$ act on $B\subset \GL_n\F$, we get an associated bundle
+	\[
+		\Fl(\mathcal{E}) = \Fr(\mathcal{E})\times_{\GL_n\F}{\GL_n\F/B}
+	\]
+	known as the \defn{flag bundle} of $E$. At each point $p\in X$ of the base, the frame bundle has fiber
+	\[
+		\Fr_p(\mathcal{E}) = \left\{ b : \F^k \to E_p \mid b \textrm{ is an isomorphism}\right\},
+	\]
+	or in other words, the set of ordered bases for $E_p$. Modulo the action of upper triangular matrices, we see that the flag bundle has fibers
+	\[
+		\Fl_p(\mathcal{E}) = \left\{ L_1,\ldots, L_k \textrm{ lines in }E_p \mid \span\{L_1,\ldots, L_k\} = \E_p \right\}.
+	\]
+	Note that there is a principal $B$-bundle $\Fr(E)\to \Fl(E)$.
+
+	\begin{remark}
+		In the complex case, we could reduce the bundle to have structure group $\U_n$, which would force the frame bundle to consist of orthonormal bases. Then to get the flag bundle, we could consider the bundle associated to the action of $\U_n$ on the quotient $\U_n/T$ by its maximal torus of diagonal matrices. This results in a diffeomorphic flag bundle.
+	\end{remark}
+
+	We then let $Y=\Fl(E)$ be the total space of the flag bundle, with the injectivity of $f^*$ following from the Leray-Hirsch theorem since it can be shown that $h^\bullet(\GL_n\F/B)$ has no torsion. In fact, the Leray-Hirsch theorem shows the stronger result that we have an isomorphism
+	\[
+			h^\bullet(X)\otimes h^\bullet(\GL_n \F/B) \cong h^\bullet(Y)
+	\]
+	with the inclusion $f^*$ simply being the precomposition of this isomorphism with $x\mapsto x\otimes 1$.
+
+	\todo{finish this}
+
+	See Theorem~19.3.9 of \cite{dieck2008algebraic} or page 66 of \cite{hatcher2003ktheory} for a more detailed proof.
+\end{proof}
+
+\begin{corollary}
+	The Chern class of complex projective space is $\cl(\CP^n)=(1+\alpha)^{n+1}$.
+\end{corollary}
+\begin{example}
+	For instance, we have
+	\[
+		\begin{aligned}
+			\cl(\CP^1) &= 1\\
+			\cl(\CP^2) &= 1+2\alpha+\alpha^2\\
+			\cl(\CP^3) &= 1+3\alpha + 3\alpha^2+\alpha^3\\
+								 &\;\;\vdots
+		\end{aligned}
+	\]
+\end{example}
+
+More generally, if we apply the splitting principle to the universal bundle $\EU_n$ over $\BU_n$, we can show that the flag manifold $\Fl(\EU_n)\cong (\BU_1)^{\times n}$, with the map $(\BU_1)^{\times n} \to \BU_n$ corresponding to the inclusion of the central torus $\U_1^{\times n}\subset \U_n$. However, the cohomology of $(\BU_1)^{\times n}$ is given by
+\[
+	\H^\bullet((\BU_1)^{\times n}) \cong \H^\bullet(\BU_1)\otimes\cdots\otimes \H^\bullet(\BU_1) \cong \Z[\gamma_1,\ldots,\gamma_n]
+\]
+with the injective pullback map $\H^\bullet(\BU_n) \to \H^\bullet(\BU_1^{\times n})$ having image $\Z[\gamma_1,\ldots, \gamma_n]^{S_n}$ the symmetric polynomials.
+
+\todo{Talk about $U_n$, its maximal torus, and normalizer group isomorphic to $S_n$. There is some cool geometry happening here under the hood}
+
+\begin{definition}\label{def:chern-roots}
+	The \defn{Chern roots} of a complex vector bundle $\mathcal{E}$ over $X$ with classifying map $f : X \to \BU_n$ are given by $\gamma_i(\mathcal{E}) = f^*\gamma_i$. Note that
+	\[ \cl(\mathcal{E}) = \prod_{1\leq i \leq n} (1+\gamma_i(\mathcal{E})). \]
+\end{definition}
+
+\subsection{Creating Multiplicative Characteristic Classes}
+
+We now present a powerful method for constructing multiplicative characteristic classes, formalized in by Hirzebruch \cite{hirzebruch1966methods}. The crux of this method is the fundamental theorem of symmetric polynomials, a simple but incredibly useful result in algebra.
+
+\begin{theorem}[Fundamental Theorem of Symmetric Polynomials]
+	For any ring $R$, let $R[x_1,\ldots, x_n]$ be the polynomial ring in $n$-variables and let $R[x_1,\ldots, x_n]^{S_n}$ be the subring of symmetric polynomials, i.e. those invariant under a reordering of the variables. There is a ring isomorphism
+	\begin{equation}\label{eq:symmetric-polynomial-isomorphism}
+		R[x_1,\ldots, x_n]^{S_n} \cong R[\sigma_1,\ldots, \sigma_n].
+	\end{equation}
+	The variables $\sigma_i$ are the \defn{elementary symmetric polynomials}, defined by the relation
+	\begin{equation}\label{eq:symmetric-polynomials}
+			1+\sigma_1+\sigma_2+\cdots+\sigma_n = (1+x_1)(1+x_2)\cdots (1+x_n)
+	\end{equation}
+	where we grade $|\sigma_i|=|x_i|=i$.
 \end{theorem}
 
-By \cref{thm:universal-characteristic-classes}, it suffices to compute the cohomology of classifying spaces $\BO_n, \BSO_n, \BU_n$ and their stable counterparts.
-
-\begin{theorem}\label{thm:cohomology-o}
-	The cohomology rings of classifying spaces is given by
-	\begin{enumerate}[(a)]
-		\item $\H^\bullet(\BO_n;\Z/2)\cong \Z/2[w_1,\ldots, w_n]$\hfill where $|w_i|=i$,
-		\item $\H^\bullet(\BU_n;\Z)\cong \Z[c_1,\ldots, c_n]$\hfill where $|c_i|=2i$,
-		\item $\H^\bullet(\BSO_{2n+1};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n]$\hfill where $|p_i|=4i$,
-		\item $\H^\bullet(\BSO_{2n+2};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n, e]$\hfill where $|p_i|=4i$, $|e|=2n$.
-	\end{enumerate}
-	Consequently, the cohomology rings of stable classifying spaces are 
-	\begin{enumerate}[(a)]
-		\item $\H^\bullet(\BO;\Z/2)\cong \Z/2[w_1,w_2,\ldots]$\hfill where $|w_i|=i$,
-		\item $\H^\bullet(\BU;\Z)\cong \Z[c_1,c_2,\ldots]$\hfill where $|c_i|=2i$,
-		\item $\H^\bullet(\BSO;\Z[\frac12])\cong \Z[\frac12][c_1,c_2,\ldots]$\hfill where $|p_i|=4i$.
-	\end{enumerate}
-\end{theorem}
-
-We will now give the axioms for some common characteristic classes. We take the convention that $\alpha$ is the generator for the cohomology ring of projective space, either in $\Z/2$ coefficients for $\RP^n$ or in $\Z$ coefficients for $\CP^n$. In other words, we let
+By \cref{eq:symmetric-polynomials}, we can expand these elementary symmetric polynomials in terms of $x_i$:
 \[
 	\begin{aligned}
-		\H^\bullet(\RP^n; \Z/2) & \cong \Z/2[\alpha]/(\alpha^{n+1})\quad & |\alpha|=1, \\
-		\H^\bullet(\CP^n; \Z)   & \cong \Z[\alpha]/(\alpha^{n+1})\quad   & |\alpha|=2. \\
+		\sigma_1 &= x_1+x_2+\cdots + x_n\\
+		\sigma_2 &= x_1x_2 + x_2x_3 + x_1x_3 +\cdots + x_{n-1}x_n\\
+						 &\;\;\vdots\\
+		\sigma_n &= x_1x_2\cdots x_n
 	\end{aligned}
 \]
+More generally, we have the combinatorial formula
+\[
+	\sigma_i = \sum_{1\leq p_1<\cdots <p_i\leq n} x_{p_1}\cdots x_{p_i}.
+\]
+\begin{remark}
+	For full notational clarity, we should denote these symmetric polynomials $\sigma_i^{(n)}$ since they depend on the number of variables $n$ in the polynomial ring $R[x_1,\ldots, x_n]$.
+\end{remark}
+
+Now letting $x_i=\gamma_i$ be the Chern roots, the symmetric polynomials $\sigma_i$ are exactly the homogeneous components $\cl_i$ of the Chern class. 
+\[
+	\cl = \prod_{i\geq 1} (1+\alpha)
+\]
+
+\begin{example}
+	The \defn{Chern character}
+\end{example}
+
+\subsection{Characteristic Classes for Real Bundles}
 
 \begin{definition}
 	The \defn{Stiefel-Whitney class $w$}[Stiefel-Whitney class] is the unique characteristic class for unoriented vector bundles ($G=
@@ -312,17 +416,6 @@ We will now give the axioms for some common characteristic classes. We take the 
 \begin{remark}
 	Note that axiom (c) does not violate \cref{cor:mobius-characteristic-2-torsion}, since we are working in $\Z/2$ and so every cohomology class has $2$-torsion.
 \end{remark}
-
-\begin{definition}
-	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
-	\begin{enumerate}[(a)]
-		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
-		\item $\cl(\Gamma^1_n)=1-\alpha$.
-	\end{enumerate}
-	We denote by $\cl_i$ the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
-\end{definition}
-
-Of course, this is not a constructive definition, and it is not at all clear that a characteristic class satisfying these definitions even exists. That being said, it is instructive to explore the immediate consequences of these axioms before considering explicit constructions.
 
 \subsection{Pontryagin Classes}
 
@@ -370,6 +463,9 @@ Of course, this is not a constructive definition, and it is not at all clear tha
 	If $K(p)$ is a multiplicative Pontryagin number, then
 \end{corollary}
 
+\subsection{Chern-Weil Theory}\label{sec:chern-weil-theory}
+
+While the axiomatic and universal definitions of characteristic classes are simple and abstract, it is often useful to
 
 \subsection{Wu Classes}\label{sec:wu-classes}
 
@@ -380,30 +476,25 @@ Of course, this is not a constructive definition, and it is not at all clear tha
 A refinement
 For complex vector bundles, i.e.
 
-\subsection{The Euler Class}\label{sec:euler-class}
+By \cref{thm:universal-characteristic-classes}, it suffices to compute the cohomology of classifying spaces $\BO_n, \BSO_n, \BU_n$ and their stable counterparts.
 
-\begin{theorem}\label{thm:euler-number-clutching-construction}
-	Let $p : \SO_{2m} \to \SO_{2m}/\SO_{2m-1}= S^{2m-1}$ be the projection map of the special orthogonal group to the sphere. Then the following diagram commutes,
-	\[\begin{tikzcd}
-			{\pi_{2m-1}(\SO_{2m})} & \Z \\
-			{\pi_{2m-1}(S^{2m-1})}
-			\arrow["e", from=1-1, to=1-2]
-			\arrow["{p_*}"', from=1-1, to=2-1]
-			\arrow[from=2-1, to=1-2]
-		\end{tikzcd}\]
-	where $\pi_{2m-1}(S^{2m-1})\to \Z$ is the degree isomorphism.
+\begin{theorem}\label{thm:cohomology-o}
+	The cohomology rings of classifying spaces is given by
+	\begin{enumerate}[(a)]
+		\item $\H^\bullet(\BO_n;\Z/2)\cong \Z/2[w_1,\ldots, w_n]$\hfill where $|w_i|=i$,
+		\item $\H^\bullet(\BU_n;\Z)\cong \Z[c_1,\ldots, c_n]$\hfill where $|c_i|=2i$,
+		\item $\H^\bullet(\BSO_{2n+1};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n]$\hfill where $|p_i|=4i$,
+		\item $\H^\bullet(\BSO_{2n+2};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n, e]$\hfill where $|p_i|=4i$, $|e|=2n$.
+	\end{enumerate}
+	Consequently, the cohomology rings of stable classifying spaces are 
+	\begin{enumerate}[(a)]
+		\item $\H^\bullet(\BO;\Z/2)\cong \Z/2[w_1,w_2,\ldots]$\hfill where $|w_i|=i$,
+		\item $\H^\bullet(\BU;\Z)\cong \Z[c_1,c_2,\ldots]$\hfill where $|c_i|=2i$,
+		\item $\H^\bullet(\BSO;\Z[\frac12])\cong \Z[\frac12][c_1,c_2,\ldots]$\hfill where $|p_i|=4i$.
+	\end{enumerate}
 \end{theorem}
-\begin{proof}
-	\todo{prove}
-\end{proof}
 
-\begin{corollary}\label{cor:expressible-euler-numbers-spheres}
-	The image of $e : \pi_{2m-1}(\SO_{2m})\to\Z$ is $2\Z$.
-\end{corollary}
-\begin{proof}
-	\todo{prove}
-\end{proof}
-
+\subsection{The Euler Class}\label{sec:euler-class}
 
 \begin{definition}\label{def:euler-class}
 	The \defn{Euler class}
@@ -416,90 +507,16 @@ For complex vector bundles, i.e.
 \begin{corollary}
 	The Euler number of a sphere is $e[\T S^n] = (1+(-1)^n)[S^n]$.
 \end{corollary}
-% \begin{definition}
-% 	The \defn{Euler class} $e$ is a characteristic class for oriented real vector bundles in $\Z$ singular cohomology satisfying the following axioms:
-% 	\begin{enumerate}[(a)]
-% 		\item For bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over a common base, we have $e(\mathcal{E}_1\oplus \mathcal{E}_2)=e(\mathcal{E}_1)\oplus e(\mathcal{E}_2)$.
-% 		\item If a bundle $\mathcal{E}$ has a non-zero section, then $e(\mathcal{E})=0$. 
-% 		\item If $-\mathcal{E}$ has opposite orientation to $\mathcal{E}$, then $e(-\mathcal{E})=-e(\mathcal{E})$.
-% 	\end{enumerate}
-% 	Note that by 
-% \end{definition}
-
-\subsection{Creating Multiplicative Characteristic Classes}
-
-We now present a powerful method for constructing multiplicative characteristic classes, formalized in by Hirzebruch \cite{hirzebruch1966methods}. The crux o this method is the fundamental theorem of symmetric polynomials.
-
-Suppose $c$ is a characteristic class. Let $R\fps{x}$ be shorthand for the completion of the graded-commutative algebra $R[x_0,x_1,\ldots]$. Note that
-\[
-	R\fps{x} = \prod_{k\geq 0} R[x_0,\ldots, x_k]
-\]
-
-There is a map
-\[
-	\lkxfunc{}{R\fps{x}}{\Class_G^R}
-\]
-which sends $x_i\mapsto c_i$. Let $U_1(R\fps{x})$ denote the subset of $R\fps{x}$ consisting of infinite sequences with
-
 \begin{definition}
-	The \defn{infinite-dimensional Grassmannian}, denoted $\Gr_k$ or $\Gr_k(\R^\infty)$ is defined as the direct limit
-	\[
-		\Gr_k(\R^\infty) = \varinjlim_n \Gr_k(\R^n)
-	\]
+	The \defn{Euler class} $e$ is a multiplicative characteristic class for oriented real vector bundles in $\Z$ singular cohomology satisfying the following axioms:
+	\begin{enumerate}[(a)]
+		\item If a bundle $\mathcal{E}$ has a non-zero section, then $e(\mathcal{E})=0$. 
+		\item If $-\mathcal{E}$ has opposite orientation to $\mathcal{E}$, then $e(-\mathcal{E})=-e(\mathcal{E})$.
+	\end{enumerate}
 \end{definition}
 
-\begin{theorem}
-	\[
-		\H^\bullet(\Gr_k; \Z/2) \cong \Z/2[w_1(\gamma), \ldots, w_n(\gamma)]
-	\]
-\end{theorem}
-
-\subsection{Chern-Weil Theory}\label{sec:chern-weil-theory}
-
-While the axiomatic and universal definitions of characteristic classes are simple and abstract, it is often useful to
-
-
-\pagebreak
-\section{Index Theorems}\label{sec:hirzebruch-signature-theorem}
-
-
 \subsection{The Hirzebruch Signature Theorem}
-\begin{proposition}
-	If $M$ is the boundary of a manifold $W$, then $\sigma(W)=0$.
-\end{proposition}
-\begin{proof}
-\end{proof}
 
-\begin{corollary}
-	The signature is an oriented cobordism invariant. In other words, whenever $M_1\sobord M_2$ we have $\sigma(M_1)=\sigma(M_2)$.
-\end{corollary}
-\begin{proof}
-	If $W : M_1\sobord M_2$ is an oriented cobordism,
-\end{proof}
-
-\begin{proposition}
-	If $M_1$ and $M_2$ are oriented manifolds, then $\sigma(M_1\times M_2)=\sigma(M_1)\cdot \sigma(M_2)$.
-\end{proposition}
-
-\begin{proof}
-\end{proof}
-
-\begin{corollary}
-	The signature is a well-defined ring homomorphism
-	\[
-		\lkxfunc{\sigma}{\Omega^\SO_\bullet}{\Z}
-	\]
-	where $\Omega^\SO_\bullet$ is the oriented cobordism ring.
-\end{corollary}
-
-Since torsion elements of $\Omega^\SO_\bullet$ are sent to zero in $\Z$, the signature factors through the rational cobordism ring $\Omega^\SO_\bullet\otimes \Q$, so we actually have a ring homomorphism
-\[
-	\lkxfunc{\sigma}{\Omega^\SO_\bullet\otimes \Q}{\Z.}
-\]
-At this point, we use a theorem of Thom about the structure of the rational cobordism ring. In \cite{thom1954}, Thom proved that the rational oriented cobordism ring is generated by even complex-dimensional projective spaces. In other words, there is an isomorphism
-\[
-	\Omega_\bullet^\SO \otimes \Q \cong \Q[\CP^2, \CP^4,\ldots ]
-\]
 However, we know by \cref{prop:intersection-form-complex-projective-plane} that the signature of these generators is $\sigma(\CP^{2n})=1$.
 
 \begin{theorem}[Hirzebruch]\label{thm:hirzebruch-signature-theorem}
@@ -641,7 +658,7 @@ There is a elegant trick we can use to help us answer this. If $W_1$ and $W_2$ a
 	There is a unique smooth structure on $C$ which agrees with the smooth structures of $W_1$ and $W_2$. Furthermore, we can give $C$ an orientation which agrees with the orientation of $W_1$ and with the reverse orientation of $W_2$.
 \end{proposition}
 \begin{proof}
-	\todo{collar neighborhoods.}
+	This is simply a join operation (see \cref{sec:smooth-manifold-operations}) of $W_1$ and $W_2$ along collar neighborhoods (see \cref{thm:collar-neighborhood}) of the boundary $M$.
 \end{proof}
 
 For any $\ell$, the Mayer-Vietoris sequence gives an exact sequence
@@ -693,8 +710,6 @@ Of particular interest to us is the diagonal map $h = j\circ \rho^{-1}$, which `
 \end{proposition}
 
 We now have all of the tools needed to construct some basic invariants of homotopy spheres.
-
-\todo{Stiefel-Whitney classes kind of useless because variation always zero}
 
 \subsection{Milnor's Method for Constructing Invariants}
 

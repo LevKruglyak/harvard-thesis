@@ -1,8 +1,13 @@
 \chapter{Constructions}\label{chap:constructions}
+%
+% \begin{epigraph}{14em}{Hermann Weyl}
+% 	The introduction of numbers as \\
+% 	coordinates is an act of violence.
+% \end{epigraph}
 
-\begin{epigraph}{14em}{Hermann Weyl}
-	The introduction of numbers as \\
-	coordinates is an act of violence.
+\begin{epigraph}{20em}{John von Neumann}
+	In mathematics, you don't understand things.\\
+	You just get used to them.
 \end{epigraph}
 
 The focus on this chapter will be on three important constructions of exotic spheres -- as total spaces of sphere bundles, as the boundary of a ``plumbing'' of disk bundles along a tree, and as the ``link'' of an isolated singularity of a holomorphic functions. In later sections, it will be possible to directly compute invariants of these constructed manifolds to understand which elements of $\Theta^n$ these manifolds correspond to. As with many challenging topics in math, an abundance of examples helps alleviate some of the complexity, and we hope this chapter can do this for exotic spheres.
@@ -751,73 +756,6 @@ This matrix is extremely important in differential topology for the following re
 \begin{remark}\label{rmk:E8-manifold}
 	The $E_8$ matrix implies that there exists a closed orientable topological $4$-manifold with no smooth structure. \todo{explain} \cite{freedman1982manifold}
 \end{remark}
-
-\subsection{Symmetric Bilinear Forms and Lattices}
-
-A common source of symmetric bilinear forms over the integers arise from lattices in an inner product space, such as Euclidean or Lorentzian space. If $(V,\langle -,-\rangle)$ is an inner product space, a lattice $\Lambda\subset V$ inherits the bilinear form $\langle -,-\rangle$. However, this form is generally not integer valued. Some very specially constructed lattices however do inherit an integer valued bilinear form.
-
-For instance, in Euclidean space $\R^\ell$ with basis $\{e_1,\ldots, e_\ell\}$ consider the lattice
-\[
-	\Gamma^\ell = \span\left\{\frac{1}{2}(e_1+\cdots + e_\ell), e_i+e_j \mid i<j\right\}.
-\]
-When $4\mid \ell$, the Euclidean inner product restricts to an integral bilinear form on this lattice since
-\[
-	\begin{aligned}
-		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), \frac{1}{2}(e_1+\cdots+e_\ell)\right\rangle & = \frac{\ell}{4},                                      \\
-		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), e_i+e_j\right\rangle                        & = 1,                                                   \\
-		\langle e_i+e_j, e_p +e_q\rangle                                                         & = \delta_{i,p}+\delta_{i,q}+\delta_{j,p}+\delta_{j,q},
-	\end{aligned}
-\]
-where $\delta$ denotes the Kronecker delta. Since the Euclidean inner product is positive-definite, so is the bilinear form of this lattice. When $8\mid\ell$, the bilinear form of this lattice is even, otherwise it is odd. \todo{finish}
-
-A special thing happens when $\ell=8$; in this case the lattice becomes unimodular. 
-
-\begin{theorem}[Mordell]
-	The lattice $E_8=\Gamma^8$ is the only even unimodular positive-definite lattice of rank $8$.
-\end{theorem}
-\begin{proof}
-	\todo{cite}
-\end{proof}
-
-In fact, $E_8$ is the smallest even unimodular positive-definite lattice.
-\begin{theorem}
-	The signature of an even unimodular bilinear form is divisible by $8$.
-\end{theorem}
-\begin{proof}
-	\todo{introduce characteristic elements}
-\end{proof}
-
-The attractive properties of the $E_8$ lattice make it a great source of inspiration for topological constructions, however we would like to emphasize that it does show up naturally in ``the wild''. For instance:
-
-\begin{example}
-	The \defn{Kummer K3 surface} defined by the homogeneous polynomial
-	\[
-		\textrm{K3} = \left\{ [z_0 : z_1 : z_2 : z_3]\in \CP^3 \mid z_0^4 + z_1^4+z_2^4 + z_3^4=0\right\}
-	\]
-	has the intersection form $Q_{\textrm{K3}} = E_8\oplus E_8 \oplus^3 H$ of signature 16 and rank 22.
-\end{example}
-
-While the classification of definite forms is far more complicated, we already have all of the tools to form a complete list of indefinite forms. First, we can prove that:
-
-\begin{theorem}\label{thm:indefinite-bilinear-forms-isomorphic}
-	Two unimodular indefinite bilinear forms are isomorphic if they have the same rank, parity, and signature.
-\end{theorem}
-\begin{proof}
-\end{proof}
-
-We are now equipped to list all of the unimodular indefinite forms.
-\begin{proposition}
-	Every unimodular indefinite form is isomorphic to either
-	\[
-		\oplus^p (1)\oplus^q (-1)
-		\quad\textrm{or}\quad
-		\pm \oplus^r E_8 \oplus^{s>0} H.
-	\]
-	for some integers $p,q,r,s$. The left side represents all possible odd unimodualr indefinite forms and the right side represents all possible even unimodular indefinite forms.
-\end{proposition}
-\begin{proof}
-	The form $\oplus^p (1)\oplus^q(-1)$ has rank $p+q$ and signature $p-q$, so any rank and signature can be achieved which by \cref{thm:indefinite-bilinear-forms-isomorphic} implies that every odd unimodular \todo{finish}
-\end{proof}
 
 \todo{finish}
 

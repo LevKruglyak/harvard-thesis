@@ -2,6 +2,10 @@
 \LoadClass[12pt, letterpaper]{report}
 \usepackage[portrait, margin=1in, includefoot]{geometry}
 
+\edef\restoreparindent{\parindent=\the\parindent\relax}
+\usepackage{parskip}
+\restoreparindent
+
 % General utility packages
 \usepackage{moresize} % Extra stuff like \HUGE
 \usepackage{etoolbox} % Safer macro patching
@@ -24,8 +28,8 @@
 
 % Enumerate spacing
 \usepackage[shortlabels]{enumitem}
-\setlist[enumerate]{itemsep=0em, topsep=0.5em}
-\setlist[itemize]{itemsep=0em, topsep=0.5em}
+\setlist[enumerate]{itemsep=0em, topsep=0em}
+\setlist[itemize]{itemsep=0em, topsep=0em}
 
 % Consistent bold math
 \usepackage{bm}
@@ -185,7 +189,7 @@
 \newcommand{\lkxtheoremnotestyle}{\scshape}
 
 \newtheoremstyle{lkx_theorem}
-{1em}{}{\slshape}{}{}{.}{ }
+{0em}{}{\slshape}{}{}{.}{ }
 {{{\lkxtheoremstyle\thmname{#1}\thmnumber{ #2}}}\thmnote{ {\lkxtheoremnotestyle  ({#3}\index{#3 (Theorem)})}}}
 
 \theoremstyle{lkx_theorem}
@@ -214,7 +218,7 @@
 \crefformat{proposition}{\normalfont{#2Proposition~#1#3}}
 
 \newtheoremstyle{lkx_definition}
-{1em}{}{\slshape}{}{}{.}{ }
+{0em}{}{\slshape}{}{}{.}{ }
 {{{\lkxtheoremstyle\thmname{#1}\thmnumber{ #2}}}\thmnote{ \lkxtheoremnotestyle({#3})}}
 
 \theoremstyle{lkx_definition}
@@ -269,22 +273,24 @@
 				\setlength{\itemindent}{\parindent}%
 				\setlength{\parsep}{0em}%
 			}%
-			\item\leavevmode\vspace{-1.5em}}{}}{%
+			\item\leavevmode\vspace{0em}}{}}{%
 			      \ifnumcomp{\value{stackproof}}{>}{0}{%
 		\end{list}%
+		\vspace{1em}
 	}{}}
 
 \newcommand{\lkxregisteramsthm}[1]{%
 	\BeforeBeginEnvironment{#1}{\begin{subproof}}
 			\AfterEndEnvironment{#1}{\end{subproof}}}
 
-\lkxregisteramsthm{lemma}
-\lkxregisteramsthm{proposition}
-\lkxregisteramsthm{theorem}
+% \lkxregisteramsthm{lemma}
+% \lkxregisteramsthm{proposition}
+% \lkxregisteramsthm{theorem}
+% \lkxregisteramsthm{remark}
 
-\BeforeBeginEnvironment{proof}{
-	\begin{subproof}
-		\defcounter{stackproof}{\value{stackproof} + 1}}
-		\AfterEndEnvironment{proof}{\defcounter{stackproof}{\value{stackproof} - 1}
-	\end{subproof}}
+% \BeforeBeginEnvironment{proof}{
+% 	\begin{subproof}
+% 		\defcounter{stackproof}{\value{stackproof} + 1}}
+% 		\AfterEndEnvironment{proof}{\defcounter{stackproof}{\value{stackproof} - 1}
+% 	\end{subproof}}
 \renewcommand{\qed}{\hfill$\blacksquare$}
