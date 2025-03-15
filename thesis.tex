@@ -8,26 +8,26 @@
 \degree{Bachelors of Arts with Honors}
 \subject{Mathematics}
 
+\includeonly{chapters/geometric-topology/root}
 \begin{document}
 \lkxtitle
 \lkxtoc{Contents}
 
-\include{chapters/prologue}
-\include{chapters/acknowledgements}
-\include{chapters/conventions}
+\subincludefrom{chapters}{prologue}
+\subincludefrom{chapters}{acknowledgements}
+\subincludefrom{chapters}{conventions}
 
-\include{chapters/introduction}
-\include{chapters/geometric-topology/root}
+\subincludefrom{chapters}{introduction}
+\subincludefrom{chapters/geometric-topology}{root}
 
-\include{chapters/invariants}
-\include{chapters/constructions}
-\include{chapters/classification}
-
-\include{chapters/conclusion}
+\subincludefrom{chapters/invariants}{root}
+\subincludefrom{chapters}{constructions}
+\subincludefrom{chapters}{classification}
+\subincludefrom{chapters}{conclusion}
 
 \begin{appendices}
-	\include{chapters/geometry}
-	\include{appendices/computation}
+\subincludefrom{chapters}{geometry}
+\subincludefrom{appendices}{computation}
 \end{appendices}
 
 \lkxrefs{References}

@@ -175,6 +175,12 @@ We now investigate some basic properties of the intersection form.
 	Then, the middle map $p$ is an isomorphism since $m\neq 1$ so every cohomology cycle $\alpha\in \H^m(M_1\+M_2)$ can be written as a sum $p^{-1}(\alpha_1) + p^{-1}(\alpha_2)$ where $\alpha_i\in \H^m(M_i^\circ)$. \todo{finish the proof}
 \end{proof}
 
+By a similar proof, we can show that:
+
+\begin{proposition}\label{prop:boundary-connected-sum-intersection-form}
+	For compact manifolds $M_1^{2m}$ and $M_2^{2m}$ with non-empty and connected boundaries, we have $Q_{(M_1,\partial M_1)\+ (M_2,\partial M_2)} \cong Q_{M_1}\oplus Q_{M_2}$.
+\end{proposition}
+
 An immediate corollary of \cref{cor:connected-sum-operation} and \cref{prop:connected-sum-intersection-form} is
 that the intersection form is a homomorphism of commutative monoids, i.e. sets with a commutative associative binary operation and identity elements. On one side, we have the monoid $\mathcal{M}^{2m}$ of oriented compact $2m$-manifolds under connected sum, and on the other side we have $\mathcal{Q}(\Z)$ of bilinear forms valued in $\Z$ under the operation of direct sum. Similarly, the unoriented intersection form maps the monoid of unoriented compact $2m$-manifolds $\widetilde{\mathcal{M}}^{2m}$ to $\mathcal{Q}(\Z)$.
 \begin{equation}\label{eq:monoid-homomorphism-intersection-form}
@@ -196,7 +202,62 @@ By similar arguments to \cref{prop:intersection-form-complex-projective-plane} a
 \[
 	\widetilde{Q}_{S^2}=(0),\quad \widetilde{Q}_{T^2}=\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix},\quad \textrm{and}\quad\widetilde{Q}_{\RP^2} = (1).
 \]
-For instance, the intersection form of $T^2\+ \RP^2$ is given by
+
+\begin{example}
+	There is a pretty geometric picture for the intersection form for a surface $X_g$ of genus $g$. Since $X_g=\T^2\+\cdots+\T^2$, the intersection form is given by
+	\[
+		\widetilde{Q}_{X_g} = \underbrace{\begin{pmatrix}0&1\\1&0\end{pmatrix}\oplus\cdots\oplus \begin{pmatrix}0&1\\1&0\end{pmatrix}}_{g\textrm{ times}}.
+	\]
+	Every compact connected surface has a universal cover homeomorphic to the plane -- geometrically this follows from the uniformization theorem in the theory of Riemann surfaces. The surface $X_g$ is then a quotient of the plane by a group action. For instance, the torus $T^2=X_1$ is the quotient of $\R^2$ by the action of translation by $\Z^2$. More generally, $X_g$ is the quotient of the complex upper half plane by the action of a Fuchsian group $\Gamma\subset \mathrm{PSL}_2(\R)$ which is isomorphic to the fundamental group of $X_g$. This quotient has fundamental domain a $4g$-gon, and the action generates a tiling of the projective plane by regular $4g$-gons (see \cref{fig:torus-octagon}).
+
+	\begin{figure}[ht]
+		\centering
+		\import{diagrams}{torus-octagon.pdf_tex}
+		\caption{Generators for $\H_1(X_g)$ when $g=1$ and $2$ (The octagonal tiling of the Poincar\'e disk was adapted from a graphic by \href{https://commons.wikimedia.org/wiki/User:Parcly_Taxel}{Parcly Taxel}).}\label{fig:torus-octagon}
+	\end{figure}
+
+	On the universal cover, we can draw lines which project down to generating cycles for $\H_1(X_g)$. For instance, see \cref{fig:torus-octagon} for examples of this in $X_1$ and $X_g$. Extending these lines by the group action to get the full group $\H_1(X_g)$ expresses the lattice $\H_1(X_g)$ as a concrete lattice of lines in hyperbolic space.
+	When the lines are restricted to the fundamental domain with boundary conditions agreeing with the group action, their intersection numbers are the same as in the quotient $X_g$. For the torus $X_1$, we have two lines $a$ and $b$ which have self-intersection $0$ (perturbing either horizontally or diagonally), and cross-intersection $a\cdot b = 1$. This gives the expected matrix
+	\[
+		\widetilde{Q}_{X_1}=\begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix}.
+	\]
+	For the two-holed torus $X_2$, we have lines $a,b,c,$ and $d$ which have self-intersections $0$ and cross-intersections $1$ for any distinct pair. By symmetric row-column operations we can transform this basis to turn the intersection matrix into canonical form.
+	\[
+		\widetilde{Q}_{X_2} = 
+		\begin{pmatrix} 
+			0 & 1 & 1 & 1\\
+			1 & 0 & 1 & 1\\
+			1 & 1 & 0 & 1\\
+			1 & 1 & 1 & 0
+		\end{pmatrix}
+		\lkxto
+		\begin{pmatrix} 
+			0 & 1 & 1 & 1\\
+			1 & 0 & 0 & 0\\
+			1 & 0 & 0 & 1\\
+			1 & 0 & 1 & 0
+		\end{pmatrix}
+		\lkxto
+		\begin{pmatrix} 
+			0 & 1 & 1 & 0\\
+			1 & 0 & 0 & 0\\
+			1 & 0 & 0 & 1\\
+			0 & 0 & 1 & 0
+		\end{pmatrix}
+		\lkxto 
+		\begin{pmatrix} 
+			0 & 1 & &\\
+			1 & 0 & &\\
+			& & 0 & 1\\
+			& & 1 & 0
+		\end{pmatrix}
+	\]
+	The resulting basis becomes $\{a+c, a+b,a+b+c,d\}$. Nice geometric pictures like this are harder to come by in dimensions beyond $4$, but much of the intuition about intersections carries over. A wonderful source for geometric pictures of intersections in 4-dimensions can be found in the books \cite{behrens2021discembedding} and \cite{scorpan2005wild}.
+\end{example}
+
+
+\begin{example}
+For an example which includes a projective plane, the intersection form of $T^2\+ \RP^2$ is given by
 \[
 	\widetilde{Q}_{T^2\+ \RP^2} = H\oplus (1)=
 	\begin{pmatrix}
@@ -214,6 +275,7 @@ This matrix represents a bilinear form, and so the transformation $Q\mapsto P^\i
 		0 & 0 & 1
 	\end{pmatrix} =\oplus^3(1)= \widetilde{Q}_{\RP^2\+\RP^2\+\RP^2}.
 \]
+\end{example}
 As it turns out, the underlying surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homoemorphic. This has an easy geometric interpretation. The operation $T^2\+$ can be thought of as adding a handle, and $\RP^2\+\RP^2\+$ being connected sum with a Klein bottle can be thought of as adding a handle in a twisted manner, i.e. one spout on one side of the surface and the other spout on the other side. Note that there might be a global notion of ``side'' if the manifold is non-orientable, but locally this picture holds.
 
 One such non-orientable case is the projective plane $\RP^2$. If we add a torus handle to $\RP^2$ (a M\"obius band with boundary collapsed), we can move one spout around the twist of $\RP^2$ to get a twisted handle (as depicted in \cref{fig:twisted-handle-to-handle}). Thus, the surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homeomorphic, a geometric fact which was detected in part by the algebraic identity of forms $H\oplus (1)=\oplus^3(1)$ in $\mathcal{Q}(\Z/2)$.
@@ -275,8 +337,8 @@ In the case of the Hurewicz homomorphism, if $M$ is $(k-1)$-connected for $k > 1
 
 That being said, we will not need to address these technicalities in our thesis as the manifolds we work with will have bases by immersed submanifolds. For a classical account of some issues which can arise when representing homology classes by smooth maps, see Chapter II of Ren\'e Thom's seminal paper \cite{thom1954}.
 
-\begin{remark}
-	In some cases, the homology classes of interest to the intersection form can \emph{always} be represented by embedded submanifolds. For instance, if $M$ is a $4$-manifold, there are isomorphisms
+\begin{remark}\label{rmk:homology-dimension-4-embedding}
+	In some cases, the homology classes of interest to the intersection form can \emph{always} be represented by embedded submanifolds. For instance, if $M$ is a simply-connected $4$-manifold, there are isomorphisms
 	\begin{equation}
 		\H^2(M; \Z) \cong [M, K(\Z,2)] \cong [M, \CP^\infty] \cong [M,\CP^2],
 	\end{equation}
@@ -501,17 +563,17 @@ Thus far, we have only computed the intersection forms of closed manifolds and c
 			1 & 2 & 1 &   &   &   &   &   \\
 			  & 1 & 2 & 1 &   &   &   &   \\
 			  &   & 1 & 2 & 1 &   &   &   \\
-			  &   &   & 1 & 2 & 1 & 0 & 1 \\
-			  &   &   &   & 1 & 2 & 1 & 0 \\
-			  &   &   &   & 0 & 1 & 2 & 0 \\
-			  &   &   &   & 1 & 0 & 0 & 2 \\
+			  &   &   & 1 & 2 & 1 &  & 1 \\
+			  &   &   &   & 1 & 2 & 1 &  \\
+			  &   &   &   &  & 1 & 2 &  \\
+			  &   &   &   & 1 &  &  & 2 \\
 		\end{pmatrix}^{\oplus 2}
 	\]
 	In particular, this matrix is unimodular since $\mathcal{K}$ is a closed manifold. The $8\times 8$ matrix in this intersection form is known as the \defn{$E_8$ matrix}, and is of fundamental importance in geometric topology. We will discuss it more extensively in \cref{sec:plumbing}.
 \end{example}
 
 \begin{remark}\label{rmk:kummer-construction}
-	There is a beautiful construction of $\mathcal{K}$ from the quotient of a fourfold torus $(S^1)^{\times 4}$ under complex conjugation. The action has 16 fixed points, and so the quotient has sixteen singular points. By cutting out these singular points and replacing them with the total space of the disk bundle $\D(\T \overline{\CP^1})$,\footnote{Complex conjugation reverses orientation, so this space has intersection form $(-2)$.} we get the simply-connected smooth manifold $\mathcal{K}$. This is known as the \defn{Kummer construction}, see Section 3.3 of \cite{scorpan2005wild} for an accessible introduction.
+There is a beautiful construction of $\mathcal{K}$ from the quotient of a fourfold torus $(S^1)^{\times 4}$ under complex conjugation. The action has 16 fixed points, and so the quotient has sixteen singular points. By cutting out these singular points and replacing them with the total space of the disk bundle $\D(\T \overline{\CP}^1)$,\footnote{Complex conjugation reverses orientation, so this space has intersection form $(-2)$.} we get the simply-connected smooth manifold $\mathcal{K}$. This is known as the \defn{Kummer construction}, see Section 3.3 of \cite{scorpan2005wild} for an accessible introduction.
 \end{remark}
 
 \begin{definition}
@@ -555,7 +617,7 @@ The classification of symmetric bilinear forms over the integers is thus conside
 	Note that in the context of intersection forms, the signature is only a useful invariant for $4k$-manifolds, since the intersection form of a $(4k+2)$-manifold is skew-symmetric and thus has signature $0$. In the case of $(4k+2)$-manifolds, the relevant invariant is the Ar invariant, which we discuss in \cref{sec:arf-invariant}.
 \end{remark}
 
-This is a topological invariant of fundamental importance, and we will see many of its generalizations and equivalent definitions in \cref{sec:hirzebruch-signature-theorem} and \cref{sec:surgery-invariant}.
+The signature is a topological invariant of fundamental importance for $4k$-manifolds, and we will see many of its generalizations and equivalent definitions in \cref{sec:hirzebruch-signature-theorem} and \cref{sec:surgery-invariant}.
 
 \begin{example}
 	By \cref{prop:intersection-form-complex-projective-plane}, the signature of complex projective spaces is
@@ -566,7 +628,7 @@ Note that reversing the orientation of a manifold reverses the signature. The di
 \end{example}
 
 \begin{example}
-		The signature of the Fermat quartic surface is $\sigma(\mathcal{K})=16$.
+		The signature of the Fermat quartic surface is $\sigma(\mathcal{K})=-16$.
 \end{example}
 
 Finally, we introduce two more categories of bilinear form which split the set of bilinear forms into quadrants.
@@ -576,7 +638,7 @@ Finally, we introduce two more categories of bilinear form which split the set o
 \end{definition}
 
 \begin{definition}
-	If for all elements $a\in \Lambda$, the diagonal entry $Q(a,a)$ is even, then $Q$ is said to be \defn{even}[even bilinear form]. Otherwise, we say that $Q$ is \defn{odd}[odd bilinear form].\footnote{Some sources refer to this property as ``type''. Odd forms are said to be \defn{type I}[type I bilinear form] and even forms are to be \defn{type II}[type II bilinear form].}
+	If for all elements $a\in \Lambda$, the diagonal entry $Q(a,a)$ is even, then $Q$ is said to be \defn{even}[even bilinear form]. Otherwise, we say that $Q$ is \defn{odd}[odd bilinear form].\footnote{Some sources refer to this property as ``type''. Odd forms are \defn{type I}[type I bilinear form] and even forms are \defn{type II}[type II bilinear form].}
 \end{definition}
 
 For instance, the $E_8$ form is a unimodular, positive-definite, even, symmetric bilinear form. 
@@ -611,7 +673,9 @@ In fact, $E_8$ has the smallest size for a non-trivial bilinear form satisfying 
 \subsection{Lattices and Integral Bilinear Forms}
 
 A common source of symmetric bilinear forms over the integers arise from lattices in an inner product space, such as Euclidean or Lorentzian\footnote{i.e. equipped with a form of signature $(1,n-1)$.} space.
-If $(V,\langle -,-\rangle)$ is an inner product space, a lattice $\Lambda\subset V$ inherits the bilinear form $\langle -,-\rangle$. However, this form is generally not integer valued. Some very specially constructed lattices however do inherit an integer valued bilinear form.
+If $(V,\langle -,-\rangle)$ is an inner product space, a lattice $\Lambda\subset V$ inherits the bilinear form $\langle -,-\rangle$. However, this form is generally not integer valued. 
+
+However, some specially constructed lattices do inherit an integer valued bilinear form. Even rarer are the unimodular lattices, i.e. lattices with unimodular inner product. Non-trivial examples of such unimodular lattices appear sporadically, and their algebraic and geometric complexity can be mapped to topological complexity via the intersection form. In particular, we will show in \cref{sec:plumbing} that a lattice with an even form always appears as the intersection form of some manifold. In this way, the ``exotic'' lattices discussed in this section map neatly to the direct construction of exotic spheres.
 
 \begin{definition} 
 	In Euclidean space $\R^\ell$ with basis $\{e_1,\ldots, e_\ell\}$ consider the lattice
@@ -637,7 +701,7 @@ where $\delta$ denotes the Kronecker delta. Since the Euclidean inner product is
 \end{proof}
 
 \begin{theorem}[Mordell]
-	The lattice $\Gamma^8=E_8$ is the only even unimodular positive-definite lattice of rank $8$.
+	The lattice $\Gamma^8\cong E_8$ is the only even unimodular positive-definite lattice of rank $8$.
 \end{theorem}
 \begin{proof}
 	\todo{cite}
@@ -647,142 +711,14 @@ where $\delta$ denotes the Kronecker delta. Since the Euclidean inner product is
 \todo{Leech lattice}
 \end{definition}
 
-\medskip
-\todo{geometric interpretation of lattices,
-	\href{https://math.stackexchange.com/questions/2944104/obtaining-two-holed-torus-as-a-quotient-of-bbb-c}{maybe this article?}}
+\todo{kissing number problem}
+
+\subsection{Quadratic Forms and the Arf Invariant}\label{sec:arf-invariant}
+
+For any bilinear form $\langle-,-\rangle$ on an $R$-module.
 
 
-\subsection{The Arf Invariant}\label{sec:arf-invariant}
-
-We have talked at length about the signature and its role in classifying symmetric bilinear forms. The signature
+We have talked at length about the signature and its role in classifying symmetric bilinear form. For skew-symmetric matrices, the signature is 
 
 \begin{definition}
 \end{definition}
-
-\pagebreak
-\section{Morse Theory}\label{sec:morse-theory}
-
-The next tool in our arsenal is that of Morse theory, a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. 
-By investigating the discrete set of critical points of such a function, questions of attaching and removing high-dimensional handles is simplified to questions of points on the one-dimensional real line. For this thesis, the main application of Morse theory will be in the proof of the $h$-cobordism theorem (\cref{thm:h-cobordism}) which massively simplifies the problem of finding and classifying exotic spheres. While a fully comprehensive introduction to Morse theory is outside of the scope of this thesis, we'll include a basic overview for completeness. A great classical introduction to Morse theory can be found in Milnor's book on the subject \cite{milnor1963morse}.
-
-If $f : M \to \R$ is a smooth function on a manifold $M$, the points $p\in M$ where the differential $df_p : \T_p M \to \T_{f(p)} \R = \R$ vanish are known as \defn{critical points}, and their images in $\R$ are called \defn{critical values}. In terms of local coordinates $\{x^1,\ldots, x^n\}$ at $p$, this means that
-\begin{equation}
-	\frac{\partial f}{\partial x^1}=\cdots=\frac{\partial f}{\partial x^n} = 0.
-\end{equation}
-A critical point $p\in M$ is said to be \defn{non-degenerate}[non-degenerate point] if the matrix
-\begin{equation}
-	\everymath={\displaystyle}
-	\renewcommand*{\arraystretch}{2}
-	H_f(p) = \begin{pmatrix}
-		\frac{\partial^2 f}{\partial x^1\partial x^1} & \cdots &
-		\frac{\partial^2 f}{\partial x^1\partial x^n}                   \\
-		\vdots                                        & \ddots & \vdots \\
-		\frac{\partial^2 f}{\partial x^n\partial x^1} & \cdots &
-		\frac{\partial^2 f}{\partial x^n\partial x^n}                   \\
-	\end{pmatrix}(p)
-\end{equation}
-is invertible at $p$. This is called the \defn{Hessian matrix} of $f$ at $p$, and in this formulation depends on our chosen coordinate system.
-There is a coordinate independent way to define the Hessian as a symmetric bilinear form on $\T_p M$ which makes the coordinate invariance of the condition of non-degeneracy manifestly apparent.
-
-\begin{definition}
-	The \defn{index}[index of a function] of $f$ at a point $p$ is the maximal dimension of a subspace on which $H_f(p)$ is negative definite, i.e. it is the dimension of $\{v\in \R^n \mid v^\intercal H_f(p) v < 0\}.$
-\end{definition}
-
-The index of a function at a point essentially describes the ``shape'' of the function out of a list of finitely many possible shapes. Remember, the index of a function on an $n$-dimensional manifold must be an integer between $0$ and $n$. For instance, in the case of a surface there are three possible shapes -- when both coordinates curve up we get a bowl facing up, when one curves up and one curves down we get a saddle, and when both coordinates curve down we get a bowl facing down. These shapes correspond to indices of $0$, $1$, and $2$ respectively.
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{placeholder.pdf_tex}
-	\caption{An upward bowl, saddle, and downward bowl.}
-\end{figure}
-
-The fundamental lemma of Morse theory makes rigorous this notion of a manifold having a shape dictated by a real-valued function -- there is always a local coordinate system which puts the function into a standard form depending on the index.
-
-\begin{lemma}[Morse Lemma]\label{lemma:morse}
-	Let $p$ be a non-degenerate critical point of $f$. There is a local coordinate system $(y^1,\ldots, y^n)$ at $p$ such that
-	\begin{equation}
-		f(y^1,\ldots, y^n)=f(0)-\left[(y^1)^2 + \cdots + (y^{\ell})^2\right] + \left[(y^{\ell + 1})^2 + \cdots + (y^n)^2\right].
-	\end{equation}
-	where $\ell$ is the index of $f$ at $p$.
-\end{lemma}
-\begin{proof}
-	See Lemma~2.2 of \cite{milnor1963morse}.
-\end{proof}
-
-Inspired by this lemma, we call a function $f : M \to \R$ a \defn{Morse function} if all critical points are non-degenerate.
-
-\begin{corollary}
-	Non-degenerate critical points are isolated.
-\end{corollary}
-
-For a brief demonstration of the power of the Morse lemma, we'll prove Reeb's theorem, a Morse theoretic criterion for a compact manifold to be homeomorphic to a sphere. Throughout the thesis, we'll usually defer to the more powerful $h$-cobordism theorem to prove that a manifold is homoemorphic to a sphere.
-However, it is useful to not always rush for the flamethrower when trying to kill a fly -- a simple swatter might do the trick. We will see a direct application of Reeb's theorem in \cref{sec:milnor-spheres}.
-
-\begin{theorem}[Reeb]\label{thm:reeb}
-	If $M$ is a compact manifold and $f$ is a Morse function with exactly $2$ critical points, then $M$ is homeomorphic to a sphere.
-\end{theorem}
-\begin{proof}
-	Firstly, by compactness of $M$ we can find a global minimum $f(x_0)$ and global maximum $f(x_1)$ for some distinct points $x_0$ and $x_1$ (otherwise the function would be constant and not a Morse function with $2$ critical points). We can normalize the function $f$ to have $f(x_0)=0$ and $f(x_1)=1$ without loss of generality. It follows that $x_0$ is a non-degenerate critical point of index 0 and $x_1$ is a non-degenerate critical point of index $n$.
-	By the Morse lemma (\ref{lemma:morse}), there is a neighborhood $x_0\in U_0$ with local coordinates $\{y^1,\ldots, y^n\}$ such that
-	\begin{equation}
-		f(y^1,\ldots, y^n) = (y^1)^2 + \cdots + (y^n)^2.
-	\end{equation}
-	This gives a Riemannian metric $(dy^1)^2+\cdots+(dy^n)^2$ on $U$ which can be extended to all of $M$ by partitions of unity.
-
-	Given a Riemmanian structure, there is a gradient operator $\nabla : \Omega^0 \to \X(M)$ sending smooth functions to the space of vector fields $\X(M)$.
-	In our case, the vector field $\nabla f$ is non-zero everywhere except for at $x_0$ and $x_1$. We thus have a normalized vector field $\nabla f/\|\nabla f\|^2$
-	defined everywhere except for at $x_0$ and $x_1$. Let $\varphi_t : M \to M$ be the global flow corresponding to this vector field, i.e. the unique solution to the differential equation
-	\begin{equation}
-		\left.\frac{d\varphi_t(p)}{dt}\right|_{t=0} = \frac{\nabla f(p)}{\|\nabla f(p)\|^2}
-	\end{equation}
-	for all $p\in M\setminus \{x_0,x_1\}$. By the chain rule, it follows that
-	\begin{equation}
-		\frac{d(f\circ \varphi_t(p))}{dt}=\left\langle \frac{d\varphi_t(p)}{dt}, \nabla f\right\rangle = \left\langle \frac{\nabla f}{\|\nabla f\|^2}, \nabla f\right\rangle=1.
-	\end{equation}
-	In particular, this implies that $f\circ \varphi_t(p) = f(p)+t$. This implies that all of the level sets $f^{-1}(c)$ are diffeomorphic for $c\in (0,1)$. In particular, any disk surrounding $x_0$ can be extended to $f^{-1}[0,1/2]$. The same thing happens for $x_1$ with $f^{-1}[1/2,1]$, so we can write $M$ as the identification of two disks along their boundary. This is a sphere up to homeomorphism.
-\end{proof}
-
-\begin{figure}[ht]
-	\import{diagrams}{placeholder.pdf_tex}
-	\caption{The homeomorphism constructed in Reeb's theorem}.
-\end{figure}
-
-\begin{remark}
-	The reason we only get a homoemorphism and not a diffeomorphism in the proof of \cref{thm:reeb} is because the two hemispheres are identified along the boundary and not along collar neighborhoods.
-\end{remark}
-
-The basic ideas used in the proof of Reeb's theorem can be radically generalized.
-
-\begin{definition}
-	For any $a\in \R$, the \defn{level set} of a smooth function $f : M \to \R$ is the set
-	\begin{equation}
-		M_a = f^{-1}(-\infty, a] = \{ p\in M \mid f(p)\leq a\}.
-	\end{equation}
-\end{definition}
-
-To prevent this from becoming a thesis on Morse theory, we defer most of the difficult theorems to \cite{milnor1963morse}.
-
-\begin{theorem}
-	Let $f$ be a Morse function on a compact manifold. The following are true:
-	\begin{enumerate}[(a)]
-		\item Suppose $f^{-1}[a,b]$ contains no critical points of $f$ for real numbers $a<b$. Then $M_a$ is diffeomorphic to $M_b$, and $M_a$ is a deformation retract of $M_b$.
-		\item Let $p$ be a non-degenerate critical point of index $\ell$. Letting $c=f(p)$, suppose that $f^{-1}[c-\epsilon, c+\epsilon]$ is compact and contains no critical points of $f$ aside from $p$. For sufficiently small $\epsilon$, the level set $M^{c+\epsilon}$ has the homotopy type of $M^{c-\epsilon}$ with an $\ell$-cell attached.
-		\item $M$ has the homotopy type of a CW-complex with a cell in each dimension $\ell$ for each critical point of index $\ell$.
-	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	These are Theorems 3.1, 3.2, and 3.3 from \cite{milnor1963morse}.
-\end{proof}
-
-\begin{figure}[ht]
-	\import{diagrams}{placeholder.pdf_tex}
-	\caption{Decomposition of a torus by a Morse function.}
-\end{figure}
-
-\todo{finish}
-
-\begin{theorem}[Morse Inequality]
-	Let $M^n$ be a closed manifold with $f : M\to \R$ a Morse function. Let $\beta_i=\rank \H_i(M)$ be the $i$-th Betti number of $M$ and let $c_i$ be the number of critical points of $f$ of index $i$. Then, for every $\ell\in \Z^{\geq 0}$ we have
-	\begin{equation}
-		\beta_\ell - \beta_{\ell-1} + \beta_{\ell-2} - \cdots +(-1)^\ell \beta_0 \leq c_\ell - c_{\ell-1} + c_{\ell-2} - \cdots + (-1)^\ell c_0.
-	\end{equation}
-\end{theorem}

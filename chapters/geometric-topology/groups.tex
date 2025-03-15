@@ -1,17 +1,8 @@
 \pagebreak
 \section{Groups of Homotopy Spheres}\label{sec:groups-of-homotopy-spheres}
 
-With the $h$-cobordism theorem and \cref{thm:h-cobordism-diffeomorphism}, we have arrived at our first major simplification to the problem of classifying smooth structures in dimensions $\geq 5$ -- to classify smooth structures on $S^n$, it is enough to classify the $h$-cobordism classes of smooth manifolds which are homeomorphic to $S^n$, and to find smooth manifolds which are homeomorphic to $S^n$,. it suffices to consider smooth manifolds which have the homotopy type of $S^n$.
-
-\begin{definition}
-	A \defn{homotopy $n$-sphere}[homotopy sphere] is a smooth manifold which is homotopy equivalent to the sphere $S^n$. By the generalized Poincar\'e conjecture, all homotopy spheres are homeomorphic to spheres.
-\end{definition}
-
-\begin{definition}
-	Let $\Theta^n$ be the pointed set of $h$-cobordism classes of homotopy $n$-spheres (the basepoint is the ordinary sphere $S^n$).
-\end{definition}
-
-So far, this is a fairly general setup. Instead of spheres, we could use any simply-connected base manifold and consider the set of $h$-cobordism classes of manifolds homotopy equivalent to it. This is known as the \defn{surgery structure set}, and we will expand on this briefly in \cref{sec:surgery-theory-in-general}. However, in the case of spheres, there is a special bit of extra data which does not usually generalize -- a group structure under the connected sum operation defined in \cref{sec:connected-sum}.
+So far, this is a fairly general setup. Instead of spheres, we could use any simply-connected base manifold and consider the set of $h$-cobordism classes of manifolds homotopy equivalent to it. This is known as the \defn{surgery structure set}, and we will expand on this briefly in \cref{sec:surgery-theory-in-general}. However, in the case of spheres, there is a special bit of extra data which does not usually generalize -- a group structure under the connected sum operation defined in \cref{sec:connected-sum}. 
+As we will see in \cref{chap:classification}, this group structure on $\Theta^n$ simplifies the work of classification tremendously.
 
 \begin{theorem}\label{thm:group-of-homotopy-spheres}
 	The connected sum turns $\Theta^n$ into a group with identity element $S^n$.
@@ -97,23 +88,31 @@ So far, this is a fairly general setup. Instead of spheres, we could use any sim
 		If $M$ is a homotopy sphere, then $M\+(-M)$ bounds a contractible manifold.
 	\end{lemma}
 	\begin{proof}
-		\begin{figure}[ht]
-			\centering
-			\import{diagrams}{placeholder.pdf_tex}
-			\caption{A contractible boundary of $M\+(-M)$.}
-		\end{figure}
+		See the proof of Lemma 2.4 in \cite{milnorkervaire1963groups}.
+		\todo{inuitive explanation, coboundary is a turning of $M$ inside out through a hole into $(-M$ diagram?}
 	\end{proof}
 
-
-	\noindent This completes the proof.
+	These lemmas complete the proof.
 \end{proof}
 
-\subsection{Framed Manifolds}
+\subsection{Framed Manifolds}\label{sec:framed-manifolds}
 
-There is a final
-
-\begin{definition}
-\end{definition}
+The full group $\Theta^n$ is 
 
 \begin{definition}
+	Let $V^n$ be a vector space. A \defn{framing}[framing of a vector space] of $V$ is an isomorphism $b : \R^n \to V$.
 \end{definition}
+
+In other words a 
+
+\begin{definition}
+	A \defn{framing}[framing of a vector bundle] of a vector bundle $\mathcal{E}$ is a section of the frame bundle $\Fr(\mathcal{E})$.
+\end{definition}
+
+A framing 
+
+\begin{example}
+	Every Lie group admits a canonical framing.
+
+
+\end{example}
