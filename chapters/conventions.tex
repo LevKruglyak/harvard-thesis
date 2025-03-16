@@ -10,12 +10,19 @@
 \subsection*{Algebra}
 
 \begin{itemize}
+  \item The group of units in a ring $A$ is denoted $A^\times$.
   \item A \defn{graded ring} is a ring $A$ equipped with a decomposition of its underlying group as $A=\bigoplus_{k\in \Z_{\geq 0}} A[k]$ such that the ring multiplication sends $A[k_1]\times R[k_2] \to A[k_1+k_2]$. Elements belonging to $A[k]$ are said to be \defn{homogeneous of degree $k$}[homogeneous element of a graded ring]. 
   \item A graded ring is said to be \defn{graded-commutative} if for any homogeneous elements $x\in A[k_1]$ and $y\in A[k_2]$, we have
     \[
       x\cdot y = (-1)^{k_1k_2} y\cdot x
     \]
   \item The \defn{completion}[completion of a graded ring] of a graded ring $A$ is the direct product $\widehat{A} = \prod_{k\geq 0} A[k]$.
+  \item When expanding an element $a$ in a graded ring or completion of a graded ring as an infinite series, we use the notation
+  \[
+      a = a_0 + a_1t+a_2t^2+\cdots
+  \]
+  The variable $t$ should be understood as a notational formal variable.
+  \item $A_{(1)}\subset A^\times$ denotes the units with monic leading coefficient (i.e. $a_0=1$).
 \end{itemize}
 
 \subsection*{Differential Topology}

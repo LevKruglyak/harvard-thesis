@@ -23,6 +23,9 @@
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
 \tikzset{curve/.style={settings={#1},to path={(\tikztostart)
     .. controls ($(\tikztostart)!\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
     and ($(\tikztostart)!1-\pv{pos}!(\tikztotarget)!\pv{height}!270:(\tikztotarget)$)
@@ -168,7 +171,8 @@
 \newcommand{\BU}{\mathrm{BU}}
 
 % Special Symbols
-\newcommand{\Ahat}{\widehat{A}}
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Td}{\mathrm{Td}}
 \newcommand{\tnsv}{\cdot}
 
 % Exotic Sphere Symbols

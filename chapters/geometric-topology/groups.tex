@@ -85,34 +85,46 @@ As we will see in \cref{chap:classification}, this group structure on $\Theta^n$
 	\end{proof}
 
 	\begin{lemma}
-		If $M$ is a homotopy sphere, then $M\+(-M)$ bounds a contractible manifold.
+		If $M$ is a homotopy sphere, then $M\+\overline{M}$ bounds a contractible manifold.
 	\end{lemma}
 	\begin{proof}
-		See the proof of Lemma 2.4 in \cite{milnorkervaire1963groups}.
-		\todo{inuitive explanation, coboundary is a turning of $M$ inside out through a hole into $(-M$ diagram?}
+		There is a thorough proof of this in \cite{milnorkervaire1963groups} (see Lemma 2.4) so we only sketch a geometric picture here. The connected sum $M\+\overline{M}$ can be thought of as a union of punctured spaces $M^\circ$ and $\overline{M}^\circ$. Turning the punctured homotopy sphere $M^\circ$ inside out through the opening gives the reverse orientation $\overline{M}^\circ$.
+
+		\begin{figure}[ht]
+			\centering
+			\import{diagrams}{group-inverse-lemma.pdf_tex}
+			\caption{Turning a homotopy sphere inside out through a puncture.}\label{fig:group-inverse-lemma}
+		\end{figure}
+
+		\noindent
+		Taking the union of the intermediate stages of this inversion procedure gives a contractible manifold $W$ which bounds $M\+\overline{M}$, as in \cref{fig:group-inverse-lemma}.
 	\end{proof}
 
+	\noindent
 	These lemmas complete the proof.
 \end{proof}
 
-\subsection{Framed Manifolds}\label{sec:framed-manifolds}
+% \subsection{The Subgroup \texorpdfstring{$\bP^{n+1}$}{bP^{n+1}}}\label{sec:framed-manifolds}
 
-The full group $\Theta^n$ is 
-
-\begin{definition}
-	Let $V^n$ be a vector space. A \defn{framing}[framing of a vector space] of $V$ is an isomorphism $b : \R^n \to V$.
-\end{definition}
-
-In other words a 
+The full group $\Theta^n$ is often too complicated for direct classification. There is a subgroup, denoted $\bP^{n+1}$, of ``simpler'' homotopy spheres which are generally much easier to work with. In fact, all direct constructions of exotic spheres in this thesis are of these simpler homotopy spheres. Homotopy spheres in the complement $\Theta^n\setminus \bP^{n+1}$ of this subgroup are referred to as \defn{very exotic spheres}, and can only be detected and constructed via homotopy theoretic means. The relationship between $\bP^{n+1}$ and $\Theta^n$ will be explored in \cref{chap:classification}.
 
 \begin{definition}
-	A \defn{framing}[framing of a vector bundle] of a vector bundle $\mathcal{E}$ is a section of the frame bundle $\Fr(\mathcal{E})$.
+	Let $\bP^{n+1}\subset \Theta^n$ be the set of homotopy spheres which have a parallelizable coboundary.
 \end{definition}
 
-A framing 
+Clearly, the identity $S^n$ is in this subset, and the subset is clearly closed under inversion. It is a bit tricker to see why it is closed under the group operation of connected sum. 
 
-\begin{example}
-	Every Lie group admits a canonical framing.
+\begin{proposition}
+	$\bP^{n+1}$ is a subgroup of $\Theta^n$.
+\end{proposition}
+\begin{proof}
+	It suffices to show that $\bP^{n+1}$ is closed under connected sum. Suppose $M_1$ and $M_2$ are homotopy spheres bound by parallelizable manifolds $W_1$ and $W_2$.Note that the connected sum of $M_1$ and $M_2$ has a coboundary $W=(W_1,\partial W_1)\+(W_2,\partial W_2)$.
 
-
-\end{example}
+	\begin{figure}[ht]
+		\centering
+		\import{diagrams}{placeholder-small.pdf_tex}
+		\caption{A join of tangent bundles.}
+	\end{figure}
+	
+	Now let us choose trivializations $\varphi_i : W_i\times \R^{n+1} \to \T W_i$ for the original coboundaries. If $p$ is the point along which $M_1$ and $M_2$ are glued, we have a fiber embeddings $\R^{n+1}\to \T_p W_i$. Then, we choose a tubular neighborhood of the fiber which agrees with the tangent bundle structure so that the join $\T W_1\cup_{\R^{n+1}}\T W_2$ is a fiber bundle over $W$. We also get a trivialization $\varphi : W\times \R^{n+1} \to \T W$ which restricts to $\varphi_i$.
+\end{proof}

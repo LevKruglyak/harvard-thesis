@@ -169,7 +169,7 @@ The first example of a characteristic class of an bundle is useful, but not very
 Next, we discuss inversion in the ring of characteristic classes.
 In a general completion of a graded ring $\widehat{A}=\prod_{k\geq 0}A_k$, the multiplication of two elements
 \[
-	(x_0+x_1+x_2+\cdots)\cdot (y_0+y_1+y_2+\cdots) = (z_0 + z_1 + z_2+\cdots)
+	(x_0+x_1t +x_2t^2+\cdots)\cdot (y_0+y_1t+y_2t^2+\cdots) = (z_0 + z_1t + z_2t^2+\cdots)
 \]
 can be expanded in homogeneous components as $z_k=\sum_{p+q=k} x_py_q$, i.e.
 \begin{equation}\label{eq:formal-product}
@@ -187,8 +187,6 @@ To invert the series $(x_0+ x_1+\ldots)\in \widehat{A}$, we would like to find s
 	\end{cases}
 \end{equation}
 
-\todo{convering additive problems into multiplicative problems}
-
 Let us assume that the algebra is graded-commutative. In this case, we can expand \cref{eq:formal-inversion} to get the expansions
 \[
 	\begin{aligned}
@@ -203,18 +201,18 @@ More generally, the formula for $y_k$ is given by the sum
 \begin{equation}\label{eq:general-formal-inversion}
 	y_k = (x_0)^{-(k+1)}\sum_{i_1+2i_2+\cdots+ni_n=n} \frac{(i_1+\cdots+i_n)!}{i_1!\cdots i_n!}(-x_1)^{i_1}\cdots (-x_n)^{i_n}.
 \end{equation}
-A crucial corollary of \cref{eq:formal-inversion} is that a series $(x_0+x_1+\cdots)$ can be inverted if and only if $x_0\in A_0^\times$ is a unit. 
+A crucial corollary of \cref{eq:formal-inversion} is that a series $(x_0+x_1+\cdots)$ can be inverted if and only if $x_0\in A_0^\times$ is a unit.
 
 \begin{proposition}\label{prop:formal-inverse}
 	If $\widehat{A}$ is a completion of a graded ring, then $\widehat{A}^\times = \widehat{A} \cap A_0^\times$.
 \end{proposition}
 
-\begin{remark} 
-	This is generally not true in the non-completed case. Take for instance in the ring of formal power series $R\fps{t}$, the completion of the polynomial ring $R[t]$. There, we have the identity
-\[
-	(1-t)\cdot (1+t+t^2+t^3+\cdots) = 1,
-\]
-which is a rearranged form of the classic equation for the infinite series of a geometric series. Even though $(1-t)$ has monic leading coefficient, it has no inverse in $R[t]$.
+\begin{remark}
+	This is generally not true in the non-completed case. Take for instance in the ring of formal power series $R\fps{z}$, the completion of the polynomial ring $R[z]$. There, we have the identity
+	\[
+		(1+z)\cdot (1-z+z^2-z^3+\cdots) = 1,
+	\]
+	which is a rearranged form of the classic equation for the infinite series of a geometric series. Even though $(1-z)$ has monic leading coefficient, it has no inverse in $R[z]$.
 \end{remark}
 
 \cref{prop:formal-inverse} has a useful consequence in the context of characteristic classes. Suppose $c$ is a characteristic class with $c_0\in R^\times$. It follows that there is a characteristic class $c^{-1}$ which is the multiplicative inverse of $c$, so that $c\smile c^{-1}=1$ is the trivial characteristic class. If the characteristic class $c$ is multiplicative, then the Whitney product formula gives
@@ -244,20 +242,19 @@ If $\mathcal{E}_1=\TT M$ is the tangent bundle of a manifold $M^k$ and $\mathcal
 
 We close this section with a nice result which will be useful later.
 \begin{proposition}\label{prop:multiplicative-inverse-is-multiplicative}
-	If $c$ is a multiplicative characteristic class with $c_0$ a unit, then $c^{-1}$ is also multiplicative.
+	If $c$ is a multiplicative characteristic class with $c_0$ a unit, then $c^{-1}$ is as well.
 \end{proposition}
 \begin{proof}
-	For any bundles $\mathcal{E}_1$ and $\mathcal{E}_2$, we have
-	\begin{equation}\label{eq:chern-inverse-is-multiplicative}
+	\begin{equation}
 		\begin{aligned}
-			c(\mathcal{E}_1\oplus \mathcal{E}_2)\smile c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2) &= 1\\
-			c(\mathcal{E}_1)\smile c(\mathcal{E}_2)\smile c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2) &= 1\\
+			c(\mathcal{E}_1\oplus \mathcal{E}_2)\smile c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2)    & = 1                                                  \\
+			c(\mathcal{E}_1)\smile c(\mathcal{E}_2)\smile c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2) & = 1                                                  \\
 			c(\mathcal{E}_2)\smile
-			c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2) &= c^{-1}(\mathcal{E}_1)\\
-			c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2) &= c^{-1}(\mathcal{E}_1)\smile c^{-1}(\mathcal{E}_2).\\
+			c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2)                                               & = c^{-1}(\mathcal{E}_1)                              \\
+			c^{-1}(\mathcal{E}_1\oplus \mathcal{E}_2)                                               & = c^{-1}(\mathcal{E}_1)\smile c^{-1}(\mathcal{E}_2). \\
 		\end{aligned}
-		\end{equation}
-		This completes the proof.
+	\end{equation}
+	This completes the proof.
 \end{proof}
 
 \subsection{Characteristic Numbers}
@@ -305,7 +302,7 @@ We will now begin construction of the most fundamental of characteristic classes
 where $\alpha$ is the degree $2$ class corresponding to the Poincar\'e dual $\CP^{n-1}\subset \CP^n$.
 In the infinite dimensional limit, we get the purely polynomial rings
 \[
-		\H^\bullet(\CP^\infty;\Z)\cong \Z[\alpha].
+	\H^\bullet(\CP^\infty;\Z)\cong \Z[\alpha].
 \]
 However since $\BU_1=\CP^\infty$, by \cref{thm:universal-characteristic-classes} we have
 \begin{equation}\label{eq:cczu1-a}
@@ -326,9 +323,9 @@ Of course, this is not a constructive definition, and it is not at all clear tha
 However, being a multiplicative rank-normalized characteristic class with coefficients in a field of characteristic zero, the general results of the previous section hold for the Chern class. The more interesting results follow from axiom (b). By a beautiful theorem known as the splitting principle, it turns out that knowing the Chern classes of line bundles is enough to compute the Chern classes of any complex vector bundle.
 
 \begin{theorem}[Splitting Principle]
-	Let $\F$ be $\R$ or $\C$ and suppose $\mathcal{E}^k$ is an $\F$-vector bundle over a space $X$. There exists a space $Y$ with map $f : Y \to X$ such that 
+	Let $\F$ be $\R$ or $\C$ and suppose $\mathcal{E}^k$ is an $\F$-vector bundle over a space $X$. There exists a space $Y$ with map $f : Y \to X$ such that
 	\begin{enumerate}[(a)]
-		\item $f^* : h^\bullet(Y) \to h^\bullet(X)$ is injective, 
+		\item $f^* : h^\bullet(Y) \to h^\bullet(X)$ is injective,
 		\item there is a bundle isomorphism $f^*\mathcal{E} \cong \mathcal{L}_1\oplus\cdots \oplus \mathcal{L}_k$ for line bundles $\mathcal{L}_i$ over $Y$.
 	\end{enumerate}
 \end{theorem}
@@ -353,7 +350,7 @@ However, being a multiplicative rank-normalized characteristic class with coeffi
 
 	We then let $Y=\Fl(E)$ be the total space of the flag bundle, with the injectivity of $f^*$ following from the Leray-Hirsch theorem since it can be shown that $h^\bullet(\GL_n\F/B)$ has no torsion. In fact, the Leray-Hirsch theorem shows the stronger result that we have an isomorphism
 	\[
-			h^\bullet(X)\otimes h^\bullet(\GL_n \F/B) \cong h^\bullet(Y)
+		h^\bullet(X)\otimes h^\bullet(\GL_n \F/B) \cong h^\bullet(Y)
 	\]
 	with the inclusion $f^*$ simply being the precomposition of this isomorphism with $x\mapsto x\otimes 1$.
 
@@ -369,10 +366,10 @@ However, being a multiplicative rank-normalized characteristic class with coeffi
 	For instance, we have
 	\[
 		\begin{aligned}
-			\cl(\CP^1) &= 1\\
-			\cl(\CP^2) &= 1+2\alpha+\alpha^2\\
-			\cl(\CP^3) &= 1+3\alpha + 3\alpha^2+\alpha^3\\
-								 &\;\;\vdots
+			\cl(\CP^1) & = 1                              \\
+			\cl(\CP^2) & = 1+2\alpha+\alpha^2             \\
+			\cl(\CP^3) & = 1+3\alpha + 3\alpha^2+\alpha^3 \\
+			           & \;\;\vdots
 		\end{aligned}
 	\]
 \end{example}
@@ -392,7 +389,7 @@ with the injective pullback map $\H^\bullet(\BU_n) \to \H^\bullet(\BU_1^{\times 
 
 \subsection{Creating Multiplicative Characteristic Classes}
 
-We now present a powerful method for constructing multiplicative characteristic classes, formalized in by Hirzebruch \cite{hirzebruch1966methods}. 
+We now present a powerful method for constructing multiplicative characteristic classes, formalized in by Hirzebruch \cite{hirzebruch1966methods}.
 The crux of this method is the fundamental theorem of symmetric polynomials, a simple but incredibly useful result in algebra.
 
 \begin{theorem}[Fundamental Theorem of Symmetric Polynomials]
@@ -402,7 +399,7 @@ The crux of this method is the fundamental theorem of symmetric polynomials, a s
 	\end{equation}
 	The variables $\sigma_i$ are the \defn{elementary symmetric polynomials}, defined by the relation
 	\begin{equation}\label{eq:symmetric-polynomials}
-		1+\sigma_1^{(n)}+\sigma_2^{(n)}+\cdots+\sigma_n^{(n)} = (1+x_1)(1+x_2)\cdots (1+x_n)
+		1+\sigma_1^{(n)}t+\sigma_2^{(n)}t^2+\cdots+\sigma_n^{(n)}t^n = (1+x_1t)(1+x_2t)\cdots (1+x_nt)
 	\end{equation}
 	where we grade $|\sigma_i^{(n)}|=|x_i|=i$.
 \end{theorem}
@@ -410,100 +407,136 @@ The crux of this method is the fundamental theorem of symmetric polynomials, a s
 By \cref{eq:symmetric-polynomials}, we can expand these elementary symmetric polynomials in terms of $x_i$:
 \[
 	\begin{aligned}
-		\sigma_1^{(n)} &= x_1+x_2+\cdots + x_n\\
-		\sigma_2^{(n)} &= x_1x_2 + x_2x_3 + x_1x_3 +\cdots + x_{n-1}x_n\\
-						 &\;\;\vdots\\
-		\sigma_n^{(n)} &= x_1x_2\cdots x_n
+		\sigma_1^{(n)} & = x_1+x_2+\cdots + x_n                          \\
+		\sigma_2^{(n)} & = x_1x_2 + x_2x_3 + x_1x_3 +\cdots + x_{n-1}x_n \\
+		               & \;\;\vdots                                      \\
+		\sigma_n^{(n)} & = x_1x_2\cdots x_n
 	\end{aligned}
 \]
 More generally, we have the combinatorial formula
 \[
 	\sigma_i^{(n)} = \sum_{1\leq p_1<\cdots <p_i\leq n} x_{p_1}\cdots x_{p_i}.
 \]
-\begin{remark}
-	Passing to the completed ring, we have a ring isomorphism
+Passing to the completed ring, we have a ring isomorphism
 \[
 	R\fps{x_1,x_2\ldots}^{S_\infty} \cong R\fps{\sigma_1,\sigma_2,\cdots}\quad\textrm{where}\quad \sigma_i = \sum_{0<p_1<\cdots < p_i<\infty}x_{p_1}\cdots x_{p_i}
 \]
-so that $\sigma_i^{(n)} = \sigma_i \mod (x_{n+1},x_{n+2},\ldots)$.
-\end{remark}
+so that $\sigma_i^{(n)} = \sigma_i \mod (x_{n+1},x_{n+2},\ldots)$. 
 
+\begin{remark}
 In the context of Chern classes, the splitting principle for stable complex vector bundles gives us a decomposition
 \[
 	\cl = \prod_{i\geq 1}(1+\gamma_i)
 \]
 where $\cl\in \H^\bullet(\BU) \cong \Z[c_1,c_2,\ldots]\cong \Z[\gamma_1,\gamma_2,\ldots]^{S_\infty}$ and $\gamma_i$ are the universal stable Chern roots. Chern classes can then be interpreted as symmetric polynomials in the Chern roots. This is a good picture to keep in mind.
+\end{remark}
 
-Our first example of a multiplicative sequence arises in the following exploration.
-If we let $\sigma=1+\sigma_1+\sigma_2+\cdots$, we can express the inverse $\sigma^{-1}$ in $R\fps{\sigma_1,\sigma_2,\ldots}$ directly in terms of $x_i$ by \cref{eq:general-formal-inversion}. Expanding, we get
-	\begin{equation}\label{eq:chern-inverse-non-symmetric}
-		\begin{aligned}
-			\sigma^{-1} &= (1+\sigma_1+\sigma_2+\cdots)^{-1}\\
-						 &= 1-(\sigma_1+\sigma_2+\cdots) + (\sigma_1+\sigma_2+\cdots)^2 - \cdots\\
-						 &= \sum_{n\geq 0} K_n(\sigma_1,\ldots, \sigma_n)
-		\end{aligned}
-	\end{equation}
-	where $K=\{K_n\}_{n\geq 0}$ is the family of polynomials 
-	\begin{equation}\label{eq:inverse-K-series}
- 		K_n(\sigma_1,\ldots, \sigma_n) = \sum_{i_1+2i_2+\cdots+ ni_n=n}\frac{(i_1+\cdots+i_n)!}{i_1!\cdots i_n!}(-\sigma_1)^{i_1}\cdots(-\sigma_n)^{i_n}.
-	\end{equation}
-	Note that the sequence $K$ defines a map $U_1(R\fps{\sigma_1,\sigma_2,\ldots})$ to $U_1(R\fps{\sigma_1,\sigma_2,\ldots})$ by sending
-	\begin{equation}\label{eq:multiplicative-sequence-endomorphism}
-		K : \sum_{n\geq 0} \sigma_n t^n \lkxmapsto \sum_{n\geq 0} K_n(\sigma_1,\ldots, \sigma_n) t^n
-	\end{equation}
-	By an abuse of notation, we also denote this map by $K$.
-
-	\begin{proposition}
-		$K$ is a ring endomorphism.
-	\end{proposition}
-	\begin{proof}
-		Since $K(\sigma)=\sigma^{-1}$, we can use the same argument as in the proof of \cref{prop:multiplicative-inverse-is-multiplicative}, noting that $K(\sigma \eta)=(\eta \sigma)^{-1}=K(\sigma)K(\eta)$.
-	\end{proof}
-
-	This $K$-series we've constructed is our first example of a multiplicative sequence.
-
-	\begin{definition}
-		A \defn{multiplicative sequence} $K=\{K_n\}$ of polynomials in which $K_n(\sigma_1,\ldots, \sigma_n)$ is homogeneous of degree $n$ and $K$ induces an endomorphism of $U_1(R\fps{\sigma_1,\sigma_2,\ldots})$.
-	\end{definition}
-	
-	Back to the analogy of $\sigma$ with the Chern class $\cl$, we note that a multiplicative sequence $K$ gives a multiplicative characteristic class $K(\cl)\in \Class^\Z_\U$.
-	
-	When working with multiplicative sequences, the set of polynomials is often far too cumbersome to deal with in practice. For any multiplicative sequence $K$, 
-	 expanding out the symmetric polynomials gives
-	\[
-			\sigma = 1+\sigma_1+\sigma_2+\cdots = \prod_{i\geq 1}(1+x_i)
-			\quad\implies\quad
-			K(\sigma) = \prod_{i\geq 1} K(1+x_i).
-	\]
-	In particular, since $|x_i|=1$, it follows that $K$ is entirely determined by its value on $1+x_i$. To maintain invariance under the action of the symmetric group, these evaluations $K(1+x_i)$ are actually the same polynomial in $x_i$. 
-
-	\begin{definition} 
-		We call this polynomial $Q_K(t)=K(1+t)$ the \defn{characteristic series} of the multiplicative sequence $K$.
-	\end{definition}
-
+To generate new multiplicative characteristic classes out of Chern classes, we consider endomorphisms $K$ of the unit group $\Z\fps{c_1,c_2,\ldots}^\times$. Since $K(ab)=K(a)K(b)$, it follows that $K(\cl)$ would be a stable multiplicative characteristic class in $\Class^\Z_{\U}$. The most basic examples of such endomorphism are given below:
 
 \begin{example}
-	The Chern class is associated to the characteristic series 
+Consider the endomorphism $K(a)=a^{-1}$.
+If we let $a=1+a_1t+a_2t^2+\cdots$, we can express the inverse $K(a)=a^{-1}$ directly in terms of $a_i$ by \cref{eq:general-formal-inversion}. 
+\begin{equation}\label{eq:chern-inverse-non-symmetric}
+	\begin{aligned}
+		K(a)=a^{-1} & = (1+a_1t+a_2t^2+\cdots)^{-1}                              \\
+		            & = 1-(a_1t+a_2t^2+\cdots) + (a_1t+a_2t^2+\cdots)^2 - \cdots \\
+		            & = \sum_{n\geq 0} K_n(a_1,\ldots, a_n)t^n
+	\end{aligned}
+\end{equation}
+where $K=\{K_n\}_{n\geq 0}$ is the family of polynomials
+\begin{equation}\label{eq:inverse-K-series}
+	K_n(a_1,\ldots, a_n) = \sum_{i_1+2i_2+\cdots+ ni_n=n}\frac{(i_1+\cdots+i_n)!}{i_1!\cdots i_n!}(-a_1)^{i_1}\cdots(-a_n)^{i_n}.
+\end{equation}
+\end{example}
+
+\begin{example}
+	More generally we have the endomorphism $K(a)=a^n$, although its expansion into polynomials has a far more complicated form.
+\end{example}
+
+Going in the reverse direction, any sequence of polynomials $K=\{K_n\}$ in which $K_n(\sigma_1,\ldots, \sigma_n)$ is homogeneous of degree $n$ induces a map
+\begin{equation}\label{eq:multiplicative-sequence-endomorphism}
+	K : \sum_{n\geq 0} \sigma_n t^n \lkxmapsto \sum_{n\geq 0} K_n(\sigma_1,\ldots, \sigma_n) t^n,
+\end{equation}
+which, by an abuse of notation, we also denote by $K$. 
+
+\begin{definition}
+	A \defn{multiplicative sequence} $K=\{K_n\}$ of polynomials in which $K_n(\sigma_1,\ldots, \sigma_n)$ is homogeneous of degree $n$ and $K$ induces an endomorphism of $R\fps{\sigma_1,\sigma_2,\ldots}^\times$.
+\end{definition}
+
+
+When working with multiplicative sequences, the set of polynomials is often far too cumbersome to deal with in practice. For any multiplicative sequence $K$,
+expanding out the symmetric polynomials gives
+\[
+	\sigma = 1+\sigma_1+\sigma_2+\cdots = \prod_{n\geq 1}(1+x_n)
+	\quad\implies\quad
+	K(\sigma) = \prod_{n\geq 1} K(1+x_n).
+\]
+We therefore define a formal power series
+\[
+		Q_K(t) = K(1+t)=\sum_{n\geq 0}K_n(1,0,\ldots, 0) t^n
+\]
+so that $K(\sigma)$ can be expressed as
+\[
+		K(\sigma) = \prod_{n\geq 1}Q_K(x_n)
+\]
+
+For some simple examples, we have:
+
+\begin{definition}
+	The polynomial $Q_K(t)=K(1+t)$ is called the \defn{characteristic series} of the multiplicative sequence $K$.
+\end{definition}
+
+\begin{example}
+	The Chern class is associated to the characteristic series
 	\[Q_\cl(t)=1+t.\]
 \end{example}
 
 \begin{example}
-	The  inverse Chern class is associated to the characteristic series 
+	The  inverse Chern class is associated to the characteristic series
 	\[Q_{\cl^{-1}}(t)=\frac{1}{1+t}=1-t+t^2-t^3+\cdots.\]
 \end{example}
 
-It turns out that characteristic series are sufficient to characterize all multiplicative sequences. In particular, all multiplicative characteristic classes in $\Class^\Z_\U$ arise from some power series with monic constant term.
+Multiplicative sequences span out a decently large set of endomorphisms of $R\fps{\sigma_1,\sigma_2,\ldots}^\times$, and it turns out that such endomorphisms are completely characterized by their characteristic series.
 
 \begin{theorem}
-	There is a bijective correspondence 
+	There is a bijective correspondence
 	\[
-		\left\{\parbox{6em}{multiplicative sequences}\right\}	\quad\lkxleftrightto\quad U_1(R\fps{t}).
+		\left\{\parbox{10.5em}{multiplicative sequences}\right\} \quad\lkxleftrightto\quad R\fps{t}^\times
 	\]
 \end{theorem}
+\begin{proof}
+	We have seen how to go from a multiplicative sequence to a characteristic series already. In the converse direction, suppose $Q(t)\in R\fps{t}^\times$ is a formal power series. Since the product is symmetric, we expand it in terms of symmetric polynomials graded by $t$
+	\[
+		 \prod_{n\geq 1} Q(x_n t) = K(\sigma)= \sum_{n\geq 1}K_n(\sigma_1,\ldots, \sigma_n) t^n.
+	\]
+	Since $\sigma_i$ are independent, each $K_n$ is uniquely determined in this way.
+\end{proof}
 
 \subsection{Pontryagin Classes}
 
-The theory 
+The first application of the construction presented in the previous section is the construction of characteristic classes for real vector bundles. First, we note that:
+\begin{proposition}\label{prop:chern-conjugation}
+	For any complex vector bundle $\mathcal{E}$, we have
+	\[
+		\cl_k(\overline{\mathcal{E}}) = (-1)^k\cl(\mathcal{E})
+	\]
+	where $\overline{\mathcal{E}}$ denotes complex conjugation.
+\end{proposition}
+\begin{proof}
+	See Lemma 14.9 of \cite{milnorstasheff1974}.
+\end{proof}
+
+Now given a real vector bundle $\mathcal{E}$, we can complexify it to get a complex vector bundle $\mathcal{E}_\C = \mathcal{E}\otimes \C$. This complexified tangent bundle is canonically isomorphic to its conjugate bundle, so by \cref{prop:chern-conjugation} we have
+\[
+	\cl_{2k+1}(\overline{\mathcal{E}_\C}) = -c_{2k+1}(\mathcal{E}_\C) \quad\implies\quad 2\cdot c_{2k+1}(\mathcal{E}_\C) = 0.
+\]
+If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{2}])$, we get
+\[
+	\cl(\mathcal{E}_\C) = 1+\cl_2(\mathcal{E}_\C) + \cl_4(\mathcal{E}_\C)+\cdots
+\]
+\begin{definition}
+	The Pontryagin class is the 
+\end{definition}
 
 % \begin{definition}
 % 	The \defn{Stiefel-Whitney class $w$}[Stiefel-Whitney class] is the unique characteristic class for unoriented vector bundles ($G=
@@ -619,13 +652,25 @@ The theory
 %
 \subsection{The Hirzebruch Signature Theorem}
 
-Recall that
-%
-% However, we know by \cref{prop:intersection-form-complex-projective-plane} that the signature of these generators is $\sigma(\CP^{2n})=1$.
-%
 \begin{definition}
-  Test
+	The \defn{$L$-genus} of a closed oriented manifold $M$ is the characteristic number $L[M]$ where $L$ is the characteristic class coming from the reduced characteristic series
+	\[
+		\widetilde{Q}_{L}(t) = \frac{\sqrt{t}}{\tanh(\sqrt{t})}.
+	\]
 \end{definition}
+
+\begin{example}\label{example:L-genus}
+	The first few polynomials in the $L$ genus are given by:
+\[
+	\begin{aligned}
+		L_1 &= \frac{1}{3}p_1,\\
+		L_2 &= \frac{1}{45}(-4p_2 + 7p_1^2),\\
+		L_3 &= \frac{1}{945}(62p_3-13p_2p_1+2p_1^3),\\
+		L_4 &= \frac{1}{14175}(831p_4-71p_3p_1-19p_2^2 + 22p_2p_1^2 - 3p_1^4)
+	\end{aligned}
+\]
+	For information on how these polynomials were computed, see \cref{chap:wolfram}.
+\end{example}
 
 \begin{theorem}[Hirzebruch]\label{thm:hirzebruch-signature-theorem}
 	Let $M$ be a closed $4k$-manifold. Then we have
@@ -634,69 +679,61 @@ Recall that
 	\]
 	where $L_k$ is the $L$-genus.
 \end{theorem}
-% \begin{proof}
-% 	It suffices to check this identity for the generators $\CP^{2k}$. The total Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$. Using multiplicativity of $L$ and $L(1+z)=\sqrt{z}/\tanh\sqrt{z}$, we have
-% 	\[
-% 		\begin{aligned}
-% 			L(p)(\CP^{2k})
-% 			= L\left((1+\alpha^2)^{2k+1}\right)
-% 			= L(1+\alpha^2)^{2k+1}
-% 			= \left(\alpha/\tanh \alpha\right)^{2k+1}
-% 			\quad\in\H^\bullet(\CP^{2k}).
-% 		\end{aligned}
-% 	\]
-% 	Here, we consider $\alpha/\tanh \alpha$ as a formal power series in $\alpha$ truncated by the relation $\alpha^{2k+1}=0$ in the cohomology ring $\H^\bullet(\CP^{2k})$. The characteristic number $L_k(p_1,\ldots,p_k)[\CP^{2k}]$ is then the coefficient of $\alpha^{2k}$ in the expansion of $(\alpha/\tanh \alpha)^{2k+1}$.
-% 	By elementary complex analysis, this coefficient can be extracted by taking a contour integral around a small $\epsilon$-circle about the origin in $\C$:
-% 	\[
-% 		\begin{aligned}
-% 			L_k(p_1,\cdots, p_k)[\CP^{2k}]
-% 			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{dz}{z^{2k+1}} \left(\frac{z}{\tanh z}\right)^{2k+1}
-% 			 &                                                                                                    \\[0.5em]
-% 			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{dz}{\tanh^{2k+1} z}\quad
-% 			 & u  =\tanh(z),\quad
-% 			du =(1-u^2)dz
-% 			\\[0.5em]
-% 			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{1}{u^{2k+1}}\cdot\frac{du}{1-u^2}
-% 			 &                                                                                                    \\[0.5em]
-% 			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{1+u^2+u^4+\cdots}{u^{2k+1}}\,du                       \\[0.5em]
-% 			 & =1.                                                                                              &
-% 		\end{aligned}
-% 	\]
-% 	Since $\sigma(\CP^{2k})=1$, this completes the proof.
-% \end{proof}
-%
-% The Hirzebruch signature theorem is a shining example of a truly remarkable theorem in mathematics -- it gives us easy computational means to uncover highly non-trivial relationships between complicated objects. For us, the most useful consequence of the Hirzebruch signature theorem is that it gives us subtle integrability and divisibility theorems. For instance, with relatively little effort we can calculate a few $L$-genus polynomials to get:
-% \begin{equation}\label{eq:L-genus}
-% 	\begin{aligned}
-% 		 & L_1 = \frac{p_1}{3},\quad
-% 		 & L_2 = \frac{7p_2 - p_1^2}{45},\quad
-% 		 & L_3 = \frac{62p_3 - 13p_1p_2 + 2p_1^3}{945},\quad\cdots
-% 	\end{aligned}
-% \end{equation}
-% Having done this, the expression for the leading coefficient of $L_3$ in \cref{eq:L-genus} immediately implies:
-% \begin{corollary}
-% 	If $M$ is a closed $12$-manifold with trivial $\H^4(M)$, then $\sigma(M)$ is divisible by $62$.
-% \end{corollary}
-% The observation that for such manifolds $M$, the quantity $\sigma(M)/62$ is an integer, let alone equal to $945p_3[M]$, is far from obvious, and yet it pops out immediately from the signature theorem. These subtle relationships are immensely useful in defining invariants capable of detecting exotic spheres as we will see in the following \cref{sec:invariants-for-homotopy-4k-1-spheres}.
-%
-% While we are on the topic of the $L$-genus, let us compute its leading coefficient. Often times, the manifolds which we will apply the signature theorem to will be connected enough that the lower order Pontryagin classes vanish -- leaving just the leading term.
-% Luckily for us, the coefficient of this leading term admits a simple description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion of $\tanh z$:
-% \begin{equation}\label{eq:tanh_series}
-% 	\tanh z = z - \frac{z^3}{3} + \frac{2z^5}{15} - \frac{17z^7}{315}+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, z^{2k-1}.
-% \end{equation}
-% With this definition, the first few Bernoulli numbers are given by:
-% \begin{equation}\label{eq:bernoulli_numbers}
-% 	B_0 = 1,\quad B_2 = \frac{1}{6},\quad B_4 = \frac{1}{30},\quad B_6=\frac{1}{42},\quad B_{8}=\frac{1}{30},\quad B_{10} = \frac{5}{66},\quad\cdots
-% \end{equation}
-%
-% \todo{complexity of the sequence indicates how complicated the geometry can get}
-%
-% \begin{proposition}\label{prop:leading_coefficient_L_genus}
-% 	The leading coefficient of the $L$-genus is $s_k=2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!$
-% \end{proposition}
-% \begin{proof}
-% 	\todo{this proof}
-% \end{proof}
+\begin{proof}
+	It suffices to check this identity for the generators $\CP^{2k}$. The total Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$. Using multiplicativity of $L$ and $L(1+z)=\sqrt{z}/\tanh\sqrt{z}$, we have
+	\[
+		\begin{aligned}
+			L(p)(\CP^{2k})
+			= L\left((1+\alpha^2)^{2k+1}\right)
+			= L(1+\alpha^2)^{2k+1}
+			= \left(\alpha/\tanh \alpha\right)^{2k+1}
+			\quad\in\H^\bullet(\CP^{2k}).
+		\end{aligned}
+	\]
+	Here, we consider $\alpha/\tanh \alpha$ as a formal power series in $\alpha$ truncated by the relation $\alpha^{2k+1}=0$ in the cohomology ring $\H^\bullet(\CP^{2k})$. The characteristic number $L_k(p_1,\ldots,p_k)[\CP^{2k}]$ is then the coefficient of $\alpha^{2k}$ in the expansion of $(\alpha/\tanh \alpha)^{2k+1}$.
+	By elementary complex analysis, this coefficient can be extracted by taking a contour integral around a small $\epsilon$-circle about the origin in $\C$:
+	\[
+		\begin{aligned}
+			L_k(p_1,\cdots, p_k)[\CP^{2k}]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{dz}{z^{2k+1}} \left(\frac{z}{\tanh z}\right)^{2k+1}
+			 &                                                                                                    \\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{dz}{\tanh^{2k+1} z}\quad
+			 & u  =\tanh(z),\quad
+			du =(1-u^2)dz
+			\\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{1}{u^{2k+1}}\cdot\frac{du}{1-u^2}
+			 &                                                                                                    \\[0.5em]
+			 & = \frac{1}{2\pi i}\oint_{S^1_\epsilon} \frac{1+u^2+u^4+\cdots}{u^{2k+1}}\,du                       \\[0.5em]
+			 & =1.                                                                                              &
+		\end{aligned}
+	\]
+	Since $\sigma(\CP^{2k})=1$, this completes the proof.
+\end{proof}
+
+The Hirzebruch signature theorem is a shining example of a truly remarkable theorem in mathematics -- it gives us easy computational means to uncover highly non-trivial relationships between complicated objects. For us, the most useful consequence of the Hirzebruch signature theorem is that it gives us subtle integrability and divisibility theorems. For instance, the expression for the leading coefficient of $L_3$ in \cref{example:L-genus} immediately implies:
+\begin{corollary}
+	If $M$ is a closed $12$-manifold with $\H^4(M)\cong 0$, then $\sigma(M)$ is divisible by $62$.
+\end{corollary}
+The observation that for such manifolds $M$, the quantity $\sigma(M)/62$ is an integer, let alone equal to $945p_3[M]$, is far from obvious, and yet it pops out immediately from the signature theorem. These subtle relationships are immensely useful in defining invariants capable of detecting exotic spheres as we will see in the following \cref{sec:invariants-for-homotopy-4k-1-spheres}.
+
+While we are on the topic of the $L$-genus, let us compute its leading coefficient. Often times, the manifolds which we will apply the signature theorem to will be connected enough that the lower order Pontryagin classes vanish -- leaving just the leading term.
+Luckily for us, the coefficient of this leading term admits a simple description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion of $\tanh z$:
+\begin{equation}\label{eq:tanh_series}
+	\tanh z = z - \frac{z^3}{3} + \frac{2z^5}{15} - \frac{17z^7}{315}+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, z^{2k-1}.
+\end{equation}
+With this definition, the first few Bernoulli numbers are given by:
+\begin{equation}\label{eq:bernoulli_numbers}
+	B_0 = 1,\quad B_2 = \frac{1}{6},\quad B_4 = \frac{1}{30},\quad B_6=\frac{1}{42},\quad B_{8}=\frac{1}{30},\quad B_{10} = \frac{5}{66},\quad\cdots
+\end{equation}
+
+\todo{complexity of the sequence indicates how complicated the geometry can get}
+
+\begin{proposition}\label{prop:leading_coefficient_L_genus}
+	The leading coefficient of the $L$-genus is $s_k=2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!$
+\end{proposition}
+\begin{proof}
+	\todo{this proof}
+\end{proof}
 %
 % \subsection{The $\Ahat$ Genus}
 %

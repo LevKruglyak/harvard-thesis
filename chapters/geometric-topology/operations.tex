@@ -234,3 +234,15 @@ We will conclude this section with a brief remark on the resulting homology. If 
 		\Hr_k(M_1^\circ)\oplus \Hr_k(M_2^\circ) \cong \Hr_k((M_1,\partial M_1)\+ (M_2,\partial M_2))
 \]
 for all $k$. Alternatively, we could collapse the intersection to a point and conclude that $(M_1,\partial M_1)\+(M_2,\partial M_2)$ has the homotopy type of $M_1\vee M_2$.
+
+\subsection{Smoothing out Corners}\label{sec:smoothing-corners}
+
+It is commonly the case when working with smooth manifolds with non-empty boundary that an operation results in a canonical structure everywhere except for at a codimension $2$ submanifold lying in the boundary. The simplest example of this occurs when we take the product of two smooth manifolds $M_1$ and $M_2$. The boundary of the product is
+\[
+		\partial(M_1\times M_2) = (\partial M_1 \times M_2) \cup (M_1\times \partial M_2).
+\]
+At the points $\partial M_1\times \partial M_2\subset \partial (M_1\times M_2)$, we do not have a smooth structure with boundary. Instead, this can be considered as a \defn{manifold with corners}, i.e. we have charts to $[0,\infty)^k\times \R^{n-k}$. We might refer to this as a codimension $k$ corner. Note that when $k=1$, the space $[0,\infty)\times \R^{n-1}$ is just a half-plane and so a codimension $1$ corner is just a point on the boundary. In the case of the product of two manifolds with non-empty boundary, we have codimension $2$ corners. 
+
+It turns out that we need not worry about this technicality since ``corners can be smoothed'', \todo{finish writing about this}
+
+\cite{milnor1958manifolds}
