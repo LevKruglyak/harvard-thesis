@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'connected-sum.pdf' (pdf, eps, ps)
+%% Accompanies image file 'boundary-connected-sum.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,10 +53,12 @@
   \begin{picture}(1,0.33333336)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{connected-sum.pdf}}%
-    \put(0.11043449,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1$\end{tabular}}}}%
-    \put(0.35412979,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
-    \put(0.69091487,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1\+M_2$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{connected-sum.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{boundary-connected-sum.pdf}}%
+    \put(0.07405847,0.27791761){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1$\end{tabular}}}}%
+    \put(0.06439795,0.00741566){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\partial M_1$\end{tabular}}}}%
+    \put(0.2856204,0.00895916){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\partial M_2$\end{tabular}}}}%
+    \put(0.62964382,0.00895916){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\partial M_1\+\partial M_2$\end{tabular}}}}%
+    \put(0.33654018,0.27791761){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
+    \put(0.60733084,0.28696042){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$(M_1,\partial M_1)\+(M_2,\partial M_2)$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

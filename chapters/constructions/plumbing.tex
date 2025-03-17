@@ -1,0 +1,447 @@
+\pagebreak
+\section{Plumbing}\label{sec:plumbing}
+
+In the previous section, we constructed homotopy spheres as boundaries of total spaces of disk bundles. This is a beautiful, geometric construction of exotic spheres, relying on some exceptional isomorphisms of low-dimensional Lie groups and the topology of the Hopf bundles.
+However, this construction has several disadvantages.
+The biggest disadvantage is the homotopy theoretic obstructions to extending the construction outside of the dimensions $1,3,7,$ and $15$. Unless we were extremely lucky and these and dimensions were the only ones containing exotic spheres, we are in need of a more flexible construction.
+
+In this section we introduce the plumbing construction, which allows for the construction of a manifold of a given (even) $(-1)^m$-symmetric unimodular intersection form with boundary a homotopy sphere. All such homotopy spheres are shown to be in $\bP^{2m}$. In fact, it turns out that all homotopy spheres in $\bP^{2m}$ can be constructed with the plumbing construction.
+There are a few good sources on plumbing, ranging in abstraction and generality. A very thorough treatise is Chapter~V of \cite{browder1972surgery}, a book on the general surgery theory of simply-connected manifolds with framings. The original description of the construction can be found in Milnor's 1958 notes \cite{milnor1958manifolds}, and a more algebraic exposition is found in Hirzebruch's 1962 notes \cite{hirzebruch1971quadratic}.
+
+\begin{proposition}\label{prop:intersection-form-even}
+	The intersection form of a highly-connected framed $2m$-manifold is even.
+\end{proposition}
+\begin{proof}
+	Let $W$ be a framed manifold. It suffices to show that the mod $2$ intersection form $\widetilde{Q}_W$ has zeroes along the diagonal, since it is the mod 2 reduction of the intersection form. For any homology class $a\in \H_{m}(W;\Z/2)$ with Poincar\'e-Lefschetz dual $\alpha\in \H^{m}(W,\partial W;\Z/2)$, we have $\widetilde{Q}_W = \alpha\smile \alpha = \Sq^m(\alpha)$, where $\Sq$ are the Steenrod operations.
+
+	But since $W$ is highly-connected, the $m$-th Steenrod operator $\Sq^m(\alpha)=\Sq(\alpha)$ is equal to the total Steenrod operator since the other ones vanish. By \cref{sec:wu-classes}, we have $\Sq(\alpha)=v\smile \alpha$ where $v$ is the total Wu class. Since $W$ is stably parallelizable, the Wu classes are trivial and so $\widetilde{Q}^W(\alpha,\alpha)=\widetilde{Q}_W(a,a)=0$.
+\end{proof}
+
+In particular, note that the disk bundles of the previous section are not framed, since the intersection forms are $(\pm 1)$. Ultimately it turns out that the Milnor spheres do have a framed coboundary but this is not obvious from the construction.
+
+\subsection{A Remark on Vector Bundles over Spheres}
+
+Before starting to construct anything, we should note that vector bundles over spheres behave differently outside of the dimensions which have a Hopf fibration. Since we are working with intersections, we really only care about the Euler number of bundle since these dictate self-intersections. 
+
+For a rank $m$ bundle over $S^m$, the Euler number is the homomorphism
+\[
+	e : \pi_{m-1}(\SO_m) \lkxto \pi_{m-1}(S^{m-1}).
+\]
+When $m$ is odd, this map is always zero. When $m$ is even, this map has image at least $2\Z\subset \pi_{m-1}(S^{m-1})$ since the tangent bundle $\TT S^{2m}$ has Euler number $2$. However, over the spheres $S^2$, $S^4$, and $S^8$ we have the Hopf bundles of Euler number $1$, so in these cases, the image must be $\Z$. It turns out that this is enough for a full description for the image of $e$.
+
+\begin{proposition}\label{thm:possible-euler-numbers-over-spheres}
+	The Euler number map $e : \pi_{m-1}(\SO_m) \to \pi_{m-1}(S^{m-1})$ has image
+	\[
+		e : \pi_{m-1}(\SO_m) \lkxto
+		\begin{cases}
+			\Z  & (m-1)\in\{1,3,7\},       \\
+			2\Z & m\textrm{ is even}, \\
+			0   & \textrm{otherwise}\end{cases}
+	\]
+\end{proposition}
+\begin{proof}
+	See Section 1 of \cite{levine1985lectures}.
+\end{proof}
+
+\subsection{Crafting an Intersection Form}
+
+Suppose we wanted to construct a framed $2m$-dimensional manifold with a given intersection form, specified by a bilinear form $Q$ on the unit lattice $\Z^\ell$ with basis vectors $e_1,\ldots, e_\ell$. Denote this hypothetical construction by $W^{2m}$. Our construction here will allow $W$ to have a boundary, since constructing closed manifolds with a given intersection form is generally harder.
+
+The simplest possible case is when the lattice is $1$-dimensional, with intersection form
+\[
+	Q =  (Q_{11})
+\]
+determined by the single integer $Q_{11}=Q(e_1,e_1)\in \Z$.
+For the resulting manifold to have a hope of being frameable, we should require $Q_{11}$ to be even by \cref{prop:intersection-form-even}. We should also note that only the trivial bundle works in the case that $m$ is odd, since $Q$ is skew-symmetric in this case and so diagonal entries must be zero.
+
+The resulting $2m$-manifold $W$ should have middle dimensional homology $\H_m(W)$ free of rank $1$, generated by a cycle $a$ which has self-intersection number $a \tnsv a= Q_{11}$. To construct such a manifold, we start with a $m$-dimensional sphere $S^m$. This submanifold represents the generating cycle $a\in \H_m(W)$.
+To get a $2m$-dimensional manifold, we ``thicken'' the sphere by choosing a rank $m$ disk bundle $\mathcal{E} : E \to S^m$ with Euler number $Q_{11}$. Given the requirement that $Q_{11}$ is even when $m$ is even and zero when $m$ is odd, such a bundle always exists by \cref{thm:possible-euler-numbers-over-spheres}.
+\begin{remark}
+	To have a standard bundle of a given even Euler number $2k$ when $m$ is even, let $\mathcal{E}$ be the bundle $k\cdot \TT S^m$, where multiplication is done in $\pi_{m-1}(\SO_m)$.
+\end{remark}
+Since disks are contractible, there is a deformation retraction $E\simeq S^m$, and this implies that the middle dimensional homology $\H_m(E)$ is generated by $a$.
+Then, by \cref{thm:euler-number-self-intersection} the self intersection number of $a$ is exactly the Euler number $e(\mathcal{E})$.
+We can then define $W$ as the total space $E$ of the disk bundle. This will be the base case for plumbing constructions.
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{thickening-sphere.pdf_tex}
+	\caption{Two different ``thickenings'' of $S^1$ by $D^1$ bundles.}\label{fig:thickening-sphere}
+\end{figure}
+\begin{remark}
+	Although plumbing non-orientable bundles is certainly possible and interesting in its own right, to keep the resulting manifolds orientable we'll require orientable bundles $\mathcal{E}$ (this rules out the M\"obius bundle thickening in \cref{fig:thickening-sphere}). With this requirement, $W$ gets a manifold orientation from the orientation of the bundle.
+\end{remark}
+
+\begin{remark}
+	Note that this base case is defined similarly to the Milnor manifolds, namely as the boundary of a disk bundle over a sphere. However, the requirement that the Euler number is even means that the plumbed manifold associated to a 1-dimensional intersection form can never be a homotopy sphere by \cref{prop:homotopy-type-spherical-bundle}. In some sense, Milnor manifolds fill in the low dimensional cracks left by the much more general plumbing construction.
+\end{remark}
+\subsection{Plumbing Multiple Bundles}
+
+Let us now consider the case of a $2$-dimensional lattice, and try to construct a manifold with intersection form $Q$ given by the $2\times 2$ integer matrix:
+\[
+	Q = \begin{pmatrix} Q_{11} & Q_{12} \\ Q_{21} & Q_{22}\end{pmatrix}.
+\]
+This matrix should be even and $(-1)^m$-symmetric. To begin constructing a manifold, we want $\H_m(W)$ to be free of rank $2$, generated by cycles $a$ and $b$ with intersection numbers specified by the matrix $Q$.
+The simplest case is when $|Q_{12}|=|Q_{21}|=0$, i.e. the intersection forms is represented by a diagonal matrix and splits as a direct sum $Q=Q_1\oplus Q_2$. In this case, by \cref{prop:connected-sum-intersection-form}, we can define
+\[
+	P(Q_1\oplus Q_2) = P(Q_1)\+ P(Q_2).
+\]
+In fact, this construction lets us realize any diagonal matrix as the intersection form of a manifold, assuming all entries along the diagonal are even.
+
+The next simplest case is when $|Q_{12}|=|Q_{21}|=1$. We want the cycles $a$ and $b$ to intersect exactly once. We start with a wedge of two spheres $S^m_1\vee S^m_2$ representing $a$ and $b$ respectively. Next we thicken this space into a $2m$-dimensional space by choosing rank $m$ bundles $\mathcal{E}_i : E_i \to S^m_i$ with Euler numbers $Q_{ii}$. To get rid of the singularity at the attachment point, we perform some identifications in a ``criss-cross'' manner.
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{plumbing-two-circles-smoothed.pdf_tex}
+	\caption{A plumbing of two trivial bundles.}\label{fig:plumbing-two-circles}
+\end{figure}
+
+If $S^m_1$ and $S^m_2$ are wedged together at points $x_1$ and $x_2$,
+the bundles $D(\mathcal{E}_i)$ admit local trivializations on a tubular neighborhood $D^m \subset S^m_i$ of the point $x_i$, i.e. a disk.
+Since the fibers are also $D^m$, we get smooth embeddings of pairs $(D^m\times D^m, \partial D^m\times D^m)\subset (D(E_i),\partial D(E_i))$.
+Now we can identify the first disk factor of the first bundle with the second disk factor of the second bundle, and the second disk factor of the first bundle with the first disk factor of the second bundle (see \cref{fig:plumbing-two-circles} for an example). After smoothing out the corners, as described in \cref{rmk:smoothing-corners}, we get a smooth manifold in which $S_1^m$ and $S_2^m$ intersect transversally exactly once at $x_1=x_2$. More generally:
+
+\begin{definition}\label{def:plumbing}
+	Let $W_1$ and $W_2$ be manifolds with orientation preserving embeddings\,\footnote{Note that these are not neat embeddings, as is assumed for submanifolds throughout this thesis.}
+	\[\iota_i : (D^m\times D^m, \partial D^m\times D^m)\lkxto (W_i, \partial W_i).\]
+	The \defn{plumbing} of $W_1$ and $W_2$, denoted by $W_1\plumb W_2$, is the quotient space
+	\[
+		W_1\plumb W_2 = \frac{W_1\sqcup W_2}{\iota_1(x,y)\sim \iota_2(y,x).}
+	\]
+\end{definition}
+
+\begin{remark}\label{rmk:smoothing-corners}
+	The plumbing has an a priori smooth structure everywhere except at the corners which arise from the boundaries $\partial D^m\times \partial D^m$ in $W_1\plumb W_2$. The usual smoothing approach works here, see \cref{sec:smoothing-corners}.
+\end{remark}
+
+\begin{remark}
+	Since $D^m\times D^m$ is a tubular neighborhood of both $\{0\}\times D^m$ and $D^m\times\{0\}$, the plumbing of two disk bundles can be thought of as a join along an embedded fiber $D^m$ of $E_1$ and an chart $D^m\subset S^m\subset E_2$. Of course, the latter of these is not a (neat) submanifold because the boundary of $D^m$ maps to the interior of $E_2$. Consequently, there needs to be an additional step to smooth out the corners.
+\end{remark}
+
+Now let us study the intersection theory of the plumbed manifold. It's clear that the submanifolds $S_1^m$ and $S_2^m$ intersect transversally at a single point. The sign is determined by the orientation of horizontal and vertical disks in the embedding $\iota_i$. In particular, if we precompose $\iota_2$ by the product $D^m\times D^m\to D^m\times D^m$ of two orientation-reversing maps, the orientation of the plumbing reverses. For disk bundles $D(E_1)$ and $D(E_2)$, let us normalize the plumbing so that the intersection number $a\cdot b$ is $+1$ when we write $D(E_1)\plumb D(E_2)$, and $a\cdot b$ is $-1$ when we write $D(E_1)\plumb^{-1} D(E_2)$.
+
+\begin{remark}\label{rmk:plumbing-framing}
+	How does plumbing affect framing? Suppose $S_1^m$ and $S_2^m$ are spheres, with bundles $\mathcal{E}_1 = k_1\cdot \TT S^m$ and $\mathcal{E}_2=k_2\cdot \TT S^m$. Let $P=D(E_1)\plumb D(E_2)$ be the resulting plumbing. We have a decomposition
+	\begin{equation}\label{eq:plumbing-tangent-decomposition}
+		\TT P|_{D(E_i)} = \TT S^m_i\oplus k\cdot \TT S^m
+	\end{equation}
+	Since any sphere $S^m$ has a framing given by the unit normal field in $\R^{m+1}$, the bundle $\TT S^m\oplus\underline{\R}^1$ is trivial.
+	It follows from \cref{eq:plumbing-tangent-decomposition} that $\TT P\oplus \underline{\R}^1|_{D(E_i)}$ is trivial, and so $\TT P|_{S_i^m}$ is trivial. Since we constructed the manifold to be orientable, these trivializations are compatible and so it follows that $\TT P|_{S_1^m\vee S_2^m}$ is trivial. Since there is a homotopy equivalence $P\simeq S_1^m\vee S_2^m$, it follows that $\TT P$ is trivial as well. Consequently, $P$ admits a framing, see \cref{fig:framing-of-plumbed-manifold} for a visual example.
+	\begin{figure}[ht]
+		\centering
+		\import{diagrams}{placeholder.pdf_tex}
+		\caption{Framing on a plumbing}\label{fig:framing-of-plumbed-manifold}
+	\end{figure}
+\end{remark}
+
+Note that plumbing is an entirely local operation, so by choosing distinct embeddings we can plumb together multiple disk bundles, or plumb together two bundles at multiple points. Furthermore, each plumbing point introduces a single transverse intersection, affecting the global intersection number of a generating sphere by $\pm 1$.
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{placeholder.pdf_tex}
+	\caption{Plumbing two bundles at multiple points.}\label{fig:plumbing-at-multiple-points}
+\end{figure}
+We can therefore plumb together two bundles at multiple points with local intersection numbers either $+1$ or $-1$ to get an any integer global intersection number. See \cref{fig:plumbing-at-multiple-points} for an example. However, we must be careful to either plumb all points with positive orientation or all points with negative orientation. This ensures the manifold remains orientable and that the framing discussed in \cref{rmk:plumbing-framing} extends over the new plumbed region.
+These ideas lead us to some important constructive results of geometric topology which we lay out in a few pieces.
+
+\begin{proposition}\label{thm:plumbing-existence-theorem}
+	For $m>1$ and $Q$ any even, $(-1)^m$-symmetric, and indecomposable\,\footnote{This assumption removes a slight ambiguity from the statement of this theorem. Whenever there is a decomposition $Q=A\oplus B$, we can either take the connected sum $P^{2m}(A)\+P^{2m}(B)$ or boundary connected sum to get $(P^{2m}(A),\partial P^{2m}(A))\+ (P^{2m}(B),\partial P^{2m}(B))$ depending on our goals.} form, there exists a $2m$-dimensional framed manifold $P^{2m}(Q)$ with intersection form $Q$.
+\end{proposition}
+
+\begin{proof}
+	Let $\Lambda$ be the lattice on which $Q$ is defined, and assume we have a basis $\{e_1,\ldots, e_\ell\}$. To construct $P^{2m}(Q)$, start with spheres $S_1^m=S^m,\ldots, S_\ell^m=S^m$, and take the bundles $\mathcal{E}_1=(Q_{11}/2)\cdot \TT S^m_1,\ldots, \mathcal{E}_\ell=(Q_{\ell\ell}/2)\cdot \TT S^m_1$. Then for every $i<j$, we plumb together $D(E_i)$ with $D(E_j)$ with multiplicity $Q_{ij}$, resulting in $P^{2m}(Q)$.
+
+	Under a contraction of fibers, it is clear $P^{2m}(Q)$ deformation retracts onto a disjoint union of the spheres $S^m_i$ which are pairwise wedged together at $|Q_{ij}|$ points. We would like to simplify this homotopy type. First, we note that:
+	\begin{lemma}
+		For each integer $q\geq 1$, there is a homotopy equivalence
+		\[
+			S^m\vee^q S^m \simeq S^m\vee S^m \vee \bigvee_{q-1} S^1,
+		\]
+		where $S^m\vee^q S^m$ denotes the wedge sum of two $m$-spheres at $q$ points.
+	\end{lemma}
+
+	In particular, this means that $P^{2m}(Q)$ admits a deformation retract onto the space
+	\[
+		\underbrace{S^m\vee\cdots S^m}_{\ell}\vee \bigvee_N S^1.
+	\]
+	for some large enough $N$. It follows that $\H^m(P^{2m}(Q))$ is free abelian of rank $\ell$ (here the assumption that $m>1$ is useful) and that the intersection form of $P^{2m}(Q)$ is exactly $Q$. Furthermore, we get a framing on $P^{2m}(Q)$ by \cref{rmk:plumbing-framing}.
+\end{proof}
+
+The remaining work involves understanding the homotopy type of the boundary. Some of the proofs become a bit involved, and so we defer these to Section V.2 of \cite{browder1972surgery}.
+
+\begin{proposition}
+	There is a surjective map 
+	\[\pi_1(\partial P^{2m}(Q))\lkxsurj \pi_1(P^{2m}(Q))\]
+	with the latter group free. For $m>2$, the map is an isomorphism.
+\end{proposition}
+\begin{proof}
+	See Lemma V.2.4 of \cite{browder1972surgery}.
+\end{proof}
+
+\begin{remark}
+	For our purposes, we will only need to construct manifolds whose intersection forms have diagonal entries $\pm 2$ and off-diagonal entries $\{0,\pm 1\}$, and we only include the more general results for completeness. We could therefore assume that all bundles are $\pm \TT S^m$ and that two bundles are plumbed together at at most $1$ point. This assumption would simplify the proof of \cref{thm:plumbing-existence-theorem}.
+\end{remark}
+
+\begin{theorem}
+	\todo{If $Q$ is unimodular, then $\partial P^{2m}(Q)$ is a homotopy sphere in $\bP^{2m}$.}
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+We now have the task of searching for even, unimodular, indecomposable $(-1)^m$-symmetric bilinear forms over the integers. Any such form corresponds to a homotopy sphere in $2m$ dimensions. 
+
+\subsection{Lattices and Integral Bilinear Forms}
+
+A common source of symmetric bilinear forms over the integers arise from lattices in an inner product space, such as Euclidean or Lorentzian\footnote{i.e. equipped with a form of signature $(1,n-1)$.} space.
+If $(V,\langle -,-\rangle)$ is an inner product space, a lattice $\Lambda\subset V$ inherits the bilinear form $\langle -,-\rangle$. However, this form is generally not integer valued. 
+
+However, some specially constructed lattices do inherit an integer valued bilinear form. Even rarer are the unimodular lattices, i.e. lattices with unimodular inner product. Non-trivial examples of such unimodular lattices appear sporadically, and their algebraic and geometric complexity can be mapped to topological complexity via the intersection form. In particular, we will show in \cref{sec:plumbing} that a lattice with an even form always appears as the intersection form of some manifold. In this way, the ``exotic'' lattices discussed in this section map neatly to the direct construction of exotic spheres.
+
+\begin{definition} 
+	In Euclidean space $\R^\ell$ with basis $\{e_1,\ldots, e_\ell\}$ consider the lattice
+\[
+	\Gamma^\ell = \span\left\{\frac{1}{2}(e_1+\cdots + e_\ell), e_i+e_j \mid i<j\right\}.
+\]
+\end{definition}
+
+When $4\mid \ell$, the Euclidean inner product restricts to an integral bilinear form on this lattice since
+\[
+	\begin{aligned}
+		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), \frac{1}{2}(e_1+\cdots+e_\ell)\right\rangle & = \frac{\ell}{4},                                      \\
+		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), e_i+e_j\right\rangle                        & = 1,                                                   \\
+		\langle e_i+e_j, e_p +e_q\rangle                                                         & = \delta_{i,p}+\delta_{i,q}+\delta_{j,p}+\delta_{j,q},
+	\end{aligned}
+\]
+where $\delta$ denotes the Kronecker delta. Since the Euclidean inner product is positive-definite, so is the bilinear form of this lattice. When $8\mid\ell$, the bilinear form of this lattice is even, otherwise it is odd. 
+
+\begin{proposition}
+	There is a lattice isomorphism $\Gamma^8\cong E_8$.
+\end{proposition}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Mordell]
+	The lattice $\Gamma^8\cong E_8$ is the only even unimodular positive-definite lattice of rank $8$.
+\end{theorem}
+\begin{proof}
+	\todo{cite}
+\end{proof}
+
+\begin{definition}
+\todo{Leech lattice}
+\end{definition}
+
+\todo{kissing number problem}
+
+\subsection{The Arf Invariant}\label{sec:arf-invariant}
+
+For any bilinear form $\langle-,-\rangle$ on an $R$-module.
+
+
+We have talked at length about the signature and its role in classifying symmetric bilinear form. For skew-symmetric matrices, the signature is 
+
+\begin{definition}
+\end{definition}
+
+\subsection{Graphs and Integral Bilinear Forms}
+First, let us introduce a bit of notation which can simplify the large matrices which can arise when dealing with intersection forms. While plumbing from a matrix is a nice general way to build a manifold with a given intersection form, many examples we consider arise from a graph. This connection between plumbing matrices and graphs was noticed by Hirzebruch.
+
+\begin{definition}
+	A \defn{graph} $G$ is a finite connected $1$-dimensional simplicial complex.
+	A \defn{weighted graph}[graph (weighted)] is a pair $(G,w)$ consisting of a graph $G$ and a map $w : \Vert(G) \to \Z$ assigning a \defn{weight} $w(v)\in \Z$ to each vertex $v$ of the graph.
+\end{definition}
+
+Given a graph $G$ with vertices $\{e_1,\ldots, e_\ell\}$ and integral weights $w$, consider the $(-1)^m$-symmetric matrix given by
+\[
+	Q_{ij} = \begin{cases}
+		w(e_i)    & i=j,                       \\
+		(\pm 1)^m & (i,j)\in \textrm{Edge}(T), \\
+		0         & \textrm{otherwise}.
+	\end{cases}
+\]
+In the skew-symmetric case, we adopt the convention that the upper-triangular part of the matrix is positive. We denote the manifold resulting from the plumbing as $P^{2m}(G)$.
+
+\begin{remark}
+	Note that the matrix corresponding to a (connected) graph is indecomposable.
+\end{remark}
+
+\begin{remark}
+	There are various modifications of this notion in the literature. For instance, in Section~8 of \cite{hirzebruch1971quadratic}, graph has weights in the group $\pi_{m-1}(\SO_m)$ instead of $\Z$.
+\end{remark}
+
+Note that if $Q$ is a matrix associated to a graph $G$, the plumbing $P(Q)$ has a $1$-skeleton which is homotopy equivalent to $G$
+It's interesting to note that if $Q$ is a matrix associated to a tree $T$, then $P(Q)$ has a $1$-skeleton homotopy equivalent to $T$. 
+It makes sense then why we would care about matrices arising from trees instead of from general graphs which may contain cycles -- cycles break the simple-connectedness of the constructed manifold and are thereby much more complicated to work with.
+
+\begin{definition}
+	A \defn{tree} is a simply-connected graph, i.e. a graph with no cycles.
+\end{definition}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		\tikzset{dynode/.style={circle, draw, fill=black,
+					minimum size=4pt, inner sep=0pt}}
+		\tikzset{dyline/.style={line width=1pt}}
+		\tikzset{dydash/.style={line width=1pt, dashed}}
+
+		\begin{scope}[yshift=0, xshift=22em]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a2) at (0.5,0) {};
+			\node[dynode] (a3) at (1,0) {};
+			\node[dynode] (a4) at (1.5,0) {};
+			\node[dynode] (a5) at (2,0) {};
+			\node[dynode] (a6) at (2.5,0) {};
+			\node[dynode] (a7) at (3,0) {};
+			\node[dynode] (a8) at (2,0.5) {};
+
+			\draw[dyline] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- (a7);
+			\draw[dyline] (a5) -- (a8);
+
+			\node[] (l) at (1.75,-0.5) {$\E_8$};
+		\end{scope}
+
+		\begin{scope}[yshift=0, xshift=10em]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a2) at (0.5,0) {};
+			\node[dynode] (a3) at (1,0) {};
+			\node[dynode] (a4) at (1.5,0) {};
+			\node[dynode] (a5) at (2,0) {};
+			\node[dynode] (a6) at (2.5,0) {};
+			\node[dynode] (a8) at (1.5,0.5) {};
+
+			\draw[dyline] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6);
+			\draw[dyline] (a4) -- (a8);
+
+			\node[] (l) at (1.5,-0.5) {$\E_7$};
+		\end{scope}
+
+		\begin{scope}[yshift=0, xshift=0]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a2) at (0.5,0) {};
+			\node[dynode] (a3) at (1,0) {};
+			\node[dynode] (a4) at (1.5,0) {};
+			\node[dynode] (a5) at (2,0) {};
+			\node[dynode] (a8) at (1,0.5) {};
+
+			\draw[dyline] (a1) -- (a2) -- (a3) -- (a4) -- (a5);
+			\draw[dyline] (a3) -- (a8);
+
+			\node[] (l) at (1,-0.5) {$\E_6$};
+		\end{scope}
+
+		\begin{scope}[yshift=5em, xshift=3em]
+			\node[dynode] (a1) at (0,0) {};
+			\node[dynode] (a3) at (0.5,0) {};
+			\node[dynode] (a4) at (1,0) {};
+			\node[dynode] (a5) at (2.5,0) {};
+			\node[dynode] (a6) at (3.0,0) {};
+
+			\draw[dyline] (a1) -- (a3) -- (a4);
+			\draw[dydash] (a4) -- (a5);
+			\draw[dyline] (a5) -- (a6);
+
+			\node[] (l) at (1.75,-0.5) {$\mathrm{A}_n$};
+		\end{scope}
+
+		\begin{scope}[yshift=5em, xshift=17em]
+			\node[dynode] (a1) at (0,0.4) {};
+			\node[dynode] (a2) at (0,-0.4) {};
+			\node[dynode] (a3) at (0.5,0) {};
+			\node[dynode] (a4) at (1,0) {};
+			\node[dynode] (a5) at (2.5,0) {};
+			\node[dynode] (a6) at (3.0,0) {};
+
+			\draw[dyline] (a1) -- (a3);
+			\draw[dyline] (a2) -- (a3);
+			\draw[dyline] (a3) -- (a4);
+			\draw[dydash] (a4) -- (a5);
+			\draw[dyline] (a5) -- (a6);
+
+			\node[] (l) at (1.75,-0.5) {$\mathrm{D}_n$};
+		\end{scope}
+	\end{tikzpicture}
+	\vspace{1em}
+	\caption{Dynkin diagrams associated to simple Lie groups.} \label{fig:dynkin-diagram-trees}
+\end{figure}
+
+A rich source of trees by which to construct plumbed manifolds are the Dynkin diagrams associated to root systems, see \cref{fig:dynkin-diagram-trees} for the complete set of undirected Dynkin diagrams. There is a deep connection between Dynkin diagrams and the classification of simple Lie groups -- $\mathrm{A}_n$ corresponds to $\SU_{n+1}$, $\mathrm{D}_n$ corresponds to $\SO_{2n}$, and $\E_6, \E_7, \E_8$ correspond to exceptional Lie groups of dimensions 78, 133, and 248 respectively.
+A complete discussion of this beautiful topic would take us too far afield, so we refer to Chapter~21 of Fulton and Harris's book \cite{fultonharris1991representation} or to Chapter~3 of Humphrey's book \cite{humphreys1972representation}.
+
+\begin{example}
+	If we weight each vertex by $2$, the symmetric bilinear form associated to the $\E_8$ Dynkin diagram has the matrix form
+	\[
+		\begin{tikzpicture}
+			\tikzset{dynode/.style={circle, draw, fill=black,
+						minimum size=4pt, inner sep=0pt}}
+			\tikzset{dyline/.style={line width=1pt}}
+			\tikzset{dydash/.style={line width=1pt, dashed}}
+
+			\begin{scope}[yshift=-10em, xshift=0]
+				\node[dynode] (a1) at (0,0) {};
+				\node[dynode] (a2) at (0.5,0) {};
+				\node[dynode] (a3) at (1,0) {};
+				\node[dynode] (a4) at (1.5,0) {};
+				\node[dynode] (a5) at (2,0) {};
+				\node[dynode] (a6) at (2.5,0) {};
+				\node[dynode] (a7) at (3,0) {};
+				\node[dynode] (a8) at (2,0.5) {};
+
+				\draw[dyline] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- (a7);
+				\draw[dyline] (a5) -- (a8);
+			\end{scope}
+		\end{tikzpicture}
+		\quad\lkxto\quad
+		\begin{pmatrix}
+			2 & 1 &   &   &   &   &   &   \\
+			1 & 2 & 1 &   &   &   &   &   \\
+			  & 1 & 2 & 1 &   &   &   &   \\
+			  &   & 1 & 2 & 1 &   &   &   \\
+			  &   &   & 1 & 2 & 1 & 0 & 1 \\
+			  &   &   &   & 1 & 2 & 1 & 0 \\
+			  &   &   &   & 0 & 1 & 2 & 0 \\
+			  &   &   &   & 1 & 0 & 0 & 2 \\
+		\end{pmatrix}
+	\]
+	We will call this the \defn{$E_8$ matrix}.
+\end{example}
+
+This matrix is extremely important in differential topology for the following reason:
+\begin{proposition}
+	The $E_8$ matrix is even, and positive definite, and unimodular.
+\end{proposition}
+\begin{proof}
+	Evenness and positive definiteness are immediate. For the determinant, we could compute it by hand using a series of row/column operations of the form $Q\mapsto PQP^\intercal$ to get
+	\[
+		\begin{pmatrix}
+			2 & 1 &   &   &   &   &   &   \\
+			1 & 2 & 1 &   &   &   &   &   \\
+			  & 1 & 2 & 1 &   &   &   &   \\
+			  &   & 1 & 2 & 1 &   &   &   \\
+			  &   &   & 1 & 2 & 1 & 0 & 1 \\
+			  &   &   &   & 1 & 2 & 1 & 0 \\
+			  &   &   &   & 0 & 1 & 2 & 0 \\
+			  &   &   &   & 1 & 0 & 0 & 2 \\
+		\end{pmatrix}
+		\lkxto
+		\begin{pmatrix}
+			2 &             &             &             &              &             &             &   \\
+			  & \frac{3}{2} &             &             &              &             &             &   \\
+			  &             & \frac{4}{3} &             &              &             &             &   \\
+			  &             &             & \frac{5}{4} &              &             &             &   \\
+			  &             &             &             & \frac{7}{10} &             &             &   \\
+			  &             &             &             &              & \frac{4}{7} &             &   \\
+			  &             &             &             &              &             & \frac{1}{4} &   \\
+			  &             &             &             &              &             &             & 2 \\
+		\end{pmatrix}
+	\]
+\end{proof}
+
+\begin{remark}\label{rmk:E8-manifold}
+	The $E_8$ matrix implies that there exists a closed orientable topological $4$-manifold with no smooth structure. \todo{explain} \cite{freedman1982manifold}
+\end{remark}
+
+\todo{finish}
+
+\subsection{Skew-Symmetric Bilinear Forms}
+
+In the case of skew-symmetric bilinear forms, the structure is far simpler.
+

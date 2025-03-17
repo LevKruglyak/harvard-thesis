@@ -54,8 +54,9 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{unoriented-cobordism-Z2.pdf}}%
-    \put(0.46573953,0.22613779){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M\times[0,1]$\end{tabular}}}}%
-    \put(0.22973578,0.02952815){\color[rgb]{0,0,0.96862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
-    \put(0.78317623,0.03184298){\color[rgb]{0,0,0.96862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
+    \put(0.39364758,0.02319696){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M\times[0,1]$\end{tabular}}}}%
+    \put(0.59135927,0.13612294){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\emptyset$\end{tabular}}}}%
+    \put(0.31804803,0.19025545){\color[rgb]{0,0,0.96862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
+    \put(0.31804803,0.08840753){\color[rgb]{0,0,0.96862745}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

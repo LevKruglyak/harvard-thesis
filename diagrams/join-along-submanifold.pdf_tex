@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'connected-sum.pdf' (pdf, eps, ps)
+%% Accompanies image file 'join-along-submanifold.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{431.99996567bp}%
+    \setlength{\unitlength}{451.89091873bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,13 +50,14 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.33333336)%
+  \begin{picture}(1,0.29048648)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{connected-sum.pdf}}%
-    \put(0.11043449,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1$\end{tabular}}}}%
-    \put(0.35412979,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
-    \put(0.69091487,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1\+M_2$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{connected-sum.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{join-along-submanifold.pdf}}%
+    \put(0.15152733,0.27121527){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
+    \put(0.68993105,0.26637423){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1\cup_N M_2$\end{tabular}}}}%
+    \put(0.35341235,0.27007189){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
+    \put(-0.00184229,0.27175441){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$N$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{join-along-submanifold.pdf}}%
   \end{picture}%
 \endgroup%

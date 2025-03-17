@@ -25,7 +25,7 @@ A tubular neighborhood should be thought of as a way of ``thickening'' the subma
 
 \begin{figure}[ht]
 	\centering
-	\import{diagrams}{placeholder.pdf_tex}
+	\import{diagrams}{tubular-neighborhood.pdf_tex}
 	\caption{Tubular neighborhoods of some submanifolds.}\label{fig:tubular-neighborhood}
 \end{figure}
 
@@ -66,8 +66,8 @@ In a similar vein, when we have just a manifold $M^n$, a \defn{collar neighborho
 
 \begin{figure}[ht]
 	\centering
-	\import{diagrams}{placeholder.pdf_tex}
-	\caption{Collar neighborhoods.}\label{fig:collar-neighborhoods}
+	\import{diagrams}{collar-neighborhood.pdf_tex}
+	\caption{A collar neighborhood.}\label{fig:collar-neighborhoods}
 \end{figure}
 
 \subsection{Joining Two Manifolds Along a Submanifolds}
@@ -84,7 +84,7 @@ for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in S^{n-k-1}\subset \R
 
 \begin{figure}[ht]
 	\centering
-	\import{diagrams}{placeholder.pdf_tex}
+	\import{diagrams}{join-along-submanifold.pdf_tex}
 	\caption{A join of two manifolds along a submanifold.}\label{fig:join-along-submanifold}
 \end{figure}
 
@@ -110,9 +110,6 @@ for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in S^{n-k-1}\subset \R
 \begin{theorem}
 	Up to orientation-preserving diffeomorphism, the join of manifolds along a submanifold is independent of the choices of tubular neighborhood.
 \end{theorem}
-\begin{proof}
-	\todo{cite}
-\end{proof}
 
 \subsection{Connected Sum}\label{sec:connected-sum}
 
@@ -130,7 +127,7 @@ Visually, this operation can be thought of as cutting disks out of both manifold
 
 \begin{figure}[ht]
 	\centering
-	\import{diagrams}{placeholder.pdf_tex}
+	\import{diagrams}{connected-sum.pdf_tex}
 	\caption{A connected sum of two surfaces.}\label{fig:connected-sum}
 \end{figure}
 
@@ -202,7 +199,7 @@ There is an operation related to the join of two manifolds along a submanifold w
 \end{definition}
 \begin{figure}[ht]
 	\centering
-	\import{diagrams}{placeholder-small.pdf_tex}
+	\import{diagrams}{doubling-manifold.pdf_tex}
 	\caption{A doubling of a manifold.}
 \end{figure}
 Note that the image of $\partial M$ in the doubling $M\cup_{\partial M} M$ is a submanifold. We can glue the images of the left and right collar neighborhoods to get a tubular neighborhood for $\partial M$ in the doubling $M\cup_{\partial M} M$.
@@ -212,17 +209,17 @@ In the setup for the join operation, we can then double the manifolds $M_1$ and 
 	To simplify the verification of technical details, we require that the tubular neighborhoods chosen for $N$ in the doubled manifolds should be restrictions of the tubular neighborhood of $\partial M_i$. Since the boundary has codimension $1$, its tubular neighborhood is a line bundle and hence the removal of the zero section gives two disconnected components. This observation is what allows us to perform the separation back to a manifold with boundary.
 \end{remark}
 
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{placeholder.pdf_tex}
-	\caption{A boundary connected sum of two manifolds.}\label{fig:boundary-connected-sum}
-\end{figure}
-
 The main application of the operation of a join along a boundary submanifold is when we would like to take the connected sum of two manifolds with non-empty boundary while keeping their boundary connected. In this case, rather than joining along a point in the interior of the manifold like in the case of connected sum, we join along a point on the boundary.
 
 \begin{definition}
 	If two manifolds $M_1$ and $M_2$ have connected boundaries, their \defn{boundary connected sum} is their join along an embedded point of their boundaries. We denote this operation $(M_1,\partial M_1)\+ (M_2,\partial M_2)$.
 \end{definition}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{boundary-connected-sum.pdf_tex}
+	\caption{A boundary connected sum of two manifolds.}\label{fig:boundary-connected-sum}
+\end{figure}
 
 In fact, this operation restricts to an ordinary connected sum on the boundary itself.
 

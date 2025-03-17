@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'connected-sum.pdf' (pdf, eps, ps)
+%% Accompanies image file 'complex-projective-intersection.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,10 +53,12 @@
   \begin{picture}(1,0.33333336)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{connected-sum.pdf}}%
-    \put(0.11043449,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1$\end{tabular}}}}%
-    \put(0.35412979,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
-    \put(0.69091487,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1\+M_2$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{connected-sum.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{complex-projective-intersection.pdf}}%
+    \put(0.19757096,0.27928707){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$W$\end{tabular}}}}%
+    \put(0.3346457,0.00463248){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\C^{2m+1}$\end{tabular}}}}%
+    \put(0.70017267,0.00533981){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\CP^{2m}$\end{tabular}}}}%
+    \put(0.30729927,0.28749207){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$U$\end{tabular}}}}%
+    \put(0.56893906,0.18072681){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbb{P}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{complex-projective-intersection.pdf}}%
   \end{picture}%
 \endgroup%
