@@ -345,109 +345,9 @@ That being said, we will not need to address these technicalities in our thesis 
 	where the first is the representability of singular cohomology by the Eilenberg-Maclane spectrum, the second identifies $\CP^\infty$ as a $K(\Z,2)$ space, and the third uses the cellular approximation theorem to slide maps onto the $4$-skeleton. Any cohomology cycle $\omega\in \H^2(M)$ can be represented by a smooth function $f : M \to \CP^2$. If we choose this function to be transverse to $\CP^1\subset \CP^2$, then $f^{-1}(\CP^1)$ is an embedded $2$-dimensional submanifold of $M$ which corresponds to a Poincar\'e dual class to $\omega$. When $X$ is a compact manifold, Poincar\'e duality tells us that all $2$-dimensional homology cycles arise from $2$-dimensional cohomology cycles and can thus be represented by embedded submanifolds. This is one example of the attractiveness of $4$-manifolds as geometric objects of study.
 \end{remark}
 
-\todo{give general conditions for representability}
+% The main reason for our discussion
+\todo{explain why we care about representing homology classes by submanifolds}
 
-\begin{theorem}[Preimage Theorem]\label{thm:preimage}
-	If $f : N \to X$ is a smooth map transverse to a submanifold $M\subset X$ then $S=f^{-1}(M)\subset N$ is a submanifold with the same codimension in $N$ as $M$ in $X$.
-\end{theorem}
-\begin{proof}
-	See the proof of Theorem~6.30 in \cite{lee2013smooth}.
-\end{proof}
-
-\begin{remark}\label{rmk:symmetric-preimage-theorem}
-	We can get a symmetric version of this theorem as a straightforward corollary. If we have two transverse maps $f : N\to X$ and $g : M\to X$, then the map $f\times g : N\times M \to X\times X$ is transverse to the diagonal submanifold $\Delta\subset X\times X$. \cref{thm:preimage} will then imply that
-	\[
-		(f\times g)^{-1}(\Delta) \subset M\times N
-	\]
-	is a submanifold. When $g$ is an embedding, $(f\times g)^{-1}(\Delta)$ can be projected down onto $M$ to get the preimage $f^{-1}(M)$.
-\end{remark}
-
-If the manifolds involved in \cref{thm:preimage} are orientable, this preimage $S$ admits a canonical orientation by the following procedure. First of all, recall that for any embedded manifold $M\subset X$ there is an exact sequence of vector bundles by quotienting
-\begin{equation}\label{eq:oriented-intersection-number-1}
-	\begin{tikzcd}
-		0 & {\TT M} & {\TT X}|_M & {\TT X/M} & 0
-		\arrow[from=1-1, to=1-2]
-		\arrow[from=1-2, to=1-3]
-		\arrow[from=1-3, to=1-4]
-		\arrow[from=1-4, to=1-5]
-	\end{tikzcd}
-\end{equation}
-where $\TT X/M$ is the normal bundle of $M\subset X$. Using the orientations of $X$ and $M$, we can use this exact sequence to get an orientation of the normal bundle $\TT X/M$. At every point $p\in S$ of the preimage, the differential map $df$ connects the sequence \cref{eq:oriented-intersection-number-1} to the normal bundle sequence for the embedding $S\subset N$.
-\begin{equation}\label{eq:oriented-intersection-number-2}
-	\begin{tikzcd}
-		0 & {\T_pS} & {\T_p N} & {\T_p N/S} & 0 \\
-		0 & {\T_{f(p)}M} & {\T_{f(p)}X} & {\T_{f(p)}X/M} & 0
-		\arrow[from=1-1, to=1-2]
-		\arrow[from=1-2, to=1-3]
-		\arrow["{df_p}", from=1-2, to=2-2]
-		\arrow[from=1-3, to=1-4]
-		\arrow["{df_p}", from=1-3, to=2-3]
-		\arrow[from=1-4, to=1-5]
-		\arrow["{df_p}", from=1-4, to=2-4]
-		\arrow[from=2-1, to=2-2]
-		\arrow[from=2-2, to=2-3]
-		\arrow[from=2-3, to=2-4]
-		\arrow[from=2-4, to=2-5]
-	\end{tikzcd}
-\end{equation}
-In this diagram \cref{eq:oriented-intersection-number-2}, the rightmost vertical map is an isomorphism by the transversality of $f$ and $M$. This means that we can pullback the orientation on $\T_{f(p)} X/M$ to $\T_p N/S$. Since $\T_p N$ is oriented, the usual ``2-out-of-3'' rule applied to the top row of \cref{eq:oriented-intersection-number-2} gives an orientation of $\T_p S$. See \cref{fig:preimage-orientation} for an example of this orienting procedure.
-
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{preimage-orientation.pdf_tex}
-	\caption{Orienting a preimage (assuming a clockwise orientation on $X$ and $N$).}\label{fig:preimage-orientation}
-\end{figure}
-
-When $M$ and $N$ have complementary dimensions, the preimage $S=f^{-1}(N)\subset M$ is a compact oriented $0$-dimensional manifold. For each point $p\in S$, we have $\T_p S=0$ so the map $\T_p N\to \T_p N/S$ in \cref{eq:oriented-intersection-number-2} is an isomorphism. The orientation of $N$ gives an orientation of $\T_p N$, and the preimage orientation procedure gives us an orientation of $\T_p N/S$. Now we can define:
-
-\begin{definition}
-	The \defn{local intersection number}[oriented intersection number (local)] of $f$ and $M$ at $p\in S$ is
-	\[
-		I_p(f, M) = \begin{cases}
-			+1 & \T_p N/S \textrm{ has the same orientation as } \T_p N,     \\
-			-1 & \T_p N/S \textrm{ has the opposite orientation to } \T_p N.
-		\end{cases}
-	\]
-\end{definition}
-Summing over all of the local intersection numbers gives a global quantity.
-\begin{definition}
-	The \defn{(oriented) intersection number}[oriented intersection number] of a smooth map $f : N \to X$ intersecting a submanifold $M\subset X$ transversally is
-	\[
-		I(f, M) = \sum_{p\in S} I_p(f, M) \in \Z.
-	\]
-\end{definition}
-
-\begin{remark}\label{rmk:symmetric-intersection-number}
-	For a more symmetric version of this definition when two smooth maps $f : N \to X$ and $g : M \to X$ intersect transversally, we use \cref{rmk:symmetric-preimage-theorem} to define the oriented intersection number of the smooth maps $f$ and $g$ as
-	\[
-		I(f,g) = I(f\times g, \Delta).
-	\]
-	This symmetric intersection number is graded-commutative in the dimensions of $M$ and $N$:
-	\begin{equation}\label{eq:intersection-number-graded-commutative}
-		\#^X(f,g) = (-1)^{\dim M\cdot \dim N} \#^X(g,f)
-	\end{equation}
-\end{remark}
-
-Just as the property of transversality is stable -- resilient to homotopic perturbations -- so too is the oriented intersection number. This follows as a corollary to a more general theorem.
-
-\begin{theorem}
-	If $W$ is a compact oriented manifold with boundary, and $H : W \to X$ is a smooth map, then $\#^X(\partial H, M)=0$. Here, we use the notation $\partial H : \partial W \to X$ to refer to the restriction of $H$ to the boundary of $W$.
-\end{theorem}
-
-\begin{corollary}
-	If $H : [0,1]\times N \to X$ is a smooth homotopy, then $I(H_0, M) = I(H_1, M)$.
-\end{corollary}
-
-\begin{remark}
-	If we don't assume orientations, we can still get a homotopy invariant intersection number, however we must reduce mod $2$. In this case, we could simply define
-	\[
-		\widetilde{I}(f,M) = |S|\mod 2.
-	\]
-	This is called the \defn{unoriented intersection number}.
-	\todo{elaborate}
-\end{remark}
-
-Applying the construction of the symmetric oriented intersection number gives a map
 \begin{equation}\label{eq:oriented-intersection-number-homotopy}
 	\lkxfunc{I}{[N,X]\times [M,X]}{\Z}{f,g}{I(f,g)}
 \end{equation}
@@ -460,31 +360,6 @@ This leads to a geometric version of the intersection form:
 \begin{proof}
 	\todo{cite}
 \end{proof}
-
-
-Finally, we'll state a useful result in computing self-intersection numbers -- a way to compute the intersection number of a submanifold with itself. This relates to the Euler number of its tubular neighborhood, a characteristic number for vector bundles which we define in \cref{sec:euler-class}.
-
-\begin{theorem}\label{thm:euler-number-self-intersection-corollary}
-	The Euler number $\chi(\mathcal{E})$ of an oriented real vector bundle $\mathcal{E} : E \to B$ over a compact oriented manifold can be expressed as the intersection number
-	\[
-		I(z,z) = \chi(\mathcal{E})
-	\]
-	where $z : B \to E$ is the zero section.\footnote{We might consider intersections done in the disk bundle associated to $\mathcal{E}$ so that all manifolds remain compact.}
-\end{theorem}
-\begin{proof}
-	\todo{cite}
-\end{proof}
-
-\begin{corollary}\label{thm:euler-number-self-intersection}
-	If $M$ is a closed $m$-dimensional submanifold of a $2m$-dimensional submanifold $X$ then we have
-	\[
-		I(M, M) = \chi(\TT X/M)
-	\]
-	where $\chi(\TT X/M)$ is the Euler number of the normal bundle of $M$.
-\end{corollary}
-
-\todo{add 1.C from \cite{levine1985lectures}}
-
 
 \subsection{Intersection Form Invariants}\label{sec:intersection-form-invariants}
 
@@ -657,15 +532,15 @@ In fact, $E_8$ has the smallest size for a non-trivial bilinear form satisfying 
 \begin{proof}
 \end{proof}
 
-\begin{figure}
-	\centering
-	\begin{tabular}{cc|c}
-		& \textrm{odd} & \textrm{even}\\
-		\textrm{definite} & $(1)^p\oplus (-1)^q\oplus$ & \todo{add examples}\\
-		\hline
-		\textrm{indefinite} & $\oplus^r E_8\oplus^{s>0} H$ & 
-	\end{tabular}
-	\caption{Table of symmetric unimodular bilinear forms.}\label{fig:unimodular-symmetric-bilinear-forms}
-\end{figure}
-
-\todo{finish this}
+% \begin{figure}
+% 	\centering
+% 	\begin{tabular}{cc|c}
+% 		& \textrm{odd} & \textrm{even}\\
+% 		\textrm{definite} & $(1)^p\oplus (-1)^q\oplus$ & \todo{add examples}\\
+% 		\hline
+% 		\textrm{indefinite} & $\oplus^r E_8\oplus^{s>0} H$ & 
+% 	\end{tabular}
+% 	\caption{Table of symmetric unimodular bilinear forms.}\label{fig:unimodular-symmetric-bilinear-forms}
+% \end{figure}
+%
+% \todo{finish this}

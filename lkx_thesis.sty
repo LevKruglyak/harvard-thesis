@@ -38,6 +38,13 @@
 \tikzcdset{every arrow/.append style = -{Computer Modern Rightarrow[width=6.7pt,length=3pt]}}
 \tikzcdset{leftrightarrow/.append style= {Computer Modern Rightarrow[width=6.7pt, length=3pt]}-{Computer Modern Rightarrow[width=6.7pt, length=3pt]}}
 
+\newcommand{\snakenode}[1]{\ar[draw=none]{d}[name=#1, anchor=center]{}}
+\newcommand{\snakearrow}[1]{\ar[rounded corners,
+     to path={ -- ([xshift=2ex]\tikztostart.east)
+               |- (#1.center) \tikztonodes
+               -| ([xshift=-2ex]\tikztotarget.west)
+             -- (\tikztotarget)}]{dll}[at end]{}}
+
 % Debug
 \newcommand{\todo}[1]{{\color{red}{#1}}}
 
@@ -133,6 +140,8 @@
 \DeclareMathOperator{\Sq}{Sq}
 \DeclareMathOperator{\Fl}{Fl}
 \DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\sgn}{sgn}
 
 \newcommand{\EU}{\mathcal{E}\mathrm{U}}
 
@@ -152,6 +161,7 @@
 
 \newcommand{\id}{\mathrm{id}}
 
+\newcommand{\so}{\mathrm{so}}
 \newcommand{\GL}{\mathrm{GL}}
 \newcommand{\Sp}{\mathrm{Sp}}
 \newcommand{\U}{\mathrm{U}}

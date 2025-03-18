@@ -1,0 +1,251 @@
+\pagebreak
+\section{The Euler Class}
+
+A beautiful link between intersection theory and geometry comes from the Euler number, a characteristic number of oriented real vector bundles. Due to the massive number of generalizations and equivalent definitions of the Euler, we settle with giving a brief survey of some of the most fundamental perspectives which will be useful throughout the thesis.
+
+The first realization of the Euler number dates back to at least the 18th century, where it was noticed by Euler that any convex polyhedron satisfies $V-E+F=2$ for $V$ the number of vertices, $E$ the number of edges, and $F$ the number of faces. 
+It turns out that the quantity $V-E+F$ is a topological invariant for any polyhedron, and convexity here restricts the topology of the polyhedron to be spherical.
+For instance, any polyhedron homeomorphic to a torus has $V-E+F=0$. 
+This quantity is known as the Euler number, and is the starting point for a large tree generalizations in mathematics. 
+The simplest such generalization is in terms of Betti numbers and homology.
+
+\begin{definition}
+  The \defn{Euler number} of an $n$-dimensional manifold $M$ is
+  \[
+    \chi(M) = \beta_0 - \beta_1 + \beta_2 - \beta_3 + \cdots + (-1)^n\beta_n = \sum_{k\geq 0} \dim \H_k(M; \Q).
+  \]
+\end{definition}
+
+\begin{proposition}
+  If $M_1\simeq M_2$ are homotopic, then $\chi(M_1)=\chi(M_2)$.
+\end{proposition}
+
+The standard examples are:
+
+\begin{example}
+  The Euler number of a sphere is $\chi(S^n)=1+(-1)^n$.
+\end{example}
+
+\begin{example}
+  For a compact surface $X_g$ of genus $g$, we have $\chi(X_g)=2-2g$.
+\end{example}
+
+\begin{proposition}
+  For any closed manifolds $M_1^n$, $M_2^n$, we have 
+  \[\chi(M_1\+M_2)=\chi(M_1)+\chi(M_2)-\chi(S^n).\]
+\end{proposition}
+
+\begin{proposition}
+  For any closed manifolds $M$, $N$, we have $\chi(M\times N)=\chi(M)\cdot \chi(N)$.
+\end{proposition}
+
+We will now discuss several perspectives on the Euler number which will arise throughout this thesis. Unfortunately, this short set is far from complete. Not included in this section are the perspectives of the Euler number (and Euler class) 
+\begin{enumerate}[(a)]
+  \item as the primary homotopic obstruction to a section on a sphere bundle,
+  \item as a Lefschetz number of the identity map,
+  \item as a Thom class of an oriented vector bundle,
+  \item as a universal cohomology class in $\H^{2m}(\BSO_n; \Q)$,
+  \item as a transgression of the \v{C}ech-de Rham or Leray-Serre spectral sequence,
+  \item as the index of the Hodge-de Rham elliptic differential operator,
+  \item in terms of the Riemann-Roch theorems,
+\end{enumerate}
+and many more. 
+
+\begin{remark}
+  For any undergraduates reading this, an idea for a senior thesis project could be to write a unified treatise on these different perspectives, filled with examples and proofs of equivalence. I would love to read such a thesis, please contact me if you end up writing it.
+\end{remark}
+
+\subsection{The Euler Number as an Intersection Number}\label{sec:euler-number-intersection}
+
+The primary interpretation of the Euler number for us is as an intersection number, specifically as a self-intersection number. Combined with the other perspectives on the Euler number in this section, this gives us a powerful way to compute the diagonal entries in an intersection form. We begin with the following theorem: 
+\begin{theorem}\label{thm:euler-number-diagonal-intersection}
+  Let $M^n$ be a closed oriented manifold, and let $\Delta\subset M\times M$ be the diagonal. 
+  Then we have
+  \[
+    \chi(M) = I(\Delta, \Delta),
+  \]
+  where $I(\Delta,\Delta)$ is the self-intersection number of $\Delta$ in $M\times M$.
+\end{theorem}
+\begin{proof}
+  Let $\{\alpha^i\}\subset \H^\bullet(M; \Q)$ be a graded basis of the cohomology ring and let $\{a_i\}$ be the Poincar\'e dual basis in cohomology, i.e. $(\alpha_i\smile \alpha^j)[M]=\delta^j_i$. By the K\"unneth theorem, we have a ring isomorphism
+  \[
+    \H^{k}(M\times M) \cong \bigoplus_{p+q=k} \H^p(M)\otimes \H^q(M).
+  \]
+  The Poincar\'e dual for the homology class $[\Delta]\in \H_{n}(M\times M)$ is given by
+  \[
+      \mathrm{PD}([\Delta]) = \sum_{i\geq 1}(-1)^{|\alpha_i|}\alpha_i\otimes \alpha^i,
+  \]
+  \todo{finish}
+\end{proof}
+
+This theorem gives a way to define the Euler number of any vector bundle, not just the tangent bundle of a manifold. Note that the tangent bundle of $M$ is isomorphic to the normal bundle of $\Delta$ in $M\times M$. If $M$ was embedded in an oriented $2n$-dimensional manifold $X$ instead of in $M\times M$, we might define the Euler number of its normal bundle to be
+\[
+    \chi(\TT X/M) = I(M,M).
+\]
+Such a definition would recover the original definition o the Euler number by \cref{thm:euler-number-diagonal-intersection}. In a general oriented rank $n$ vector bundle $\mathcal{E} : E \to M$, we can consider the zero section $z : M \to E$ to be an embedding. This leads us to the following definition:
+
+\begin{definition}\label{def:euler-number-self-intersection}
+  If $\mathcal{E}^{2m}$ is an oriented real vector bundle over a compact manifold $M$, 
+	the Euler number $\chi(\mathcal{E})$ is the intersection
+	\[
+		\chi(\mathcal{E}) = I(z,z)
+	\]
+	where $z : B \to E$ is the zero section.\footnote{We might consider intersections done in the disk bundle associated to $\mathcal{E}$ so that all manifolds remain compact.}
+\end{definition}
+
+\subsection{The Euler Number as a Geometric Invariant}\label{sec:euler-number-geometric}
+
+A more geometric perspective on the Euler number was first noticed (independently) by Carl Friedrich Gauss and Pierre Bonnet in the mid 19th century. In addition to the topological perspective outline above, the Euler number can be viewed as an invariant of Riemannian structure on a manifold.
+
+\begin{theorem}[Gauss-Bonnet]
+  Let $M$ be a closed orientable two-dimensional Riemannian manifold with Gaussian curvature $K$. Then we have
+  \[
+    \chi(M) = \frac{1}{2\pi}\int_M K\,dA
+  \]
+  where $dA$ is an area form on $M$.
+\end{theorem}
+For instance, the sphere of radius $R$ has constant Gaussian curvature $K=1/R^2$ and surface area $4\pi R^2$. This gives $\int_{S^2}K\,dA =4\pi R^2/R^2=4\pi$ which is exactly $2\pi\cdot \chi(S^2)$.
+
+In higher dimensions, there is an elegant generalization due to Chern in the mid 1940s, where the ``existence'' of the Euler number as a topological invariant was directly linked to the existence of a ``square root'' for the determinant of a skew-symmetric matrix.\footnote{Here we mean existence as a characteristic class independent from the Pontryagin classes for oriented real vector bundles, discussed in \cref{sec:characteristic-classes}.} For a $2m\times 2m$ skew-symmetric matrix $A$, there exists a polynomial $\Pf$ in $4m^2$ variables satisfying \[\det(A) = \Pf(A)^2.\] This polynomial is known as the \defn{Pfaffian polynomial}.
+
+\begin{example}
+  Some low-dimensional examples of the Pfaffian are given below:
+  \[
+    \begin{aligned}
+      &A=\begin{pmatrix}
+        0 & a_{21}\\
+        -a_{21}&0
+    \end{pmatrix}&
+      &\implies\quad \Pf(A) = a
+    \\[1em]
+      &A=\begin{pmatrix}
+        0 & a_{21} & a_{31} & a_{41}\\
+        -a_{21} & 0 & a_{32} & a_{42}\\
+        -a_{31} & -a_{32} & 0 & a_{43}\\
+        -a_{41} & -a_{42} & -a_{43} & 0\\
+    \end{pmatrix}& &\implies\quad \Pf(A) = a_{21}a_{43}-a_{31}a_{42}+a_{41}a_{32}
+    \end{aligned}
+  \]
+  More generally, we have the combinatorial formula
+  \[
+    \Pf(A) = \frac{1}{2^m m!}\sum_{\sigma \in S_{2m}}\sgn(\sigma)\prod^m_{i=1}a_{\sigma(2i-1),\sigma(2i)}.
+  \]
+  It is also invariant under an orientation-preserving orthogonal change of basis, which is an important condition in Chern-Weil theory.
+  See Section 25.3 of \cite{tu2017geometry} for more information on this remarkable algebraic coincidence. 
+\end{example}
+
+
+\begin{theorem}[Chern-Gauss-Bonnet]
+  Let $M$ be a closed orientable $2m$-dimensional Riemannian manifold, and let $F_\nabla \in \Omega^2(M; \mathfrak{so}_{2m})$ be the curvature $2$-form of the Levi-Civita connection $\nabla$. Then we have
+  \begin{equation}\label{eq:chern-gauss-bonnet}
+    \chi(M) = \frac{1}{(2\pi)^m}\int_M \Pf(F_\nabla).
+  \end{equation}
+\end{theorem}
+
+This is an example of a characteristic class from the Chern-Weil perspective. The only data of the manifold being used on the right hand side of \cref{eq:chern-gauss-bonnet} is a curvature form on the tangent bundle $\TT M$, which is skew-symmetric since it takes values in the Lie algebra $\mathfrak{so}_{2m}$ of skew-symmetric $2m\times 2m$ matrices. 
+For any oriented rank $2m$ real vector bundle $\mathcal{E} : E \to M$, we can consider the de Rham cohomology class
+\[
+  e(\mathcal{E}) = \frac{1}{(2\pi)^m}\Pf(F_\nabla) \quad \in \HdR^{2m}(M)
+\]
+where $F_\nabla$ is the curvature form of a connection $\nabla$ on the bundle $\mathcal{E}$. The form $e(\mathcal{E})$ turns out to be a well-defined cohomology class which is invariant of the connection, i.e. a change of connection transforms $e(\mathcal{E})$ exactly. This leads to another definition of the Euler number for oriented real vector bundles:
+\begin{definition}
+  If $\mathcal{E}^n$ is an oriented real vector bundle with connection $\nabla$ over a closed manifold $M^n$, the \defn{Euler class} of the bundle is $e(\mathcal{E})\in \HdR^{2m}(M)$.
+\end{definition}
+
+\begin{theorem}
+  The Euler class is well-defined and we have $\chi(\mathcal{E})=\int_M e(\mathcal{E})$, where $\chi(\mathcal{E})$ is defined as in \cref{def:euler-number-self-intersection}.
+\end{theorem}
+\begin{proof}
+  \todo{good citation on Chern-Weil theory}
+\end{proof}
+
+From this definition, we get some nice immediate properties. 
+\begin{proposition}\label{prop:euler-class-naturality}
+  If $\mathcal{E}_1 : E_1 \to M_1$ and $\mathcal{E}_2 : E_2 \to M_2$ are bundles and 
+  $f : M_1 \to M_2$ is a smooth map covered by a bundle map $\mathcal{E}_1\to \mathcal{E}_2$, then we have the relation
+  \[
+      e(\mathcal{E}_2) = f^* e(\mathcal{E}_1).
+  \]
+\end{proposition}
+\begin{proof}
+  If we choose a connection $\nabla$ on $\mathcal{E}_1$, we get a pullback connection $f^*\nabla$ on $\mathcal{E}_2$. The curvature transforms by pullback as well, so we get
+  \[
+      F_{f^*\nabla} = f^* F_{\nabla} \quad\implies\quad \Pf(F_{f^*\nabla}) = f^*\Pf(F_\nabla) \quad\implies\quad e(\mathcal{E}_2) = f^* e(\mathcal{E}_1). 
+  \]
+  This completes the proof.
+\end{proof}
+
+\begin{proposition}
+  For any vector bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over a closed compact manifold, we have $e(\mathcal{E}_1\oplus \mathcal{E}_2)=e(\mathcal{E}_1)\smile e(\mathcal{E}_2)$.
+\end{proposition}
+\begin{proof}
+The Pfaffian is multiplicative under direct sum, i.e. for any two skew-symmetric matrices $A$ and $B$ we have
+\[
+  \Pf(A\oplus B)^2 = \det(A)\det(B) = \Pf(A)^2\Pf(B)^2
+  \quad\implies\quad
+  \Pf(A\oplus B) = \Pf(A)\Pf(B).
+\]
+For any two oriented real vector bundles $\mathcal{E}_1^{2m_1},\mathcal{E}_2^{2m_2}$ with connection over $M$, we have 
+\[
+  \begin{aligned}
+  e(\mathcal{E}_1\oplus\mathcal{E}_2) 
+  &= \frac{1}{(2\pi)^{m_1+m_2}} \Pf(\Omega_{\mathcal{E}_1}\oplus \Omega_{\mathcal{E}_2}) \\
+  &= \frac{1}{(2\pi)^{m_1}} \Pf(\Omega_{\mathcal{E}_1}) \wedge
+  \frac{1}{(2\pi)^{m_2}} \Pf(\Omega_{\mathcal{E}_2}) \\
+  &= e(\mathcal{E}_1)\smile e(\mathcal{E}_2).
+  \end{aligned}
+\]
+This completes the proof.
+\end{proof}
+
+\begin{proposition}
+  For an oriented vector bundle $\mathcal{E}$, we have
+  \[
+    e(\overline{\mathcal{E}}) = -e(\mathcal{E}).
+  \]
+\end{proposition}
+\begin{proof}
+  This follows from \cref{prop:euler-class-naturality}, pulling back by an orientation-reversing map.
+\end{proof}
+
+These properties scratch out some common axioms for characteristic classes. We discuss this in far more detail in \cref{sec:characteristic-classes}. 
+Finally, we touch upon the interpretation of the Euler class as an obstruction to a non-zero section of a bundle. 
+
+\begin{proposition}
+  A vector bundle has a non-vanishing vector field if and only if its Euler class vanishes.
+\end{proposition}
+\begin{proof}
+If a vector bundle $\mathcal{E}$ admits a non-zero section $s : M \to E$, then $\mathcal{E}$ splits as a direct sum $\mathcal{E}=\mathcal{E}'\oplus \mathcal{L}$ where $\mathcal{L}$ is the line bundle generated by $s$. Consequently, the bundle $\mathcal{E}$ admits a reduction from $\SO_{2m}$ to $\SO_{2m-1}$ along the complement of $s$. We can modify the connection along this reduction so that it preserves the subbundle $\mathcal{L}$, and thus is non-zero only on $\so_{2n-1}\subset \so_n$. However, the Pfaffian vanishes and so does the Euler class.
+
+The reverse direction is a bit trickier, \todo{explain or cite}
+\end{proof}
+
+
+Since the Euler number of a sphere vanishes only in odd dimensions, an easy consequence of this is the infamous ``Hairy Ball Theorem'', although it can be proved by simpler means. 
+
+\begin{theorem}[Hairy Ball Theorem]
+  There exists a non-vanishing vector field on $S^n$ if and only if $n$ is odd.
+\end{theorem}
+
+\subsection{The Euler Number as a Cohomology Class}\label{sec:euler-number-cohomology}
+
+One interpretation of the Euler class is as an invariant of oriented sphere bundles, not just vector bundles. Of course, every vector bundle has an associated sphere bundle there are natural constructions of the Euler class of a sphere bundle without any reference to a vector bundle. 
+
+For instance, from an obstruction theory perspective, a non-zero section of a vector bundle corresponds to a section of a sphere bundle. \todo{give reference to obstruction theory test}
+
+\begin{theorem}[Gysin Sequence]\label{thm:gysin-sequence}
+	For any $S^{n-1}$ fiber bundle  $p: E\to B$ over a simply-connected base $B$,
+	there is a long exact sequence 
+\[
+	\begin{tikzcd}
+	  & \cdots\rar{p^*} \snakenode{X} & \H^{k-1}(E)\snakearrow{X} \\
+		{\H^{k-n}(B)}\rar{e\,\smile} & {\H^k(B)}\rar{p^*}\snakenode{Y} & {\H^k(E)}\snakearrow{Y} \\
+		{\H^{k-n+1}(B)}\rar{e\,\smile} & \cdots
+\end{tikzcd}
+\]
+	where $e\in \H^n(B)$ is the Euler class of the bundle. 
+	This is the \defn{Gysin sequence} of the bundle $p$.
+\end{theorem}
+\begin{proof}
+	See Section 4.D of \cite{hatcher2002topology} or Theorem 17.9.2 of \cite{dieck2008algebraic}.
+\end{proof}
