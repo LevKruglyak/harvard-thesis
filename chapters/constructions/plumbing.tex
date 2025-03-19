@@ -21,7 +21,7 @@ In particular, note that the disk bundles of the previous section are not framed
 
 \subsection{A Remark on Vector Bundles over Spheres}
 
-Before starting to construct anything, we should note that vector bundles over spheres behave differently outside of the dimensions which have a Hopf fibration. Since we are working with intersections, we really only care about the Euler number of bundle since these dictate self-intersections. 
+Before starting to construct anything, we should note that vector bundles over spheres behave differently outside of the dimensions which have a Hopf fibration. Since we are working with intersections, we really only care about the Euler number of bundle since these dictate self-intersections.
 
 For a rank $m$ bundle over $S^m$, the Euler number is the homomorphism
 \[
@@ -34,7 +34,7 @@ When $m$ is odd, this map is always zero. When $m$ is even, this map has image a
 	\[
 		e : \pi_{m-1}(\SO_m) \lkxto
 		\begin{cases}
-			\Z  & (m-1)\in\{1,3,7\},       \\
+			\Z  & (m-1)\in\{1,3,7\},  \\
 			2\Z & m\textrm{ is even}, \\
 			0   & \textrm{otherwise}\end{cases}
 	\]
@@ -168,7 +168,7 @@ These ideas lead us to some important constructive results of geometric topology
 The remaining work involves understanding the homotopy type of the boundary. Some of the proofs become a bit involved, and so we defer these to Section V.2 of \cite{browder1972surgery}.
 
 \begin{proposition}
-	There is a surjective map 
+	There is a surjective map
 	\[\pi_1(\partial P^{2m}(Q))\lkxsurj \pi_1(P^{2m}(Q))\]
 	with the latter group free. For $m>2$, the map is an isomorphism.
 \end{proposition}
@@ -181,65 +181,12 @@ The remaining work involves understanding the homotopy type of the boundary. Som
 \end{remark}
 
 \begin{theorem}
-	\todo{If $Q$ is unimodular, then $\partial P^{2m}(Q)$ is a homotopy sphere in $\bP^{2m}$.}
+	If $Q$ is unimodular, then $\partial P^{2m}(Q)$ is a homotopy sphere in $\bP^{2m}$.
 \end{theorem}
 \begin{proof}
 \end{proof}
 
-We now have the task of searching for even, unimodular, indecomposable $(-1)^m$-symmetric bilinear forms over the integers. Any such form corresponds to a homotopy sphere in $2m$ dimensions. 
-
-\subsection{Lattices and Integral Bilinear Forms}
-
-A common source of symmetric bilinear forms over the integers arise from lattices in an inner product space, such as Euclidean or Lorentzian\footnote{i.e. equipped with a form of signature $(1,n-1)$.} space.
-If $(V,\langle -,-\rangle)$ is an inner product space, a lattice $\Lambda\subset V$ inherits the bilinear form $\langle -,-\rangle$. However, this form is generally not integer valued. 
-
-However, some specially constructed lattices do inherit an integer valued bilinear form. Even rarer are the unimodular lattices, i.e. lattices with unimodular inner product. Non-trivial examples of such unimodular lattices appear sporadically, and their algebraic and geometric complexity can be mapped to topological complexity via the intersection form. In particular, we will show in \cref{sec:plumbing} that a lattice with an even form always appears as the intersection form of some manifold. In this way, the ``exotic'' lattices discussed in this section map neatly to the direct construction of exotic spheres.
-
-\begin{definition} 
-	In Euclidean space $\R^\ell$ with basis $\{e_1,\ldots, e_\ell\}$ consider the lattice
-\[
-	\Gamma^\ell = \span\left\{\frac{1}{2}(e_1+\cdots + e_\ell), e_i+e_j \mid i<j\right\}.
-\]
-\end{definition}
-
-When $4\mid \ell$, the Euclidean inner product restricts to an integral bilinear form on this lattice since
-\[
-	\begin{aligned}
-		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), \frac{1}{2}(e_1+\cdots+e_\ell)\right\rangle & = \frac{\ell}{4},                                      \\
-		\left\langle \frac{1}{2}(e_1+\cdots+e_\ell), e_i+e_j\right\rangle                        & = 1,                                                   \\
-		\langle e_i+e_j, e_p +e_q\rangle                                                         & = \delta_{i,p}+\delta_{i,q}+\delta_{j,p}+\delta_{j,q},
-	\end{aligned}
-\]
-where $\delta$ denotes the Kronecker delta. Since the Euclidean inner product is positive-definite, so is the bilinear form of this lattice. When $8\mid\ell$, the bilinear form of this lattice is even, otherwise it is odd. 
-
-\begin{proposition}
-	There is a lattice isomorphism $\Gamma^8\cong E_8$.
-\end{proposition}
-\begin{proof}
-\end{proof}
-
-\begin{theorem}[Mordell]
-	The lattice $\Gamma^8\cong E_8$ is the only even unimodular positive-definite lattice of rank $8$.
-\end{theorem}
-\begin{proof}
-	\todo{cite}
-\end{proof}
-
-\begin{definition}
-\todo{Leech lattice}
-\end{definition}
-
-\todo{kissing number problem}
-
-\subsection{The Arf Invariant}\label{sec:arf-invariant}
-
-For any bilinear form $\langle-,-\rangle$ on an $R$-module.
-
-
-We have talked at length about the signature and its role in classifying symmetric bilinear form. For skew-symmetric matrices, the signature is 
-
-\begin{definition}
-\end{definition}
+We now have the task of searching for even, unimodular, indecomposable $(-1)^m$-symmetric bilinear forms over the integers. Any such form corresponds to a homotopy sphere in $2m$ dimensions.
 
 \subsection{Graphs and Integral Bilinear Forms}
 First, let us introduce a bit of notation which can simplify the large matrices which can arise when dealing with intersection forms. While plumbing from a matrix is a nice general way to build a manifold with a given intersection form, many examples we consider arise from a graph. This connection between plumbing matrices and graphs was noticed by Hirzebruch.
@@ -268,7 +215,7 @@ In the skew-symmetric case, we adopt the convention that the upper-triangular pa
 \end{remark}
 
 Note that if $Q$ is a matrix associated to a graph $G$, the plumbing $P(Q)$ has a $1$-skeleton which is homotopy equivalent to $G$
-It's interesting to note that if $Q$ is a matrix associated to a tree $T$, then $P(Q)$ has a $1$-skeleton homotopy equivalent to $T$. 
+It's interesting to note that if $Q$ is a matrix associated to a tree $T$, then $P(Q)$ has a $1$-skeleton homotopy equivalent to $T$.
 It makes sense then why we would care about matrices arising from trees instead of from general graphs which may contain cycles -- cycles break the simple-connectedness of the constructed manifold and are thereby much more complicated to work with.
 
 \begin{definition}
@@ -395,53 +342,13 @@ A complete discussion of this beautiful topic would take us too far afield, so w
 			1 & 2 & 1 &   &   &   &   &   \\
 			  & 1 & 2 & 1 &   &   &   &   \\
 			  &   & 1 & 2 & 1 &   &   &   \\
-			  &   &   & 1 & 2 & 1 & 0 & 1 \\
-			  &   &   &   & 1 & 2 & 1 & 0 \\
-			  &   &   &   & 0 & 1 & 2 & 0 \\
-			  &   &   &   & 1 & 0 & 0 & 2 \\
+			  &   &   & 1 & 2 & 1 &  & 1 \\
+			  &   &   &   & 1 & 2 & 1 &  \\
+			  &   &   &   &  & 1 & 2 &  \\
+			  &   &   &   & 1 &  &  & 2 \\
 		\end{pmatrix}
 	\]
 	We will call this the \defn{$E_8$ matrix}.
 \end{example}
 
-This matrix is extremely important in differential topology for the following reason:
-\begin{proposition}
-	The $E_8$ matrix is even, and positive definite, and unimodular.
-\end{proposition}
-\begin{proof}
-	Evenness and positive definiteness are immediate. For the determinant, we could compute it by hand using a series of row/column operations of the form $Q\mapsto PQP^\intercal$ to get
-	\[
-		\begin{pmatrix}
-			2 & 1 &   &   &   &   &   &   \\
-			1 & 2 & 1 &   &   &   &   &   \\
-			  & 1 & 2 & 1 &   &   &   &   \\
-			  &   & 1 & 2 & 1 &   &   &   \\
-			  &   &   & 1 & 2 & 1 & 0 & 1 \\
-			  &   &   &   & 1 & 2 & 1 & 0 \\
-			  &   &   &   & 0 & 1 & 2 & 0 \\
-			  &   &   &   & 1 & 0 & 0 & 2 \\
-		\end{pmatrix}
-		\lkxto
-		\begin{pmatrix}
-			2 &             &             &             &              &             &             &   \\
-			  & \frac{3}{2} &             &             &              &             &             &   \\
-			  &             & \frac{4}{3} &             &              &             &             &   \\
-			  &             &             & \frac{5}{4} &              &             &             &   \\
-			  &             &             &             & \frac{7}{10} &             &             &   \\
-			  &             &             &             &              & \frac{4}{7} &             &   \\
-			  &             &             &             &              &             & \frac{1}{4} &   \\
-			  &             &             &             &              &             &             & 2 \\
-		\end{pmatrix}
-	\]
-\end{proof}
-
-\begin{remark}\label{rmk:E8-manifold}
-	The $E_8$ matrix implies that there exists a closed orientable topological $4$-manifold with no smooth structure. \todo{explain} \cite{freedman1982manifold}
-\end{remark}
-
-\todo{finish}
-
-\subsection{Skew-Symmetric Bilinear Forms}
-
-In the case of skew-symmetric bilinear forms, the structure is far simpler.
-
+\todo{close out this section with the map $\Z \to \bP^{4k}$}.

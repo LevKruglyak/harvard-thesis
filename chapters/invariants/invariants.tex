@@ -308,14 +308,6 @@ As with the Hirzebruch signature theorem for signature, we hope to get an integr
 	\]
 \end{definition}
 
-\begin{remark}
-	\todo{complex manifold, Todd genus}
-\[
-	Q_{\Td}(t) = \frac{t}{1-e^{-t}}\quad\implies\quad Q_{\Td}(t) = e^{t/2}\cdot \frac{t}{e^{t/2}-e^{-t/2}} = e^{z/2}\cdot \frac{t/2}{\sinh(t/2)}
-\]
-	In particular, this implies that $\Td[M]=e^{c_1[M]/2}\Ahat[M]$.
-\end{remark}
-
 \begin{example}
 	The first few polynomials in the $\Ahat$ genus are given by:
 \[
@@ -346,8 +338,9 @@ As an immediate corollary, we have:
 	If follows that $\sigma(M)=-8\cdot\Ahat[M]$, and by \cref{thm:Ahat-integrality} we know that $\Ahat[M]$ is even. Therefore, the signature is divisible by $8$.
 \end{proof}
 
-\begin{remark}
-	Rochlin's theorem implies that there is a topological manifold which admits no smooth structure, see \cref{rmk:E8-manifold}.
+\begin{remark}\label{rmk:E8-manifold}
+	Rochlin's theorem and the $E_8$ matrix imply that there exists a closed orientable topological $4$-manifold with no smooth structure. The basic idea is to construct a closed manifold with intersection form $E_8$ (this is non-trivial, note that plumbing leaves a non-empty boundary). 
+	Such a manifold can then not admit a smooth structure since its signature should be divisible by 16. This is one of many consequences of Freedman's classification of topological $4$-manifolds in \cite{freedman1982manifold}.
 \end{remark}
 
 After the very brief introduction to the $\Ahat$ genus and its integrality theorem, we can now apply the techniques behind the construction of the Milnor invariant to the $\Ahat$ genus. As before, we begin with the $7$-dimensional case. 
@@ -369,24 +362,34 @@ This is an integer for closed manifolds $W$ with spin structure, so taking the f
 \begin{definition}\label{def:eells-kupier-7-dimension}
 	Let $M$ be a closed oriented $7$-manifold with $\H^3(M;\Q)$ and $\H^4(M;\Q)$ trivial, and let $W$ be a coboundary with spin structure. The \defn{Eells-Kupier invariant} of $M$ is
 	\[
-		\ekinv(M) = p_1^2[W]-4\sigma(W)\mod 896
+		\ekinv(M) = p_1^2[W, M]-4\sigma(W)\mod 896
 	\]
 	for any coboundary $W$ with spin structure.
 \end{definition}
 
-More generally, suppose we had a closed $(4k-1)$-manifold with $\H^{2i}(M)$ and $\H^{4i}(M)$ trivial. If $W$ is a coboundary admitting a spin structure, we can express its $\Ahat$ genus as
+More generally, suppose we had a closed $(4k-1)$-manifold with $\H^{2i}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial. If $W$ is a coboundary admitting a spin structure, we can express its $\Ahat$-genus as
 \[
 	\begin{aligned}
 	\Ahat[W]&=\Ahat_k(p_1,\ldots, p_k)[W]\\
-					&=\Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{s_k}\right)[W]
+					&= \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{s_k}\right)[W]
 	\end{aligned}
 \]
+By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ when $k\equiv 1\mod 2$. We denote this factor 
+\[
+	\varepsilon(k) = 
+	\begin{cases}
+		1 & k\equiv 0 \mod 2,\\
+		2 & k\equiv 1 \mod 2.\\
+	\end{cases}
+\] 
 
-\begin{proposition}
-	The leading coefficient of 
-\end{proposition}
-Note that the leading coefficient of the $\Ahat$ genus is 
-% This is the Eells-Kupier invariant
+\begin{definition}
+	Let $M$ be a closed oriented $(4k-1)$-manifold with $\H^{2i}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial for all $i<k$, and let $W$ be a spin coboundary. The \defn{Eells-Kupier invariant} of $M$ is
+	\[
+		\ekinv(M) = \frac{1}{\varepsilon(k)}\cdot \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{s_k}\right)[W,M]\mod 1.
+	\]
+	We leave this expression $\mod 1$ to keep it sightly.
+\end{definition}
 
 \begin{example}
 	The first few Eells-Kupier invariants are:
@@ -398,7 +401,7 @@ Note that the leading coefficient of the $\Ahat$ genus is
 			 & \mod 896,                                                        \\
 			\ekinv(M^{11})
 			 & = 24\sigma + (3p_1^3-4p_1p_2)[W,M]
-			 & \mod 95232,                                                       \\
+			 & \mod 190464,                                                       \\
 			\ekinv(M^{15})
 			 & = 2880\sigma(W) - (153p_1^4-360p_1^2p_2+80p_2^2+192p_1p_3)[W,M]
 			 & \mod 187269120.
@@ -407,73 +410,95 @@ Note that the leading coefficient of the $\Ahat$ genus is
 	These invariants were generated with Wolfram, see \cref{chap:wolfram} for details.
 \end{example}
 
-
 \subsection{A ``Twisted'' Eells-Kupier Invariant}
 
-\begin{definition}
-	We have
+The final example of an exotic sphere invariant constructed out of an integrality theorem is based on the twisted $\Ahat$-genus. We refer to this as the ``twisted'' Eells-Kupier invariant, and to the best of my knowledge it does not appear anywhere in the literature.
+
+The origin of the term ``twisted'' in this context is with the addition of a complex vector bundle to the ordinary $\Ahat$-genus. Namely, for an even-dimensional spin manifold with complex vector bundle $E$, we define $\Ahat(M, E) = \textrm{ch}(E)\smile \Ahat(M)$ where $\textrm{ch}$ is the Chern character 
+\[
+		\textrm{ch}(E) = \exp(\gamma_1(E))+\cdots +\exp(\gamma_n(E))
+\]
+for $\gamma_i$ the Chern roots. This has an alternate definition as the index of the twisted Dirac operator, see \todo{cite} for more details.
+
+For us, the relevant expression is found on page 98 of \cite{hopkinsmahowald2002bo8}:
+\begin{proposition}
+	For a $24$-dimensional real manifold $M$, we have
 	\[
-		\Ahat(M,\T M_\C) = \frac{1}{158505984000}\left(-25167p_2^3 - 18832p_3^2 + 38828p_2p_4 - 4976p_6\right)[M]
+		\Ahat(M,\T M_\C) = \frac{1}{158505984000}\left(-25167p_2^3 - 18832p_3^2 + 38828p_2p_4 - 4976p_6\right)(M)
 	\]
-\end{definition}
-See page 98 of \cite{hopkinsmahowald2002bo8}.
+\end{proposition}
 
+Just as a spin structure restricts the $\Ahat$-genus to be integral up to a factor of $2$, a generalization known as \defn{string structure} gives a similar integrability condition to the $\Ahat$-genus twisted by the complexifiend tangent bundle. In the simplest possible terms, a string structure is a lift of a spin structure to the next stage of the Whitehead tower $\Spin_n \to \SO_n \to \O_n$. The classical motivation for defining such a structure can be found in \cite{witten1988string}.
 
+By a homotopy theoretic argument involving the Witten genus and $\mathrm{tmf}$, Mahowald and Hopkins proved the following integrality theorem:
 \begin{theorem}[Mahowald-Hopkins]
-	A closed String manifold $M$ has $24\mid \Ahat(M,T)$.
+	A closed string manifold $M$ has $24\mid \Ahat(M,T)$.
 \end{theorem}
 
+By the same construction as the Eells-Kupier invariant, we derive the following invariant:
+
 \begin{corollary}
-	Let $M$ be a closed $23$-manifold with $\H^{4i}(M)$ and $\H^{4i+3}(M)$ trivial. For any $11$-connected String coboundary $W$, the \defn{twisted Eells-Kupier invariant}
+	Let $M$ be a closed $23$-manifold with $\H^{4i}(M)$ and $\H^{2i}(M)$ trivial. For any string coboundary $W$, the \defn{twisted Eells-Kupier invariant} is given by
 	\[
-		\lambda_{\mathrm{m,h}}(M) = 153945\sigma(W) + 2591p_2^3[W,M]\mod 521432801280
+		\lambda_{\mathrm{m,h}}(M) = 153945\sigma(W) + 2591p_2^3[W,M]\mod 521432801280.
 	\]
-	depends only on the smooth structure of $M$.
 \end{corollary}
 
-\subsection{Lower Bounds on $|\bP^{4k}|$}
+Of course, this invariant proves nothing new about exotic spheres, since far simpler methods can be used to compute the order of $\Theta^{23}$. Nevertheless, it is interesting to note that this construction provides an invariant which works for not just homotopy $23$-spheres, and can detect more of the exotic spheres in $23$-dimensions that the Eells-Kupier and Milnor invariants can alone.
 
-At this point, we assume the existence of a construction of a homotopy sphere from the next chapter. This allows us to investigate some lower bounds on the size of $\bP^{4k}$ using the Milnor, Eells-Kupier, and twisted Eells-Kupier invariant.
-
-\begin{proposition}
-	There exists a homotopy sphere $M\in \bP^{4k}$ bounding a highly-connected manifold of signature $8$.
-\end{proposition}
-\begin{proof}
-	See \cref{sec:plumbing}.
-\end{proof}
-
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[
-    xlabel={$k$},
-    ymode=log,
-    legend pos=north west
-]
-
-\addplot[thick, black] table[x index=0, y index=1] {chapters/invariants/lowdim.dat};
-\addplot[thick, blue] table[x index=0, y index=2] {chapters/invariants/lowdim.dat};
-\addplot[thick, red] table[x index=0, y index=3] {chapters/invariants/lowdim.dat};
-
-\legend{$|\bP^{4k}|$,$|\bP^{4k}$,$\ekinv$}
-
-\end{axis}
-\end{tikzpicture}
-\end{center}
-
-\begin{center}
-	\begin{tikzpicture}
-\begin{axis}[
-    xlabel={$k$},
-    yticklabel={\ensuremath{10^{\tick}}},
-    legend pos=north west
-]
-
-\addplot[thick, black] table[x index=0, y index=1] {chapters/invariants/highdim.dat};
-\addplot[thick, blue] table[x index=0, y index=2] {chapters/invariants/highdim.dat};
-\addplot[thick, red] table[x index=0, y index=3] {chapters/invariants/highdim.dat};
-
-\legend{$\log_{10}|bP^{4k}|$,$\milinv$,$\ekinv$}
-
-\end{axis}
-\end{tikzpicture}
-\end{center}
+% \subsection{Lower Bounds on $|\bP^{4k}|$}
+%
+% \todo{This is one of }
+%
+% % In this section, we 
+%
+% \begin{proposition}
+% 	The leading coefficient of 
+% \end{proposition}
+% Note that the leading coefficient of the $\Ahat$ genus is 
+% % This is the Eells-Kupier invariant
+%
+% At this point, we assume the existence of a construction of a homotopy sphere from the next chapter. This allows us to investigate some lower bounds on the size of $\bP^{4k}$ using the Milnor, Eells-Kupier, and twisted Eells-Kupier invariant.
+%
+% \begin{proposition}
+% 	There exists a homotopy sphere $M\in \bP^{4k}$ bounding a highly-connected manifold of signature $8$.
+% \end{proposition}
+% \begin{proof}
+% 	See \cref{sec:plumbing}.
+% \end{proof}
+%
+% \begin{center}
+% \begin{tikzpicture}
+% \begin{axis}[
+%     xlabel={$k$},
+%     ymode=log,
+%     legend pos=north west
+% ]
+%
+% \addplot[thick, black] table[x index=0, y index=1] {chapters/invariants/lowdim.dat};
+% \addplot[thick, blue] table[x index=0, y index=2] {chapters/invariants/lowdim.dat};
+% \addplot[thick, red] table[x index=0, y index=3] {chapters/invariants/lowdim.dat};
+%
+% \legend{$|\bP^{4k}|$,$|\bP^{4k}$,$\ekinv$}
+%
+% \end{axis}
+% \end{tikzpicture}
+% \end{center}
+%
+% \begin{center}
+% 	\begin{tikzpicture}
+% \begin{axis}[
+%     xlabel={$k$},
+%     yticklabel={\ensuremath{10^{\tick}}},
+%     legend pos=north west
+% ]
+%
+% \addplot[thick, black] table[x index=0, y index=1] {chapters/invariants/highdim.dat};
+% \addplot[thick, blue] table[x index=0, y index=2] {chapters/invariants/highdim.dat};
+% \addplot[thick, red] table[x index=0, y index=3] {chapters/invariants/highdim.dat};
+%
+% \legend{$\log_{10}|bP^{4k}|$,$\milinv$,$\ekinv$}
+%
+% \end{axis}
+% \end{tikzpicture}
+% \end{center}

@@ -1,17 +1,21 @@
 \pagebreak
 \section{Characteristic Classes}\label{sec:characteristic-classes}
-The study of characteristic classes began with the work of Hassler Whitney and Eduard Stiefel in the mid 1930s. Since then, the fundamental idea has remained unchanged -- a vector bundle on a manifold determines certain ``characteristic'' classes in the homology or cohomology of the base manifold.
+The study of formal characteristic classes began with the work of Hassler Whitney and Eduard Stiefel in the mid 1930s. Since then, the fundamental idea has remained unchanged -- a vector bundle on a manifold determines certain ``characteristic'' classes in the cohomology of the base manifold. A motivating example is the Euler class, which we discussed in \cref{sec:euler-class}.
+
+
 By the mid 1940s, these ideas were extended by Lev Pontryagin and Shing-Shen Chern to better capture the geometric data of oriented real and complex vector bundles respectively. In the following decades, characteristic classes quickly joined the toolboxes of mathematicians from a wide range of disciplines, finding connections to prior notions in these fields.
 Applications ranged from algebraic topology, differential topology of exotic spheres, complex geometry, index theory, and may others.
 
-We will present a few equivalent formulations of characteristic classes in this thesis, each useful in its own context. These formulations are,
+We will present a few equivalent formulations of characteristic classes in this thesis, each useful in its own context. 
+As with the Euler class, there are a breadth of equivalent formulations of characteristic classes, as
 \begin{enumerate}[(a)]
 	\item as natural transformations satisfying certain axioms,
 	\item as generators of the cohomology ring of a classifying space,
 	\item by the Chern-Weil homomorphism as images of invariant polynomials,
-	\item as obstructions to problems in homotopy theory.
+	\item as obstructions to problems in homotopy theory,
 \end{enumerate}
-We begin with a somewhat unconventional blend of the (a) and (b) perspective, closing with a brief discussion of (c) in \cref{sec:chern-weil-theory}. The obstruction theory perspective is immensely useful for classifying homotopy spheres, however it is not immediately relevant to the topic of geometric invariants so we will discuss it in \cref{sec:obstruction-theory}. For a standard introduction which avoids some of the opinionated choices made in this presentation, see \cite{milnorstasheff1974}.
+
+For a standard introduction which avoids some of the opinionated choices made in this presentation, see \cite{milnorstasheff1974}.
 At this stage, we assume a basic knowledge of vector bundles, structure groups, and classifying spaces. For a brief introduction to these topics, see \cref{chap:vector-bundles}.
 
 \subsection{A Universal Perspective on Characteristic Classes}\label{sec:axiomatic-characteristic-classes}
@@ -28,8 +32,12 @@ Throughout this section, a cohomology theory will refer either to singular cohom
 
 Here, $h^\bullet : \Top \to \Rng$ is the functor sending a space to its  cohomology ring, and $\Vect_G : \Top \to \Set$ is a functor sending a space to the set of isomorphism classes of vector bundles over the space with structure group $G$. We assume that the natural transformation $c$ forgets the ring structure of cohomology when mapping from the set of isomorphism classes of vector bundles.
 
+\begin{example}
+	The Euler class is a characteristic class in $\Class^\Z_{\SO_{2m}}$.
+\end{example}
+
 For any vector bundle $\mathcal{E} : E \to B$, a cohomology class assigns some cohomology class $c(\mathcal{E})\in h^\bullet(B)$ which is ``characteristic'' of the bundle $\mathcal{E}$.
-Part of this ``characteristicness'' is that the assignment must be done in a natural way. Given bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over bases $B_1$ and $B_2$, whenever a map $f : B_1 \to B_2$ is covered by a bundle map $\mathcal{E}_1 \to \mathcal{E}_2$, we have $f^* c(\mathcal{E}_2) = c(\mathcal{E}_1)$. In particular, isomorphic vector bundles over the same base space $B$ are sent to the same cohomology class. It is not hard to see why such a notion would be useful.
+Part of this ``characteristicness'' is that the assignment must be done in a natural way. Given bundles $\mathcal{E}_1$ and $\mathcal{E}_2$ over bases $B_1$ and $B_2$, whenever a map $f : B_1 \to B_2$ is covered by a bundle map $\mathcal{E}_1 \to \mathcal{E}_2$, we have $f^* c(\mathcal{E}_2) = c(\mathcal{E}_1)$. In particular, isomorphic vector bundles over the same base space $B$ are sent to the same cohomology class. 
 
 \begin{convention*}
 	Since every smooth manifold $M$ comes with a canonical vector bundle -- the tangent bundle -- it is common to use the notation $c(M)$ to refer to $c(\TT M)$.
@@ -291,11 +299,95 @@ Under some extensions of \cref{def:characteristic-number} to allow for disconnec
 	While $\Man_R$ does not have a ring structure due to lack of an identity element, with the inclusion of a cobordism relation on $\Man_R$ it is possible to interpret multiplicative characteristic classes as ring homomorphisms from a cobordism ring to $R$.
 \end{remark}
 
-The set of characteristic numbers of a manifold form a topological fingerprint of the manifold. As we will see in \cref{chap:invariants}, the subtle interplay of their number theoretic properties is one of the main ways to study smooth structure on a manifold.
+The set of characteristic numbers of a manifold form a topological fingerprint of the manifold. As we will see in \cref{sec:invariants-for-homotopy-4k-1-spheres}, the subtle interplay of their number theoretic properties is one of the main ways to study smooth structure on a manifold.
 
-\subsection{The Chern Class}
+\subsection{The Chern Class}\label{sec:chern-class}
 
-We will now begin construction of the most fundamental of characteristic classes, the Chern class for complex vector bundles. Recall that for complex projective spaces we have the cohomology ring
+We will now begin construction of the most fundamental of characteristic classes, the Chern class for complex vector bundles. From the universal perspective on characteristic classes, it suffices to compute the cohomology ring $\H^\bullet(\BU_m)$ of the classifying space. 
+
+Recall that $\BU_m$ is defined as the Grassmannian of $m$-planes in a countably infinite-dimensional Hilbert space $\C^\infty$, i.e. $\BU_m=\Gr_m(\C^\infty)$. Similarly, we can take the Stiefel space $\EU_m=\Fr_m(\C^\infty)$ of orthonormal frames of $\C^\infty$. The projection map $\EU_m \to \BU_m$ sending a frame to its spanning plane then gives the universal principal $\U_m$-bundle
+\[
+		\U_m \lkxto \EU_m \lkxto \BU_m.
+\]
+For instance, in the case $m=1$, we have $\BU_1=\CP^\infty$, $\EU_1=S^\infty$, and $\U_1=S^1$ so we have
+\[
+		S^1\lkxto \EU_1 \lkxto \BU_1.
+\]
+Since $S^\infty$ is contractible, by the Gysin sequence (\cref{thm:gysin-sequence}) we get isomorphisms
+\[
+	\H^{k-2}(\BU_1)\lkxto[e\,\smile] \H^k(\BU_1).
+\]
+In particular, we have a ring isomorphism $\H^\bullet(\BU_1)\cong \Z[\cl_1]$ where $\cl_1$ denotes the Euler class of the universal bundle $\EU_1 \to \BU_1$. 
+
+To compute the cohomology of $\BU_m$ in higher dimensions, we can use an inductive argument. The inclusion map $\U_{m-1} \to \U_m$ induces a projection map $\BU_{m-1} \to \BU_{m}$, with fibers $\U_{m}/\U_{m-1}\cong S^{2m-1}$ so we have an orientable sphere bundle
+\[
+	S^{2m-1} \lkxto \BU_{m-1} \lkxto \BU_{m}.
+\]
+For the inductive step, we use a slightly more general lemma.
+
+\begin{lemma}
+	If $S^{2m-1} \to E \to B$ is an orientable sphere bundle and $\H^\bullet(E)$ is a polynomial ring $\Z[x_1,\ldots,x_\ell]$ of even-dimensional generators, then there is a ring isomorphism $\H^\bullet(B)\cong \H^\bullet(E)\otimes \Z[e]$ where $e$ is the Euler class of the bundle and $p^* : \H^\bullet(E) \to \H^\bullet(B)$ acts as the identity on $\H^\bullet(E)$.
+\end{lemma}
+\begin{proof}
+	The proof involves a few applications of the Gysin sequence. First, we can show that 
+\[
+% 	\begin{tikzcd}
+% 	  & \cdots\rar{p^*} \snakenode{X} & \H^{k-1}(\BU_{m-1})\snakearrow{X} \\
+% 		{\H^{k-2m}(\BU_m)}\rar{e\,\smile} & {\H^k(\BU_m)}\rar{p^*}\snakenode{Y} & {\H^k(\BU_{m-1})}\snakearrow{Y} \\
+% 		{\H^{k-2m+1}(\BU_m)}\rar{e\,\smile} & \cdots
+% \end{tikzcd}
+\]
+For a full proof, see Proposition 4D.11 of \cite{hatcher2002topology}.
+\end{proof}
+
+This leads us to conclude:
+\begin{proposition}
+	$\H^\bullet(\BU_m)\cong \Z[\cl_1,\ldots, \cl_m]$, where $|\cl_i|=2i$.
+\end{proposition}
+
+This is one definition of the \defn{Chern classes}, cohomology classes for complex vector bundles with coefficients $\Z$ in singular homology. As 
+
+\begin{proposition}
+	The Chern class is multiplicative.
+\end{proposition}
+\begin{proof}
+	For any $m_1,m_2$, we have an inclusion $\U_{m_1}\times \U_{m_2} \to \U_{m_1+m_2}$. This corresponds to a map of classifying spaces
+	\[
+		\BU_{m_1}\times \BU_{m_2} \lkxto \BU_{m_1+m_2}.
+	\]
+\end{proof}
+
+\subsection{Chern Roots}
+
+Another important perspective on the Chern class arises from the geometry of $\U_m$. 
+
+Recall that every closed (connected) abelian Lie group is diffeomorphic to a torus $T \cong \U_1\times \cdots\times \U_1$. A \defn{maximal torus} $T$ of a Lie group $G$ is some properly included torus which is not contained within any other torus. Given a maximal torus in a closed Lie group, the normalizer $N(T)$ is the subgroup of $G$ stabilizing the maximal torus under the action of conjugation, i.e. 
+\[
+	N(T) = \{ g \in G \mid gTg^{-1} = T\}.
+\]
+\begin{definition}
+	The \defn{Weyl group} of $G$ is the quotient $W(G)=N(T)/T$.
+\end{definition}
+It turns out that all choices of maximal tori are conjugate, so the exact choice of maximal torus does not affect the structure of the Weyl group.
+
+\begin{remark}
+	Many of the motivations for studying Weyl groups and maximal tori arise in representation theory. The representation of a torus $T$ is well-understood, \todo{write some more}
+\end{remark}
+
+In the case of the unitary group $\U_m$, a choice basis on $\C^m$ gives a canonical choice of maximal torus, namely the diagonal matrices
+\[
+	T = \left\{\diag(z_1,\ldots, z_n) \mid |z_i|=1\right\}.
+\]
+The normalizer of this subgroup is exactly the set of matrices $P_\sigma T$ where $P_\sigma$ is a permutation matrix associated to a permutation $\sigma\in \Sym_m$. From this observation, we get:
+\begin{proposition}
+	The Weyl group of $\U_m$ is the symmetric group $\Sym_m$.
+\end{proposition}
+
+Returning to characteristic classes, note that the inclusion of the $T$ into $\U_m$ induces a bundle
+
+\pagebreak
+
+Recall that for complex projective spaces we have the cohomology ring
 \[
 	\H^\bullet(\CP^n;\Z)\cong \Z[\alpha]/(\alpha^{n+1}
 \]
@@ -309,6 +401,15 @@ However since $\BU_1=\CP^\infty$, by \cref{thm:universal-characteristic-classes}
 	\Class_{\U_1}^{\Z}\cong \Z\fps{\alpha}
 \end{equation}
 The generator $\alpha$ thus corresponds to a homogeneous characteristic classes of degree $2$. We can use this as the inductive base or a general definition.
+
+\begin{proposition}
+	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
+	\begin{enumerate}[(a)]
+		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
+		\item $\cl(\OO_{\CP^1}(-1))=1-\alpha$,
+	\end{enumerate}
+	where $\alpha\in \H^2(\CP^m)$ is the Poincar\'e dual class to $\CP^{m-1}\subset \CP^m$.
+\end{proposition}
 
 \begin{definition}
 	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
@@ -378,9 +479,9 @@ More generally, if we apply the splitting principle to the universal bundle $\EU
 \[
 	\H^\bullet((\BU_1)^{\times n}) \cong \H^\bullet(\BU_1)\otimes\cdots\otimes \H^\bullet(\BU_1) \cong \Z[\gamma_1,\ldots,\gamma_n]
 \]
-with the injective pullback map $\H^\bullet(\BU_n) \to \H^\bullet(\BU_1^{\times n})$ having image $\Z[\gamma_1,\ldots, \gamma_n]^{S_n}$ the symmetric polynomials.
+with the injective pullback map $\H^\bullet(\BU_n) \to \H^\bullet(\BU_1^{\times n})$ having image $\Z[\gamma_1,\ldots, \gamma_n]^{\Sym_n}$ the symmetric polynomials.
 
-\todo{Talk about $U_n$, its maximal torus, and normalizer group isomorphic to $S_n$. There is some cool geometry happening here under the hood}
+\todo{Talk about $U_n$, its maximal torus, and normalizer group isomorphic to $\Sym_n$. There is some cool geometry happening here under the hood}
 
 \begin{definition}\label{def:chern-roots}
 	The \defn{Chern roots} of a complex vector bundle $\mathcal{E}$ over $X$ with classifying map $f : X \to \BU_n$ are given by $\gamma_i(\mathcal{E}) = f^*\gamma_i$. Note that
@@ -393,9 +494,9 @@ We now present a powerful method for constructing multiplicative characteristic 
 The crux of this method is the fundamental theorem of symmetric polynomials, a simple but incredibly useful result in algebra.
 
 \begin{theorem}[Fundamental Theorem of Symmetric Polynomials]
-	For any ring $R$, let $R[x_1,\ldots, x_n]$ be the polynomial ring in $n$-variables and let $R[x_1,\ldots, x_n]^{S_n}$ be the subring of symmetric polynomials, i.e. those invariant under a reordering of the variables. There is a ring isomorphism
+	For any ring $R$, let $R[x_1,\ldots, x_n]$ be the polynomial ring in $n$-variables and let $R[x_1,\ldots, x_n]^{\Sym_n}$ be the subring of symmetric polynomials, i.e. those invariant under a reordering of the variables. There is a ring isomorphism
 	\begin{equation}\label{eq:symmetric-polynomial-isomorphism}
-		R[x_1,\ldots, x_n]^{S_n} \cong R[\sigma_1^{(n)},\ldots, \sigma_n^{(n)}].
+		R[x_1,\ldots, x_n]^{\Sym_n} \cong R[\sigma_1^{(n)},\ldots, \sigma_n^{(n)}].
 	\end{equation}
 	The variables $\sigma_i$ are the \defn{elementary symmetric polynomials}, defined by the relation
 	\begin{equation}\label{eq:symmetric-polynomials}
@@ -419,7 +520,7 @@ More generally, we have the combinatorial formula
 \]
 Passing to the completed ring, we have a ring isomorphism
 \[
-	R\fps{x_1,x_2\ldots}^{S_\infty} \cong R\fps{\sigma_1,\sigma_2,\cdots}\quad\textrm{where}\quad \sigma_i = \sum_{0<p_1<\cdots < p_i<\infty}x_{p_1}\cdots x_{p_i}
+	R\fps{x_1,x_2\ldots}^{\Sym_\infty} \cong R\fps{\sigma_1,\sigma_2,\cdots}\quad\textrm{where}\quad \sigma_i = \sum_{0<p_1<\cdots < p_i<\infty}x_{p_1}\cdots x_{p_i}
 \]
 so that $\sigma_i^{(n)} = \sigma_i \mod (x_{n+1},x_{n+2},\ldots)$. 
 
@@ -428,7 +529,7 @@ In the context of Chern classes, the splitting principle for stable complex vect
 \[
 	\cl = \prod_{i\geq 1}(1+\gamma_i)
 \]
-where $\cl\in \H^\bullet(\BU) \cong \Z[c_1,c_2,\ldots]\cong \Z[\gamma_1,\gamma_2,\ldots]^{S_\infty}$ and $\gamma_i$ are the universal stable Chern roots. Chern classes can then be interpreted as symmetric polynomials in the Chern roots. This is a good picture to keep in mind.
+where $\cl\in \H^\bullet(\BU) \cong \Z[c_1,c_2,\ldots]\cong \Z[\gamma_1,\gamma_2,\ldots]^{\Sym_\infty}$ and $\gamma_i$ are the universal stable Chern roots. Chern classes can then be interpreted as symmetric polynomials in the Chern roots. This is a good picture to keep in mind.
 \end{remark}
 
 To generate new multiplicative characteristic classes out of Chern classes, we consider endomorphisms $K$ of the unit group $\Z\fps{c_1,c_2,\ldots}^\times$. Since $K(ab)=K(a)K(b)$, it follows that $K(\cl)$ would be a stable multiplicative characteristic class in $\Class^\Z_{\U}$. The most basic examples of such endomorphism are given below:
@@ -650,6 +751,10 @@ If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{
 % 	\end{enumerate}
 % \end{definition}
 %
+\begin{proposition}
+
+\end{proposition}
+
 \subsection{The Hirzebruch Signature Theorem}
 
 \begin{definition}

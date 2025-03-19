@@ -291,22 +291,19 @@ We mentioned earlier that ``nothing interesting'' should happen on an $h$-cobord
 	Within some category of manifolds $\mathscr{C}$, if $M$ and $N$ are closed, simply-connected manifolds of dimensions $\geq 5$ and $W : M \hbord N$ is a simply-connected $h$-cobordism, then $W$ is $\mathscr{C}$-isomorphic to the cylinder $M\times [0,1]$. Furthermore, the isomorphism can be chosen to be the identity on $M\times \{0\}$.
 \end{theorem}
 \begin{proof}
-	\todo{discuss basic idea, Whitney trick, what fails in $<5$ dimensions.}
+	A full proof of this theorem would take us too far afield, so we give a sketch. The basic idea is to use a Morse function on $W$ (see \cref{sec:morse-theory}), and deform it until it has no critical points on the interior of $W$. Integrating the resulting unit gradient vector field then gives the required $\mathscr{C}$-isomorphism.
+
+	The classic source on the $h$-cobordism theorem is due to Milnor \cite{milnor1965hcobordism}. For a more visual introduction, see Chapter 1 of \cite{scorpan2005wild}.
 \end{proof}
 
-For us, the main application of the $h$-cobordism theorem is the following:
+For us, the main application of the $h$-cobordism theorem is the following corollary:
 
 \begin{corollary}\label{thm:h-cobordism-diffeomorphism}
 	In the smooth oriented manifold category, two simply-connected closed manifolds of dimensions $\geq 5$ are $h$-cobordant if and only if they are diffeomorphic (by an orientation preserving diffeomorphism).
 \end{corollary}
-\begin{proof}
-	\todo{write up proof}
-	% If $f : M_1 \to M_2$ is a diffeomorphism between manifolds $M_1$ and $M_2$, they are $h$-cobordant by the manifold $W=M_1\times [0,1]\cup_f M_2$, where we glue $M_2$ onto $M_1\times \{1\}$ in $M_1\times [0,1]$ by $f$.
-	% Conversely, if $W : M_1\sohbord M_2$ is an $h$-cobordism, by the $h$-cobordism theorem (\ref{thm:h-cobordism}) there must be a diffeomorphism $f : W \to M_2$ must map to $M_1\times \{1\}$, this gives a diffeomorphism $M_2 \to M_1$. If we choose $f$ to reverse orientation on $M_1\to M_1\times \{0\}$, then the restriction $f|_{M_2}$ will preserve orientation.
-\end{proof}
 
 \begin{remark}
-	Note that the simple-connectedness assumption of the $h$-cobordism theorem is required. Let $L(p,q)$ be the quotients of the sphere $S^3$ by the $\Z/p$-action 
+	The simple-connectedness assumption of the $h$-cobordism theorem is required. Let $L(p,q)$ be the quotients of the sphere $S^3$ by the $\Z/p$-action 
 	\[
 		(z_1,z_2) \lkxmapsto (e^{2\pi i/p}\cdot z_1, e^{2\pi i q/p}\cdot z_2)
 	\]
@@ -328,8 +325,8 @@ Almost immediately, the $h$-cobordism theorem implies the generalized Poincar\'e
 		\import{diagrams}{cone-construction.pdf_tex}
 		\caption{Turning a cone into an $h$-cobordism.}
 	\end{figure}
-	\todo{cone construction, fails for $\DIFF$ because you can't take a smooth cone.}
-	\todo{mention method of engulfing?}
+
+	We provide an sketch of a proof here. Given a manifold $M$ with the homotopy type of a sphere, take the cylinder $M\times [0,1]$. Collapsing the set $M\times \{1\}$ gives the cone $\mathrm{C}M$ over $M$. Note that this only has a canonical manifold structure in the $\TOP$ and $\PL$ categories. By a similar argument as is used in \cref{lemma:null-h-cobordant-iff-bounds-contractible}, we remove the interior of a disk $D^{n+1}$ from $\mathrm{C}M$ to get an $h$-cobordism from $M$ to $S^{n}$. This gives a $\mathscr{C}$-isomorphim from $M$ to $S^n$, completing the proof.
 \end{proof}
 
 These results tremendously powerful. With \cref{thm:h-cobordism-diffeomorphism}, we have arrived at our first major simplification to the problem finding and classifying exotic spheres. To classify smooth structures on $S^n$, it is enough to classify the $h$-cobordism classes of smooth manifolds which are homeomorphic to $S^n$, and to find smooth manifolds which are homeomorphic to $S^n$, it suffices to consider smooth manifolds which have the homotopy type of $S^n$.

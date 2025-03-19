@@ -19,15 +19,13 @@
 \end{epigraph}
 
 \noindent
-To begin our journey, we will provide some geometric topology essentials which will be used ubiquitously throughout the thesis.
+To begin our journey, we review some fundamental tools of geometric topology.
 
-First, in \cref{sec:smooth-manifold-operations} we will discuss operations on smooth manifolds -- how to glue manifolds together, cut off handles, attach handles, stitch together manifolds at multiple points, and so on. The two operations most of interest to us are the \defn{connected sum}, which glues together two manifolds of the same dimension, and \defn{surgery}, which adds or removes handles. 
-Armed with a powerful set of topological cutlery, we begin to investigate how smooth manifold operations change the topology of the manifold. 
+We start in \cref{sec:smooth-manifold-operations} with a discussion of operations on manifolds and the technicalities which arise in the smooth case. Aside from standard operations on general topological spaces, we introduce the connected sum and boundary connected sum for manifolds with boundary. Both of these perspectives can be viewed as special cases of a more general operation of a join of two manifolds along a submanifold. Our next topic in \cref{sec:intersection-form} is the intersection form, a fundamental invariant of a manifold which encodes the data of middle-dimensional submanifold intersections. The intersection form relates this geometric data to the algebraic data of cohomology, and forms a wide bridge by which geometric problems can be transferred to algebraic ones. Related to this is the topic of the Euler class in \cref{sec:euler-class}, our first example of a characteristic class. For us, the Euler class provides a number of bridges linking intersection theory with the geometry of vector bundles, obstruction theory, characteristic classes, and others.
 
-In \cref{sec:intersection-form}, we spend a fair bit of time discussing the \defn{intersection form}, a bilinear form which captures a tremendous amount of topological information 
-
-
-\todo{what other sections we need}
+Finally, in section \cref{sec:cobordism} we discuss cobordism, a loose equivalence for manifolds which allows for complete classification. Cobordism serves two essential purposes in this thesis. First of all, we note that many topological invariants are invariant under cobordism. A complete determination of manifolds up to cobordism can thus help us relate two topological invariants, since we need only check the representative classes. As for the second application, there is a strengthening of the condition of cobordism known as $h$-cobordism. 
+In dimensions $\geq 5$, a non-trivial result known as the $h$-cobordism theorem then turns the problem the existence problem for diffeomorphisms between two manifolds into an existence problem for a manifold with a certain homotopy type.
+Such a reduction massively simplifies the problem of finding exotic spheres, and we conclude with these simplifications in \cref{sec:groups-of-homotopy-spheres}.
 
 \subimport{/}{operations}
 \subimport{/}{intersection}
