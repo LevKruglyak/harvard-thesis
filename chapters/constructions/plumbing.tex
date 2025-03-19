@@ -143,29 +143,30 @@ We can therefore plumb together two bundles at multiple points with local inters
 These ideas lead us to some important constructive results of geometric topology which we lay out in a few pieces.
 
 \begin{proposition}\label{thm:plumbing-existence-theorem}
-	For $m>1$ and $Q$ any even, $(-1)^m$-symmetric, and indecomposable\,\footnote{This assumption removes a slight ambiguity from the statement of this theorem. Whenever there is a decomposition $Q=A\oplus B$, we can either take the connected sum $P^{2m}(A)\+P^{2m}(B)$ or boundary connected sum to get $(P^{2m}(A),\partial P^{2m}(A))\+ (P^{2m}(B),\partial P^{2m}(B))$ depending on our goals.} form, there exists a $2m$-dimensional framed manifold $P^{2m}(Q)$ with intersection form $Q$.
+	For $m>1$ and $Q$ any even, $(-1)^m$-symmetric, and indecomposable\,\footnote{This assumption removes a slight ambiguity from the statement of this theorem. Whenever there is a decomposition $Q=A\oplus B$, we can either take the connected sum $P^{2m}(A)\+P^{2m}(B)$ or boundary connected sum to get $(P^{2m}(A),\partial P^{2m}(A))\+ (P^{2m}(B),\partial P^{2m}(B))$ depending on our goals.} form, there exists a highly-connected $2m$-dimensional framed manifold $P^{2m}(Q)$ with intersection form $Q$.
 \end{proposition}
 
-\begin{proof}
-	Let $\Lambda$ be the lattice on which $Q$ is defined, and assume we have a basis $\{e_1,\ldots, e_\ell\}$. To construct $P^{2m}(Q)$, start with spheres $S_1^m=S^m,\ldots, S_\ell^m=S^m$, and take the bundles $\mathcal{E}_1=(Q_{11}/2)\cdot \TT S^m_1,\ldots, \mathcal{E}_\ell=(Q_{\ell\ell}/2)\cdot \TT S^m_1$. Then for every $i<j$, we plumb together $D(E_i)$ with $D(E_j)$ with multiplicity $Q_{ij}$, resulting in $P^{2m}(Q)$.
+% \begin{proof}
+Let $\Lambda$ be the lattice on which $Q$ is defined, and assume we have a basis $\{e_1,\ldots, e_\ell\}$. To construct $P^{2m}(Q)$, start with spheres $S_1^m=S^m,\ldots, S_\ell^m=S^m$, and take the bundles $\mathcal{E}_1=(Q_{11}/2)\cdot \TT S^m_1,\ldots, \mathcal{E}_\ell=(Q_{\ell\ell}/2)\cdot \TT S^m_1$. Then for every $i<j$, we plumb together $D(E_i)$ with $D(E_j)$ with multiplicity $Q_{ij}$, resulting in $P^{2m}(Q)$. When off-diagonal entries $Q_{ij}$ are not $0$ or $\pm 1$, the constructed manifold is no longer simply-connected, and surgery is required to keep the manifold highly-connected. We defer these technicalities to Section V.2 of \cite{browder1972surgery}.
 
-	Under a contraction of fibers, it is clear $P^{2m}(Q)$ deformation retracts onto a disjoint union of the spheres $S^m_i$ which are pairwise wedged together at $|Q_{ij}|$ points. We would like to simplify this homotopy type. First, we note that:
-	\begin{lemma}
-		For each integer $q\geq 1$, there is a homotopy equivalence
-		\[
-			S^m\vee^q S^m \simeq S^m\vee S^m \vee \bigvee_{q-1} S^1,
-		\]
-		where $S^m\vee^q S^m$ denotes the wedge sum of two $m$-spheres at $q$ points.
-	\end{lemma}
-
-	In particular, this means that $P^{2m}(Q)$ admits a deformation retract onto the space
-	\[
-		\underbrace{S^m\vee\cdots S^m}_{\ell}\vee \bigvee_N S^1.
-	\]
-	for some large enough $N$. It follows that $\H^m(P^{2m}(Q))$ is free abelian of rank $\ell$ (here the assumption that $m>1$ is useful) and that the intersection form of $P^{2m}(Q)$ is exactly $Q$. Furthermore, we get a framing on $P^{2m}(Q)$ by \cref{rmk:plumbing-framing}.
-\end{proof}
-
-The remaining work involves understanding the homotopy type of the boundary. Some of the proofs become a bit involved, and so we defer these to Section V.2 of \cite{browder1972surgery}.
+For our purposes, we will only need to construct manifolds whose intersection forms have diagonal entries $\pm 2$ and off-diagonal entries $\{0,\pm 1\}$, and we only include the more general results for completeness. We could therefore assume that all bundles are $\pm \TT S^m$ and that two bundles are plumbed together at at most $1$ point.
+%
+% 	Under a contraction of fibers, it is clear $P^{2m}(Q)$ deformation retracts onto a disjoint union of the spheres $S^m_i$ which are pairwise wedged together at $|Q_{ij}|$ points. We would like to simplify this homotopy type. First, we note that:
+% 	\begin{lemma}
+% 		For each integer $q\geq 1$, there is a homotopy equivalence
+% 		\[
+% 			S^m\vee^q S^m \simeq S^m\vee S^m \vee \bigvee_{q-1} S^1,
+% 		\]
+% 		where $S^m\vee^q S^m$ denotes the wedge sum of two $m$-spheres at $q$ points.
+% 	\end{lemma}
+%
+% 	In particular, this means that $P^{2m}(Q)$ admits a deformation retract onto the space
+% 	\[
+% 		\underbrace{S^m\vee\cdots S^m}_{\ell}\vee \bigvee_N S^1.
+% 	\]
+% 	for some large enough $N$. It follows that $\H^m(P^{2m}(Q))$ is free abelian of rank $\ell$ (here the assumption that $m>1$ is useful) and that the intersection form of $P^{2m}(Q)$ is exactly $Q$. Furthermore, we get a framing on $P^{2m}(Q)$ by \cref{rmk:plumbing-framing}.
+% \end{proof}
+The remaining work involves understanding the homotopy type of the boundary. 
 
 \begin{proposition}
 	There is a surjective map
@@ -176,15 +177,9 @@ The remaining work involves understanding the homotopy type of the boundary. Som
 	See Lemma V.2.4 of \cite{browder1972surgery}.
 \end{proof}
 
-\begin{remark}
-	For our purposes, we will only need to construct manifolds whose intersection forms have diagonal entries $\pm 2$ and off-diagonal entries $\{0,\pm 1\}$, and we only include the more general results for completeness. We could therefore assume that all bundles are $\pm \TT S^m$ and that two bundles are plumbed together at at most $1$ point. This assumption would simplify the proof of \cref{thm:plumbing-existence-theorem}.
-\end{remark}
-
 \begin{theorem}
 	If $Q$ is unimodular, then $\partial P^{2m}(Q)$ is a homotopy sphere in $\bP^{2m}$.
 \end{theorem}
-\begin{proof}
-\end{proof}
 
 We now have the task of searching for even, unimodular, indecomposable $(-1)^m$-symmetric bilinear forms over the integers. Any such form corresponds to a homotopy sphere in $2m$ dimensions.
 
@@ -351,4 +346,16 @@ A complete discussion of this beautiful topic would take us too far afield, so w
 	We will call this the \defn{$E_8$ matrix}.
 \end{example}
 
-\todo{close out this section with the map $\Z \to \bP^{4k}$}.
+The main application of plumbing to the topic of exotic spheres is the following theorem:
+
+\begin{theorem}
+	There is a homomorphism
+	\[
+		\lkxfunc{}{\Z}{\bP^{4k}}{n}{\partial P^{4k}(E_8)\+\cdots\+\partial P^{4k}(E_8),}
+	\]
+	where the boundary of each sphere is a highly-connected manifold of signature $8n$.
+\end{theorem}
+
+\begin{remark}
+	Note that when $k=1$, an $E_8$ plumbing does give a homotopy $3$-sphere, but rather a homology $3$-sphere $\mathscr{D}$ known as the \defn{Poincar\'e homology sphere} or \defn{dodecahedral space}. This space has fundamental group $\pi_1(\mathscr{D})$ of order 120, a preimage of $A_5$ under the double cover $\SU_2 \to \SO_3$. This group is perfect, meaning it has trivial abelianization and so $\H^1(\mathscr{D})\cong 0$. Since it violates Poincar\'e's original (incorrect) hypothesis that every homology $3$-sphere is homeomorphic to the $S^3$, the Poincar\'e dodecahedral space might be referred to as a ``proto'' exotic sphere.
+\end{remark}

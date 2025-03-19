@@ -86,9 +86,6 @@ Accounting for infinite sequences, we get the following theorem:
 	There is a ring isomorphism $\Class^R_G\cong \widehat{h^\bullet}(\BB G)$
 	where $\widehat{h^\bullet}$ denotes the completion of the cohomology ring.
 \end{theorem}
-\begin{proof}
-	\todo{yoneda lemma.}
-\end{proof}
 
 This is the universal perspective on characteristic classes -- instead of defining natural transformations between vector bundles and cohomology theories, we can work in the cohomology ring of a single classifying space.
 
@@ -161,6 +158,10 @@ The first example of a characteristic class of an bundle is useful, but not very
 \begin{definition}
 	A characteristic class $c$ is said to be \defn{stable}[stable characteristic class] if $c(\mathcal{E}\oplus \underline{\R}^k) = c(\mathcal{E})$ for any $k$. A stable characteristic class only depends on the stable isomorphism type of the vector bundle. Every multiplicative and rank-normalized characteristic class is stable.
 \end{definition}
+
+\begin{example}
+	The Euler class is unstable, since it vanishes for odd rank real vector bundles.
+\end{example}
 
 \begin{remark}
 	Note that every characteristic class with stable structure group, e.g. $G$ is either $\O, \SO,$ or $\U$, is stable. To compute the ring of stable characteristic classes, we thus would need to compute the cohomology of $\BO$, $\BSO$, or $\BU$.
@@ -329,14 +330,16 @@ For the inductive step, we use a slightly more general lemma.
 	If $S^{2m-1} \to E \to B$ is an orientable sphere bundle and $\H^\bullet(E)$ is a polynomial ring $\Z[x_1,\ldots,x_\ell]$ of even-dimensional generators, then there is a ring isomorphism $\H^\bullet(B)\cong \H^\bullet(E)\otimes \Z[e]$ where $e$ is the Euler class of the bundle and $p^* : \H^\bullet(E) \to \H^\bullet(B)$ acts as the identity on $\H^\bullet(E)$.
 \end{lemma}
 \begin{proof}
-	The proof involves a few applications of the Gysin sequence. First, we can show that 
+	The proof involves a few applications of the Gysin sequence. Since the cohomology of $\H^\bullet(E)$ is concentrated in even dimensions, we can conclude that the cohomology of $\H^\bullet(B)$ is also concentrated in even dimensions. The Gysin sequence thus gives us an exact sequence
 \[
+	0 \lkxto \H^{k-2m}(B) \lkxto[e\,\smile]\H^k(B) \lkxto[p^*] \H^k(E) \lkxto 0
 % 	\begin{tikzcd}
 % 	  & \cdots\rar{p^*} \snakenode{X} & \H^{k-1}(\BU_{m-1})\snakearrow{X} \\
 % 		{\H^{k-2m}(\BU_m)}\rar{e\,\smile} & {\H^k(\BU_m)}\rar{p^*}\snakenode{Y} & {\H^k(\BU_{m-1})}\snakearrow{Y} \\
 % 		{\H^{k-2m+1}(\BU_m)}\rar{e\,\smile} & \cdots
 % \end{tikzcd}
 \]
+for even $k$. From this, we can conclude that $\H^\bullet(B)\cong \H^\bullet(E)\otimes \Z[e]$.
 For a full proof, see Proposition 4D.11 of \cite{hatcher2002topology}.
 \end{proof}
 
@@ -345,17 +348,27 @@ This leads us to conclude:
 	$\H^\bullet(\BU_m)\cong \Z[\cl_1,\ldots, \cl_m]$, where $|\cl_i|=2i$.
 \end{proposition}
 
-This is one definition of the \defn{Chern classes}, cohomology classes for complex vector bundles with coefficients $\Z$ in singular homology. As 
-
+This is one definition of the \defn{Chern classes}, cohomology classes for complex vector bundles with coefficients $\Z$ in singular homology. The properties of these characteristic classes are directly tied to the group theoretic properties of $\U_m$.
+For instance, since the bundle $\BU_{m-1} \to \BU_{m}$ induces an injective map $\H^\bullet(\BU_{m-1}) \to \H^\bullet(\BU_m)$, we can conclude that all Chern classes are stable:
+\[
+	\H^\bullet(\BU) = \Z[\cl_1,\cl_2,\ldots].
+\]
+Similarly, multiplicativity of the Chern class $\cl = 1+\cl_1+\cl_2+\cdots$ follows from the group homomorphism $\U_{m_1}\times \U_{m_2} \to \U_{m_1+m_2}$, which induces an injective map 
+\[
+	\lkxfunc{}{\H^\bullet(\BU_{m_1+m_2})}{\H^\bullet(\BU_{m_1})\otimes \H^\bullet(\BU_{m_2})}{\cl}{\cl \otimes \cl.}
+\]
+These properties and a normalization condition are enough to fully characterize the Chern class.
 \begin{proposition}
-	The Chern class is multiplicative.
+	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
+	\begin{enumerate}[(a)]
+		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
+		\item $\cl(\gamma)=1-\alpha$,
+	\end{enumerate}
+	where $\gamma$ is the tautological line bundle over $\CP^1$ and $\alpha\in \H^2(\CP^m)$ is the Poincar\'e dual class to $\CP^{m-1}\subset \CP^m$.
 \end{proposition}
-\begin{proof}
-	For any $m_1,m_2$, we have an inclusion $\U_{m_1}\times \U_{m_2} \to \U_{m_1+m_2}$. This corresponds to a map of classifying spaces
-	\[
-		\BU_{m_1}\times \BU_{m_2} \lkxto \BU_{m_1+m_2}.
-	\]
-\end{proof}
+
+Note that $\cl_1[\gamma]=-1$ because the Euler number of the tautological bundle is $-!$. See Chapter 14 of \cite{milnorstasheff1974} for more details.
+
 
 \subsection{Chern Roots}
 
@@ -369,11 +382,6 @@ Recall that every closed (connected) abelian Lie group is diffeomorphic to a tor
 	The \defn{Weyl group} of $G$ is the quotient $W(G)=N(T)/T$.
 \end{definition}
 It turns out that all choices of maximal tori are conjugate, so the exact choice of maximal torus does not affect the structure of the Weyl group.
-
-\begin{remark}
-	Many of the motivations for studying Weyl groups and maximal tori arise in representation theory. The representation of a torus $T$ is well-understood, \todo{write some more}
-\end{remark}
-
 In the case of the unitary group $\U_m$, a choice basis on $\C^m$ gives a canonical choice of maximal torus, namely the diagonal matrices
 \[
 	T = \left\{\diag(z_1,\ldots, z_n) \mid |z_i|=1\right\}.
@@ -383,110 +391,90 @@ The normalizer of this subgroup is exactly the set of matrices $P_\sigma T$ wher
 	The Weyl group of $\U_m$ is the symmetric group $\Sym_m$.
 \end{proposition}
 
-Returning to characteristic classes, note that the inclusion of the $T$ into $\U_m$ induces a bundle
-
-\pagebreak
-
-Recall that for complex projective spaces we have the cohomology ring
+Returning to characteristic classes, the inclusion of the torus $T$ into $\U_m$ induces a map $\BB T \to \BU_m$. 
+Since $\BB T = \BU_1^{\times n}$, we get an injective pullback map
 \[
-	\H^\bullet(\CP^n;\Z)\cong \Z[\alpha]/(\alpha^{n+1}
+		\H^\bullet(\BB U_m) \lkxto \H^\bullet(\BB U_1)\otimes \cdots \otimes \H^\bullet(\BB U_1).
 \]
-where $\alpha$ is the degree $2$ class corresponding to the Poincar\'e dual $\CP^{n-1}\subset \CP^n$.
-In the infinite dimensional limit, we get the purely polynomial rings
-\[
-	\H^\bullet(\CP^\infty;\Z)\cong \Z[\alpha].
-\]
-However since $\BU_1=\CP^\infty$, by \cref{thm:universal-characteristic-classes} we have
-\begin{equation}\label{eq:cczu1-a}
-	\Class_{\U_1}^{\Z}\cong \Z\fps{\alpha}
-\end{equation}
-The generator $\alpha$ thus corresponds to a homogeneous characteristic classes of degree $2$. We can use this as the inductive base or a general definition.
-
-\begin{proposition}
-	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
-	\begin{enumerate}[(a)]
-		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
-		\item $\cl(\OO_{\CP^1}(-1))=1-\alpha$,
-	\end{enumerate}
-	where $\alpha\in \H^2(\CP^m)$ is the Poincar\'e dual class to $\CP^{m-1}\subset \CP^m$.
-\end{proposition}
-
-\begin{definition}
-	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
-	\begin{enumerate}[(a)]
-		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
-		\item $\cl(\OO_{\CP^1}(1))=1+\alpha$.
-	\end{enumerate}
-	We denote by $\cl_i$ the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
-\end{definition}
-
-Of course, this is not a constructive definition, and it is not at all clear that a characteristic class satisfying these definitions even exists.
-However, being a multiplicative rank-normalized characteristic class with coefficients in a field of characteristic zero, the general results of the previous section hold for the Chern class. The more interesting results follow from axiom (b). By a beautiful theorem known as the splitting principle, it turns out that knowing the Chern classes of line bundles is enough to compute the Chern classes of any complex vector bundle.
+Note that the action of the Weyl group on $\BB T$ permutes the product $\BU_1\times \cdots\times \BU_m$, and hence permutes the factors of the ring $\H^\bullet(\BB U_1)\otimes \cdots\otimes \H^\bullet(\BB U_1)$.
 
 \begin{theorem}[Splitting Principle]
-	Let $\F$ be $\R$ or $\C$ and suppose $\mathcal{E}^k$ is an $\F$-vector bundle over a space $X$. There exists a space $Y$ with map $f : Y \to X$ such that
-	\begin{enumerate}[(a)]
-		\item $f^* : h^\bullet(Y) \to h^\bullet(X)$ is injective,
-		\item there is a bundle isomorphism $f^*\mathcal{E} \cong \mathcal{L}_1\oplus\cdots \oplus \mathcal{L}_k$ for line bundles $\mathcal{L}_i$ over $Y$.
-	\end{enumerate}
+	There is a ring isomorphism \[\H^\bullet(\BU_m)\cong \left(\H^\bullet(\BU_1)\otimes \cdots\otimes \H^\bullet(\BU_1)\right)^{\Sym_m}.\]
 \end{theorem}
-\begin{proof}
-	The general idea is as follows. Recall that the frame bundle $\Fr(\mathcal{E})$ is a principal $\GL_n\F$ bundle consisting of all local trivializations of $\mathcal{E}$. Letting $B\subset \GL_n \F$ be the Borel subgroup of upper triangular matrices. By letting $\GL_n$ act on $B\subset \GL_n\F$, we get an associated bundle
-	\[
-		\Fl(\mathcal{E}) = \Fr(\mathcal{E})\times_{\GL_n\F}{\GL_n\F/B}
-	\]
-	known as the \defn{flag bundle} of $E$. At each point $p\in X$ of the base, the frame bundle has fiber
-	\[
-		\Fr_p(\mathcal{E}) = \left\{ b : \F^k \to E_p \mid b \textrm{ is an isomorphism}\right\},
-	\]
-	or in other words, the set of ordered bases for $E_p$. Modulo the action of upper triangular matrices, we see that the flag bundle has fibers
-	\[
-		\Fl_p(\mathcal{E}) = \left\{ L_1,\ldots, L_k \textrm{ lines in }E_p \mid \span\{L_1,\ldots, L_k\} = \E_p \right\}.
-	\]
-	Note that there is a principal $B$-bundle $\Fr(E)\to \Fl(E)$.
 
-	\begin{remark}
-		In the complex case, we could reduce the bundle to have structure group $\U_n$, which would force the frame bundle to consist of orthonormal bases. Then to get the flag bundle, we could consider the bundle associated to the action of $\U_n$ on the quotient $\U_n/T$ by its maximal torus of diagonal matrices. This results in a diffeomorphic flag bundle.
-	\end{remark}
+For some more information of this formulation of the splitting principle, see \cite{toda1987}. This is one of many equivalent formulations of the splitting principle. Essentially, the idea is that any complex bundle pulls back to a sum of line bundles, with Chern class pulling back to a symmetric expression in the first Chern classes of the line bundles.
+This more standard statement is found in Theorem~19.3.9 of \cite{dieck2008algebraic} or on page 66 of \cite{hatcher2003ktheory}.
 
-	We then let $Y=\Fl(E)$ be the total space of the flag bundle, with the injectivity of $f^*$ following from the Leray-Hirsch theorem since it can be shown that $h^\bullet(\GL_n\F/B)$ has no torsion. In fact, the Leray-Hirsch theorem shows the stronger result that we have an isomorphism
-	\[
-		h^\bullet(X)\otimes h^\bullet(\GL_n \F/B) \cong h^\bullet(Y)
-	\]
-	with the inclusion $f^*$ simply being the precomposition of this isomorphism with $x\mapsto x\otimes 1$.
-
-	\todo{finish this}
-
-	See Theorem~19.3.9 of \cite{dieck2008algebraic} or page 66 of \cite{hatcher2003ktheory} for a more detailed proof.
-\end{proof}
-
-\begin{corollary}
-	The Chern class of complex projective space is $\cl(\CP^n)=(1+\alpha)^{n+1}$.
-\end{corollary}
-\begin{example}
-	For instance, we have
-	\[
-		\begin{aligned}
-			\cl(\CP^1) & = 1                              \\
-			\cl(\CP^2) & = 1+2\alpha+\alpha^2             \\
-			\cl(\CP^3) & = 1+3\alpha + 3\alpha^2+\alpha^3 \\
-			           & \;\;\vdots
-		\end{aligned}
-	\]
-\end{example}
-
-More generally, if we apply the splitting principle to the universal bundle $\EU_n$ over $\BU_n$, we can show that the flag manifold $\Fl(\EU_n)\cong (\BU_1)^{\times n}$, with the map $(\BU_1)^{\times n} \to \BU_n$ corresponding to the inclusion of the central torus $\U_1^{\times n}\subset \U_n$. However, the cohomology of $(\BU_1)^{\times n}$ is given by
-\[
-	\H^\bullet((\BU_1)^{\times n}) \cong \H^\bullet(\BU_1)\otimes\cdots\otimes \H^\bullet(\BU_1) \cong \Z[\gamma_1,\ldots,\gamma_n]
-\]
-with the injective pullback map $\H^\bullet(\BU_n) \to \H^\bullet(\BU_1^{\times n})$ having image $\Z[\gamma_1,\ldots, \gamma_n]^{\Sym_n}$ the symmetric polynomials.
-
-\todo{Talk about $U_n$, its maximal torus, and normalizer group isomorphic to $\Sym_n$. There is some cool geometry happening here under the hood}
+We thus have two ways to look at the cohomology ring $\H^\bullet(\BU_m)$ -- either as a polynomial ring $\Z[\cl_1,\ldots, \cl_m]$, or as symmetric polynomials $\Z[\gamma_1,\ldots, \gamma_m]^{\Sym_m}$. The generators of this latter ring are known as \defn{universal Chern roots}.
 
 \begin{definition}\label{def:chern-roots}
 	The \defn{Chern roots} of a complex vector bundle $\mathcal{E}$ over $X$ with classifying map $f : X \to \BU_n$ are given by $\gamma_i(\mathcal{E}) = f^*\gamma_i$. Note that
 	\[ \cl(\mathcal{E}) = \prod_{1\leq i \leq n} (1+\gamma_i(\mathcal{E})). \]
 \end{definition}
+
+For a simple application of the splitting principle, we get:
+\begin{corollary}
+	The Chern class of complex projective space is $\cl(\CP^n)=(1-\alpha)^{n+1}$.
+\end{corollary}
+% \begin{example}
+% 	The first few such expressions are given by
+% 	\[
+% 		\begin{aligned}
+% 			\cl(\CP^1) & = 1                              \\
+% 			\cl(\CP^2) & = 1+2\alpha+\alpha^2             \\
+% 			\cl(\CP^3) & = 1+3\alpha + 3\alpha^2+\alpha^3 \\
+% 			           & \;\;\vdots
+% 		\end{aligned}
+% 	\]
+% \end{example}
+
+% \begin{definition}
+% 	The \defn{Chern class $\cl$}[Chern class] is the unique characteristic class for complex vector bundles ($G=\U$) in singular cohomology with $\Z$ coefficients satisfying:
+% 	\begin{enumerate}[(a)]
+% 		\item $\cl$ is rank-normalized and multiplicative,\footnote{Technically, we only need that $\cl_0=1$, the rank conditions follows from this and axiom (b).}
+% 		\item $\cl(\OO_{\CP^1}(1))=1+\alpha$.
+% 	\end{enumerate}
+% 	We denote by $\cl_i$ the degree $2i$ homogeneous component of $c$ in $\H^{2i}(-;\Z)$.
+% \end{definition}
+%
+% Of course, this is not a constructive definition, and it is not at all clear that a characteristic class satisfying these definitions even exists.
+% However, being a multiplicative rank-normalized characteristic class with coefficients in a field of characteristic zero, the general results of the previous section hold for the Chern class. The more interesting results follow from axiom (b). By a beautiful theorem known as the splitting principle, it turns out that knowing the Chern classes of line bundles is enough to compute the Chern classes of any complex vector bundle.
+%
+% \begin{theorem}[Splitting Principle]
+% 	Let $\F$ be $\R$ or $\C$ and suppose $\mathcal{E}^k$ is an $\F$-vector bundle over a space $X$. There exists a space $Y$ with map $f : Y \to X$ such that
+% 	\begin{enumerate}[(a)]
+% 		\item $f^* : h^\bullet(Y) \to h^\bullet(X)$ is injective,
+% 		\item there is a bundle isomorphism $f^*\mathcal{E} \cong \mathcal{L}_1\oplus\cdots \oplus \mathcal{L}_k$ for line bundles $\mathcal{L}_i$ over $Y$.
+% 	\end{enumerate}
+% \end{theorem}
+% \begin{proof}
+% 	The general idea is as follows. Recall that the frame bundle $\Fr(\mathcal{E})$ is a principal $\GL_n\F$ bundle consisting of all local trivializations of $\mathcal{E}$. Letting $B\subset \GL_n \F$ be the Borel subgroup of upper triangular matrices. By letting $\GL_n$ act on $B\subset \GL_n\F$, we get an associated bundle
+% 	\[
+% 		\Fl(\mathcal{E}) = \Fr(\mathcal{E})\times_{\GL_n\F}{\GL_n\F/B}
+% 	\]
+% 	known as the \defn{flag bundle} of $E$. At each point $p\in X$ of the base, the frame bundle has fiber
+% 	\[
+% 		\Fr_p(\mathcal{E}) = \left\{ b : \F^k \to E_p \mid b \textrm{ is an isomorphism}\right\},
+% 	\]
+% 	or in other words, the set of ordered bases for $E_p$. Modulo the action of upper triangular matrices, we see that the flag bundle has fibers
+% 	\[
+% 		\Fl_p(\mathcal{E}) = \left\{ L_1,\ldots, L_k \textrm{ lines in }E_p \mid \span\{L_1,\ldots, L_k\} = \E_p \right\}.
+% 	\]
+% 	Note that there is a principal $B$-bundle $\Fr(E)\to \Fl(E)$.
+%
+% 	\begin{remark}
+% 		In the complex case, we could reduce the bundle to have structure group $\U_n$, which would force the frame bundle to consist of orthonormal bases. Then to get the flag bundle, we could consider the bundle associated to the action of $\U_n$ on the quotient $\U_n/T$ by its maximal torus of diagonal matrices. This results in a diffeomorphic flag bundle.
+% 	\end{remark}
+%
+% 	We then let $Y=\Fl(E)$ be the total space of the flag bundle, with the injectivity of $f^*$ following from the Leray-Hirsch theorem since it can be shown that $h^\bullet(\GL_n\F/B)$ has no torsion. In fact, the Leray-Hirsch theorem shows the stronger result that we have an isomorphism
+% 	\[
+% 		h^\bullet(X)\otimes h^\bullet(\GL_n \F/B) \cong h^\bullet(Y)
+% 	\]
+% 	with the inclusion $f^*$ simply being the precomposition of this isomorphism with $x\mapsto x\otimes 1$.
+%
+% 	\todo{finish this}
+%
+% \end{proof}
 
 \subsection{Creating Multiplicative Characteristic Classes}
 
@@ -615,7 +603,7 @@ Multiplicative sequences span out a decently large set of endomorphisms of $R\fp
 
 \subsection{Pontryagin Classes}
 
-The first application of the construction presented in the previous section is the construction of characteristic classes for real vector bundles. First, we note that:
+The first application of the construction presented in the previous section is the construction of characteristic classes for real vector bundles. Note that:
 \begin{proposition}\label{prop:chern-conjugation}
 	For any complex vector bundle $\mathcal{E}$, we have
 	\[
@@ -627,7 +615,9 @@ The first application of the construction presented in the previous section is t
 	See Lemma 14.9 of \cite{milnorstasheff1974}.
 \end{proof}
 
-Now given a real vector bundle $\mathcal{E}$, we can complexify it to get a complex vector bundle $\mathcal{E}_\C = \mathcal{E}\otimes \C$. This complexified tangent bundle is canonically isomorphic to its conjugate bundle, so by \cref{prop:chern-conjugation} we have
+Now given a real vector bundle $\mathcal{E}$, we can complexify it to get a complex vector bundle $\mathcal{E}_\C = \mathcal{E}\otimes \C$. 
+Note that complexification of bundles can be interpreted by structure group reduction $\U_m \to \SO_{2m}$, which induces an injective map $\H^\bullet(\BSO_{2m})\to \H^\bullet(\U_m)$. 
+The complexified tangent bundle is canonically isomorphic to its conjugate bundle, so by \cref{prop:chern-conjugation} we have
 \[
 	\cl_{2k+1}(\overline{\mathcal{E}_\C}) = -c_{2k+1}(\mathcal{E}_\C) \quad\implies\quad 2\cdot c_{2k+1}(\mathcal{E}_\C) = 0.
 \]
@@ -635,9 +625,57 @@ If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{
 \[
 	\cl(\mathcal{E}_\C) = 1+\cl_2(\mathcal{E}_\C) + \cl_4(\mathcal{E}_\C)+\cdots
 \]
+
 \begin{definition}
-	The Pontryagin class is the 
 \end{definition}
+
+\begin{proposition}
+	We have the relation
+	\[
+		p_n =\cl_n^2 - 2\sum_{1\leq k\leq n}(-1)^k\cl_{n-k}\smile \cl_{n+k}.
+	\]
+\end{proposition}
+
+In the language of multiplicative sequences, we might say that the Pontryagin class is the characteristic class associated to the characteristic series $Q(t)=1+t^2$.
+
+\begin{proposition}\label{prop:pontryagin-class-complex-projective-space}
+	\[
+		p(\CP^n) = (1+\alpha^2)^{2n+1}
+	\]
+\end{proposition}
+
+\begin{example}
+	The Pontryagin classes of the first few dimensions of complex projective space are given by:
+	\[
+		\begin{aligned}
+			p(\CP^1) & = 1,                                    \\
+			p(\CP^2) & = 1+3\alpha^2,                          \\
+			p(\CP^3) & = 1+4\alpha^2,                          \\
+			p(\CP^3) & = 1+5\alpha^2 + 10\alpha^4,             \\
+			p(\CP^4) & = 1+6\alpha^2 + 15\alpha^4,             \\
+			p(\CP^4) & = 1+7\alpha^2 + 21\alpha^4+ 35\alpha^6, \\
+		\end{aligned}
+	\]
+	Note that $p_k[\CP^{2k}]$.
+\end{example}
+
+\begin{theorem}\label{thm:cohomology-o}
+	The cohomology rings of classifying spaces is given by
+	\begin{enumerate}[(a)]
+		\item $\H^\bullet(\BU_n;\Z)\cong \Z[c_1,\ldots, c_n]$\hfill where $|c_i|=2i$,
+		\item $\H^\bullet(\BSO_{2n+1};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n]$\hfill where $|p_i|=4i$,
+		\item $\H^\bullet(\BSO_{2n+2};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n, e]$\hfill where $|p_i|=4i$, $|e|=2n$.
+	\end{enumerate}
+	Consequently, the cohomology rings of stable classifying spaces are 
+	\begin{enumerate}[(a)]
+		\item $\H^\bullet(\BU;\Z)\cong \Z[c_1,c_2,\ldots]$\hfill where $|c_i|=2i$,
+		\item $\H^\bullet(\BSO;\Z[\frac12])\cong \Z[\frac12][p_1,p_2,\ldots]$\hfill where $|p_i|=4i$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proposition}\label{prop:pontryagin-}
+	If $M$ is a null-cobordant manifold and $c\in \H^\bullet(\BSO, \Z[\frac12])$, then $c[M]=0$.
+\end{proposition}
 
 % \begin{definition}
 % 	The \defn{Stiefel-Whitney class $w$}[Stiefel-Whitney class] is the unique characteristic class for unoriented vector bundles ($G=
@@ -655,38 +693,6 @@ If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{
 %
 % \subsection{Pontryagin Classes}
 
-% \begin{definition}
-% 	The \defn{Pontryagin class $p$} is the unique characteristic class for oriented real vector bundles ($G=\SO$) in singular cohomology with $\Z[1/2]$ coefficients satisfying:
-% 	\begin{enumerate}[(a)]
-% 		\item $p$ is rank-normalized and multiplicative,
-% 		\item
-% 	\end{enumerate}
-% \end{definition}
-%
-% \begin{proposition}\label{prop:pontryagin-class-complex-projective-space}
-% 	\[
-% 		p(\CP^n) = (1+\alpha^2)^{2n+1}
-% 	\]
-% \end{proposition}
-%
-% \begin{example}
-% 	The Pontryagin classes of the first few dimensions of complex projective space are given by:
-% 	\[
-% 		\begin{aligned}
-% 			p(\CP^1) & = 1,                                    \\
-% 			p(\CP^2) & = 1+3\alpha^2,                          \\
-% 			p(\CP^3) & = 1+4\alpha^2,                          \\
-% 			p(\CP^3) & = 1+5\alpha^2 + 10\alpha^4,             \\
-% 			p(\CP^4) & = 1+6\alpha^2 + 15\alpha^4,             \\
-% 			p(\CP^4) & = 1+7\alpha^2 + 21\alpha^4+ 35\alpha^6, \\
-% 		\end{aligned}
-% 	\]
-% 	Note that $p_k[\CP^{2k}]$.
-% \end{example}
-%
-% \begin{proposition}\label{prop:pontryagin-}
-% 	Let $K(p)$ be a Pontryagin class. If $M^{4k}$ is an oriented manifold which is the boundary of a smooth compact oriented manifold $W^{4k+1}$, then $K(p)[M]=0$.
-% \end{proposition}
 %
 % \begin{corollary}
 % 	A degree $k$ Pontryagin number $K(p)$ is a well-defined group homomorphism
@@ -750,22 +756,30 @@ If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{
 % 		\item If $-\mathcal{E}$ has opposite orientation to $\mathcal{E}$, then $e(-\mathcal{E})=-e(\mathcal{E})$.
 % 	\end{enumerate}
 % \end{definition}
-%
-\begin{proposition}
-
-\end{proposition}
 
 \subsection{The Hirzebruch Signature Theorem}
 
+We now use the theory of characteristic classes to come up with an expression for the signature of an oriented manifold. Recall from \cref{sec:cobordism} that the signature can be interpreted as a ring homomorphism
+\[
+		\Omega_\bullet^\SO \otimes \Q \lkxto \Z.
+\]
+However, any (stable) multiplicative characteristic class for oriented vector bundles also induces a ring homomorphism. For instance, the Pontryagin class evaluates to
+\[
+		p[\CP^{2k}] = \binom{2n+1}{2k}
+\]
+on the generators of $\Omega_\bullet^\SO\otimes \Q$. If we can find some multiplicative characteristic class which evaluates to $1$ on $\CP^{2k}$, we would be able to express the signature in terms of characteristic classes. In general, a ring homomorphism from a cobordism ring is known as a \defn{genus}.
+
 \begin{definition}
-	The \defn{$L$-genus} of a closed oriented manifold $M$ is the characteristic number $L[M]$ where $L$ is the characteristic class coming from the reduced characteristic series
+	The \defn{$L$-genus} of a closed oriented manifold $M$ is the characteristic number $L[M]$ where $L$ is the characteristic class coming from the characteristic series
 	\[
-		\widetilde{Q}_{L}(t) = \frac{\sqrt{t}}{\tanh(\sqrt{t})}.
+		Q_{L}(t) = \frac{t}{\tanh(t)}=1+\frac{t^2}{3} - \frac{t^4}{45} + \frac{2t^6}{645}-\frac{t^8}{4725}+\cdots.
 	\]
 \end{definition}
 
+Since this sequence only contains even-degree terms, we can express the associated multiplicative sequence of polynomials in terms of Pontryagin classes.
+
 \begin{example}\label{example:L-genus}
-	The first few polynomials in the $L$ genus are given by:
+	The first few polynomials in the $L$-genus are given by:
 \[
 	\begin{aligned}
 		L_1 &= \frac{1}{3}p_1,\\
@@ -785,13 +799,13 @@ If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{
 	where $L_k$ is the $L$-genus.
 \end{theorem}
 \begin{proof}
-	It suffices to check this identity for the generators $\CP^{2k}$. The total Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$. Using multiplicativity of $L$ and $L(1+z)=\sqrt{z}/\tanh\sqrt{z}$, we have
+	It suffices to check this identity for the generators $\CP^{2k}$. The total Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$.
 	\[
 		\begin{aligned}
 			L(p)(\CP^{2k})
-			= L\left((1+\alpha^2)^{2k+1}\right)
+			= L((1+\alpha^2)^{2k+1})
 			= L(1+\alpha^2)^{2k+1}
-			= \left(\alpha/\tanh \alpha\right)^{2k+1}
+			= (\alpha/\tanh \alpha)^{2k+1}
 			\quad\in\H^\bullet(\CP^{2k}).
 		\end{aligned}
 	\]
@@ -815,6 +829,10 @@ If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{
 	Since $\sigma(\CP^{2k})=1$, this completes the proof.
 \end{proof}
 
+\begin{remark}
+	Instead of checking the coefficients from the power series, we might use something like the Lagrange-B\"urmann formula to derive $t/\tanh t$ directly from the series $1/(1-t^4)=1+t^4+t^8+\cdots$ ``generating'' the signature as a map from cobordism. 
+\end{remark}
+
 The Hirzebruch signature theorem is a shining example of a truly remarkable theorem in mathematics -- it gives us easy computational means to uncover highly non-trivial relationships between complicated objects. For us, the most useful consequence of the Hirzebruch signature theorem is that it gives us subtle integrability and divisibility theorems. For instance, the expression for the leading coefficient of $L_3$ in \cref{example:L-genus} immediately implies:
 \begin{corollary}
 	If $M$ is a closed $12$-manifold with $\H^4(M)\cong 0$, then $\sigma(M)$ is divisible by $62$.
@@ -822,23 +840,28 @@ The Hirzebruch signature theorem is a shining example of a truly remarkable theo
 The observation that for such manifolds $M$, the quantity $\sigma(M)/62$ is an integer, let alone equal to $945p_3[M]$, is far from obvious, and yet it pops out immediately from the signature theorem. These subtle relationships are immensely useful in defining invariants capable of detecting exotic spheres as we will see in the following \cref{sec:invariants-for-homotopy-4k-1-spheres}.
 
 While we are on the topic of the $L$-genus, let us compute its leading coefficient. Often times, the manifolds which we will apply the signature theorem to will be connected enough that the lower order Pontryagin classes vanish -- leaving just the leading term.
-Luckily for us, the coefficient of this leading term admits a simple description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion of $\tanh z$:
-\begin{equation}\label{eq:tanh_series}
-	\tanh z = z - \frac{z^3}{3} + \frac{2z^5}{15} - \frac{17z^7}{315}+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, z^{2k-1}.
-\end{equation}
-With this definition, the first few Bernoulli numbers are given by:
+Luckily for us, the coefficient of this leading term admits a simple description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion:
+\[
+	\frac{t}{1-e^{-t}} =  1+\frac{1}{2}t + \frac{1}{12}t^2-\frac{1}{720}t^4+\frac{1}{30240}z^6-\frac{1}{1209600}t^8+\cdots=\sum_{n\geq 0}\frac{B_n}{n!}t^n.
+\]
+\begin{remark}
+	The characteristic series $t/(1-e^{-t})$ generates the Todd genus, a fundamental invariant in complex geometry. See \todo{cite} for more information.
+\end{remark}
+As we are working in the real case, we need only consider the even degree terms. The first few Bernoulli numbers are given by:
 \begin{equation}\label{eq:bernoulli_numbers}
 	B_0 = 1,\quad B_2 = \frac{1}{6},\quad B_4 = \frac{1}{30},\quad B_6=\frac{1}{42},\quad B_{8}=\frac{1}{30},\quad B_{10} = \frac{5}{66},\quad\cdots
 \end{equation}
+Bernoulli numbers are ubiquitous in topology and homotopy theory, \todo{cite}
 
-\todo{complexity of the sequence indicates how complicated the geometry can get}
+\begin{equation}\label{eq:tanh_series}
+	\begin{aligned}
+		\tanh t &= t - \frac{1}{3}t^3 + \frac{2}{15}t^5 - \frac{17}{315}t^7+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, t^{2k-1}\\
+		\frac{t}{\tanh(t)} &= 1+\frac{1}{3}t^2-\frac{1}{45}t^4+\frac{2}{945}t^6 - \frac{1}{4725}t^8 +\cdots = \sum_{0\leq n}\frac{2^{2n}B_{2n}}{(2n)!}.
+	\end{aligned}
+\end{equation}
+
+From this, it follows that:
 
 \begin{proposition}\label{prop:leading_coefficient_L_genus}
 	The leading coefficient of the $L$-genus is $s_k=2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!$
 \end{proposition}
-\begin{proof}
-	\todo{this proof}
-\end{proof}
-%
-% \subsection{The $\Ahat$ Genus}
-%

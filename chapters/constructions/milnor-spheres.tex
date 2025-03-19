@@ -160,8 +160,7 @@ Note that the isomorphism $\Z\cong \pi_3(\Sp_1)$ sends an integer $k\in \Z$ to t
 To determine when $\Sigma_{i,j}^7$ is homeomorphic to a sphere, we calculate the Euler number of the bundle corresponding to a pair $(i,j)\in \Z\oplus\Z$. We begin with a useful general lemma.
 
 \begin{lemma}\label{lemma:euler-number-clutching-construction}
-	For even $m$, let
-	$p : \SO_m \to S^{m-1}$ be the map sending an isometry $T\in \SO_m$ to $T(x)\in S^m$ for a fixed point $x$. As a group homomorphism $\pi_{m-1}(\SO_m)\to \Z$, the Euler number is the map on $\pi_{m-1}$ induced by this map. In other words, the diagram commutes:
+	For even $m$, let $p : \SO_m \to S^{m-1}$ be the map sending an isometry $T\in \SO_m$ to $T(x)\in S^m$ for a fixed point $x$. As a group homomorphism $\pi_{m-1}(\SO_m)\to \Z$, the Euler number is the map on $\pi_{m-1}$ induced by this map. In other words, the diagram commutes:
 	\[
 		\begin{tikzcd}
 			\pi_{m-1}(\SO_m) & \pi_{m-1}(S^{m-1})\\
@@ -172,15 +171,6 @@ To determine when $\Sigma_{i,j}^7$ is homeomorphic to a sphere, we calculate the
 		\end{tikzcd}
 	\]
 \end{lemma}
-\begin{proof}
-	The map $p : \SO_m \to S^{m-1}$ is a fiber bundle map, with fibers $\SO_{m-1}$.
-	\todo{finish the proof}
-	\begin{figure}[ht]
-		\centering
-		\import{diagrams}{placeholder-small.pdf_tex}
-		\caption{The fiber bundle $\SO_{m-1}\to \SO_m \to S^{m-1}$.}
-	\end{figure}
-\end{proof}
 
 \begin{proposition}\label{prop:euler-number-of-milnor-manifold}
 	The Euler number of the bundle associated to $(i,j)\in \Z\oplus \Z$ is $i+j$.
