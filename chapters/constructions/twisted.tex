@@ -1,0 +1,37 @@
+\section{Twisted Spheres}\label{sec:twisted-spheres}
+Lastly, we will briefly mention the construction of homotopy spheres by means of ``twisting'' together two 
+
+\todo{rephrase}
+
+	The definition of connected sum for smooth manifolds is slightly stronger than the definition for topological manifolds. In the topological category, we could simply cut out open disks from both manifolds and identify their boundaries, i.e. we set
+	\begin{equation}\label{eq:connected-sum-in-topological-category}
+		M_1\# M_2 = (M_1\setminus \Int(\iota_1(D^n)))\cup_g (M_2\setminus \Int(\iota_2(D^n)))
+	\end{equation}
+	where $g : \partial \iota_1(D^n) \to \partial \iota_2(D^n)$ is any orientation-reversing homeomorphism. This definition turns out to be well-defined in the topological category, although proving this takes a considerable amount of work. \todo{cite}
+
+	However, the connected sum in the topological category will not give a unique connected sum in the smooth category, in fact far from it. Interestingly enough, the failure for \cref{eq:connected-sum-in-topological-category} to give a unique smooth manifold is related to exotic spheres in the following way. Whenever we have an orientation-preserving diffeomorphism $f: S^{n-1}\to S^{n-1}$, identifying $\partial D^n = S^{n-1}$ allows us to glue together disks to get $T(f)=D^n\cup_f D^n$. This is a smooth manifold which is the (topological) connected sum of two spheres so must be homoemorphic to a sphere. The manifolds $T(f)$ are called \defn{twisted spheres} since they are built by ``twisting together'' two disks by $f$. 
+
+	We can interpret the twisted sphere construction as a map $T: \Diff^+(S^{n-1})\to \Theta^n$ sending an orientation-preserving diffeomorphism $f : S^{n-1} \to S^{n-1}$ to the twisted sphere $T(f)$. For any (smooth) path $\omega : I \to \Diff^+(S^{n-1})$, we can build an $h$-cobordism 
+	\[ (D^n\times I)\cup_\omega (D^n\times I) : T(\omega_0) \sohbord T(\omega_1)\]
+	where we interpret the path $\omega$ as a smooth homotopy $\omega : I\times S^{n-1}\to\S^{n-1}$ between diffeomorphisms $\omega_0, \omega_1 : S^{n-1} \to S^{n-1}$. For $n\geq 5$, \cref{thm:h-cobordism-diffeomorphism} implies that $T(\omega_0)$ is diffeomorphic to $T(\omega_1)$ so the map $T$ only depends on the path component of $f\in \Diff^+(S^{n-1})$.
+	Next, note we can extend $f$ to a diffeomorphism on the interior of the disk, the resulting twisted sphere must be diffeomorphic to a sphere. By a similar argument, we can reduce to path-components. Altogether, we have an exact sequence (of sets)
+	\begin{equation}\label{eq:twisted-sphere-exact-sequence-proto}
+		\pi_0 [\Diff^+(D^n)] \lkxto \pi_0 [\Diff^+(S^{n-1})] \lkxto[T] \Theta^n.
+	\end{equation}
+	Finally, if we take any homotopy sphere $\Sigma\in \Theta^n$, cutting out the interiors of any embedded open disks $D_1, D_2\subset \Sigma$ gives an $h$-cobordism $\Sigma\setminus(D_1\cup D_2) : \partial D_1 \sohbord \partial D_2$. If $n\geq 6$, the $h$-cobordism theorem (\ref{thm:h-cobordism}) implies that $\Sigma \setminus (D_1\cup D_2)$ is diffeomorphic to a cylinder $\partial D_2\times [0,1]$. It follows that $\Sigma$ is a twisted sphere corresponding to the diffeomorphism $\partial D_1 \cong \partial D_2$ coming from the $h$-cobordism.
+	When $n\geq 6$, the exact sequence \cref{eq:twisted-sphere-exact-sequence-proto} therefore extends to 
+	\[
+		\pi_0 [\Diff^+(D^n)] \lkxto \pi_0 [\Diff^+(S^{n-1})] \lkxto[T] \Theta^n \lkxto 0.
+	\]
+	In 1970, Cerf proved the pseudoisotopy theorem \cite{cerf1970pseudoisotopy}, one of the consequences of which implies that $\pi_0[\Diff^+(D^n)]=0$ for $n\geq 6$. From this it follows that:
+
+	\begin{proposition}
+		For $n\geq 6$, there is a bijection $\Theta^n \cong \pi_0[\Diff^+(S^{n-1})]$.
+	\end{proposition}
+
+	In my subjective opinion, this is the most canonical way to observe the phenomenon of exotic smooth structures on the spheres. Rather than work with a set of abstract smooth manifolds and diffeomorphisms between them, it is possible to interpret the set of smooth structures on a sphere as the set of path-components of diffeomorphisms on a specific sphere. This bijection is also a reason as to why some theoretical physicists care about exotic spheres. \todo{change of coordinates, 10-dimensional change of coordinates (with compact support) has 992 components.} 
+	For instance, Witten's 1985 paper \cite{witten1985anomalies} on global anomalies in string theoretic models of gravity contains extensive discussions on exotic spheres, and the use of geometric invariants in detecting them.
+
+\begin{theorem}
+  For $n\geq 6$, there is a bijection $\Theta^n \cong \pi_0[\Diff^+(S^{n-1})]$.
+\end{theorem}

@@ -71,11 +71,16 @@ The primary interpretation of the Euler number for us is as an intersection numb
   \[
     \H^{k}(M\times M) \cong \bigoplus_{p+q=k} \H^p(M)\otimes \H^q(M).
   \]
-  The Poincar\'e dual for the homology class $[\Delta]\in \H_{n}(M\times M)$ is given by
+  By noting that the fundamental class $[M\times M]=[M]\times [M]$, we can show that the Poincar\'e dual for the homology class $[\Delta]\in \H_{n}(M\times M)$ is given by
   \[
-      \mathrm{PD}([\Delta]) = \sum_{i\geq 1}(-1)^{|\alpha_i|}\alpha_i\otimes \alpha^i,
+      \mathrm{PD}([\Delta]) = \sum_{i\geq 1}(-1)^{|\alpha_i|}\alpha_i\otimes \alpha^i.
   \]
-  \todo{finish}
+  Taking the cup product, we get
+  \[
+    \begin{aligned}
+      \mathrm{PD}([\Delta])\smile \mathrm{PD}([\Delta] = \sum_{i\geq 1}(-1)^{|\alpha_i|}(\alpha_i\otimes \alpha^i)
+    \end{aligned}
+  \]
 \end{proof}
 
 This theorem gives a way to define the Euler number of any vector bundle, not just the tangent bundle of a manifold. Note that the tangent bundle of $M$ is isomorphic to the normal bundle of $\Delta$ in $M\times M$. If $M$ was embedded in an oriented $2n$-dimensional manifold $X$ instead of in $M\times M$, we might define the Euler number of its normal bundle to be

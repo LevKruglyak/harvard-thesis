@@ -616,8 +616,8 @@ The first application of the construction presented in the previous section is t
 \end{proof}
 
 Now given a real vector bundle $\mathcal{E}$, we can complexify it to get a complex vector bundle $\mathcal{E}_\C = \mathcal{E}\otimes \C$. 
-Note that complexification of bundles can be interpreted by structure group reduction $\U_m \to \SO_{2m}$, which induces an injective map $\H^\bullet(\BSO_{2m})\to \H^\bullet(\U_m)$. 
-The complexified tangent bundle is canonically isomorphic to its conjugate bundle, so by \cref{prop:chern-conjugation} we have
+Note that complexification of bundles can be interpreted by structure group reduction $\U_m \to \SO_{2m}$, which induces an injective map $\H^\bullet(\BSO_{2m})\to \H^\bullet(\U_m)$. However, not all characteristic classes in $\H^\bullet(\U_m)$ lie in the image of this map. 
+Since complexified tangent bundle is canonically isomorphic to its conjugate bundle, so by \cref{prop:chern-conjugation} we have
 \[
 	\cl_{2k+1}(\overline{\mathcal{E}_\C}) = -c_{2k+1}(\mathcal{E}_\C) \quad\implies\quad 2\cdot c_{2k+1}(\mathcal{E}_\C) = 0.
 \]
@@ -627,6 +627,7 @@ If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{
 \]
 
 \begin{definition}
+	The $k$-th Pontryagin class is
 \end{definition}
 
 \begin{proposition}
@@ -855,8 +856,8 @@ Bernoulli numbers are ubiquitous in topology and homotopy theory, \todo{cite}
 
 \begin{equation}\label{eq:tanh_series}
 	\begin{aligned}
-		\tanh t &= t - \frac{1}{3}t^3 + \frac{2}{15}t^5 - \frac{17}{315}t^7+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, t^{2k-1}\\
-		\frac{t}{\tanh(t)} &= 1+\frac{1}{3}t^2-\frac{1}{45}t^4+\frac{2}{945}t^6 - \frac{1}{4725}t^8 +\cdots = \sum_{0\leq n}\frac{2^{2n}B_{2n}}{(2n)!}.
+		\tanh(t) &= t - \frac{1}{3}t^3 + \frac{2}{15}t^5 - \frac{17}{315}t^7+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, t^{2k-1}\\
+		\frac{t}{\tanh(t)} &= 1+\frac{1}{3}t^2-\frac{1}{45}t^4+\frac{2}{945}t^6 - \frac{1}{4725}t^8 +\cdots = \sum_{k\geq 0}\frac{2^{2k}B_{2k}}{(2k)!}.
 	\end{aligned}
 \end{equation}
 

@@ -75,12 +75,12 @@ In a similar vein, when we have just a manifold $M^n$, a \defn{collar neighborho
 We can now address one of the fundamental operations in geometric topology -- the joining of two manifolds by submanifolds.
 
 Let us suppose we have manifolds $M_1^n$ and $M_2^n$ of the same dimension, with embeddings $\iota_1 : N\to M_1$ and $\iota_2 : N\to M_2$ of a manifold $N^k$. Our goal is to construct a joined manifold $M$ which we denote $M_1\cup_N M_2$.
-We start by picking tubular neighborhoods $\widetilde{N_i}$ for $\iota_i(N)\subset M_i$ and let $\tau_i: N\times \R^{n-k} \to \widetilde{N_i}$ be the diffeomorphism.
+We start by picking tubular neighborhoods $\widetilde{N_i}$ for $\iota_i(N)\subset M_i$ and let $\tau_i: \T M/\iota_i(N) \to \widetilde{N_i}$ be the diffeomorphism.
 We define $M$ to be the quotient
 \begin{equation}\label{eq:join-definition}
 	M_1\cup_N M_2 = \frac{M_1\setminus \iota_1(N)\sqcup M_2\setminus \iota_2(N)}{\tau_1(p, t\xi) \sim \tau_2(p, t^{-1}\xi)}
 \end{equation}
-for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in S^{n-k-1}\subset \R^{n-k}$. The resulting smooth manifold $M=M_1\cup_N M_2$ is called a \defn{join along a submanifold}\footnote{Some authors refer to this operation as ``\defn{pasting}'' or as the ``\defn{generalized connected sum}'', see for instance Section VI.4 in \cite{kosinski1993differential}.} and is one of the fundamental operations of geometric topology.
+for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in \T_p M/\iota_i(N)$ with respect to some inner product on $\T M/N_i$. The resulting smooth manifold $M=M_1\cup_N M_2$ is called a \defn{join along a submanifold}\footnote{Some authors refer to this operation as ``\defn{pasting}'' or as the ``\defn{generalized connected sum}'', see for instance Section VI.4 in \cite{kosinski1993differential}.} and is one of the fundamental operations of geometric topology.
 
 \begin{figure}[ht]
 	\centering
