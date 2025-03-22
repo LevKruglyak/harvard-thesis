@@ -140,11 +140,20 @@
 
 % Bibliography
 \usepackage[
-	style=numeric,
+	style=alphabetic,
 	natbib=true,
 	backref=true,
-	backrefstyle=three
+	backrefstyle=three,
+	isbn=false,
+	url=false,
+	doi=false,
+	eprint=false
 ]{biblatex}
+\AtEveryBibitem{%
+  \clearfield{note}
+  \clearfield{month}
+  % \clearfield{publisher}
+}
 \bibliography{thesis}{}
 
 \newcommand{\lkxrefs}[1]{
@@ -234,6 +243,7 @@
 \newtheorem*{note*}{Note}
 \newtheorem*{corollary*}{Corollary}
 \newtheorem*{conjecture*}{Conjecture}
+\newtheorem*{question*}{Question}
 
 \newtheoremstyle{lkx_remark}
 {1em}{}{}{}{}{.}{ }

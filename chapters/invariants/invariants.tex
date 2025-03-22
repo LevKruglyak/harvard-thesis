@@ -1,5 +1,5 @@
 \pagebreak
-\section{Invariants for Homotopy \texorpdfstring{${(4k-1)}$}{(4k-1)}-Spheres}\label{sec:invariants-for-homotopy-4k-1-spheres}
+\section{Geometric Invariants}\label{sec:invariants-for-homotopy-4k-1-spheres}
 
 Armed with the power of the signature theorem, let's now try to build some invariants for homotopy spheres.
 Due to the topological simplicity of homotopy spheres, it's difficult to imagine how we could construct such an invariant which can distinguish smooth structure. One of the great ideas of 20th century topology is to pass to a coboundary in situations like this. Namely, if the usual invariants on a manifold $M$ vanish, find a manifold $W$ a dimension higher which has $M$ as a boundary (this isn't always possible since not all manifolds are null-cobordant).
@@ -225,18 +225,6 @@ where $C$ is the gluing of $B_1$ and $B_2$. Since the $k$-th Pontryagin number o
 	\]
 \end{example}
 
-We should also comment that in the case that $W$ is framed, for instance if $M\in \bP^{4k}$, all of the Pontryagin classes vanish. This leaves just an expression involving the signature. In this case, the Milnor invariants take the form
-\[
-	\begin{aligned}
-		\milinv(M^{4k-1}) = \denom(s_k)\cdot \sigma(W)\mod \numer(s_k)
-	\end{aligned}
-\]
-Since signature is additive under connected, this gives us a group homomorphism
-\[
-	\lkxfunc{\milinv}{\bP^{4k}}{\Z/\numer(s_k).}
-\]
-This allows us to easily put lower bounds on the size of $\bP^{4k}$ since any homotopy sphere $M\in \bP^{4k}$ generates a subgroup whose size must be a multiple of $\numer(s_k)/\milinv(M)$. 
-
 To generalize the Milnor invariants, it is helpful to take a bird's eye view of what happened here. We started with the idea that lifting to a coboundary could shed geometric insights to the boundary. Once on this coboundary, we pick a characateristic number which takes on a restricted set of values for closed manifolds representing a ``change of coboundary''. Moding out by the image of such changes, we get an invariant purely of the boundary. To summarize, we have a loose procedure
 \[
 	\left\{\parbox{12.5em}{An integrality theorem for a characteristic number of a closed $(n+1)$-manifold}\right\}
@@ -250,7 +238,7 @@ If we use a different integrality theorem, this procedure gives a different inva
 
 In the previous section, we used the Hirzebruch signature theorem to construct the Milnor invariant for manifolds with oriented coboundary. Orientation is crucial here, since the Hirzebruch signature theorem does not hold for unoriented manifolds. To generalize the Milnor invariant, we look at a higher-order type of orientation known as a spin structure. This will lead us to the Eells-Kupier invariant, first defined in \cite{eellskupier1962}.
 
-Recall that the group $\SO_n$ has fundamental group $\Z/2$ for $n\geq 3$, and so the universal cover of $\SO_n$ is a double cover. This double cover is denoted $\Spin_n$ and are known as \defn{spin groups}. The group structure of $\SO_n$ lifts naturally to any covering space, so we could define the Lie group structure on $\Spin_n$ this way. However, there is a more satisfying definition of $\Spin_n$ in terms of Clifford algebras, so we refer the reader to Chapter 1 of \cite{lawson1989spin} for more details on this construction.
+Recall that the group $\SO_n$ has fundamental group $\Z/2$ for $n\geq 3$, and so the universal cover of $\SO_n$ is a double cover. This double cover is denoted $\Spin_n$ and are known as \defn{spin groups}. The group structure of $\SO_n$ lifts naturally to any covering space, so we could define the Lie group structure on $\Spin_n$ this way. However, there is a more satisfying definition of $\Spin_n$ in terms of Clifford algebras, so we refer the reader to Chapter 1 of the standard reference for spin geometry \cite{lawson1989spin} for more details on this construction.
 
 In low dimensions, there are some exceptional isomorphisms which help with intuition for the spin groups.
 \begin{example}
@@ -264,17 +252,19 @@ In low dimensions, there are some exceptional isomorphisms which help with intui
 	This exceptional isomorphism will be discussed in \cref{sec:milnor-spheres}.
 \end{example}
 
-Since we have a map $\Spin_n \to \SO_n$, we can ask if a bundle with structure group $\SO_n$ admits a lift to $\Spin_n$, this might uncover some interesting structure. \todo{intutive interpretation ``belt drick'''}
-
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{placeholder-small.pdf_tex}
-	\caption{The Dirac belt trick.}
-\end{figure}
+Since we have a map $\Spin_n \to \SO_n$, we can ask if a bundle with structure group $\SO_n$ admits a lift to $\Spin_n$, this might uncover some interesting structure. Spin structure, and its related constructions in physics is a notoriously tricky concept to visualize. Aside from \cite{lawson1989spin}, a good reference providing intuitive explanations of spin structure is \cite{nakahara2003}.
 
 \begin{definition}
-	A \defn{spin structure} on an oriented Riemannian vector bundle $\mathcal{E}$ is a lift of the principal $\SO_n$-bundle $\Fr^\SO(\mathcal{E})$ of oriented orthonormal frames to a principal $\Spin_n$-bundle. A spin structure on a Riemannian manifold is a spin structure on its tangent bundle.
+	A \defn{spin structure} on an oriented Riemannian vector bundle $\mathcal{E}$ is a lift of the principal $\SO_n$-bundle $\Fr^\SO(\mathcal{E})$ of oriented orthonormal frames to a principal $\Spin_n$-bundle. A spin structure on a Riemannian manifold is a spin structure on its tangent bundle, and when a manifold admits a spin structure we say it is ``spin''.
 \end{definition}
+
+\begin{example}
+	$\CP^2$ does not admit a spin structure.
+\end{example}
+
+\begin{example}
+	The K3 surface $\mathcal{K}$ admits a spin structure.
+\end{example}
 
 Just like the first Stiefel-Whitney class $w_1$ obstructs an orientation on a vector bundle, there is a similar obstruction for a spin structure.
 
@@ -286,7 +276,7 @@ Just like the first Stiefel-Whitney class $w_1$ obstructs an orientation on a ve
 \end{proof}
 
 \begin{remark}
-	Historically, the motivation for spin structure first arose from physics. In the 1920s, physicists attempted to merge quantum mechanics with Einstein's theory of special relativity. \todo{elaborate a bit}
+	Historically, the motivation for spin structure first arose from physics. In the 1920s, physicists attempted to merge quantum mechanics with Einstein's theory of special relativity. \todo{elaborate a bit}.
 	% The first such attempt resulted in the Klein-Gordon wave equation
 	% \[
 	% 	\left(-\frac{\partial^2}{\partial t^2} + \nabla^2\right)\psi = m^2\psi
@@ -296,9 +286,9 @@ Just like the first Stiefel-Whitney class $w_1$ obstructs an orientation on a ve
 As with the Hirzebruch signature theorem for signature, we hope to get an integrality theorem for some invariant which is defined for manifolds with spin structure. 
 
 \begin{definition}
-	The \defn{$\Ahat$-genus} of a closed oriented manifold $M$ is the characteristic number $\Ahat[M]$ where $\Ahat$ is the characteristic class coming from the reduced characteristic series
+	The \defn{$\Ahat$-genus} of a closed oriented manifold $M$ is the characteristic number $\Ahat[M]$ where $\Ahat$ is the characteristic class coming from the characteristic series
 	\[
-		\widetilde{Q}_{\Ahat}(t) = \frac{\sqrt{t}/2}{\sinh(\sqrt{t}/2)} = 1 - \frac{1}{24} z + \frac{7}{5760} z^2 - \frac{31}{967680} z^3 + \frac{127}{154828800}z^4+\cdots.
+		Q_{\Ahat}(t) = \frac{t/2}{\sinh(t/2)} = 1 - \frac{1}{24} t^2 + \frac{7}{5760} t^4 - \frac{31}{967680} t^6 + \frac{127}{154828800}t^8+\cdots.
 	\]
 \end{definition}
 
@@ -313,6 +303,17 @@ As with the Hirzebruch signature theorem for signature, we hope to get an integr
 	\end{aligned}
 \]
 \end{example}
+
+\begin{proposition}\label{prop:leading_coefficient_Ahat_genus}
+	The leading coefficient of the $\Ahat$-genus $\Ahat_k$ is $\widehat{s}_k=B_{2k}/2(2k)!$.
+\end{proposition}
+\begin{proof}
+	By the same idea as \cref{prop:leading_coefficient_L_genus}, we get a generating function for $\widehat{s}_k$
+	\[
+		1-t\frac{d\log Q_{\Ahat}(\sqrt{t})}{dt} = 1+\frac{t}{24}-\frac{t^2}{1440}+\frac{t^3}{60480} - \frac{t^4}{2419200}+\cdots = \sum_{k\geq 0} (-1)^{k+1}\widehat{s}_k t^k.
+	\]
+	This completes the proof.
+\end{proof}
 
 \begin{theorem}\label{thm:Ahat-integrality}
 	If $M$ is an oriented closed $2m$-dimensional manifold with a spin structure, then $\Ahat[M]$ is an integer. If $m\equiv 2\mod 4$, then $\Ahat[M]$ is an even integer.
@@ -404,7 +405,7 @@ By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ 
 
 \subsection{A ``Twisted'' Eells-Kupier Invariant}
 
-The final example of an exotic sphere invariant constructed out of an integrality theorem is based on the twisted $\Ahat$-genus. We refer to this as the ``twisted'' Eells-Kupier invariant, and to the best of my knowledge it does not appear anywhere in the literature.
+The final example of an exotic sphere invariant constructed out of an integrality theorem is based on the twisted $\Ahat$-genus. We refer to this as the ``twisted'' Eells-Kupier invariant, and to the best of my knowledge it does not appear anywhere in the existing literature.
 
 The origin of the term ``twisted'' in this context is with the addition of a complex vector bundle to the ordinary $\Ahat$-genus. Namely, for an even-dimensional spin manifold with complex vector bundle $E$, we define $\Ahat(M, E) = \textrm{ch}(E)\smile \Ahat(M)$ where $\textrm{ch}$ is the Chern character 
 \[
@@ -420,9 +421,9 @@ For us, the relevant expression is found on page 98 of \cite{hopkinsmahowald2002
 	\]
 \end{proposition}
 
-Just as a spin structure restricts the $\Ahat$-genus to be integral up to a factor of $2$, a generalization known as \defn{string structure} gives a similar integrability condition to the $\Ahat$-genus twisted by the complexifiend tangent bundle. In the simplest possible terms, a string structure is a lift of a spin structure to the next stage of the Whitehead tower $\Spin_n \to \SO_n \to \O_n$. The classical motivation for defining such a structure can be found in \cite{witten1988string}.
+Just as a spin structure restricts the $\Ahat$-genus to be integral up to a factor of $2$, a generalization known as a \defn{string structure} gives a similar integrability condition to the twisted $\Ahat$-genus. In the simplest possible terms, a string structure is a lift of a spin structure to the next stage of the Whitehead tower $\Spin_n \to \SO_n \to \O_n$. The classical motivation for defining such a structure can be found in \cite{witten1988string}.
 
-By a homotopy theoretic argument involving the Witten genus and $\mathrm{tmf}$, Mahowald and Hopkins proved the following integrality theorem:
+By a homotopy theoretic argument involving the Witten genus and the $\mathrm{tmf}$ spectrum of topological modular forms, Mahowald and Hopkins proved the following integrality theorem:
 \begin{theorem}[Mahowald-Hopkins]
 	A closed string manifold $M$ has $24\mid \Ahat(M,T)$.
 \end{theorem}
@@ -436,9 +437,173 @@ By the same construction as the Eells-Kupier invariant, we derive the following 
 	\]
 \end{corollary}
 
-Of course, this invariant proves nothing new about exotic spheres, since far simpler methods can be used to compute the order of $\Theta^{23}$. Nevertheless, it is interesting to note that this construction provides an invariant which works for not just homotopy $23$-spheres, and can detect more of the exotic spheres in $23$-dimensions that the Eells-Kupier and Milnor invariants can alone.
+Of course, this invariant proves nothing new about exotic spheres, since far simpler methods can be used to compute the order of $\Theta^{23}$. Nevertheless, it is interesting to note that this construction provides an invariant which works for not just homotopy $23$-spheres, and can detect more of the exotic spheres in $23$-dimensions than the Eells-Kupier and Milnor invariants can alone.
 
-% \subsection{Lower Bounds on $|\bP^{4k}|$}
+\subsection{Lower Bounds on \texorpdfstring{$|\bP^{4k}|$}{|bP^4k|}}\label{sec:lower-bounds}
+
+In this section, we use obtain lower bounds on the order of $\bP^{4k}$. In the grand scheme of things, these results are not terribly useful for the classification of exotic spheres, since standard arguments in obstruction theory can compute $|\bP^{4k}|$ directly. In fact, it turns out that the signature of a coboundary of a sphere in $\bP^{4k}$ is enough to determine it completely. However, the invariants constructed in the previous section work for a larger class of smooth manifolds than just homotopy spheres, let alone homotopy spheres in $\bP^{4k}$. 
+
+The benchmark for our lower bounds is the following exact formula:
+
+\begin{theorem}[Milnor-Kervaire]\label{thm:kervaire-milnor}
+	For every $k>1$, $bP^{4k}$ is a cyclic group of order
+	\[
+		|\bP^{4k}| =2^{2k-2}(2^{2k-1}-1)\epsilon(k)\denom(B_{2k}/4k).
+	\]
+	Recall here that $\epsilon(k)$ is $2$ when $k$ is odd and $1$ when $k$ is even.
+\end{theorem}
+\begin{proof}
+	See Lemma 3.5 of \cite{milnor1958manifolds} or Corollary 3.20 of \cite{levine1985lectures} for a summary.
+\end{proof}
+
+\begin{remark}
+	The presence of the factor $\denom(B_{2k}/4k)$ here is the order of cokernel of the $J$-homomorphism $\pi_{4k-1}(\SO) \to \pi_{4k-1}(S)$ in stable homotopy theory. This homomorphism naturally arises in the study of homotopy spheres through obstruction theory, for more information see \cite{milnorkervaire1960bernoulli}.
+\end{remark}
+
+Now let us apply our invariants to find lower bounds on $|\bP^{4k}|$. If $M\in \bP^{4k}$ with framed coboundary $W$, note that all invariants constructed above come in the form
+\[
+		\lambda(M) = A\cdot \sigma(W) \mod B
+\]
+since all of the Pontryagin classes of a framed manifold vanish (recall that Pontryagin classes are stable). Here, $A$ and $B$ have no common factors. Since signature is additive under connected, this gives us a group homomorphism
+\[
+	\lkxfunc{\lambda}{\bP^{4k}}{\Z/B.}
+\]
+The image of the cyclic group generated by $M$ under this map then has image of size $B/\sigma(W)$. By Lagrange's theorem, this must divide the order of $\bP^{4k}$. At this point, we must peek ahead to \cref{chap:constructions} to actually get a homotopy sphere. The relevant result is:
+
+\begin{proposition}
+	For every $k>1$, there exists a homotopy sphere $M\in \bP^{4k}$ which has a highly-connected and framed coboundary of signature 8. In particular, it satisfies the conditions of the Milnor, Eells-Kupier, and twisted Eells-Kupier invariants.
+\end{proposition}
+\begin{proof}
+	See \cref{sec:plumbing}.
+\end{proof}
+
+In the case of the Milnor invariant, we can write
+\[
+	\milinv(M) = \frac{1}{s_k}\cdot \sigma(W)\mod 1\quad\implies\quad \milinv(M) = \denom(s_k)\cdot \sigma(W)\mod \numer(s_k).
+\]
+This gives us the lower bound:
+
+\begin{proposition}\label{prop:milnor-lower-bound}
+	For $k>1$, the order $|\bP^{4k}|$ is divisible by
+	\[
+		\mathrm{LB}_{\mathrm{mil}}(k) =\numer\left(\frac{s_k}{8}\right) = \numer\left(\frac{2^{2k-3}(2^{2k-1}-1)B_{2k}}{(2k)!}\right)
+	\]
+\end{proposition}
+
+For the Eells-Kupier invariant, we can write
+\[
+	\ekinv(M) = \frac{\widehat{s}_k}{\epsilon(k)}\cdot \frac{\sigma(W)}{s_k} \mod 1
+\]
+Recall that $\widehat{s}_k$ is the leading coefficient of the $\Ahat$-genus $\Ahat_k$, and $\epsilon(k)$ is $2$ when $k$ is odd and $1$ otherwise. Expanding out this fraction, we get
+\[
+	\frac{\widehat{s}_k}{\epsilon(k)s_k} = \frac{B_{2k}/2(2k)!}{2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!} = \frac{1}{\epsilon(k) 2^{2k+1}(2^{2k-1}-1)}.
+\]
+This gives us the lower bound:
+\begin{proposition}\label{prop:eells-kupier-lower-bound}
+	For $k>1$, the order of $\bP^{4k}$ is divisible by
+	\[
+		\mathrm{LB}_{\mathrm{e,k}}(k)=\denom\left(\frac{\widehat{s}_k}{8\epsilon(k)s_k}\right) = 2^{2k-2}(2^{2k-1}-1)\epsilon(k).
+	\]
+\end{proposition}
+This is a rather curious lower bound, since it cleanly divides the Milnor-Kervaire formula for the order of $\bP^{4k}$, leaving behind a factor of $\numer(B_{2k}/4k)$ which the order of the cokernel of the stable $J$-homomorphism.
+
+We can combine the Eells-Kupier and Milnor lower bounds with the LCM to get an improved bound:
+
+\begin{proposition}\label{prop:lcm-lower-bound}
+	For $k>1$, the order of $\bP^{4k}$ is divisible by \[\mathrm{LB}_{\mathrm{lcm}}(k)=\lcm(\mathrm{LB}_{\mathrm{mil}}(k),\mathrm{LB}_{\mathrm{e,k}}(k)).\]
+\end{proposition}
+
+The twisted Eells-Kupier invariant is defined only in the case $k=6$, and gives us:
+\begin{proposition}\label{prop:twisted-eells-kupier-lower-bound}
+	The order of $\bP^{24}$ is divisible by
+	\[
+		\mathrm{LB}_{\mathrm{m,h}}(6) = \numer\left(\frac{521432801280}{8\cdot 153945}\right) = 1448424448.
+	\]
+\end{proposition}
+
+Let us now investigate how these invariants compare in effectiveness. Plotting the first few values of $k$, we get: 
+
+\begin{figure}[ht]
+	\centering
+\begin{tikzpicture}
+\begin{axis}[
+		width=0.8\textwidth,
+		height=3in,
+    xlabel={$4k-1$},
+    xtick=data,
+    ymode=log,
+    legend pos=north west]
+
+\addplot[thick, gray] table[x index=0, y index=1] {chapters/invariants/lowdim.dat};
+\addplot[thick, violet, mark=square] table[x index=0, y index=2] {chapters/invariants/lowdim.dat};
+\addplot[thick, blue, mark=square] table[x index=0, y index=3] {chapters/invariants/lowdim.dat};
+
+\addplot[thick, black, mark=*] coordinates {(23,1448424448)};
+
+\legend{$|\bP^{4k}|$,$\mathrm{LB}_{\mathrm{mil}}(k)$,$\mathrm{LB}_{\mathrm{e,k}}(k)$, $\mathrm{LB}_{\mathrm{m,h}}(6)$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Lower bounds on $|\bP^{4k}|$ in low dimensions.}
+\end{figure}
+
+Up to $k=5$, the Eells-Kupier invariant is a perfect invariant for $\bP^{4k}$, however this breaks down at $k=6$. This failure corresponds to the non-trivial cokernel of the $J$-homomorphism in dimension $23$:
+\[
+	\begin{tabular}{c|c|c|c|c|c|c|c|c}
+		k & $\leq$ 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+		\hline
+		$\numer(B_{2k}/4k)$ & 1 & 691 & 1 & 3617 & 43867 & 174611 & 77683 & 236364091\\
+	\end{tabular}
+\]
+Consequently, the only dimensions in which the Eells-Kupier invariant is able to detect all homotopy spheres in $\bP^{4k}$ are $7,11,15,19,$ and $27$. However, in the $23$-dimensional case, the twisted Eells-Kupier invariant successfully computes the order of $\bP^{24}$. 
+While in low dimensions the Eells-Kupier invariant is better than the Milnor invariant at detecting homotopy spheres, in dimensions $\geq 43$ the Milnor lower bound quickly outgrows the Eells-Kupier bound as the Bernoulli numerators become non-trivial (see \cref{fig:high-dim-lower-bound}). The LCM bound is surprisingly good, and is able to correctly compute the size of $\bP^{4k}$ up to dimension 131 (see \cref{fig:lcm-lower-bound}).
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$4k-1$},
+		width=0.8\textwidth,
+		xmin=-10,
+		height=3in,
+		yticklabel={\ensuremath{10^{\pgfmathprintnumber[fixed,precision=0]{\tick}}}},
+    legend pos=north west
+]
+
+\addplot[thick, gray] table[x index=0, y index=1] {chapters/invariants/highdim.dat};
+\addplot[thick, violet] table[x index=0, y index=2] {chapters/invariants/highdim.dat};
+\addplot[thick, blue] table[x index=0, y index=3] {chapters/invariants/highdim.dat};
+
+\legend{$|\bP^{4k}|$,$\mathrm{LB}_{\mathrm{mil}}(k)$,$\mathrm{LB}_{\mathrm{e,k}}(k)$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Lower bounds on $|\bP^{4k}|$ in higher dimensions.}\label{fig:high-dim-lower-bound}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$4k-1$},
+		width=0.8\textwidth,
+		xmin=-10,
+		height=3in,
+		ymode=log,
+		% yticklabel={\ensuremath{10^{\pgfmathprintnumber[fixed,precision=0]{\tick}}}},
+    legend pos=north west
+]
+
+\addplot[thick, black, mark=square, ycomb, mark size=0.5] table[x index=0, y index=1] {chapters/invariants/ratio.dat};
+
+\legend{$|\bP^{4k}|/\mathrm{LB}_{\mathrm{lcm}}(k)$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{The LCM lower bound.}\label{fig:lcm-lower-bound}
+\end{figure}
+
+% This is a very good lower bound, in fact it correctly computes the order of $|\bP^{4k}|$ up to $k
 %
 % \todo{This is one of }
 %
@@ -459,23 +624,6 @@ Of course, this invariant proves nothing new about exotic spheres, since far sim
 % 	See \cref{sec:plumbing}.
 % \end{proof}
 %
-% \begin{center}
-% \begin{tikzpicture}
-% \begin{axis}[
-%     xlabel={$k$},
-%     ymode=log,
-%     legend pos=north west
-% ]
-%
-% \addplot[thick, black] table[x index=0, y index=1] {chapters/invariants/lowdim.dat};
-% \addplot[thick, blue] table[x index=0, y index=2] {chapters/invariants/lowdim.dat};
-% \addplot[thick, red] table[x index=0, y index=3] {chapters/invariants/lowdim.dat};
-%
-% \legend{$|\bP^{4k}|$,$|\bP^{4k}$,$\ekinv$}
-%
-% \end{axis}
-% \end{tikzpicture}
-% \end{center}
 %
 % \begin{center}
 % 	\begin{tikzpicture}

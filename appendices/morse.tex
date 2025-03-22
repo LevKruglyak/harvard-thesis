@@ -1,7 +1,6 @@
 \section{Morse Theory}\label{sec:morse-theory}
 
-In this is that of Morse theory, a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. 
-By investigating the discrete set of critical points of such a function, questions of attaching and removing high-dimensional handles is simplified to questions of points on the one-dimensional real line. For this thesis, the main application of Morse theory will be in the proof of the $h$-cobordism theorem (\cref{thm:h-cobordism}) which massively simplifies the problem of finding and classifying exotic spheres. While a fully comprehensive introduction to Morse theory is outside of the scope of this thesis, we'll include a basic overview for completeness. A great classical introduction to Morse theory can be found in Milnor's book on the subject \cite{milnor1963morse}.
+In this section we review the basics of Morse theory, a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. A great classical introduction to Morse theory can be found in Milnor's book on the subject \cite{milnor1963morse}.
 
 If $f : M \to \R$ is a smooth function on a manifold $M$, the points $p\in M$ where the differential $df_p : \T_p M \to \T_{f(p)} \R = \R$ vanish are known as \defn{critical points}, and their images in $\R$ are called \defn{critical values}. In terms of local coordinates $\{x^1,\ldots, x^n\}$ at $p$, this means that
 \begin{equation}
@@ -27,11 +26,6 @@ There is a coordinate independent way to define the Hessian as a symmetric bilin
 \end{definition}
 
 The index of a function at a point essentially describes the ``shape'' of the function out of a list of finitely many possible shapes. Remember, the index of a function on an $n$-dimensional manifold must be an integer between $0$ and $n$. For instance, in the case of a surface there are three possible shapes -- when both coordinates curve up we get a bowl facing up, when one curves up and one curves down we get a saddle, and when both coordinates curve down we get a bowl facing down. These shapes correspond to indices of $0$, $1$, and $2$ respectively.
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{placeholder.pdf_tex}
-	\caption{An upward bowl, saddle, and downward bowl.}
-\end{figure}
 
 The fundamental lemma of Morse theory makes rigorous this notion of a manifold having a shape dictated by a real-valued function -- there is always a local coordinate system which puts the function into a standard form depending on the index.
 
@@ -79,10 +73,11 @@ However, it is useful to not always rush for the flamethrower when trying to kil
 	In particular, this implies that $f\circ \varphi_t(p) = f(p)+t$. This implies that all of the level sets $f^{-1}(c)$ are diffeomorphic for $c\in (0,1)$. In particular, any disk surrounding $x_0$ can be extended to $f^{-1}[0,1/2]$. The same thing happens for $x_1$ with $f^{-1}[1/2,1]$, so we can write $M$ as the identification of two disks along their boundary. Up to homeomorphism, this is a sphere.
 \end{proof}
 
-% \begin{figure}[ht]
-% 	\import{diagrams}{placeholder.pdf_tex}
-% 	\caption{The homeomorphism constructed in Reeb's theorem}.
-% \end{figure}
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{reeb-homomorphism.pdf_tex}
+	\caption{The homeomorphism constructed in Reeb's theorem}.
+\end{figure}
 
 \begin{remark}
 	The reason we only get a homoemorphism and not a diffeomorphism in the proof of \cref{thm:reeb} is because the two hemispheres are identified along the boundary and not along collar neighborhoods.

@@ -1,4 +1,125 @@
 \pagebreak
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+
 \section{Brieskorn Varieties}\label{sec:brieskorn}
-\cite{milnor1968hypersurfaces}
-\cite{kauffman1987knots}
+
+There is an wonderful geometric link between exotic spheres and higher-dimensional knots. While less direct that the plumbing construction, all homotopy spheres in $\bP^{4k}$ can be constructed via knots as well. Most of the content here can be found in yet another classic exposition of Milnor, \cite{milnor1968hypersurfaces}. For a knot theoretic perspective, see Chapter 19 of \cite{kauffman1987knots}. A more general exposition on high-dimensional knot theory is \cite{ranicki1998knot}.
+
+\begin{definition}
+  An \defn{$n$-dimensional knot} is a submanifold embedding $S^n\to S^{n+2}$.
+\end{definition}
+
+\begin{figure}[ht]
+  \import{diagrams}{knot-cone.pdf_tex}
+  \caption{A cone over a knot.}\label{fig:cone-over-knot}
+\end{figure}
+
+Let $F\in \C[z_0,z_1\ldots, z_n]$ be a non-constant polynomial in $(n+1)$-complex variables.
+\begin{definition}
+	The \defn{variety} of $F$ is the complex hypersurface given by the zero locus
+	\[
+		\V(F) = F^{-1}(0)=\left\{ z \in \C^{n+1} \mid F(z)=0\right\} \subset \C^{n+1}.
+	\]
+\end{definition}
+
+\begin{definition}
+	A point $w\in \V(F)$ is a (complex) \defn{singularity}[complex singularity] if $\nabla F(w)$ vanishes. A singularity is \defn{isolated}[isolated singularity] if there is a neighborhood surrounding $w$ which contains no other singularities.
+\end{definition}
+
+\begin{theorem}
+	For small $\varepsilon>0$ the intersection of $\V(F)$ with $D_\varepsilon(w)$
+\end{theorem}
+
+\begin{proposition}
+	Every sufficiently small sphere around an isolated singularity of $F$ intersects $\V(F)$ transversally in a smooth manifold.
+\end{proposition}
+
+\begin{definition}
+	Let $w\in \V(F)$ be an isolated singularity. The \defn{link} of $F$ at $w$ is the intersection
+	\[
+		\L(F, w) = \V(F) \cap S^{2n+1}_\varepsilon(w) = \left\{ z\in \C^{n+1}  F(z)=0\textrm{ and } |z-w|<\varepsilon\right\}
+	\]
+	where $\varepsilon > 0$ is some sufficiently small real number so that $\L(F,w)$ is a smooth manifold intersecting the sphere $S^{2n+1}_\varepsilon(w)$ transversally.
+\end{definition}
+
+When the isolated singularity is clear, we write $\L(F)$.
+
+\subsection{Brieskorn Manifolds}
+The simplest examples of complex polynomials with isolated singularities are \todo{this}
+
+\begin{definition}
+	Let $(a_0,a_1,\ldots, a_n)$ be an $(n+1)$-tuple of integers greater than or equal to $2$. The \defn{Brieskorn polynomial} of the tuple $(a_0,a_1,\ldots, a_n)$ is given by
+	\[
+		F(z_0,z_1,\ldots, z_n) = z_0^{a_0} + z_1^{a_1} +\cdots + z_n^{a_n}.
+	\]
+	Correspondingly, we refer to $\V(F)$ as the \defn{Brieskorn variety} of the tuple and to the link at the origin $\L(F,0)$ origin as the \defn{Brieskorn manifold}. We'll use the notation
+	\[
+		\Sigma(a_0,a_1,\ldots, a_n) =\L(z_0^{a_0}+z_1^{a_1}+\cdots+z_n^{a_n}, 0)
+	\]
+	to refer to these Brieskorn manifolds.
+\end{definition}
+
+
+\begin{proposition}
+	If $p,q\geq 2$, then $\Sigma(p,q)\subset S^3$ is the torus link of type $(p,q)$.
+\end{proposition}
+
+\begin{proposition}
+	There is a homeomorphism $\Sigma(2,2,2)\cong \RP^3$.
+\end{proposition}
+
+\begin{proposition}
+	There is a homeomorphism $\Sigma(2,3,5)\cong \mathscr{D}$.
+\end{proposition}
+
+\subsection{The Fibration Theorem}
+
+\begin{theorem}\label{thm:fibration}
+	If $F$ is a complex polynomial in $(n+1)$-variables with an isolated singularity at the origin, then there is a smooth fiber bundle map
+	\[
+		\lkxfunc{\phi}{S^{2n+1}_\varepsilon - \L(F)}{S^1}{z}{\arg F(z).}
+	\]
+\end{theorem}
+
+For a given angle $e^{i\theta}\in S^1$, we'll denote the fiber of the bundle $\phi$ as $F_\theta = \phi^{-1}(e^{i\theta})$.
+
+\begin{proposition}
+	Each fiber $F_\theta$ is a smooth parallelizable $2n$-manifold.
+\end{proposition}
+
+\subsection{When is the link a topological sphere?}
+
+Let's fix a polynomial $F$ in $(n+1)$ complex variables
+
+\begin{proposition}
+	If $n\neq 2$, then $\L$ is homeomorphic to the sphere $S^{2n-1}$ if and only if $\L$ has the homology of a sphere. In fact, $\L$ is a topological sphere if and only if the reduced homology $\widetilde{H}_{n-1}(\L)$ is trivial.
+\end{proposition}
+
+Let's now choose an orientation for $F_\theta$.
+
+\begin{proposition}
+	The manifold $\L$ is a homology sphere if and only if the intersection form
+	\[
+		\lkxfunc{Q_{F_\theta}}{\H_n(F_\theta)\times \H_n(F_\theta)}{\Z}
+	\]
+	has determinant $\pm 1$ -- in other words if $Q_{F_\theta}$ is unimodular.
+\end{proposition}
+
+\subsection{Kervaire Invariant}
+
+\begin{theorem}[Brieskorn-Pham]
+\end{theorem}
+
+\begin{theorem}[Levine]
+	If $n$ is odd, the Kervaire invariant is given by
+	\[
+		c(F_0) = \begin{cases}
+			0 & \textrm{if }\Delta(-1)\equiv \pm 1\mod 8 \\
+			1 & \textrm{if }\Delta(-1)\equiv \pm 3\mod 8
+		\end{cases}
+	\]
+\end{theorem}
+
+\begin{theorem}[Hirzebruch-Mayer] Smooth Brieskorn varieties are parallelizable.
+\end{theorem}

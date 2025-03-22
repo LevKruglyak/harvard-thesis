@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.3.2 (091e20e, 2023-11-25), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'handle-inversion.pdf' (pdf, eps, ps)
+%% Accompanies image file 'projective-plane-bundle.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,6 +53,10 @@
   \begin{picture}(1,0.33333336)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{handle-inversion.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{projective-plane-bundle.pdf}}%
+    \put(0.22454702,0.30663151){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\RP^2\setminus \Int(D^2)$\end{tabular}}}}%
+    \put(0.15025517,0.16051623){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S^1$\end{tabular}}}}%
+    \put(0.8605366,0.17182142){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S^1$\end{tabular}}}}%
+    \put(0.81570179,0.04460956){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$D^1$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

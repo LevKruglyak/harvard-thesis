@@ -16,7 +16,7 @@ As with the Euler class, there are a breadth of equivalent formulations of chara
 \end{enumerate}
 
 For a standard introduction which avoids some of the opinionated choices made in this presentation, see \cite{milnorstasheff1974}.
-At this stage, we assume a basic knowledge of vector bundles, structure groups, and classifying spaces. For a brief introduction to these topics, see \cref{chap:vector-bundles}.
+At this stage, we assume a basic knowledge of vector bundles, structure groups, and classifying spaces. A good introduction to these topics can be found in \cite{botttu1982differential} or \cite{hatcher2003ktheory}.
 
 \subsection{A Universal Perspective on Characteristic Classes}\label{sec:axiomatic-characteristic-classes}
 
@@ -73,7 +73,7 @@ In other words, the ring of characteristic classes $\Class_G^h$ admits the struc
 	Recall from the conventions that the completion of a graded ring $A=\bigoplus_{i\in I} A_k$ is the direct product $\widehat{A}=\prod_{i\in I} A_i$.
 \end{remark}
 
-The ring structure on $\Class_G^R$ has a simple interpretation in terms of classifying spaces. By the work of \cref{sec:classifying-spaces}, every vector bundle $\mathcal{E} : E \to B$ with structure group $G$ is the pullback of a universal bundle over the classifying space $\BB G$ by a map $f_{\mathcal{E}} : B \to \BB G$.
+The ring structure on $\Class_G^R$ has a simple interpretation in terms of classifying spaces. Recall that every vector bundle $\mathcal{E} : E \to B$ with structure group $G$ is the pullback of a universal bundle over the classifying space $\BB G$ by a map $f_{\mathcal{E}} : B \to \BB G$.
 Every homogeneous characteristic class $c$ of degree $k$ thus determines a universal cohomology class $u\in h^k(\BB G)$ by applying $c$ to the universal bundle over $\BB G$. By naturality, $c(\mathcal{E})$ would be the pullback $f^*u$ of the universal class by the classifying map $f$.
 
 Conversely, any cohomology class in $h^k(\BB G)$ gives a homogeneous characteristic class which sends
@@ -133,23 +133,23 @@ The first example of a characteristic class of an bundle is useful, but not very
 \begin{proof}
 	A trivial bundle $\underline{\R}^k$ is the pullback of the constant bundle $\R^k\to *$ over a point. This bundle has characteristic class $1$ by the rank normalization condition, and so by naturality pulls back to $1$.
 \end{proof}
-
-\begin{corollary}\label{cor:mobius-characteristic-2-torsion}
-	If $c$ is a rank-normalized multiplicative characteristic class and $\gamma_1^1$ is the canonical M\"obius bundle over $\RP^1\cong S^1$, then $c(\gamma_1^1)$ is $2$-torsion.
-\end{corollary}
-\begin{proof}
-	Since $\gamma_1^1\oplus \gamma^1_1$ is a trivial bundle (see \cref{fig:trivial-mobius-bundle-sum}), it follows that
-	\[
-		(1+c_1(\gamma_1^1))(1+c_1(\gamma_1^1)) = 1+2c_1(\gamma_1^1)+c_1^2(\gamma_1^1)=1.
-	\]
-	However, $H^2(S^1)\cong 0$, so we have $2c_1(\gamma_1^1)=0$.
-\end{proof}
-
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{placeholder-small.pdf_tex}
-	\caption{A Whitney sum of orthogonal M\"obius bundles.}\label{fig:trivial-mobius-bundle-sum}
-\end{figure}
+%
+% \begin{corollary}\label{cor:mobius-characteristic-2-torsion}
+% 	If $c$ is a rank-normalized multiplicative characteristic class and $\mathcal{E}$ is the canonical M\"obius bundle over $\RP^1\cong S^1$, then $c(\mathcal{E})$ is $2$-torsion.
+% \end{corollary}
+% \begin{proof}
+% 	Since $\mathcal{E}\oplus \mathcal{E}$ is a trivial bundle (see \cref{fig:trivial-mobius-bundle-sum}), it follows that
+% 	\[
+% 		(1+c_1(\gamma_1^1))(1+c_1(\gamma_1^1)) = 1+2c_1(\gamma_1^1)+c_1^2(\gamma_1^1)=1.
+% 	\]
+% 	However, $H^2(S^1)\cong 0$, so we have $2c_1(\gamma_1^1)=0$.
+% \end{proof}
+%
+% \begin{figure}[ht]
+% 	\centering
+% 	\import{diagrams}{placeholder-small.pdf_tex}
+% 	\caption{A Whitney sum of orthogonal M\"obius bundles.}\label{fig:trivial-mobius-bundle-sum}
+% \end{figure}
 
 \begin{corollary}
 	For any multiplicative and rank-normalized characteristic class, we have $c(\mathcal{E}\oplus \underline{\R}^k)=c(\mathcal{E})\smile c(\underline{\R}^k)= c(\mathcal{E})$.
@@ -246,7 +246,7 @@ If $\mathcal{E}_1=\TT M$ is the tangent bundle of a manifold $M^k$ and $\mathcal
 \end{proof}
 
 \begin{remark}
-	As it turns out, \emph{any} homotopy sphere $M$ has $c(M)=1$ for a rank-normalized multiplicative characteristic class because the tangent bundle of a homotopy sphere is stably isomorphic to the trivial bundle. We will prove this in \cref{thm:homotopy-sphere-stably-parallelizable} using some hard theorems in homotopy theory.
+	As it turns out, \emph{any} homotopy sphere $M$ has $c(M)=1$ for a rank-normalized multiplicative characteristic class because the tangent bundle of a homotopy sphere is stably isomorphic to the trivial bundle. This is proved in Theorem 3.1 of \cite{milnorkervaire1963groups}, and involves non-trivial theorems of homotopy theory and geometry.
 \end{remark}
 
 We close this section with a nice result which will be useful later.
@@ -367,8 +367,7 @@ These properties and a normalization condition are enough to fully characterize 
 	where $\gamma$ is the tautological line bundle over $\CP^1$ and $\alpha\in \H^2(\CP^m)$ is the Poincar\'e dual class to $\CP^{m-1}\subset \CP^m$.
 \end{proposition}
 
-Note that $\cl_1[\gamma]=-1$ because the Euler number of the tautological bundle is $-!$. See Chapter 14 of \cite{milnorstasheff1974} for more details.
-
+Note that $\cl_1[\gamma]=-1$ because the Euler number of the tautological bundle is $-1$. See Chapter 14 of \cite{milnorstasheff1974} for more details.
 
 \subsection{Chern Roots}
 
@@ -577,12 +576,12 @@ For some simple examples, we have:
 
 \begin{example}
 	The Chern class is associated to the characteristic series
-	\[Q_\cl(t)=1+t.\]
+	\[Q_\cl(t)=1+t\quad\implies\quad \cl = \prod_{n\geq 1} (1+\gamma_i)\]
 \end{example}
 
 \begin{example}
 	The  inverse Chern class is associated to the characteristic series
-	\[Q_{\cl^{-1}}(t)=\frac{1}{1+t}=1-t+t^2-t^3+\cdots.\]
+	\[Q_{\cl^{-1}}(t)=\frac{1}{1+t}=1-t+t^2-t^3+\cdots \quad\implies\quad \cl = \prod_{n\geq 1} \frac{1}{1+\gamma_i}.\]
 \end{example}
 
 Multiplicative sequences span out a decently large set of endomorphisms of $R\fps{\sigma_1,\sigma_2,\ldots}^\times$, and it turns out that such endomorphisms are completely characterized by their characteristic series.
@@ -621,152 +620,77 @@ Since complexified tangent bundle is canonically isomorphic to its conjugate bun
 \[
 	\cl_{2k+1}(\overline{\mathcal{E}_\C}) = -c_{2k+1}(\mathcal{E}_\C) \quad\implies\quad 2\cdot c_{2k+1}(\mathcal{E}_\C) = 0.
 \]
-If we mod out by these $2$-torsion elements (for instance taking $R=\Z[\frac{1}{2}])$, we get
+We can avoid these $2$-torsion elements by taking cohomology with $R=\Z[\frac{1}{2}]$ coefficients. Now let $p'$ be the characteristic class associated to the characteristic series $Q(t)=1+t^2$. Expanding out in terms of the Chern classes, we get
 \[
-	\cl(\mathcal{E}_\C) = 1+\cl_2(\mathcal{E}_\C) + \cl_4(\mathcal{E}_\C)+\cdots
+	\begin{aligned}
+		p'_2 &= \cl_1^2 - 2\cl_2,\\
+		p'_4 &= \cl_2^2 - 2\cl_1\smile \cl_3 + 2\cl_4,\\
+		p'_6 &= \cl_3^2 - 2\cl_2\smile \cl_4 - 2\cl_1\smile \cl_5 + \cl_6,\\
+				 &\vdots
+	\end{aligned}
+\]
+If we mod out by the $2$-torsion elements, we get
+\[
+	\begin{aligned}
+		p'_2 &= -2\cl_2,\\
+		p'_4 &= 2\cl_2^2+2\cl_4,\\
+		p'_6 &= -2 \cl_2\smile \cl_4 + \cl_6,\\
+				 &\vdots
+	\end{aligned}
 \]
 
 \begin{definition}
-	The $k$-th Pontryagin class is
+	The \defn{Pontryagin class} $p$ is the image of $p'$ in $\H^\bullet(\BSO_{2m}; \Z[\frac{1}{2}])$. By $p_n$, we denote $p'_{2n}$, so each the Pontryagin class $p_n$ has degree $4n$. Note that we have the relation
+	\[
+		p_n(\mathcal{E}) =\cl_n^2(\mathcal{E}_\C) - 2\sum_{1\leq k\leq n}(-1)^k\cl_{n-k}(\mathcal{E}_\C)\smile \cl_{n+k}(\mathcal{E}_\C)\mod (\cl_{2}, \cl_4, \ldots).
+	\]
 \end{definition}
 
-\begin{proposition}
-	We have the relation
-	\[
-		p_n =\cl_n^2 - 2\sum_{1\leq k\leq n}(-1)^k\cl_{n-k}\smile \cl_{n+k}.
-	\]
-\end{proposition}
-
-In the language of multiplicative sequences, we might say that the Pontryagin class is the characteristic class associated to the characteristic series $Q(t)=1+t^2$.
-
-\begin{proposition}\label{prop:pontryagin-class-complex-projective-space}
-	\[
-		p(\CP^n) = (1+\alpha^2)^{2n+1}
-	\]
-\end{proposition}
-
 \begin{example}
-	The Pontryagin classes of the first few dimensions of complex projective space are given by:
-	\[
-		\begin{aligned}
-			p(\CP^1) & = 1,                                    \\
-			p(\CP^2) & = 1+3\alpha^2,                          \\
-			p(\CP^3) & = 1+4\alpha^2,                          \\
-			p(\CP^3) & = 1+5\alpha^2 + 10\alpha^4,             \\
-			p(\CP^4) & = 1+6\alpha^2 + 15\alpha^4,             \\
-			p(\CP^4) & = 1+7\alpha^2 + 21\alpha^4+ 35\alpha^6, \\
-		\end{aligned}
-	\]
-	Note that $p_k[\CP^{2k}]$.
+	It follows that $p(\CP^n) = (1+\alpha^2)^{2n+1}$.
 \end{example}
 
-\begin{theorem}\label{thm:cohomology-o}
+\begin{remark}
+	Either by the argument of Lemma 15.7 of \cite{milnorstasheff1974} or by looking at the Gysin sequence construction of the Chern classes, we note that for rank $2k$ oriented real bundles we have $p_k = e\smile e$ where $e$ is the Euler class. There is a beautiful interpretation of this fact in Chern-Weil theory as the characteristic class version of the polynomial identity $\Pf^2 = \det$ for skew-symmetric even dimensional matrices.
+\end{remark}
+
+In the coefficient rings $\Z$ for complex bundles and $\Z[\frac12]$ for oriented real bundles, the Chern classes, Pontryagin classes, and the Euler class are in some sense ``all of the characteristic classes''. This is made precise by the following cohomology computation.
+
+\begin{theorem}\label{thm:universal-cohomology}
 	The cohomology rings of classifying spaces is given by
 	\begin{enumerate}[(a)]
-		\item $\H^\bullet(\BU_n;\Z)\cong \Z[c_1,\ldots, c_n]$\hfill where $|c_i|=2i$,
+		\item $\H^\bullet(\BU_n;\Z)\cong \Z[\cl_1,\ldots, \cl_n]$\hfill where $|\cl_i|=2i$,
 		\item $\H^\bullet(\BSO_{2n+1};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n]$\hfill where $|p_i|=4i$,
 		\item $\H^\bullet(\BSO_{2n+2};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n, e]$\hfill where $|p_i|=4i$, $|e|=2n$.
 	\end{enumerate}
 	Consequently, the cohomology rings of stable classifying spaces are 
 	\begin{enumerate}[(a)]
-		\item $\H^\bullet(\BU;\Z)\cong \Z[c_1,c_2,\ldots]$\hfill where $|c_i|=2i$,
+		\item $\H^\bullet(\BU;\Z)\cong \Z[\cl_1,\cl_2,\ldots]$\hfill where $|\cl_i|=2i$,
 		\item $\H^\bullet(\BSO;\Z[\frac12])\cong \Z[\frac12][p_1,p_2,\ldots]$\hfill where $|p_i|=4i$.
 	\end{enumerate}
 \end{theorem}
+\begin{proof}
+	See \cite{toda1987}.
+\end{proof}
 
-\begin{proposition}\label{prop:pontryagin-}
-	If $M$ is a null-cobordant manifold and $c\in \H^\bullet(\BSO, \Z[\frac12])$, then $c[M]=0$.
-\end{proposition}
-
-% \begin{definition}
-% 	The \defn{Stiefel-Whitney class $w$}[Stiefel-Whitney class] is the unique characteristic class for unoriented vector bundles ($G=
-% 		\O$) in singular cohomology with $\Z/2$ coefficients satisfying:
-% 	\begin{enumerate}[(a)]
-% 		\item $w$ is rank-normalized and multiplicative,
-% 		\item $w(\gamma^1_1)=1+\alpha$.
-% 	\end{enumerate}
-% 	We denote by $w_i$ the degree $i$ homogeneous component of $w$ in $\H^i(-;\Z/2)$.
-% \end{definition}
-%
-% \begin{remark}
-% 	Note that axiom (c) does not violate \cref{cor:mobius-characteristic-2-torsion}, since we are working in $\Z/2$ and so every cohomology class has $2$-torsion.
-% \end{remark}
-%
-% \subsection{Pontryagin Classes}
-
-%
-% \begin{corollary}
-% 	A degree $k$ Pontryagin number $K(p)$ is a well-defined group homomorphism
-% 	\[
-% 		\lkxfunc{}{\Omega^\SO_k}{\Z}{[M]}{K(p)[M]}
-% 	\]
-% \end{corollary}
-%
-% \begin{corollary}
-% 	If $K(p)$ is a multiplicative Pontryagin number, then
-% \end{corollary}
-%
-% \subsection{Chern-Weil Theory}\label{sec:chern-weil-theory}
-%
-% While the axiomatic and universal definitions of characteristic classes are simple and abstract, it is often useful to
-%
-% \subsection{Wu Classes}\label{sec:wu-classes}
-%
-% \begin{theorem}
-% 	$w=\Sq(v)$.
-% \end{theorem}
-%
-% A refinement
-% For complex vector bundles, i.e.
-%
-% By \cref{thm:universal-characteristic-classes}, it suffices to compute the cohomology of classifying spaces $\BO_n, \BSO_n, \BU_n$ and their stable counterparts.
-%
-% \begin{theorem}\label{thm:cohomology-o}
-% 	The cohomology rings of classifying spaces is given by
-% 	\begin{enumerate}[(a)]
-% 		\item $\H^\bullet(\BO_n;\Z/2)\cong \Z/2[w_1,\ldots, w_n]$\hfill where $|w_i|=i$,
-% 		\item $\H^\bullet(\BU_n;\Z)\cong \Z[c_1,\ldots, c_n]$\hfill where $|c_i|=2i$,
-% 		\item $\H^\bullet(\BSO_{2n+1};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n]$\hfill where $|p_i|=4i$,
-% 		\item $\H^\bullet(\BSO_{2n+2};\Z[\frac12])\cong \Z[\frac12][p_1,\ldots, p_n, e]$\hfill where $|p_i|=4i$, $|e|=2n$.
-% 	\end{enumerate}
-% 	Consequently, the cohomology rings of stable classifying spaces are 
-% 	\begin{enumerate}[(a)]
-% 		\item $\H^\bullet(\BO;\Z/2)\cong \Z/2[w_1,w_2,\ldots]$\hfill where $|w_i|=i$,
-% 		\item $\H^\bullet(\BU;\Z)\cong \Z[c_1,c_2,\ldots]$\hfill where $|c_i|=2i$,
-% 		\item $\H^\bullet(\BSO;\Z[\frac12])\cong \Z[\frac12][c_1,c_2,\ldots]$\hfill where $|p_i|=4i$.
-% 	\end{enumerate}
-% \end{theorem}
-%
-% \subsection{The Euler Class}\label{sec:euler-class}
-%
-% \begin{definition}\label{def:euler-class}
-% 	The \defn{Euler class}
-% \end{definition}
-%
-% \begin{proposition}
-% 	On a closed $n$-manifold manifold $M$, $e[\T M]=\sum_k (-1)^k \rank \H^k(M)$.
-% \end{proposition}
-%
-% \begin{corollary}
-% 	The Euler number of a sphere is $e[\T S^n] = (1+(-1)^n)[S^n]$.
-% \end{corollary}
-% \begin{definition}
-% 	The \defn{Euler class} $e$ is a multiplicative characteristic class for oriented real vector bundles in $\Z$ singular cohomology satisfying the following axioms:
-% 	\begin{enumerate}[(a)]
-% 		\item If a bundle $\mathcal{E}$ has a non-zero section, then $e(\mathcal{E})=0$. 
-% 		\item If $-\mathcal{E}$ has opposite orientation to $\mathcal{E}$, then $e(-\mathcal{E})=-e(\mathcal{E})$.
-% 	\end{enumerate}
-% \end{definition}
+As a closing remark, we note that if $Q(t)$ is a characteristic series with only even-degree terms, there is a characteristic class in $\H^\bullet(\BSO; \Z[\frac12])$ associated to $Q(t)$. For instance,
 
 \subsection{The Hirzebruch Signature Theorem}
 
-We now use the theory of characteristic classes to come up with an expression for the signature of an oriented manifold. Recall from \cref{sec:cobordism} that the signature can be interpreted as a ring homomorphism
+We now use the theory of characteristic classes to derive an expression for the signature of an oriented manifold. Recall from \cref{sec:cobordism} that the signature can be interpreted as a ring homomorphism
 \[
 		\Omega_\bullet^\SO \otimes \Q \lkxto \Z.
 \]
-However, any (stable) multiplicative characteristic class for oriented vector bundles also induces a ring homomorphism. For instance, the Pontryagin class evaluates to
+However, any (stable) multiplicative characteristic class for oriented vector bundles also induces a ring homomorphism:
+\begin{proposition}
+	If $M$ is a null-cobordant manifold and $c\in \H^\bullet(\BSO, \Z[\frac12])$, then $c[M]=0$.
+\end{proposition}
+\begin{proof}
+	This follows from Section 16 of \cite{milnorstasheff1974} and \cref{thm:universal-cohomology}.
+\end{proof}
+For instance, the Pontryagin class evaluates to
 \[
-		p[\CP^{2k}] = \binom{2n+1}{2k}
+		p[\CP^{2k}] = \binom{2k+1}{k}
 \]
 on the generators of $\Omega_\bullet^\SO\otimes \Q$. If we can find some multiplicative characteristic class which evaluates to $1$ on $\CP^{2k}$, we would be able to express the signature in terms of characteristic classes. In general, a ring homomorphism from a cobordism ring is known as a \defn{genus}.
 
@@ -781,15 +705,14 @@ Since this sequence only contains even-degree terms, we can express the associat
 
 \begin{example}\label{example:L-genus}
 	The first few polynomials in the $L$-genus are given by:
-\[
-	\begin{aligned}
-		L_1 &= \frac{1}{3}p_1,\\
-		L_2 &= \frac{1}{45}(-4p_2 + 7p_1^2),\\
-		L_3 &= \frac{1}{945}(62p_3-13p_2p_1+2p_1^3),\\
-		L_4 &= \frac{1}{14175}(831p_4-71p_3p_1-19p_2^2 + 22p_2p_1^2 - 3p_1^4)
-	\end{aligned}
-\]
-	For information on how these polynomials were computed, see \cref{chap:wolfram}.
+	\[
+		\begin{aligned}
+			L_1 &= \frac{1}{3}p_1,\\
+			L_2 &= \frac{1}{45}(-4p_2 + 7p_1^2),\\
+			L_3 &= \frac{1}{945}(62p_3-13p_2p_1+2p_1^3),\\
+			L_4 &= \frac{1}{14175}(831p_4-71p_3p_1-19p_2^2 + 22p_2p_1^2 - 3p_1^4)
+		\end{aligned}
+	\]
 \end{example}
 
 \begin{theorem}[Hirzebruch]\label{thm:hirzebruch-signature-theorem}
@@ -800,7 +723,7 @@ Since this sequence only contains even-degree terms, we can express the associat
 	where $L_k$ is the $L$-genus.
 \end{theorem}
 \begin{proof}
-	It suffices to check this identity for the generators $\CP^{2k}$. The total Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$.
+	It suffices to check this identity for the generators $\CP^{2k}$. The Pontryagin class of $\CP^{2k}$ is $p(\CP^{2k})=(1+\alpha^2)^{2k+1}$.
 	\[
 		\begin{aligned}
 			L(p)(\CP^{2k})
@@ -831,7 +754,7 @@ Since this sequence only contains even-degree terms, we can express the associat
 \end{proof}
 
 \begin{remark}
-	Instead of checking the coefficients from the power series, we might use something like the Lagrange-B\"urmann formula to derive $t/\tanh t$ directly from the series $1/(1-t^4)=1+t^4+t^8+\cdots$ ``generating'' the signature as a map from cobordism. 
+	Instead of checking the coefficients from the power series, we might use something like the Lagrange inversion theorem to derive $t/\tanh t$ directly from the series $1/(1-t^4)=1+t^4+t^8+\cdots$ ``generating'' the signature as a map from cobordism. 
 \end{remark}
 
 The Hirzebruch signature theorem is a shining example of a truly remarkable theorem in mathematics -- it gives us easy computational means to uncover highly non-trivial relationships between complicated objects. For us, the most useful consequence of the Hirzebruch signature theorem is that it gives us subtle integrability and divisibility theorems. For instance, the expression for the leading coefficient of $L_3$ in \cref{example:L-genus} immediately implies:
@@ -841,28 +764,36 @@ The Hirzebruch signature theorem is a shining example of a truly remarkable theo
 The observation that for such manifolds $M$, the quantity $\sigma(M)/62$ is an integer, let alone equal to $945p_3[M]$, is far from obvious, and yet it pops out immediately from the signature theorem. These subtle relationships are immensely useful in defining invariants capable of detecting exotic spheres as we will see in the following \cref{sec:invariants-for-homotopy-4k-1-spheres}.
 
 While we are on the topic of the $L$-genus, let us compute its leading coefficient. Often times, the manifolds which we will apply the signature theorem to will be connected enough that the lower order Pontryagin classes vanish -- leaving just the leading term.
-Luckily for us, the coefficient of this leading term admits a simple description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion:
+Luckily for us, the coefficient of this leading term admits a description in terms of the \defn{Bernoulli numbers} $B_{2k}$, a sequence of rational numbers which appear ubiquitously throughout topology, homotopy theory, number theory, and many other disciplines. For an overview o some of these connections, see \cite{mazurbernoulli} or Appendix B of \cite{milnorstasheff1974}.
+
+There are many conventions in the literature, but for our purposes we can define them as the terms appearing in the series expansion:
 \[
 	\frac{t}{1-e^{-t}} =  1+\frac{1}{2}t + \frac{1}{12}t^2-\frac{1}{720}t^4+\frac{1}{30240}z^6-\frac{1}{1209600}t^8+\cdots=\sum_{n\geq 0}\frac{B_n}{n!}t^n.
 \]
 \begin{remark}
-	The characteristic series $t/(1-e^{-t})$ generates the Todd genus, a fundamental invariant in complex geometry. See \todo{cite} for more information.
+	The characteristic series $t/(1-e^{-t})$ generates the Todd genus, a fundamental invariant in complex geometry. See \cite{hirzebruch1966methods} for more information.
 \end{remark}
 As we are working in the real case, we need only consider the even degree terms. The first few Bernoulli numbers are given by:
 \begin{equation}\label{eq:bernoulli_numbers}
 	B_0 = 1,\quad B_2 = \frac{1}{6},\quad B_4 = \frac{1}{30},\quad B_6=\frac{1}{42},\quad B_{8}=\frac{1}{30},\quad B_{10} = \frac{5}{66},\quad\cdots
 \end{equation}
-Bernoulli numbers are ubiquitous in topology and homotopy theory, \todo{cite}
 
+At this point, we can expand the power series related to the $L$-genus using the power series for $t/(1-e^{-t})$ to get the expression
 \begin{equation}\label{eq:tanh_series}
 	\begin{aligned}
-		\tanh(t) &= t - \frac{1}{3}t^3 + \frac{2}{15}t^5 - \frac{17}{315}t^7+\cdots = \sum_{k\geq 1} (-1)^k\frac{2^{2k}(2^{2k}-1)B_{2k}}{(2k)!}\, t^{2k-1}\\
-		\frac{t}{\tanh(t)} &= 1+\frac{1}{3}t^2-\frac{1}{45}t^4+\frac{2}{945}t^6 - \frac{1}{4725}t^8 +\cdots = \sum_{k\geq 0}\frac{2^{2k}B_{2k}}{(2k)!}.
+		\frac{t}{\tanh(t)} &= t+\frac{2t}{e^{2t}-1}= 1+\frac{1}{3}t^2-\frac{1}{45}t^4+\frac{2}{945}t^6 - \frac{1}{4725}t^8 +\cdots = \sum_{k\geq 0}\frac{2^{2k}B_{2k}}{(2k)!}t^{2k},\\
 	\end{aligned}
 \end{equation}
 
 From this, it follows that:
 
 \begin{proposition}\label{prop:leading_coefficient_L_genus}
-	The leading coefficient of the $L$-genus is $s_k=2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!$
+	The leading coefficient of the $L$-genus $L_k$ is $s_k=2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!$
 \end{proposition}
+\begin{proof}
+	From a formula of Cauchy, we can derive a generating function for $s_k$ by
+	\[
+		1-t\frac{d\log Q_L(\sqrt{t})}{dt} = 1-\frac{1}{3}t + \frac{7}{45}t^2-\frac{62}{945}t^3+\frac{127}{4725}t^4-\cdots = \sum_{k\geq 0} (-1)^{k}s_k t^k.
+	\]
+	For more details, see Problem 19-B and 19-C of \cite{milnorstasheff1974}.
+\end{proof}

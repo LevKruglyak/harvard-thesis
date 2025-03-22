@@ -167,15 +167,11 @@ We now investigate some basic properties of the intersection form.
 	$Q_{M_1\+M_2} \cong Q_{M_1}\oplus Q_{M_2}.$
 \end{proposition}
 \begin{proof}
-	Let us assume that $m>1$, since the case $m=1$ requires a slightly modified argument. By the discussion in \cref{sec:smooth-manifold-operations}, we get a short exact sequence of cohomology
-	\[
-		\H^{m-1}(S^{2m-1})\lkxto \H^m(M_1\+M_2) \lkxto[p] \H^m(M_1^\circ)\oplus \H^m(M_2^\circ)\lkxto \H^m(S^{2m-1}),
-	\]
-	where $M_1^\circ$ and $M_2^\circ$ the manifolds with a point removed.
-	Then, the middle map $p$ is an isomorphism since $m\neq 1$ so every cohomology cycle $\alpha\in \H^m(M_1\+M_2)$ can be written as a sum $p^{-1}(\alpha_1) + p^{-1}(\alpha_2)$ where $\alpha_i\in \H^m(M_i^\circ)$. \todo{finish the proof}
+	In the case that $m=1$, this follows immediately from the classification of compact surfaces. When $m>1$, a similar Mayer-Vietoris argument to
+to \cref{sec:smooth-manifold-operations} for relative cohomology, proves the result.
 \end{proof}
 
-By a similar proof, we can show that:
+Similarly, we get:
 
 \begin{proposition}\label{prop:boundary-connected-sum-intersection-form}
 	For compact manifolds $M_1^{2m}$ and $M_2^{2m}$ with non-empty and connected boundaries, we have $Q_{(M_1,\partial M_1)\+ (M_2,\partial M_2)} \cong Q_{M_1}\oplus Q_{M_2}$.
@@ -213,8 +209,12 @@ By similar arguments to \cref{prop:intersection-form-complex-projective-plane} a
 	\begin{figure}[ht]
 		\centering
 		\import{diagrams}{torus-octagon.pdf_tex}
-		\caption{Generators for $\H_1(X_g)$ when $g=1$ and $2$ (The octagonal tiling of the Poincar\'e disk was adapted from a graphic by \href{https://commons.wikimedia.org/wiki/User:Parcly_Taxel}{Parcly Taxel}).}\label{fig:torus-octagon}
+		\caption{Generators for $\H_1(X_g)$ when $g=1$ and $2$.}\label{fig:torus-octagon}
 	\end{figure}
+
+	\begin{remark}
+		The octagonal tiling of the Poincar\'e disk in \cref{fig:torus-octagon} was adapted from a graphic by \href{https://commons.wikimedia.org/wiki/User:Parcly_Taxel}{Parcly Taxel}.
+	\end{remark}
 
 	On the universal cover, we can draw lines which project down to generating cycles for $\H_1(X_g)$. For instance, see \cref{fig:torus-octagon} for examples of this in $X_1$ and $X_g$. Extending these lines by the group action to get the full group $\H_1(X_g)$ expresses the lattice $\H_1(X_g)$ as a concrete lattice of lines in hyperbolic space.
 	When the lines are restricted to the fundamental domain with boundary conditions agreeing with the group action, their intersection numbers are the same as in the quotient $X_g$. For the torus $X_1$, we have two lines $a$ and $b$ which have self-intersection $0$ (perturbing either horizontally or diagonally), and cross-intersection $a\cdot b = 1$. This gives the expected matrix
@@ -518,7 +518,7 @@ The classification of symmetric bilinear forms over the integers is thus conside
 \end{definition}
 
 \begin{remark}
-	Note that in the context of intersection forms, the signature is only a useful invariant for $4k$-manifolds, since the intersection form of a $(4k+2)$-manifold is skew-symmetric and thus has signature $0$. In the case of $(4k+2)$-manifolds, the relevant invariant is the Arf invariant, \todo{cite}
+	Note that in the context of intersection forms, the signature is only a useful invariant for $4k$-manifolds, since the intersection form of a $(4k+2)$-manifold is skew-symmetric and thus has signature $0$. In the case of $(4k+2)$-manifolds, the relevant invariant is the Arf invariant, which we briefly discuss in \cref{chap:conclusion}.
 \end{remark}
 
 \begin{example}
@@ -555,16 +555,3 @@ For instance, the $E_8$ form is a unimodular, positive-definite, even, symmetric
 \begin{proof}
 	See \cite{serre1961forms}.
 \end{proof}
-
-% \begin{figure}
-% 	\centering
-% 	\begin{tabular}{cc|c}
-% 		& \textrm{odd} & \textrm{even}\\
-% 		\textrm{definite} & $(1)^p\oplus (-1)^q\oplus$ & \todo{add examples}\\
-% 		\hline
-% 		\textrm{indefinite} & $\oplus^r E_8\oplus^{s>0} H$ & 
-% 	\end{tabular}
-% 	\caption{Table of symmetric unimodular bilinear forms.}\label{fig:unimodular-symmetric-bilinear-forms}
-% \end{figure}
-%
-% \todo{finish this}

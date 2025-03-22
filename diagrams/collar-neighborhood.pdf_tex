@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{239.77779579bp}%
+    \setlength{\unitlength}{431.99996567bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,12 +50,11 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.36877402)%
+  \begin{picture}(1,0.26666669)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
+    \put(0.35133843,0.22743524){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
+    \put(0.63955077,0.22743524){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\partial M$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{collar-neighborhood.pdf}}%
-    \put(0.20444716,0.33347112){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
-    \put(0.72270641,0.33347112){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\partial M$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{collar-neighborhood.pdf}}%
   \end{picture}%
 \endgroup%
