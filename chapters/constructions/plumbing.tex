@@ -169,7 +169,7 @@ For our purposes, we will only need to construct manifolds whose intersection fo
 % \end{proof}
 The remaining work involves understanding the homotopy type of the boundary. 
 
-\begin{proposition}
+\begin{proposition}\label{prop:fundamental-group-plumbing}
 	There is a surjective map
 	\[\pi_1(\partial P^{2m}(Q))\lkxsurj \pi_1(P^{2m}(Q))\]
 	with the latter group free. For $m>2$, the map is an isomorphism.
@@ -343,11 +343,12 @@ A complete discussion of this beautiful topic would take us too far afield, so w
 			  &   &   &   &  & 1 & 2 &  \\
 			  &   &   &   & 1 &  &  & 2 \\
 		\end{pmatrix}
-	\]
-	We will call this the \defn{$E_8$ matrix}.
+	\]	
 \end{example}
 
-The main application of plumbing to the topic of exotic spheres is the following theorem:
+% The $E_8$ matrix gives one of 
+
+main application of plumbing to the topic of exotic spheres is the following theorem:
 
 \begin{theorem}
 	There is a homomorphism
@@ -358,5 +359,7 @@ The main application of plumbing to the topic of exotic spheres is the following
 \end{theorem}
 
 \begin{remark}
-	Note that when $k=1$, an $E_8$ plumbing does give a homotopy $3$-sphere, but rather a homology $3$-sphere $\mathscr{D}$ known as the \defn{Poincar\'e homology sphere} or \defn{dodecahedral space}. This space has fundamental group $\pi_1(\mathscr{D})$ of order 120, a preimage of $A_5$ under the double cover $\SU_2 \to \SO_3$. This group is perfect, meaning it has trivial abelianization and so $\H^1(\mathscr{D})\cong 0$. Since it violates Poincar\'e's original (incorrect) hypothesis that every homology $3$-sphere is homeomorphic to the $S^3$, the Poincar\'e dodecahedral space might be referred to as a ``proto'' exotic sphere. This is a fascinating geometric space, see \cite{kirby1979eight} for some equivalent formulations.
+	Note that when $k=1$, an $E_8$ plumbing does not give a homotopy $3$-sphere, but rather a homology $3$-sphere $\mathscr{D}$ known as the \defn{Poincar\'e homology sphere} or \defn{dodecahedral space}. This space has fundamental group $\pi_1(\mathscr{D})$ of order 120, a preimage of $A_5$ under the double cover $\SU_2 \to \SO_3$. This group is perfect, meaning it has trivial abelianization and so $\H^1(\mathscr{D})\cong 0$. 
+
+	Since $\mathcal{D}$ violates Poincar\'e's original (incorrect) hypothesis that every homology $3$-sphere is homeomorphic to the $S^3$, the Poincar\'e dodecahedral space might be referred to as a ``proto'' exotic sphere. This is a fascinating geometric space, see \cite{kirby1979eight} for some equivalent formulations.
 \end{remark}

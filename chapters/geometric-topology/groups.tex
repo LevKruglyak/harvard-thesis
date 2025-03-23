@@ -1,4 +1,3 @@
-\pagebreak
 \section{Groups of Homotopy Spheres}\label{sec:groups-of-homotopy-spheres}
 
 So far, this is a fairly general setup. Instead of spheres, we could use any simply-connected base manifold and consider the set of $h$-cobordism classes of manifolds homotopy equivalent to it. This is known as the \defn{surgery structure set}, one of the central objects of study in surgery theory. In the case of spheres, there is a special bit of extra data which does not usually generalize -- a group structure under the connected sum operation defined in \cref{sec:connected-sum}. 
@@ -90,11 +89,11 @@ As we will see in \cref{chap:invariants} and \cref{chap:conclusion}, this group 
 	\begin{proof}
 		There is a thorough proof of this in \cite{milnorkervaire1963groups} (see Lemma 2.4) so we only sketch a geometric picture here. The connected sum $M\+\overline{M}$ can be thought of as a union of punctured spaces $M^\circ$ and $\overline{M}^\circ$. Turning the punctured homotopy sphere $M^\circ$ inside out through the opening gives the reverse orientation $\overline{M}^\circ$.
 
-		\begin{figure}[ht]
-			\centering
-			\import{diagrams}{group-inverse-lemma.pdf_tex}
-			\caption{Turning a homotopy sphere inside out through a puncture.}\label{fig:group-inverse-lemma}
-		\end{figure}
+		% \begin{figure}[ht]
+		% 	\centering
+		% 	\import{diagrams}{group-inverse-lemma.pdf_tex}
+		% 	\caption{Turning a homotopy sphere inside out through a puncture.}\label{fig:group-inverse-lemma}
+		% \end{figure}
 
 		\noindent
 		Taking the union of the intermediate stages of this inversion procedure gives a contractible manifold $W$ which bounds $M\+\overline{M}$, as in \cref{fig:group-inverse-lemma}.
@@ -118,7 +117,7 @@ Clearly, the identity $S^n$ is in this subset, and the subset is clearly closed 
 	$\bP^{n+1}$ is a subgroup of $\Theta^n$.
 \end{proposition}
 \begin{proof}
-	It suffices to show that $\bP^{n+1}$ is closed under connected sum. Suppose $M_1$ and $M_2$ are homotopy spheres bound by parallelizable manifolds $W_1$ and $W_2$.Note that the connected sum of $M_1$ and $M_2$ has a coboundary $W=(W_1,\partial W_1)\+(W_2,\partial W_2)$.
+	It suffices to show that $\bP^{n+1}$ is closed under connected sum. Suppose $M_1$ and $M_2$ are homotopy spheres bound by parallelizable manifolds $W_1$ and $W_2$. Note that the connected sum of $M_1$ and $M_2$ has a coboundary $W=(W_1,\partial W_1)\+(W_2,\partial W_2)$.
 
 	\begin{figure}[ht]
 		\centering

@@ -48,9 +48,15 @@
 % Debug
 \newcommand{\todo}[1]{{\color{red}{#1}}}
 
+% Rule
+\newcommand{\smallrule}{\begin{center}
+	\rule{2in}{0.6pt}
+	\end{center}}
+
 % Epigraph
 \NewDocumentEnvironment{epigraph}{m m}
 {\begin{flushleft}\slshape}{
+		\vspace{-1em}
 		\par\normalfont\rule[0pt]{#1}{0.5pt}\\
 		-- \textsc{#2}
 		\vspace{2em}

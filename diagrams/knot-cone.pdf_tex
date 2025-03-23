@@ -50,11 +50,13 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.33333336)%
+  \begin{picture}(1,0.21666668)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{knot-cone.pdf}}%
-    \put(0.35414719,0.02991322){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathrm{C}M$\end{tabular}}}}%
-    \put(0.61349273,0.0303303){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
+    \put(0.40239813,0.09257868){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$w$\end{tabular}}}}%
+    \put(0.69759004,0.10476478){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{L}(F,w)$\end{tabular}}}}%
+    \put(0.46943248,0.15889083){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathcal{V}(F)$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{knot-cone.pdf}}%
   \end{picture}%
 \endgroup%

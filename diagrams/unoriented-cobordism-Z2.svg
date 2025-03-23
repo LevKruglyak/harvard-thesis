@@ -26,15 +26,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.9011189"
-     inkscape:cx="276.15317"
-     inkscape:cy="40.239462"
+     inkscape:zoom="2.900107"
+     inkscape:cx="302.74745"
+     inkscape:cy="40.170931"
      inkscape:window-width="1728"
      inkscape:window-height="1051"
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1" />
   <g
@@ -75,45 +76,45 @@
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.352999;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.705998, 0.705998;stroke-dashoffset:0;stroke-opacity:1"
        x="59.991886"
-       y="34.564781"
+       y="36.11573"
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.353"
          x="59.991886"
-         y="34.564781">$M\times[0,1]$</tspan></text>
+         y="36.11573">$M\times[0,1]$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.352999;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.705998, 0.705998;stroke-dashoffset:0;stroke-opacity:1"
-       x="90.123146"
-       y="17.354862"
+       x="92.312721"
+       y="17.335915"
        id="text1-5"><tspan
          sodipodi:role="line"
          id="tspan1-8"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.353"
-         x="90.123146"
-         y="17.354862">$\emptyset$</tspan></text>
+         x="92.312721"
+         y="17.335915">$\emptyset$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.352999;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.705998, 0.705998;stroke-dashoffset:0;stroke-opacity:1"
-       x="48.470516"
-       y="9.1050692"
+       x="51.572414"
+       y="9.1050701"
        id="text1-9"><tspan
          sodipodi:role="line"
          id="tspan1-1"
          style="fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.353"
-         x="48.470516"
-         y="9.1050692">$M$</tspan></text>
+         x="51.572414"
+         y="9.1050701">$M$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.352999;stroke-linecap:square;stroke-linejoin:round;stroke-dasharray:0.705998, 0.705998;stroke-dashoffset:0;stroke-opacity:1"
-       x="48.470516"
-       y="24.62669"
+       x="51.572414"
+       y="26.360104"
        id="text1-9-5"><tspan
          sodipodi:role="line"
          id="tspan1-1-9"
          style="fill:#0000f7;fill-opacity:1;stroke:none;stroke-width:0.353"
-         x="48.470516"
-         y="24.62669">$M$</tspan></text>
+         x="51.572414"
+         y="26.360104">$M$</tspan></text>
   </g>
 </svg>

@@ -27,14 +27,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="2.0163149"
-     inkscape:cx="469.66869"
-     inkscape:cy="124.7325"
+     inkscape:cx="378.41311"
+     inkscape:cy="96.959061"
      inkscape:window-width="1728"
      inkscape:window-height="1051"
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1" />
   <g
@@ -139,24 +140,24 @@
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.176389;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.352777, 0.352777;stroke-dashoffset:0;stroke-opacity:1"
-       x="43.528545"
+       x="55.469677"
        y="49.434624"
        id="text35-9-8-3"><tspan
          sodipodi:role="line"
          id="tspan35-3-4-0"
          style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.176389"
-         x="43.528545"
+         x="55.469677"
          y="49.434624">$\partial M_2$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.176389;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.352777, 0.352777;stroke-dashoffset:0;stroke-opacity:1"
-       x="95.95771"
+       x="105.69769"
        y="49.434624"
        id="text35-9-8-3-5"><tspan
          sodipodi:role="line"
          id="tspan35-3-4-0-0"
          style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.176389"
-         x="95.95771"
+         x="105.69769"
          y="49.434624">$\partial M_1\+\partial M_2$</tspan></text>
     <text
        xml:space="preserve"

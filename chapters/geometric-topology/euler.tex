@@ -1,4 +1,3 @@
-\pagebreak
 \section{The Euler Class}\label{sec:euler-class}
 
 A beautiful link between intersection theory and geometry comes from the Euler number, a characteristic number of oriented real vector bundles. Due to the massive number of generalizations and equivalent definitions of the Euler, we only give a brief survey of perspectives used throughout the thesis.
@@ -6,13 +5,15 @@ A beautiful link between intersection theory and geometry comes from the Euler n
 The first realization of the Euler number dates back to at least the 18th century, where it was noticed by Euler that any convex polyhedron satisfies $V-E+F=2$ for $V$ the number of vertices, $E$ the number of edges, and $F$ the number of faces. 
 In general, the quantity $V-E+F$ is a topological invariant for any polyhedron -- convexity simply restricts the topology of the polyhedron to be spherical.
 For instance, any polyhedron homeomorphic to a torus has $V-E+F=0$. 
-This quantity is known as the Euler number, and is the starting point for a large tree generalizations in mathematics. 
-The simplest such generalization is in terms of Betti numbers and homology.
+This quantity is known as the Euler number, and is the starting point for a large web of generalizations in mathematics. 
+
+
+The simplest such generalization is in terms of homology:
 
 \begin{definition}
   The \defn{Euler number} of an $n$-dimensional manifold $M$ is
   \[
-    \chi(M) = \beta_0 - \beta_1 + \beta_2 - \beta_3 + \cdots + (-1)^n\beta_n = \sum_{k\geq 0} \dim \H_k(M; \Q).
+    \chi(M) = \sum_{k\geq 0} \dim \H_k(M; \Q).
   \]
 \end{definition}
 
@@ -39,25 +40,25 @@ The standard examples are:
   For any closed manifolds $M$, $N$, we have $\chi(M\times N)=\chi(M)\cdot \chi(N)$.
 \end{proposition}
 
-We will now discuss several perspectives on the Euler number which will arise throughout this thesis. Unfortunately, this short set is far from complete. Not included in this section are the perspectives of the Euler number (and Euler class) 
+We will now discuss several perspectives on the Euler number which arise throughout this thesis. Unfortunately, this short set is far from complete. Not included in this section are the perspectives of the Euler number (and Euler class) 
 \begin{enumerate}[(a)]
   \item as the primary homotopic obstruction to a section on a sphere bundle,
   \item as a Lefschetz number of the identity map,
   \item as a Thom class of an oriented vector bundle,
-  \item as a universal cohomology class in $\H^{2m}(\BSO_n; \Q)$,
+  \item as a universal characteristic class in $\H^{\bullet}(\BSO_{2m}; \Q)$,
   \item as a transgression of the \v{C}ech-de Rham or Leray-Serre spectral sequence,
   \item as the index of the Hodge-de Rham elliptic differential operator,
   \item in terms of the Riemann-Roch theorems,
 \end{enumerate}
 and many more. 
 
-\begin{remark}
+\begin{remark*}
   For any undergraduates reading this, an idea for a senior thesis project could be to write a unified treatise on these different perspectives, filled with examples and proofs of equivalence. I would love to read such a thesis, please contact me if you end up writing it.
-\end{remark}
+\end{remark*}
 
 \subsection{The Euler Number as an Intersection Number}\label{sec:euler-number-intersection}
 
-The primary interpretation of the Euler number for us is as an intersection number, specifically as a self-intersection number. Combined with the other perspectives on the Euler number in this section, this gives us a powerful way to compute the diagonal entries in an intersection form. We begin with the following theorem: 
+The primary interpretation of the Euler number for us is as an intersection number, specifically as a self-intersection number of a manifold. Combined with the other perspectives on the Euler number in this section, this gives us a powerful way to compute the diagonal entries in an intersection form. We begin with the following theorem: 
 \begin{theorem}\label{thm:euler-number-diagonal-intersection}
   Let $M^n$ be a closed oriented manifold, and let $\Delta\subset M\times M$ be the diagonal. 
   Then we have
@@ -66,27 +67,33 @@ The primary interpretation of the Euler number for us is as an intersection numb
   \]
   where $I(\Delta,\Delta)$ is the self-intersection number of $\Delta$ in $M\times M$.
 \end{theorem}
+
 \begin{proof}
-  Let $\{\alpha^i\}\subset \H^\bullet(M; \Q)$ be a graded basis of the cohomology ring and let $\{a_i\}$ be the Poincar\'e dual basis in cohomology, i.e. $(\alpha_i\smile \alpha^j)[M]=\delta^j_i$. By the K\"unneth theorem, we have a ring isomorphism
+  There is a wonderful proof of this fact in Chapter 11 of \cite{milnorstasheff1974}, outlined below.
+
+  Let $\{\alpha^i\}\subset \H^\bullet(M; \Q)$ be a graded basis of the cohomology ring and let $\{a_i\}$ be the Poincar\'e dual basis in cohomology, i.e. $(\alpha_i\smile \alpha^j)[M]=\delta^j_i$. 
+  % By the K\"unneth theorem, we have a ring isomorphism
+  % \[
+  %   \begin{aligned}
+  %   \H^{2n}(M\times M; \Q) 
+  %   &\cong \bigoplus_{p+q=2n} \H^p(M; \Q)\otimes \H^q(M; \Q)\\
+  %   &\cong \H^n(M;\Q)\otimes \H^n(M;\Q).
+  %   \end{aligned}
+  % \]
+  In these bases, it follows that the Poincar\'e dual to the diagonal class $\mathrm{PD}^{-1}([\Delta])\in \H^n(M\times M)$ can be written as
+%   By noting that the fundamental class $[M\times M]=[M]\times [M]$, we can show that the Poincar\'e dual for the homology class $[\Delta]\in \H_{n}(M\times M)$ is given by
   \[
-    \H^{k}(M\times M) \cong \bigoplus_{p+q=k} \H^p(M)\otimes \H^q(M).
+    \mathrm{PD}^{-1}([\Delta]) = \sum_{i\geq 1}(-1)^{|\alpha_i|}\alpha_i\otimes \alpha^i.
   \]
-  By noting that the fundamental class $[M\times M]=[M]\times [M]$, we can show that the Poincar\'e dual for the homology class $[\Delta]\in \H_{n}(M\times M)$ is given by
-  \[
-      \mathrm{PD}([\Delta]) = \sum_{i\geq 1}(-1)^{|\alpha_i|}\alpha_i\otimes \alpha^i.
-  \]
-We now compute the self-intersection number by taking the cup product of 
+  We now compute the self-intersection number by taking the cup product of 
   this class with itself and evaluating on \([M \times M]\):
   \[
   \begin{aligned}
     I(\Delta, \Delta) &=
-    (\mathrm{PD}([\Delta]) \smile \mathrm{PD}([\Delta]))
-    [M \times M]\\
-    &= \left(\sum_{i\geq 1} (-1)^{|\alpha_i|}\alpha_i \otimes \alpha^i
-           \smile
-           \sum_j (-1)^{|\alpha_j|}\,\alpha_j \otimes \alpha^j\right)
-    [M \times M]&\\
-                &= \sum_{i\geq 1}(-1)^{|\alpha_i|}\hspace{10em}\textrm{since $(\alpha_i\smile \alpha^j)[M]=\delta^j_i$}&\\
+    \mathrm{PD}^{-1}([\Delta]) \smile \mathrm{PD}^{-1}([\Delta]) [M\times M]\\
+                      &= \sum_{i\geq 1}(-1)^{|\alpha_i|}(\alpha_i\smile \alpha^i)
+    [M]&\\
+                &= \sum_{i\geq 1}(-1)^{|\alpha_i|}\hspace{8em}\textrm{since $(\alpha_i\smile \alpha^j)[M]=\delta^j_i$}&\\
     &= \sum_{n\geq 1} (-1)^n\dim \H^n(M;\Q) = \chi(M).
   \end{aligned}
   \]
@@ -105,12 +112,12 @@ Such a definition would recover the original definition o the Euler number by \c
 	\[
 		\chi(\mathcal{E}) = I(z,z)
 	\]
-	where $z : B \to E$ is the zero section.\footnote{We might consider intersections done in the disk bundle associated to $\mathcal{E}$ so that all manifolds remain compact.}
+	where $z : B \to E$ is the zero section.\footnote{We can consider intersections done in the disk bundle associated to $\mathcal{E}$ so that all manifolds remain compact.}
 \end{definition}
 
 \subsection{The Euler Number as a Geometric Invariant}\label{sec:euler-number-geometric}
 
-A more geometric perspective on the Euler number was first noticed (independently) by Carl Friedrich Gauss and Pierre Bonnet in the mid 19th century. In addition to the topological perspective outline above, the Euler number can be viewed as an invariant of Riemannian structure on a manifold.
+A more geometric perspective on the Euler number was first noticedby Carl Friedrich Gauss and (independently) by Pierre Bonnet in the mid 19th century. On top of the combinatorial and intersection perspective outline above, the Euler number can be viewed as a topological invariant of Riemannian structure on a manifold.
 
 \begin{theorem}[Gauss-Bonnet]
   Let $M$ be a closed orientable two-dimensional Riemannian manifold with Gaussian curvature $K$. Then we have
@@ -222,10 +229,10 @@ This completes the proof.
   This follows from \cref{prop:euler-class-naturality}, pulling back by an orientation-reversing map.
 \end{proof}
 
-These properties scratch out some common axioms for characteristic classes. We discuss this in far more detail in \cref{sec:characteristic-classes}. 
+These properties scratch out some of the common axioms for characteristic classes, a topic we discuss in far more detail in \cref{sec:characteristic-classes}. 
 Finally, we touch upon the interpretation of the Euler class as an obstruction to a non-zero section of a bundle. 
 
-\begin{proposition}
+\begin{proposition}\label{prop:euler-number-obstruction}
   A vector bundle has a non-vanishing vector field if and only if its Euler class vanishes.
 \end{proposition}
 \begin{proof}
@@ -233,7 +240,7 @@ If a vector bundle $\mathcal{E}$ admits a non-zero section $s : M \to E$, then $
 \end{proof}
 
 
-Since the Euler number of a sphere vanishes only in odd dimensions, an easy consequence of this is the infamous ``Hairy Ball Theorem'', although it can be proved by simpler means. 
+Since the Euler number of a sphere vanishes only in odd dimensions, an easy consequence of \cref{prop:euler-number-obstruction} is the infamous ``Hairy Ball Theorem'', although it can be proved by simpler means. 
 
 \begin{theorem}[Hairy Ball Theorem]
   There exists a non-vanishing vector field on $S^n$ if and only if $n$ is odd.
@@ -241,9 +248,11 @@ Since the Euler number of a sphere vanishes only in odd dimensions, an easy cons
 
 \subsection{The Euler Number as a Cohomology Class}\label{sec:euler-number-cohomology}
 
-One interpretation of the Euler class is as an invariant of oriented sphere bundles, not just vector bundles. Of course, every vector bundle has an associated sphere bundle there are natural constructions of the Euler class of a sphere bundle without any reference to a vector bundle. 
+Finally, we include an interpretation of the Euler class is as an invariant of oriented sphere bundles, not just vector bundles. Of course, every vector bundle has an associated sphere bundle there are natural constructions of the Euler class of a sphere bundle without any reference to a vector bundle. 
 
-For instance, from an obstruction theory perspective, a non-zero section of a vector bundle corresponds to a section of a sphere bundle. For a light introduction to obstruction theory in the context of the Euler class, see Chapter 12 of \cite{milnorstasheff1974}, and for a general homotopy theory perspective, see Section 4.3 of \cite{hatcher2002topology}.
+For instance, from an obstruction theory perspective, a non-zero section of a vector bundle corresponds to a section of a sphere bundle. For a light introduction to obstruction theory in the context of the Euler class, see Chapter 12 of \cite{milnorstasheff1974}, and for a general homotopy theory perspective on obstructions, see Section 4.3 of \cite{hatcher2002topology}.
+
+Since the existing expositions are fantastic and too deep a venture into algebraic topology would distract from exotic spheres, we black-box most of this. For us, the important result is the following theorem for computing the cohomology of a spherical fiber bundle:
 
 \begin{theorem}[Gysin Sequence]\label{thm:gysin-sequence}
 	For any $S^{n-1}$ fiber bundle  $p: E\to B$ over a simply-connected base $B$,

@@ -50,13 +50,13 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.33333336)%
+  \begin{picture}(1,0.25)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{connected-sum.pdf}}%
-    \put(0.11043449,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1$\end{tabular}}}}%
-    \put(0.35412979,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
-    \put(0.69091487,0.25647119){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1\+M_2$\end{tabular}}}}%
+    \put(0.11085559,0.2206446){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1$\end{tabular}}}}%
+    \put(0.35455088,0.2206446){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_2$\end{tabular}}}}%
+    \put(0.60722441,0.2206446){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M_1\+M_2$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{connected-sum.pdf}}%
   \end{picture}%
 \endgroup%

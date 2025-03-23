@@ -26,15 +26,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.0304909"
-     inkscape:cx="266.8631"
-     inkscape:cy="261.52583"
+     inkscape:zoom="1.3423042"
+     inkscape:cx="321.83465"
+     inkscape:cy="203.75411"
      inkscape:window-width="1728"
      inkscape:window-height="1051"
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showgrid="false" />
   <defs
      id="defs1">
     <marker
@@ -207,10 +208,6 @@
        sodipodi:nodetypes="cc"
        transform="rotate(180,44.661766,24.982505)" />
     <path
-       style="color:#000000;fill:#000000;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3.17499, 3.17499;-inkscape-stroke:none"
-       d="m 93.183865,25.4 a 0.52916503,0.52916503 0 0 0 -0.5293,0.529297 0.52916503,0.52916503 0 0 0 0.5293,0.529297 0.52916503,0.52916503 0 0 0 0.52929,-0.529297 A 0.52916503,0.52916503 0 0 0 93.183865,25.4 Z"
-       id="path2-7-1" />
-    <path
        style="fill:none;stroke:#808080;stroke-width:0.352778;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:0.705554, 0.705554;stroke-dashoffset:0;stroke-opacity:1"
        d="m 107.69731,14.378129 c 2.32697,3.5e-5 4.8202,4.994826 4.82024,11.198317 2e-5,6.20359 -2.49323,11.198281 -4.82024,11.198315"
        id="path18-7-6-3"
@@ -240,10 +237,6 @@
        d="m 108.40658,36.774859 c 0,0 0.97632,0.05994 1.45071,-0.03457 5.35632,-1.06709 8.5128,-5.618341 13.23331,-7.443308 4.68389,-1.810813 14.68401,-3.367684 14.68401,-3.367684"
        id="path54-3-3-1"
        sodipodi:nodetypes="csac" />
-    <path
-       style="color:#000000;fill:#000000;fill-opacity:1;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:3.17499, 3.17499;-inkscape-stroke:none"
-       d="m 137.50276,25.4 a 0.52916503,0.52916503 0 0 0 -0.5293,0.529297 0.52916503,0.52916503 0 0 0 0.5293,0.529297 0.52916503,0.52916503 0 0 0 0.52929,-0.529297 A 0.52916503,0.52916503 0 0 0 137.50276,25.4 Z"
-       id="path2-7-1-5" />
     <text
        xml:space="preserve"
        style="font-size:3.88056px;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.176389;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:0.352777, 0.352777;stroke-dashoffset:0;stroke-opacity:1"

@@ -2,26 +2,26 @@
 \section{Smooth Manifold Operations}\label{sec:smooth-manifold-operations}
 
 Cutting and pasting is the category of smooth manifolds is a subtle craft. 
-Unlike in the topological manifold category, combining manifolds resembles ``sewing'' more than ``gluing''. In order to ensure that the resulting manifold will have a unique smooth structure, we must identify the spaces in a small region surrounding the submanifold. The extra space provided by the region allows one manifold to ``smoothly curve into'' the other.
+Unlike in the topological manifold category, combining smooth manifolds resembles ``sewing'' more than ``gluing''. In order to ensure that the resulting manifold will have a unique smooth structure, we must identify the spaces in a small region surrounding the submanifold. The extra space provided by the region allows one manifold to ``smoothly curve'' into the other.
 
-\begin{remark} 
+\begin{remark*} 
+	This subtlety is of fundamental importance in the topic of exotic spheres. Even an operation as simple as gluing two disks along their boundary via an orientation preserving 
 	We will see in \cref{sec:twisted-spheres} that exotic spheres can be formed by identifying two disks along \emph{just} their boundary by an orientation preserving diffeomorphism. This always gives an ordinary sphere in the topological category but not in the smooth category.
-\end{remark}
+\end{remark*}
 
-We begin with some technical lemmas from differential topology. Whenever a manifold $N^k$ is embedded into an ambient manifold $M^n$, there is a short exact sequence of vector bundles on $N$
+We begin with some technical lemmas from differential topology. Whenever a manifold $N^k$ is embedded into an ambient manifold $M^n$, there is a short exact sequence of vector bundles on $N$:
 \begin{equation}
 	0 \lkxto \TT N\lkxto \TT M|_N \lkxto \TT M/N \lkxto 0.
 \end{equation}
-Here $\TT M/N=\TT M|_N / \TT N$ denotes the \defn{normal bundle} of $N$ in $M$, which has rank $(n-k)$.
+Here $\TT M/N=\TT M|_N / \TT N$ denotes the \defn{normal bundle} of $N$ in $M$, a bundle of rank $(n-k)$.
 
-A \defn{tubular neighborhood} of $N$ is a neighborhood $\widetilde{N}\supset N$ in $M$ which is the diffeomorphic image of the total space of the normal bundle $\T M/N$ with the diffeomorphism $\tau : \T M/N \to \widetilde{N}$ satisfying:
+A \defn{tubular neighborhood} of $N$ is a neighborhood $U\supset N$ in $M$ which is the diffeomorphic image of the total space of the normal bundle $\T M/N$ with the diffeomorphism $\tau : \T M/N \to U$ satisfying:
 \begin{enumerate}[(a)]
 	\item $\tau$ is the identity on the image of the zero section $s_0 : N \to \T M/N$,
 	\item For any point $p\in \partial N$ on the boundary, $\tau(\T_p M/N)\subset \partial M$.
 \end{enumerate}
 
-
-A tubular neighborhood should be thought of as a way of ``thickening'' the submanifold $N$ to have the same dimension as $M$, as depicted in \cref{fig:tubular-neighborhood}. 
+A tubular neighborhood can be thought of as a way of ``thickening'' the submanifold $N$ to have the same dimension as $M$ (see \cref{fig:tubular-neighborhood}). 
 
 \begin{figure}[ht]
 	\centering
@@ -29,13 +29,13 @@ A tubular neighborhood should be thought of as a way of ``thickening'' the subma
 	\caption{Tubular neighborhoods of some submanifolds.}\label{fig:tubular-neighborhood}
 \end{figure}
 
-The diffeomorphism $\tau : \T M/N \to \widetilde{N}$ can interpreted as a chart of a ``tube'' surrounding $N$ in $M$. Namely, for each point $p\in N$, local trivializations of the normal bundle $\T M/N$ are maps $\R^k \times \R^{n-k}\to U\subset \widetilde{N}$ which consist of coordinates $(x^1,\ldots,x^k)$ on $N$ and coordinates $(v^{k+1},\ldots, v^{n})$ on an orthogonal plane to $N$.
+% The diffeomorphism $\tau : \T M/N \to U$ can interpreted as a chart of a ``tube'' surrounding $N$ in $M$. Namely, for each point $p\in N$, local trivializations of the normal bundle $\T M/N$ are maps $\R^k \times \R^{n-k}\to U\subset \widetilde{N}$ which consist of coordinates $(x^1,\ldots,x^k)$ on $N$ and coordinates $(v^{k+1},\ldots, v^{n})$ on an orthogonal plane to $N$.
 
-\begin{remark}
+\begin{remark*}
 	A common convention is to define a tubular neighborhood as the diffeomorphic image of the associated disk bundle $\D(\T M/N)$. This convention makes explicit the ``tube'' of a  ``tubular neighborhood''. We will refer to such neighborhoods as \defn{closed tubular neighborhoods}[closed tubular neighborhood], since they are the closure of a tubular neighborhood.
-\end{remark}
+\end{remark*}
 
-This leads to a basic technical lemma of differential topology.
+This leads us to a basic technical lemma of differential topology.
 
 \begin{theorem}[Tubular Neighborhood Theorem]\label{thm:tubular-neighborhood}
 	Every embedded submanifold has a tubular neighborhood.\footnote{This result does not require $M$ to be compact.}
@@ -44,11 +44,22 @@ This leads to a basic technical lemma of differential topology.
 	See Chapter II of \cite{kosinski1993differential} or Theorem 6.24 of \cite{lee2013smooth} for the case $M=\R^n$.
 \end{proof}
 
-\begin{warning}
-	In Conventions, we assumed all smooth manifolds to be compact and all submanifolds to be properly embedded and neat. Absent these assumptions, the tubular neighborhood theorem as stated is not true.
-\end{warning}
+\begin{remark*}
+	In the conventions, we assumed all smooth manifolds to be compact and all submanifolds to be properly embedded and neat. Absent these assumptions, the tubular neighborhood theorem as stated is not true.
+\end{remark*}
 
-In a similar vein, when we have just a manifold $M^n$, a \defn{collar neighborhood} of its boundary is a neighborhood $\widetilde{\partial M}\supset \partial M$ which is the diffeomorphic image of the ``half'' normal bundle. This can be defined as the subset of the restricted normal bundle $\T M|_{\partial M} / \T \partial M$ of vectors whose local geodesics lie strictly in $M$. Since $\partial M$ has codimension $1$ in $M$, this is a fiber bundle with fibers $[0,\infty)$. Just as for tubular neighborhoods, we require that the diffeomorphism is the identity on the zero-section of this bundle.
+In a similar vein, when we have just a manifold $M^n$, a \defn{collar neighborhood} of its boundary is a neighborhood $U \supset \partial M$ which is the diffeomorphic image of the ``half'' normal bundle $\TT_+ M /\partial M$ of inward facing tangent vectors. This is defined as the subset of the restricted normal bundle $\T M|_{\partial M} / \T \partial M$ of vectors whose local geodesics lie strictly in $M$. Since $\partial M$ has codimension $1$ in $M$, $\TT_+ M /\partial M$ is a fiber bundle with fibers $[0,\infty)$. 
+Just as we did for tubular neighborhoods, we require that the diffeomorphism is the identity on the zero-section of this bundle.
+
+\begin{proposition}
+	Collar neighborhoods are trivial, i.e. $\TT_+ M /\partial M\cong \partial M\times [0,\infty)$.
+\end{proposition}
+
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{collar-neighborhood.pdf_tex}
+	\caption{A collar neighborhood.}\label{fig:collar-neighborhoods}
+\end{figure}
 
 \begin{theorem}[Collar Neighborhood Theorem]\label{thm:collar-neighborhood}
 	Every manifold with non-empty boundary has a collar neighborhood.
@@ -64,19 +75,13 @@ In a similar vein, when we have just a manifold $M^n$, a \defn{collar neighborho
 	See Proposition~2.8.2 in Chapter II of \cite{kosinski1993differential}.
 \end{proof}
 
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{collar-neighborhood.pdf_tex}
-	\caption{A collar neighborhood.}\label{fig:collar-neighborhoods}
-\end{figure}
-
 \subsection{Joining Two Manifolds Along a Submanifolds}
 
 We can now address one of the fundamental operations in geometric topology -- the joining of two manifolds by submanifolds.
 
 Let us suppose we have manifolds $M_1^n$ and $M_2^n$ of the same dimension, with embeddings $\iota_1 : N\to M_1$ and $\iota_2 : N\to M_2$ of a manifold $N^k$. Our goal is to construct a joined manifold $M$ which we denote $M_1\cup_N M_2$.
-We start by picking tubular neighborhoods $\widetilde{N_i}$ for $\iota_i(N)\subset M_i$ and let $\tau_i: \T M/\iota_i(N) \to \widetilde{N_i}$ be the diffeomorphism.
-We define $M$ to be the quotient
+We start by picking tubular neighborhoods $U_i$ for the embedded submanifolds $\iota_i(N)\subset M_i$ and let $\tau_i: \T M/\iota_i(N) \to U_i$ be the diffeomorphisms from the normal bundle.
+We can then define $M$ to be the quotient
 \begin{equation}\label{eq:join-definition}
 	M_1\cup_N M_2 = \frac{M_1\setminus \iota_1(N)\sqcup M_2\setminus \iota_2(N)}{\tau_1(p, t\xi) \sim \tau_2(p, t^{-1}\xi)}
 \end{equation}
@@ -88,10 +93,10 @@ for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in \T_p M/\iota_i(N)$ 
 	\caption{A join of two manifolds along a submanifold.}\label{fig:join-along-submanifold}
 \end{figure}
 
-\begin{remark}
-	As we have remarked, the ``sewing'' procedure in \cref{eq:join-definition} by tubular neighborhoods is vital in the category of smooth manifolds. In the category of topological manifolds\footnote{Assuming, of course, that there is a topological notion of  tubular neighborhoods.}, we could define the join by removing the tubular neighborhoods entirely (rather the just the zero sections) and identifying the resulting boundaries.
+\begin{remark*}
+	As we have remarked, the ``sewing'' procedure in \cref{eq:join-definition} by tubular neighborhoods is essential to getting a unique smooth structure. In the category of topological manifolds,\footnote{Assuming that there is a topological notion of tubular neighborhoods.} we could define the join by removing the tubular neighborhoods entirely (rather the just the zero sections) and identifying the resulting boundaries.
 	At each point of the shared boundary, the join would be locally Euclidean since it has a neighborhood which the gluing of two half-disks to get a full disk.
-\end{remark}
+\end{remark*}
 
 \begin{proposition}\label{prop:join-along-submanifolds-well-defined}
 	The join $M$ of two manifolds along a submanifold has a smooth structure that agrees with the smooth structures of $M_1\setminus \iota_1(N)$ and $M_2\setminus \iota_2(N)$ in $M$. 
@@ -100,12 +105,11 @@ for all $p\in N$, $t\in(0,\infty)$, and unit vectors $\xi\in \T_p M/\iota_i(N)$ 
 	There is a technical but simple proof which involves writing out the transition functions for charts on $M$ arising from charts on $M_1$ and $M_2$ which did not intersect $\iota_1(N)$ or $\iota_2(N)$. The result then follows from the smoothness of $t \mapsto t^{-1}$ on $t\in (0,\infty)$.
 \end{proof}
 
+Similarly, we can show that:
+
 \begin{proposition}\label{prop:join-along-submanifolds-orientation}
 	If $M_1$, $M_2$, and $N$ are oriented, with $\iota_1$ orientation-preserving and $\iota_2$ orientation-reversing, then $M$ has an orientation compatible with $M_1\setminus \iota_1(N)$ and $M_2\setminus \iota_2(N)$.
 \end{proposition}
-\begin{proof}
-	This follows since $t\mapsto t^{-1}$ and $\iota_2$ both reverse orientations. We omit the technical details for brevity.
-\end{proof}
 
 \begin{theorem}
 	Up to orientation-preserving diffeomorphism, the join of manifolds along a submanifold is independent of the choices of tubular neighborhood.
@@ -119,11 +123,11 @@ The simplest submanifold by which to join two manifolds is a point.
 	The \defn{connected sum} $M_1\+M_2$ of two manifolds $M_1$ and $M_2$ is their join along an embedded point.
 \end{definition}
 
-Visually, this operation can be thought of as cutting disks out of both manifolds and connecting them with a tube, as depicted in \cref{fig:connected-sum}.
+\begin{remark*}
+	By our assumption of submanifolds preserving boundary, the point along which the manifolds are joined cannot lie on the boundary of either manifold.
+\end{remark*}
 
-\begin{remark}
-	Note that by our assumption of submanifolds preserving boundary, the point along which the manifolds are joined cannot lie on the boundary of either manifold.
-\end{remark}
+Visually, this operation can be thought of as cutting disks out of both manifolds and connecting them with a tube:
 
 \begin{figure}[ht]
 	\centering
@@ -131,7 +135,7 @@ Visually, this operation can be thought of as cutting disks out of both manifold
 	\caption{A connected sum of two surfaces.}\label{fig:connected-sum}
 \end{figure}
 
-This operation is (up to orientation-preserving orientation) independent of the choice of embedding, justifying the basepoint-free notation of $M_1\+ M_2$.\footnote{As stated in Conventions, we assume that all manifolds are connected. Otherwise the connected sum would only be well-defined assuming a choice of connected component of $M_1$ and $M_2$.}
+This operation is (up to orientation-preserving orientation) independent of the choice of embedding, justifying the basepoint-free notation of $M_1\+ M_2$.\footnote{As stated in the conventions, we assume that all manifolds are connected. Otherwise the connected sum would only be well-defined assuming a choice of connected component of $M_1$ and $M_2$.}
 Proving the independence of connected sum from the choice of basepoint is non-trivial, and follows from a technical result by Richard Palais.
 
 \begin{theorem}[Disk Theorem]\label{thm:disk}
@@ -153,30 +157,19 @@ Proving the independence of connected sum from the choice of basepoint is non-tr
 	$\partial(M_1\+M_2) = \partial M_1\sqcup \partial M_2$.
 \end{corollary}
 
-Let us now briefly discuss the effect of connected sum on homology. If we have two oriented manifolds $M_1$ and $M_2$ of dimension $n>1$, their connected sum $M_1\# M_2$ can be decomposed as a union of open sets diffeomorphic to $M_1\setminus\{p\}$ and $M_2\setminus\{p\}$. We denote these open sets $M_1^\circ$ and $M_2^\circ$ respectively. Their intersection is diffeomorphic to a tubular neighborhood of $S^{n-1}$, so by the Mayer-Vietoris sequence, we have an exact sequence
+We now briefly discuss the effect of connected sum on homology. Given two oriented manifolds $M_1$ and $M_2$ of dimension $n>1$, their connected sum $M_1\# M_2$ can be decomposed as a union of open sets diffeomorphic to $M_1\setminus\{p\}$ and $M_2\setminus\{p\}$. We denote these open sets $M_1^\circ$ and $M_2^\circ$ respectively. Their intersection is diffeomorphic to a tubular neighborhood of $S^{n-1}$, so by the Mayer-Vietoris sequence, we have an exact sequence
 \[
 	\H_k(S^{n-1})\lkxto \H_k(M_1^\circ)\oplus \H_k(M_2^\circ)\lkxto[p_k] \H_k(M_1\+M_2)\lkxto \H_{k-1}(S^{n-1})
 \]
-In lowest dimension $k=0$, we know that $\H_0(M_1\+ M_2)\cong \Z$ since the connected sum is connected. Next, when $k=1$, the edge term $\H_{k-1}(S^{n-1})$ is non-trivial, but the kernel is trivial by a rank argument in the $k=0$ segment and so $p_1$ is also an isomorphism.
-When $k$ is not $n-1$, the boundary terms vanish completely and so $p_k$ is also an isomorphism. In the remaining cases, we get the exact sequence
+We know that $\H_0(M_1\+ M_2)\cong \Z$ since the connected sum is connected. Next, when $k=1$, the edge term $\H_{k-1}(S^{n-1})$ is non-trivial, but the kernel is trivial by a rank argument in the $k=0$ segment and so $p_1$ is an isomorphism.
+When $k$ is not $n-1$, the boundary terms vanish completely and so $p_k$ is also an isomorphism. In the remaining cases, we get:
 \begin{equation}\label{eq:connected-sum-cohomology}
-% 	\begin{tikzcd}
-% 	0 & {\H_n(M_1^\circ)\oplus \H_n(M_2^\circ)} & {\H_n(M_1\+M_2)} & {\H_{n-1}(S^{n-1})} \\
-% 	0 & {\H_{n-1}(M_1\+M_2)} & {\H_{n-1}(M_1^\circ)\oplus \H_{n-1}(M_2^\circ)}
-% 	\arrow[from=1-1, to=1-2]
-% 	\arrow["p_n", from=1-2, to=1-3]
-% 	\arrow["q", from=1-3, to=1-4]
-% 	\arrow[from=1-4, to=2-3]
-% 	\arrow[from=2-2, to=2-1]
-% 	\arrow["p_{n-1}"',from=2-3, to=2-2]
-% \end{tikzcd}
-%
 	\begin{tikzcd}
 		0\rar & {\H_n(M_1^\circ)\oplus \H_n(M_2^\circ)} \rar{p_n}\snakenode{X} & {\H_n(M_1\+M_2)}\snakearrow{X} \\
-		\H_{n-1}(S^{n-1}) \rar & {\H_{n-1}(M_1^\circ)\oplus \H_{n-1}(M_2^\circ)}\rar{p_{n-1}} & {\H_{n-1}(M_1\+M_2)} \\
+		\H_{n-1}(S^{n-1}) \rar & {\H_{n-1}(M_1^\circ)\oplus \H_{n-1}(M_2^\circ)}\rar{p_{n-1}} & {\H_{n-1}(M_1\+M_2).} \\
 \end{tikzcd}
 \end{equation}
-If $M_1$ and $M_2$ are both closed, so is $M_1\+M_2$, and hence $q$ is an isomorphism by a fundamental class argument. This implies that $p_{n-1}$ is an isomorphism, so we conclude:
+If $M_1$ and $M_2$ are both closed then so is $M_1\+M_2$, and thus $q$ is shown to be an isomorphism by a fundamental class argument. This implies that $p_{n-1}$ is an isomorphism, so we conclude:
 
 \begin{proposition}\label{prop:homology-connected-sum-closed}
 	If $n>1$ and $M_1$ and $M_2$ are closed oriented manifolds, we have
@@ -190,14 +183,14 @@ If $M_1$ and $M_2$ are both closed, so is $M_1\+M_2$, and hence $q$ is an isomor
 \end{proposition}
 
 \begin{example}
-	The compact surface $X_g$ of genus $g$ can be broken down as a $g$-repeated connected sum of the torus $T^2=S^1\times S^1$, i.e. $X_g \cong \+[g] T^2$. It follows that by \cref{prop:homology-connected-sum-closed} that the Betti numbers are $\beta_0=1$, $\beta_1=2g$, and $\beta_2=1$.
+	The compact Riemann surface $X_g$ of genus $g$ can be broken down as a $g$-repeated connected sum of the torus $T^2=S^1\times S^1$, i.e. $X_g \cong \+[g] T^2$. It follows that by \cref{prop:homology-connected-sum-closed} that the Betti numbers are $\beta_0=1$, $\beta_1=2g$, and $\beta_2=1$.
 \end{example}
 
-The preceding is an example of the trivial case of a join of two manifolds. In general, the situation is not as nice. First of all, the submanifold $N$ might not have a trivial normal sphere bundle so computing the homology of the intersection of $M_1^\circ$ and $M_2^\circ$ becomes more complex. Additionally, in many applications the manifolds involved will not be closed, the homology in dimensions $n-1$ and $n$ behaves differently than in \cref{prop:homology-connected-sum-closed}.
+The preceding is an example of the trivial case of a join of two manifolds. In general, the situation is not as nice. First of all, the submanifold $N$ might not have a trivial normal sphere bundle and so computing the homology of the intersection of $M_1^\circ$ and $M_2^\circ$ becomes more complex. Additionally, in many applications the manifolds involved will not be closed and so the homology in dimensions $n-1$ and $n$ behaves differently than in \cref{prop:homology-connected-sum-closed}.
 
-\subsection{Joining Manifolds Along Submanifolds of the Boundary}\label{sec-joins-along-boundary-submanifolds}
+\subsection{Joining Manifolds Along Submanifolds of the Boundary}
 
-There is an operation related to the join of two manifolds along a submanifold which is useful throughout geometric topology. Namely, suppose we had a manifold $M$ and a submanifold $N\subset \partial M$. Note that by our assumption that all submanifolds are neat and properly embedded, this requires $N$ to be closed. If we have two manifolds $M_1$ and $M_2$ with embeddings $\iota_1 : N \to \partial M_1$ and $\iota_2 : N \to \partial M_2$, we would like to define a join of these two manifolds along $N$. The trouble is that we do not have tubular neighborhoods since $\iota_i(N)$ does not intersect $\partial M_i$ transversally. To generalize this notion easily, we use a trick.
+There is an operation related to the join of two manifolds along a submanifold which is useful throughout geometric topology. Namely, suppose we had a manifold $M$ and a submanifold $N\subset \partial M$. By our assumption that all submanifolds are neat and properly embedded, this requires $N$ to be closed. If we have two manifolds $M_1$ and $M_2$ with embeddings $\iota_1 : N \to \partial M_1$ and $\iota_2 : N \to \partial M_2$, we would like to define a join of these two manifolds along $N$. The trouble is that we do not have tubular neighborhoods since $\iota_i(N)$ does not intersect $\partial M_i$ transversally. To generalize this notion without too much trouble, we use a trick.
 
 \begin{definition}
 	The \defn{doubling}[doubling of a manifold] of a smooth manifold $M$ with non-empty boundary is the closed smooth manifold $M\cup_{\partial M} M$ obtained by identifying the collar neighborhoods of $\partial M$.
@@ -207,12 +200,12 @@ There is an operation related to the join of two manifolds along a submanifold w
 	\import{diagrams}{doubling-manifold.pdf_tex}
 	\caption{A doubling of a manifold.}
 \end{figure}
-Note that the image of $\partial M$ in the doubling $M\cup_{\partial M} M$ is a submanifold. We can glue the images of the left and right collar neighborhoods to get a tubular neighborhood for $\partial M$ in the doubling $M\cup_{\partial M} M$.
-In the setup for the join operation, we can then double the manifolds $M_1$ and $M_2$ so that the embeddings $\iota_i$ embed $N$ as a submanifold of the doubled manifolds, perform the ordinary join $(M_1\cup_{\partial M_1} M_2)\cup_N (M_2\cup_{\partial M_2} M_2)$, and finally separate the doubles. See \cref{fig:boundary-connected-sum} for a visual demonstration in the case of an embedded point. We denote the resulting manifold simply by $M_1\cup_N M_2$, although we the choice of embedding matters. This is the \defn{join of two manifolds along a submanifold of the boundary}.
+Note that the image of $\partial M\times \{1/2\}\subset \partial M\times[0,\infty)$ in the doubling $M\cup_{\partial M} M$ is a submanifold. Furthermore, there is a tubular neighborhood of $\partial M$ which is the image of $\partial M\times (0,\infty)\subset \partial M\times [0,\infty)$.
+In the setup for the join operation, we can then double the manifolds $M_1$ and $M_2$ so that the embeddings $\iota_i$ embed $N$ as a submanifold of the doubled manifolds, perform the ordinary join $(M_1\cup_{\partial M_1} M_2)\cup_N (M_2\cup_{\partial M_2} M_2)$, and finally separate the doubles. We denote the resulting manifold simply by $M_1\cup_N M_2$, although we should note that the choice of embedding matters. This is the \defn{join of two manifolds along a submanifold of the boundary}.
 
-\begin{remark}
+\begin{remark*}
 	To simplify the verification of technical details, we require that the tubular neighborhoods chosen for $N$ in the doubled manifolds should be restrictions of the tubular neighborhood of $\partial M_i$. Since the boundary has codimension $1$, its tubular neighborhood is a line bundle and hence the removal of the zero section gives two disconnected components. This observation is what allows us to perform the separation back to a manifold with boundary.
-\end{remark}
+\end{remark*}
 
 The main application of the operation of a join along a boundary submanifold is when we would like to take the connected sum of two manifolds with non-empty boundary while keeping their boundary connected. In this case, rather than joining along a point in the interior of the manifold like in the case of connected sum, we join along a point on the boundary.
 
@@ -231,7 +224,7 @@ In fact, this operation restricts to an ordinary connected sum on the boundary i
 \begin{proposition} We have $\partial\left[(M_1,\partial M_1)\+ (M_2,\partial M_2)\right] = \partial M_1\+\partial M_2$.
 \end{proposition}
 
-We will conclude this section with a brief remark on the resulting homology. If we do a Mayer-Vietoris decomposition of $M_1$ and $M_2$, letting $M_i^\circ=M_i\setminus D^n$\footnote{Here $D^n$ intersects the point on the boundary along which we are joining.} as in the case of the ordinary connected sum, the intersection of $M_1^\circ$ and $M_2^\circ$ will be contractible. Since the edge terms of the Mayer-Vietoris sequence vanish, we have a isomorphisms of reduced homology
+We will conclude this section with a brief remark on the resulting homology. If we do a Mayer-Vietoris decomposition of $M_1$ and $M_2$, letting $M_i^\circ=M_i\setminus D^n_+$ where $D^n_+$ is the half disk, the intersection of $M_1^\circ$ and $M_2^\circ$ will be contractible. Since the edge terms of the Mayer-Vietoris sequence vanish, we thus have isomorphisms of reduced homology
 \[
 		\Hr_k(M_1^\circ)\oplus \Hr_k(M_2^\circ) \cong \Hr_k((M_1,\partial M_1)\+ (M_2,\partial M_2))
 \]
@@ -243,10 +236,12 @@ It is commonly the case when working with smooth manifolds with non-empty bounda
 \[
 		\partial(M_1\times M_2) = (\partial M_1 \times M_2) \cup (M_1\times \partial M_2).
 \]
-At the points $\partial M_1\times \partial M_2\subset \partial (M_1\times M_2)$, we do not have a smooth structure with boundary. Instead, this can be considered as a \defn{manifold with corners}, i.e. we have charts to $[0,\infty)^k\times \R^{n-k}$. We might refer to this as a codimension $k$ corner. Note that when $k=1$, the space $[0,\infty)\times \R^{n-1}$ is just a half-plane and so a codimension $1$ corner is just a point on the boundary. In the case of the product of two manifolds with non-empty boundary, we have codimension $2$ corners. 
+At the points $\partial M_1\times \partial M_2\subset \partial (M_1\times M_2)$, we do not have a smooth structure with boundary. Instead, this can be considered as a \defn{manifold with corners}, i.e. we have charts in $\R^{n-k}\times [0,\infty)^k$. We might refer to this as a codimension $k$ corner. Note that when $k=1$, the space $\R^{n-1}\times [0,\infty)$ is just a half-plane and so a codimension $1$ corner is just a point on the boundary. In the case of the product of two manifolds with non-empty boundary, we have codimension $2$ corners. 
 
-We do not have to worry about this technicality in such cases since ``corners can be smoothed'' by introducing a new coordinate system. For instance, a corner $[0,\infty)^2$ can be transformed to a half-plane $[0,\infty)\times \R$ by the transformation
+We do not have to worry about this technicality in such cases since ``corners can be smoothed'' by introducing a new coordinate system. For instance, a corner $[0,\infty)^2$ can be transformed to a half-plane $\R\times [0,\infty)$ by the transformation
 \[
 	(r\cos(\theta), r\sin(\theta) )\lkxmapsto (r\cos(2\theta), r\sin(2\theta))
 \]
-in polar coordinates $r\in[0,\infty)$, $\theta\in [0,\pi/2]$. Of course, this coordinate change is not smooth at the origin $r=0$, but it does allow us to canonically transform any chart to $[0,\infty)^2$ into a chart to $[0,\infty)\times \R$, thus extending the smooth structure in a canonical way. Similar procedures work in higher-dimensions. For some more details on this technicality, see the appendix of \cite{milnor1958manifolds}.
+in polar coordinates $r\in[0,\infty)$, $\theta\in [0,\pi/2]$. Of course, this coordinate change is not smooth at the origin $r=0$, but it does allow us to canonically transform any chart in $[0,\infty)^2$ to a chart in $\R\times [0,\infty)$, thus extending the smooth structure in a canonical way. Similar procedures work in higher-dimensions. For some more details on this technicality, see the appendix of \cite{milnor1958manifolds}.
+
+\smallrule

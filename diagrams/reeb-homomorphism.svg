@@ -14,7 +14,6 @@
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -27,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.85668153"
-     inkscape:cx="365.94696"
-     inkscape:cy="185.01625"
+     inkscape:zoom="1.3330834"
+     inkscape:cx="274.17639"
+     inkscape:cy="2.6254921"
      inkscape:window-width="1728"
      inkscape:window-height="1051"
      inkscape:window-x="0"
@@ -56,18 +55,6 @@
   </sodipodi:namedview>
   <defs
      id="defs1">
-    <linearGradient
-       id="linearGradient6"
-       inkscape:collect="always">
-      <stop
-         style="stop-color:#000000;stop-opacity:0.13655761;"
-         offset="0"
-         id="stop6" />
-      <stop
-         style="stop-color:#000000;stop-opacity:0.03129446;"
-         offset="0.23742691"
-         id="stop7" />
-    </linearGradient>
     <marker
        style="overflow:visible"
        id="ArrowWide"
@@ -124,36 +111,6 @@
        apply_with_weight="true"
        only_selected="false"
        uniform="false" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient6"
-       id="linearGradient7"
-       x1="53.26107"
-       y1="25.22361"
-       x2="93.675018"
-       y2="25.22361"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="rotate(-90,73.468046,25.223609)" />
-    <marker
-       style="overflow:visible"
-       id="ArrowWide-9"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Wide arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
-         d="M 3,-3 0,0 3,3"
-         transform="rotate(180,0.125,0)"
-         sodipodi:nodetypes="ccc"
-         id="path6-4" />
-    </marker>
     <inkscape:path-effect
        effect="bspline"
        id="path-effect5-1"
@@ -188,66 +145,6 @@
     </marker>
     <marker
        style="overflow:visible"
-       id="ArrowWide-9-5-3"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Wide arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
-         d="M 3,-3 0,0 3,3"
-         transform="rotate(180,0.125,0)"
-         sodipodi:nodetypes="ccc"
-         id="path6-4-5-5" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ArrowWide-9-5-3-7"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Wide arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
-         d="M 3,-3 0,0 3,3"
-         transform="rotate(180,0.125,0)"
-         sodipodi:nodetypes="ccc"
-         id="path6-4-5-5-8" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ArrowWide-9-5-3-7-8"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Wide arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
-         d="M 3,-3 0,0 3,3"
-         transform="rotate(180,0.125,0)"
-         sodipodi:nodetypes="ccc"
-         id="path6-4-5-5-8-7" />
-    </marker>
-    <marker
-       style="overflow:visible"
        id="ArrowWide-9-5-3-7-8-4"
        refX="0"
        refY="0"
@@ -266,26 +163,6 @@
          sodipodi:nodetypes="ccc"
          id="path6-4-5-5-8-7-9" />
     </marker>
-    <marker
-       style="overflow:visible"
-       id="ArrowWide-9-5-3-7-8-4-8"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="Wide arrow"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
-         d="M 3,-3 0,0 3,3"
-         transform="rotate(180,0.125,0)"
-         sodipodi:nodetypes="ccc"
-         id="path6-4-5-5-8-7-9-2" />
-    </marker>
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -303,7 +180,7 @@
        sodipodi:nodetypes="ccc" />
     <path
        id="path15"
-       style="fill:url(#linearGradient7);stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
+       style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-dashoffset:3.06667"
        d="m 73.468048,5.1930221 c -10.218228,3e-5 -18.501764,8.9678729 -18.501918,20.0303619 -7.7e-5,11.062664 8.283527,20.03078 18.501918,20.030812 m 0,0 C 83.686436,45.254163 91.970039,36.286048 91.969962,25.223384 91.96981,14.160895 83.686273,5.1930521 73.468048,5.1930221" />
     <path
        style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-mid:url(#ArrowWide)"
@@ -370,40 +247,14 @@
        transform="matrix(0.83612453,0,0,1,13.767626,-0.00106116)"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.385803;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowWide-9)"
-       d="m 103.4303,25.223639 c 1.45265,-9e-6 2.90531,-1.9e-5 4.35796,-2.8e-5"
-       id="path5-7"
-       transform="matrix(0,0.83612453,-1,0,98.691659,-79.403675)"
-       sodipodi:nodetypes="cc" />
-    <path
        style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowWide-9-5)"
-       d="m 73.468022,12.399803 c 9e-6,1.214596 1.9e-5,2.429201 2.8e-5,3.643797"
+       d="m 73.556241,10.501623 v 7.317694"
        id="path5-7-1"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowWide-9-5-3)"
-       d="m 73.556219,17.751569 c 9e-6,1.214596 1.9e-5,2.429201 2.8e-5,3.643797"
-       id="path5-7-1-2"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowWide-9-5-3-7)"
-       d="m 73.468024,23.103335 c 9e-6,1.214596 1.9e-5,2.429201 2.8e-5,3.643797"
-       id="path5-7-1-2-1"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowWide-9-5-3-7-8)"
-       d="m 73.468024,29.243311 c 9e-6,1.214596 1.9e-5,2.429201 2.8e-5,3.643797"
-       id="path5-7-1-2-1-7"
-       sodipodi:nodetypes="cc" />
-    <path
        style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowWide-9-5-3-7-8-4)"
-       d="m 73.468376,34.200972 c 9e-6,1.214596 1.9e-5,2.429201 2.8e-5,3.643797"
+       d="m 73.468046,32.505627 3.52e-4,6.761045"
        id="path5-7-1-2-1-7-5"
-       sodipodi:nodetypes="cc" />
-    <path
-       style="fill:#000000;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:0.352778;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;marker-end:url(#ArrowWide-9-5-3-7-8-4-8)"
-       d="m 73.468376,39.550827 c 9e-6,1.214596 1.9e-5,2.429201 2.8e-5,3.643797"
-       id="path5-7-1-2-1-7-5-8"
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"

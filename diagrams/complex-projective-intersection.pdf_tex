@@ -54,10 +54,10 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{complex-projective-intersection.pdf}}%
-    \put(0.19757096,0.27928707){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$W$\end{tabular}}}}%
+    \put(0.16730979,0.23499863){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$W$\end{tabular}}}}%
     \put(0.3346457,0.00463248){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\C^{2m+1}$\end{tabular}}}}%
     \put(0.70017267,0.00533981){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\CP^{2m}$\end{tabular}}}}%
-    \put(0.30729927,0.28749207){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$U$\end{tabular}}}}%
+    \put(0.1705797,0.07546143){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$U$\end{tabular}}}}%
     \put(0.56893906,0.18072681){\color[rgb]{0,0,0.0627451}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbb{P}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{complex-projective-intersection.pdf}}%
   \end{picture}%

@@ -20,6 +20,12 @@ The final construction of homotopy spheres we discuss is by means of ``twisting'
 
 Note that topologically, this is a connected sum of two spheres $S^n$. Consequently, $T(f)$ is always homeomorphic to a sphere. However, the smooth structure depends on the diffeomorphism $f$.
 
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{twisted-sphere.pdf_tex}
+	\caption{A twisted sphere.}
+\end{figure}
+
 We can interpret the twisted sphere construction as a map $T: \Diff^+(S^{n-1})\to \Theta^n$ sending an orientation-preserving diffeomorphism $f : S^{n-1} \to S^{n-1}$ to the twisted sphere $T(f)$. For any (smooth) path $\omega : I \to \Diff^+(S^{n-1})$, we can build an $h$-cobordism 
 	\[ (D^n\times I)\cup_\omega (D^n\times I) : T(\omega_0) \sohbord T(\omega_1)\]
 	where we interpret the path $\omega$ as a smooth homotopy $\omega : I\times S^{n-1}\to\S^{n-1}$ between diffeomorphisms $\omega_0, \omega_1 : S^{n-1} \to S^{n-1}$. For $n\geq 5$, the $h$-cobordism theorem implies that $T(\omega_0)$ is diffeomorphic to $T(\omega_1)$ so the map $T$ only depends on the path component of $f\in \Diff^+(S^{n-1})$.
@@ -44,11 +50,14 @@ We can interpret the twisted sphere construction as a map $T: \Diff^+(S^{n-1})\t
 
 	Consequently, we have an identification:
 
-	\begin{corollary}
+	\begin{corollary}\label{cor:twisted-sphere-bijection}
 		For $n\geq 6$, there is a bijection $\Theta^n \cong \pi_0[\Diff^+(S^{n-1})]$.
 	\end{corollary}
 
-	In my subjective opinion, this is the most canonical way to observe the phenomenon of exotic smooth structures on the spheres. Rather than work with a set of abstract smooth manifolds and diffeomorphisms between them, it is possible to interpret the set of smooth structures on a sphere as the set of path-components of diffeomorphisms on a specific sphere. This bijection is also a reason as to why some theoretical physicists care about exotic spheres.
+	In my subjective opinion, this is the most canonical way to observe the phenomenon of exotic smooth structures on the spheres, although this construction is by far the hardest to work with. Rather than think of a set of abstract smooth manifolds and diffeomorphisms between them, the twisted sphere construction allows us to interpret the set of smooth structures on a sphere as the set of path-components of diffeomorphisms on a specific sphere. 
+
+
+	This bijection in \cref{cor:twisted-sphere-bijection} is also a reason as to why some theoretical physicists care about exotic spheres.
 
 	\todo{change of coordinates, 10-dimensional change of coordinates (with compact support) has 992 components.} 
 	For instance, Witten's 1985 paper \cite{witten1985anomalies} on global anomalies in string theoretic models of gravity contains extensive discussions on exotic spheres, and the use of geometric invariants in detecting them.

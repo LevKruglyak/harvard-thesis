@@ -1,7 +1,7 @@
 \pagebreak
 \section{Geometric Invariants}\label{sec:invariants-for-homotopy-4k-1-spheres}
 
-Armed with the power of the signature theorem, let's now try to build some invariants for homotopy spheres.
+Armed with the power of the signature theorem, we now attempt to build some invariants for homotopy spheres.
 Due to the topological simplicity of homotopy spheres, it's difficult to imagine how we could construct such an invariant which can distinguish smooth structure. One of the great ideas of 20th century topology is to pass to a coboundary in situations like this. Namely, if the usual invariants on a manifold $M$ vanish, find a manifold $W$ a dimension higher which has $M$ as a boundary (this isn't always possible since not all manifolds are null-cobordant).
 In the case such a manifold exists, it is referred to as a \defn{coboundary} of $M$. If we are careful, we can use the topology of the coboundary $W$ to construct an invariant which does not depend on the choice of coboundary $W$.
 
@@ -13,7 +13,7 @@ In the case such a manifold exists, it is referred to as a \defn{coboundary} of 
 
 While there are no topological constraints needed to define invariants such as the signature or Euler characteristic on a manifold, constraints do appear when generalizing characteristic numbers to the manifolds with boundary. We will explore these subtleties in this section in preparation for the construction of exotic sphere invariants in \cref{sec:invariants-for-homotopy-4k-1-spheres}.
 
-Let's say that we have some cohomology and homology theory $h$ with coefficient ring $h_0(*)=R$.
+Suppose we have some cohomology and homology theory $h$ with coefficient ring $h_0(*)=R$.
 Characteristic classes on an $n$-dimensional manifold $W$ are defined as cohomology classes in $c\in h^k(W)$. When the manifold is closed and the characteristic class is homogeneous of degree $n$, Poincar\'e duality allows us to associate a characteristic number $c[W]\in h_0(W)$ to $c$ given a fundamental class $[W]\in h_n(W)$. If $W$ has non-empty boundary, Poincar\'e-Lefschetz duality $h^k(W)\to h_{n-k}(W,\partial W)$ gives us an element $c[W]\in h_0(W,\partial W)$. However, this group is trivial for connected manifolds with non-empty boundary and so is a useless context in which to define relative characteristic numbers.
 
 Instead, we try to pull back characteristic classes to the relative cohomology group $h^n(W,\partial W)$ so that Poincar\'e-Lefschetz duality gives us characteristic numbers in $h_0(W)\cong \Z$ for a fundamental class $[W,\partial W]\in \H_n(W,\partial W)$.
@@ -32,7 +32,7 @@ where $j : h^{\ell}(W, \partial W) \to h^{\ell}(W)$ is the induced map of the in
 \end{definition}
 
 \begin{remark}
-	There is an intuitive reason for why the topological invariance of characteristic numbers can break down if the manifold has boundary, and this perspective might be illuminating to physics-minded readers. Let's assume we are working with de Rham cohomology. Characteristic classes are cohomology classes, and so any invariant built from them should be invariant under exact gauge transformations $c\mapsto c+d\Lambda$. For example, a change of Riemannian metric in Chern-Weil theory gives such a transformation with $\Lambda$ the relative Chern-Simons form. The corresponding variation in a characteristic number is then
+	There is an intuitive reason for why the topological invariance of characteristic numbers can break down if the manifold has boundary, and this perspective might be illuminating to physics-minded readers. We will work in de Rham cohomology. Characteristic classes are cohomology classes, and so any invariant built from them should be invariant under exact gauge transformations $c\mapsto c+d\Lambda$. For example, a change of Riemannian metric in Chern-Weil theory gives such a transformation with $\Lambda$ the relative Chern-Simons form. The corresponding variation in a characteristic number is then
 	\[
 		c[M] = \int_M c \quad\lkxto\quad \delta c[M] = \int_M c+d\Lambda-\int_M c = \int_{\partial M} \Lambda.
 	\]
@@ -117,7 +117,7 @@ We now have all of the tools needed to construct some basic invariants of homoto
 
 \subsection{Milnor's Method for Constructing Invariants}\label{sec:milnor-method}
 
-Let us now use the theory developed in \cref{sec:relative-invariants} to construct an invariant for exotic spheres in 7-dimensions. For our cohomology theory, let's use singular cohomology with rational coefficients and consider the Pontryagin numbers due to their connection with the signature.
+Let us now use the theory developed in \cref{sec:relative-invariants} to construct an invariant for exotic spheres in 7-dimensions. For our cohomology theory, we use singular cohomology with rational coefficients and consider the Pontryagin numbers due to their connection with the signature.
 Given a 7-dimensional homotopy sphere $M$ with 8-dimensional coboundary $W$, there are three invariants which we might consider -- the signature $\sigma$, and the Pontryagin classes $p_1^2$ and $p_2$.
 Based on the cohomology of $M$, we have
 \[
@@ -263,7 +263,7 @@ Since we have a map $\Spin_n \to \SO_n$, we can ask if a bundle with structure g
 \end{example}
 
 \begin{example}
-	The K3 surface $\mathcal{K}$ admits a spin structure.
+	The K3 surface $K_3$ admits a spin structure.
 \end{example}
 
 Just like the first Stiefel-Whitney class $w_1$ obstructs an orientation on a vector bundle, there is a similar obstruction for a spin structure.

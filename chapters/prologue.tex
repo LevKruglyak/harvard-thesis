@@ -14,10 +14,11 @@ The simplest, oldest, and arguably most intuitive conceptualization of space is 
 % Less often, mathematicians worked in higher dimensional versions of Euclidean geometry. In this context, shapes were less intuitive and tricker to draw on paper, but the basic rules of geometry rules still applied.
 Throughout the 19th century, mathematicians such as Gauss, Riemann, and Lobachevsky began to uncover models of geometry in which many of the assumptions of Euclidean geometry no longer held.
 For instance, using the curved surface of a ball as a canvas for geometry gives fundamentally different results than when using a plane. For starters, parallel ``lines'' on the surface of a ball always intersect (think longitudinal lines on a globe).
-More quantitatively, in the case of a ball, the sum of angles in a triangle add up to less than $180^\circ$, while in case of a plane the sum of angles in a triangle add up to exactly $180^\circ$. The failure of a triangle's angles to add up to $180^\circ$ or for parallel lines to avoid intersection is an example of \emph{curvature} -- deviation from the flat geometry of Euclidean space.
+More quantitatively, the sum of angles in a triangle on a ball add up to less than $180^\circ$, and the sum of angles in a triangle on a plane add up to exactly $180^\circ$. The failure of a triangle's angles to add up to $180^\circ$ or for parallel lines to avoid intersection is an example of \emph{curvature} -- deviation from the flat geometry of Euclidean space.
 
-It is important to note that while geometers had worked with circles, spheres, and other curved surfaces for millenia, they were always embedded in Euclidean space as in the case of a ball in $3$-dimensional space. The novel idea behind non-Euclidean models was that the curved space was \emph{all there was} -- the $2$-dimensional surface of the ball could exist as a geometrical space \emph{independently} of its embedding in $3$-dimensional space.
-This curvature of geometric spaces was not the curving of something \emph{into} an ambient space but rather an intrinsic geometric feature of the space itself. After all, measuring angles and drawing lines can be done entirely without leaving the surface of the ball. Even without an understanding of $3$-dimensions, a flat creature living on the ball could conclude that they existed in a curved non-Euclidean space.
+One of the novel ideas behind non-Euclidean models was that the curved space was \emph{all there was} -- the $2$-dimensional surface of the ball could exist as a geometrical space \emph{independently} of its embedding in $3$-dimensional space.
+Geometers had worked with circles, spheres, and other curved surfaces for millenia, but they had always been embedded in Euclidean space -- as in the case of a ball in $3$-dimensional space. 
+The curvature of geometric spaces was not the curving of something \emph{into} an ambient space but rather an intrinsic curvature of space itself. After all, measuring angles and drawing lines can be done entirely without leaving the surface of the ball. Even without an understanding of $3$-dimensions, a flat creature living on the ball could conclude that they existed in a curved non-Euclidean space.
 By dispensing with the Euclidean axiom of flatness, mathematicians had opened up a cornucopia of rich geometry to explore.
 %
 % \begin{figure}[ht]
@@ -26,9 +27,10 @@ By dispensing with the Euclidean axiom of flatness, mathematicians had opened up
 % 	\caption{Triangles in Euclidean (left) and non-Euclidean geometries (right).}\label{fig:triangles}
 % \end{figure}
 
-Near the end of the 19th century, a sparse set of theorems and loose definitions began to consolidate into a field known as topology. Although clear definitions were sparse in the early days of the field, the central idea was simple. Rather than just removing the axiom of flatness like in the case of non-Euclidean geometries, topology removes most of the axioms, leaving only the \emph{shape} of space, detached from any quantitative information. Unlike a geometric space, a topological space does not come with any notions of distance, angle, perpendicularity, area or volume -- all that is left is a notion of continuity.
-In the geometry that most people are familiar with, two shapes are said to be congruent, or geometrically equivalent, if we can transform between them in a way that does not alter distances,angles, and consequently areas.
-The only requirement for a topological equivalence is that it connects all points in a continuous way, i.e, nearby points in the first shape should remain nearby after the transformation. Ripping or crunching the shape is not allowed, but any squishy deformation is totally fine. Such a transformation is known as a \emph{homeomorphism} -- coming from Greek roots for ``similar shape''.
+Near the end of the 19th century, a sparse set of theorems and loose definitions began to consolidate into a field known as topology. The central idea was simple. Similarly to how non-Euclidean geometry removed the assumption of flatness, topology removed most axioms, leaving only the \emph{shape} of space detached from any quantitative information.
+A topological space hence lacks any notions of distance, angle, perpendicularity, area or volume -- the only notion left is that of continuity.
+In ordinary geometry, two shapes are said to be congruent, or geometrically equivalent, if we can transform between them in a way that does not alter distances, angles, and consequently areas.
+For a topological equivalence, the only requirement is that it connects all points in a continuous way, i.e, nearby points in the first shape should remain nearby after the transformation. Ripping or crunching the shape is not allowed, but any squishy deformation is totally fine. Such a transformation is known as a \emph{homeomorphism} -- coming from Greek roots for ``similar shape''.
 \begin{figure}[ht]
 	\centering
 	\import{diagrams}{congruence-vs-homeomorphism.pdf_tex}
@@ -36,10 +38,10 @@ The only requirement for a topological equivalence is that it connects all point
 \end{figure}
 
 In more geometric areas of topology, we further require our spaces to be \emph{manifolds}.
-A space is said to be a manifold if it can be built out of patches of coordinate space. For instance, our intuitive model of the surface of the earth is flat, specified by the perpendicular directions or north/south and east/west. On human scales, this coordinate system is indistinguishable from a flat plane. However, if we keep going north we'd end up at the north pole, at which point the notion of ``further north'' no longer makes sense. At the north pole, we would need to come up with a different coordinate system. This is fine, and as long as a space has a local coordinate system at each point, the space is a manifold. The number of coordinates needed to describe a manifold is known as its \emph{dimension}. The surface of the earth for example can be represented by a two-dimensional manifold. Similarly, a circle can be thought of as a one-dimensional manifold since locally it looks like a line. These are the spheres in one and two dimensions respectively.
+A space is said to be a manifold if it can be built out of patches of coordinate space. For instance, our intuitive model of the surface of the earth is flat, specified by the perpendicular directions or north/south and east/west. On human scales, this coordinate system is indistinguishable from a flat plane. However, if we keep going north we'd end up at the north pole, at which point the notion of ``further north'' no longer makes sense. At the north pole, we would need to come up with a different coordinate system. This is fine, and as long as a space has a local coordinate system at each point, the space is a manifold. The number of coordinates needed to describe a manifold is known as its \emph{dimension}. For example, the surface of the earth can be represented by a two-dimensional manifold since locally, there are two axes on which move around. Similarly, a circle can be thought of as a one-dimensional manifold since locally there is only one axis. These are the spheres in one and two dimensions respectively.
 
-While the study of manifolds is a fascinating discipline in itself, many manifolds have some extra geometric structure which makes them more interesting to work with. Many of these structures were originally inspired by physics -- for instance Einstein's manifolds modelling the fabric of space and time come with a way to measure the curvature caused by the presence of a heavy mass or large energy density.
-The common feature behind many of these geometric structures is that they require a notion of ``calculus'' on manifolds, i.e. infinitesimals, derivatives, and the like. Mathematicians did what they do best -- remove unnecessary axioms and work primarily in this most general context. For calculus on manifolds, the most general idea is that of a \emph{smooth structure} on a manifold, the word smooth here meaning ``infinitely differentiable''. In the spirit of topology, while a smooth structure might not allow you to get the precise numerical solutions to differential equations, it allows you to explore the dimensionality of the solutions -- how many \emph{types} of solutions are there rather that exactly what they are. Now, instead of only requiring two equivalent manifolds to just have the same shape, we might also require equivalences between them to be infinitely differentiable, excluding infinitely sharp kinks or bends. These smooth equivalences are called \emph{diffeomorphisms}.
+While the study of manifolds is a fascinating discipline in itself, many manifolds have some extra geometric structure which makes them more interesting to work with. Many of these structures were originally inspired by physics -- for instance Einstein's manifolds modelling the membrane of space-time come with a way to measure the curvature caused by the presence of a heavy mass or large energy density.
+A common feature behind many of these geometric structures is that they require a notion of ``calculus'' on manifolds, i.e. infinitesimals, derivatives, and so on. Mathematicians did what they do best -- remove unnecessary axioms and work primarily in this most general context. For calculus on manifolds, the most general notion is that of a \emph{smooth structure} on a manifold, the word smooth here meaning ``infinitely differentiable''. In the spirit of topology, while a smooth structure might not allow you to get the precise numerical solutions to differential equations, it allows you to explore the dimensionality of the solutions -- how many \emph{types} of solutions are there rather that exactly what they are. Now, instead of only requiring two equivalent manifolds to just have the same shape, we might also require equivalences between them to be infinitely differentiable, excluding infinitely sharp kinks or bends. These smooth equivalences are called \emph{diffeomorphisms}.
 
 With just raw topology, the ``dressing room''' of a manifold is dizzyingly vast.
 A circle could be represented by homeomorphism with a square, a squiggly blob, a spiky star, a horrifically jagged fractal snowflake, or literally any other closed loop drawn without lifting your pencil. Any of these outfits ``fit'' the abstract topological circle.
@@ -47,21 +49,14 @@ Adding a smooth structure onto a manifold downsizes its walk-in closet of possib
 
 \section*{So what is an Exotic Sphere?}
 
-As with any structure in mathematics, the first question we ask about a smooth structure is ``is it unique?'', at least up to diffeomorphism. Any answer to a uniqueness question assuages the mathematicians soul. If a structure is unique, we can sleep soundly knowing that we are working in the most general, canonical, unbiased context. If the structure is not unique, we can ask what all of the structures are, and what is different about each type. 
+As with any structure in mathematics, the first question we ask about a smooth structure is ``is it unique?'', at least up to diffeomorphism. Any answer to a uniqueness question assuages the mathematicians soul. If a structure is unique, we can sleep soundly knowing that we are working in the most general, canonical, unbiased context. If the structure is not unique, we try to classify all possible structures.
 
-For spheres, a reasonable first guess would be that smooth structure is unique. If two smooth manifolds have the same shape (i.e. are homeomorphic), surely we any continuous transformation between them can be made smooth by removing any pinching or sharp points. Spheres are arguably the simplest possible shapes, so it would be strange for anything too surprising to happen. Our intuition turns out to be correct in low-dimensional cases -- every one, two, and three-dimensional sphere has a unique smooth structure. 
+For spheres, a reasonable first guess would be that smooth structure is unique. If two smooth manifolds are shaped like (i.e. are homeomorphic to) a sphere, surely we can find a smooth transformation between them by removing any pinching or sharp points. Spheres are arguably the simplest possible shapes, so it would be strange for anything too surprising to happen. Our intuition turns out to be correct in low-dimensional cases -- every one, two, and three-dimensional sphere has a unique smooth structure. 
 % how topologically twisted can a manifold get for it not to have a smooth structure at all? Remember, ordinary manifolds still locally look like ordinary Euclidean space. Surely any jaggedness can be smoothed out? If you're drawing a closed loop on a sheet of paper and it comes out jagged, you can always redraw it and hold your pen tighter, the resulting shape would still be the same. Similarly, if you're building a clay model and the surface is rough, you can always gently brush over it with water to get a nice smooth surface. 
 %
 % You certainly wouldn't expect smoothing it one way to result in a fundamentally different smooth structure than if you smoothed it a different way.
-However, when we move up to four dimensions the question of whether the sphere has a unique smooth structure becomes extremely hard. As of the writing of this thesis, the problem has remained wide open for almost 100 years and is the last remaining case of a problem known as the generalized Poincar\'e conjecture.
-In dimensions 5 and 6, there is once again a unique smooth structure, but 
-on the seven-dimensional sphere, there are exactly \emph{twenty-eight}
-distinct smooth structures -- no more no less. 
-
-These extra structures are an example of \emph{exotic spheres} -- smooth manifolds which are homeomorphic a sphere, but not diffeomorphic.
-Of the twenty eight smooth structures on a seven-dimensional spheres, one of them is just the usual smooth structure coming from Euclidean space, with the rest exotic.\footnote{This includes pairs of smooth structures which come in a ``right-handed'' and ``left-handed'' version, so depending on how you count there may be less.} 
-Next up in dimension, an eight-dimensional has only two smooth structures, while a nine-dimensional sphere has eight smooth structures. 
-In fact, as far as we know, the only dimensions in which a unique smooth structure is known to exist are $1,2,3,5,6,12,56,$ and $61$.
+However, when we move up to four dimensions the question of whether the sphere has a unique smooth structure becomes extremely difficult. As of the writing of this thesis in March 2025, the issue has remained wide open for almost 100 years and is the last remaining case of a problem known as the generalized Poincar\'e conjecture. Past $4$ dimensions, the problem is simplified by a collection of topological cutlery known as surgery theory.
+Using these techniques, we can show that in dimensions 5 and 6, there is once again a unique smooth structure. However, on the seven-dimensional sphere there are \emph{twenty-eight} distinct smooth structures -- no more no less. 
 
 \begin{figure}[ht]
 	\renewcommand{\arraystretch}{1.2}
@@ -74,13 +69,38 @@ In fact, as far as we know, the only dimensions in which a unique smooth structu
 	\caption{The number of smooth structures on the spheres.}
 \end{figure}
 
-I first found out about the existence of exotic spheres during my freshman year, in the Harvard math lounge. At the time, exotic spheres sounded like one of the many horror stories told by graduate students to naive students introductory topology: a word of warning to the hidden complexities of even the simplest of mathematical objects. 
+These extra structures are examples of \emph{exotic spheres} -- smooth manifolds which are homeomorphic, but not diffeomorphic to a sphere.
+Of the twenty eight smooth structures on a seven-dimensional spheres, one of them is the usual smooth structure coming from Euclidean space, and the rest are exotic.\footnote{This includes pairs of smooth structures which come in a ``right-handed'' and ``left-handed'' version, so depending on how you count there may be less.} 
+Next up in dimension, an eight-dimensional sphere has only two smooth structures, while a nine-dimensional sphere has eight smooth structures. 
+In fact, as far as we know, the only dimensions in which a unique smooth structure is known to exist are $1,2,3,5,6,12,56,$ and $61$.
 
-As the years passed, and I became the one scaring freshman with tales of exotic smooth structures,
+The structured chaos here is what is most surprising. 
+It would be one thing if all spheres admitted a ridiculously infinite number of smooth structures, or if all spheres had a unique smooth structure -- in both cases, the overall complexity is low. 
+But here, we have all the signs of complexity -- precise patterns, unexpected numbers, and strangely specific dimensions in which uniqueness returns. All of this is to say that there is some fascinating mathematics happening underneath.
 
-In this thesis, I hope to share some of the wonder, intuition, and mathematical perspectives I have acquired over the last year, providing a comprehensive introduction to the detection and construction of exotic spheres.
+\begin{figure}[ht]
+	\centering
+	\import{diagrams}{title.pdf_tex}
+	\caption{Four constructions of exotic spheres discussed in this thesis.}
+\end{figure}
+
+\smallrule
+
+I first learned about the existence of exotic spheres during my freshman year, in the Harvard math lounge. At the time, exotic spheres sounded like one of the many horror stories told by graduate students to naive students of introductory topology: a word of warning to the hidden complexities of even the simplest of mathematical objects. 
+Even still, just knowing that there are exotic spheres does little to provide any intuition as to why they are there, or what it all means. 
+As I've grown familiar with the exotic spheres over the past year of research, their fabled aura of exoticity has began to fade, replaced with a growing sense of cosmic wonder at their place in a far-reaching web of strange geometric coincidences.
+Most importantly, I had learned that exotic spheres were not just some definitional quirk meant to scare undergraduates learning topology, 
+but fundamental objects of high-dimensional geometry which spring up across mathematics as naturally as mushrooms after rain. 
+
+In this thesis, I hope to share some of the wonder, intuition, and mathematical perspectives I have acquired over the last year, providing a comprehensive introduction to the detection and construction of exotic spheres. 
+
+% I had much more to say -- I talked at length about how we can detect exotic spheres, how we can construct them as generalizations of knots in higher dimensions, how they relate to the geometry of lattices, why a physicist looking to investigate the consistency of their theory might care about exotic spheres, etc. 
+
+%
 
 
+
+% As with most interesting problems in mathematics, the classification of smooth structures on spheres sits on the precipice between monotone order and complete chaos. At this boundary, 
 % \todo{mention how exotic spheres can be thought of as knots, talk about torsion phenomena}
 
 
@@ -88,8 +108,4 @@ In this thesis, I hope to share some of the wonder, intuition, and mathematical 
 % As I began to elaborate, I struggled to find the words to explain what exotic spheres were, what about them made them so ``exotic'', and why anyone should care.
 % It was apparent that, aside from folklore I had heard from graduate students, I had no intuition about exotic spheres at all and I hastily changed the subject.
 %
-% Half a year passed before our next trip to the mountains. By then, I had much more to say -- I talked at length about how we can detect exotic spheres, how we can construct them as generalizations of knots in higher dimensions, how they relate to the geometry of lattices, why a physicist looking to investigate the consistency of their theory might care about exotic spheres, etc. 
-% I had learned that exotic spheres were not just some definitional quirk meant to scare undergraduates learning topology, 
-% but fundamental objects of high-dimensional geometry which spring up across mathematics as naturally as mushrooms after rain.
-% As I grew familiar with the exotic spheres, their fabled aura of exoticity began to fade, replaced with a growing sense of cosmic wonder at their place in a far-reaching web of strange geometric coincidences.
-%
+% Half a year passed before our next trip to the mountains. By then, 

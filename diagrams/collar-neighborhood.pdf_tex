@@ -53,8 +53,8 @@
   \begin{picture}(1,0.26666669)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0.35133843,0.22743524){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
-    \put(0.63955077,0.22743524){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\partial M$\end{tabular}}}}%
+    \put(0.35133843,0.21539378){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$M$\end{tabular}}}}%
+    \put(0.66794719,0.21571082){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\partial M$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{collar-neighborhood.pdf}}%
   \end{picture}%
 \endgroup%

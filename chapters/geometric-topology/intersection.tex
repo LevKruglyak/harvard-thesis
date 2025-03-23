@@ -1,58 +1,67 @@
-\pagebreak
+% \pagebreak
 \section{The Intersection Form}\label{sec:intersection-form}
 
-One of the fundamental invariants for even-dimensional manifolds is the intersection form, a bilinear form on a lattice which captures the geometric data of submanifold intersections. The lattice in question is the free component of the middle-dimensional singular homology, and the pairing of two homology cycles by the form counts their number of ``intersections''. When the homology cycles of complementary dimension (as in the case of middle-dimensional homology cycles) are represented by smooth immersions, we can perturb them to make them transverse without changing the homology class. If the manifolds are compact, the preimage of their intersection is some finte set of points with orientation -- adding up the orientations of the points gives the oriented intersection number.
+We now turn our attention to the intersection form, an algebraic invariant of fundamental importance in the topology of even-dimensional manifolds. An intersection form is a bilinear form on a lattice which captures the geometric data of submanifold intersections. The lattice in question is the free component of the middle-dimensional singular homology, and the pairing of two homology cycles by the form counts their number of ``intersections''. When the homology cycles of complementary dimension (as in the case of middle-dimensional homology cycles) are represented by smooth immersions, we can perturb them to make them transverse without changing the homology class. If the manifolds are compact, then the preimage of their intersection is some finite set of points with orientation -- adding up the orientations of the points gives the oriented intersection number.
 
-This is the geometric interpretation of intersection, and we will explore it in more depth when we construct manifolds with given intersection theory in \cref{sec:plumbing}. For now, we will stick to understanding the algebraic properties of intersections as the adage ``think in terms of intersections, prove in terms of homology'' advises. To start, let us suppose that $M$ is a compact oriented $n$-manifold.
+This is the geometric interpretation of intersection. For now, we stick to understanding the algebraic properties of intersections as the adage ``think in terms of intersections, prove in terms of homology'' advises. To start, let us suppose that $M$ is a compact oriented $n$-manifold.
 The Poincar\'e-Lefschetz duality gives an isomorphism
 \begin{equation}
-	\lkxfunc{}{\H^{n-p}(M,\partial M)}{\H_p(M)}{\omega}{\omega\frown [M,\partial M]}
+	\lkxfunc{\mathrm{PD}}{\H^{n-p}(M,\partial M)}{\H_p(M)}{\omega}{\omega\frown [M,\partial M]}
 \end{equation}
-assuming we have an orientation class $[M,\partial M]\in \H_n(M, \partial M)$ corresponding to the orientation of $M$. Under this duality, the intersection of homology classes is defined as the dual operation to the operation of cup product on cohomology classes. This operation is denoted $\alpha\cdot \beta$ for homology cycles $\alpha\in \H_p(M)$ and $\beta\in \H_q(M)$, and is the top map in \cref{eq:homology-intersection}
-\begin{equation}\label{eq:homology-intersection}
+given an orientation class $[M,\partial M]\in \H_n(M, \partial M)$ corresponding to the orientation of $M$. Under this duality, the intersection of homology classes is defined as the dual operation to the operation of cup product on cohomology classes.
+
+\begin{definition}
+	The \defn{intersection} of two homology classes $a\in \H_p(M)$ and $b\in \H_q(M)$ is
+	\[
+		a\cdot b = \mathrm{PD}^{-1}\left[\mathrm{PD}(a)\smile \mathrm{PD}(b)\right]\in \H_{n-p-q}(M).
+	\]
+\end{definition}
+In other words, the intersection pairing is the top map in the commutative square 
+\[
 	\begin{tikzcd}
 		{\H_p(M)\otimes \H_q(M)} & {\H_{n-p-q}(M)} \\
 		{\H^{n-p}(M, \partial M)\otimes \H^{n-q}(M,\partial M)} & {\H^{2n-p-q}(M,\partial M)}
 		\arrow["\tnsv", from=1-1, to=1-2]
-		\arrow[leftrightarrow, from=1-1, to=2-1]
-		\arrow[leftrightarrow, from=1-2, to=2-2]
+		\arrow["\mathrm{PD}\,\otimes\,\mathrm{PD}", from=2-1, to=1-1]
+		\arrow["\mathrm{PD}\,\otimes\,\mathrm{PD}",from=2-2, to=1-2]
 		\arrow["\smile", from=2-1, to=2-2]
 	\end{tikzcd}
-\end{equation}
-where the vertical maps are the Poincar\'e-Lefschetz isomorphism. Again, the intuition here should be that $\alpha\cdot \beta$ is the homology class representing the intersection of $\alpha$ and $\beta$ when they are arranged in general ``transverse'' position. We discuss this interpretation and the definitions of intersection numbers in \cref{sec:submanifolds-intersection-theory}.
-Done over homology classes of complementary dimension, the resulting homology intersection class is 0-dimensional and hence pairs with an integer multiple $\ell\cdot [M, \partial M]\in \H_n(M,\partial M)$ of the top-dimensional orientation class. The integer multiple $\ell\in \Z$ is the \defn{intersection number}[intersection number of homology classes] of the cycles $\alpha$ and $\beta$. Removing torsion elements and working in middle dimensional homology so that $\alpha$ and $\beta$ live in the same group, we get an integral bilinear form.
+\]
+The intuition here should be that $a\cdot b$ is the homology class representing the intersection of $a$ and $b$ when they are arranged in general ``transverse'' position. We discuss this interpretation and the definitions of intersection numbers in \cref{sec:submanifolds-intersection-theory}.
+Done over homology classes of complementary dimension, the resulting homology intersection class is 0-dimensional and since $M$ is connected, and hence corresponds to an integer with sign determined by the orientation of $M$. The resulting integer is known as the \defn{intersection number}[intersection number of homology classes] of $a$ and $b$, and by an abuse of notation is also denoted $a\cdot b$.
+Removing torsion elements and working in middle dimensional homology so that $a$ and $b$ live in the same group, we get an integral bilinear form.
 
 \begin{definition}
-	Let $M^{2m}$ be a compact oriented even-dimensional manifold, possibly with boundary. The \defn{intersection form} on middle dimensional homology is the bilinear form
+	Let $M^{2m}$ be a compact oriented even-dimensional manifold. The \defn{intersection form} on middle dimensional homology is the bilinear form
 	\begin{equation}
 		\lkxfunc{Q_M}{\H_m(M)_{\mathrm{free}}\otimes \H_m(M)_{\mathrm{free}}}{\Z}{a\otimes b}{a \tnsv b}
 	\end{equation}
-	where we identify $\H_0(M)\cong \Z$ and $\H_m(M)_{\mathrm{free}}$ denotes the free component of $\H_m(M)$ -- i.e. the quotient by the subgroup of torsion elements.
+	where we identify $\H_0(M)\cong \Z$ and $\H_m(M)_{\mathrm{free}}$ denotes the free component of $\H_m(M)$, i.e. the quotient by the subgroup of torsion elements.
 \end{definition}
 
-\begin{remark}
-	If $m$ is even then $Q_X$ is a symmetric bilinear form and if $m$ is odd then $Q_X$ is a skew-symmetric bilinear form. This follows from the graded commutativity of the cup product, and hence the intersection pairing. For brevity, we say that $Q_X$ is \defn{$(-1)^m$-symmetric} in such cases.
-\end{remark}
+\begin{remark*}
+	If $m$ is even then $Q_X$ is a symmetric bilinear form and if $m$ is odd then $Q_X$ is a skew-symmetric bilinear form. This follows from the graded commutativity of the cup product. For brevity, we say that $Q_X$ is \defn{$(-1)^m$-symmetric}.
+\end{remark*}
 
-\begin{remark}
-	Note that the intersection form is defined entirely topologically, without a requirement of smooth structure. That being said, the existence of a smooth structure on a manifold can lead to noticeable effects on the smooth structure.
-\end{remark}
+\begin{remark*}
+	The intersection form is defined entirely topologically, without a requirement of smooth structure. That being said, the existence of a smooth structure on a manifold can lead to noticeable effects on the smooth structure.
+\end{remark*}
 
-It is often helpful to work with the dual pairing, i.e. the cup product pairing on cohomology, since it can be immediately deduced from the multiplicative structure of the cohomology ring.
+It is often helpful to work with the dual pairing, i.e. the cup product, since it can be immediately deduced from the multiplicative structure of the cohomology ring.
 \begin{definition}
 	The intersection form on cohomology is the bilinear form
 	\begin{equation}
 		\lkxfunc{Q^M}{\H^m(M,\partial M)_{\mathrm{free}}\otimes \H^m(M,\partial M)_{\mathrm{free}}}{\Z}{\alpha\otimes \beta}{\alpha\smile \beta}
 	\end{equation}
-	where we identify $\H^n(M,\partial M)\cong \H_0(M)\cong \Z$.
+	where we identify $\H^n(M,\partial M)\cong \Z\cdot [M,\partial M]$.
 \end{definition}
 
-\begin{remark}
-	For manifolds which do not come with an orientation, the intersection form can be extended in homology/cohomology with $\Z/2$ coefficients. We call this form the \defn{unoriented intersection form}, and denote it by $\widetilde{Q}_M$ or $\widetilde{Q}^M$ depending on if we are working with homology or cohomology. In the context of embedded submanifolds, this form captures the number of transverse intersection points modulo 2, otherwise known as the unoriented intersection number.
-\end{remark}
+\begin{remark*}
+	For manifolds which do not come with an orientation, the intersection form can be extended in homology/cohomology with $\Z/2$ coefficients. We call this form the \defn{unoriented intersection form}, and denote it by $\widetilde{Q}_M$ or $\widetilde{Q}^M$ depending on if we are working with homology or cohomology. In the context of embedded submanifolds, this form captures the unoriented intersection number of transverse intersection points modulo 2.
+\end{remark*}
 
-\begin{remark} \label{rmk:dual-lattice-intersection-form}
-	To see the connection between the intersection form on homology and cohomology, let us recall the universal coefficients theorem for cohomology, which gives us an exact sequence
+\begin{remark*} \label{rmk:dual-lattice-intersection-form}
+	To see the connection between the intersection form on homology and cohomology, we can use the universal coefficients theorem for cohomology, which gives us an exact sequence
 	\[
 		0 \lkxto \Ext^1(\H_{m-1}(M,\partial M)) \lkxto \H^m(M, \partial M) \lkxto \Hom(\H_m(M, \partial M), \Z) \lkxto 0.
 	\]
@@ -64,31 +73,31 @@ It is often helpful to work with the dual pairing, i.e. the cup product pairing 
 	\[
 		\H_m(\partial M) \lkxto \H_m(M) \lkxto \H_m(M,\partial M) \lkxto \H_{m-1}(\partial M)
 	\]
-	is an isomorphism, and so we get a canonical isomorphism
+	is an isomorphism, and so we get an isomorphism
 	\[
 		\H^m(M, \partial M) \lkxisom \Hom(\H_m(M), \Z).
 	\]
 	In other words, (under suitable topological restrictions of $\partial M$) there is a canonical way to identify the lattice for the cohomology intersection form as the dual of the lattice for the homology intersection form. In particular, the matrix representations of the bilinear forms are inverses of each other.
-\end{remark}
+\end{remark*}
 
 \subsection{Basic Examples of the Intersection Form}
 
-We will see many examples of manifolds and their intersection forms throughout this thesis, so for now let's just consider the most basic examples -- complex projective spaces and tori.
+We will see many examples of manifolds and their intersection forms throughout this thesis, so for now we consider the most basic examples -- complex projective spaces and tori.
 
 \begin{proposition}\label{prop:intersection-form-complex-projective-plane}
 	The intersection form for any complex projective plane $\CP^{2m}$ of even complex dimension is given by $Q=(1)$, and the intersection form for complex projective plane $\CP^{2m+1}$ of odd complex dimension is trivial.
 \end{proposition}
 \begin{proof}
-	We will compute the intersection form in cohomology, by \cref{rmk:dual-lattice-intersection-form} we can invert the resulting matrix to get an intersection form on homology.
-
+	We compute the intersection form in cohomology, by \cref{rmk:dual-lattice-intersection-form} we can invert the resulting matrix to get an intersection form on homology.
 	Recall that the cohomology ring of complex projective space is given by
-	\begin{equation}
+	\[
 		\H^\bullet(\CP^{n}) \approx \Z[\alpha]/(\alpha^{n+1})\quad\textrm{with}\quad |\alpha|=2.
-	\end{equation}
-	A proof of this can be found in any standard algebraic topology book, for instance Theorem~3.19 in \cite{hatcher2002topology}. We can assume without loss of generality that $\alpha^n\in \H^{2n}(\CP^n)$ is the fundamental class corresponding to the canonical orientation on $\CP^n$.
-	Note that since the generating element has degree $2$, the middle-dimensional homology $\H^{2m+1}(\CP^{2m+1})$ is trivial and hence so is the intersection form of $\CP^{2m+1}$.
+	\]
+	A proof of this can be found in any standard algebraic topology book, for instance Theorem~3.19 in \cite{hatcher2002topology}. 
+	Geometrically, the generator $\alpha\in \H^2(\CP^n)$ is the Poincar\'e dual of the embedded projective plane $\CP^{n-1}\subset \CP^n$ and we can assume without loss of generality that $\alpha^n\in \H^{2n}(\CP^n)$ is the fundamental class corresponding to the orientation on $\CP^n$.
 
-	When the complex dimension is even, the middle-dimension homology $\H^{2m}(\CP^{2m})$ is generated by $\alpha^m$. Since $\alpha^m\smile \alpha^m=\alpha^{2m}$ is a unit multiple of the fundamental class, we have $Q(\alpha^m, \alpha^m)=1$, completing the proof.
+	In odd complex dimension, the middle-dimensional homology $\H^{2m+1}(\CP^{2m+1})$ is trivial since the generating element has degree $2$, and so the intersection form of $\CP^{2m+1}$ is also trivial.
+	When the complex dimension is even, the middle-dimension homology $\H^{2m}(\CP^{2m})$ is generated by $\alpha^m$. Since $\alpha^m\smile \alpha^m=\alpha^{2m}$ is a unit multiple of the fundamental class, we have $Q(\alpha^m, \alpha^m)=1$. This completes the proof.
 \end{proof}
 
 \begin{figure}[ht]
@@ -98,9 +107,9 @@ We will see many examples of manifolds and their intersection forms throughout t
 \end{figure}
 
 It is illuminating to interpret this result geometrically. Let's begin with the complex vector space $\C^{2m+1}$ equipped with a basis $\{e_0, e_1,\ldots, e_{2m}\}$. Consider the linear subspaces
-\begin{equation}
+\[
 	W = \langle e_0, e_1,\ldots, e_m\rangle \quad\textrm{and}\quad U = \langle e_0, e_{m+1},\ldots, e_{2m}\rangle
-\end{equation}
+\]
 in $\C^{2m+1}$. These complex hyperplanes intersect at a complex line $\langle e_0 \rangle = W\cap U$.
 
 Now, we can pass to the projectivization $\P(\C^{2m+1})=\CP^{2m}$ and realize $W$ and $U$ as embedded submanifolds $\P(W)\approx \CP^m\subset \CP^{2m}$ and $\P(U)\approx \CP^m\subset \CP^{2m}$. Since $W$ and $U$ intersect at a line, their projectivizations $\P(W)$ and $\P(U)$ intersect at a point in $\CP^{2m}$. Furthermore, the intersection is transverse, and descending the orientation on $\C^{2m+1}$ to the embedded submanifolds gives an intersection number of $1$. Both of these embedded submanifolds represent the homology class $a^{2m}\in \H_{2m}(\CP^{2m})$ which is the Poincar\'e dual of the cohomology class $\alpha^{2m}(\CP^{2m})$. We again arrive at $Q(a^{2m}, a^{2m})=1$, although this time through homology intersections.
@@ -116,21 +125,21 @@ Now, we can pass to the projectivization $\P(\C^{2m+1})=\CP^{2m}$ and realize $W
 \end{proposition}
 \begin{proof}
 	Let us again begin with a cohomology computation. The cohomology of a sphere is
-	\begin{equation}
+	\[
 		\H^\bullet(S^n) = \Z[\alpha]/(\alpha^2)\quad\textrm{with}\quad |\alpha| = n,
-	\end{equation}
+	\]
 	and by the K\"unneth formula (see Theorem~3.15 in \cite{hatcher2002topology}), we have
-	\begin{equation}
+	\[
 		\begin{aligned}
 			\H^\bullet(T^{2m})=\H^\bullet(S^m\times S^m)\cong \H^\bullet(S^m)\otimes \H^\bullet(S^m)
 			 & \cong \Z[\alpha]/(\alpha^2)\otimes \Z[\beta]/(\beta^2) \\
 			 & \cong \Z[\alpha,\beta]/(\alpha^2,\beta^2).
 		\end{aligned}
-	\end{equation}
+	\]
 	Assuming $\alpha$ and $\beta$ are fundamental classes for the spheres, the fundamental class of the torus is $\alpha\smile \beta$. From this multiplicative structure and fundamental class, we clearly have
-	\begin{equation}
+	\[
 		Q(\alpha, \alpha)=0, \quad Q(\beta,\beta)=0, \quad Q(\alpha,\beta)=1,\quad Q(\beta,\alpha)=(-1)^m Q(\alpha,\beta)=(-1)^m.
-	\end{equation}
+	\]
 	These give exactly the matrices described in \cref{eq:hyperbolic-form-torus}.
 \end{proof}
 
@@ -143,20 +152,20 @@ Now, we can pass to the projectivization $\P(\C^{2m+1})=\CP^{2m}$ and realize $W
 The geometric proof of this claim is analogous. The Poincar\'e duals of $\alpha$ and $\beta$, denoted $a$ and $b$ in $\H_{m}(T^{2m})$, are represented
 by the embedded submanifolds $S^m\times \{p\}$ and $\{p\}\times S^m$ for some basepoint $p\in S^m$. Shifting an individual embedded sphere to a disjoint embedding by a path taking $p\mapsto p'$ disjoint shows that the self-intersection numbers of $a$ and $b$ are zero. These are the zeroes along the diagonal of the matrices in \cref{eq:hyperbolic-form-torus}. However, the embedded spheres representing $a$ and $b$ intersect transversally at the point $(p,p)\in T^{2m}$. We choose orientations on $S^m\times \{p\}$ and $\{p\}\times S^m$ so that $a\cdot b=1$, then by graded-commutativity we get $b\cdot a=(-1)^m$.
 
-\begin{remark}
+\begin{remark*}
 	The symmetric form in \cref{eq:hyperbolic-form-torus} is known as the \defn{hyperbolic form}, denoted by
 	\[
 		H=\begin{pmatrix} 0 & 1\\ 1 & 0 \end{pmatrix}.
 	\]
 	The hyperbolic form is a fundamental building block for symmetric bilinear forms over the integers and $\Z/2$.
-\end{remark}
+\end{remark*}
 
 \subsection{Properties of the Intersection Form}
 We now investigate some basic properties of the intersection form.
 
 \begin{proposition}\label{prop:orientation-intersection-form}
 	For a compact manifold $M^{2m}$, we have
-	$Q_{-M} \cong -Q_{M}$.
+	$Q_{\overline{M}} \cong -Q_{M}$.
 \end{proposition}
 \begin{proof}
 	This is immediate, since the fundamental class changes sign as orientation flips.
@@ -167,8 +176,8 @@ We now investigate some basic properties of the intersection form.
 	$Q_{M_1\+M_2} \cong Q_{M_1}\oplus Q_{M_2}.$
 \end{proposition}
 \begin{proof}
-	In the case that $m=1$, this follows immediately from the classification of compact surfaces. When $m>1$, a similar Mayer-Vietoris argument to
-to \cref{sec:smooth-manifold-operations} for relative cohomology, proves the result.
+	In the case that $m=1$, the proposition follows immediately from the classification of compact surfaces. When $m>1$, we can use similar Mayer-Vietoris argument to
+	to \cref{sec:smooth-manifold-operations} for relative cohomology.
 \end{proof}
 
 Similarly, we get:
@@ -177,12 +186,12 @@ Similarly, we get:
 	For compact manifolds $M_1^{2m}$ and $M_2^{2m}$ with non-empty and connected boundaries, we have $Q_{(M_1,\partial M_1)\+ (M_2,\partial M_2)} \cong Q_{M_1}\oplus Q_{M_2}$.
 \end{proposition}
 
-An immediate corollary of \cref{cor:connected-sum-operation} and \cref{prop:connected-sum-intersection-form} is
-that the intersection form is a homomorphism of commutative monoids, i.e. sets with a commutative associative binary operation and identity elements. On one side, we have the monoid $\mathcal{M}^{2m}$ of oriented compact $2m$-manifolds under connected sum, and on the other side we have $\mathcal{Q}(\Z)$ of bilinear forms valued in $\Z$ under the operation of direct sum. Similarly, the unoriented intersection form maps the monoid of unoriented compact $2m$-manifolds $\widetilde{\mathcal{M}}^{2m}$ to $\mathcal{Q}(\Z)$.
+An immediate corollary \cref{prop:connected-sum-intersection-form} is
+that the intersection form is a homomorphism of commutative monoids, i.e. sets with a commutative associative binary operation and identity elements. On one side, we have the monoid $\mathcal{M}^{2m}$ of oriented compact $2m$-manifolds under connected sum, and on the other side we have the monoid $\mathcal{Q}(\Z)$ of bilinear forms valued in $\Z$ under the operation of direct sum. Similarly, the unoriented intersection form maps the monoid of unoriented compact $2m$-manifolds $\widetilde{\mathcal{M}}^{2m}$ to $\mathcal{Q}(\Z/2)$.
 \begin{equation}\label{eq:monoid-homomorphism-intersection-form}
-	\lkxfunc{}{\mathcal{M}^{2m}}{\mathcal{Q}(\Z),}{M}{Q_M,}
+	\lkxfunc{}{\mathcal{M}^{2m}}{\mathcal{Q}(\Z)}{M}{Q_M}
 	\quad\textrm{and}\quad
-	\lkxfunc{}{\widetilde{\mathcal{M}}^{2m}}{\mathcal{Q}(\Z/2),}{M}{\widetilde{Q}_M.}
+	\lkxfunc{}{\widetilde{\mathcal{M}}^{2m}}{\mathcal{Q}(\Z/2)}{M}{\widetilde{Q}_M}
 \end{equation}
 The monoidal structure of the intersection form is quite useful throughout geometric topology, especially in classification problems.
 
@@ -191,7 +200,7 @@ An illustrative case in low dimensions is the classification of compact (unorien
 \[
 	S^2,\quad T^2\#\cdots\# T^2,\quad\textrm{or}\quad \RP^2\#\cdots\# \RP^2,
 \]
-i.e. it is either a sphere, a torus with some number of holes, or an unorientable surface formed by gluing together M\"obius strips. For instance, a Klein bottle is the connected sum $\RP^2\#\RP^2$.
+i.e. it is either a sphere, a torus with some number of holes, or an unorientable surface formed by gluing together M\"obius strips. For example, a Klein bottle is the connected sum $\RP^2\#\RP^2$.
 A standard cominatorial proof of this classification by polygonal presentations can be found in Chapter 6 of \cite{lee2011topological}.
 
 By similar arguments to \cref{prop:intersection-form-complex-projective-plane} and \cref{prop:intersection-form-torus}, the unoriented intersection forms of these generating surfaces are given by
@@ -200,11 +209,13 @@ By similar arguments to \cref{prop:intersection-form-complex-projective-plane} a
 \]
 
 \begin{example}
-	There is a pretty geometric picture for the intersection form for a surface $X_g$ of genus $g$. Since $X_g=\T^2\+\cdots+\T^2$, the intersection form is given by
+	There is a pretty geometric picture for the intersection form for a surface $X_g$ of genus $g$. Since $X_g=\T^2\+\cdots\+\T^2$, the intersection form is given by
 	\[
 		\widetilde{Q}_{X_g} = \underbrace{\begin{pmatrix}0&1\\1&0\end{pmatrix}\oplus\cdots\oplus \begin{pmatrix}0&1\\1&0\end{pmatrix}}_{g\textrm{ times}}.
 	\]
-	Every compact connected surface has a universal cover homeomorphic to the plane -- geometrically this follows from the uniformization theorem in the theory of Riemann surfaces. The surface $X_g$ is then a quotient of the plane by a group action. For instance, the torus $T^2=X_1$ is the quotient of $\R^2$ by the action of translation by $\Z^2$. More generally, $X_g$ is the quotient of the complex upper half plane by the action of a Fuchsian group $\Gamma\subset \mathrm{PSL}_2(\R)$ which is isomorphic to the fundamental group of $X_g$. This quotient has fundamental domain a $4g$-gon, and the action generates a tiling of the projective plane by regular $4g$-gons (see \cref{fig:torus-octagon}).
+	Every compact connected surface has a universal cover homeomorphic to the plane. Geometrically this follows from the uniformization theorem for Riemann surfaces (see \cite{forster1991}). The surface $X_g$ is then a quotient of the plane by a group action. 
+
+	For example, the torus $T^2=X_1$ is the quotient of $\R^2$ by the monodromy action of translation by the fundamental group $\pi_1(T^2)\cong \Z^2$. More generally, $X_g$ is the quotient of the hyperbolic plane by the action of a Fuchsian group $\pi_1(X_g)\subset \mathrm{PSL}_2(\R)$. This quotient has fundamental domain a $4g$-gon, and the action generates a tiling of the hyperbolic plane by regular $4g$-gons (see the right side \cref{fig:torus-octagon} for an octagonal tiling of the hyperbolic plane).
 
 	\begin{figure}[ht]
 		\centering
@@ -212,11 +223,11 @@ By similar arguments to \cref{prop:intersection-form-complex-projective-plane} a
 		\caption{Generators for $\H_1(X_g)$ when $g=1$ and $2$.}\label{fig:torus-octagon}
 	\end{figure}
 
-	\begin{remark}
-		The octagonal tiling of the Poincar\'e disk in \cref{fig:torus-octagon} was adapted from a graphic by \href{https://commons.wikimedia.org/wiki/User:Parcly_Taxel}{Parcly Taxel}.
-	\end{remark}
+	\begin{remark*}
+		The tiling of the Poincar\'e disk in \cref{fig:torus-octagon} was adapted from \href{https://commons.wikimedia.org/wiki/User:Parcly_Taxel}{Parcly Taxel}.
+	\end{remark*}
 
-	On the universal cover, we can draw lines which project down to generating cycles for $\H_1(X_g)$. For instance, see \cref{fig:torus-octagon} for examples of this in $X_1$ and $X_g$. Extending these lines by the group action to get the full group $\H_1(X_g)$ expresses the lattice $\H_1(X_g)$ as a concrete lattice of lines in hyperbolic space.
+	On the universal cover, we can draw lines which project down to generating cycles for $\H_1(X_g)$. For instance, see \cref{fig:torus-octagon} for examples of this in $X_1$ and $X_2$. Extending these lines by the group action to get the full group $\H_1(X_g)$ expresses the lattice $\H_1(X_g)$ as a concrete lattice of lines in hyperbolic space.
 	When the lines are restricted to the fundamental domain with boundary conditions agreeing with the group action, their intersection numbers are the same as in the quotient $X_g$. For the torus $X_1$, we have two lines $a$ and $b$ which have self-intersection $0$ (perturbing either horizontally or diagonally), and cross-intersection $a\cdot b = 1$. This gives the expected matrix
 	\[
 		\widetilde{Q}_{X_1}=\begin{pmatrix}0 & 1\\ 1 & 0\end{pmatrix}.
@@ -252,7 +263,7 @@ By similar arguments to \cref{prop:intersection-form-complex-projective-plane} a
 			  &   & 1 & 0
 		\end{pmatrix}
 	\]
-	The resulting basis becomes $\{a+c, a+b,a+b+c,d\}$. Nice geometric pictures like this are harder to come by in dimensions beyond $4$, but much of the intuition about intersections carries over. A wonderful source for geometric pictures of intersections in 4-dimensions can be found in the books \cite{behrens2021discembedding} and \cite{scorpan2005wild}.
+	The resulting basis becomes $\{a+c, a+b,a+b+c,d\}$. Nice geometric pictures like this are harder to come by in dimensions beyond $4$, but much of the intuition about intersections carries over. A wonderful source for geometric pictures of intersections in -dimension 4 can be found in the books \cite{behrens2021discembedding} and \cite{scorpan2005wild}.
 \end{example}
 
 
@@ -276,7 +287,9 @@ By similar arguments to \cref{prop:intersection-form-complex-projective-plane} a
 		\end{pmatrix} =\oplus^3(1)= \widetilde{Q}_{\RP^2\+\RP^2\+\RP^2}.
 	\]
 \end{example}
-As it turns out, the underlying surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homoemorphic. This has an easy geometric interpretation. The operation $T^2\+$ can be thought of as adding a handle, and $\RP^2\+\RP^2\+$ being connected sum with a Klein bottle can be thought of as adding a handle in a twisted manner, i.e. one spout on one side of the surface and the other spout on the other side. Note that there might be a global notion of ``side'' if the manifold is non-orientable, but locally this picture holds.
+As it turns out, the underlying surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homeomorphic. The operation $T^2\+$ can be thought of as adding a handle, and $\RP^2\+\RP^2\+$ can be thought of as adding a handle in a twisted manner, i.e. one spout on one side of the surface and the other spout on the other side. 
+There might be a global notion of ``side'' if the manifold on which the handle is glued is non-orientable, but locally this picture holds.
+Note that this ``twisted handle'' operation applied to the sphere gives a Klein bottle, which makes sense since $\RP^2\+\RP^2$ is a Klein bottle.
 
 One such non-orientable case is the projective plane $\RP^2$. If we add a torus handle to $\RP^2$ (a M\"obius band with boundary collapsed), we can move one spout around the twist of $\RP^2$ to get a twisted handle (as depicted in \cref{fig:twisted-handle-to-handle}). Thus, the surfaces $T^2\+\RP^2$ and $\RP^2\+\RP^2\+\RP^2$ are homeomorphic, a geometric fact which was detected in part by the algebraic identity of forms $H\oplus (1)=\oplus^3(1)$ in $\mathcal{Q}(\Z/2)$.
 
@@ -303,7 +316,7 @@ Just like $H\oplus (1)= \oplus^3 (1)$ is the defining relation for skew-symmetri
 	\]
 \end{theorem}
 
-The classification of compact surfaces by the intersection form is a model result of algebraic topology -- a complete algebraic classification of a class of manifolds. Better yet, simple algebraic manipulations correspond to non-trivial topological equivalences. This is part of why intersection forms are so useful -- algebraic intuition scales far better with dimension than does geometric intuition and so bilinear forms are a much more comfortable setting in which to study higher-dimensional topology. For instance, the classification theorem of Michael Freedman in his 1982 paper \cite{freedman1982manifold} is formulated entirely in terms of the intersection form and an additional $\Z/2$-valued invariant detecting the existence of a smooth structure.
+The classification of compact surfaces by the intersection form is a model result of algebraic topology -- a complete algebraic classification of a class of manifolds. Better yet, simple algebraic manipulations correspond to non-trivial topological equivalences. This is part of why intersection forms are so useful -- algebraic intuition scales far better with dimension than does geometric intuition and so bilinear forms are a much more comfortable setting in which to study higher-dimensional topology. For instance, the classification theorem of Michael Freedman in 1982 (see \cite{freedman1982manifold}) is formulated entirely in terms of the intersection form and an additional $\Z/2$-valued invariant detecting the existence of a smooth structure.
 
 \begin{theorem}[Freedman, 1982] Let $\mathcal{S}^4\subset \mathcal{M}^4$ be the monoid of simply-connected closed \emph{topological} $4$-manifolds. The intersection form
 	\[
@@ -311,37 +324,38 @@ The classification of compact surfaces by the intersection form is a model resul
 	\]
 	is at most two-to-one, i.e. a symmetric intersection form corresponds to at most two topological $4$-manifolds, one which admits a smooth structure and one which does not.
 \end{theorem}
-An accessible exposition to this remarkable theorem can be found in \cite{behrens2021discembedding}. We will explore this theorem and its consequences with more depth in \cref{sec:smoothing-obstructions}.
+
+An accessible exposition to this remarkable theorem can be found in \cite{behrens2021discembedding}.
 
 \subsection{Submanifolds and Intersection Theory}\label{sec:submanifolds-intersection-theory}
 
-At this point, we will comment in some more detail on how the algebraically defined intersection form captures the geometric data of submanifold intersections. We will begin by reviewing some relevant concepts from differential topology.
+At this stage, we will comment in some more detail on how the algebraically defined intersection form captures the geometric data of submanifold intersections. We begin by reviewing some relevant concepts from differential topology.
 
-Let $f : N^k\to M^n$ be a smooth map from a closed oriented manifold $N^k$ into some manifold $M^k$. An orientation on $N$ determines a fundamental homology class $[N]\in \H_k(N)$ which can be pushed forward along the map $f : w \to M$ to give a homology class $f_* [N]\in \H_k(M)$.
-The correspondence behaves nicely with respect to homotopic perturbations, and so
-the homology class associated to a map $f : N \to M$ solely depends on the homotopy type of $f$. This gives a map
+Let $f : N^k\to M^n$ be a smooth map from a closed oriented manifold $N^k$ into some manifold $M^k$. An orientation on $N$ determines a fundamental homology class $[N]\in \H_k(N)$ which can be pushed forward along the map $f : W \to M$ to give a homology class $f_* [N]\in \H_k(M)$.
+This correspondence behaves nicely with respect to homotopic perturbations, and so
+the homology class associated to a map $f : N \to M$ solely depends on the homotopy type of $f$. We get
 \begin{equation}\label{eq:homotopy-class-to-homology-class}
-	\lkxfunc{}{[N,M]}{\H_k(M)}
+	\lkxfunc{}{[N,M]}{\H_k(M),}
 \end{equation}
-which generalizes the Hurewicz homomorphism $\pi_k(M) \to \H_k(M)$ in the case that $N=S^k$.
+a map which generalizes the Hurewicz homomorphism $\pi_k(M) \to \H_k(M)$ in the case that $N=S^k$.
 As with the Hurewicz homomorphism, the correspondence in \cref{eq:homotopy-class-to-homology-class} is generally not surjective or injective.
 
-In the case of the Hurewicz homomorphism, if $M$ is $(k-1)$-connected for $k > 1$ the Hurewicz homomorphism is in fact an isomorphism $\pi_{k}(M) \cong \H_{k}(M)$. Consequently, every homology cycle in $\H_{k}(M)$ can at least be represented by an smooth map of a sphere $S^{k}$ into $X$. However, this smooth map need not be an immersion, and even still might have unavoidable ``double-points'' -- multiple points of the sphere mapping to the same point in the image and preventing the smooth map from being an embedding.
+In the case of the Hurewicz homomorphism, if $M$ is $(k-1)$-connected for $k > 1$ the Hurewicz homomorphism is an isomorphism $\pi_{k}(M) \cong \H_{k}(M)$. Consequently, every homology cycle in $\H_{k}(M)$ can at least be represented by an smooth map of a sphere $S^{k}$ into $X$. However, this smooth map need not be an immersion, and even still might have unavoidable ``double-points'' -- multiple points of the sphere mapping to the same point in the image and preventing the smooth map from being an embedding.
 
-\begin{remark}
+\begin{remark*}
 	For a classical account of some issues which can arise when representing homology classes by smooth maps, see Chapter II of Ren\'e Thom's seminal paper \cite{thom1954}.
-\end{remark}
+\end{remark*}
 
-\begin{remark}\label{rmk:homology-dimension-4-embedding}
-	In some cases, the homology classes of interest to the intersection form can \emph{always} be represented by embedded submanifolds. For instance if $M$ is a simply-connected $4$-manifold, every element of $\H^2(M)$ is represented by an embedded submanifold. For some elegant proofs of this fact, see page 114 of \cite{scorpan2005wild}.
+\begin{remark*}\label{rmk:homology-dimension-4-embedding}
+	In some cases, the homology classes of interest to the intersection form can \emph{always} be represented by embedded submanifolds. For instance if $M$ is a simply-connected $4$-manifold, every element of $\H^2(M)$ is represented by an embedded submanifold. For several elegant proofs of this fact, see page 114 of \cite{scorpan2005wild}.
 	% \begin{equation}
 	% 	\H^2(M; \Z) \cong [M, K(\Z,2)] \cong [M, \CP^\infty] \cong [M,\CP^2],
 	% \end{equation}
 	% where the first is the representability of singular cohomology by the Eilenberg-Maclane spectrum, the second identifies $\CP^\infty$ as a $K(\Z,2)$ space, and the third uses the cellular approximation theorem to slide maps onto the $4$-skeleton. Any cohomology cycle $\omega\in \H^2(M)$ can be represented by a smooth function $f : M \to \CP^2$. If we choose this function to be transverse to $\CP^1\subset \CP^2$, then $f^{-1}(\CP^1)$ is an embedded $2$-dimensional submanifold of $M$ which corresponds to a Poincar\'e dual class to $\omega$. When $X$ is a compact manifold, Poincar\'e duality tells us that all $2$-dimensional homology cycles arise from $2$-dimensional cohomology cycles and can thus be represented by embedded submanifolds. 
-	This is one example of the attractiveness of $4$-manifolds as geometric objects of study.
-\end{remark}
+	This representability is one example of the attractiveness of $4$-manifolds as geometric objects of study.
+\end{remark*}
 
-Once in the context of differential topology, we can take the intersection number of two immersions. For an introduction to the notion of intersection number, see Chapter 2 of \cite{gp2010topology}. When homology classes are represented by immersions, the topological notion of intersection number agrees with the algebraic intersection of homology classes.
+Once in the context of differential topology, we can take the intersection number of two immersions. When homology classes are represented by immersions, the topological notion of intersection number agrees with the algebraic intersection of homology classes. For an in-depth introduction to the notion of intersection number, see Chapter 2 of \cite{gp2010topology}. 
 % If $M$ is a 
 % \begin{equation}\label{eq:oriented-intersection-number-homotopy}
 % 	\lkxfunc{I}{[N_1,M]\times [N_2,M]}{\Z}{f,g}{I(f,g)}
@@ -357,7 +371,7 @@ For details on the relationship between homology, intersections, and the degree 
 
 \subsection{Intersection Form Invariants}\label{sec:intersection-form-invariants}
 
-While the complete algebraic data of an intersection form captures a lot of the topological structure of a manifold, it is useful to extract further simpler invariants from the intersection form.
+While the complete algebraic data of an intersection form captures a lot of the topological structure of a manifold, it is useful to extract simpler invariants from the intersection form.
 
 We will work with a general integer lattice $\Lambda$ and $Q$ an integral bilinear form over $\Lambda$, not necessarily the intersection form of some manifold. Recall that under a change of basis matrix $P$, the matrix of the bilinear form transforms as $Q\mapsto P^\intercal QP$. We are therefore looking for quantities which are invariant under such transformations, helping us understand the structure of the monoid $\mathcal{Q}(\Z)$.
 
@@ -393,7 +407,7 @@ A bilinear form is unimodular if and only if $Q^\d$ is an isomorphism. The notio
 	\end{equation}
 	The resulting pairing $\langle -, -\rangle : \H^m(M,\partial M)\otimes \H_m(M) \to \Z$, known as the Kronecker pairing, is therefore a \defn{perfect}[perfect bilinear form] pairing. Since the intersection form is given by
 	\[
-		Q_M(a,b) = \langle \mathrm{PD}(a), b\rangle,\quad a,b\in \H_m(M)
+		Q_M(a,b) = \langle \mathrm{PD}^{-1}(a), b\rangle,\quad a,b\in \H_m(M)
 	\]
 	where $\mathrm{PD} : \H^{m}(M,\partial M) \to \H_m(M)$ is the Poincar\'e-Lefschetz duality isomorphism, it follows that $Q_M^\d$ is the composition of $\mathrm{PD}$ with \cref{eq:dual-lattice-isomorphism} and so is an isomorphism itself.
 \end{proof}
@@ -408,14 +422,14 @@ Thus far, we have only computed the intersection forms of closed manifolds and c
 			1 & 0 \\ 0 & 0
 		\end{pmatrix}
 	\]
-	which is clearly degenerate. Note that the boundary of $M$ is $S^2\times S^2$ which has non-trivial $\H_2(S^2\times S^2)$ so \cref{prop:unimodular-intersection-form} does not apply.
+	which is clearly degenerate. Note that the boundary of $M$ is $S^2\times S^2$ which has non-trivial homology $\H_2(S^2\times S^2)$ so \cref{prop:unimodular-intersection-form} does not apply.
 \end{example}
 
 \begin{example}
-	The unit disk bundle $D(\T S^2)$ over $S^2$ has intersection form $(2)$, which is non-degenerate but not unimodular. Note that the boundary $\partial D(\T S^2)= S(\T S^2)$ is diffeomorphic to $\CP^2$, which has non-trivial homology $\H_2(\CP^2)$.
+	The unit disk bundle $D(\T S^2)$ over $S^2$ has intersection form $(2)$, since we can find a vector field on $S^2$ with no less than $2$ zeroes. This intersection form is non-degenerate but not unimodular. Note that the boundary $\partial D(\T S^2)= S(\T S^2)$ is diffeomorphic to $\CP^2$, which has non-trivial homology $\H_2(\CP^2)$.
 \end{example}
 
-Aside from the hyperbolic form, another important building for intersection forms in geometric topology is the $E_8$ form, an ``exotic'' bilinear form. This form shows up ``naturally'', but is also tremendously useful in constructions, especially for homotopy spheres. We make use of it in \cref{sec:plumbing}.
+Aside from the hyperbolic form, another important building for intersection forms in geometric topology is the $E_8$ form, an ``exotic'' bilinear form which arises in many contexts across algebra, geometry, in topology. For instance, it is represented by the Cartan matrix of the $248$-dimensional exceptional Lie group $E_8$.
 
 \begin{definition}
 	The \defn{$E_8$ form} is the bilinear form given by
@@ -432,6 +446,7 @@ Aside from the hyperbolic form, another important building for intersection form
 			  &   &   &   & 1 &   &   & 2 \\
 		\end{pmatrix}
 	\]
+	This form is the basis for the construction of homotopy spheres in \cref{sec:plumbing}.
 \end{definition}
 
 Note that this is a unimodular form since by a series of row/column operations of the form $Q\mapsto PQP^\intercal$ we get
@@ -462,34 +477,33 @@ Note that this is a unimodular form since by a series of row/column operations o
 \begin{example}\label{example:k3}
 	The \defn{Fermat quartic surface} is defined by the homogeneous polynomial
 	\[
-		\mathcal{K} = \left\{ [z_0 : z_1 : z_2 : z_3]\in \CP^3 \mid z_0^4 + z_1^4+z_2^4 + z_3^4=0\right\}.
+		K_3 = \left\{ [z_0 : z_1 : z_2 : z_3]\in \CP^3 \mid z_0^4 + z_1^4+z_2^4 + z_3^4=0\right\}.
 	\]
-	This is an example of a \defn{K3 surface}, an important class of complex manifolds in algebraic geometry, representation theory, and topology.
-	We will not prove this here, but it can be shown that $\H_2(\mathcal{K})\cong \Z^{22}$ and the intersection form admits the remarkable decomposition
+	This is an example of a \defn{K3 surface}, an important class of complex manifolds in algebraic geometry, representation theory, and topology. A great exposition can be found in \cite{huybrechtsK3}. We will not prove this here, but it can be shown that $\H_2(K_3)\cong \Z^{22}$ and the intersection form admits the remarkable decomposition
 	\[
-		Q_{\mathcal{K}} =
+		Q_{K_3} =
 		\begin{pmatrix}
 			0 & 1 \\ 1 & 0
 		\end{pmatrix}^{\oplus 3}\oplus
-		-E_8^{\oplus 2}
+		(-E_8)^{\oplus 2}
 	\]
-	In particular, this matrix is unimodular since $\mathcal{K}$ is a closed manifold. 
+	In particular, this matrix is unimodular since $K_3$ is a closed manifold. 
 \end{example}
 
-\begin{remark}\label{rmk:kummer-construction}
-	There is a beautiful construction of $\mathcal{K}$ from the quotient of a fourfold torus $(S^1)^{\times 4}$ under complex conjugation. The action has 16 fixed points, and so the quotient has sixteen singular points. By cutting out these singular points and replacing them with the total space of the disk bundle $\D(\T \overline{\CP}^1)$,\footnote{Complex conjugation reverses orientation, so this space has intersection form $(-2)$.} we get the simply-connected smooth manifold $\mathcal{K}$. This is known as the \defn{Kummer construction}, see Section 3.3 of \cite{scorpan2005wild} for an accessible introduction.
-\end{remark}
+\begin{remark*}\label{rmk:kummer-construction}
+	There is a beautiful construction of $\mathcal{K}$ from the quotient of a fourfold torus $(S^1)^{\times 4}$ under complex conjugation. The action has 16 fixed points, and so the quotient (topological) manifold has sixteen singular points. By cutting out these singular points and replacing them with the total space of the disk bundle $\D(\T \overline{\CP}^1)$,\footnote{Complex conjugation reverses orientation, so this space has intersection form $(-2)$.} we get the simply-connected smooth manifold $K_3$. This is known as the \defn{Kummer construction}, see Section 3.3 of \cite{scorpan2005wild} for an accessible introduction.
+\end{remark*}
 
 \begin{definition}
 	Write $Q=P^\intercal D P$ for a diagonal real matrix $D$ ($P$ can be a real matrix), then count the number $n^+$ of positive eigenvalues, $n^0$ the number of zero eigenvalues, and number $n^-$ of negative eigenvalues. The \defn{signature}[signature of a bilinear form] of the bilinear form is the difference between the number of positive and negative eigenvalues $n^+-n^-$.
 	The triple $(n^+, n^-, n^0)$ is referred to as the \defn{inertia}[inertia of a bilinear form] of $Q$.
 \end{definition}
 
-\begin{remark}
+\begin{remark*}
 	For non-degenerate forms, $n^0$ is always $0$.
-\end{remark}
+\end{remark*}
 
-For instance, the matrix
+For instance, the diagonal matrix
 \begin{equation}\label{eq:diagonal-matrix}
 	(1)^{\oplus p}\oplus (-1)^{\oplus q} = \begin{pmatrix}
 		1 &        &   &    &             \\
@@ -501,15 +515,15 @@ For instance, the matrix
 	\end{pmatrix}
 \end{equation}
 has signature $p-q$. By Sylvester's Law of Inertia (see \cite{lam2005quadratic}), any symmetric non-degenerate bilinear form over $\R$ or $\Q$ can be written as a matrix \cref{eq:diagonal-matrix}, unique up to permutation.
-In fact, the rank and inertia completely classify symmetric bilinear forms on a vector space over $\R$ or $\Q$. Over the integers $\Z$, not all forms can be put into the form \cref{eq:diagonal-matrix} -- for instance, over the rationals, the hyperbolic form $H$ can be written as
-\begin{equation}\label{eq:hyperbolic-form-transformation}
+In fact, the rank and inertia completely classify symmetric bilinear forms on a vector space over $\R$ or $\Q$. Over the integers $\Z$, not all forms can be put into the form \cref{eq:diagonal-matrix} -- for example, over the rationals, the hyperbolic form $H$ can be written as
+\[
 	\begin{pmatrix} 0 & 1\\ 1 & 0 \end{pmatrix}
 	\quad\lkxto\quad
 	\begin{pmatrix} 1 & 1/2 \\ 1 & -1/2 \end{pmatrix}
 	\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
 	\begin{pmatrix} 1 & 1 \\ 1/2 & -1/2 \end{pmatrix}=
 	\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
-\end{equation}
+\]
 It is an easy exercise to show that such a transformation cannot be done over a ring $R$ with $2\not\in R^\times$. While the hyperbolic form $H$ and $(1)\oplus (-1)$ have the same signature and rank, they do not represent the same integral bilinear form.
 The classification of symmetric bilinear forms over the integers is thus considerably more difficult than over a field, and this complexity reflects the complexity of manifolds in $4k$-dimensions.
 
@@ -517,20 +531,20 @@ The classification of symmetric bilinear forms over the integers is thus conside
 	The \defn{signature}[signature of a manifold] of a $4k$-dimensional manifold $M$ is the signature of its intersection form, and is denoted $\sigma(M)$.
 \end{definition}
 
-\begin{remark}
+\begin{remark*}
 	Note that in the context of intersection forms, the signature is only a useful invariant for $4k$-manifolds, since the intersection form of a $(4k+2)$-manifold is skew-symmetric and thus has signature $0$. In the case of $(4k+2)$-manifolds, the relevant invariant is the Arf invariant, which we briefly discuss in \cref{chap:conclusion}.
-\end{remark}
+\end{remark*}
 
 \begin{example}
 	By \cref{prop:intersection-form-complex-projective-plane}, the signature of complex projective spaces is
 	\[
 		\sigma(\CP^k)=\begin{cases}1 & k\textrm{ even},\\ 0 & k\textrm{ odd}.\end{cases}
 	\]
-	Note that reversing the orientation of a manifold reverses the signature. The diagonal matrix $(1)^p\oplus (-1)^q$ is thus represented by the manifold $\+[p] \CP^{2m} \+[q] \overline{\CP}^{2m}$, where $\overline{\CP}^{2m}$ denotes the conjugate complex structure on $\CP^{2m}$ which reverses orientation.
+	By reversing the orientation of a manifold reverses the signature. The diagonal matrix $(1)^p\oplus (-1)^q$ of \cref{eq:diagonal-matrix} is thus represented by the manifold $\+[p] \CP^{2m} \+[q] \overline{\CP}^{2m}$, where $\overline{\CP}^{2m}$ denotes the conjugate complex structure on $\CP^{2m}$ which reverses orientation.
 \end{example}
 
 \begin{example}
-	The signature of the Fermat quartic surface is $\sigma(\mathcal{K})=-16$.
+	The signature of the Fermat quartic surface is $\sigma(K_3)=-16$.
 \end{example}
 
 Finally, we introduce two more categories of bilinear form which split the set of bilinear forms into quadrants.
@@ -543,15 +557,34 @@ Finally, we introduce two more categories of bilinear form which split the set o
 	If for all elements $a\in \Lambda$, the diagonal entry $Q(a,a)$ is even, then $Q$ is said to be \defn{even}[even bilinear form]. Otherwise, we say that $Q$ is \defn{odd}[odd bilinear form].\footnote{Some sources refer to this property as ``type''. Odd forms are \defn{type I}[type I bilinear form] and even forms are \defn{type II}[type II bilinear form].}
 \end{definition}
 
-\begin{theorem}\label{thm:indefinite-bilinear-forms-isomorphic}
-	Two unimodular indefinite bilinear forms are isomorphic if they have the same rank, parity, and signature.
-\end{theorem}
+There are many highly non-trivial relationships between unimodular forms sitting in these various categories.
 
-For instance, the $E_8$ form is a unimodular, positive-definite, even, symmetric bilinear form. In fact, $E_8$ has the smallest size for a non-trivial bilinear form satisfying these conditions by the following theorem. We follow the proof of Serre in his classic treatise on unimodular bilinear forms 
+\begin{example}
+For instance, the $E_8$ form is a unimodular, positive-definite, even, symmetric bilinear form. 
+$E_8$ has the smallest size for such a bilinear form, by the following theorem (see \cite{serre1961forms}):
+\end{example}
 
 \begin{theorem}
 	The signature of an even unimodular bilinear form is divisible by $8$.
 \end{theorem}
+
+For indefinite unimodular forms, the classification of unimodular forms admits a simple description.
+
+\begin{theorem}\label{thm:indefinite-bilinear-forms-isomorphic}
+	Two unimodular indefinite bilinear forms are isomorphic if they have the same rank, parity, and signature.
+\end{theorem}
 \begin{proof}
-	See \cite{serre1961forms}.
+	See Chapter II of \cite{milnorhuse1973forms}.
 \end{proof}
+
+\begin{corollary}
+	Every unimodular indefinite form is isomorphic to
+	\[
+		\oplus^p (1)\oplus^q (-1)\quad\textrm{or}\quad \pm \oplus^r E_8 \oplus^{s>0} H,
+	\]
+	for integers $p,q,r,s$. The left side represents all possible odd unimodular indefinite forms, and the right side represents all even unimodular indefinite forms.
+\end{corollary}
+
+However, the classification of definite forms is far harder, and corresponds to highly non-trivial problems in lattice geometry and number theory.
+
+\smallrule

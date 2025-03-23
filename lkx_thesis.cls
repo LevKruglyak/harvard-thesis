@@ -12,6 +12,9 @@
 % Diagrams
 \usepackage{graphicx}
 \usepackage{import}
+% \usepackage{svg}
+% \svgsetup{inkscape=force}
+% \svgsetup{inkscape=page}
 
 % Better font
 \usepackage[T1]{fontenc}
@@ -130,7 +133,7 @@
 % Table of Contents
 \usepackage{titletoc}
 \usepackage[titles]{tocloft}
-\setlength{\cftbeforechapskip}{4pt}
+% \setlength{\cftbeforechapskip}{4pt}
 
 \newcommand{\lkxtoc}[1]{
 	\renewcommand{\contentsname}{#1}
