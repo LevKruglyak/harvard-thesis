@@ -1,69 +1,64 @@
-\pagebreak
 \section{Geometric Invariants}\label{sec:invariants-for-homotopy-4k-1-spheres}
 
 Armed with the power of the signature theorem, we now attempt to build some invariants for homotopy spheres.
-Due to the topological simplicity of homotopy spheres, it's difficult to imagine how we could construct such an invariant which can distinguish smooth structure. One of the great ideas of 20th century topology is to pass to a coboundary in situations like this. Namely, if the usual invariants on a manifold $M$ vanish, find a manifold $W$ a dimension higher which has $M$ as a boundary (this isn't always possible since not all manifolds are null-cobordant).
-In the case such a manifold exists, it is referred to as a \defn{coboundary} of $M$. If we are careful, we can use the topology of the coboundary $W$ to construct an invariant which does not depend on the choice of coboundary $W$.
+Due to the topological simplicity of homotopy spheres, it is difficult to imagine how we could construct such an invariant which can distinguish smooth structure. One of the great ideas of 20th century topology is to pass to a coboundary in situations like this. Namely, if the usual invariants on a manifold $M$ vanish, find a manifold $W$ a dimension higher which has $M$ as a boundary, i.e. a coboundary of $M$. Note that in general, such a manifold might not exist since not all manifolds are null-cobordant. If we are careful, we can use the topology of the coboundary $W$ to construct an invariant which does not depend on the choice of coboundary $W$.
 
-\begin{remark}
+\begin{remark*}
 	This idea of passing to a coboundary is an example of constructing a \defn{secondary invariant}. When primary invariants, in this case characteristic forms, turn out to be zero, we lift to a case where they are not zero, and use the descent data to measure ``how'' the original invariants vanished. This is a central idea of Chern-Simons theory \cite{chernsimons1974geometric}, a topic which has found widespread application in constructing quantum field theories.
-\end{remark}
+\end{remark*}
 
 \subsection{Invariants of Manifolds with Boundary}\label{sec:relative-invariants}
 
-While there are no topological constraints needed to define invariants such as the signature or Euler characteristic on a manifold, constraints do appear when generalizing characteristic numbers to the manifolds with boundary. We will explore these subtleties in this section in preparation for the construction of exotic sphere invariants in \cref{sec:invariants-for-homotopy-4k-1-spheres}.
+While there are no topological constraints needed to define invariants such as the signature or Euler characteristic on a manifold, constraints do appear when generalizing characteristic numbers to manifolds with boundary. We will explore these subtleties in this section in preparation for the construction of exotic sphere invariants in \cref{sec:milnor-method}.
 
 Suppose we have some cohomology and homology theory $h$ with coefficient ring $h_0(*)=R$.
 Characteristic classes on an $n$-dimensional manifold $W$ are defined as cohomology classes in $c\in h^k(W)$. When the manifold is closed and the characteristic class is homogeneous of degree $n$, Poincar\'e duality allows us to associate a characteristic number $c[W]\in h_0(W)$ to $c$ given a fundamental class $[W]\in h_n(W)$. If $W$ has non-empty boundary, Poincar\'e-Lefschetz duality $h^k(W)\to h_{n-k}(W,\partial W)$ gives us an element $c[W]\in h_0(W,\partial W)$. However, this group is trivial for connected manifolds with non-empty boundary and so is a useless context in which to define relative characteristic numbers.
 
-Instead, we try to pull back characteristic classes to the relative cohomology group $h^n(W,\partial W)$ so that Poincar\'e-Lefschetz duality gives us characteristic numbers in $h_0(W)\cong \Z$ for a fundamental class $[W,\partial W]\in \H_n(W,\partial W)$.
+Instead, we try to pullback characteristic classes to the relative cohomology group $h^n(W,\partial W)$ so that Poincar\'e-Lefschetz duality gives us characteristic numbers in $h_0(W)\cong \Z$ for a fundamental class $[W,\partial W]\in \H_n(W,\partial W)$.
 For any integer $\ell$, the pair $(W, \partial W)$ gives a long exact sequence of cohomology groups
 \begin{equation}\label{eq:relative-characteristic-classes-exact-sequence}
 	h^{\ell-1}(\partial W) \lkxto h^{\ell}(W, \partial W) \lkxto[j] h^{\ell}(W) \lkxto h^{\ell}(\partial W)
 \end{equation}
-where $j : h^{\ell}(W, \partial W) \to h^{\ell}(W)$ is the induced map of the inclusion $(W,\emptyset) \to (W, \partial W)$. This is an isomorphism if the groups on either side of \cref{eq:relative-characteristic-classes-exact-sequence} are trivial, which will allow us to pull back.
+where $j : h^{\ell}(W, \partial W) \to h^{\ell}(W)$ is the induced map of the inclusion $(W,\emptyset) \to (W, \partial W)$. This is an isomorphism if the groups on either side of \cref{eq:relative-characteristic-classes-exact-sequence} are trivial, which allows us pullback.
 
 \begin{definition}\label{defn:relative-characteristic_form}
-	Suppose that $h^{\ell}(\partial W)$ and $h^{\ell-1}(\partial W)$ are trivial. For a homogeneous characteristic class $c_\ell(W) \in h^{\ell}(W)$ of degree $\ell$, the \defn{relative characteristic form} is the pullback
+	Suppose that $h^{\ell}(\partial W)$ and $h^{\ell-1}(\partial W)$ are trivial. For a homogeneous characteristic class $c_\ell(W) \in h^{\ell}(W)$ of degree $\ell$, the \defn{relative characteristic class} is the pullback
 	\[
 		c_\ell(W, \partial W) = j^{-1} c_\ell(W) \quad\in h^{\ell}(W, \partial W).
 	\]
 	When the class is top-dimensional, i.e. when $\ell=n$, the \defn{relative characteristic number} is the Poincar\'e-Lefschetz dual number $c_\ell[W,\partial W] \in h_0(W)\approx R$.
 \end{definition}
 
-\begin{remark}
-	There is an intuitive reason for why the topological invariance of characteristic numbers can break down if the manifold has boundary, and this perspective might be illuminating to physics-minded readers. We will work in de Rham cohomology. Characteristic classes are cohomology classes, and so any invariant built from them should be invariant under exact gauge transformations $c\mapsto c+d\Lambda$. For example, a change of Riemannian metric in Chern-Weil theory gives such a transformation with $\Lambda$ the relative Chern-Simons form. The corresponding variation in a characteristic number is then
+\begin{remark*}
+	There is an intuitive reason for why the topological invariance of characteristic numbers can break down if the manifold has boundary, and this perspective might be illuminating to physics-minded readers. Characteristic classes are cohomology classes, and so any invariant built from them should be invariant under exact gauge transformations $c\mapsto c+d\Lambda$. For example, a change of Riemannian metric in Chern-Weil theory gives such a transformation with $\Lambda$ the relative Chern-Simons form. The corresponding variation in a characteristic number is then
 	\[
 		c[M] = \int_M c \quad\lkxto\quad \delta c[M] = \int_M c+d\Lambda-\int_M c = \int_{\partial M} \Lambda.
 	\]
-	The variation $\delta c[M]$ should vanish if $c[M]$ is to be a topological invariant. If the differential equation $\Lambda=dH$ has a solution on $\partial M$, the variation does vanishes and topological invariance is preserved. This is implied by the condition that $\HdR^{\ell-1}(\partial M)$ is trivial, but such a strong condition is not always needed. If there is some extra structure on $M$ restricting the choice of $\Lambda$ to be exact, it is possible to construct invariants even when $\HdR^{\ell-1}(\partial M)$ is non-trivial. See Section V of \cite{witten1985anomalies} for example of such a construction in the context of physics.
-\end{remark}
+	The variation $\delta c[M]$ should vanish if $c[M]$ is to be a topological invariant. If the differential equation $\Lambda=dH$ has a solution on $\partial M$, the variation does vanishes and topological invariance is preserved. This is implied by the condition that $\HdR^{\ell-1}(\partial M)$ is trivial, but such a strong condition is not always needed. If there is some extra structure on $M$ restricting the choice of $\Lambda$ to be exact, it is possible to construct invariants even when $\HdR^{\ell-1}(\partial M)$ is non-trivial. See Section V of \cite{witten1985anomalies} for an example of such a construction in the context of physics.
+\end{remark*}
 
 \begin{definition}\label{defn:relative-characteristic-number-polynomial}
-	Given a sequence of homogeneous polynomials $\{K_n\}$ (not necessarily multiplicative) and a characteristic class $c$, the relative characteristic number associated to $K$ is given by
+	Given a sequence of homogeneous polynomials $\{K_n(x_1,\ldots, x_n)\}$ and a characteristic class $c$, the \defn{relative characteristic number} associated to $K$ is given by
 	\[
 		K_n(c_1, \ldots, c_n)[W,\partial W] = K_n(j^{-1}c_1(W), \ldots, j^{-1}c_n(W))[W,\partial W]
 	\]
 	whenever $h^{|c_i|-1}(\partial W)$ and $h^{|c_i|}(\partial W)$ are trivial for all $i$ such that $K_n$ contains an $x_i$ term.
 \end{definition}
 
-\begin{remark}
-	Note that we pull back \emph{before} applying the polynomial $K$. This is because pulling back a top-dimensional form on $W$ is not generally possible since $h^{n-1}(W)$ is non-trivial and generated by the fundamental class.
-\end{remark}
+\begin{remark*}
+	Note that we pullback \emph{before} applying the polynomial $K$. This is because pulling back a top-dimensional form on $W$ is not generally possible since $h^{n-1}(W)$ is non-trivial and generated by the fundamental class.
+\end{remark*}
 
-\begin{remark}
+\begin{remark*}
 	Note that if $\partial W=\emptyset$, relative characteristic forms and numbers correspond exactly to the non-relative versions since $j$ becomes the identity map.
-\end{remark}
+\end{remark*}
 
 Turning back to our goal of defining an invariant for a manifold $M$ by constructing an invariant of a coboundary $W$ of $M$, we next would like to understand how relative invariants such as the relative characteristic numbers change with respect to a change of coboundary.
-There is a elegant trick we can use to help us answer this. If $W_1$ and $W_2$ are coboundaries for an $n$-dimensional manifold $M$, we can form a closed $(n+1)$-manifold $C$ by gluing $W_1$ and $W_2$ along their boundary $M$.
+There is a elegant trick we can use to help us answer this. If $W_1$ and $W_2$ are coboundaries for an $n$-dimensional manifold $M$, we can form a closed $(n+1)$-manifold $C$ by gluing $W_1$ and $W_2$ along a collar neighborhood of their boundary $M$.
 
 \begin{proposition}
 	There is a unique smooth structure on $C$ which agrees with the smooth structures of $W_1$ and $W_2$. Furthermore, we can give $C$ an orientation which agrees with the orientation of $W_1$ and with the reverse orientation of $W_2$.
 \end{proposition}
-\begin{proof}
-	This is simply a join operation (see \cref{sec:smooth-manifold-operations}) of $W_1$ and $W_2$ along collar neighborhoods (see \cref{thm:collar-neighborhood}) of the boundary $M$.
-\end{proof}
 
 For any $\ell$, the Mayer-Vietoris sequence gives an exact sequence
 \[
@@ -76,7 +71,7 @@ The relative version of the Mayer-Vietoris sequence is of the form
 \]
 since the boundary terms $\H^\ell(M,M)$ vanish, so we have an isomorphism $\rho$.
 By the inclusion isomorphisms in \cref{eq:relative-characteristic-classes-exact-sequence}, and we have a commutative diagram
-\begin{equation}\label{eq:closing_coboundaries_square}
+\[
 	\begin{tikzcd}
 		{h^{\ell}(C,M)} & {h^{\ell}(B_1,M)\oplus h^{\ell}(B_2,M)} \\
 		{h^{\ell}(C)} & {h^{\ell}(B_1)\oplus h^{\ell}(B_2)}
@@ -86,7 +81,7 @@ By the inclusion isomorphisms in \cref{eq:relative-characteristic-classes-exact-
 		\arrow["\mu"', from=2-1, to=2-2]
 		\arrow["h", from=1-2, to=2-1, dashed]
 	\end{tikzcd}
-\end{equation}
+\]
 In the case that $h^{\ell-1}(M)$ and $h^\ell(M)$ are trivial, every map in this diagram is an isomorphism. Otherwise, we can only assume that the top map $\rho$ is an isomorphism.
 Of particular interest to us is the diagonal map $h = j\circ \rho^{-1}$, which ``glues'' together relative forms on $B_1$ and $B_2$ to a form on $C$. 
 
@@ -110,10 +105,10 @@ Of particular interest to us is the diagonal map $h = j\circ \rho^{-1}$, which `
 We get a similar variation formula for the signature:
 
 \begin{proposition}\label{prop:signature-variation}
-	$\sigma(C)=\sigma(W_1)-\sigma(W_2)$.
+	If $\H^{2k}(M; \Q)\cong 0$, then we have $\sigma(C)=\sigma(W_1)-\sigma(W_2)$.
 \end{proposition}
 
-We now have all of the tools needed to construct some basic invariants of homotopy spheres.
+We now have all of the tools needed to construct invariants of homotopy spheres.
 
 \subsection{Milnor's Method for Constructing Invariants}\label{sec:milnor-method}
 
@@ -121,11 +116,12 @@ Let us now use the theory developed in \cref{sec:relative-invariants} to constru
 Given a 7-dimensional homotopy sphere $M$ with 8-dimensional coboundary $W$, there are three invariants which we might consider -- the signature $\sigma$, and the Pontryagin classes $p_1^2$ and $p_2$.
 Based on the cohomology of $M$, we have
 \[
-	\begin{aligned}
-		\H^3(M; \Q)=0,  & \quad \H^4(M; \Q)=0 \\
-		\H^7(M; \Q)=\Q, & \quad \H^8(M; \Q)=0 \\
-		\H^3(M; \Q)=0,  & \quad \H^4(M; \Q)=0
-	\end{aligned}
+	\renewcommand{\arraystretch}{1.2}
+	\begin{array}{r@{\;}l@{\;}l@{\;}}
+		\H^3(M; \Q)&=0,  & \quad \H^4(M; \Q)=0 \\
+		\H^7(M; \Q)&=\Q, & \quad \H^8(M; \Q)=0 \\
+		\H^3(M; \Q)&=0,  & \quad \H^4(M; \Q)=0
+	\end{array}
 	\quad\implies\quad
 	\begin{aligned}
 		 & p_1^2\textrm{ does have a relative generalization.}        \\
@@ -139,31 +135,31 @@ Therefore, the two invariants of interest to us are
 	\quad\textrm{and}\quad
 	\sigma(W).
 \]
-Now, for a \emph{closed} $8$-dimensional manifold $X$, rearranging the Hirzebruch signature theorem gives us the expression
+Now, for a \emph{closed} $8$-dimensional manifold $X$, rearranging Hirzebruch's signature theorem gives us the expression
 \begin{equation}\label{eq:7-manifold_rearrangement}
 	\sigma(X) = \frac{7p_2[X] - p_1^2[X]}{45}
 	\quad\implies\quad
 	p_2[X] = \frac{45\sigma(X) + p_1^2[X]}{7}.
 \end{equation}
-This suggests that there \emph{is} some analogue of the second Pontryagin number for $W$, even though the usual pull back strategy fails. For manifolds with boundary, we might consider the number
+This suggests that there \emph{is} some analogue of the second Pontryagin number for $W$, even though the usual pullback strategy fails. For manifolds with boundary, we might consider the number
 \[
-	\widetilde{p_2}[W, M] = \frac{45\sigma(W) + p_1^2[W, M]}{7} \quad\in\Q.
+\widetilde{p}_2[W, M] = \frac{45\sigma(W) + p_1^2[W, M]}{7} \quad\in\Q.
 \]
-We use the notation $\widetilde{p_2}$ to emphasize that this is \emph{not} the relative Pontryagin number arising from a pullback of $p_2(W)$, but rather a formal expression which reduces to the Pontryagin number $p_2[W]$ when $W$ is closed by the Hirzebruch signature theorem.
+We use the notation $\widetilde{p}_2$ to emphasize that this is \emph{not} the relative Pontryagin number arising from a pullback of $p_2(W)$, but rather a formal expression which reduces to the Pontryagin number $p_2[W]$ when $W$ is closed by the Hirzebruch signature theorem.
 How does the quantity change under a change in coboundary, say if $W_1$ and $W_2$ were coboundaries? Letting $C$ be the $8$-manifold obtained by gluing them together, we see that
 \[
 	\begin{aligned}
-		\widetilde{p_2}[W_1,M] - \widetilde{p_2}[W_2,M]
+	\widetilde{p}_2[W_1,M] - \widetilde{p}_2[W_2,M]
 		 & = \frac{45\sigma(W_1,M) + p_1^2[W_1,M]}{7} - \frac{45\sigma(W_2, M) + p_1^2[W_2,M]}{7} \\
 		 & =\frac{45\sigma(C) + p_1^2[C]}{7} = p_2[C].
 	\end{aligned}
 \]
-But this last term is just an ordinary Pontryagin number, and hence an integer. While $\widetilde{p_2}$ is a priori a rational number for a given coboundary, it changes by an integer -- namely by the Pontryagin number $p_2[C]$ of a closed manifold.
-Taking the fractional part of $\widetilde{p_2}$ thus gives us an invariant of $M$ which is \emph{independent of the coboundary}!
+But this last term is just an ordinary Pontryagin number, and hence an integer. While $\widetilde{p}_2$ is a priori a rational number for a given coboundary, it changes by an integer -- namely by the Pontryagin number $p_2[C]$ of a closed manifold.
+Taking the fractional part of $\widetilde{p}_2$ thus gives us an invariant of $M$ which is \emph{independent of the coboundary}!
 
-\begin{remark}
-	Given a homotopy sphere $M$, the quantity $\widetilde{p_2}[W,M]$ is a well-defined element of $\Q/\Z$ for any oriented coboundary $W$. It is common to multiply both sides by $7$ so that $7\cdot \widetilde{p_2}[W,M]$ is a well-defined element of $\Z/7$, although this is purely a convention and has no mathematical difference.
-\end{remark}
+\begin{remark*}
+Given a homotopy sphere $M$, the quantity $\widetilde{p}_2[W,M]$ is a well-defined element of $\Q/\Z$ for any oriented coboundary $W$. It is common to multiply both sides by $7$ so that $7\cdot \widetilde{p_2}[W,M]$ is a well-defined element of $\Z/7$, although this is purely a convention and has no mathematical difference.
+\end{remark*}
 
 \begin{definition}\label{def:milnor-invariant-7}
 	Let $M$ be a null-cobordant\footnote{This is a redundant condition since all oriented $7$-manifolds are null-cobordant.}
@@ -174,37 +170,39 @@ Taking the fractional part of $\widetilde{p_2}$ thus gives us an invariant of $M
 	for $W$ any oriented coboundary of $M$.
 \end{definition}
 
-Note that this expression is exactly $7\cdot \widetilde{p_2}[W,M]\mod 7$.
+\begin{remark*}
+	Note that this expression is exactly $7\cdot \widetilde{p}_2[W,M]\mod 7$. We could have just as easily left the expression $\mod 1$ instead of multiplying both sides by the denominator, this is purely a convention.
+\end{remark*}
 
-\begin{remark}
-	Since it takes values in $\Z/7$, the ``resolution'' of the Milnor invariant is at most $7$, meaning that it can detect at most $7$ distinct smooth structures on a $7$-dimensional sphere. We will see a refinement of this invariant in \cref{sec:eells-kupier-invariant} which is able to detect all $28$ smooth structures.
-\end{remark}
+\begin{remark*}
+	Since it takes values in $\Z/7$, the ``resolution'' of the Milnor invariant is at most $7$, meaning that it can detect at most $7$ distinct smooth structures on a $7$-dimensional sphere. We will see a refinement of this invariant in \cref{sec:eells-kupier-invariant} which is able to detect all $28$ smooth structures on $7$-dimensional spheres.
+\end{remark*}
 
-The basic ideas outlined for $7$-manifolds should work for $(4k-1)$-manifolds in general, so let us work through this case. If we require that $\H^{2i}(M)$ and $\H^{4i}(M)$ are trivial for all $i<k$, then Poincar\'e duality ensures that $\H^{2i-1}(M)$ and $\H^{4i}(M)$ are trivial as well. For full generality, we should also assume that $M$ is null-cobordant (which all homotopy-spheres are) so that a coboundary exists, although results in \cref{sec:cobordism} imply that all $(4k-1)$-manifolds are oriented null-cobordant.
+The basic ideas outlined for $7$-manifolds should work for $(4k-1)$-manifolds in general, so let us work through this case. To simplify the assumptions, we need only require that $\H^{2k}(M)$ and $\H^{4i}(M)$ are trivial for all $i<k$, since Poincar\'e duality ensures that $\H^{2k-1}(M)$ and $\H^{4i-1}(M)$ are trivial for all $i<n$ as well. We do not need to assume null-cobordism, since the results in \cref{sec:cobordism} imply that all $(4k-1)$-manifolds are oriented null-cobordant.
 
 As in the $7$-dimensional case, all but the top-dimensional Pontryagin classes can be generalized to a coboundary $W$.
 If we let $X$ be a closed $4k$-manifold and use the Hirzebruch signature theorem, we can do a rearrangement similar to \cref{eq:7-manifold_rearrangement} in order to get the expression
 \begin{equation}\label{eq:4k-1-manifold_rearrangement}
 	\sigma(X) = L_k(p_1, \ldots, p_k)[X]\quad\implies\quad
-	p_k[X] = \frac{\sigma(X) - L_k(p_1,\ldots, p_{k-1}, 0)[X]}{s_k}.
+	p_k[X] = \frac{\sigma(X) - L_k(p_1,\ldots, p_{k-1}, 0)[X]}{C_L(k)}.
 \end{equation}
-Here $s_k=L_k(0,\ldots, 0, 1)$ is the coefficient of $x_k$ in the $L$-genus $L(x_1,\ldots, x_k)$.
+Here $C_L(k)=L_k(0,\ldots, 0, 1)$ is the coefficient of $x_k$ in the $L$-genus $L(x_1,\ldots, x_k)$.
 As before, we use the rearrangement \cref{eq:4k-1-manifold_rearrangement} to get a rational number
 \[
-	\widetilde{p_k}[W, M] = \frac{\sigma(W) - L_k(p_1,\ldots, p_{k-1}, 0)[W,M]}{s_k}
+\widetilde{p}_k[W, M] = \frac{\sigma(W) - L_k(p_1,\ldots, p_{k-1}, 0)[W,M]}{C_L(k)}
 \]
 which acts as a rational generalization of the $k$-th Pontryagin class. By \cref{prop:relative-characteristic-number-variation} and \cref{prop:signature-variation}, given any coboundaries $W_1$ and $W_2$ we get
 \[
-	\widetilde{p_k}[W_1, M] - \widetilde{p_k}[W_2, M] = p_k[C],
+\widetilde{p}_k[W_1, M] - \widetilde{p}_k[W_2, M] = p_k[C],
 \]
-where $C$ is the gluing of $B_1$ and $B_2$. Since the $k$-th Pontryagin number of a closed manifold is an integer, we take the fractional part of $\widetilde{p_k}[W,M]$ and multiplying by the common denominator, we arrive at an generalization of the Milnor invariant for a $7$-manifold.
+where $C$ is the gluing of $B_1$ and $B_2$. Since the $k$-th Pontryagin number of a closed manifold is an integer, we take the fractional part of $\widetilde{p}_k[W,M]$ and multiply by the common denominator to arrive at a generalization of the Milnor invariant:
 
 \begin{definition}
-	Let $M$ be a null-cobordant closed $(4k-1)$-manifold with $\H^{4i}(M)$ and $\H^{2i}(M)$ trivial for all $i<n$. The \defn{Milnor invariant} of $M$ is
+	Let $M$ be a closed $(4k-1)$-manifold with $\H^{4i}(M)$ and $\H^{2k}(M)$ trivial for all $i<k$. The \defn{Milnor invariant} of $M$ is
 	\[
-		\milinv(M) = \denom(s_k)\cdot \left(\sigma(W) - L_k(p_1, \ldots, p_{k-1},0)[W,M]\right)\mod \numer(s_k),
+		\milinv(M) = \denom(C_L(k))\cdot \left(\sigma(W) - L_k(p_1, \ldots, p_{k-1},0)[W,M]\right)\mod \numer(C_L(k)),
 	\]
-	where $s_k = L_k(0,\ldots,0,1)$ is the coefficient of the last term in the $L$-polynomial and $\numer$ and $\denom$ take the numerator and denominator of a rational number respectively.
+	where $C_L(k) = L_k(0,\ldots,0,1)$ is the coefficient of leading term in the $L_k$-polynomial and $\numer$ and $\denom$ take the numerator and denominator of a rational number respectively.
 \end{definition}
 
 \begin{example}
@@ -236,15 +234,18 @@ If we use a different integrality theorem, this procedure gives a different inva
 
 \subsection{The Eells-Kupier Invariant}\label{sec:eells-kupier-invariant}
 
-In the previous section, we used the Hirzebruch signature theorem to construct the Milnor invariant for manifolds with oriented coboundary. Orientation is crucial here, since the Hirzebruch signature theorem does not hold for unoriented manifolds. To generalize the Milnor invariant, we look at a higher-order type of orientation known as a spin structure. This will lead us to the Eells-Kupier invariant, first defined in \cite{eellskupier1962}.
 
-Recall that the group $\SO_n$ has fundamental group $\Z/2$ for $n\geq 3$, and so the universal cover of $\SO_n$ is a double cover. This double cover is denoted $\Spin_n$ and are known as \defn{spin groups}. The group structure of $\SO_n$ lifts naturally to any covering space, so we could define the Lie group structure on $\Spin_n$ this way. However, there is a more satisfying definition of $\Spin_n$ in terms of Clifford algebras, so we refer the reader to Chapter 1 of the standard reference for spin geometry \cite{lawson1989spin} for more details on this construction.
+The previous section relied heavily on the Hirzebruch signature theorem, which holds for any closed and oriented manifold.
+Orientation is crucial here, since the Hirzebruch signature cannot even be stated otherwise (Pontryagin classes require orientation). To generalize the Milnor invariant, we look at a higher-order type of orientation known as a spin structure. This will lead us to the Eells-Kupier invariant, originally defined in \cite{eellskupier1962}.
 
-In low dimensions, there are some exceptional isomorphisms which help with intuition for the spin groups.
+Recall that the group $\SO_n$ has fundamental group $\Z/2$ for $n\geq 3$, and so the universal cover of $\SO_n$ is a double cover. The double covers are the \defn{spin groups}, denoted $\Spin_n$.
+The group structure of $\SO_n$ lifts naturally to any covering space, so we could define the Lie group structure on $\Spin_n$ this way. However, there is a more satisfying definition of $\Spin_n$ in terms of Clifford algebras, so we refer the reader to Chapter 1 of the standard reference for spin geometry \cite{lawson1989spin} for more details on this construction.
+
+There are some useful exceptional isomorphisms which help with intuition:
 \begin{example}
 	$\Spin_3\cong \SU_2\cong \Sp_1$.
 
-	Since $\SO_3\cong \RP^3$, the covering map $\Spin_3 \to \SO^3$, at least topologically, is the map identifying antipodal points on a $3$-sphere $S^3\to \RP^3$.
+	Since $\SO_3\cong \RP^3$, the covering map $\Spin_3 \to \SO^3$, at least topologically, is the map identifying antipodal points on a $3$-sphere $S^3\to \RP^3$. This correspondence is incredibly useful, not just in mathematics. For example the correspondence $\Spin_3\cong \SU_2$ appears in quantum mechanics via the Pauli matrices which help model the spin of a particle, and the correspondence $\Spin_3\cong \Sp_1$ is useful in robotics and engineering by allowign rotations in $\SO_3$ to be cleanly represented by unit quaternions in $\Sp_1$.
 \end{example}
 \begin{example}
 	$\Spin_4\cong \Spin_3\times\Spin_3\cong \SU_2\times \SU_2\cong \Sp_1\times \Sp_2$.
@@ -275,15 +276,15 @@ Just like the first Stiefel-Whitney class $w_1$ obstructs an orientation on a ve
 	This is proved using standard methods in obstruction theory. For details, see Theorem 1.7 of Chapter II in \cite{lawson1989spin}.
 \end{proof}
 
-\begin{remark}
-	Historically, the motivation for spin structure first arose from physics. In the 1920s, physicists attempted to merge quantum mechanics with Einstein's theory of special relativity. \todo{elaborate a bit}.
-	% The first such attempt resulted in the Klein-Gordon wave equation
-	% \[
-	% 	\left(-\frac{\partial^2}{\partial t^2} + \nabla^2\right)\psi = m^2\psi
-	% \]
-\end{remark}
+% \begin{remark*}
+% 	Historically, the motivation for spin structure first arose from physics. In the 1920s, physicists attempted to merge quantum mechanics with Einstein's theory of special relativity. \todo{elaborate a bit}.
+% 	% The first such attempt resulted in the Klein-Gordon wave equation
+% 	% \[
+% 	% 	\left(-\frac{\partial^2}{\partial t^2} + \nabla^2\right)\psi = m^2\psi
+% 	% \]
+% \end{remark*}
 
-As with the Hirzebruch signature theorem for signature, we hope to get an integrality theorem for some invariant which is defined for manifolds with spin structure. 
+As the Hirzebruch signature theorem does for oriented manifolds, we hope to get an integrality theorem for some invariant which is defined for manifolds with spin structure. 
 
 \begin{definition}
 	The \defn{$\Ahat$-genus} of a closed oriented manifold $M$ is the characteristic number $\Ahat[M]$ where $\Ahat$ is the characteristic class coming from the characteristic series
@@ -291,6 +292,7 @@ As with the Hirzebruch signature theorem for signature, we hope to get an integr
 		Q_{\Ahat}(t) = \frac{t/2}{\sinh(t/2)} = 1 - \frac{1}{24} t^2 + \frac{7}{5760} t^4 - \frac{31}{967680} t^6 + \frac{127}{154828800}t^8+\cdots.
 	\]
 \end{definition}
+
 
 \begin{example}
 	The first few polynomials in the $\Ahat$ genus are given by:
@@ -304,13 +306,28 @@ As with the Hirzebruch signature theorem for signature, we hope to get an integr
 \]
 \end{example}
 
+\begin{remark*}
+	There are many elegant ways to derive the series $Q_{\Ahat}(t)$ out of simpler ones. For instance, the Todd genus is integral for complex manifolds and has the characteristic series 
+\[
+	Q_{\mathrm{Td}}(t) = \frac{t}{1-e^{-t}}.
+\]
+Letting $Q_{\cl_1}(t)=t$ be the characteristic series of the first Chern class, we can rewrite
+\[
+	Q_{\mathrm{Td}}(t) = e^{t/2} \frac{t/2}{\sinh(t/2)} = e^{Q_{\cl_1}(t)/2}Q_{\Ahat}(t).
+\]
+In other words, when $\cl_1\equiv w_1\equiv 0\mod 2$, the $\Ahat$-genus is integral for complex manifolds. This is exactly the condition for a complex manifold to admit spin structure.
+\end{remark*}
+
 \begin{proposition}\label{prop:leading_coefficient_Ahat_genus}
-	The leading coefficient of the $\Ahat$-genus $\Ahat_k$ is $\widehat{s}_k=B_{2k}/2(2k)!$.
+	The leading coefficient $C_\Ahat(k)$ of the polynomial $\Ahat_k$ is given by
+	\[
+		C_\Ahat(k)=\frac{B_{2k}}{2(2k)!}.
+	\]
 \end{proposition}
 \begin{proof}
-	By the same idea as \cref{prop:leading_coefficient_L_genus}, we get a generating function for $\widehat{s}_k$
+	By the same idea as \cref{prop:leading_coefficient_L_genus}, we get a generating function for $C_\Ahat(k)$
 	\[
-		1-t\frac{d\log Q_{\Ahat}(\sqrt{t})}{dt} = 1+\frac{t}{24}-\frac{t^2}{1440}+\frac{t^3}{60480} - \frac{t^4}{2419200}+\cdots = \sum_{k\geq 0} (-1)^{k+1}\widehat{s}_k t^k.
+		1-t\frac{d\log Q_{\Ahat}(\sqrt{t})}{dt} = 1+\frac{t}{24}-\frac{t^2}{1440}+\frac{t^3}{60480} - \frac{t^4}{2419200}+\cdots = \sum_{k\geq 0} (-1)^{k+1}C_\Ahat(k) t^k.
 	\]
 	This completes the proof.
 \end{proof}
@@ -332,14 +349,12 @@ As an immediate corollary, we have:
 	If follows that $\sigma(M)=-8\cdot\Ahat[M]$, and by \cref{thm:Ahat-integrality} we know that $\Ahat[M]$ is even. Therefore, the signature is divisible by $8$.
 \end{proof}
 
-\begin{remark}\label{rmk:E8-manifold}
-	Rochlin's theorem and the $E_8$ matrix imply that there exists a closed orientable topological $4$-manifold with no smooth structure. The basic idea is to construct a closed manifold with intersection form $E_8$ (this is non-trivial, note that plumbing leaves a non-empty boundary). 
-	Such a manifold can then not admit a smooth structure since its signature should be divisible by 16. This is one of many consequences of Freedman's classification of topological $4$-manifolds in \cite{freedman1982manifold}.
-\end{remark}
+\begin{remark*}\label{rmk:E8-manifold}
+	Rochlin's theorem and the $E_8$ matrix imply that there exists a closed orientable topological $4$-manifold with no smooth structure. The basic idea is to construct a closed manifold with intersection form $E_8$ (this is non-trivial, since the plumbing construction of \cref{sec:plumbing} leaves a non-empty boundary). 
+	Such a manifold then can not admit a smooth structure since its signature should be divisible by 16. This is one of many consequences of Freedman's classification of topological $4$-manifolds in \cite{freedman1982manifold}.
+\end{remark*}
 
-After the very brief introduction to the $\Ahat$ genus and its integrality theorem, we can now apply the techniques behind the construction of the Milnor invariant to the $\Ahat$ genus. As before, we begin with the $7$-dimensional case. 
-
-Suppose we had an closed $8$-dimensional manifold $W$. If $W$ is oriented and spin, we have the integer invariants
+After the very brief introduction to the $\Ahat$ genus and its integrality theorem, we can now apply the techniques behind the construction of the Milnor invariant to the $\Ahat$ genus. As before, we begin with the $7$-dimensional case. Suppose we had an closed $8$-dimensional manifold $W$. If $W$ is oriented and spin, we have the integer invariants
 \[
 	\sigma(W) = \frac{1}{45}(7p_2- p_1^2)[W]\quad\textrm{and}\quad\Ahat_2[W] = \frac{1}{5760}(-4p_2 + 7p_1^2)[W].
 \]
@@ -361,14 +376,14 @@ This is an integer for closed manifolds $W$ with spin structure, so taking the f
 	for any coboundary $W$ with spin structure.
 \end{definition}
 
-More generally, suppose we had a closed $(4k-1)$-manifold with $\H^{2i}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial. If $W$ is a coboundary admitting a spin structure, we can express its $\Ahat$-genus as
+More generally, suppose we had a closed $(4k-1)$-manifold with $\H^{2k}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial for $i<k$. If $W$ is a spin coboundary, we can express its $\Ahat$-genus as:
 \[
 	\begin{aligned}
 	\Ahat[W]&=\Ahat_k(p_1,\ldots, p_k)[W]\\
-					&= \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{s_k}\right)[W]
+					&= \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{C_L(k)}\right)[W]
 	\end{aligned}
 \]
-By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ when $k\equiv 1\mod 2$. We denote this factor 
+By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ when $k\equiv 1\mod 2$. For brevity, we can denote this factor by:
 \[
 	\varepsilon(k) = 
 	\begin{cases}
@@ -378,9 +393,9 @@ By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ 
 \] 
 
 \begin{definition}
-	Let $M$ be a closed oriented $(4k-1)$-manifold with $\H^{2i}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial for all $i<k$, and let $W$ be a spin coboundary. The \defn{Eells-Kupier invariant} of $M$ is
+	Let $M$ be a closed oriented $(4k-1)$-manifold with $\H^{2k}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial for all $i<k$, and let $W$ be a spin coboundary. The \defn{Eells-Kupier invariant} of $M$ is
 	\[
-		\ekinv(M) = \frac{1}{\varepsilon(k)}\cdot \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{s_k}\right)[W,M]\mod 1.
+		\ekinv(M) = \frac{1}{\varepsilon(k)}\cdot \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{C_L(k)}\right)[W,M]\mod 1.
 	\]
 	We leave this expression $\mod 1$ to keep it sightly.
 \end{definition}
@@ -405,13 +420,16 @@ By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ 
 
 \subsection{A ``Twisted'' Eells-Kupier Invariant}
 
-The final example of an exotic sphere invariant constructed out of an integrality theorem is based on the twisted $\Ahat$-genus. We refer to this as the ``twisted'' Eells-Kupier invariant, and to the best of my knowledge it does not appear anywhere in the existing literature.
+The final example of an exotic sphere invariant constructed out of an integrality theorem in this thesis is based on the twisted $\Ahat$-genus. We refer to this as the ``twisted'' Eells-Kupier invariant, although to the best of my knowledge it does not appear anywhere in the existing literature.
 
-The origin of the term ``twisted'' in this context is with the addition of a complex vector bundle to the ordinary $\Ahat$-genus. Namely, for an even-dimensional spin manifold with complex vector bundle $E$, we define $\Ahat(M, E) = \textrm{ch}(E)\smile \Ahat(M)$ where $\textrm{ch}$ is the Chern character 
+The origin of the term ``twisted'' in this context is with the introduction of a complex vector bundle to the ordinary $\Ahat$-genus.
+Namely, for an even-dimensional spin manifold with complex vector bundle $E$, we define the \defn{twisted $\Ahat$-genus} to be 
+\[\Ahat(M, E) = \textrm{ch}(E)\smile \Ahat(M)\] 
+where $\textrm{ch}$ is the \defn{Chern character} given by 
 \[
 		\textrm{ch}(E) = \exp(\gamma_1(E))+\cdots +\exp(\gamma_n(E))
 \]
-for $\gamma_i$ the Chern roots. This has an alternate definition as the index of the twisted Dirac operator, see \todo{cite} for more details.
+for $\gamma_i$ the Chern roots.
 
 For us, the relevant expression is found on page 98 of \cite{hopkinsmahowald2002bo8}:
 \begin{proposition}
@@ -431,20 +449,19 @@ By a homotopy theoretic argument involving the Witten genus and the $\mathrm{tmf
 By the same construction as the Eells-Kupier invariant, we derive the following invariant:
 
 \begin{corollary}
-	Let $M$ be a closed $23$-manifold with $\H^{4i}(M)$ and $\H^{2i}(M)$ trivial. For any string coboundary $W$, the \defn{twisted Eells-Kupier invariant} is given by
+	Let $M$ be a closed $23$-manifold with $\H^{4i}(M)$ and $\H^{2k}(M)$ trivial for $i<k$. For any string coboundary $W$, the \defn{twisted Eells-Kupier invariant} is given by
 	\[
 		\lambda_{\mathrm{m,h}}(M) = 153945\sigma(W) + 2591p_2^3[W,M]\mod 521432801280.
 	\]
 \end{corollary}
 
-Of course, this invariant proves nothing new about exotic spheres, since far simpler methods can be used to compute the order of $\Theta^{23}$. Nevertheless, it is interesting to note that this construction provides an invariant which works for not just homotopy $23$-spheres, and can detect more of the exotic spheres in $23$-dimensions than the Eells-Kupier and Milnor invariants can alone.
+Of course, this invariant proves nothing new about exotic spheres, since simpler methods can be used to compute the order of $\Theta^{23}$. Nevertheless, it is interesting to note that this construction provides an invariant which works for not just homotopy $23$-spheres, and can detect more of the exotic spheres in $23$-dimensions than the Eells-Kupier and Milnor invariants can alone.
 
 \subsection{Lower Bounds on \texorpdfstring{$|\bP^{4k}|$}{|bP^4k|}}\label{sec:lower-bounds}
 
-In this section, we use obtain lower bounds on the order of $\bP^{4k}$. In the grand scheme of things, these results are not terribly useful for the classification of exotic spheres, since standard arguments in obstruction theory can compute $|\bP^{4k}|$ directly. In fact, it turns out that the signature of a coboundary of a sphere in $\bP^{4k}$ is enough to determine it completely. However, the invariants constructed in the previous section work for a larger class of smooth manifolds than just homotopy spheres, let alone homotopy spheres in $\bP^{4k}$. 
+In this section, we use obtain lower bounds on the order of $\bP^{4k}$. These results are interesting in that they do not rely on difficult homotopy theory arguments, but rather arise naturally from classical index theorems like the Hirzebruch signature theorem. In general, it turns out that the signature of a coboundary of a sphere in $\bP^{4k}$ is enough to determine it completely, although computing the order takes some work. The invariants constructed in the previous section are also interesting since they work for a larger class of smooth manifolds than just homotopy spheres, let alone homotopy spheres in $\bP^{4k}$. 
 
 The benchmark for our lower bounds is the following exact formula:
-
 \begin{theorem}[Milnor-Kervaire]\label{thm:kervaire-milnor}
 	For every $k>1$, $bP^{4k}$ is a cyclic group of order
 	\[
@@ -453,22 +470,22 @@ The benchmark for our lower bounds is the following exact formula:
 	Recall here that $\epsilon(k)$ is $2$ when $k$ is odd and $1$ when $k$ is even.
 \end{theorem}
 \begin{proof}
-	See Lemma 3.5 of \cite{milnor1958manifolds} or Corollary 3.20 of \cite{levine1985lectures} for a summary.
+	See Lemma 3.5 of \cite{milnor1958manifolds} or Corollary 3.20 of \cite{levine1985lectures} for a summary of the proof.
 \end{proof}
 
-\begin{remark}
-	The presence of the factor $\denom(B_{2k}/4k)$ here is the order of cokernel of the $J$-homomorphism $\pi_{4k-1}(\SO) \to \pi_{4k-1}(S)$ in stable homotopy theory. This homomorphism naturally arises in the study of homotopy spheres through obstruction theory, for more information see \cite{milnorkervaire1960bernoulli}.
-\end{remark}
+\begin{remark*}
+	The presence of the factor $\denom(B_{2k}/4k)$ here is the order of cokernel of the $J$-homomorphism $\pi_{4k-1}(\SO) \to \pi_{4k-1}(S)$ in stable homotopy theory. It takes some hard homotopy to compute this order, see \cite{adams1966J} for the details. The $J$-homomorphism naturally arises in the study of homotopy spheres through obstruction theory, see \cite{milnorkervaire1960bernoulli} for a connection.
+\end{remark*}
 
-Now let us apply our invariants to find lower bounds on $|\bP^{4k}|$. If $M\in \bP^{4k}$ with framed coboundary $W$, note that all invariants constructed above come in the form
+Now we apply our invariants to find lower bounds on $|\bP^{4k}|$. If $M\in \bP^{4k}$ is a homotopy sphere with framed coboundary $W$, all of the invariants constructed above simplify to the form
 \[
 		\lambda(M) = A\cdot \sigma(W) \mod B
 \]
-since all of the Pontryagin classes of a framed manifold vanish (recall that Pontryagin classes are stable). Here, $A$ and $B$ have no common factors. Since signature is additive under connected, this gives us a group homomorphism
+since all of the Pontryagin classes of a framed manifold vanish (recall that Pontryagin classes are stable). Here, we assume that $A$ and $B$ have no common factors. Since signature is additive under connected sum, this gives us a group homomorphism
 \[
 	\lkxfunc{\lambda}{\bP^{4k}}{\Z/B.}
 \]
-The image of the cyclic group generated by $M$ under this map then has image of size $B/\sigma(W)$. By Lagrange's theorem, this must divide the order of $\bP^{4k}$. At this point, we must peek ahead to \cref{chap:constructions} to actually get a homotopy sphere. The relevant result is:
+The image of the cyclic group generated by $M$ under this map then has image of size $B/\sigma(W)$. By Lagrange's theorem, this must divide the order of $\bP^{4k}$. At this point, we peek ahead to \cref{chap:constructions} to actually get a homotopy sphere. The relevant result is:
 
 \begin{proposition}
 	For every $k>1$, there exists a homotopy sphere $M\in \bP^{4k}$ which has a highly-connected and framed coboundary of signature 8. In particular, it satisfies the conditions of the Milnor, Eells-Kupier, and twisted Eells-Kupier invariants.
@@ -479,33 +496,33 @@ The image of the cyclic group generated by $M$ under this map then has image of 
 
 In the case of the Milnor invariant, we can write
 \[
-	\milinv(M) = \frac{1}{s_k}\cdot \sigma(W)\mod 1\quad\implies\quad \milinv(M) = \denom(s_k)\cdot \sigma(W)\mod \numer(s_k).
+	\milinv(M) = \frac{\sigma(W)}{C_L(k)} \mod 1\quad\implies\quad \milinv(M) = \denom(C_L(k)) \sigma(W)\mod \numer(C_L(k)).
 \]
 This gives us the lower bound:
 
 \begin{proposition}\label{prop:milnor-lower-bound}
 	For $k>1$, the order $|\bP^{4k}|$ is divisible by
 	\[
-		\mathrm{LB}_{\mathrm{mil}}(k) =\numer\left(\frac{s_k}{8}\right) = \numer\left(\frac{2^{2k-3}(2^{2k-1}-1)B_{2k}}{(2k)!}\right)
+		\mathrm{LB}_{\mathrm{mil}}(k) =\numer\left(\frac{C_L(k)}{8}\right) = \numer\left(\frac{2^{2k-3}(2^{2k-1}-1)B_{2k}}{(2k)!}\right)
 	\]
 \end{proposition}
 
 For the Eells-Kupier invariant, we can write
 \[
-	\ekinv(M) = \frac{\widehat{s}_k}{\epsilon(k)}\cdot \frac{\sigma(W)}{s_k} \mod 1
+	\ekinv(M) = \frac{C_\Ahat(k)}{\epsilon(k)}\cdot \frac{\sigma(W)}{C_L(k)} \mod 1
 \]
-Recall that $\widehat{s}_k$ is the leading coefficient of the $\Ahat$-genus $\Ahat_k$, and $\epsilon(k)$ is $2$ when $k$ is odd and $1$ otherwise. Expanding out this fraction, we get
+Recall that $C_\Ahat(k)$ is the leading coefficient of the $\Ahat$-genus $\Ahat_k$, and $\epsilon(k)$ is $2$ when $k$ is odd and $1$ otherwise. Expanding out this fraction, we get
 \[
-	\frac{\widehat{s}_k}{\epsilon(k)s_k} = \frac{B_{2k}/2(2k)!}{2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!} = \frac{1}{\epsilon(k) 2^{2k+1}(2^{2k-1}-1)}.
+	\frac{C_\Ahat(k)}{\epsilon(k)C_L(k)} = \frac{B_{2k}/2(2k)!}{2^{2k}(2^{2k-1}-1)B_{2k}/(2k)!} = \frac{1}{\epsilon(k) 2^{2k+1}(2^{2k-1}-1)}.
 \]
 This gives us the lower bound:
 \begin{proposition}\label{prop:eells-kupier-lower-bound}
 	For $k>1$, the order of $\bP^{4k}$ is divisible by
 	\[
-		\mathrm{LB}_{\mathrm{e,k}}(k)=\denom\left(\frac{\widehat{s}_k}{8\epsilon(k)s_k}\right) = 2^{2k-2}(2^{2k-1}-1)\epsilon(k).
+		\mathrm{LB}_{\mathrm{e,k}}(k)=\denom\left(\frac{C_\Ahat(k)}{8\epsilon(k)C_L(k)}\right) = 2^{2k-2}(2^{2k-1}-1)\epsilon(k).
 	\]
 \end{proposition}
-This is a rather curious lower bound, since it cleanly divides the Milnor-Kervaire formula for the order of $\bP^{4k}$, leaving behind a factor of $\numer(B_{2k}/4k)$ which the order of the cokernel of the stable $J$-homomorphism.
+This is a curious lower bound, since it cleanly divides the Milnor-Kervaire formula for the order of $\bP^{4k}$, leaving behind a factor of $\numer(B_{2k}/4k)$ which the order of the cokernel of the stable $J$-homomorphism.
 
 We can combine the Eells-Kupier and Milnor lower bounds with the LCM to get an improved bound:
 
@@ -521,14 +538,12 @@ The twisted Eells-Kupier invariant is defined only in the case $k=6$, and gives 
 	\]
 \end{proposition}
 
-Let us now investigate how these invariants compare in effectiveness. Plotting the first few values of $k$, we get: 
-
-\begin{figure}[ht]
+\begin{figure}[hbt!]
 	\centering
 \begin{tikzpicture}
 \begin{axis}[
 		width=0.8\textwidth,
-		height=3in,
+		height=2.7in,
     xlabel={$4k-1$},
     xtick=data,
     ymode=log,
@@ -544,10 +559,10 @@ Let us now investigate how these invariants compare in effectiveness. Plotting t
 
 \end{axis}
 \end{tikzpicture}
-\caption{Lower bounds on $|\bP^{4k}|$ in low dimensions.}
+\caption{Lower bounds on $|\bP^{4k}|$ in low dimensions.}\label{fig:lb-low-dim}
 \end{figure}
 
-Up to $k=5$, the Eells-Kupier invariant is a perfect invariant for $\bP^{4k}$, however this breaks down at $k=6$. This failure corresponds to the non-trivial cokernel of the $J$-homomorphism in dimension $23$:
+We can now compare these invariants compare in effectiveness. Plotting the lower bounds derived from each invariant for the few values of $k$, we get \cref{fig:lb-low-dim}. For $k\leq 5$ and $k=7$, the Eells-Kupier invariant is a perfect invariant for $\bP^{4k}$, but this breaks down at $k=6$ and beyond $k\geq 7$. These failures corresponds to the non-trivial cokernel of the $J$-homomorphism:
 \[
 	\begin{tabular}{c|c|c|c|c|c|c|c|c}
 		k & $\leq$ 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
@@ -556,7 +571,21 @@ Up to $k=5$, the Eells-Kupier invariant is a perfect invariant for $\bP^{4k}$, h
 	\end{tabular}
 \]
 Consequently, the only dimensions in which the Eells-Kupier invariant is able to detect all homotopy spheres in $\bP^{4k}$ are $7,11,15,19,$ and $27$. However, in the $23$-dimensional case, the twisted Eells-Kupier invariant successfully computes the order of $\bP^{24}$. 
+
 While in low dimensions the Eells-Kupier invariant is better than the Milnor invariant at detecting homotopy spheres, in dimensions $\geq 43$ the Milnor lower bound quickly outgrows the Eells-Kupier bound as the Bernoulli numerators become non-trivial (see \cref{fig:high-dim-lower-bound}). The LCM bound is surprisingly good, and is able to correctly compute the size of $\bP^{4k}$ up to dimension 131 (see \cref{fig:lcm-lower-bound}).
+We can summarize these results in a few propositions:
+
+\begin{proposition}
+	Two homotopy spheres $M_1$ and $M_2$ in $\bP^{4k}$ with $k=2,3,4,5,7$ are diffeomorphic if and only if they have the same Eells-Kupier invariant.
+\end{proposition}
+
+\begin{proposition}
+	Two homotopy spheres $M_1$ and $M_2$ in $\bP^{24}$ are diffeomorphic if and only if they have the same twisted Eells-Kupier invariant.
+\end{proposition}
+
+\begin{proposition}
+	Two homotopy spheres $M_1$ and $M_2$ in $\bP^{4k}$ with $k\leq 131$ are diffeomorphic if and only if they have the same Eells-Kupier and Milnor invariants.
+\end{proposition}
 
 \begin{figure}[ht]
 	\centering
