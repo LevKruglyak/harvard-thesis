@@ -4,70 +4,168 @@
 	Beginnings are such delicate times.
 \end{epigraph}
 
-We have only barely began to scratch the surface of the topic of exotic spheres. For one thing, we have spent the vast majority of the thesis working in $\bP^{4k}$, only briefly touching on the case of $\bP^{4k+2}$. Aside from these cases, there is an entire world of exotic spheres which evade the detection techniques discussed in this thesis. Exotic spheres in $\Theta^n\setminus \bP^{n+1}$ are known as \defn{very exotic spheres}, and are far harder to visualize than the spheres we have constructed since they can really only be detected by homotopy theoretic means. We conclude this thesis by briefly outlining the full classification of exotic spheres in \cref{sec:classification}, and then move onto some related topics of further interest in \cref{sec:further-topics}.
+We have only barely begun to scratch the surface of the topic of exotic spheres. For one thing, we have spent the vast majority of the thesis working in $\bP^{4k}$, only briefly touching on the case of $\bP^{4k+2}$. Aside from these cases, there is an entire world of exotic spheres which evade the detection techniques discussed in this thesis. Exotic spheres in $\Theta^n\setminus \bP^{n+1}$ are known as \defn{very exotic spheres}, and are far harder to visualize than the spheres we have constructed since they are detectable primarily by homotopy theoretic means. 
 
-\section{Classification of Exotic Spheres}\label{sec:classification}
+In general, there is an
 
-\subsection{The Kervaire Invariant Problem}
+\begin{theorem}\label{thm:framed-surgery-highly-connected}
+	Every homotopy sphere in $\bP^{n+1}$ of dimension $n\geq 4$ has a framed highly-connected boundary.
+\end{theorem}
+\begin{proof}
+	This is Theorem 5.5 and 6.6 of \cite{milnorkervaire1963groups}. 
+\end{proof}
 
-However, it is generally not exotic. The problem of determining when $\partial P^{4k+2}(A_2)$ is exotic is quite hard, and is known as the Kervaire invariant problem. Some sparse results were known to Milnor and Kervaire by the time they wrote \cite{milnorkervaire1963groups}, at the time it was known that the Kervaire sphere was not exotic when $k=1$ and $k=3$. 
+Since highly-connected manifolds with boundary in odd dimensions are contractible, we have the immediate corollary:
 
-\todo{The first major breakthrough was by Browder in \cite{browder1969kervaireinvariant}, who showed that 
+\begin{corollary}\label{cor:odd-dimensional-bP-trivial}
+	The groups $\bP^{2k+1}$ are trivial.
+\end{corollary}
 
-and was only recently completed in 2024.
+The remaining non-trivial cases $\bP^{4k}$ and $\bP^{4k+2}$ take some more work. We again black-box some useful theorems from the surgery theory of simply connected manifolds.
 
 \begin{theorem}
-	The only $k$ for which $\partial P^{4k+2}(A_2)$ is exotic are $k=6,14,30,62,$ and $126$.
+	A compact, framed, highly-connected manifold $W$ bounding a homotopy sphere can be framed surgered into a contractible manifold if and only if $\sigma(W)=0$.
 \end{theorem}
+\begin{proof}
+	See Section III of \cite{browder1972surgery}.
+\end{proof}
 
-See Chapter 4 of \cite{levine1985lectures}.}
-
-\smallrule
-
-\section{Further Topics}\label{sec:further-topics}
-
-\subsection{The Poincar\'e Hypothesis in Low Dimensions}\label{sec:low-dimensions}
-
-The reduction of the problem of finding diffeomorphism classes of homotopy spheres to the problem of finding $h$-cobordism classes of spheres was a massive simplification, and allowed us to almost fully classify the set of smooth structures on a sphere.
-The lack of an smooth $h$-cobordism theorem in dimensions $<5$ means that practically none of the techniques developed in this thesis work for these low dimensions and so they must be analyzed manually. 
-
-In dimension $1$, the uniqueness of smooth structure on a circle is a standard exercise in introductory topology. In dimension $2$, we can give the sphere a complex structure making it a Riemann surface, and by the uniformization theorem, the complex structure must be conformally equivalent to the Riemann sphere. This is the unique complex structure and hence the unique smooth structure.
-
-For the case of dimension $3$, the uniqueness of a smooth structure is a orders of magnitude harder to prove. In the 1950s, Moise proved the equivalence of topological, PL, and smooth structures for compact $3$-manifolds. These results are outlined in the book \cite{moise1977geometric}. For decades, the uniqueness of smooth structures on the 3-dimensional sphere was thus relegated to a proof of the topological Poincar\'e hypothesis in 3-dimensions -- the original conjecture proposed of Poincar\'e in 1904. The topological Poincar\'e hypothesis had already been proved in dimensions $\geq 5$ by Smale, Stallings, and Zeeman in the early 1960s, and in dimension $4$ by Freedman's 1982 classification \cite{freedman1982manifold} of simply-connected topological $4$-manifolds using many of the techniques we'll discuss in this thesis. Yet, the stubborn third dimension remained.
-This proof finally came in 2003 as a consequence of Perelman's proof of Thurston's geometrization conjecture, a general classification for 3-dimensional geometries.
-The battle with $3$-manifolds was a tough one, and it took hundreds of pages of hard analysis and Riemannian geometry by Hamilton and Perelman.
-The basic idea by Hamilton to prove the Poincar\'e conjecture involved giving a
-closed $3$-manifold a Riemannian metric $g_{\mu\nu}$, and then evolving this metric in time $\lambda$ by a differential equation involving the Ricci curvature tensor
-\begin{equation}
-	\frac{\partial g_{\mu\nu}}{\partial \lambda} = -2\mathcal{R}_{\mu\nu}.
-	% \hspace{-3em}\tag{Ricci Flow Equation}
+Consequently, since the signature of any framed $4k$-manifold is divisible by $8$, the $E_8$ plumbing from \cref{sec:plumbing} gives a surjective group homomorphism 
+\begin{equation}\label{eq:plumbing-map}
+		\Z \lkxsurj \bP^{4k}
 \end{equation}
-This is known as the Ricci flow equation, and it forces the metric to change in such a way as to make distances decrease in directions of positive curvature.
-Ricci flow can be used to ``smooth out'' the curvature of a nice enough $3$-manifold until it has constant curvature. In particular, simply connected manifolds turn into spheres under this regime, proving the Poincar\'e hypothesis.
-Unfortunately, singularities can form when solving the Ricci flow equations, and it takes a careful application of the ideas of surgery to get around them. Perelman proved that this ``Ricci flow with surgery'' was always possible, turning Hamilton's ambitious program into rigorous mathematical machinery. For a comprehensive introduction to Perelman and Hamilton's proof of the geometrization conjecture, see \cite{morgantian2007ricci}.
+which sends an integer $n$ to the connected sum $\partial P^{4k}(E_8)\+\cdots \+ \partial P^{4k}(E_8)$, where we repeat the connected sum $|n|$ times and reverse orientation if $n$ is negative. In particular, we can conclude that $\bP^{4k}$ is a cyclic group. 
 
-The last remaining case of the generalized Poincar\'e conjecture is the classification of smooth (and equivalently PL) structures on spheres in dimension $4$. It remains hopelessly unsolved as of the conclusion of this thesis in March 2025. However, there are some reasons to suspect the existence of $4$-dimensional exotic sphere.
+%
+% By some careful arguments in obstruction theory and homotopic calculations, we can compute the kernel of  \cref{eq:plumbing-map} to arrive at the Milnor-Kervaire theorem:
+%
+% \begin{theorem}[Milnor-Kervaire]
+% 	For every $k>1$, $bP^{4k}$ is a cyclic group of order
+% 	\[
+% 		|\bP^{4k}| =2^{2k-2}(2^{2k-1}-1)\epsilon(k)\denom(B_{2k}/4k).
+% 	\]
+% 	Recall here that $\epsilon(k)$ is $2$ when $k$ is odd and $1$ when $k$ is even.
+% \end{theorem}
+% \begin{proof}
+% 	See Lemma 3.5 of \cite{milnor1958manifolds} or Corollary 3.20 of \cite{levine1985lectures} for a summary.
+% \end{proof}
 
-\begin{theorem}
-\end{theorem}
-
-which the smooth $h$-cobordism theorem completely fails in dimension $4$.
-
-There are some candidates
-
-\todo{talk a bit more about this, exotic $\R^4$s and why people suspect there might be exotic spheres in dimension 4}
-
-\subsection{Exotic Spheres and Curvature}
-
-\begin{theorem}[Quarter-Pinched Sphere Theorem]
-	If $M$ is a simply connected, geodesically complete Riemannian manifold with sectional curvature in the range $(1/4,1]$, then $M$ is homeomorphic to 
-\end{theorem}
-
-\begin{definition}
-\end{definition}
-
-\subsection{Obstructions to Smoothing}\label{sec:smoothing-obstructions}
-
-\begin{theorem}[Freedman, 1982]\label{thm:freedman-actual}
-\end{theorem}
-
+% \section{Classification of Exotic Spheres}\label{sec:classification}
+%
+% We now briefly discuss the classification of exotic spheres using the Pontryagin-Thom map, the $J$-homomorphism, and stable homotopy theory. For more details, we defer to the wonderful expositions of \cite{milnorkervaire1963groups} and \cite{levine1985lectures}.
+%
+% \subsection{Framed Surgery}
+%
+% The first major result of the classification of homotopy spheres is a complete determination of the group $\bP^{n+1}$. This is done by means of surgery on a coboundary -- given a homotopy sphere $M\in \bP^{n+1}$ with coboundary $W$, we simplify the topology of $W$ as much as possible while keeping the boundary $M$ fixed. This technique is an example of the operation of \defn{surgery}, also known as \defn{spherical modification}.
+%
+% The basic observation underlying the operation is the fact that for manifolds $X$ and $Y$, we have:
+% \[
+% 	\partial (X\times Y) = (\partial X \times Y)\cup (X\times \partial Y).
+% \]
+% Consequently, for integers $p,q$ the space $S^q\times S^{q-1}$ can be viewed either as the boundary of the $(p+1)$-handle $D^{p+1}\times S^{q-1}$ or as the boundary of the $q$-handle $S^p\times D^q$, since
+% \[
+% 	\partial (S^p\times D^q) = S^p\times S^{q-1} = \partial (D^{p+1}\times S^{q-1}).
+% \]
+% Since the two products have the same boundary, whenever we find an embedding of $D^{p}\times S^{q}$ in a manifold, we can cut it out and replace it with $D^{p+1}\times S^{q-1}$.
+%
+% \begin{example}\label{exam:surgery-on-a-compact-surface}
+% 	A simple yet non-trivial example of surgery is on a surface $X_g$ of genus $g$.
+% 	When $q=1$, note that $S^q\times D^{n-q} = S^1\times D^1$ is a cylinder, and $D^{q+1}\times S^{n-q-1}=D^2\times S^0$ is a disjoint union of disks.
+% 	If we embed a cylinder $S^1\times D^1$ into a ``handle'' of $X_g$, the resulting surgery cuts off this handle and reduces the genus by one. By a sequence of $g$ surgeries along embedded cylinders, we can turn $X_g$ into a sphere $X_0 = S^2$.
+% 	\begin{figure}[ht]
+% 		\centering
+% 		\import{diagrams}{surgery-on-two-holed-torus.pdf_tex}
+% 		\caption{Turning a genus 2 surface into a genus 1 surface via surgery.}\label{fig:surgery-on-two-holed-torus}
+% 	\end{figure}
+% 	Note that corners need to be smoothed, see \cref{sec:smoothing-corners}.
+% \end{example}
+%
+% If the manifolds involved are framed, there is corresponding notion of a \defn{framed surgery}, see Section 2 of \cite{levine1985lectures} for details. 
+%
+% Using the techniques developed in \cite{milnor1961procedure} for killing homotopy groups of a manifold using surgery operations, Milnor and Kervaire proved:
+%
+%
+%
+%
+%
+% However, it is generally not exotic. The problem of determining when $\partial P^{4k+2}(A_2)$ is exotic is quite hard, and is known as the Kervaire invariant problem. Some sparse results were known to Milnor and Kervaire by the time they wrote \cite{milnorkervaire1963groups}, at the time it was known that the Kervaire sphere was not exotic when $k=1$ and $k=3$. 
+%
+% \todo{The first major breakthrough was by Browder in \cite{browder1969kervaireinvariant}, who showed that 
+%
+% and was only recently completed in 2024.
+%
+% \begin{theorem}
+% 	\[
+% 		\bP^{2k}\cong \begin{cases}\Z/2 & k\neq 2^\ell-1\\
+% 			0 & k=3,7,15,31,162
+% 		\end{cases}
+% 	\]
+% \end{theorem}
+%
+% \begin{theorem}
+% 	The only $k$ for which $\partial P^{4k+2}(A_2)$ is exotic are $k=6,14,30,62,$ and $126$.
+% \end{theorem}
+%
+% See Chapter 4 of \cite{levine1985lectures}.}
+%
+% \smallrule
+%
+% \begin{figure}[ht]
+% 	\renewcommand{\arraystretch}{1.2}
+% 	\centering
+% 	\begin{tabular}{r|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c}
+% 		\textrm{$n$}               & 1 & 2 & 3 & 4 & 5 & 6 & 7  & 8 & 9 & 10 & 11  & 12 & 13 & 14 & 15    \\
+% 		\hline
+% 		\textrm{$|\bP^{n+1}|$} & 1 & 1 & 1 & 1 & 1 & 1 & 28 & 1 & 2 & 1  & 992 & 1  & 1  & 1  & 8128\\
+% 		\hline
+% 		\textrm{$|\Theta^n|$} & 1 & 1 & 1 & 1 & 1 & 1 & 28 & 2 & 8 & 6  & 992 & 1  & 3  & 2  & 16256 \\
+% 	\end{tabular}
+% \end{figure}
+%
+% \section{Further Topics}\label{sec:further-topics}
+%
+% \subsection{The Poincar\'e Hypothesis in Low Dimensions}\label{sec:low-dimensions}
+%
+% The reduction of the problem of finding diffeomorphism classes of homotopy spheres to the problem of finding $h$-cobordism classes of spheres was a massive simplification, and allowed us to almost fully classify the set of smooth structures on a sphere.
+% The lack of an smooth $h$-cobordism theorem in dimensions $<5$ means that practically none of the techniques developed in this thesis work for these low dimensions and so they must be analyzed manually. 
+%
+% In dimension $1$, the uniqueness of smooth structure on a circle is a standard exercise in introductory topology. In dimension $2$, we can give the sphere a complex structure making it a Riemann surface, and by the uniformization theorem, the complex structure must be conformally equivalent to the Riemann sphere. This is the unique complex structure and hence the unique smooth structure.
+%
+% For the case of dimension $3$, the uniqueness of a smooth structure is a orders of magnitude harder to prove. In the 1950s, Moise proved the equivalence of topological, PL, and smooth structures for compact $3$-manifolds. These results are outlined in the book \cite{moise1977geometric}. For decades, the uniqueness of smooth structures on the 3-dimensional sphere was thus relegated to a proof of the topological Poincar\'e hypothesis in 3-dimensions -- the original conjecture proposed of Poincar\'e in 1904. The topological Poincar\'e hypothesis had already been proved in dimensions $\geq 5$ by Smale, Stallings, and Zeeman in the early 1960s, and in dimension $4$ by Freedman's 1982 classification \cite{freedman1982manifold} of simply-connected topological $4$-manifolds using many of the techniques we'll discuss in this thesis. Yet, the stubborn third dimension remained.
+% This proof finally came in 2003 as a consequence of Perelman's proof of Thurston's geometrization conjecture, a general classification for 3-dimensional geometries.
+% The battle with $3$-manifolds was a tough one, and it took hundreds of pages of hard analysis and Riemannian geometry by Hamilton and Perelman.
+% The basic idea by Hamilton to prove the Poincar\'e conjecture involved giving a
+% closed $3$-manifold a Riemannian metric $g_{\mu\nu}$, and then evolving this metric in time $\lambda$ by a differential equation involving the Ricci curvature tensor
+% \begin{equation}
+% 	\frac{\partial g_{\mu\nu}}{\partial \lambda} = -2\mathcal{R}_{\mu\nu}.
+% 	% \hspace{-3em}\tag{Ricci Flow Equation}
+% \end{equation}
+% This is known as the Ricci flow equation, and it forces the metric to change in such a way as to make distances decrease in directions of positive curvature.
+% Ricci flow can be used to ``smooth out'' the curvature of a nice enough $3$-manifold until it has constant curvature. In particular, simply connected manifolds turn into spheres under this regime, proving the Poincar\'e hypothesis.
+% Unfortunately, singularities can form when solving the Ricci flow equations, and it takes a careful application of the ideas of surgery to get around them. Perelman proved that this ``Ricci flow with surgery'' was always possible, turning Hamilton's ambitious program into rigorous mathematical machinery. For a comprehensive introduction to Perelman and Hamilton's proof of the geometrization conjecture, see \cite{morgantian2007ricci}.
+%
+% The last remaining case of the generalized Poincar\'e conjecture is the classification of smooth (and equivalently PL) structures on spheres in dimension $4$. It remains hopelessly unsolved as of the conclusion of this thesis in March 2025. However, there are some reasons to suspect the existence of $4$-dimensional exotic sphere.
+%
+% \begin{theorem}
+% \end{theorem}
+%
+% which the smooth $h$-cobordism theorem completely fails in dimension $4$.
+%
+% There are some candidates
+%
+% \todo{talk a bit more about this, exotic $\R^4$s and why people suspect there might be exotic spheres in dimension 4}
+%
+% \subsection{Exotic Spheres and Curvature}
+%
+% \begin{theorem}[Quarter-Pinched Sphere Theorem]
+% 	If $M$ is a simply connected, geodesically complete Riemannian manifold with sectional curvature in the range $(1/4,1]$, then $M$ is homeomorphic to 
+% \end{theorem}
+%
+% \begin{definition}
+% \end{definition}
+%
+% \subsection{Obstructions to Smoothing}\label{sec:smoothing-obstructions}
+%
+% \begin{theorem}[Freedman, 1982]\label{thm:freedman-actual}
+% \end{theorem}
+%

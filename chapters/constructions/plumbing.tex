@@ -367,7 +367,7 @@ A complete discussion of this beautiful topic would take us too far afield, so w
 
 \subsection{The Kervaire Sphere}\label{sec:kervaire-invariant}
 
-Thus far, we have only seen exotic spheres in $\bP^{4k}$. This is not the only dimensions in which exotic spheres exist, there is an additional tricky class of exotic spheres living in $\bP^{4k+2}$. The basic plumbing construction used here is:
+Thus far, we have only seen exotic spheres in $\bP^{4k}$. This is not the only dimensions in which exotic spheres exist, there is an additional class of homotopy spheres living in $\bP^{4k+2}$. The basic plumbing construction used here is:
 
 \begin{definition}
 	For any $k>1$, the \defn{Kervaire sphere} is the manifold $\partial P^{4k+2}(A_2)$, where $A_2$ is the skew-symmetric matrix associated to the $\mathrm{A}_2$ Dynkin diagram:
@@ -392,15 +392,10 @@ Thus far, we have only seen exotic spheres in $\bP^{4k}$. This is not the only d
 \]
 \end{definition}
 
-As suggested by its name, this is a homotopy sphere: 
+As suggested by its name, this is a homotopy sphere by Theorem V.2.11 in \cite{browder1972surgery}: 
 
 \begin{theorem}
-	There is a group homomorphism
-	\[
-		\lkxfunc{}{\Z/2}{\bP^{4k+2}}{n}{n\cdot \partial P^{4k+2}(A_2).}
-	\]
-	In particular, note that $\partial P^{4k+2}(A_2)\+ \partial P^{4k+2}(A_2) \cong S^{4k+1}$.
+There is a diffeomorphism $\partial P^{4k+2}(A_2)\+ \partial P^{4k+2}(A_2) \cong S^{4k+1}$, and hence a group homomorphism $\Z/2 \to \bP^{4k+2}$.
 \end{theorem}
-\begin{proof}
-	See Theorem V.2.11 in \cite{browder1972surgery}.
-\end{proof}
+
+The Kervaire spheres are not always exotic, and this tricky factor of two in the size of $\Theta^{4k+1}$ has only been fully determined this year with \cite{lin2025kervaireinvariantproblem}. The exoticity of the Kervaire sphere is related to a problem known as the Kervaire invariant problem. See \cite{browder1969kervaireinvariant} and \cite{hillhopkinsravanel2016} for more information on the solution to this problem.

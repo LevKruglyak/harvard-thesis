@@ -9,28 +9,60 @@
 \end{epigraph}
 
 In the years following John Milnor's unexpected 1956 discovery \cite{milnor1956manifolds} of a non-standard smooth structure on the seven-dimensional sphere, the field of differential topology underwent a period of tremendous growth. Within six years of the initial discovery, Milnor and Michel Kervaire would publish a nearly complete classification of exotic structures on spheres of any dimension in \cite{milnorkervaire1963groups}, with intermediate papers \cite{milnor1958manifolds}, \cite{milnorkervaire1960bernoulli}, \cite{milnor1959differentiablestructures}, \cite{milnor1961procedure} filling in the gaps.
-Their quick work on this problem was aided by a decade of rapid advancements in adjacent topics -- the works of Ren\'e Thom \cite{thom1954} and Lev Pontryagin \cite{pontryagin1959homotopy} on cobordism, Hirzebruch's signature theorem \cite{hirzebruch1966methods}, Frank Adams' computations of the image of the $J$-homomorphism \cite{adams1966J}, Bott's periodicity theorem \cite{bott1959stable}, Smale's $h$-cobordism theorem \cite{smale1961generalized} and subsequent proof of the generalized Poincar\'e conjecture for topological manifolds of dimension $\geq 5$, and many other results. 
+Their quick work on this problem was aided by a decade of rapid advancements in adjacent topics -- the works of Ren\'e Thom \cite{thom1954} and Lev Pontryagin \cite{pontryagin1959homotopy} on cobordism, Hirzebruch's signature theorem \cite{hirzebruch1966methods}, Frank Adams' computations of the image of the $J$-homomorphism \cite{adams1966J}, Bott's periodicity theorem \cite{bott1959stable}, Smale's $h$-cobordism theorem \cite{smale1961generalized}, and many other results. 
+The landscape of consequences spanned by the these developments is vast, and even the basics could easily spawn several dozen theses.
+
+In this thesis we take one such path through these ideas, motivated by the question:
 
 \begin{question*}
   What is the set of smooth structures on the $n$-dimensional sphere $S^n$?
 \end{question*}
 
+We begin in \cref{chap:fundamentals} with an overview of the fundamental tools of geometric topology; operations on smooth manifolds, intersection theory, the Euler class, and the $h$-cobordism theorem. This serves as the algebraic and geometric backbone of the rest of the thesis.
+Next, in \cref{chap:invariants}, we develop the theory of characteristic classes and use index theory to construct invariants for exotic spheres in dimension $4k-1$. Using the Milnor and Eells-Kupier invariants as well as some less common invariants, we compute some fairly effective lower bounds on the numbers of exotic spheres. 
+Finally, in \cref{chap:constructions}, we overview four fundamental constructions of exotic spheres, proving concrete insights into the abstract theory.
+These constructions are: twisted Hopf bundles, boundaries of $E_8$ and $A_2$ plumbings, high-dimensional knots surrounding an isolated complex singularity, and twisted spheres. 
 
-\begin{conjecture*}[Poincar\'e Conjecture]
-  Any 
-\end{conjecture*}
-
-\begin{conjecture*}[Generalized Poincar\'e Conjecture]
-  Any closed, compact, connected manifold which is homotopy equivalent to a sphere must also be homeomorphic/diffeomorphic to a sphere. 
-\end{conjecture*}
-
-The goals of this thesis are manifold. Central among them is the desire for a comprehensive introduction to the topic of the construction and detection of exotic spheres. While researching for this thesis, many sources I found included exotic spheres either tangentially or emphasized a sole aspect of their construction or classification. In this thesis, we take a leisurely route, stopping and appreciating perspectives or constructions which, while not essential, greatly illuminate the topic. Exotic spheres involve many subtle notions, and so focusing on multiple perspectives deepens the understanding of any individual one. 
+% The discovery that this question has a non-trivial answer was deeply counterintuitive to many mathematicians at the time -- after all, spheres are some of the simplest and most symmetric objects in mathematics.
+% Questions of this sort regarding spheres trace all the way back to Poincar\'e, one of the pioneers of topology, who in 1904 conjectured that the only closed and simply-connected topological $3$-manifold is the $3$-sphere.
 %
-% As promised in the title of the thesis, I also hope to emphasize the role geometry plays in this topic.
-% This includes the way in which lattice geometry shapes the topology of exotic spheres, the connection between the index of elliptic differential operators and exotic sphere invariants, and constructions of exotic spheres as towers of branched coverings of classical knots. 
-
-
+% This uniqueness result turns out to be true, but highly non-trivial to prove. It took nearly 100 years for a complete proof, finally published in 2003 by Grigori Perelman \cite{perelman2003ricci} using advanced methods from differential geometry. The generalizations of Poincar\'e's conjecture to higher dimensions are generally easier. One such generalization can be stated:
 %
-% The final aspect I would like to focus on in this thesis is that of computation.
-% One of the striking things about the set of smooth structures on spheres is how random it appears. Why are there exactly 28 smooth structures in on 7-dimensional spheres, exactly 6 smooth structures in 10 dimensions and 992 smooth structures in 11 dimensions? It's difficult to answer these questions in a fully satisfying or ``intuitive'' way, and we'll often defer hard and tedious homotopy theoretic results for brevity.
-% That being said, there are plenty of places where computations are doable and illuminating -- for instance we'll show, directly, that there are (at least) 28 smooth structures in 7-dimensions and 992 smooth structures in 11-dimensions. I will also include plenty of Wolfram scripts for cases where the lengths of high-dimensional computations exceed our patience.
+% \begin{conjecture*}
+%   Any closed topological/smooth manifold which is homotopy equivalent to a sphere is also be homeomorphic/diffeomorphic to the sphere. 
+% \end{conjecture*}
+%
+% This is known as the \defn{generalized Poincar\'e conjecture}, and holds for topological manifolds of all dimensions by the work of Smale \cite{smale1961generalized} and Freedman \cite{freedman1982manifold}, alongside the aforemented work by Perelman. In case of smooth manifolds, this conjecture fails in most dimensions, with each exotic sphere serving as a counterexample.
+% As such, they are fundamental to any study of higher-dimensional topology.
+%
+% \section*{Outline}
+
+\section*{Conventions}
+
+While many conventions will be introduced throughout the thesis, we gather the essential ones here for convenience.
+
+\begin{itemize}
+  \item Definitions of terms will be formatted {\color{blue}\emph{blue and emphasized}}, and hyperlinks will be formatted just blue (e.g. \cref{fig:first}).
+  \item We use $\cong$ instead of $\oldcong$ to denote isomorphisms, diffeomorphisms, etc.
+  \item Unless otherwise specified, all manifolds are assumed to be smooth, connected, and possibly with boundary. A \defn{closed}[closed manifold] manifold is a compact manifold with empty boundary. 
+  \item The reverse orientation of a manifold $M$ is denoted by $\overline{M}$. 
+  \item All submanifolds $N\subset M$ are assumed to be properly embedded and neat, i.e.
+    \vspace{-0.5em}
+    \begin{itemize}
+      \item the inclusion $\iota : N \to M$ is a proper map,
+      \item $\partial N\subset \partial M$,
+      \item the boundary $\partial N$ intersects $\partial M$ transversally.
+    \end{itemize}
+  \item The total space of a vector bundle is denoted with normal math font, i.e. $E \to X$, and the bundle itself is denoted with calligraphic font, i.e. $\mathcal{E} : E \to X$. 
+  \item The tangent bundle of a manifold $M$ is denoted $\TT M$, with total space $\T M$.
+  \item Given a Riemannian inner product structure $\langle-,-\rangle$ on a vector bundle $\mathcal{E}^k$, we let $\S(\mathcal{E})$ be the associated sphere bundle (with fibers $S^{k-1}$) and $\D(\mathcal{E})$ the associated disk bundle (with fibers $D^k$). The total spaces of these bundles are
+  \[
+    \S(E) = \{ \xi\in E \mid \langle \xi, \xi\rangle =1 \}
+    \quad\textrm{and}\quad
+    \D(E) = \{ \xi\in E \mid \langle \xi, \xi\rangle\leq 1 \}
+  \]
+  respectively. Note that $\partial \D(E) = \S(E)$ as manifolds.
+  \item A path-connected space $X$ is said to be \defn{$k$-connected} if $\pi_i(X)\cong 0$ for all $i\leq k$.
+  \item A manifold $M^n$ is said to be \defn{highly-connected} if it is $\lfloor \frac{n-1}{2} \rfloor$-connected.
+\end{itemize}
+\smallrule

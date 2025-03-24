@@ -78,8 +78,6 @@ Advancing to $3$ dimensions, we note that many familiar spaces can be realized a
 
 Note that neither of the spaces $\Sigma(2,2,2)$ or $\Sigma(2,3,5)$ are homotopy spheres. However, $\Sigma(p,q)$ with $\gcd(p,q)=1$ is diffeomorphic to a circle. The Brieskorn manifolds will thus be the class of manifolds for our construction of homotopy spheres.
 
-\subsection{The Geometric Topology of Links}
-
 We now make a few remarks on geometric data which comes with a Brieskorn manifold. One of the most important pieces of data is the Milnor fibration associated to an isolated singularity:
 
 \begin{theorem}\label{thm:fibration}
@@ -89,60 +87,41 @@ We now make a few remarks on geometric data which comes with a Brieskorn manifol
 	\]
 \end{theorem}
 
-This theorem is laid out in depth in Chapter 4 of \cite{milnor1968hypersurfaces}. For a given angle $e^{i\theta}\in S^1$, we denote the fiber of the bundle $\phi$ by $F_\theta = \phi^{-1}(e^{i\theta})$. The main application for us is that the boundary of each fiber $F_\theta$ is $\mathcal{L}(F)$. Furthermore:
+This theorem is laid out in depth in Chapter 4 of \cite{milnor1968hypersurfaces}. For a given angle $e^{i\theta}\in S^1$, we denote the fiber of the bundle $\phi$ by $F_\theta = \phi^{-1}(e^{i\theta})$. The main application for us is that the boundary of each fiber $F_\theta$ is $\mathcal{L}(F)$. Furthermore, by Sections 5-6 of \cite{milnor1968hypersurfaces}, we have:
 
 \begin{proposition}
 	Each fiber $F_\theta$ is a smooth, highly-connected, parallelizable $2n$-manifold.
 \end{proposition}
-\begin{proof}
-	See Sections 5 and 6 of \cite{milnor1968hypersurfaces}.
-\end{proof}
-
-These are the bounding manifolds for $\mathcal{L}(F)$ which allow us to compute invariants for homotopy spheres. At this point, a visual example is in order.
-%
-% \begin{example}
-% 	The simplest possible knot 
-% \end{example}
 
 \begin{remark*}
 	A link $\mathcal{L}$ which arises from a fibration $S^\ell \setminus \mathcal{L} \to S^1$ with each fiber bounding $\mathcal{L}$ is known as a \defn{fibered link}.
-	For some general information on fibered links, see \cite{kauffmanneumann1977}.
+	For general information on fibered links, see \cite{kauffmanneumann1977}.
 \end{remark*}
 
+\begin{proposition}
+	Assuming $n\neq 2$, $\L$ is a homotopy $(2n-1)$-sphere if and only if $F_\theta$ has a unimodular intersection form.
+\end{proposition}
+This forms a bridge between knot theory and exotic spheres, allowing classical knot invariants like the Alexander polynomial, signature, or Siefert link matrix to compute exotic sphere invariants.
+While computational details are unfortunately outside the scope of this already quite lengthy thesis, the interested reader should look at Chapter 14 of \cite{baadhio1996quantum} or the wonderful essay on exotic spheres \cite{nicholson} which includes Alexander polynomial computations.  We close with a theorem of Brieskorn which solidifies the connection (see \cite{brieskorn1966}):
 
+\begin{theorem}[Brieskorn]
+	For $m\geq 4$, every homotopy sphere in $\bP^{2m}$ is the link of some isolated singularity.
+\end{theorem}
+
+\begin{example}
+	$\Sigma(3,6k-1, 2,2,2)$ for $k\in \{1,\ldots,28\}$ generate all of $\bP^{8}$.
+\end{example}
+
+There are also beautiful geometric constructions expressing Brieskorn as towers of branched covers of knots based on the following proposition:
 
 \begin{proposition}
 	$\mathcal{L}(F+z_{n+1}^k)$ is a $k$-fold cover of $S^{2n+1}$, branched along $\mathcal{L}(F)$.
 \end{proposition}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\import{diagrams}{branched-cover.pdf_tex}
 	\caption{A slice of a $2$-dimensional $3$-fold cover branched along a $1$-submanifold.}
 \end{figure}
 
-Let's fix a polynomial $F$ in $(n+1)$ complex variables
-
-\begin{proposition}
-	If $n\neq 2$, then $\L$ is homeomorphic to the sphere $S^{2n-1}$ if and only if $\L$ has the homology of a sphere. In fact, $\L$ is a topological sphere if and only if the reduced homology $\widetilde{H}_{n-1}(\L)$ is trivial.
-\end{proposition}
-
-Let's now choose an orientation for $F_\theta$.
-
-\begin{proposition}
-	The manifold $\L$ is a homology sphere if and only if the intersection form
-	\[
-		\lkxfunc{Q_{F_\theta}}{\H_n(F_\theta)\times \H_n(F_\theta)}{\Z}
-	\]
-	has determinant $\pm 1$, i.e. if $Q_{F_\theta}$ is unimodular.
-\end{proposition}
-
-\begin{theorem}[Hirzebruch-Mayer] 
-	Brieskorn manifolds are parallelizable.
-\end{theorem}
-
-\begin{theorem}[Brieskorn]
-	Every homotopy sphere in $\bP^{2m}$ with $m\geq 4$ is the link of some isolated singularity.
-\end{theorem}
-
-% For a 
+See Chapter 19 of \cite{kauffman1987knots} and Chapter 14 of \cite{baadhio1996quantum} for more details on these constructions
