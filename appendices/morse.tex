@@ -1,6 +1,6 @@
 \section{Morse Theory}\label{sec:morse-theory}
 
-In this section we review the basics of Morse theory, a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. A great classical introduction to Morse theory can be found in Milnor's book on the subject \cite{milnor1963morse}.
+In this section we review the basics of Morse theory, a technique connecting the structure of a manifold to the behavior of a (nice) smooth function from the manifold to the real numbers. A great classical introduction to Morse theory can be found in Milnor's book \cite{milnor1963morse}.
 
 If $f : M \to \R$ is a smooth function on a manifold $M$, the points $p\in M$ where the differential $df_p : \T_p M \to \T_{f(p)} \R = \R$ vanish are known as \defn{critical points}, and their images in $\R$ are called \defn{critical values}. In terms of local coordinates $\{x^1,\ldots, x^n\}$ at $p$, this means that
 \begin{equation}
@@ -74,12 +74,6 @@ Such an application of Reeb's theorem can be found in \cref{sec:milnor-spheres}.
 	In particular, this implies that $f\circ \varphi_t(p) = f(p)+t$. This implies that all of the level sets $f^{-1}(c)$ are diffeomorphic for $c\in (0,1)$. In particular, any disk surrounding $x_0$ can be extended to $f^{-1}[0,1/2]$. The same thing happens for $x_1$ with $f^{-1}[1/2,1]$, so we can write $M$ as the identification of two disks along their boundary. Up to homeomorphism, this is a sphere.
 \end{proof}
 
-\begin{figure}[ht]
-	\centering
-	\import{diagrams}{reeb-homomorphism.pdf_tex}
-	\caption{The homeomorphism constructed in Reeb's theorem}.
-\end{figure}
-
 \begin{remark}
 	The reason we only get a homeomorphism and not a diffeomorphism in the proof of \cref{thm:reeb} is because the two hemispheres are identified along the boundary and not along collar neighborhoods.
 \end{remark}
@@ -94,6 +88,7 @@ The basic ideas used in the proof of Reeb's theorem can be radically generalized
 \end{definition}
 
 For generalizations, we defer a detailed discussion of Morse theory to the wonderful sources \cite{milnor1963morse}, Chapter 1 of \cite{scorpan2005wild}, or Chapter 8 of \cite{hirsch1976differential}.
+\smallrule
 
 % \begin{theorem}
 % 	Let $f$ be a Morse function on a compact manifold. The following are true:

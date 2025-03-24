@@ -120,17 +120,17 @@ Now we study the intersection theory of the plumbed manifold. It is clear that t
 
 Next, we investigate how plumbing affects a framing.
 Suppose $S_1^m$ and $S_2^m$ are spheres, with bundles $\mathcal{E}_1 = k_1\cdot \TT S^m$ and $\mathcal{E}_2=k_2\cdot \TT S^m$. Let $P=D(E_1)\plumb D(E_2)$ be the resulting plumbing. We have a decomposition
-	\begin{equation}\label{eq:plumbing-tangent-decomposition}
-		\TT P|_{D(E_i)} = \TT S^m_i\oplus k\cdot \TT S^m
-	\end{equation}
-	Since any sphere $S^m$ has a framing given by the unit normal field in $\R^{m+1}$, the bundle $\TT S^m\oplus\underline{\R}^1$ is trivial.
-	It follows from \cref{eq:plumbing-tangent-decomposition} that $\TT P\oplus \underline{\R}^1|_{D(E_i)}$ is trivial, and so $\TT P|_{S_i^m}$ is trivial. Since we constructed the manifold to be orientable, these trivializations are compatible and so it follows that $\TT P|_{S_1^m\vee S_2^m}$ is trivial. Since there is a homotopy equivalence $P\simeq S_1^m\vee S_2^m$, it follows that $\TT P$ is trivial as well. Consequently, $P$ admits a framing. 
-	% see \cref{fig:framing-of-plumbed-manifold} for a visual example.
-	% \begin{figure}[ht]
-	% 	\centering
-	% 	\import{diagrams}{framing-on-plumbing.pdf_tex}
-	% 	\caption{Framing on a plumbing}\label{fig:framing-of-plumbed-manifold}
-	% \end{figure}
+\begin{equation}\label{eq:plumbing-tangent-decomposition}
+	\TT P|_{D(E_i)} = \TT S^m_i\oplus k\cdot \TT S^m
+\end{equation}
+Since any sphere $S^m$ has a framing given by the unit normal field in $\R^{m+1}$, the bundle $\TT S^m\oplus\underline{\R}^1$ is trivial.
+It follows from \cref{eq:plumbing-tangent-decomposition} that $\TT P\oplus \underline{\R}^1|_{D(E_i)}$ is trivial, and so $\TT P|_{S_i^m}$ is trivial. Since we constructed the manifold to be orientable, these trivializations are compatible and so it follows that $\TT P|_{S_1^m\vee S_2^m}$ is trivial. Since there is a homotopy equivalence $P\simeq S_1^m\vee S_2^m$, it follows that $\TT P$ is trivial as well. Consequently, $P$ admits a framing.
+% see \cref{fig:framing-of-plumbed-manifold} for a visual example.
+% \begin{figure}[ht]
+% 	\centering
+% 	\import{diagrams}{framing-on-plumbing.pdf_tex}
+% 	\caption{Framing on a plumbing}\label{fig:framing-of-plumbed-manifold}
+% \end{figure}
 
 Note that plumbing is an entirely local operation, so by choosing distinct embeddings we can plumb together multiple disk bundles, or plumb together two bundles at multiple points. Furthermore, each plumbing point introduces a single transverse intersection, affecting the global intersection number of a generating sphere by $\pm 1$.
 \begin{figure}[ht]
@@ -145,9 +145,9 @@ We can therefore plumb together two bundles at multiple points with local inters
 \end{proposition}
 
 \begin{proof}
-Let $\Lambda$ be the lattice on which $Q$ is defined, and assume we have a basis $\{e_1,\ldots, e_\ell\}$. To construct $P^{2m}(Q)$, start with spheres $S_1^m=S^m,\ldots, S_\ell^m=S^m$, and take the bundles $\mathcal{E}_1=(Q_{11}/2)\cdot \TT S^m_1,\ldots, \mathcal{E}_\ell=(Q_{\ell\ell}/2)\cdot \TT S^m_1$. Then for every $i<j$, we plumb together $D(E_i)$ with $D(E_j)$ with multiplicity $Q_{i,j}$, resulting in $P^{2m}(Q)$. When off-diagonal entries $Q_{i,j}$ are not $0$ or $\pm 1$, the constructed manifold is no longer simply-connected, and surgery is required to keep the manifold highly-connected. 
+	Let $\Lambda$ be the lattice on which $Q$ is defined, and assume we have a basis $\{e_1,\ldots, e_\ell\}$. To construct $P^{2m}(Q)$, start with spheres $S_1^m=S^m,\ldots, S_\ell^m=S^m$, and take the bundles $\mathcal{E}_1=(Q_{11}/2)\cdot \TT S^m_1,\ldots, \mathcal{E}_\ell=(Q_{\ell\ell}/2)\cdot \TT S^m_1$. Then for every $i<j$, we plumb together $D(E_i)$ with $D(E_j)$ with multiplicity $Q_{i,j}$, resulting in $P^{2m}(Q)$. When off-diagonal entries $Q_{i,j}$ are not $0$ or $\pm 1$, the constructed manifold is no longer simply-connected, and surgery is required to keep the manifold highly-connected.
 
-We defer these technicalities to Section V.2 of \cite{browder1972surgery}.
+	We defer these technicalities to Section V.2 of \cite{browder1972surgery}.
 \end{proof}
 
 For our purposes, we will only need to construct manifolds whose intersection forms have diagonal entries $\pm 2$ and off-diagonal entries $\{0,\pm 1\}$, and we only include the more general results for completeness. We could therefore assume that all bundles are $\pm \TT S^m$ and that two bundles are plumbed together at at most $1$ point.
@@ -166,23 +166,17 @@ For our purposes, we will only need to construct manifolds whose intersection fo
 % 		\underbrace{S^m\vee\cdots S^m}_{\ell}\vee \bigvee_N S^1.
 % 	\]
 % 	for some large enough $N$. It follows that $\H^m(P^{2m}(Q))$ is free abelian of rank $\ell$ (here the assumption that $m>1$ is useful) and that the intersection form of $P^{2m}(Q)$ is exactly $Q$. Furthermore, we get a framing on $P^{2m}(Q)$ by \cref{rmk:plumbing-framing}.
-The remaining work involves understanding the homotopy type of the boundary. 
+The remaining work involves understanding the homotopy type of the boundary. The relevant results are Lemma V.2.4 of \cite{browder1972surgery} and Theorem V.2.1 of \cite{browder1972surgery} respectively:
 
 \begin{proposition}\label{prop:fundamental-group-plumbing}
 	There is a surjective map
 	\[\pi_1(\partial P^{2m}(Q))\lkxsurj \pi_1(P^{2m}(Q))\]
 	with the latter group free. For $m>2$, the map is an isomorphism.
 \end{proposition}
-\begin{proof}
-	See Lemma V.2.4 of \cite{browder1972surgery}.
-\end{proof}
 
 \begin{theorem}
 	If $Q$ is unimodular, then $\partial P^{4m}(Q)$ is a homotopy sphere in $\bP^{4m}$.
 \end{theorem}
-\begin{proof}
-	See Theorem V.2.1 of \cite{browder1972surgery}.
-\end{proof}
 
 At this point, we can recall the $\E_8$ form defined in \cref{sec:intersection-form-invariants}. Since this is an even unimodular form, plumbing along this matrix gives:
 \begin{theorem}\label{thm:plumbing-theorem}
@@ -196,19 +190,19 @@ At this point, we can recall the $\E_8$ form defined in \cref{sec:intersection-f
 This is a weaker form of the plumbing theorem (Theorem V.2.9 of \cite{browder1972surgery}), which also constructs a framed homotopy equivalence $(P^{4k}(\E_8), \partial P^{4k}(\E_8)) \to (D^{4k}, S^{4k-1})$.
 
 \begin{remark*}
-	When $k=1$, the $E_8$ plumbing $\partial P^{4}(E_8)$ does not give a homotopy $3$-sphere, but rather a homology $3$-sphere $\mathscr{D}$ known as the \defn{Poincar\'e homology sphere} or dodecahedral space. This space has fundamental group $\pi_1(\mathscr{D})$ of order 120, a preimage of $A_5$ under the double cover $\SU_2 \to \SO_3$. 
-	This group is perfect, meaning it has trivial abelianization and so $\H^1(\mathscr{D})\cong \pi_1(\mathscr{D})/[\pi_1(\mathscr{D}), \pi_1(\mathscr{D})]\cong 0$ by the Hurewicz isomorphism.
-		
+	When $k=1$, the $E_8$ plumbing $\partial P^{4}(E_8)$ does not give a homotopy $3$-sphere, but rather a homology $3$-sphere $\mathscr{D}$ known as the \defn{Poincar\'e homology sphere} or \defn{dodecahedral space}. This space has fundamental group $\pi_1(\mathscr{D})$ isomorphic the \defn{binary icosahedral group}, the order 120 preimage of $A_5$ under the double cover $\SU_2 \to \SO_3$. Alternatively, the fundamental group could be viewed as the group $\SL_2(\Z/5)$. 
+	At any rate, $\pi_1(\mathscr{D})$ has trivial abelianization so we have $\H^1(\mathscr{D})\cong \pi_1(\mathscr{D})/[\pi_1(\mathscr{D}), \pi_1(\mathscr{D})]\cong 0$ by the Hurewicz isomorphism. Consequently, $\pi_1(\mathscr{D})$ is a homology $3$-sphere.
 
-\begin{figure}[ht]
-	\centering
-	\includegraphics[height=1.5in]{diagrams/dodecahedral-space-geometric-construction.png}
-	\caption{Construction of Dodecahedral Space}\label{fig:dodecahedral_space_construction}
-\end{figure}
 
-	The classic construction of dodecahedral space $\mathscr{D}$ is due to Poincar\'e. Note that the solid dodecahedron has 6 pairs of opposite pentagonal faces. Picking a clockwise spherical orientation on $\mathscr{D}$, we can glue together opposing faces with a minimal clockwise twist to line them up (see \cref{fig:dodecahedral_space_construction}). The resulting quotient space is the closed $3$-manifold $\mathscr{D}$.
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[height=1.5in]{diagrams/dodecahedral-space-geometric-construction.png}
+		\caption{Construction of dodecahedral space}\label{fig:dodecahedral_space_construction}
+	\end{figure}
 
-	Since $\mathscr{D}$ violates Poincar\'e's original (incorrect) hypothesis that every homology $3$-sphere is homeomorphic to the $S^3$, the Poincar\'e dodecahedral space might be referred to as a ``proto'' exotic sphere. For some equivalent perspectives on dodecahedral space, including proofs of equivalences with the $\E_8$ plumbing, see \cite{kirby1979eight}.
+	The classic construction of dodecahedral space $\mathscr{D}$ is due to Poincar\'e. Starting with a solid dodecahedron, we have 6 pairs of opposite pentagonal faces. Picking a clockwise spherical orientation on $\mathscr{D}$, we can glue together opposing faces with a minimal clockwise twist to line them up (see \cref{fig:dodecahedral_space_construction}). The resulting quotient space is the closed $3$-manifold $\mathscr{D}$.
+
+	Since $\mathscr{D}$ violates Poincar\'e's original (incorrect) hypothesis that every homology $3$-sphere is homeomorphic to the $S^3$, the Poincar\'e dodecahedral space might be referred to as a ``proto'' exotic sphere. For some equivalent perspectives on dodecahedral space, including proofs of equivalences with the $E_8$ plumbing, see \cite{kirby1979eight}.
 \end{remark*}
 
 \subsection{Graphs and Integral Bilinear Forms}
@@ -231,7 +225,7 @@ Given a graph $G$ with vertices $\{e_1,\ldots, e_\ell\}$ and integral weights $w
 In the skew-symmetric case, we adopt the convention that the upper-triangular part of the matrix is positive. Note that the matrix corresponding to a (connected) graph is indecomposable.
 
 \begin{remark*}
-If $Q$ is a matrix associated to a graph $G$, the plumbing $P(Q)$ has a $1$-skeleton which is homotopy equivalent to $G$.
+	If $Q$ is a matrix associated to a graph $G$, the plumbing $P(Q)$ has a $1$-skeleton which is homotopy equivalent to $G$.
 \end{remark*}
 
 \begin{remark*}
@@ -363,34 +357,50 @@ A complete discussion of this beautiful topic would take us too far afield, so w
 			1 & 2 & 1 &   &   &   &   &   \\
 			  & 1 & 2 & 1 &   &   &   &   \\
 			  &   & 1 & 2 & 1 &   &   &   \\
-			  &   &   & 1 & 2 & 1 &  & 1 \\
-			  &   &   &   & 1 & 2 & 1 &  \\
-			  &   &   &   &  & 1 & 2 &  \\
-			  &   &   &   & 1 &  &  & 2 \\
+			  &   &   & 1 & 2 & 1 &   & 1 \\
+			  &   &   &   & 1 & 2 & 1 &   \\
+			  &   &   &   &   & 1 & 2 &   \\
+			  &   &   &   & 1 &   &   & 2 \\
 		\end{pmatrix}.
-	\]	
+	\]
 \end{example}
 
-\subsection{The Kervaire Sphere}
+\subsection{The Kervaire Sphere}\label{sec:kervaire-invariant}
 
-Thus far, the
+Thus far, we have only seen exotic spheres in $\bP^{4k}$. This is not the only dimensions in which exotic spheres exist, there is an additional tricky class of exotic spheres living in $\bP^{4k+2}$. The basic plumbing construction used here is:
+
+\begin{definition}
+	For any $k>1$, the \defn{Kervaire sphere} is the manifold $\partial P^{4k+2}(A_2)$, where $A_2$ is the skew-symmetric matrix associated to the $\mathrm{A}_2$ Dynkin diagram:
+\[
+	\begin{tikzpicture}%[baseline=(current bounding box.north)]
+		\tikzset{dynode/.style={circle, draw, fill=black,
+					minimum size=4pt, inner sep=0pt}}
+		\tikzset{dyline/.style={line width=1pt}}
+		\tikzset{dydash/.style={line width=1pt, dashed}}
+
+
+		\node[dynode] (a1) at (0,0.5) {};
+		\node[dynode] (a2) at (0.5,0.5) {};
+
+		\draw[dyline] (a1) -- (a2);
+	\end{tikzpicture}
+	\quad\lkxto\quad
+	\begin{pmatrix}
+		0  & 1 \\
+		-1 & 0
+	\end{pmatrix}.
+\]
+\end{definition}
+
+As suggested by its name, this is a homotopy sphere: 
+
+\begin{theorem}
+	There is a group homomorphism
 	\[
-		\begin{tikzpicture}
-			\tikzset{dynode/.style={circle, draw, fill=black,
-						minimum size=4pt, inner sep=0pt}}
-			\tikzset{dyline/.style={line width=1pt}}
-			\tikzset{dydash/.style={line width=1pt, dashed}}
-
-				\node[dynode] (a1) at (0,0.5) {};
-				\node[dynode] (a2) at (0.5,0.5) {};
-
-				\draw[dyline] (a1) -- (a2);
-				\node[] (l) at (0.33,0) {$\mathrm{A}_2$};
-		\end{tikzpicture}
-		\quad\lkxto\quad
-		\begin{pmatrix}
-			0 & 1\\
-			-1 & 0
-		\end{pmatrix}.
-	\]	
-
+		\lkxfunc{}{\Z/2}{\bP^{4k+2}}{n}{n\cdot \partial P^{4k+2}(A_2).}
+	\]
+	In particular, note that $\partial P^{4k+2}(A_2)\+ \partial P^{4k+2}(A_2) \cong S^{4k+1}$.
+\end{theorem}
+\begin{proof}
+	See Theorem V.2.11 in \cite{browder1972surgery}.
+\end{proof}

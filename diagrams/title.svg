@@ -26,15 +26,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.1160671"
-     inkscape:cx="183.23272"
-     inkscape:cy="-38.080149"
+     inkscape:zoom="0.90908548"
+     inkscape:cx="293.15175"
+     inkscape:cy="134.7508"
      inkscape:window-width="1728"
      inkscape:window-height="1051"
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g4"
+     inkscape:current-layer="layer2"
      showgrid="false" />
   <defs
      id="defs1">
@@ -346,37 +346,38 @@
        id="layer2"
        inkscape:label="Knot">
       <g
-         id="g4">
+         id="g4"
+         transform="rotate(-1.9999962,36.076852,32.857372)">
         <path
            style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.508;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-           d="m 8.102344,21.875738 c 2.693675,3.53299 6.212442,7.240059 8.457729,11.4072 2.026172,3.760476 3.170676,7.360502 4.399223,12.036022"
+           d="m 5.6998573,15.750607 c 0.719736,4.384048 2.086257,9.309158 2.112377,14.042623 0.02357,4.271533 -0.655997,7.987481 -1.766293,12.692487"
            id="path6"
            sodipodi:nodetypes="cac" />
         <path
-           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5080003;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-           d="m 36.016547,13.98902 c -1.599582,4.52775 -8.928102,15.53713 -12.462938,23.74871 -1.056069,2.45329 -1.365766,2.90571 -2.594313,7.58123"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.508;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+           d="m 34.049227,21.891971 c -3.538001,3.246807 -15.17729,9.526984 -22.153467,15.117873 -2.0842027,1.670333 -2.5700487,1.9244 -5.8498157,5.475873"
            id="path6-3"
            sodipodi:nodetypes="cac" />
         <path
            style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.380999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-           d="m 28.391272,11.283442 c -0.963658,2.81394 -2.586183,6.617867 -2.80146,7.481227"
+           d="m 28.5867,15.923238 c -2.171924,2.032151 -5.390365,4.629094 -5.985766,5.290328"
            id="path6-3-1"
            sodipodi:nodetypes="cc" />
         <path
            style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.380999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-           d="M 21.704049,19.310892 C 21.213296,27.295577 21.213296,36.80399 20.959296,45.31896"
+           d="M 18.913575,19.871597 C 14.731683,26.691262 10.267752,35.086691 6.0459443,42.485717"
            id="path6-3-3"
            sodipodi:nodetypes="cc" />
         <path
            style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.380999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-           d="m 16.750572,13.247547 c 1.011956,4.78387 1.087837,4.30481 1.600058,8.21828"
+           d="m 17.386477,12.192463 c -1.35241,4.698986 -1.060478,4.311633 -2.445517,8.007482"
            id="path6-3-3-9"
            sodipodi:nodetypes="cc" />
         <path
            id="path3-4"
            style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:0.507999;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
            inkscape:label="Knot"
-           d="m 16.750572,13.247547 c 2.386735,8.15884 17.679457,6.969316 19.265975,0.741473 0.593682,-2.330484 -4.425572,-3.233807 -6.463462,-3.205647 m -5.352923,6.66001 C 27.460609,14.864071 30.573669,8.5780591 27.560069,5.9710981 24.452519,3.2828648 16.127193,7.5786121 16.352047,11.102515 M 27.092139,10.721441 C -2.278097,11.232048 5.220721,31.702055 21.70405,19.310892" />
+           d="m 17.386477,12.192463 c -1.722979,8.324334 12.338139,14.453544 16.66275,9.699508 1.618284,-1.778978 -2.389369,-4.93296 -4.201941,-5.864828 m -7.853033,3.367392 c 4.089715,-0.746707 9.789488,-4.835434 8.352533,-8.552043 C 28.865027,7.0100154 19.49747,6.8944312 18.041633,10.111415 m 9.661834,4.705718 C 1.5314039,1.4794213 -1.4576413,23.073893 18.913576,19.871598" />
       </g>
     </g>
     <g

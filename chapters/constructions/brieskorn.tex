@@ -1,18 +1,17 @@
-\pagebreak
 \newcommand{\V}{\mathcal{V}}
 \renewcommand{\L}{\mathcal{L}}
 
 \section{Brieskorn Manifolds}\label{sec:brieskorn}
 
-There is an wonderful geometric link between exotic spheres and higher-dimensional knots. While less direct that the plumbing construction, all homotopy spheres in $\bP^{4k}$ can be constructed via knots as well. Most of the content here can be found in yet another classic exposition of Milnor, \cite{milnor1968hypersurfaces}. For a knot theoretic perspective, see Chapter 19 of \cite{kauffman1987knots}. A more general exposition on high-dimensional knot theory is \cite{ranicki1998knot}.
+There is an wonderful geometric link between exotic spheres and higher-dimensional knots. While less direct that the plumbing construction, all homotopy spheres in $\bP^{4k}$ and $\bP^{4k+2}$ can be constructed via knots in this way. The standard source on the construction is yet another classic of Milnor, \cite{milnor1968hypersurfaces}. For a more geometric, knot theoretic exposition, see Chapter 19 of \cite{kauffman1987knots}, and for general high-dimensional knot theory see \cite{ranicki1998knot}.
 
 \begin{definition}
-  An \defn{$n$-dimensional knot} is a connected codimension $2$ submanifold of $S^{n+2}$.
+  An \defn{$n$-dimensional link} is a codimension $2$ submanifold of $S^{n+2}$.
 \end{definition}
 
-\begin{remark}
-	Classical knots are $1$-dimensional, and are the images of spheres. Note that any circle embedded in $\R^3$ can be embedded in $S^3$ by one-point compactification.
-\end{remark}
+\begin{remark*}
+	Classical knots are connected $1$-dimensional links, i.e. embeddings $S^1\subset S^3$. 
+\end{remark*}
 
 \begin{figure}[ht]
 	\centering
@@ -20,7 +19,7 @@ There is an wonderful geometric link between exotic spheres and higher-dimension
 	\caption{Examples of classical knots.}
 \end{figure}
 
-A nice way to view knots is as spherical levels sets of an isolated complex singularity. This approach generalizes easily to higher dimensions. Let $F\in \C[z_0,z_1\ldots, z_n]$ be a non-constant polynomial in $(n+1)$-complex variables.
+A particularly algebraic-geometric to view knots is as spherical levels sets of an isolated complex singularity. This approach generalizes easily to higher dimensions. Let us suppose that $F\in \C[z_0,z_1\ldots, z_n]$ is a non-constant polynomial in $(n+1)$-complex variables.
 \begin{definition}
 	The \defn{variety} of $F$ is the complex hypersurface given by the zero locus
 	\[
@@ -29,29 +28,23 @@ A nice way to view knots is as spherical levels sets of an isolated complex sing
 \end{definition}
 
 \begin{definition}
-	A point $w\in \V(F)$ is a (complex) \defn{singularity}[complex singularity] if $\nabla F(w)$ vanishes. A singularity is \defn{isolated}[isolated singularity] if there is a neighborhood surrounding $w$ which contains no other singularities.
+	A point $w\in \V(F)$ is a \defn{singularity}[complex singularity] if $\nabla F(w)$ vanishes. A singularity is \defn{isolated}[isolated singularity] if there is a neighborhood surrounding $w$ which contains no other singularities.
 \end{definition}
-
-\begin{definition}
-	Let $w\in \V(F)$ be an isolated singularity. The \defn{link} of $F$ at $w$ is the set 
-	\[
-		\L(F, w) = \V(F) \cap S^{2n+1}_\varepsilon(w) = \left\{ z\in \C^{n+1}  F(z)=0\textrm{ and } |z-w|<\varepsilon\right\}
-	\]
-	where $\varepsilon > 0$ is some sufficiently small real number so that $\L(F,w)$ is the smooth $(2n-1)$-manifold intersecting the sphere $S^{2n+1}_\varepsilon(w)$ transversally.
-\end{definition}
-
-When the isolated singularity is clear, we write $\L(F)$.
 
 \begin{figure}[ht]
   \import{diagrams}{knot-cone.pdf_tex}
   \caption{A link of an isolated singularity.}\label{fig:cone-over-knot}
 \end{figure}
 
-\begin{remark}
-	In knot theory, a link is a disjoint union of knots. It is not generally the case that $\L(F)$ is connected, so it is referred to as a link.
-\end{remark}
+\begin{definition}
+	Let $w\in \V(F)$ be an isolated singularity. The \defn{link} of $F$ at $w$ is the set 
+	\[
+		\L(F, w) = \V(F) \cap S^{2n+1}_\varepsilon(w) = \left\{ z\in \C^{n+1}  \mid F(z)=0\textrm{ and } |z-w|<\varepsilon\right\}
+	\]
+	where $\varepsilon > 0$ is some sufficiently small real number so that $\L(F,w)$ is the smooth $(2n-1)$-manifold intersecting the sphere $S^{2n+1}_\varepsilon(w)$ transversally. When the isolated singularity is clear, we write $\L(F)$.
+\end{definition}
 
-The simplest examples of complex polynomials with isolated singularities are known as Brieskorn polynomials.
+The simplest examples of isolated singularities come from the Brieskorn polynomials.
 
 \begin{definition}
 	Let $(a_0,a_1,\ldots, a_n)$ be an $(n+1)$-tuple of integers greater than or equal to $2$. The \defn{Brieskorn polynomial} of the tuple $(a_0,a_1,\ldots, a_n)$ is given by
@@ -64,17 +57,17 @@ The simplest examples of complex polynomials with isolated singularities are kno
 	\]
 \end{definition}
 
-\begin{proposition}
+\begin{example}
 	If $p,q\geq 2$ are integers, then $\Sigma(p,q)\subset S^3$ is the torus link of type $(p,q)$. If $\gcd(p,q)=1$ then there is one connected component and so $\Sigma(p,q)$ is a torus knot.
-\end{proposition}
-\begin{figure}[ht]
-	\centering
-  \import{diagrams}{torus-knot.pdf_tex}
-  \caption{Examples of torus knots.}\label{fig:torus-knots}
-\end{figure}
 
-In $3$ dimensions, many classic spaces can be realized as Brieskorn manifolds.
-See Chapter 19 of \cite{kauffman1987knots} for some explicit geometric constructions.
+	\begin{figure}[ht]
+		\centering
+  	\import{diagrams}{torus-knot.pdf_tex}
+  	\caption{Examples of torus knots.}\label{fig:torus-knots}
+	\end{figure}
+\end{example}
+
+Advancing to $3$ dimensions, we note that many familiar spaces can be realized as Brieskorn manifolds. See Chapter 19 of \cite{kauffman1987knots} for the geometric constructions of these diffeomorphisms.
 \begin{proposition}
 	$\Sigma(2,2,2)\cong \RP^3$.
 \end{proposition}
@@ -83,7 +76,11 @@ See Chapter 19 of \cite{kauffman1987knots} for some explicit geometric construct
 	$\Sigma(2,3,5)\cong \mathscr{D}$, where $\mathscr{D}$ is the Poincar\'e dodecahedral space.
 \end{proposition}
 
-Note that neither of the spaces $\Sigma(2,2,2)$ or $\Sigma(2,3,5)$ are homotopy spheres. However, $\Sigma(p,q)$ with $\gcd(p,q)=1$ is diffeomorphic to a circle.
+Note that neither of the spaces $\Sigma(2,2,2)$ or $\Sigma(2,3,5)$ are homotopy spheres. However, $\Sigma(p,q)$ with $\gcd(p,q)=1$ is diffeomorphic to a circle. The Brieskorn manifolds will thus be the class of manifolds for our construction of homotopy spheres.
+
+\subsection{The Geometric Topology of Links}
+
+We now make a few remarks on geometric data which comes with a Brieskorn manifold. One of the most important pieces of data is the Milnor fibration associated to an isolated singularity:
 
 \begin{theorem}\label{thm:fibration}
 	If $F$ is a complex polynomial in $(n+1)$-variables with an isolated singularity at the origin, then there is a smooth fiber bundle map
@@ -92,18 +89,26 @@ Note that neither of the spaces $\Sigma(2,2,2)$ or $\Sigma(2,3,5)$ are homotopy 
 	\]
 \end{theorem}
 
-For a given angle $e^{i\theta}\in S^1$, denote the fiber of the bundle $\phi$ as $F_\theta = \phi^{-1}(e^{i\theta})$.
+This theorem is laid out in depth in Chapter 4 of \cite{milnor1968hypersurfaces}. For a given angle $e^{i\theta}\in S^1$, we denote the fiber of the bundle $\phi$ by $F_\theta = \phi^{-1}(e^{i\theta})$. The main application for us is that the boundary of each fiber $F_\theta$ is $\mathcal{L}(F)$. Furthermore:
 
 \begin{proposition}
-	Each fiber $F_\theta$ is a smooth parallelizable $2n$-manifold.
-	Note that the boundary of each fiber $F_\theta$ is $\mathcal{L}(F)$. 
+	Each fiber $F_\theta$ is a smooth, highly-connected, parallelizable $2n$-manifold.
 \end{proposition}
+\begin{proof}
+	See Sections 5 and 6 of \cite{milnor1968hypersurfaces}.
+\end{proof}
 
-\begin{definition}
-	A knot/link $\mathcal{L}$ which arises from a fibration $S^\ell \setminus \mathcal{L} \to S^1$ with each fiber bounding $\mathcal{L}$ is known as a \defn{fibered knot/link}.
-\end{definition}
+These are the bounding manifolds for $\mathcal{L}(F)$ which allow us to compute invariants for homotopy spheres. At this point, a visual example is in order.
+%
+% \begin{example}
+% 	The simplest possible knot 
+% \end{example}
 
-For more information on fibered knots, see \cite{kauffmanneumann1977}.
+\begin{remark*}
+	A link $\mathcal{L}$ which arises from a fibration $S^\ell \setminus \mathcal{L} \to S^1$ with each fiber bounding $\mathcal{L}$ is known as a \defn{fibered link}.
+	For some general information on fibered links, see \cite{kauffmanneumann1977}.
+\end{remark*}
+
 
 
 \begin{proposition}
@@ -113,7 +118,7 @@ For more information on fibered knots, see \cite{kauffmanneumann1977}.
 \begin{figure}[ht]
 	\centering
 	\import{diagrams}{branched-cover.pdf_tex}
-	\caption{A $3$-fold cover of a plane, branched along a line.}
+	\caption{A slice of a $2$-dimensional $3$-fold cover branched along a $1$-submanifold.}
 \end{figure}
 
 Let's fix a polynomial $F$ in $(n+1)$ complex variables

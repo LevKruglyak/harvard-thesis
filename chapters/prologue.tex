@@ -15,7 +15,7 @@ The simplest, oldest, and arguably most intuitive conceptualization of space is 
 % Much of classical geometry occurred in this context, either in $2$ or $3$ dimensions.
 % Less often, mathematicians worked in higher dimensional versions of Euclidean geometry. In this context, shapes were less intuitive and tricker to draw on paper, but the basic rules of geometry rules still applied.
 Throughout the 19th century, mathematicians such as Gauss, Riemann, and Lobachevsky began to uncover models of geometry in which many of the assumptions of Euclidean geometry no longer held.
-For example, using the curved surface of a ball instead of a flat plane for geometry gives fundamentally different results. For starters, parallel lines on a plane never intersect, whereas parallel ``lines'' on the surface of a ball always intersect (think longitudinal lines on a globe).
+For example, using the curved surface of a ball for geometry instead of a flat plane gives fundamentally new results. For starters, parallel lines on a plane never intersect, whereas parallel ``lines'' on the surface of a ball always intersect (think longitudinal lines on a globe).
 More quantitatively, the sum of angles in a triangle on a ball add up to less than $180^\circ$, yet the sum of angles in a triangle on a plane add up to exactly $180^\circ$. The failure of a triangle's angles to add up to $180^\circ$ or for parallel lines to intersection is an example of \defn{curvature}, or deviation from the flat geometry of Euclidean space.
 
 One of the novel ideas behind non-Euclidean models was that the curved space was \emph{all there was} -- the $2$-dimensional surface of the ball could exist as a geometrical space \emph{independently} of its embedding in $3$-dimensional space.
@@ -31,7 +31,7 @@ By dispensing with the Euclidean axiom of flatness, mathematicians had opened up
 
 Near the end of the 19th century, a sparse set of theorems and loose definitions began to consolidate into a field known as topology. The central idea was simple. Similarly to how non-Euclidean geometry removed the axiom of flatness, topology removed most of the axioms, leaving only the \emph{shape} of space detached from any quantitative information.
 A topological space hence lacks any notions of distance, angle, perpendicularity, area or volume -- the only notion left is that of continuity.
-In ordinary geometry, two shapes are said to be congruent, or geometrically equivalent, if we can transform between them in a way that does not alter distances, angles, and consequently areas.
+In ordinary geometry, two shapes are said to be congruent, or geometrically equivalent, if we can transform between them in a way that does not alter distances, angles, and consequently, areas.
 For a topological equivalence, the only requirement is that it connects all points in a continuous way, i.e, nearby points in the original shape should remain nearby after the transformation. Ripping or crunching the shape is not allowed, but any squishy deformation is fine. Such a transformation is known as a \defn{homeomorphism}, coming from Greek roots for ``similar shape''.
 \begin{figure}[ht]
 	\centering
@@ -49,19 +49,16 @@ Instead of only requiring two equivalent manifolds to just have the same shape, 
 
 With general topology alone, the ``dressing room'' of a manifold is dizzyingly vast.
 A circle might be represented by homeomorphism with a square, a squiggly blob, a spiky star, a horrifically jagged fractal snowflake, or any other closed loop drawn without a lift of the pencil. Any of these outfits ``fit'' the abstract topological circle.
-Adding a smooth structure onto a manifold shrinks its wardrobe of possible representations to a tiny travel suitcase, eliminating any outfits which are not ``smooth''.
+Adding a smooth structure onto a manifold shrinks its wardrobe of possible representations to a tiny travel suitcase, eliminating any outfits which are not ``smooth''. The abstract shape remains the same, and the addition of a smooth structure simply narrows down the set of its representations.
 
 \section*{So what is an Exotic Sphere?}
 
 As with any structure in mathematics, the first question we ask about a smooth structure is whether it is unique, at least up to diffeomorphism. Any answer to a uniqueness question assuages the mathematicians soul. If a structure is unique, we can sleep soundly knowing that we are working in the most general, unbiased context. If the structure is not unique, we can take on the task of classifying all possible structures.
 
-For spheres, a reasonable first guess would be that smooth structure is unique. If two smooth manifolds are shaped like (i.e. are homeomorphic to) a sphere, surely we can find a \emph{smooth} transformation between them by removing any pinching or sharp points. Spheres are arguably the simplest possible shapes, so it would be strange for anything too surprising to happen. Our intuition turns out to be correct in low-dimensional cases -- every 1, 2, and 3-dimensional sphere has a unique smooth structure. 
-% how topologically twisted can a manifold get for it not to have a smooth structure at all? Remember, ordinary manifolds still locally look like ordinary Euclidean space. Surely any jaggedness can be smoothed out? If you're drawing a closed loop on a sheet of paper and it comes out jagged, you can always redraw it and hold your pen tighter, the resulting shape would still be the same. Similarly, if you're building a clay model and the surface is rough, you can always gently brush over it with water to get a nice smooth surface. 
-%
-% You certainly wouldn't expect smoothing it one way to result in a fundamentally different smooth structure than if you smoothed it a different way.
+For spheres, a reasonable first guess would be that smooth structure is unique. If two smooth manifolds are shaped like (i.e. are homeomorphic to) a sphere, surely we can find a \emph{smooth} transformation between them by removing any pinching or sharp points? Spheres are arguably the simplest possible shapes, so it would be strange to expect anything too surprising to happen. Our intuition turns out to be correct in low-dimensional cases -- every 1, 2, and 3-dimensional sphere has a unique smooth structure. 
 
 However, when we move up to four dimensions the question of whether the sphere has a unique smooth structure becomes extremely difficult. As of the writing of this thesis in March 2025, the issue has remained wide open for almost 100 years, and is the last remaining case of a problem known as the generalized Poincar\'e conjecture. Beyond $4$ dimensions, the problem is simplified by a collection of topological cutlery known as surgery theory.
-Using these techniques, we can show that in dimensions 5 and 6 there is once again a unique smooth structure. However, on the seven-dimensional sphere there are exactly \emph{twenty-eight} distinct smooth structures -- no more and no less. 
+Using these techniques, we can show that in dimensions 5 and 6 there is once again a unique smooth structure on the sphere. However, on the seven-dimensional sphere there are exactly \emph{twenty-eight} distinct smooth structures -- no more and no less. 
 
 \begin{figure}[ht]
 	\renewcommand{\arraystretch}{1.2}
@@ -93,24 +90,8 @@ But here, we have all the signs of complexity -- precise patterns, unexpected nu
 
 I first learned about the existence of exotic spheres during my freshman year, in the Harvard math lounge. At the time, exotic spheres sounded like one of the many horror stories told by graduate students to naive students of introductory topology: a word of warning to the hidden complexities of even the simplest of mathematical objects. 
 Even still, just knowing that there are exotic spheres does little to provide any intuition as to why they are there, or what it all means. 
-As I've grown familiar with the exotic spheres over the past year of research, their fabled aura of exoticity has began to fade, replaced with a growing sense of cosmic wonder at their place in a far-reaching web of strange geometric coincidences.
-Most importantly, I had learned that exotic spheres were not just some definitional quirk meant to scare undergraduates learning topology, 
+As I have grown familiar with the exotic spheres over the past year of research, their fabled aura of exoticity has began to fade -- replaced with a growing sense of cosmic wonder at their place in a far-reaching web of strange geometric coincidences.
+Most importantly, I learned that exotic spheres were not just some definitional quirk meant to scare undergraduates learning topology, 
 but fundamental objects of high-dimensional geometry which spring up across mathematics as naturally as mushrooms after rain. 
 
-In this thesis, I hope to share some of the wonder, intuition, and mathematical perspectives I have acquired over the last year, providing an intuitive and visual, yet comprehensive introduction to the construction and detection of exotic spheres.
-
-% I had much more to say -- I talked at length about how we can detect exotic spheres, how we can construct them as generalizations of knots in higher dimensions, how they relate to the geometry of lattices, why a physicist looking to investigate the consistency of their theory might care about exotic spheres, etc. 
-
-%
-
-
-
-% As with most interesting problems in mathematics, the classification of smooth structures on spheres sits on the precipice between monotone order and complete chaos. At this boundary, 
-% \todo{mention how exotic spheres can be thought of as knots, talk about torsion phenomena}
-
-
-% During my last summer before graduating college, some friends and I set out on a mountaineering trip up Banner Peak, a picturesque mountain in the eastern Sierra Nevada range of California. On our way down, the conversation turned towards the upcoming year, where I mentioned I would be writing a thesis on exotic spheres.
-% As I began to elaborate, I struggled to find the words to explain what exotic spheres were, what about them made them so ``exotic'', and why anyone should care.
-% It was apparent that, aside from folklore I had heard from graduate students, I had no intuition about exotic spheres at all and I hastily changed the subject.
-%
-% Half a year passed before our next trip to the mountains. By then, 
+In this thesis, I hope to share some of the wonder, intuition, and mathematical perspectives I have acquired over the last year, providing an intuitive, visual, yet comprehensive introduction to the construction and detection of exotic spheres.

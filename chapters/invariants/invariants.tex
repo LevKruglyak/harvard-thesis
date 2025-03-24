@@ -83,7 +83,7 @@ By the inclusion isomorphisms in \cref{eq:relative-characteristic-classes-exact-
 	\end{tikzcd}
 \]
 In the case that $h^{\ell-1}(M)$ and $h^\ell(M)$ are trivial, every map in this diagram is an isomorphism. Otherwise, we can only assume that the top map $\rho$ is an isomorphism.
-Of particular interest to us is the diagonal map $h = j\circ \rho^{-1}$, which ``glues'' together relative forms on $B_1$ and $B_2$ to a form on $C$. 
+Of particular interest to us is the diagonal map $h = j\circ \rho^{-1}$, which ``glues'' together relative forms on $B_1$ and $B_2$ to a form on $C$.
 
 \begin{proposition}\label{prop:invariant-variation-naturality}
 	This gluing map satisfies the following conditions:
@@ -118,9 +118,9 @@ Based on the cohomology of $M$, we have
 \[
 	\renewcommand{\arraystretch}{1.2}
 	\begin{array}{r@{\;}l@{\;}l@{\;}}
-		\H^3(M; \Q)&=0,  & \quad \H^4(M; \Q)=0 \\
-		\H^7(M; \Q)&=\Q, & \quad \H^8(M; \Q)=0 \\
-		\H^3(M; \Q)&=0,  & \quad \H^4(M; \Q)=0
+		\H^3(M; \Q) & =0,  & \quad \H^4(M; \Q)=0 \\
+		\H^7(M; \Q) & =\Q, & \quad \H^8(M; \Q)=0 \\
+		\H^3(M; \Q) & =0,  & \quad \H^4(M; \Q)=0
 	\end{array}
 	\quad\implies\quad
 	\begin{aligned}
@@ -143,13 +143,13 @@ Now, for a \emph{closed} $8$-dimensional manifold $X$, rearranging Hirzebruch's 
 \end{equation}
 This suggests that there \emph{is} some analogue of the second Pontryagin number for $W$, even though the usual pullback strategy fails. For manifolds with boundary, we might consider the number
 \[
-\widetilde{p}_2[W, M] = \frac{45\sigma(W) + p_1^2[W, M]}{7} \quad\in\Q.
+	\widetilde{p}_2[W, M] = \frac{45\sigma(W) + p_1^2[W, M]}{7} \quad\in\Q.
 \]
 We use the notation $\widetilde{p}_2$ to emphasize that this is \emph{not} the relative Pontryagin number arising from a pullback of $p_2(W)$, but rather a formal expression which reduces to the Pontryagin number $p_2[W]$ when $W$ is closed by the Hirzebruch signature theorem.
 How does the quantity change under a change in coboundary, say if $W_1$ and $W_2$ were coboundaries? Letting $C$ be the $8$-manifold obtained by gluing them together, we see that
 \[
 	\begin{aligned}
-	\widetilde{p}_2[W_1,M] - \widetilde{p}_2[W_2,M]
+		\widetilde{p}_2[W_1,M] - \widetilde{p}_2[W_2,M]
 		 & = \frac{45\sigma(W_1,M) + p_1^2[W_1,M]}{7} - \frac{45\sigma(W_2, M) + p_1^2[W_2,M]}{7} \\
 		 & =\frac{45\sigma(C) + p_1^2[C]}{7} = p_2[C].
 	\end{aligned}
@@ -158,7 +158,7 @@ But this last term is just an ordinary Pontryagin number, and hence an integer. 
 Taking the fractional part of $\widetilde{p}_2$ thus gives us an invariant of $M$ which is \emph{independent of the coboundary}!
 
 \begin{remark*}
-Given a homotopy sphere $M$, the quantity $\widetilde{p}_2[W,M]$ is a well-defined element of $\Q/\Z$ for any oriented coboundary $W$. It is common to multiply both sides by $7$ so that $7\cdot \widetilde{p_2}[W,M]$ is a well-defined element of $\Z/7$, although this is purely a convention and has no mathematical difference.
+	Given a homotopy sphere $M$, the quantity $\widetilde{p}_2[W,M]$ is a well-defined element of $\Q/\Z$ for any oriented coboundary $W$. It is common to multiply both sides by $7$ so that $7\cdot \widetilde{p_2}[W,M]$ is a well-defined element of $\Z/7$, although this is purely a convention and has no mathematical difference.
 \end{remark*}
 
 \begin{definition}\label{def:milnor-invariant-7}
@@ -189,11 +189,11 @@ If we let $X$ be a closed $4k$-manifold and use the Hirzebruch signature theorem
 Here $C_L(k)=L_k(0,\ldots, 0, 1)$ is the coefficient of $x_k$ in the $L$-genus $L(x_1,\ldots, x_k)$.
 As before, we use the rearrangement \cref{eq:4k-1-manifold_rearrangement} to get a rational number
 \[
-\widetilde{p}_k[W, M] = \frac{\sigma(W) - L_k(p_1,\ldots, p_{k-1}, 0)[W,M]}{C_L(k)}
+	\widetilde{p}_k[W, M] = \frac{\sigma(W) - L_k(p_1,\ldots, p_{k-1}, 0)[W,M]}{C_L(k)}
 \]
 which acts as a rational generalization of the $k$-th Pontryagin class. By \cref{prop:relative-characteristic-number-variation} and \cref{prop:signature-variation}, given any coboundaries $W_1$ and $W_2$ we get
 \[
-\widetilde{p}_k[W_1, M] - \widetilde{p}_k[W_2, M] = p_k[C],
+	\widetilde{p}_k[W_1, M] - \widetilde{p}_k[W_2, M] = p_k[C],
 \]
 where $C$ is the gluing of $B_1$ and $B_2$. Since the $k$-th Pontryagin number of a closed manifold is an integer, we take the fractional part of $\widetilde{p}_k[W,M]$ and multiply by the common denominator to arrive at a generalization of the Milnor invariant:
 
@@ -284,7 +284,7 @@ Just like the first Stiefel-Whitney class $w_1$ obstructs an orientation on a ve
 % 	% \]
 % \end{remark*}
 
-As the Hirzebruch signature theorem does for oriented manifolds, we hope to get an integrality theorem for some invariant which is defined for manifolds with spin structure. 
+As the Hirzebruch signature theorem does for oriented manifolds, we hope to get an integrality theorem for some invariant which is defined for manifolds with spin structure.
 
 \begin{definition}
 	The \defn{$\Ahat$-genus} of a closed oriented manifold $M$ is the characteristic number $\Ahat[M]$ where $\Ahat$ is the characteristic class coming from the characteristic series
@@ -296,26 +296,26 @@ As the Hirzebruch signature theorem does for oriented manifolds, we hope to get 
 
 \begin{example}
 	The first few polynomials in the $\Ahat$ genus are given by:
-\[
-	\begin{aligned}
-		\Ahat_1 &= \frac{1}{24}(-p_1),\\
-		\Ahat_2 &= \frac{1}{5760}(-4p_2 + 7p_1^2),\\
-		\Ahat_3 &= \frac{1}{967680}(-16p_3+44p_2p_1-31p_1^3),\\
-		\Ahat_4 &= \frac{1}{464486400}(-192p_4+512p_3p_1+208p_2^2-904p_2p_1^2+381p_1^4)
-	\end{aligned}
-\]
+	\[
+		\begin{aligned}
+			\Ahat_1 & = \frac{1}{24}(-p_1),                                                  \\
+			\Ahat_2 & = \frac{1}{5760}(-4p_2 + 7p_1^2),                                      \\
+			\Ahat_3 & = \frac{1}{967680}(-16p_3+44p_2p_1-31p_1^3),                           \\
+			\Ahat_4 & = \frac{1}{464486400}(-192p_4+512p_3p_1+208p_2^2-904p_2p_1^2+381p_1^4)
+		\end{aligned}
+	\]
 \end{example}
 
 \begin{remark*}
-	There are many elegant ways to derive the series $Q_{\Ahat}(t)$ out of simpler ones. For instance, the Todd genus is integral for complex manifolds and has the characteristic series 
-\[
-	Q_{\mathrm{Td}}(t) = \frac{t}{1-e^{-t}}.
-\]
-Letting $Q_{\cl_1}(t)=t$ be the characteristic series of the first Chern class, we can rewrite
-\[
-	Q_{\mathrm{Td}}(t) = e^{t/2} \frac{t/2}{\sinh(t/2)} = e^{Q_{\cl_1}(t)/2}Q_{\Ahat}(t).
-\]
-In other words, when $\cl_1\equiv w_1\equiv 0\mod 2$, the $\Ahat$-genus is integral for complex manifolds. This is exactly the condition for a complex manifold to admit spin structure.
+	There are many elegant ways to derive the series $Q_{\Ahat}(t)$ out of simpler ones. For instance, the Todd genus is integral for complex manifolds and has the characteristic series
+	\[
+		Q_{\mathrm{Td}}(t) = \frac{t}{1-e^{-t}}.
+	\]
+	Letting $Q_{\cl_1}(t)=t$ be the characteristic series of the first Chern class, we can rewrite
+	\[
+		Q_{\mathrm{Td}}(t) = e^{t/2} \frac{t/2}{\sinh(t/2)} = e^{Q_{\cl_1}(t)/2}Q_{\Ahat}(t).
+	\]
+	In other words, when $\cl_1\equiv w_1\equiv 0\mod 2$, the $\Ahat$-genus is integral for complex manifolds. This is exactly the condition for a complex manifold to admit spin structure.
 \end{remark*}
 
 \begin{proposition}\label{prop:leading_coefficient_Ahat_genus}
@@ -350,7 +350,7 @@ As an immediate corollary, we have:
 \end{proof}
 
 \begin{remark*}\label{rmk:E8-manifold}
-	Rochlin's theorem and the $E_8$ matrix imply that there exists a closed orientable topological $4$-manifold with no smooth structure. The basic idea is to construct a closed manifold with intersection form $E_8$ (this is non-trivial, since the plumbing construction of \cref{sec:plumbing} leaves a non-empty boundary). 
+	Rochlin's theorem and the $E_8$ matrix imply that there exists a closed orientable topological $4$-manifold with no smooth structure. The basic idea is to construct a closed manifold with intersection form $E_8$ (this is non-trivial, since the plumbing construction of \cref{sec:plumbing} leaves a non-empty boundary).
 	Such a manifold then can not admit a smooth structure since its signature should be divisible by 16. This is one of many consequences of Freedman's classification of topological $4$-manifolds in \cite{freedman1982manifold}.
 \end{remark*}
 
@@ -358,13 +358,13 @@ After the very brief introduction to the $\Ahat$ genus and its integrality theor
 \[
 	\sigma(W) = \frac{1}{45}(7p_2- p_1^2)[W]\quad\textrm{and}\quad\Ahat_2[W] = \frac{1}{5760}(-4p_2 + 7p_1^2)[W].
 \]
-If we remove the assumption that $W$ is closed, as per the discussion in \cref{sec:milnor-method}, the second Pontryagin number $p_2[M]$ loses topological invariance. We therefore would like to remove the dependence of $\Ahat_2$ on $p_2$. 
+If we remove the assumption that $W$ is closed, as per the discussion in \cref{sec:milnor-method}, the second Pontryagin number $p_2[M]$ loses topological invariance. We therefore would like to remove the dependence of $\Ahat_2$ on $p_2$.
 \[
-\begin{aligned}
-	p_2[W] = \frac{45\sigma(W) +p_1^2[W]}{7}\quad\implies\quad 
-	\Ahat_2[W] &= \frac{1}{5760}\left(-4\cdot \frac{45\sigma(W) + p_1^2[W]}{7} + 7p_1^2[W]\right)\\
-						 &=\frac{1}{896}(p_1^2[W]-4\sigma(W)).
-\end{aligned}
+	\begin{aligned}
+		p_2[W] = \frac{45\sigma(W) +p_1^2[W]}{7}\quad\implies\quad
+		\Ahat_2[W] & = \frac{1}{5760}\left(-4\cdot \frac{45\sigma(W) + p_1^2[W]}{7} + 7p_1^2[W]\right) \\
+		           & =\frac{1}{896}(p_1^2[W]-4\sigma(W)).
+	\end{aligned}
 \]
 This is an integer for closed manifolds $W$ with spin structure, so taking the fractional part, we get a homotopy sphere invariant when $W$ has boundary.
 
@@ -379,18 +379,18 @@ This is an integer for closed manifolds $W$ with spin structure, so taking the f
 More generally, suppose we had a closed $(4k-1)$-manifold with $\H^{2k}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial for $i<k$. If $W$ is a spin coboundary, we can express its $\Ahat$-genus as:
 \[
 	\begin{aligned}
-	\Ahat[W]&=\Ahat_k(p_1,\ldots, p_k)[W]\\
-					&= \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{C_L(k)}\right)[W]
+		\Ahat[W] & =\Ahat_k(p_1,\ldots, p_k)[W]                                                                       \\
+		         & = \Ahat_k\left(p_1, \ldots, p_{k-1}, \frac{\sigma(W)-L_k(p_1,\ldots, p_{k-1},0)}{C_L(k)}\right)[W]
 	\end{aligned}
 \]
 By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ when $k\equiv 1\mod 2$. For brevity, we can denote this factor by:
 \[
-	\varepsilon(k) = 
+	\varepsilon(k) =
 	\begin{cases}
-		1 & k\equiv 0 \mod 2,\\
-		2 & k\equiv 1 \mod 2.\\
+		1 & k\equiv 0 \mod 2, \\
+		2 & k\equiv 1 \mod 2. \\
 	\end{cases}
-\] 
+\]
 
 \begin{definition}
 	Let $M$ be a closed oriented $(4k-1)$-manifold with $\H^{2k}(M;\Q)$ and $\H^{4i}(M;\Q)$ trivial for all $i<k$, and let $W$ be a spin coboundary. The \defn{Eells-Kupier invariant} of $M$ is
@@ -407,10 +407,10 @@ By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ 
 		\begin{array}{r@{\;}ll}
 			\ekinv(M^7)
 			 & = 4\sigma(W) - p_1^2[W, M]
-			 & \mod 896,                                                        \\
+			 & \mod 896,                                                       \\
 			\ekinv(M^{11})
 			 & = 24\sigma + (3p_1^3-4p_1p_2)[W,M]
-			 & \mod 190464,                                                       \\
+			 & \mod 190464,                                                    \\
 			\ekinv(M^{15})
 			 & = 2880\sigma(W) - (153p_1^4-360p_1^2p_2+80p_2^2+192p_1p_3)[W,M]
 			 & \mod 187269120.
@@ -423,11 +423,11 @@ By \cref{thm:Ahat-integrality}, we get an extra divisibility by a factor of $2$ 
 The final example of an exotic sphere invariant constructed out of an integrality theorem in this thesis is based on the twisted $\Ahat$-genus. We refer to this as the ``twisted'' Eells-Kupier invariant, although to the best of my knowledge it does not appear anywhere in the existing literature.
 
 The origin of the term ``twisted'' in this context is with the introduction of a complex vector bundle to the ordinary $\Ahat$-genus.
-Namely, for an even-dimensional spin manifold with complex vector bundle $E$, we define the \defn{twisted $\Ahat$-genus} to be 
-\[\Ahat(M, E) = \textrm{ch}(E)\smile \Ahat(M)\] 
-where $\textrm{ch}$ is the \defn{Chern character} given by 
+Namely, for an even-dimensional spin manifold with complex vector bundle $E$, we define the \defn{twisted $\Ahat$-genus} to be
+\[\Ahat(M, E) = \textrm{ch}(E)\smile \Ahat(M)\]
+where $\textrm{ch}$ is the \defn{Chern character} given by
 \[
-		\textrm{ch}(E) = \exp(\gamma_1(E))+\cdots +\exp(\gamma_n(E))
+	\textrm{ch}(E) = \exp(\gamma_1(E))+\cdots +\exp(\gamma_n(E))
 \]
 for $\gamma_i$ the Chern roots.
 
@@ -459,7 +459,7 @@ Of course, this invariant proves nothing new about exotic spheres, since simpler
 
 \subsection{Lower Bounds on \texorpdfstring{$|\bP^{4k}|$}{|bP^4k|}}\label{sec:lower-bounds}
 
-In this section, we use obtain lower bounds on the order of $\bP^{4k}$. These results are interesting in that they do not rely on difficult homotopy theory arguments, but rather arise naturally from classical index theorems like the Hirzebruch signature theorem. In general, it turns out that the signature of a coboundary of a sphere in $\bP^{4k}$ is enough to determine it completely, although computing the order takes some work. The invariants constructed in the previous section are also interesting since they work for a larger class of smooth manifolds than just homotopy spheres, let alone homotopy spheres in $\bP^{4k}$. 
+In this section, we use obtain lower bounds on the order of $\bP^{4k}$. These results are interesting in that they do not rely on difficult homotopy theory arguments, but rather arise naturally from classical index theorems like the Hirzebruch signature theorem. In general, it turns out that the signature of a coboundary of a sphere in $\bP^{4k}$ is enough to determine it completely, although computing the order takes some work. The invariants constructed in the previous section are also interesting since they work for a larger class of smooth manifolds than just homotopy spheres, let alone homotopy spheres in $\bP^{4k}$.
 
 The benchmark for our lower bounds is the following exact formula:
 \begin{theorem}[Milnor-Kervaire]\label{thm:kervaire-milnor}
@@ -479,7 +479,7 @@ The benchmark for our lower bounds is the following exact formula:
 
 Now we apply our invariants to find lower bounds on $|\bP^{4k}|$. If $M\in \bP^{4k}$ is a homotopy sphere with framed coboundary $W$, all of the invariants constructed above simplify to the form
 \[
-		\lambda(M) = A\cdot \sigma(W) \mod B
+	\lambda(M) = A\cdot \sigma(W) \mod B
 \]
 since all of the Pontryagin classes of a framed manifold vanish (recall that Pontryagin classes are stable). Here, we assume that $A$ and $B$ have no common factors. Since signature is additive under connected sum, this gives us a group homomorphism
 \[
@@ -538,39 +538,54 @@ The twisted Eells-Kupier invariant is defined only in the case $k=6$, and gives 
 	\]
 \end{proposition}
 
-\begin{figure}[hbt!]
+We can now compare these invariants compare in effectiveness. Plotting the lower bounds derived from each invariant for the few values of $k$, we get:
+
+\begin{figure}[H]
 	\centering
-\begin{tikzpicture}
-\begin{axis}[
-		width=0.8\textwidth,
-		height=2.7in,
-    xlabel={$4k-1$},
-    xtick=data,
-    ymode=log,
-    legend pos=north west]
+	\begin{tabular}{c|c|c|c|c|c|c|c}
+		$4k-1$                          & 7  & 11  & 15   & 19     & 23         & 27       & 31            \\
+		\hline
+		$|\bP^{4k}|$                    & 28 & 992 & 8128 & 261632 & 1448424448 & 67100672 & 1941802827776 \\
+		\hline
+		$\textrm{LB}_{\mathrm{mil}}(k)$ & 7  & 31  & 127  & 73     & 1414477    & 8191     & 16931177      \\
+		\hline
+		$\textrm{LB}_{\mathrm{e,k}}(k)$ & 28 & 992 & 8128 & 261632 & 2096128    & 67100672 & 536854528     \\
+		\hline
+		$\textrm{LB}_{\mathrm{m,h}}(k)$ &    &     &      &        & 1448424448 &          &               \\
+	\end{tabular}
+	\vspace{2em}
 
-\addplot[thick, gray] table[x index=0, y index=1] {chapters/invariants/lowdim.dat};
-\addplot[thick, violet, mark=square] table[x index=0, y index=2] {chapters/invariants/lowdim.dat};
-\addplot[thick, blue, mark=square] table[x index=0, y index=3] {chapters/invariants/lowdim.dat};
+	\begin{tikzpicture}
+		\begin{axis}[
+				width=0.9\textwidth,
+				yshift=-1em,
+				height=2.7in,
+				xtick=data,
+				ymode=log,
+				xlabel={$(4k-1)$},
+				legend pos=north west]
 
-\addplot[thick, black, mark=*] coordinates {(23,1448424448)};
+			\addplot[thick, gray] table[x index=0, y index=1] {chapters/invariants/lowdim.dat};
+			\addplot[thick, violet, mark=square] table[x index=0, y index=2] {chapters/invariants/lowdim.dat};
+			\addplot[thick, blue, mark=square] table[x index=0, y index=3] {chapters/invariants/lowdim.dat};
 
-\legend{$|\bP^{4k}|$,$\mathrm{LB}_{\mathrm{mil}}(k)$,$\mathrm{LB}_{\mathrm{e,k}}(k)$, $\mathrm{LB}_{\mathrm{m,h}}(6)$}
+			\addplot[thick, black, mark=*] coordinates {(23,1448424448)};
 
-\end{axis}
-\end{tikzpicture}
-\caption{Lower bounds on $|\bP^{4k}|$ in low dimensions.}\label{fig:lb-low-dim}
+			\legend{$|\bP^{4k}|$,$\mathrm{LB}_{\mathrm{mil}}(k)$,$\mathrm{LB}_{\mathrm{e,k}}(k)$, $\mathrm{LB}_{\mathrm{m,h}}(6)$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Lower bounds on $|\bP^{4k}|$ in low dimensions.}\label{fig:lb-low-dim}
 \end{figure}
 
-We can now compare these invariants compare in effectiveness. Plotting the lower bounds derived from each invariant for the few values of $k$, we get \cref{fig:lb-low-dim}. For $k\leq 5$ and $k=7$, the Eells-Kupier invariant is a perfect invariant for $\bP^{4k}$, but this breaks down at $k=6$ and beyond $k\geq 7$. These failures corresponds to the non-trivial cokernel of the $J$-homomorphism:
+For $k\leq 5$ and $k=7$, the Eells-Kupier invariant is a perfect invariant for $\bP^{4k}$, but this breaks down at $k=6$ and past $k> 7$. These failures corresponds to the non-trivial Bernoulli numerator:
 \[
 	\begin{tabular}{c|c|c|c|c|c|c|c|c}
-		k & $\leq$ 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\
+		$k$                 & $\leq 5$ & 6   & 7 & 8    & 9     & 10     & 11    & 12        \\
 		\hline
-		$\numer(B_{2k}/4k)$ & 1 & 691 & 1 & 3617 & 43867 & 174611 & 77683 & 236364091\\
+		$\numer(B_{2k}/4k)$ & 1        & 691 & 1 & 3617 & 43867 & 174611 & 77683 & 236364091 \\
 	\end{tabular}
 \]
-Consequently, the only dimensions in which the Eells-Kupier invariant is able to detect all homotopy spheres in $\bP^{4k}$ are $7,11,15,19,$ and $27$. However, in the $23$-dimensional case, the twisted Eells-Kupier invariant successfully computes the order of $\bP^{24}$. 
+Consequently, the only dimensions in which the Eells-Kupier invariant is able to detect all homotopy spheres in $\bP^{4k}$ are $7,11,15,19,$ and $27$. However, in the $23$-dimensional case, the twisted Eells-Kupier invariant successfully computes the order of $\bP^{24}$.
 
 While in low dimensions the Eells-Kupier invariant is better than the Milnor invariant at detecting homotopy spheres, in dimensions $\geq 43$ the Milnor lower bound quickly outgrows the Eells-Kupier bound as the Bernoulli numerators become non-trivial (see \cref{fig:high-dim-lower-bound}). The LCM bound is surprisingly good, and is able to correctly compute the size of $\bP^{4k}$ up to dimension 131 (see \cref{fig:lcm-lower-bound}).
 We can summarize these results in a few propositions:
@@ -584,52 +599,53 @@ We can summarize these results in a few propositions:
 \end{proposition}
 
 \begin{proposition}
-	Two homotopy spheres $M_1$ and $M_2$ in $\bP^{4k}$ with $k\leq 131$ are diffeomorphic if and only if they have the same Eells-Kupier and Milnor invariants.
+	Two homotopy spheres $M_1$ and $M_2$ in $\bP^{4k}$ with $k\leq 33$ are diffeomorphic if and only if they have the same Eells-Kupier and Milnor invariants.
 \end{proposition}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-\begin{axis}[
-    xlabel={$4k-1$},
-		width=0.8\textwidth,
-		xmin=-10,
-		height=3in,
-		yticklabel={\ensuremath{10^{\pgfmathprintnumber[fixed,precision=0]{\tick}}}},
-    legend pos=north west
-]
+		\begin{axis}[
+				xlabel={$4k-1$},
+				width=0.9\textwidth,
+				height=1in,
+				xmin=-10,
+				height=3in,
+				yticklabel={\ensuremath{10^{\pgfmathprintnumber[fixed,precision=0]{\tick}}}},
+				legend pos=north west
+			]
 
-\addplot[thick, gray] table[x index=0, y index=1] {chapters/invariants/highdim.dat};
-\addplot[thick, violet] table[x index=0, y index=2] {chapters/invariants/highdim.dat};
-\addplot[thick, blue] table[x index=0, y index=3] {chapters/invariants/highdim.dat};
+			\addplot[thick, gray] table[x index=0, y index=1] {chapters/invariants/highdim.dat};
+			\addplot[thick, violet] table[x index=0, y index=2] {chapters/invariants/highdim.dat};
+			\addplot[thick, blue] table[x index=0, y index=3] {chapters/invariants/highdim.dat};
 
-\legend{$|\bP^{4k}|$,$\mathrm{LB}_{\mathrm{mil}}(k)$,$\mathrm{LB}_{\mathrm{e,k}}(k)$}
+			\legend{$|\bP^{4k}|$,$\mathrm{LB}_{\mathrm{mil}}(k)$,$\mathrm{LB}_{\mathrm{e,k}}(k)$}
 
-\end{axis}
-\end{tikzpicture}
-\caption{Lower bounds on $|\bP^{4k}|$ in higher dimensions.}\label{fig:high-dim-lower-bound}
+		\end{axis}
+	\end{tikzpicture}
+
+	\caption{Lower bounds on $|\bP^{4k}|$ in higher dimensions.}\label{fig:high-dim-lower-bound}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	\centering
+
 	\begin{tikzpicture}
-\begin{axis}[
-    xlabel={$4k-1$},
-		width=0.8\textwidth,
-		xmin=-10,
-		height=3in,
-		ymode=log,
-		% yticklabel={\ensuremath{10^{\pgfmathprintnumber[fixed,precision=0]{\tick}}}},
-    legend pos=north west
-]
+		\begin{axis}[
+				xlabel={$4k-1$},
+				height=1in,
+				width=0.9\textwidth,
+				xmin=-10,
+				height=3in,
+				ymode=log,
+				legend pos=north west
+			]
 
-\addplot[thick, black, mark=square, ycomb, mark size=0.5] table[x index=0, y index=1] {chapters/invariants/ratio.dat};
-
-\legend{$|\bP^{4k}|/\mathrm{LB}_{\mathrm{lcm}}(k)$}
-
-\end{axis}
-\end{tikzpicture}
-\caption{The LCM lower bound.}\label{fig:lcm-lower-bound}
+			\addplot[thick, black, mark=square, ycomb, mark size=0.5] table[x index=0, y index=1] {chapters/invariants/ratio.dat};
+			\legend{$|\bP^{4k}|/\mathrm{LB}_{\mathrm{lcm}}(k)$}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{The effectiveness of the LCM lower bound.}\label{fig:lcm-lower-bound}
 \end{figure}
 
 % This is a very good lower bound, in fact it correctly computes the order of $|\bP^{4k}|$ up to $k

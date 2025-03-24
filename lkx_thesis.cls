@@ -12,11 +12,7 @@
 % Diagrams
 \usepackage{graphicx}
 \usepackage{import}
-\usepackage{placeins}
-\usepackage{adjustbox}
-% \usepackage{svg}
-% \svgsetup{inkscape=force}
-% \svgsetup{inkscape=page}
+\usepackage{float}
 
 % Better font
 \usepackage[T1]{fontenc}

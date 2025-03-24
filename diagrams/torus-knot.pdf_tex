@@ -50,11 +50,11 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.20000002)%
+  \begin{picture}(1,0.18333335)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{torus-knot.pdf}}%
-    \put(0.36502931,0.03717224){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$(2,3)$\end{tabular}}}}%
-    \put(0.53890293,0.03717224){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$(3,8)$\end{tabular}}}}%
+    \put(0.36502931,0.02788274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$(2,3)$\end{tabular}}}}%
+    \put(0.53890293,0.02788274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$(3,8)$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
