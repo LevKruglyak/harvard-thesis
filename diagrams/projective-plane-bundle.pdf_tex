@@ -54,9 +54,9 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{projective-plane-bundle.pdf}}%
-    \put(0.22454702,0.30663151){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\RP^2\setminus \Int(D^2)$\end{tabular}}}}%
+    \put(0.22454702,0.3108274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\RP^2\setminus \Int(D^2)$\end{tabular}}}}%
     \put(0.15025517,0.16051623){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S^1$\end{tabular}}}}%
     \put(0.8605366,0.17182142){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$S^1$\end{tabular}}}}%
-    \put(0.81570179,0.04460956){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$D^1$\end{tabular}}}}%
+    \put(0.78813174,0.05485723){\color[rgb]{0,0,1}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$D^1$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

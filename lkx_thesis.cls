@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage{import}
 \usepackage{placeins}
+\usepackage{adjustbox}
 % \usepackage{svg}
 % \svgsetup{inkscape=force}
 % \svgsetup{inkscape=page}
