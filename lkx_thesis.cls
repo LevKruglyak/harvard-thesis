@@ -241,7 +241,6 @@
 \newtheorem*{convention*}{Convention}
 \newtheorem*{definition*}{Definition}
 \newtheorem*{theorem*}{Theorem}
-\newtheorem*{remark*}{Remark}
 \newtheorem*{proposition*}{Proposition}
 \newtheorem*{claim*}{Claim}
 \newtheorem*{lemma*}{Lemma}
@@ -256,6 +255,7 @@
 
 \theoremstyle{lkx_remark}
 \newtheorem{remark}[equation]{Remark}
+\newtheorem*{remark*}{Remark}
 \newcommand{\remarkautorename}{Remark}
 \crefformat{remark}{\normalfont{#2Remark~#1#3}}
 
