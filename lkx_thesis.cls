@@ -15,7 +15,7 @@
 \RequirePackage{mlmodern}
 
 \usepackage{bold-extra}
-\usepackage{setspace}
+% \usepackage{setspace}
 % \doublespace
 
 % -----------------------------------------------

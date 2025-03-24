@@ -59,9 +59,9 @@ Very Exotic Spheres
 
 Explicit constructions
   * The First Exotic Sphere
-    [ ] Prove homeomorphism using Reeb
-    [ ] Prove homeomorphism using h-cobordism
-    [ ] Compute Milnor invariant
+    [x] Prove homeomorphism using Reeb
+    [x] Prove homeomorphism using h-cobordism
+    [x] Compute Milnor invariant
   * Gromoll-Meyer exotic sphere
     [ ] Just copy paper, state but don't prove sectional curvature
     [ ] General results, pinched sphere, other bounds
@@ -83,3 +83,39 @@ Final style and polish
   [ ] Consistent mathematical formatting
   [ ] Consistent assumptions (compactness, boundary, etc)
   [ ] Index fixes
+
+# Tentative New Outline
+
+Introduction
+  - Just an introduction, gives outline of the paper. no equations
+
+Fundamentals
+  - Introduce the basics of the field
+    - Operations on manifolds
+      - connected sum
+      - surgery
+    - Representing homology cycles, killing homotopy groups
+    - Morse theory / homology
+    - Cobordism, thom-pontryagin
+
+h-cobordism
+  - prove h-cobordism theorem
+  - show how it implies generalized poincare conjecture
+
+constructions
+  - classic Milnor exotic spheres
+  - plumbing disk bundles
+  - 
+
+surgery
+  - complete the classification
+    - surgery invariant
+    - Kervaire Milnor theorem
+    - Kervaire invariant problem
+    - homotopy theory
+
+# NEW TODO
+
+[ ] Attaching a handle
+[ ] Joining manifolds along submanifolds of the boundary
+[ ] Arf Invariant

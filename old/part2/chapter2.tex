@@ -110,3 +110,79 @@ With this scalar multiplication map, $h^*(E)$ is endowed with the structure of a
 \subsection{Thom Classes and the Thom Isomorphism}
 
 \section{Characteristic Classes In Terms of Curvature}
+
+
+
+Let us now review the general theory of the cohomology of fiber bundles -- this is essential in understanding the topology of the total space of a sphere bundle. Remember, we would like to twist the Hopf bundle but not so much as to cause the total space to stop being homemorphic to a sphere.
+
+We will begin our review with the simplest possible case of a fiber bundle -- the trivial bundle. Picking a fiber $F$, we the total space to the product $E=B\times F$. Assuming that the spaces $F, B$ have finitely generated cohomology, we get a short exact sequence\footnote{The ``$+1$'' in the sequence indicates that the homomorphism has degree $1$.}
+\[
+	\begin{tikzcd}
+		0 \arrow[r] & \H^\bullet(B)\otimes \H^\bullet(F) \arrow[r] & \H^\bullet(E) \arrow[r, "+1"] & \Tor_1(\H^\bullet(B), \H^\bullet(F)) \arrow[r] & 0
+	\end{tikzcd}
+\]
+by the K\"unneth formula for cohomology (Theorem 3.15 in \cite{hatcher2002topology}). As in the case of a sphere, we can further assume that $\H^\bullet(F)$ is a free $\Z$-module in each dimension so that the torsion complex $\Tor_1(\H^\bullet(B), \H^\bullet(F))$ vanishes. We thus get an isomorphism of $\Z$-modules:
+\[\H^\bullet(B)\otimes \H^\bullet(F)\cong \H^\bullet(E)\]
+\begin{remark}
+	Note that this is the tensor product of graded rings.
+\end{remark}
+The isomorphism is the cohomology cross product, defined as
+\[
+	\lkxfunc{}{\H^\bullet(B)\otimes \H^\bullet(F)}{\H^\bullet(E)}{\alpha\otimes \beta}{\alpha\times\beta = \pi_B^*(\alpha)\smile \pi_F^*(\beta)}
+\]
+where $\pi_B : E \to B$ and $\pi_F : E \to F$ are the projection maps. With the aforementioned assumption that $\H^\bullet(F)$ is a free $\Z$-module, this isomorphism of $\Z$-modules is actually an isomorphism of graded rings (or graded $\Z$-algebras).\footnote{To see what can go wrong with the multiplicative structure when the cohomology groups $\H^\bullet(F)$ are not free, see Example~3E.6 in \cite{hatcher2002topology}.
+}
+Altogether, this shouldn't be too surprising; if $E$ is built up in the simplest way possible as a product of $B$ and $F$, then $\H^\bullet(E)$ is the simplest thing it could be -- a graded tensor product of $\H^\bullet(B)$ and $\H^\bullet(F)$.
+
+Unlike in the case of the trivial fiber bundle, for a general fiber bundle $p : E \to B$ with fiber $F$ we don't have a canonical map $s : E\to F$ with which to define the cross product homomorphism.
+Not only is there not a canonical choice of such a map, but it might not even exist non-trivially.
+
+\begin{remark}
+For instance, in the complex Hopf bundle $S^1\to S^3 \to S^2$, any map $s : S^3\to S^1$ must be null-homotopic since $\pi_3(S^1)=0$, and would thus induce the zero map on cohomology.
+\end{remark}
+
+The two conditions for a cross product homomorphism in a general fiber bundle are freeness of $\H^\bullet(F)$ and surjectivity of the induced map $\iota_b^* : \H^k(E) \to \H^k(F)$ corresponding to the fiber inclusion map $\iota_b : F \to E$ at ever point $b\in B$. Note that the latter condition does not hold for the complex Hopf bundle. 
+
+\begin{theorem}[Leray-Hirsch]\label{thm:leray-hirsch} 
+	Let $p : E \to B$ be a fiber bundle with fiber $F$. Suppose that for any $k\in \Z$ and point $b\in B$:
+	\begin{enumerate}[(a)]
+		\item $\H^k(F)$ is a free $\Z$-module of finite rank,
+		\item the restriction $\iota_b^* : \H^k(E) \to \H^k(F)$ is surjective.
+	\end{enumerate}
+	Choose a splitting $s : \H^\bullet(F) \to \H^\bullet(E)$ of the surjection $\iota_b^*$. Then, the linear map
+	\[
+		\lkxfunc{}{\H^\bullet(F)\otimes \H^\bullet(B)}{\H^\bullet(E)}{\alpha\otimes \beta}{s(\alpha)\smile p^*(\beta)}
+	\]
+	is an isomorphism of $\Z$-modules.
+\end{theorem}
+\begin{proof}
+	See Theorem 4D.1 of \cite{hatcher2002topology}.
+\end{proof}
+
+This is an immensely useful result in computing cohomology, since many spaces arise as total spaces of bundles. We will make extensive use of it in our construction of universal characteristic classes in \cref{sec:universal-characteristic-classes}.
+
+\todo{Finish constructing the Euler class}
+
+\begin{theorem}[Relative Leray-Hirsch]\label{thm:relative-leray-hirsch}
+	Suppose $p : (E,E') \to B$ is a relative fiber bundle with fiber $(F,F')$.
+\end{theorem}
+
+\begin{definition}\label{def:euler-class}
+\end{definition}
+
+\begin{theorem}[Gysin Sequence]
+	Whenever we have a bundle $S^{n-1} \to E\to B$ over a simply-connected base $B$, there is an exact sequence known as the \defn{Gysin sequence} 
+	\[
+		\cdots \lkxto \H^{k-n}(B)\lkxto[e\smile] \H^k(B)\lkxto[p^*] \H^k(M)\lkxto H^{k-n+1}(B)\lkxto \cdots
+	\]
+	where $e\in \H^n(B)$ is the Euler class of the fiber bundle and $p$ is the projection $E \to B$.
+\end{theorem}
+\begin{proof}
+	See Section 4.D of \cite{hatcher2002topology} or Theorem 17.9.2 of \cite{dieck2008algebraic}.
+\end{proof}
+
+
+Under this correspondence the Euler number of a vector bundle can be considered as a group homomorphism
+\[
+	\lkxfunc{e}{\pi_{m-1}(\SO_m)}{\Z}{\tau}{e(\xi_\tau)}
+\]
